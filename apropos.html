@@ -1,322 +1,727 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>À propos | Jardin Botanique des Cayes</title>
+  <!-- SEO -->
+  <title>À propos | Jardin Botanique des Cayes</title>
+  <meta name="description" content="À propos du Jardin Botanique des Cayes : mission, vision, historique, gouvernance et conseil d’administration. Une institution dédiée à la biodiversité, à la science et à l’éducation en Haïti." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="apropos.html" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="À propos | Jardin Botanique des Cayes" />
+  <meta property="og:description" content="Découvrez l’histoire, la mission et la gouvernance du Jardin Botanique des Cayes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1600" />
 
-<style>
-:root{
---primary:#1a4332;
---secondary:#2d5a27;
---accent:#c5a059;
---light:#f4f7f4;
---text:#2c3e50;
---white:#ffffff;
---shadow:0 4px 20px rgba(0,0,0,0.08);
-}
+  <!-- Fonts / Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:"Lato",sans-serif;
-background:var(--light);
-color:var(--text);
-line-height:1.7;
-}
+  <style>
+    :root{
+      --primary:#1a4332;
+      --secondary:#2d5a27;
+      --accent:#c5a059;
+      --light:#f4f7f4;
+      --text:#2c3e50;
+      --white:#ffffff;
+      --shadow:0 4px 20px rgba(0,0,0,0.08);
+      --max:1200px;
+    }
 
-a{text-decoration:none;color:inherit}
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:"Lato", Arial, sans-serif;
+      color:var(--text);
+      background:#fff; /* le modèle est très blanc */
+      line-height:1.75;
+    }
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .container{ width:min(var(--max), 92%); margin:0 auto; }
 
-.container{
-width:min(1200px,92%);
-margin:auto;
-}
+    /* ===== NAV ===== */
+    nav{
+      position:sticky; top:0; z-index:1000;
+      height:92px;
+      background:rgba(26,67,50,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      height:100%;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:18px;
+    }
+    .nav-left{display:flex; align-items:center; gap:12px;}
+    .nav-logo{
+      height:72px; width:auto;
+      filter:drop-shadow(0 2px 10px rgba(0,0,0,.25));
+      border-radius:8px;
+      background:rgba(255,255,255,.06);
+      padding:6px;
+    }
+    .nav-menu{
+      display:flex; align-items:center; gap:22px;
+      flex-wrap:wrap; justify-content:flex-end;
+    }
+    .nav-link{
+      border:none; background:transparent; color:#fff;
+      font-weight:900; font-size:.92rem;
+      letter-spacing:.06em; text-transform:uppercase;
+      padding:10px 8px; border-radius:999px;
+      cursor:pointer; transition:.22s ease;
+      white-space:nowrap;
+    }
+    .nav-link:hover{ color:var(--accent); }
+    .nav-link.active{ color:var(--accent); }
 
-/* NAV */
-nav{
-background:var(--primary);
-color:#fff;
-padding:16px 0;
-position:sticky;
-top:0;
-z-index:1000;
-}
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-.nav-logo{
-height:60px;
-}
-.nav-menu{
-display:flex;
-gap:20px;
-font-weight:900;
-}
+    /* Dropdown */
+    .dropdown{ position:relative; display:inline-block; }
+    .dropbtn{
+      background:transparent; border:none; cursor:pointer;
+      display:flex; align-items:center; gap:8px;
+    }
+    .dropdown-content{
+      display:none;
+      position:absolute; top:100%; left:0;
+      min-width:240px;
+      background:#fff;
+      border-radius:0 0 12px 12px;
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+      border-top:3px solid var(--accent);
+      z-index:2000;
+      overflow:hidden;
+    }
+    .dropdown-content a{
+      display:block;
+      padding:12px 14px;
+      color:var(--primary);
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:none;
+      border-bottom:1px solid rgba(0,0,0,.05);
+      transition:.18s ease;
+      font-size:.95rem;
+    }
+    .dropdown-content a:hover{ background:var(--light); color:var(--accent); padding-left:18px; }
+    .dropdown:hover .dropdown-content{ display:block; }
 
-/* HEADER */
-.header{
-background:url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
-color:#fff;
-padding:100px 0 80px;
-text-align:center;
-}
-.header h1{
-font-family:"Playfair Display",serif;
-font-size:2.2rem;
-margin-bottom:12px;
-}
-.header p{
-max-width:800px;
-margin:auto;
-font-weight:600;
-}
+    /* ===== HEADER ===== */
+    .page-header{
+      min-height: 320px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display:flex;
+      align-items:flex-end;
+    }
+    .page-header::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.65));
+    }
+    .page-header .inner{
+      position: relative;
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      padding: 86px 0 48px;
+      color: #fff;
+      text-align: center;
+    }
+    .breadcrumb{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      justify-content:center;
+      margin-bottom: 10px;
+      font-weight: 900;
+      letter-spacing:.06em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      opacity:.92;
+    }
+    .breadcrumb a{ text-decoration: underline; text-underline-offset: 3px; }
+    .page-header h1{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+    }
+    .page-header p{
+      max-width: 980px;
+      margin: 12px auto 0;
+      opacity: .96;
+      line-height: 1.65;
+      font-weight: 700;
+    }
 
-/* SECTION */
-.section{
-padding:60px 0;
-}
-.section h2{
-text-align:center;
-font-family:"Playfair Display",serif;
-color:var(--primary);
-margin-bottom:16px;
-}
-.section-intro{
-text-align:center;
-max-width:800px;
-margin:0 auto 40px;
-}
+    /* ===== SECTION TITLES ===== */
+    .section{
+      padding: 48px 0 10px;
+    }
+    .section-title{
+      text-align:center;
+      margin:0 0 8px;
+      font-family:"Playfair Display", serif;
+      color: var(--primary);
+      letter-spacing: .3px;
+    }
+    .section-subtitle{
+      text-align:center;
+      max-width: 980px;
+      margin: 0 auto 32px;
+      color: rgba(44,62,80,.9);
+      font-weight: 600;
+      line-height: 1.75;
+    }
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:26px;
-}
+    /* ===== PROFILE ROW — EXACT MODEL ===== */
+    .people-wrap{
+      padding: 0 0 60px;
+    }
 
-.card{
-background:#fff;
-border-radius:18px;
-padding:20px;
-box-shadow:var(--shadow);
-text-align:center;
-transition:.2s ease;
-cursor:pointer;
-}
-.card:hover{
-transform:translateY(-4px);
-}
-.card img{
-width:140px;
-height:140px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:14px;
-border:4px solid rgba(197,160,89,.4);
-}
-.card h3{
-margin:6px 0 4px;
-color:var(--primary);
-font-size:1.1rem;
-}
-.card p{
-font-weight:700;
-font-size:.9rem;
-color:var(--secondary);
-}
+    .person{
+      display:grid;
+      grid-template-columns: 520px 1fr; /* photo bien large à gauche */
+      gap: 46px;
+      align-items:start;
+      padding: 40px 0;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+    .person:first-child{ border-top:none; padding-top: 0; }
 
-/* MODAL STYLE FLORAMEDICINA */
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.6);
-z-index:9999;
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-.modal-content{
-background:#fff;
-width:min(1000px,95%);
-border-radius:18px;
-overflow:hidden;
-display:grid;
-grid-template-columns:420px 1fr;
-position:relative;
-}
-@media(max-width:900px){
-.modal-content{grid-template-columns:1fr;}
-}
-.modal img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-.modal-body{
-padding:40px;
-}
-.modal-body h3{
-font-family:"Playfair Display",serif;
-color:var(--secondary);
-font-size:2rem;
-margin-bottom:6px;
-}
-.modal-role{
-font-weight:900;
-margin-bottom:20px;
-}
-.modal-body p{
-margin-bottom:14px;
-}
-.close{
-position:absolute;
-top:10px;
-right:15px;
-font-size:28px;
-cursor:pointer;
-background:none;
-border:none;
-}
+    @media (max-width: 980px){
+      .person{ grid-template-columns: 1fr; gap: 18px; }
+    }
 
-footer{
-background:var(--primary);
-color:#fff;
-padding:40px 0;
-text-align:center;
-margin-top:60px;
-}
-</style>
+    .person-photo{
+      width: 100%;
+    }
+    .person-photo img{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 0;             /* le modèle est très “square” */
+      box-shadow: none;             /* le modèle n’a pas de carte */
+    }
+
+    .person-content{
+      padding-top: 4px;
+    }
+
+    .person-name{
+      margin:0;
+      color: #5aa03a; /* vert proche du modèle */
+      font-weight: 700;
+      font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+      line-height: 1.15;
+    }
+
+    .person-role{
+      margin: 10px 0 18px;
+      font-weight: 900;
+      color: #2b2b2b;
+      font-size: 1.08rem;
+    }
+
+    .person-text{
+      color: rgba(44,62,80,.92);
+      font-size: 1.02rem;
+      line-height: 1.9;
+    }
+    .person-text p{
+      margin: 0 0 14px;
+    }
+
+    .person-lines{
+      margin-top: 18px;
+      display:grid;
+      gap: 10px;
+    }
+    .person-lines .label{
+      font-weight: 900;
+      color: #2b2b2b;
+    }
+
+    /* ===== FOOTER ===== */
+    footer{
+      background: var(--primary);
+      color:#fff;
+      padding: 48px 0 18px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap:26px;
+      align-items:start;
+    }
+    .footer-title{
+      color: var(--accent);
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-weight:900;
+      font-size:.92rem;
+      margin-bottom:14px;
+    }
+    .footer-contact p{
+      margin:10px 0;
+      opacity:.95;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      line-height:1.45;
+    }
+    .footer-contact i{color:rgba(255,255,255,.85);margin-top:2px}
+    .footer-link{
+      display:inline-flex;align-items:center;gap:10px;
+      margin-top:10px;
+      color:var(--accent);
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.82rem;
+    }
+    .footer-list{list-style:none;padding:0;margin:0}
+    .footer-list li{margin:10px 0}
+    .footer-list a{opacity:.95}
+    .footer-list a:hover{color:var(--accent)}
+    .social-icons{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .social-icons a{
+      width:44px;height:44px;border-radius:999px;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      transition:.22s ease;
+      color:#fff;
+      font-size:1.05rem;
+    }
+    .social-icons a:hover{
+      transform:translateY(-2px);
+      background:rgba(197,160,89,.20);
+      border-color:rgba(197,160,89,.45);
+    }
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.12);
+      margin-top:26px;
+      padding-top:16px;
+      text-align:center;
+      opacity:.88;
+      font-size:.92rem;
+    }
+    @media (max-width: 900px){
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"AboutPage",
+    "name":"À propos | Jardin Botanique des Cayes",
+    "inLanguage":"fr",
+    "isPartOf":{"@type":"WebSite","name":"Jardin Botanique des Cayes"},
+    "about":{
+      "@type":"Organization",
+      "name":"Jardin Botanique des Cayes",
+      "email":"info@jardinbotaniquecayeshaiti.org",
+      "telephone":["+509 4309 2809","+1 845 248 9803"],
+      "address":{
+        "@type":"PostalAddress",
+        "streetAddress":"# 24, Bergeaud, Rte Nle # 2",
+        "addressLocality":"Les Cayes",
+        "addressCountry":"HT"
+      }
+    }
+  }
+  </script>
 </head>
 
 <body>
 
-<nav>
-<div class="container nav-inner">
-<a href="index.html"><img class="nav-logo" src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv"></a>
-<div class="nav-menu">
-<a href="index.html">Accueil</a>
-<a href="apropos.html">À propos</a>
-<a href="recherche.html">Science & Conservation</a>
-<a href="education.html">Éducation</a>
-</div>
-</div>
-</nav>
+  <!-- NAV -->
+  <nav aria-label="Navigation principale">
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <a href="index.html" aria-label="Retour à la page d'accueil">
+          <img class="nav-logo"
+               src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv"
+               alt="Logo Jardin Botanique des Cayes" />
+        </a>
+      </div>
 
-<header class="header">
-<div class="container">
-<h1>À propos du Jardin Botanique des Cayes</h1>
-<p>Institution haïtienne dédiée à la recherche botanique, à la conservation de la biodiversité et à l’éducation scientifique.</p>
-</div>
-</header>
+      <div class="nav-menu">
+        <div class="dropdown" aria-label="Menu Accueil">
+          <button class="nav-link dropbtn active" aria-haspopup="true">
+            ACCUEIL <i class="fa-solid fa-chevron-down" style="font-size:.75em;"></i>
+          </button>
+          <div class="dropdown-content" role="menu" aria-label="Sous-menu Accueil">
+            <a href="index.html" role="menuitem">Vue d’ensemble</a>
+            <a href="apropos.html" role="menuitem" aria-current="page">À propos</a>
+          </div>
+        </div>
 
-<section class="section">
-<div class="container">
-<h2>Conseil d’Administration</h2>
-<p class="section-intro">Une équipe multidisciplinaire engagée dans la gouvernance, la stratégie et le développement scientifique du Jardin Botanique des Cayes.</p>
+        <a class="nav-link" href="impliquer.html">S'IMPLIQUER</a>
+        <a class="nav-link" href="recherche.html">SCIENCE &amp; CONSERVATION</a>
+        <a class="nav-link" href="education.html">ÉDUCATION</a>
+        <a class="nav-link" href="horticulture.html">HORTICULTURE</a>
+        <a class="nav-link" href="medias.html">MÉDIAS</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="grid">
+  <!-- HEADER -->
+  <header class="page-header" style="background-image:url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=1600');" role="banner">
+    <div class="inner">
+      <div class="breadcrumb" aria-label="Fil d’Ariane">
+        <a href="index.html">Accueil</a>
+        <span aria-hidden="true">›</span>
+        <span>À propos</span>
+      </div>
+      <h1>À propos du Jardin Botanique des Cayes</h1>
+      <p>Gouvernance, leadership et équipe : une institution dédiée à la biodiversité, à la science et à l’éducation en Haïti.</p>
+    </div>
+  </header>
 
-<div class="card" onclick="openModal('cinea')">
-<img src="https://lh3.googleusercontent.com/d/1NUuOR3jubTMWzmAsXWgcQgOvgDbxC-PA">
-<h3>William Cinea</h3>
-<p>Président</p>
-</div>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Conseil d’administration</h2>
+        <p class="section-subtitle">
+          Présentation des membres selon un format clair : photo à gauche, description complète à droite.
+        </p>
+      </div>
+    </section>
 
-<div class="card" onclick="openModal('silien')">
-<img src="https://lh3.googleusercontent.com/d/1B4CVj6uO1rpipnT_nPyNnw2QkFRVoYjF">
-<h3>Silien Jean Jones</h3>
-<p>Vice-président</p>
-</div>
+    <!-- LISTE DES MEMBRES (FORMAT EXACT) -->
+    <section class="people-wrap">
+      <div class="container">
 
-<div class="card" onclick="openModal('casseus')">
-<img src="https://lh3.googleusercontent.com/d/1jJWJY0RD37IpFTWzXI2aLpLsJe0X-CjK">
-<h3>William Casséus</h3>
-<p>Responsable juridique</p>
-</div>
+        <!-- 1) William Cinea -->
+        <article class="person" id="william-cinea">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1NUuOR3jubTMWzmAsXWgcQgOvgDbxC-PA"
+                 alt="William Cinea">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">William Cinea</h3>
+            <div class="person-role">Ingénieur forestier – Botaniste – Spécialiste en sciences des plantes et leadership des jardins botaniques<br>Fondateur | Responsable du Département Recherche &amp; Conservation</div>
+            <div class="person-text">
+              <p>William Cinea est ingénieur forestier et botaniste, spécialisé en sciences des plantes et en leadership des jardins botaniques.</p>
+              <p>Il est le fondateur du Jardin Botanique des Cayes, ainsi que des institutions Nature Design, Nature Design International et Botapreneurs.</p>
+              <p>Son parcours académique et professionnel est international.</p>
+              <p>Il a suivi des études et formations en botanique, sciences des plantes, conservation, leadership et entrepreneuriat appliqué à la nature en République dominicaine, aux États-Unis, en Angleterre, en France et à Cuba, à travers des programmes liés aux jardins botaniques, à la recherche scientifique et au développement institutionnel.</p>
+              <p>Il a également développé des travaux académiques et de recherche en lien avec des institutions de référence, dont Cornell University, renforçant son approche scientifique orientée données.</p>
+              <p>Fort de plus d’une décennie d’expérience, William Cinea consacre son travail à la recherche botanique, à la conservation, à l’horticulture et à la structuration scientifique du Jardin Botanique des Cayes.</p>
+              <p>Il est actuellement responsable du département Recherche &amp; Conservation, assurant l’orientation scientifique, la qualité des données produites et la cohérence des projets liés à la biodiversité.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-<div class="card" onclick="openModal('paul')">
-<img src="https://lh3.googleusercontent.com/d/1186VV98sy5rzcXgPh74qypH0By1DSw9q">
-<h3>Paul Ascencio</h3>
-<p>Trésorier</p>
-</div>
+        <!-- 2) Silien Jean Jones -->
+        <article class="person" id="silien-jean-jones">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1B4CVj6uO1rpipnT_nPyNnw2QkFRVoYjF"
+                 alt="Silien Jean Jones">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Silien Jean Jones</h3>
+            <div class="person-role">Vice-président – Ingénieur agronome<br>Expert en horticulture, aménagement paysager et développement de jardins botaniques</div>
+            <div class="person-text">
+              <p>Silien Jean Jones est ingénieur agronome avec plus de 12 années d’expérience au sein du Jardin Botanique des Cayes.</p>
+              <p>Il a occupé plusieurs fonctions clés, notamment coordinateur de projets, directeur du jardin et directeur du département d’horticulture.</p>
+              <p>Il possède une expertise approfondie en création et gestion de jardins botaniques, production horticole, aménagement paysager, ainsi qu’en relations avec les partenaires et les donateurs.</p>
+              <p>Sa connaissance du terrain et de l’institution en fait un pilier stratégique du Conseil d’administration.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-</div>
-</div>
-</section>
+        <!-- 3) William Casséus -->
+        <article class="person" id="william-casseus">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1jJWJY0RD37IpFTWzXI2aLpLsJe0X-CjK"
+                 alt="William Casséus">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">William Casséus</h3>
+            <div class="person-role">Responsable des affaires juridiques<br>Gestionnaire – Avocat</div>
+            <div class="person-text">
+              <p>William Casséus a participé au démarrage du Jardin Botanique des Cayes en 2003 et est membre du Conseil d’administration depuis ses débuts.</p>
+              <p>Son implication continue lui a permis d’acquérir une excellente compréhension de l’évolution institutionnelle du jardin.</p>
+              <p>Gestionnaire et avocat de profession, il est responsable de la supervision juridique et administrative du Jardin Botanique des Cayes.</p>
+              <p>Ses responsabilités incluent la conformité légale, l’appui à la gouvernance et le suivi des dossiers juridiques.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<button class="close" onclick="closeModal()">×</button>
-<img id="modalImg">
-<div class="modal-body">
-<h3 id="modalName"></h3>
-<div class="modal-role" id="modalRole"></div>
-<div id="modalText"></div>
-</div>
-</div>
-</div>
+        <!-- 4) Paul Ascencio -->
+        <article class="person" id="paul-ascencio">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1186VV98sy5rzcXgPh74qypH0By1DSw9q"
+                 alt="Paul Ascencio">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Paul Ascencio</h3>
+            <div class="person-role">Spécialiste en apiculture et entrepreneuriat agricole<br>Fondateur de l’entreprise VIAHSA</div>
+            <div class="person-text">
+              <p>Paul Ascencio est spécialiste en apiculture et fondateur de l’entreprise agricole VIAHSA.</p>
+              <p>Il est également expert en éducation environnementale et en entrepreneuriat rural.</p>
+              <p>Son expérience entrepreneuriale constitue un atout majeur pour le Jardin Botanique des Cayes.</p>
+              <p>Au sein du Conseil d’administration, il contribue à renforcer les liens entre biodiversité, production durable, autonomie économique et développement communautaire.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-<footer>
-<div class="container">
-© 2026 Jardin Botanique des Cayes
-</div>
-</footer>
+        <!-- 5) Valencia Logiste -->
+        <article class="person" id="valencia-logiste">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1eQ7wvrIDIl4LIPVhG9bqJn2v43Go0mbp"
+                 alt="Valencia Logiste">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Valencia Logiste</h3>
+            <div class="person-role">Comptable de formation – Experte en gestion institutionnelle<br>Secrétaire du Conseil d’administration</div>
+            <div class="person-text">
+              <p>Valencia Logiste cumule plus de 10 ans d’expérience au Jardin Botanique des Cayes.</p>
+              <p>Elle a travaillé dans l’ensemble des départements : administration, éducation, recherche et gestion de projets.</p>
+              <p>Elle a représenté le Jardin Botanique des Cayes lors de la grande exposition horticole internationale au Qatar et a suivi plusieurs formations en bases de données, gestion institutionnelle et organisation administrative.</p>
+              <p>Son parcours transversal fait d’elle une référence interne pour le fonctionnement de l’institution.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-<script>
-const bios={
-cinea:{
-name:"William Cinea",
-role:"Ingénieur forestier – Botaniste – Responsable Recherche & Conservation",
-img:"https://lh3.googleusercontent.com/d/1NUuOR3jubTMWzmAsXWgcQgOvgDbxC-PA",
-text:`William Cinea est ingénieur forestier et botaniste, spécialisé en sciences des plantes et en leadership des jardins botaniques...`
-},
-silien:{
-name:"Silien Jean Jones",
-role:"Vice-président – Ingénieur agronome",
-img:"https://lh3.googleusercontent.com/d/1B4CVj6uO1rpipnT_nPyNnw2QkFRVoYjF",
-text:`Silien Jean Jones est ingénieur agronome avec plus de 12 années d’expérience...`
-},
-casseus:{
-name:"William Casséus",
-role:"Responsable des affaires juridiques – Avocat",
-img:"https://lh3.googleusercontent.com/d/1jJWJY0RD37IpFTWzXI2aLpLsJe0X-CjK",
-text:`William Casséus a participé au démarrage du Jardin Botanique des Cayes en 2003...`
-},
-paul:{
-name:"Paul Ascencio",
-role:"Spécialiste en apiculture – Fondateur VIAHSA",
-img:"https://lh3.googleusercontent.com/d/1186VV98sy5rzcXgPh74qypH0By1DSw9q",
-text:`Paul Ascencio est spécialiste en apiculture et fondateur de l’entreprise VIAHSA...`
-}
-};
+        <!-- 6) Natacha Beaussejour -->
+        <article class="person" id="natacha-beaussejour">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1_YVSu8A9mcfRV6Bq-9gjk0c8lwc0pL6Y"
+                 alt="Natacha Beaussejour">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Natacha Beaussejour</h3>
+            <div class="person-role">Spécialiste en technologies, restauration écologique et relations internationales<br>Conseillère</div>
+            <div class="person-text">
+              <p>Ancienne coordinatrice de Nature Design, Natacha Beaussejour a travaillé plus de 10 ans au Jardin Botanique des Cayes comme administratrice et responsable des relations internationales.</p>
+              <p>Elle possède une expertise en technologies appliquées, restauration des écosystèmes et coopération internationale.</p>
+              <p>Elle contribue aujourd’hui à la stratégie institutionnelle et à la communication numérique du jardin.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-function openModal(id){
-document.getElementById("modal").style.display="flex";
-document.getElementById("modalName").innerText=bios[id].name;
-document.getElementById("modalRole").innerText=bios[id].role;
-document.getElementById("modalImg").src=bios[id].img;
-document.getElementById("modalText").innerText=bios[id].text;
-}
+        <!-- 7) Décime Pierrette -->
+        <article class="person" id="decime-pierrette">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1zT6fLZ6mfqwdBIDW8xIJZuY2HEjNKV2j"
+                 alt="Décime Pierrette">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Décime Pierrette</h3>
+            <div class="person-role">Botaniste – Responsable des expéditions scientifiques<br>Conseillère scientifique</div>
+            <div class="person-text">
+              <p>Botaniste de profession, Décime Pierrette est responsable des expéditions scientifiques, de la collecte de données botaniques et de l’appui aux programmes de recherche du Jardin Botanique des Cayes.</p>
+              <p>Elle apporte une expertise clé dans l’identification, la documentation et la valorisation de la flore.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
+        <!-- 8) Jean-Philippe Cinéas -->
+        <article class="person" id="jean-philippe-cineas">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1bW219jQUOJnPWjMhJDUswursYhucqOVn"
+                 alt="Jean-Philippe Cinéas">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Jean-Philippe Cinéas</h3>
+            <div class="person-role">Agronome – Géographe<br>Spécialiste en planification et gestion de bases de données</div>
+            <div class="person-text">
+              <p>Titulaire d’une formation en agronomie et en géographie, Jean-Philippe Cinéas est spécialiste de la planification territoriale, de la gestion de bases de données et du suivi de projets.</p>
+              <p>Il a conseillé et formé l’équipe du Jardin Botanique des Cayes sur les outils de gestion des données, de planification stratégique et d’organisation des projets scientifiques.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
 
-window.onclick=function(e){
-if(e.target==document.getElementById("modal")){
-closeModal();
-}
-}
-</script>
+        <!-- 9) Bruno Mentor -->
+        <article class="person" id="bruno-mentor">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/175VT-7i8FxtQe_WXu6SjfUUqNNX-Xcl_"
+                 alt="Bruno Mentor">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Bruno Mentor</h3>
+            <div class="person-role">Sociologue – Militant écologiste<br>Fondateur de la Fondation Macaya – Conseiller stratégique</div>
+            <div class="person-text">
+              <p>Bruno Mentor est sociologue, militant environnemental et fondateur de la Fondation Macaya.</p>
+              <p>Il intervient comme conseiller stratégique du Jardin Botanique des Cayes sur les questions de gouvernance, de politiques environnementales et de gestion stratégique et financière.</p>
+              <p>Son engagement renforce la dimension citoyenne, nationale et institutionnelle du jardin.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 10) Frantza Julien -->
+        <article class="person" id="frantza-julien">
+          <div class="person-photo">
+            <!-- Remplace la photo si tu en as une -->
+            <img src="https://ui-avatars.com/api/?name=Frantza+Julien&background=ffffff&color=2d5a27&size=900"
+                 alt="Frantza Julien">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Frantza Julien</h3>
+            <div class="person-role">Spécialiste en éducation environnementale<br>Responsable du Projet Biodiversité Sud</div>
+            <div class="person-text">
+              <p>Formée au Mexique, Frantza Julien possède plus de 15 ans d’expérience de collaboration avec des jardins botaniques et des projets environnementaux.</p>
+              <p>Elle est actuellement responsable du Projet Biodiversité Sud, axé sur la restauration des écosystèmes, l’éducation et la conservation.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 11) Jacqueline Gérard -->
+        <article class="person" id="jacqueline-gerard">
+          <div class="person-photo">
+            <!-- Remplace la photo si tu en as une -->
+            <img src="https://ui-avatars.com/api/?name=Jacqueline+G%C3%A9rard&background=ffffff&color=2d5a27&size=900"
+                 alt="Jacqueline Gérard">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Jacqueline Gérard</h3>
+            <div class="person-role">Infirmière – Conseillère en santé par la nature</div>
+            <div class="person-text">
+              <p>Professionnelle de la santé avec une longue expérience aux États-Unis, Jacqueline Gérard est conseillère au Jardin Botanique des Cayes sur les questions de santé par les plantes, de bien-être et d’approches naturelles.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 12) Cadmus Ronald -->
+        <article class="person" id="cadmus-ronald">
+          <div class="person-photo">
+            <img src="https://lh3.googleusercontent.com/d/1qRZ67r1N-KVBW-t1OJix8dt0gVhZYK8B"
+                 alt="Cadmus Ronald">
+          </div>
+          <div class="person-content">
+            <h3 class="person-name">Cadmus Ronald</h3>
+            <div class="person-role">Ingénieur forestier – Spécialiste en systèmes d’information géographique (SIG)<br>Conseiller en restauration et conservation de la biodiversité</div>
+            <div class="person-text">
+              <p>Cadmus Ronald est ingénieur forestier et spécialiste en systèmes d’information géographique (SIG).</p>
+              <p>Il intervient comme consultant national et international sur les questions de biodiversité, de conservation, de reforestation et de restauration des écosystèmes.</p>
+              <p>Il a exercé pendant plus de cinq ans comme professeur assistant à l’Université de botanique d’Ankaya, contribuant à la formation académique en écologie, conservation et analyse spatiale.</p>
+              <p>Au sein du Jardin Botanique des Cayes, il agit comme conseiller scientifique sur la cartographie écologique, la planification territoriale et la conservation fondée sur les données.</p>
+            </div>
+            <div class="person-lines">
+              <div><span class="label">Ce qui nourrit sa passion :</span> —</div>
+              <div><span class="label">Ce qui l’aide à se sentir équilibré(e) :</span> —</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-contact">
+          <div class="footer-title">Jardin Botanique des Cayes</div>
+
+          <p><i class="fa-solid fa-location-dot"></i>
+            <span># 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</span>
+          </p>
+
+          <p><i class="fa-solid fa-phone"></i>
+            <span>Haïti : +509 4309 2809</span>
+          </p>
+          <p><i class="fa-solid fa-phone"></i>
+            <span>USA : +1 845 248 9803</span>
+          </p>
+
+          <p><i class="fa-solid fa-envelope"></i>
+            <span>info@jardinbotaniquecayeshaiti.org</span>
+          </p>
+
+          <a class="footer-link" href="https://goo.gl/maps/..." target="_blank" rel="noopener">
+            VOIR SUR LA CARTE <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div>
+          <div class="footer-title">Départements</div>
+          <ul class="footer-list">
+            <li><a href="recherche.html">Science &amp; Conservation</a></li>
+            <li><a href="education.html">Éducation</a></li>
+            <li><a href="horticulture.html">Horticulture</a></li>
+            <li><a href="developpement.html">Développement &amp; Communication</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Suivez-nous</div>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Jardin Botanique des Cayes. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
+
