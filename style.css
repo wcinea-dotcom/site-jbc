@@ -1,0 +1,58 @@
+/* --- STYLE DES MENUS DÉROULANTS --- */
+
+/* Le conteneur du menu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+}
+
+/* Le bouton du menu (Accueil, Science...) */
+.dropbtn {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+/* La boîte cachée (le sous-menu) */
+.dropdown-content {
+  display: none; /* Caché par défaut */
+  position: absolute;
+  top: 100%; /* Juste en dessous */
+  left: 0;
+  background-color: #ffffff; /* Fond blanc */
+  min-width: 200px; /* Largeur du sous-menu */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15); /* Ombre */
+  border-top: 3px solid #c5a059; /* Ligne dorée en haut */
+  border-radius: 0 0 8px 8px;
+  z-index: 2000;
+}
+
+/* Les liens à l'intérieur du sous-menu */
+.dropdown-content a {
+  color: #1a4332; /* Vert foncé */
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-bottom: 1px solid #f0f0f0;
+  text-transform: none;
+}
+
+/* Au survol d'un lien du sous-menu */
+.dropdown-content a:hover {
+  background-color: #f4f7f4; /* Fond gris très clair */
+  color: #c5a059; /* Texte doré */
+  padding-left: 20px; /* Petit effet de mouvement vers la droite */
+}
+
+/* Affiche le menu quand on passe la souris sur le parent */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Responsive: Cache les sous-menus sur mobile si besoin d'ajustements */
+@media (max-width: 900px) {
+  .nav-links { display: none; } /* Pour l'instant, cache le menu sur très petits écrans */

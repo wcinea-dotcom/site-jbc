@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Médias | Jardin Botanique des Cayes</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --bg:#163f34;        /* vert fond menu/footer */
+      --bg2:#12362c;       /* vert plus sombre */
+      --accent:#c6a35a;    /* doré */
+      --text:#1f2d2b;
+      --muted:#6b7a76;
+      --white:#ffffff;
+      --card:#ffffff;
+      --line:rgba(255,255,255,.12);
+      --shadow:0 10px 26px rgba(0,0,0,.12);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:#f3f6f5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1180px,92%);margin:auto}
+
+    /* =========================
+       MENU (forme capture)
+    ========================= */
+    .topbar{
+      background:var(--bg);
+      padding:18px 0;
+    }
+    .navwrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .logo-box{
+      width:170px;
+      height:86px;
+      border-radius:10px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+    }
+    .logo-box img{
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      display:block;
+      border-radius:6px;
+      background:#fff;
+      padding:6px;
+    }
+
+    .navlinks{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:46px; /* gros espacement comme ta capture */
+      flex-wrap:wrap;
+    }
+    .navlinks a{
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      opacity:.95;
+    }
+    .navlinks a:hover{opacity:1;text-decoration:underline}
+    .navlinks a.active{color:#fff; text-decoration:underline; text-underline-offset:8px}
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .navwrap{flex-direction:column; align-items:stretch}
+      .navlinks{gap:18px}
+      .logo-box{width:180px}
+    }
+
+    /* =========================
+       HERO PHOTO (clean)
+    ========================= */
+    .hero{
+      position:relative;
+      min-height:320px;
+      background:
+        linear-gradient(180deg, rgba(18,54,44,.68), rgba(18,54,44,.35)),
+        url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2000")
+        center/cover no-repeat;
+      color:#fff;
+      display:flex;
+      align-items:flex-end;
+    }
+    .hero-inner{
+      width:100%;
+      padding:44px 0 34px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0 0 10px;
+      font-size:clamp(28px,4vw,44px);
+      font-weight:900;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+    }
+    .hero p{
+      margin:0 auto;
+      max-width:980px;
+      line-height:1.8;
+      font-weight:700;
+      opacity:.95;
+    }
+
+    /* =========================
+       SECTIONS (clean)
+    ========================= */
+    main{padding:28px 0 40px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+      padding:18px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:1.15rem;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .card p{margin:0; line-height:1.75; color:#2b3a37; font-weight:650}
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(22,63,52,.15);
+      background:rgba(22,63,52,.04);
+      font-weight:850;
+      color:#1b4b3d;
+      font-size:.92rem;
+    }
+
+    /* Social row cards */
+    .socials{
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    @media (max-width:1100px){ .socials{grid-template-columns:repeat(3,1fr)} }
+    @media (max-width:720px){ .socials{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:420px){ .socials{grid-template-columns:1fr} }
+
+    .social{
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.06);
+      background:#fff;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap:12px;
+      transition:.18s ease;
+      min-height:120px;
+    }
+    .social:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(0,0,0,.12)}
+    .s-top{display:flex; gap:10px; align-items:flex-start}
+    .s-ico{
+      width:42px;height:42px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:rgba(22,63,52,.08);
+      border:1px solid rgba(22,63,52,.14);
+      color:#163f34;
+      font-size:18px;
+      flex:0 0 auto;
+    }
+    .s-name{font-weight:900}
+    .s-desc{margin-top:4px; color:#465653; font-weight:650; line-height:1.5}
+    .s-cta{
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(22,63,52,.14);
+      background:rgba(22,63,52,.04);
+      font-weight:900;
+      color:#163f34;
+    }
+
+    /* Download form */
+    .field{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+    label{font-weight:900;color:#163f34}
+    input,select{
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      font-weight:700;
+      outline:none;
+    }
+    input:focus,select:focus{
+      border-color: rgba(22,63,52,.45);
+      box-shadow:0 0 0 4px rgba(22,63,52,.10);
+    }
+    .btn{
+      margin-top:12px;
+      width:100%;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(22,63,52,.18);
+      background:var(--bg);
+      color:#fff;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .note{margin-top:10px;color:#50625f;font-weight:650;line-height:1.6}
+
+    /* =========================
+       FOOTER (forme capture)
+    ========================= */
+    .footer{
+      background:var(--bg);
+      color:#fff;
+      padding:34px 0 18px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      gap:28px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .footer-grid{grid-template-columns:1fr}
+    }
+
+    .footer h3{
+      margin:0 0 14px;
+      color:var(--accent);
+      font-weight:900;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      font-size:1.05rem;
+    }
+    .f-item{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      margin:14px 0;
+      font-weight:750;
+      opacity:.95;
+    }
+    .f-item i{
+      width:20px;
+      margin-top:2px;
+      opacity:.95;
+    }
+    .map-btn{
+      margin-top:14px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      font-weight:900;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+    }
+    .map-btn:hover{background:rgba(255,255,255,.10)}
+
+    .dept-list a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin:12px 0;
+      font-weight:800;
+      opacity:.95;
+    }
+    .dept-list a:hover{opacity:1;text-decoration:underline}
+    .dept-list i{width:22px}
+
+    .social-circles{
+      display:flex;
+      gap:14px;
+      margin-top:10px;
+    }
+    .circle{
+      width:58px;height:58px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.06);
+      font-size:20px;
+    }
+    .circle:hover{background:rgba(255,255,255,.10)}
+
+    .footer-line{
+      margin:26px 0 14px;
+      height:1px;
+      background:rgba(255,255,255,.14);
+    }
+    .copyright{
+      text-align:center;
+      font-weight:800;
+      opacity:.95;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU (forme capture) -->
+  <header class="topbar">
+    <div class="container navwrap">
+      <div class="logo-box">
+        <!-- Remplace le src par ton logo -->
+        <img src="logo.png" alt="Jardin Botanique des Cayes">
+      </div>
+
+      <nav class="navlinks" aria-label="Navigation">
+        <a href="index.html">ACCUEIL</a>
+        <a href="scienceconservation.html">SCIENCE &amp; CONSERVATION</a>
+        <a href="education.html">ÉDUCATION</a>
+        <a href="horticulture.html">HORTICULTURE</a>
+        <a class="active" href="medias.html">MÉDIAS</a>
+        <a href="impliquer.html">S'IMPLIQUER</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PHOTO HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Médias &amp; Ressources</h1>
+      <p>
+        Accédez à nos documents, suivez nos publications et connectez-vous à nos réseaux pour rester informé
+        sur les plantes, la biodiversité, la restauration et la santé de l’homme et de la nature.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENU CLEAN -->
+  <main class="container">
+
+    <section class="card">
+      <h2>Suivez-nous</h2>
+      <p>Remplacez les liens “#” par vos liens réels (Facebook, LinkedIn, X, TikTok, etc.).</p>
+
+      <div class="socials">
+        <a class="social" href="#" target="_blank" rel="noopener">
+          <div class="s-top">
+            <div class="s-ico"><i class="fa-brands fa-facebook-f"></i></div>
+            <div>
+              <div class="s-name">Facebook</div>
+              <div class="s-desc">Nouvelles, événements, publications</div>
+            </div>
+          </div>
+          <div class="s-cta">Suivre</div>
+        </a>
+
+        <a class="social" href="#" target="_blank" rel="noopener">
+          <div class="s-top">
+            <div class="s-ico"><i class="fa-brands fa-linkedin-in"></i></div>
+            <div>
+              <div class="s-name">LinkedIn</div>
+              <div class="s-desc">Partenariats, projets, rapports</div>
+            </div>
+          </div>
+          <div class="s-cta">Se connecter</div>
+        </a>
+
+        <a class="social" href="#" target="_blank" rel="noopener">
+          <div class="s-top">
+            <div class="s-ico"><i class="fa-brands fa-x-twitter"></i></div>
+            <div>
+              <div class="s-name">X</div>
+              <div class="s-desc">Annonces et mises à jour rapides</div>
+            </div>
+          </div>
+          <div class="s-cta">Suivre</div>
+        </a>
+
+        <a class="social" href="#" target="_blank" rel="noopener">
+          <div class="s-top">
+            <div class="s-ico"><i class="fa-brands fa-tiktok"></i></div>
+            <div>
+              <div class="s-name">TikTok</div>
+              <div class="s-desc">Capsules éducatives & terrain</div>
+            </div>
+          </div>
+          <div class="s-cta">Suivre</div>
+        </a>
+
+        <a class="social" href="#" target="_blank" rel="noopener">
+          <div class="s-top">
+            <div class="s-ico"><i class="fa-brands fa-youtube"></i></div>
+            <div>
+              <div class="s-name">YouTube</div>
+              <div class="s-desc">Séries, documentaires, interviews</div>
+            </div>
+          </div>
+          <div class="s-cta">S’abonner</div>
+        </a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Bibliothèque & contenus</h2>
+        <p>
+          Une organisation simple : médias (nouvelles, vidéos, galerie) et ressources (guides, protocoles, fiches).
+          Vous pouvez créer plus tard des sous-pages dédiées.
+        </p>
+
+        <div class="chips">
+          <span class="chip">Taxonomie</span>
+          <span class="chip">Plantes médicinales</span>
+          <span class="chip">Restauration</span>
+          <span class="chip">Biodiversité</span>
+          <span class="chip">Éducation</span>
+          <span class="chip">Données</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Télécharger un document</h2>
+        <p>Les PDF doivent être dans <strong>/docs</strong> sur Netlify.</p>
+
+        <form onsubmit="return handleDownload(event)">
+          <div class="field">
+            <label for="dl-name">Nom complet</label>
+            <input id="dl-name" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="dl-contact">Email ou Téléphone</label>
+            <input id="dl-contact" type="text" required />
+          </div>
+
+          <div class="field">
+            <label for="dl-doc">Document</label>
+            <select id="dl-doc" required>
+              <option value="" selected disabled>— Sélectionner —</option>
+              <option value="docs/guide_plantes_medicinales.pdf">Guide – Plantes médicinales (PDF)</option>
+              <option value="docs/protocole_collecte_semences.pdf">Protocole – Collecte de semences (PDF)</option>
+              <option value="docs/note_technique_restauration.pdf">Note technique – Restauration (PDF)</option>
+            </select>
+          </div>
+
+          <button class="btn" type="submit">Télécharger</button>
+          <div class="note">
+            En téléchargeant, vous acceptez d’être contacté(e) uniquement pour l’envoi du document et les mises à jour importantes.
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- BAS DE PAGE (forme capture) -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Jardin Botanique des Cayes</h3>
+
+        <div class="f-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div># 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</div>
+        </div>
+
+        <div class="f-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>+509 8452 4898 03</div>
+        </div>
+
+        <div class="f-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>info@jardinbotaniquecayeshaiti.org</div>
+        </div>
+
+        <a class="map-btn" href="#" target="_blank" rel="noopener">
+          VOIR SUR LA CARTE <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div>
+        <h3>Départements</h3>
+        <div class="dept-list">
+          <a href="scienceconservation.html"><i class="fa-solid fa-leaf"></i> Science &amp; Conservation</a>
+          <a href="education.html"><i class="fa-solid fa-graduation-cap"></i> Éducation</a>
+          <a href="horticulture.html"><i class="fa-solid fa-seedling"></i> Horticulture</a>
+          <a href="#"><i class="fa-solid fa-bullhorn"></i> Développement &amp; Communication</a>
+        </div>
+      </div>
+
+      <div>
+        <h3>Suivez-nous</h3>
+        <div class="social-circles">
+          <a class="circle" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="circle" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="circle" href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a class="circle" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="footer-line"></div>
+      <div class="copyright">© 2026 Jardin Botanique des Cayes. Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <script>
+    function handleDownload(e){
+      e.preventDefault();
+      const name = document.getElementById('dl-name').value.trim();
+      const contact = document.getElementById('dl-contact').value.trim();
+      const file = document.getElementById('dl-doc').value;
+
+      if(!name || !contact || !file){
+        alert("Veuillez remplir le nom, le contact, et choisir un document.");
+        return false;
+      }
+      window.open(file, "_blank");
+      return false;
+    }
+  </script>
+
+</body>
+</html>
+

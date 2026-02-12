@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Science & Conservation | Jardin Botanique des Cayes</title>
+  <meta name="description" content="Département Science & Conservation du Jardin Botanique des Cayes : recherche, données, conservation, projets, nouvelles et contact." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#1a4332" />
+
+  <link rel="canonical" href="scienceconservation.html" />
+
+  <!-- ✅ HERO image (Drive direct) -->
+  <!-- hero-science-conservation.JPG -->
+  <meta property="og:site_name" content="Jardin Botanique des Cayes" />
+  <meta property="og:title" content="Science & Conservation | Jardin Botanique des Cayes" />
+  <meta property="og:description" content="Recherche, données, conservation, projets, nouvelles et contact du département Science & Conservation du Jardin Botanique des Cayes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://lh3.googleusercontent.com/d/1DPplAOM1nOfUfcli98kcFgTOiRfQf4QG" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Science & Conservation | Jardin Botanique des Cayes" />
+  <meta name="twitter:description" content="Recherche, données, conservation, projets, nouvelles et contact du département Science & Conservation du Jardin Botanique des Cayes." />
+  <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1DPplAOM1nOfUfcli98kcFgTOiRfQf4QG" />
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD SEO -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "name":"Jardin Botanique des Cayes",
+        "email":"info@jardinbotaniquecayeshaiti.org",
+        "telephone":["+509 4309 2809","+1 845 248 9803"],
+        "address":{
+          "@type":"PostalAddress",
+          "streetAddress":"# 24, Bergeaud, Rte Nle # 2",
+          "addressLocality":"Les Cayes",
+          "addressCountry":"HT"
+        }
+      },
+      {
+        "@type":"WebPage",
+        "name":"Science & Conservation | Jardin Botanique des Cayes",
+        "description":"Département Science & Conservation : recherche, données, conservation, projets, nouvelles et contact.",
+        "inLanguage":"fr",
+        "isPartOf":{"@type":"WebSite","name":"Jardin Botanique des Cayes"},
+        "breadcrumb":{"@id":"#breadcrumb"}
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"#breadcrumb",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Accueil","item":"index.html"},
+          {"@type":"ListItem","position":2,"name":"Science & Conservation","item":"scienceconservation.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --primary:#1a4332;
+      --secondary:#2d5a27;
+      --accent:#c5a059;
+      --light:#f4f7f4;
+      --text:#2c3e50;
+      --white:#ffffff;
+      --shadow:0 12px 35px rgba(0,0,0,.10);
+      --shadow2:0 18px 55px rgba(0,0,0,.14);
+      --radius:18px;
+      --radius2:26px;
+      --max:1200px;
+
+      --nav-h:92px;
+      --hero-h: clamp(420px, 58vh, 680px);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.6;
+    }
+    h1,h2,h3,h4{font-family:"Playfair Display",serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .section{padding:70px 0}
+    .muted{color:rgba(44,62,80,.75)}
+
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      height:var(--nav-h);
+      background:rgba(26,67,50,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .nav-inner{
+      height:100%;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
+      position:relative;
+    }
+    .nav-left{display:flex;align-items:center;gap:12px}
+    .nav-logo{
+      height:70px;width:auto;
+      filter:drop-shadow(0 2px 10px rgba(0,0,0,.25));
+      border-radius:10px;
+      background:rgba(255,255,255,.06);
+      padding:6px;
+    }
+    .nav-menu{
+      display:flex;align-items:center;gap:18px;
+      flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      border:none;background:transparent;color:#fff;
+      font-weight:900;font-size:.90rem;
+      letter-spacing:.06em;text-transform:uppercase;
+      padding:10px 8px;border-radius:999px;
+      cursor:pointer;transition:.22s ease;
+      white-space:nowrap;
+      display:inline-flex;align-items:center;
+    }
+    .nav-link:hover{color:var(--accent)}
+    .nav-link.is-active{color:var(--accent)}
+
+    .nav-item{position:relative;display:flex;align-items:center}
+    .dropdown{
+      position:absolute;
+      top:calc(100% + 10px);
+      right:0;
+      min-width:260px;
+      background:rgba(26,67,50,.98);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:16px;
+      box-shadow:0 18px 55px rgba(0,0,0,.25);
+      padding:10px;
+      display:none;
+    }
+    .dropdown a{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:.82rem;
+      opacity:.95;
+    }
+    .dropdown a:hover{
+      background:rgba(197,160,89,.14);
+      color:var(--accent);
+    }
+    .dropdown .dd-sep{
+      height:1px;
+      background:rgba(255,255,255,.10);
+      margin:8px 6px;
+    }
+    .nav-item:hover .dropdown{display:block}
+    .nav-link .caret{margin-left:6px;font-size:.85em;opacity:.9;}
+
+    /* HERO */
+    .hero{
+      margin-top:var(--nav-h);
+      height:var(--hero-h);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.72)),
+        url("https://lh3.googleusercontent.com/d/1DPplAOM1nOfUfcli98kcFgTOiRfQf4QG") center/cover no-repeat;
+    }
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(900px 600px at 20% 20%, rgba(197,160,89,.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 40%, rgba(46,204,113,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-content{position:relative;z-index:2;width:100%;padding:22px 0}
+    .hero-text{max-width:1000px;color:#fff}
+    .hero-title{
+      font-size:clamp(2.4rem, 5vw, 4.2rem);
+      letter-spacing:.02em;
+      line-height:1.05;
+      margin-bottom:12px;
+      text-transform:uppercase;
+    }
+    .hero-sub{
+      font-size:clamp(1.05rem, 1.6vw, 1.35rem);
+      color:rgba(255,255,255,.92);
+      max-width:900px;
+      line-height:1.9;
+    }
+    .hero-quick{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .pill-btn{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;border-radius:999px;
+      font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+      font-size:.80rem;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      transition:.22s ease;
+    }
+    .pill-btn:hover{transform:translateY(-1px);border-color:rgba(197,160,89,.55);background:rgba(197,160,89,.14)}
+    .pill-btn.primary{background:rgba(26,67,50,.85);border-color:rgba(255,255,255,.14)}
+    .pill-btn.primary:hover{background:rgba(45,90,39,.92)}
+
+    .center-card{
+      background:#fbfbfa;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:36px;
+      box-shadow:0 20px 60px rgba(0,0,0,.06);
+      padding:56px 28px;
+      text-align:center;
+    }
+    .center-card h2{
+      color:var(--primary);
+      font-size:clamp(2rem, 3.5vw, 3.2rem);
+      margin-bottom:14px;
+    }
+    .center-card p{
+      color:rgba(44,62,80,.72);
+      font-size:clamp(1.02rem, 1.25vw, 1.22rem);
+      max-width:980px;
+      margin:0 auto;
+      line-height:1.95;
+    }
+
+    .trio-title{text-align:center;color:var(--primary);font-size:clamp(1.9rem, 3.2vw, 2.8rem);margin-bottom:22px}
+    .trio{display:grid;grid-template-columns:repeat(3, 1fr);gap:20px}
+    .trio-card{
+      position:relative;border-radius:26px;overflow:hidden;
+      box-shadow:var(--shadow2);min-height:420px;background:#ddd;transition:.25s ease;
+    }
+    .trio-card:hover{transform:translateY(-4px)}
+    .trio-card img{width:100%;height:100%;object-fit:cover;transform:scale(1.02);transition:.6s ease}
+    .trio-card:hover img{transform:scale(1.07)}
+    .trio-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(26,67,50,.92) 78%);
+      display:flex;align-items:flex-end;
+      padding:22px 20px;
+      color:#fff;
+    }
+    .trio-overlay h3{color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-size:1.05rem;margin-bottom:8px}
+    .trio-overlay p{opacity:.92;line-height:1.7}
+    .trio-actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 16px;border-radius:999px;border:none;cursor:pointer;font-weight:900;
+      letter-spacing:.06em;text-transform:uppercase;transition:.22s ease;font-size:.80rem;white-space:nowrap;
+    }
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--secondary);transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.28)}
+    .btn-outline:hover{border-color:rgba(197,160,89,.55);background:rgba(197,160,89,.14);transform:translateY(-1px)}
+
+    .block{
+      background:var(--light);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      padding:26px 22px;
+    }
+    .block h2{color:var(--primary);font-size:clamp(1.6rem, 2.6vw, 2.2rem);margin-bottom:10px}
+    .block p{color:rgba(44,62,80,.80);line-height:1.9}
+    .block-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+    .mini{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:18px 16px}
+    .mini h4{color:var(--primary);margin-bottom:6px}
+    .mini p{color:rgba(44,62,80,.74);line-height:1.75}
+
+    .tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .tab{
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+      color:var(--primary);
+      letter-spacing:.04em;
+      transition:.2s ease;
+    }
+    .tab.is-active{background:var(--primary);color:#fff;border-color:rgba(26,67,50,.35)}
+    .tab-panels{margin-top:18px}
+    .tab-panel[hidden]{display:none}
+
+    .project-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px}
+    .project-card{
+      background:#fff;border-radius:18px;overflow:hidden;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+    .project-card:hover{transform:translateY(-3px)}
+    .project-img{width:100%;height:180px;object-fit:cover}
+    .project-body{padding:14px 14px 16px}
+    .project-body h3{color:var(--primary);font-size:1.05rem;margin:0 0 8px}
+    .project-body p{color:rgba(44,62,80,.74);line-height:1.75;margin:0}
+
+    .news-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:16px;margin-top:18px}
+    .news-card{
+      background:#fff;border-radius:18px;overflow:hidden;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+      transition:.25s ease;
+    }
+    .news-card:hover{transform:translateY(-3px)}
+    .news-img{width:100%;height:190px;object-fit:cover}
+    .news-body{padding:14px 14px 16px}
+    .news-body h3{color:rgba(25,45,35,.92);font-size:1.15rem;margin-bottom:8px}
+    .news-body p{color:rgba(44,62,80,.72);line-height:1.75}
+    .news-meta{margin-top:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem;color:rgba(44,62,80,.55)}
+
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch;margin-top:18px}
+    .contact-box{
+      background:#fbfbfa;border:1px solid rgba(0,0,0,.06);
+      border-radius:26px;box-shadow:0 18px 55px rgba(0,0,0,.07);
+      padding:24px 22px;
+    }
+    .contact-box h2{color:var(--primary);font-size:1.9rem;margin-bottom:8px}
+    .contact-box p{color:rgba(44,62,80,.75);font-size:1.05rem;line-height:1.85}
+    form{display:flex;flex-direction:column;gap:12px}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field label{font-weight:900;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem;color:rgba(26,67,50,.85)}
+    .field input,.field textarea,.field select{
+      width:100%;padding:12px;border-radius:14px;border:1px solid rgba(0,0,0,.14);
+      outline:none;font-size:1rem;font-family:inherit;background:#fff;
+    }
+    .field textarea{min-height:140px;resize:vertical}
+    .submit{
+      margin-top:6px;background:var(--primary);color:#fff;border:none;border-radius:999px;
+      padding:13px 18px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+      cursor:pointer;transition:.22s ease;align-self:flex-start;
+    }
+    .submit:hover{background:var(--secondary);transform:translateY(-1px)}
+
+    footer{
+      background:var(--primary);color:#fff;padding:54px 0 18px;border-top:1px solid rgba(255,255,255,.10);
+    }
+    .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:26px;align-items:start}
+    .footer-title{
+      color:var(--accent);letter-spacing:.10em;text-transform:uppercase;font-weight:900;
+      font-size:.92rem;margin-bottom:14px;
+    }
+    .footer-contact p{
+      margin:10px 0;opacity:.95;display:flex;gap:10px;align-items:flex-start;line-height:1.45;
+    }
+    .footer-contact i{color:rgba(255,255,255,.85);margin-top:2px}
+    .footer-list{list-style:none;padding:0;margin:0}
+    .footer-list li{margin:10px 0}
+    .footer-list a{opacity:.95}
+    .footer-list a:hover{color:var(--accent)}
+    .social-icons{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .social-icons a{
+      width:44px;height:44px;border-radius:999px;display:grid;place-items:center;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+      transition:.22s ease;color:#fff;font-size:1.05rem;
+    }
+    .social-icons a:hover{transform:translateY(-2px);background:rgba(197,160,89,.20);border-color:rgba(197,160,89,.45)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:16px;text-align:center;opacity:.88;font-size:.92rem}
+
+    @media (max-width: 1040px){
+      .trio{grid-template-columns:1fr}
+      .block-grid{grid-template-columns:1fr}
+      .project-grid{grid-template-columns:1fr}
+      .news-grid{grid-template-columns:1fr}
+      .contact-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width: 820px){
+      .nav-menu{gap:12px}
+      .nav-link{font-size:.82rem}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 560px){
+      nav{height:86px}
+      :root{ --nav-h:86px; }
+      .nav-menu{display:none}
+      .nav-logo{height:64px}
+      .nav-menu.is-open{
+        display:flex;position:absolute;top:86px;left:0;right:0;
+        background:rgba(26,67,50,.98);padding:12px 14px;gap:8px;flex-wrap:wrap;
+        border-bottom:1px solid rgba(255,255,255,.10);
+      }
+      .nav-item{width:100%}
+      .nav-item .nav-link{width:100%; justify-content:space-between}
+      .dropdown{position:static;width:100%;margin-top:8px}
+      .dropdown.is-open{display:block}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <a href="index.html" aria-label="Retour à l'accueil">
+          <img class="nav-logo"
+               src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv"
+               alt="Logo Jardin Botanique des Cayes" />
+        </a>
+      </div>
+
+      <div class="nav-menu" aria-label="Menu principal">
+        <a class="nav-link" href="index.html">Accueil</a>
+        <a class="nav-link" href="impliquer.html">S'impliquer</a>
+
+        <div class="nav-item">
+          <a class="nav-link is-active" href="scienceconservation.html" aria-haspopup="true" aria-expanded="false">
+            Science &amp; Conservation <span class="caret"><i class="fa-solid fa-chevron-down"></i></span>
+          </a>
+          <div class="dropdown" role="menu" aria-label="Sous-menu Science &amp; Conservation">
+            <a href="scienceconservation.html" role="menuitem"><i class="fa-solid fa-layer-group"></i> Aperçu</a>
+            <div class="dd-sep"></div>
+            <a href="science.html" role="menuitem"><i class="fa-solid fa-flask"></i> Science</a>
+            <a href="donnees.html" role="menuitem"><i class="fa-solid fa-database"></i> Données</a>
+            <a href="conservation.html" role="menuitem"><i class="fa-solid fa-seedling"></i> Conservation</a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="education.html">Éducation</a>
+        <a class="nav-link" href="horticulture.html">Horticulture</a>
+        <a class="nav-link" href="medias.html">Médias</a>
+        <a class="nav-link" href="apropos.html">À propos</a>
+      </div>
+
+      <button class="nav-link" id="navToggle" type="button" aria-label="Ouvrir le menu" style="display:none;">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Science et Conservation">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">Science &amp; Conservation</h1>
+        <p class="hero-sub">
+          Le département Science &amp; Conservation du Jardin Botanique des Cayes produit des connaissances fiables,
+          organise les données, et soutient la conservation et la restauration des écosystèmes pour la santé de l’homme et de la nature.
+        </p>
+
+        <div class="hero-quick" aria-label="Raccourcis">
+          <a class="pill-btn primary" href="#jobs"><i class="fa-solid fa-briefcase"></i> 3 Jobs</a>
+          <a class="pill-btn primary" href="#projets"><i class="fa-solid fa-diagram-project"></i> Projets</a>
+          <a class="pill-btn" href="#nouvelles"><i class="fa-regular fa-newspaper"></i> Nouvelles</a>
+          <a class="pill-btn" href="#contact"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- INTRO -->
+    <section class="section" aria-label="Introduction">
+      <div class="container">
+        <div class="center-card">
+          <h2>Notre rôle au Jardin Botanique des Cayes</h2>
+          <p>
+            Nous développons une approche intégrée : la <strong>Science</strong> produit des méthodes et des résultats,
+            les <strong>Données</strong> transforment l’observation en décision,
+            et la <strong>Conservation</strong> protège les espèces et les habitats (in-situ et ex-situ).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3 JOBS ===== -->
+    <section class="section" id="jobs" aria-label="Trois jobs">
+      <div class="container">
+        <h2 class="trio-title">Nos trois jobs : Science · Données · Conservation</h2>
+
+        <div class="trio">
+          <!-- SCIENCE -->
+          <article class="trio-card" aria-label="Job Science">
+            <img
+              src="https://lh3.googleusercontent.com/d/1lXwKCEyu03ofo6OmSeiw_wMdXTwI-kPr"
+              alt="Job Science : recherche, inventaires et production de connaissances pour la biodiversité (Jardin Botanique des Cayes)"
+              loading="lazy">
+            <div class="trio-overlay">
+              <div>
+                <h3>Job 1 — Science</h3>
+                <p>Inventaires, documentation, protocoles, études appliquées et diffusion de résultats.</p>
+                <div class="trio-actions">
+                  <a class="btn btn-primary" href="science.html"><i class="fa-solid fa-flask"></i> Ouvrir Science</a>
+                  <a class="btn btn-outline" href="#science-details"><i class="fa-solid fa-arrow-down"></i> Détails</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- DONNÉES -->
+          <article class="trio-card" aria-label="Job Données">
+            <img
+              src="https://lh3.googleusercontent.com/d/1TIguoVnNoUM7Z4uYQKoljJaVlDPZFtdy"
+              alt="Job Données : structuration, cartographie et analyse pour guider la décision (Jardin Botanique des Cayes)"
+              loading="lazy">
+            <div class="trio-overlay">
+              <div>
+                <h3>Job 2 — Données</h3>
+                <p>Gestion de bases de données, synthèses, indicateurs, cartes et ressources.</p>
+                <div class="trio-actions">
+                  <a class="btn btn-primary" href="donnees.html"><i class="fa-solid fa-database"></i> Ouvrir Données</a>
+                  <a class="btn btn-outline" href="#contact"><i class="fa-solid fa-headset"></i> Demander</a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- CONSERVATION -->
+          <article class="trio-card" aria-label="Job Conservation">
+            <img
+              src="https://lh3.googleusercontent.com/d/1UIg-EhJSSn2dXHgjTrft3SadibhpNWhf"
+              alt="Job Conservation : protection, restauration et sauvegarde des espèces et habitats (Jardin Botanique des Cayes)"
+              loading="lazy">
+            <div class="trio-overlay">
+              <div>
+                <h3>Job 3 — Conservation</h3>
+                <p>In-situ & ex-situ, banque de semences, herbier, restauration écologique et priorisation.</p>
+                <div class="trio-actions">
+                  <a class="btn btn-primary" href="conservation.html"><i class="fa-solid fa-seedling"></i> Ouvrir Conservation</a>
+                  <a class="btn btn-outline" href="#conservation-details"><i class="fa-solid fa-arrow-down"></i> Détails</a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCIENCE DETAILS -->
+    <section class="section" id="science-details" aria-label="Détails Science">
+      <div class="container">
+        <div class="block">
+          <h2><i class="fa-solid fa-flask"></i> Science</h2>
+          <p>
+            Le volet Science structure l’exploration botanique, la validation des usages, la production de documents,
+            et la diffusion de connaissances utiles (protocoles, listes, publications, supports de formation).
+          </p>
+
+          <div class="block-grid" role="list">
+            <div class="mini" role="listitem">
+              <h4>Inventaires & documentation</h4>
+              <p>Collecte, identification, référentiels, harmonisation et archivage scientifique.</p>
+            </div>
+            <div class="mini" role="listitem">
+              <h4>Études appliquées</h4>
+              <p>Plantes natives/endémiques, restauration, usages, résilience et intégration paysagère.</p>
+            </div>
+            <div class="mini" role="listitem">
+              <h4>Protocoles</h4>
+              <p>Multiplication, germination, traçabilité et fiches techniques standardisées.</p>
+            </div>
+            <div class="mini" role="listitem">
+              <h4>Éducation scientifique</h4>
+              <p>Ateliers, vulgarisation, formations et contenus pédagogiques basés sur des méthodes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONSERVATION DETAILS -->
+    <section class="section" id="conservation-details" aria-label="Détails Conservation">
+      <div class="container">
+        <div class="block">
+          <h2><i class="fa-solid fa-seedling"></i> Conservation</h2>
+          <p>
+            Notre conservation repose sur une stratégie à deux niveaux : <strong>in-situ</strong> (protéger et restaurer les habitats)
+            et <strong>ex-situ</strong> (sauvegarder la diversité : collections vivantes, pépinière, herbier, banque de semences).
+          </p>
+
+          <div class="block-grid" role="list">
+            <div class="mini" role="listitem">
+              <h4>Conservation in-situ</h4>
+              <p>Protection des habitats, restauration, suivi d’espèces prioritaires, lutte contre les menaces.</p>
+            </div>
+            <div class="mini" role="listitem">
+              <h4>Conservation ex-situ</h4>
+              <p>Collections vivantes, multiplication, réserve génétique, production pour la restauration.</p>
+            </div>
+            <div class="mini" role="listitem">
+              <h4>Banque de semences</h4>
+              <p>Collecte, stockage, tests de viabilité et disponibilité pour projets et partenaires.</p>
+            </div>
+            <div class="mini" role="listitem">
+              <h4>Herbier & références</h4>
+              <p>Archivage des spécimens, validation, identification et support scientifique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="section" id="projets" aria-label="Projets">
+      <div class="container">
+        <div class="block">
+          <h2><i class="fa-solid fa-diagram-project"></i> Projets (Passés · Présents · Futurs)</h2>
+          <p class="muted">Remplace ces exemples par tes vrais projets, puis relie chaque carte vers une page projet.</p>
+
+          <div class="tabs" role="tablist" aria-label="Projets par période">
+            <button class="tab is-active" type="button" data-tab="past" role="tab" aria-selected="true">Passés</button>
+            <button class="tab" type="button" data-tab="present" role="tab" aria-selected="false">Présents</button>
+            <button class="tab" type="button" data-tab="future" role="tab" aria-selected="false">Futurs</button>
+          </div>
+
+          <div class="tab-panels">
+            <!-- PASSÉS -->
+            <div class="tab-panel" data-panel="past" role="tabpanel">
+              <div class="project-grid">
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/1pwsvflAYvZnO2VPCIalh0TOiejAUWamW"
+                       alt="Structuration scientifique : bases de données, protocoles et standards pour fiabiliser les décisions (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Structuration scientifique</h3>
+                    <p>Méthodes de collecte, identification, documentation et priorisation.</p>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/1q-L5scsnsjqTu6tpuedzghwTjJfPdSaL"
+                       alt="Collections vivantes : conservation ex situ d’espèces natives, endémiques et menacées (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Collections vivantes</h3>
+                    <p>Espèces clés pour l’éducation, la conservation et la production.</p>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/1GOCiZkpU6hW-1TKMJQokMku4r_e-7_Ou"
+                       alt="Appui technique au terrain : accompagnement scientifique et opérationnel pour la recherche et la conservation (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Appui technique</h3>
+                    <p>Sélection d’espèces et conseils de terrain pour des projets pilotes.</p>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+
+            <!-- PRÉSENTS -->
+            <div class="tab-panel" data-panel="present" role="tabpanel" hidden>
+              <div class="project-grid">
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/1TRpKVx0ocvNseLl9vixtUt6QFvo7-iPA"
+                       alt="Études sur les espèces natives : inventaires, écologie et priorisation pour la conservation en Haïti (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Études sur espèces natives</h3>
+                    <p>Recherche appliquée : restauration, horticulture, usages, résilience.</p>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/1rb5nVo_ifWkJRhzpiuHYgtNNhKkT2pqF"
+                       alt="Suivi des espèces prioritaires : monitoring, indicateurs et évaluation des actions de conservation (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Suivi d’espèces prioritaires</h3>
+                    <p>Observations, indicateurs, évaluation et mise à jour des priorités.</p>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/1q7U51LRV1K75lMNS28o1OuLTyq8MwdIl"
+                       alt="Production de plants pour la conservation : pépinière, multiplication et préparation à la restauration (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Production pour conservation</h3>
+                    <p>Capacité de production : plants fiables, traçables et utiles.</p>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+
+            <!-- FUTURS -->
+            <div class="tab-panel" data-panel="future" role="tabpanel" hidden>
+              <div class="project-grid">
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/151mbwzdEkwdQyaHogRI7eq2xQ1ggifBk"
+                       alt="Diffusion scientifique : partage des données, résultats et outils pour la décision (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Diffuser le modèle</h3>
+                    <p>Soutenir d’autres sites : méthodes, données et standards.</p>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/19B2HR7psn4ZKhwTu3zWBNyaIMyVxPjhx"
+                       alt="Plantes médicinales : références, usages, sécurité et valorisation pour la santé (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Plantes médicinales</h3>
+                    <p>Documentation, pratiques sûres, production et éducation.</p>
+                  </div>
+                </article>
+
+                <article class="project-card">
+                  <img class="project-img"
+                       src="https://lh3.googleusercontent.com/d/1m7deqOdpPFl3qkuQUYGtqY3EStaIAtP8"
+                       alt="Nature et santé mentale : bien-être, lien au vivant et bénéfices des écosystèmes (Jardin Botanique des Cayes)"
+                       loading="lazy">
+                  <div class="project-body">
+                    <h3>Nature & santé mentale</h3>
+                    <p>Programmes nature-santé, parcours bien-être et éducation.</p>
+                  </div>
+                </article>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NOUVELLES -->
+    <section class="section" id="nouvelles" aria-label="Nouvelles">
+      <div class="container">
+        <div class="block">
+          <h2><i class="fa-regular fa-newspaper"></i> Nouvelles</h2>
+          <p class="muted">Trois exemples. Tu peux lier chaque carte vers un article dans Médias.</p>
+
+          <div class="news-grid">
+            <a class="news-card" href="medias.html">
+              <img class="news-img"
+                   src="https://lh3.googleusercontent.com/d/1JOLp8FPwhUfgkMTsgwJdoYfboxhKOjmP"
+                   alt="Publication scientifique : résultats, rapports et ressources pour la recherche et la conservation (Jardin Botanique des Cayes)"
+                   loading="lazy">
+              <div class="news-body">
+                <h3>Publication scientifique</h3>
+                <p>Résultats, notes de terrain et annonces du département.</p>
+                <div class="news-meta">Lire • Médias</div>
+              </div>
+            </a>
+
+            <a class="news-card" href="medias.html">
+              <img class="news-img"
+                   src="https://lh3.googleusercontent.com/d/1GQHjM_7ulN5ztLZwRdAfUhhJJJu6U3Ij"
+                   alt="Atelier de formation : renforcement de capacités en botanique, conservation et restauration écologique (Jardin Botanique des Cayes)"
+                   loading="lazy">
+              <div class="news-body">
+                <h3>Atelier &amp; formation</h3>
+                <p>Renforcement de capacités autour des données et de la conservation.</p>
+                <div class="news-meta">Voir • Médias</div>
+              </div>
+            </a>
+
+            <a class="news-card" href="medias.html">
+              <img class="news-img"
+                   src="https://lh3.googleusercontent.com/d/1D846YYaseKDKApWe20nJUteEaHlh1iIK"
+                   alt="Mission de terrain : collecte d’observations, photos et géolocalisation pour la science et la conservation (Jardin Botanique des Cayes)"
+                   loading="lazy">
+              <div class="news-body">
+                <h3>Mission terrain</h3>
+                <p>Suivi d’espèces et actions prioritaires sur les sites de restauration.</p>
+                <div class="news-meta">Découvrir • Médias</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact" aria-label="Contact département">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-box">
+            <h2>Contacter le Département</h2>
+            <p>
+              Pour une collaboration, une consultation ou une demande liée à nos travaux (science, données, conservation),
+              écrivez-nous via le formulaire.
+              <br><br>
+              <strong>Nous vous répondrons dès que possible.</strong>
+            </p>
+            <p class="muted" style="margin-top:10px;">
+              Email général : <strong>info@jardinbotaniquecayeshaiti.org</strong>
+            </p>
+          </div>
+
+          <div class="contact-box">
+            <form name="contact-science-conservation" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="contact-science-conservation">
+
+              <div class="field">
+                <label for="name">Nom / Institution</label>
+                <input id="name" name="name" type="text" placeholder="Votre nom ou institution" required>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Votre email" required>
+              </div>
+
+              <div class="field">
+                <label for="topic">Sujet</label>
+                <select id="topic" name="topic" required>
+                  <option value="">Choisir…</option>
+                  <option>Job 1 — Science (recherche)</option>
+                  <option>Job 2 — Données (base de données)</option>
+                  <option>Job 3 — Conservation (restauration)</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Écrivez votre message..." required></textarea>
+              </div>
+
+              <button class="submit" type="submit">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-contact">
+          <div class="footer-title">Jardin Botanique des Cayes</div>
+
+          <p><i class="fa-solid fa-location-dot"></i>
+            <span># 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</span>
+          </p>
+          <p><i class="fa-solid fa-phone"></i>
+            <span>Haïti : +509 4309 2809</span>
+          </p>
+          <p><i class="fa-solid fa-phone"></i>
+            <span>USA : +1 845 248 9803</span>
+          </p>
+          <p><i class="fa-solid fa-envelope"></i>
+            <span>info@jardinbotaniquecayeshaiti.org</span>
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Départements</div>
+          <ul class="footer-list">
+            <li><a href="scienceconservation.html">Science &amp; Conservation</a></li>
+            <li><a href="education.html">Éducation</a></li>
+            <li><a href="horticulture.html">Horticulture</a></li>
+            <li><a href="developpement.html">Développement &amp; Communication</a></li>
+          </ul>
+          <div class="footer-title" style="margin-top:18px;">Ressources</div>
+          <ul class="footer-list">
+            <li><a href="donnees.html">Données</a></li>
+            <li><a href="medias.html">Publications &amp; Nouvelles</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Suivez-nous</div>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Jardin Botanique des Cayes. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Tabs -->
+  <script>
+    (function () {
+      const root = document.querySelector('#projets');
+      if (!root) return;
+
+      const tabButtons = root.querySelectorAll('.tab');
+      const panels = root.querySelectorAll('.tab-panel');
+
+      function activateTab(target) {
+        tabButtons.forEach(btn => {
+          const isActive = btn.getAttribute('data-tab') === target;
+          btn.classList.toggle('is-active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        panels.forEach(p => {
+          const isTarget = p.getAttribute('data-panel') === target;
+          p.hidden = !isTarget;
+        });
+      }
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => activateTab(btn.getAttribute('data-tab')));
+      });
+
+      activateTab('past');
+    })();
+  </script>
+
+  <!-- JS Mobile menu + dropdown -->
+  <script>
+    (function(){
+      const toggle = document.getElementById('navToggle');
+      const menu = document.querySelector('.nav-menu');
+      if(!toggle || !menu) return;
+
+      function sync(){
+        const isMobile = window.matchMedia('(max-width: 560px)').matches;
+        toggle.style.display = isMobile ? 'inline-flex' : 'none';
+        if(!isMobile){
+          menu.classList.remove('is-open');
+          document.querySelectorAll('.dropdown.is-open').forEach(d => d.classList.remove('is-open'));
+        }
+      }
+      window.addEventListener('resize', sync);
+      sync();
+
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('is-open');
+      });
+
+      const scLink = document.querySelector('.nav-item > .nav-link.is-active');
+      const dd = document.querySelector('.nav-item .dropdown');
+      if(scLink && dd){
+        scLink.addEventListener('click', (e) => {
+          const isMobile = window.matchMedia('(max-width: 560px)').matches;
+          if(!isMobile) return;
+          e.preventDefault();
+          dd.classList.toggle('is-open');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
+

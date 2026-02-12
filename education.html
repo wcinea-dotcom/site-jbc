@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Éducation | Jardin Botanique des Cayes</title>
+
+  <!-- =========================
+       SEO (texte prêt)
+       ========================= -->
+  <meta name="description" content="Le Département d’Éducation du Jardin Botanique des Cayes partage la science au public : écologie, botanique, phytothérapie, naturopathie et ethnobotanique. Programmes scolaires, universitaires, formations et cours pour contribuer à la santé de l’homme et de la nature." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://TON-DOMAINE.tld/education.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Jardin Botanique des Cayes" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Éducation | Jardin Botanique des Cayes" />
+  <meta property="og:description" content="Programmes scolaires, universitaires, formations et cours pour contribuer à la santé de l’homme et de la nature." />
+  <meta property="og:url" content="https://TON-DOMAINE.tld/education.html" />
+  <meta property="og:image" content="https://TON-DOMAINE.tld/assets/og-education.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Éducation | Jardin Botanique des Cayes" />
+  <meta name="twitter:description" content="Éducation environnementale, formations et cours — du scolaire au professionnel." />
+  <meta name="twitter:image" content="https://TON-DOMAINE.tld/assets/og-education.jpg" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Jardin Botanique des Cayes",
+    "url": "https://TON-DOMAINE.tld/",
+    "email": "info@jardinbotaniquecayeshaiti.org",
+    "telephone": "+5098452489803",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "# 24, Bergeaud, Rte Nle # 2",
+      "addressLocality": "Les Cayes",
+      "addressCountry": "HT"
+    },
+    "sameAs": [
+      "https://facebook.com/TON-LIEN",
+      "https://www.linkedin.com/company/TON-LIEN",
+      "https://x.com/TON-LIEN",
+      "https://www.tiktok.com/@TON-LIEN"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#1a4332;
+      --secondary:#2d5a27;
+      --accent:#c5a059;
+      --light:#f4f7f4;
+      --text:#2c3e50;
+      --white:#ffffff;
+      --shadow: 0 10px 26px rgba(0,0,0,.10);
+      --shadow2: 0 20px 60px rgba(0,0,0,.14);
+      --max:1200px;
+
+      --nav-h:92px;
+      --hero-h: clamp(420px, 58vh, 640px);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.6;
+    }
+    h1,h2,h3,h4{font-family:"Playfair Display",serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .section{padding:70px 0}
+    .muted{color:rgba(44,62,80,.75)}
+
+    /* NAV */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      height:var(--nav-h);
+      background:rgba(26,67,50,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      height:100%;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
+    }
+    .nav-left{display:flex;align-items:center}
+    .nav-logo{
+      height:72px;
+      width:auto;
+      filter:drop-shadow(0 2px 10px rgba(0,0,0,.25));
+      border-radius:8px;
+      background:rgba(255,255,255,.06);
+      padding:6px;
+    }
+    .nav-menu{
+      display:flex;align-items:center;gap:22px;
+      flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      border:none;background:transparent;color:#fff;
+      font-weight:900;font-size:.92rem;
+      letter-spacing:.06em;text-transform:uppercase;
+      padding:10px 8px;border-radius:999px;
+      cursor:pointer;transition:.22s ease;
+      white-space:nowrap;
+    }
+    .nav-link:hover{color:var(--accent)}
+    @media (max-width: 560px){
+      :root{--nav-h:86px}
+      .nav-menu{display:none}
+      .nav-logo{height:66px}
+    }
+
+    /* HERO */
+    .page-hero{
+      margin-top:var(--nav-h);
+      width:100%;
+      min-height:var(--hero-h);
+      overflow:hidden;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+    }
+    .page-hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(900px 600px at 20% 20%, rgba(197,160,89,.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 40%, rgba(46,204,113,.10), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.70));
+      pointer-events:none;
+    }
+    .page-hero__content{
+      position:relative;z-index:2;
+      width:100%;
+      padding:34px 0;
+      color:#fff;
+      text-shadow:0 2px 10px rgba(0,0,0,.25);
+    }
+    .page-hero__content h1{
+      font-size:clamp(2.4rem, 4.6vw, 4rem);
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    .page-hero__content p{
+      font-size:clamp(1.05rem, 1.4vw, 1.25rem);
+      opacity:.95;
+      margin:0;
+      max-width:980px;
+    }
+
+    /* Boutons */
+    .btn, .btn-outline{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 18px;border-radius:999px;
+      font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+      transition:.22s ease;font-size:.82rem;white-space:nowrap;
+      cursor:pointer;
+    }
+    .btn{background:var(--primary);color:#fff;border:none}
+    .btn:hover{background:var(--secondary);transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:var(--primary);border:1px solid rgba(26,67,50,.25)}
+    .btn-outline:hover{border-color:rgba(26,67,50,.45);transform:translateY(-1px)}
+
+    /* Titres */
+    .section-head{text-align:center;margin-bottom:26px}
+    .section-title{color:var(--primary);margin:0 0 10px}
+    .section-subtitle{color:#666;margin:0}
+    .section--soft{background:var(--light);border-radius:16px;padding:52px 0}
+
+    /* Intro */
+    .intro{max-width:980px;margin:0 auto}
+    .lead{font-size:1.08rem;line-height:1.85;color:#555;text-align:justify;margin:0 0 16px}
+    .pillars-note{font-weight:900;color:var(--primary);text-align:center;margin:0}
+
+    /* Cards */
+    .cards-grid{display:grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap:20px}
+    .cards-grid--wide{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+    .card{
+      background:var(--white);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .card-img{width:100%;height:220px;object-fit:cover}
+    .card-img--short{height:200px}
+    .card-body{padding:16px 16px 18px}
+    .card-body h3{margin:0 0 8px;color:var(--primary)}
+    .card-body p{margin:0;color:#555;line-height:1.7}
+    .card-body ul{margin:10px 0 0 18px;color:#555;line-height:1.8}
+    .card-body li{margin:6px 0}
+    .card--top-accent{border-top:5px solid var(--accent)}
+    .card--top-secondary{border-top:5px solid var(--secondary)}
+    .card--top-primary{border-top:5px solid var(--primary)}
+    .card--left-accent{border-left:5px solid var(--accent)}
+    .card--left-secondary{border-left:5px solid var(--secondary)}
+    .card--left-primary{border-left:5px solid var(--primary)}
+
+    /* Cours */
+    .course-grid{display:grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap:18px;margin-top:18px}
+
+    /* Tabs Projets */
+    .tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    .tab{
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+      color:var(--primary);
+      transition:.2s ease;
+    }
+    .tab.is-active{background:var(--primary);color:#fff;border-color:rgba(26,67,50,.35)}
+    .project-grid{display:grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap:16px;margin-top:18px}
+    .project-card{
+      background:#fff;border-radius:16px;overflow:hidden;
+      box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.06);
+    }
+    .project-img{width:100%;height:180px;object-fit:cover}
+    .project-body{padding:14px 14px 16px}
+    .project-body h3{margin:0 0 8px;color:var(--primary);font-size:1.02rem}
+    .project-body p{margin:0;color:#555;line-height:1.75}
+
+    /* Actualités */
+    .news-wrap{display:grid;grid-template-columns: 1.2fr .8fr;gap:18px;margin-top:22px;align-items:start}
+    .news-box{
+      background:#fff;border-radius:16px;box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+      padding:18px;border-top:6px solid var(--secondary);
+    }
+    .news-box h3{margin:0 0 10px;color:var(--primary)}
+    .news-item{padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+    .news-item:last-child{border-bottom:none}
+    .news-item strong{color:var(--primary)}
+    .news-item p{margin:6px 0 0;color:#555;line-height:1.75}
+
+    /* CTA */
+    .cta-center{text-align:center;margin:40px 0 10px}
+
+    /* Formulaire Netlify */
+    .form-container{
+      margin:48px 0 70px;
+      background:#fff;border-radius:16px;box-shadow:var(--shadow);
+      padding:18px;border-top:6px solid var(--accent);
+    }
+    .form-container h2{text-align:center;margin:6px 0 16px;color:var(--primary);font-size:1.7rem}
+    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+    .form-group label{
+      font-weight:900;letter-spacing:.04em;text-transform:uppercase;
+      font-size:.78rem;color:rgba(26,67,50,.85);
+    }
+    .form-group input,.form-group select,.form-group textarea{
+      padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,.15);
+      outline:none;font-family:inherit;font-size:1rem;background:#fff;
+    }
+    .form-group textarea{min-height:140px;resize:vertical}
+
+    /* FOOTER */
+    .site-footer{
+      background: var(--primary);
+      color: rgba(255,255,255,.92);
+      padding: 46px 0 22px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      margin-top: 50px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      gap: 30px;
+      align-items:start;
+    }
+    .footer-title{
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .92rem;
+      margin-bottom: 14px;
+    }
+    .footer-item{
+      display:flex;align-items:flex-start;gap: 12px;
+      margin: 12px 0;color: rgba(255,255,255,.92);
+    }
+    .footer-item i{margin-top: 3px;opacity: .9}
+    .footer-item a{color: rgba(255,255,255,.92)}
+    .footer-item a:hover{color: var(--accent)}
+    .footer-cta{
+      display:inline-flex;align-items:center;gap: 10px;
+      margin-top: 18px;padding: 10px 12px;border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      font-weight: 900;letter-spacing: .06em;text-transform: uppercase;
+      font-size: .78rem;color:#fff;transition:.2s ease;
+    }
+    .footer-cta:hover{background: rgba(255,255,255,.14);transform: translateY(-1px)}
+    .footer-social{display:flex;gap: 12px;flex-wrap:wrap;margin-top: 8px}
+    .social-icon{
+      width: 52px;height: 52px;border-radius: 999px;
+      display:flex;align-items:center;justify-content:center;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.08);
+      color:#fff;transition:.2s ease;
+    }
+    .social-icon:hover{background: rgba(255,255,255,.14);color: var(--accent);transform: translateY(-1px)}
+    .footer-divider{margin: 28px 0 16px;height:1px;background: rgba(255,255,255,.14)}
+    .footer-bottom{text-align:center;opacity:.9;font-weight: 700}
+
+    /* Responsive */
+    @media (max-width: 1040px){
+      .cards-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      .course-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      .project-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      .news-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .cards-grid{grid-template-columns:1fr}
+      .course-grid{grid-template-columns:1fr}
+      .project-grid{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr;gap:22px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU PRINCIPAL -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <img class="nav-logo"
+             src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv"
+             alt="Logo Jardin Botanique des Cayes" />
+      </div>
+
+      <div class="nav-menu" aria-label="Menu principal">
+        <a class="nav-link" href="index.html">ACCUEIL</a>
+        <a class="nav-link" href="scienceconservation.html">SCIENCE &amp; CONSERVATION</a>
+        <a class="nav-link" href="education.html">ÉDUCATION</a>
+        <a class="nav-link" href="horticulture.html">HORTICULTURE</a>
+        <a class="nav-link" href="medias.html">MÉDIAS</a>
+        <a class="nav-link" href="impliquer.html">S'IMPLIQUER</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="page-hero"
+    style="background-image:url('https://drive.google.com/thumbnail?id=1jMM-eotc5wk_pscJdglZY6FlPn9zlLy8&sz=w2000');">
+    <div class="page-hero__content">
+      <div class="container">
+        <h1>DÉPARTEMENT D’ÉDUCATION</h1>
+        <p>
+          Partager la science au public : écologie, botanique, phytothérapie, naturopathie et ethnobotanique — pour contribuer à la santé de l’homme et de la nature.
+          Notre priorité : les enfants, afin d’inspirer créativité, sérénité et espoir.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="container" style="padding-top:24px;">
+      <a class="btn-outline" href="index.html"><i class="fa-solid fa-arrow-left"></i> Accueil</a>
+    </div>
+
+    <!-- INTRO -->
+    <section class="section">
+      <div class="container">
+        <div class="intro">
+          <h2 class="section-title" style="text-align:center;">NOTRE MISSION : RENDRE LA SCIENCE ACCESSIBLE</h2>
+          <p class="lead">
+            Le Département d’Éducation du Jardin Botanique des Cayes expose au public les connaissances issues de nos recherches et collaborations.
+            Nous transformons l’information scientifique (écologie, botanique, phytothérapie, naturopathie, ethnobotanique, phytochimie)
+            en apprentissages simples, pratiques et inspirants.
+          </p>
+          <p class="lead">
+            Nous travaillons prioritairement avec les enfants et les écoles pour que les élèves sortent des quatre murs, explorent la richesse des plantes,
+            développent leur créativité et comprennent que la biodiversité est une ressource essentielle pour l’avenir du pays.
+          </p>
+          <p class="pillars-note">
+            Nos activités s’articulent autour de trois piliers : programmes scolaires · programmes universitaires · formations & cours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILIER 1 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">1. PROGRAMMES SCOLAIRES</h2>
+          <p class="section-subtitle">Inspirer les élèves : exploration, curiosité, apprentissage pratique.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card card--top-accent">
+            <img src="https://drive.google.com/thumbnail?id=1jMM-eotc5wk_pscJdglZY6FlPn9zlLy8&sz=w1400"
+                 alt="Éducation : Atelier Plantes — Jardin Botanique des Cayes"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Exploration au Jardin</h3>
+              <p>Visites guidées, observation des plantes, activités sensorielles et découverte de la biodiversité.</p>
+            </div>
+          </article>
+
+          <article class="card card--top-secondary">
+            <img src="https://drive.google.com/thumbnail?id=160cbCRIRVaHmEY-gz3vracleeumaQPNB&sz=w1400"
+                 alt="Éducation : Classe Scolaire — Jardin Botanique des Cayes"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Le Jardin à l’École</h3>
+              <p>Nos équipes se déplacent dans les écoles pour présenter les plantes, la nature et leurs rôles essentiels.</p>
+            </div>
+          </article>
+
+          <article class="card card--top-primary">
+            <img src="https://drive.google.com/thumbnail?id=1_NFRP2eiuTIulBQ2EX0TZ1Lrbk3yTLrc&sz=w1400"
+                 alt="Éducation : Pratique (Mains dans la Terre) — Jardin Botanique des Cayes"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Mains dans la Terre</h3>
+              <p>Ateliers “comment planter” : techniques simples, importance des plantes et gestes pour protéger la nature.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cta-center">
+          <button class="btn" type="button" onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
+            PARTENARIAT SCOLAIRE
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILIER 2 -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">2. PROGRAMMES UNIVERSITAIRES</h2>
+          <p class="section-subtitle">Stages, cours spécialisés et explorations scientifiques.</p>
+        </div>
+
+        <div class="cards-grid cards-grid--wide">
+          <article class="card">
+            <img src="https://drive.google.com/thumbnail?id=1t5pkmj7IuLgMt7L12qIMVlT_-4elRR3r&sz=w1400"
+                 alt="Formation : Pro Terrain — Jardin Botanique des Cayes"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Stages de formation</h3>
+              <p>Les étudiants peuvent venir au jardin pour se former par la pratique : terrain, collections, méthodes et outils.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://drive.google.com/thumbnail?id=1VjtfCZv-0KDkUd2o5IQ46v54uoI3DrPt&sz=w1400"
+                 alt="Formation : Certification — Jardin Botanique des Cayes"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Cours spécialisés</h3>
+              <p>Écologie, botanique systématique, phytothérapie, naturopathie, ethnobotanique et phytochimie.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img src="https://drive.google.com/thumbnail?id=1JGAOsdwdP0V0yq6yL9O01VsRQGI_6O0Y&sz=w1400"
+                 alt="Science : Exploration — Inventaires botaniques"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Explorations & sorties</h3>
+              <p>Études et explorations scientifiques pour renforcer la compréhension et l’observation des écosystèmes.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cta-center">
+          <button class="btn" type="button" onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
+            COLLABORER AVEC UNE UNIVERSITÉ
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILIER 3 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">3. FORMATIONS &amp; COURS</h2>
+          <p class="section-subtitle">Pour les institutions, les ONG, l’État et le grand public.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card card--left-secondary">
+            <img src="https://drive.google.com/thumbnail?id=1A7D8d5uNq1dYR63HWnSsDr1MY-EOmCI7&sz=w1400"
+                 alt="Formation : Employés — Terrain"
+                 class="card-img card-img--short" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Formations pour employés</h3>
+              <p>Renforcement des capacités des équipes : méthodes, contenus, terrain, et connaissances adaptées.</p>
+            </div>
+          </article>
+
+          <article class="card card--left-accent">
+            <img src="https://drive.google.com/thumbnail?id=11MuFsALYayWd_ykbkE7xjKoV8zP25_TE&sz=w1400"
+                 alt="Formation : Plantation collective"
+                 class="card-img card-img--short" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Stages techniques</h3>
+              <p>Les institutions peuvent envoyer des participants pour des stages ciblés et des apprentissages pratiques.</p>
+            </div>
+          </article>
+
+          <article class="card card--left-primary">
+            <img src="https://drive.google.com/thumbnail?id=1n6zdShTsUY9Of3XEkZCTXIuCymKiE6yY&sz=w1400"
+                 alt="Formation : Technique — Exploration terrain"
+                 class="card-img card-img--short" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Explorations & inventaires</h3>
+              <p>Participation à des sorties d’inventaire de biodiversité pour renforcer les compétences du terrain.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-head" style="margin-top:50px;">
+          <h2 class="section-title">COURS GRAND PUBLIC & CERTIFICATIONS</h2>
+          <p class="section-subtitle">Santé · Nature · Techniques spécialisées.</p>
+        </div>
+
+        <div class="course-grid">
+          <article class="card card--top-accent">
+            <img src="https://drive.google.com/thumbnail?id=1K9sxIXrqKdlvLXQvZAI4irZ07lF3zIsp&sz=w1400"
+                 alt="Certificat : Santé & Bien-être"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Santé & Bien-être</h3>
+              <ul>
+                <li>Plantes médicinales (identification & usages)</li>
+                <li>Naturopathie & phytothérapie</li>
+                <li>Phytochimie & ethnobotanique</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card card--top-secondary">
+            <img src="https://drive.google.com/thumbnail?id=1GoA3Rpv4pQE-LBfLJPN95SqikUWg62_S&sz=w1400"
+                 alt="Certificat : Nature & Écologie"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Nature & Écologie</h3>
+              <ul>
+                <li>Écologie & botanique systématique</li>
+                <li>Évolution des plantes</li>
+                <li>Restauration & aménagement paysager</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card card--top-primary">
+            <img src="https://drive.google.com/thumbnail?id=1lLPLH3PsjCeBfU31lFlRMvD3Yg4qgPEA&sz=w1400"
+                 alt="Certificat : Technique spécialisée"
+                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <div class="card-body">
+              <h3>Technique spécialisée</h3>
+              <ul>
+                <li>Gestion de pépinières (natives & endémiques)</li>
+                <li>Inventaire de la biodiversité</li>
+                <li>Apiculture (élevage & production)</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="section section--soft" id="education-projets">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">PROJETS D’ÉDUCATION (PASSÉS · PRÉSENTS · FUTURS)</h2>
+          <p class="section-subtitle">Découvrir les projets passés, présents et futurs du Jardin Botanique des Cayes.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Projets par période">
+          <button class="tab is-active" type="button" data-tab="past" role="tab" aria-selected="true">Passés</button>
+          <button class="tab" type="button" data-tab="present" role="tab" aria-selected="false">Présents</button>
+          <button class="tab" type="button" data-tab="future" role="tab" aria-selected="false">Futurs</button>
+        </div>
+
+        <div class="tab-panels">
+          <div class="tab-panel is-active" data-panel="past" role="tabpanel">
+            <div class="project-grid">
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=160cbCRIRVaHmEY-gz3vracleeumaQPNB&sz=w1400"
+                     alt="Projet : Visites scolaires" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Visites scolaires</h3>
+                  <p>Visites éducatives, ateliers de découverte et sensibilisation à la biodiversité.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=1jMM-eotc5wk_pscJdglZY6FlPn9zlLy8&sz=w1400"
+                     alt="Projet : Cours et ateliers" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Cours & ateliers</h3>
+                  <p>Premiers cycles de formation nature-santé (à personnaliser selon vos réalisations).</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=1_NFRP2eiuTIulBQ2EX0TZ1Lrbk3yTLrc&sz=w1400"
+                     alt="Projet : Sensibilisation" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Sensibilisation</h3>
+                  <p>Présentations dans les écoles sur les plantes, la nature et les services écosystémiques.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="present" role="tabpanel" hidden>
+            <div class="project-grid">
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=1lLPLH3PsjCeBfU31lFlRMvD3Yg4qgPEA&sz=w1400"
+                     alt="Programme jardin scolaire" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Programme “Jardin scolaire”</h3>
+                  <p>Accompagnement d’écoles pour apprendre à planter et comprendre l’importance des plantes.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=1K9sxIXrqKdlvLXQvZAI4irZ07lF3zIsp&sz=w1400"
+                     alt="Ateliers grand public" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Ateliers grand public</h3>
+                  <p>Cours accessibles sur phytothérapie, écologie et botanique, avec exercices pratiques.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=1n6zdShTsUY9Of3XEkZCTXIuCymKiE6yY&sz=w1400"
+                     alt="Formations techniques" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Formations techniques</h3>
+                  <p>Inventaires, pépinières natives/endémiques, apiculture et sorties de terrain.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="future" role="tabpanel" hidden>
+            <div class="project-grid">
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=1pr1YfxdLEtpJ24DCwiGHZvS9o2p4dxUS&sz=w1400"
+                     alt="École de la nature" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>École de la Nature</h3>
+                  <p>Créer un cadre structuré de formation continue pour élèves, étudiants et professionnels.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=1EYFrP2Yja263Yzgmi9CODhY4zKjwjIOM&sz=w1400"
+                     alt="Programme national" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Programme national</h3>
+                  <p>Déployer des partenariats pour renforcer l’éducation environnementale à grande échelle.</p>
+                </div>
+              </article>
+              <article class="project-card">
+                <img class="project-img"
+                     src="https://drive.google.com/thumbnail?id=REMPLACER_ID_20&sz=w1400"
+                     alt="Cours en ligne" loading="lazy" referrerpolicy="no-referrer">
+                <div class="project-body">
+                  <h3>Plateforme de cours en ligne</h3>
+                  <p>Organiser des modules accessibles pour apprendre même à distance.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-wrap">
+          <div class="news-box">
+            <h3>Actualités — Éducation environnementale</h3>
+
+            <div class="news-item">
+              <strong>[Formation]</strong>
+              <p>Remise de certificats : apiculture / pépinières (à personnaliser).</p>
+            </div>
+            <div class="news-item">
+              <strong>[Scolaire]</strong>
+              <p>Activités de sensibilisation et visites guidées (à personnaliser).</p>
+            </div>
+            <div class="news-item">
+              <strong>[Université]</strong>
+              <p>Appel à candidatures : stage d’été en inventaire (à personnaliser).</p>
+            </div>
+          </div>
+
+          <div class="news-box" style="border-top-color: var(--accent);">
+            <h3>Créer un partenariat</h3>
+            <p class="muted" style="margin-top:6px;">
+              Écoles, universités, ONG, institutions : contactez-nous pour développer un programme adapté à votre besoin.
+            </p>
+            <div class="cta-center" style="margin:18px 0 0;">
+              <button class="btn" type="button" onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
+                CONTACTER LE DÉPARTEMENT
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT (Netlify Forms) -->
+    <section class="section">
+      <div class="container">
+        <div id="contact-education" class="form-container">
+          <h2>Contactez le Département d’Éducation</h2>
+
+          <form name="contact-education" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact-education">
+
+            <div class="form-group">
+              <label for="edu-nom">Nom / Institution</label>
+              <input id="edu-nom" type="text" name="nom" required>
+            </div>
+
+            <div class="form-group">
+              <label for="edu-email">Email</label>
+              <input id="edu-email" type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="edu-type">Type de demande</label>
+              <select id="edu-type" name="type">
+                <option>Partenariat scolaire</option>
+                <option>Programme universitaire</option>
+                <option>Formation institutionnelle</option>
+                <option>Cours grand public</option>
+                <option>Autre</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="edu-message">Message</label>
+              <textarea id="edu-message" name="message" rows="6" required></textarea>
+            </div>
+
+            <button class="btn" type="submit" style="width:100%;">ENVOYER</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-title">Jardin Botanique des Cayes</div>
+
+          <div class="footer-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div># 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</div>
+          </div>
+
+          <div class="footer-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+5098452489803">+509 8452 4898 03</a>
+          </div>
+
+          <div class="footer-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@jardinbotaniquecayeshaiti.org">info@jardinbotaniquecayeshaiti.org</a>
+          </div>
+
+          <a class="footer-cta" href="https://www.google.com/maps?q=Jardin%20Botanique%20des%20Cayes" target="_blank" rel="noopener">
+            VOIR SUR LA CARTE <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div>
+          <div class="footer-title">Départements</div>
+
+          <div class="footer-item"><i class="fa-solid fa-leaf"></i><a href="scienceconservation.html">Science &amp; Conservation</a></div>
+          <div class="footer-item"><i class="fa-solid fa-graduation-cap"></i><a href="education.html">Éducation</a></div>
+          <div class="footer-item"><i class="fa-solid fa-seedling"></i><a href="horticulture.html">Horticulture</a></div>
+          <div class="footer-item"><i class="fa-solid fa-bullhorn"></i><a href="developpement.html">Développement &amp; Communication</a></div>
+        </div>
+
+        <div>
+          <div class="footer-title">Suivez-nous</div>
+          <div class="footer-social" aria-label="Réseaux sociaux">
+            <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a class="social-icon" href="#" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">© 2026 Jardin Botanique des Cayes. Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Tabs Projets
+    document.addEventListener('DOMContentLoaded', function () {
+      const root = document.getElementById('education-projets');
+      if (!root) return;
+
+      const tabButtons = root.querySelectorAll('.tab');
+      const panels = root.querySelectorAll('.tab-panel');
+      if (!tabButtons.length || !panels.length) return;
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab');
+
+          tabButtons.forEach(b => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+
+          panels.forEach(p => {
+            const isTarget = p.getAttribute('data-panel') === target;
+            p.hidden = !isTarget;
+            if (isTarget) p.classList.add('is-active');
+            else p.classList.remove('is-active');
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Science | Science & Conservation — Jardin Botanique des Cayes</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --primary:#1a4332;
+      --secondary:#2d5a27;
+      --accent:#c5a059;
+      --alert:#e74c3c;
+      --text:#1f2a33;
+      --muted:#5a6772;
+      --bg:#ffffff;
+      --soft:#f4f7f4;
+      --card:#ffffff;
+      --border:rgba(0,0,0,.10);
+      --shadow:0 14px 40px rgba(0,0,0,.10);
+      --shadow2:0 6px 20px rgba(0,0,0,.10);
+      --radius:18px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.7;
+    }
+    h1,h2,h3{font-family:"Playfair Display",serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .spacer{height:16px}
+    .kicker{
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight:700;
+      font-size:.78rem;
+      color:rgba(255,255,255,.85);
+    }
+
+    /* NAV */
+    .topbar{
+      position:fixed; inset:0 0 auto 0;
+      height:76px;
+      background:rgba(26,67,50,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      z-index:3000;
+      display:flex;
+      align-items:center;
+    }
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:46px;width:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.25))}
+    .brand strong{color:#fff;letter-spacing:.02em}
+    .navlinks{display:flex;gap:14px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+
+    .navlinks a{
+      color:#fff;
+      font-weight:700;
+      font-size:.82rem;
+      text-transform:uppercase;
+      padding:10px 12px;
+      border-radius:999px;
+      transition:.2s ease;
+      border:1px solid transparent;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .navlinks a:hover{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.18);
+      color:var(--accent);
+    }
+    .navlinks .cta{
+      background:var(--accent);
+      color:#1b2b22;
+      border-color:rgba(0,0,0,.08);
+      font-weight:900;
+    }
+    .navlinks .cta:hover{filter:brightness(.96); color:#1b2b22}
+
+    /* Dropdown desktop */
+    .dropdown{position:relative;display:inline-flex;align-items:center}
+    .dropbtn{
+      cursor:pointer;
+      background:transparent;
+      border:1px solid transparent;
+      color:#fff;
+      font-weight:700;
+      font-size:.82rem;
+      text-transform:uppercase;
+      padding:10px 12px;
+      border-radius:999px;
+      transition:.2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+    }
+    .dropbtn:hover{
+      background:rgba(255,255,255,.08);
+      border-color:rgba(255,255,255,.18);
+      color:var(--accent);
+    }
+    .dropdown-menu{
+      position:absolute;
+      top:calc(100% + 10px);
+      left:0;
+      min-width:280px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.10);
+      border-radius:14px;
+      box-shadow:0 18px 45px rgba(0,0,0,.16);
+      padding:10px;
+      display:none;
+      z-index:4000;
+    }
+    .dropdown-menu a{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      color:var(--text);
+      font-weight:900;
+      text-transform:none;
+      line-height:1.2;
+    }
+    .dropdown-menu a small{
+      display:block;
+      font-weight:700;
+      color:var(--muted);
+      margin-top:4px;
+    }
+    .dropdown-menu a:hover{
+      background:rgba(26,67,50,.06);
+      border-color:rgba(26,67,50,.12);
+    }
+    .dropdown.open .dropdown-menu{display:block;}
+    .dropdown-menu a.active{
+      background:rgba(197,160,89,.18);
+      border-color:rgba(197,160,89,.40);
+    }
+
+    /* Burger + mobile nav */
+    .burger{
+      display:none;
+      width:44px;height:44px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      cursor:pointer;
+    }
+    .mobile-nav{
+      display:none;
+      position:fixed;
+      top:76px;
+      left:0; right:0;
+      background:rgba(26,67,50,.98);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      padding:12px 20px 16px;
+      z-index:3500;
+    }
+    .mobile-nav a, .mobile-nav button{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:#fff;
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:.85rem;
+      cursor:pointer;
+    }
+    .mobile-nav .sub{
+      margin-top:10px;
+      padding-left:10px;
+      display:none;
+    }
+    .mobile-nav .sub a{
+      text-transform:none;
+      font-weight:800;
+      font-size:.95rem;
+      justify-content:flex-start;
+    }
+    .mobile-nav.open{display:block;}
+    .mobile-nav .sub.open{display:block;}
+
+    /* HERO (✅ remplacé par hero-science.jpg de Google Drive) */
+    .hero{
+      padding-top:76px;
+      min-height:78vh;
+      display:grid;
+      place-items:center;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(120deg, rgba(0,0,0,.62), rgba(0,0,0,.25)),
+        url("https://lh3.googleusercontent.com/d/1p0HSZwIVj4mRJA3MLeBbfNAPEg5F9Nbp") center/cover no-repeat;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:auto 0 0 0;
+      height:120px;
+      background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(255,255,255,1));
+    }
+    .hero-content{
+      position:relative;
+      z-index:2;
+      max-width:980px;
+      text-align:left;
+      padding:38px 0 24px;
+    }
+    .hero h1{
+      color:#fff;
+      font-size:3.1rem;
+      line-height:1.08;
+      margin:10px 0 12px;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+    }
+    .hero p.lead{
+      color:rgba(255,255,255,.92);
+      font-size:1.18rem;
+      max-width:820px;
+    }
+    .hero-actions{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:22px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.20);
+      color:#fff;
+      background:rgba(255,255,255,.06);
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.10)}
+    .btn-primary{
+      background:var(--accent);
+      color:#1b2b22;
+      border-color:rgba(0,0,0,.10);
+    }
+    .btn-primary:hover{filter:brightness(.97)}
+    .btn-outline{
+      border-color:rgba(255,255,255,.35);
+      background:transparent;
+    }
+
+    /* SECTION BASE */
+    section{padding:70px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:16px; flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+    .section-title h2{
+      font-size:2.1rem;
+      color:var(--primary);
+      line-height:1.15;
+    }
+    .section-title p{
+      color:var(--muted);
+      max-width:520px;
+      font-size:1.02rem;
+    }
+    .divider{
+      height:1px;
+      background:linear-gradient(to right, rgba(26,67,50,.22), rgba(197,160,89,.35), rgba(0,0,0,0));
+      margin:14px 0 0;
+    }
+
+    /* INTRO CARD */
+    .intro-card{
+      background:var(--soft);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:0 10px 30px rgba(0,0,0,.05);
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:start;
+    }
+    .intro-card h3{
+      font-size:1.45rem;
+      color:var(--primary);
+      margin-bottom:10px;
+    }
+    .intro-card p{color:#43515c}
+    .callout{
+      background:#fff;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);
+      padding:18px;
+    }
+    .callout strong{color:var(--primary)}
+    .callout ul{margin:10px 0 0 18px; color:#43515c}
+    .callout li{margin:6px 0}
+
+    /* PILIERS */
+    .pillars{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+      margin-top:26px;
+    }
+    .pillar{
+      grid-column: span 6;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      position:relative;
+    }
+    .pillar-media{
+      width:100%;
+      height:200px;
+      position:relative;
+      overflow:hidden;
+      background:#e9efe9;
+    }
+    .pillar-media img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transform:scale(1.02);
+      transition:transform .35s ease;
+    }
+    .pillar-media::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
+    }
+    .pillar-media .label{
+      position:absolute;
+      left:16px;
+      bottom:14px;
+      z-index:2;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      font-weight:900;
+      font-size:.82rem;
+      color:#fff;
+      background:rgba(0,0,0,.28);
+      border:1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(6px);
+    }
+    .pillar:hover .pillar-media img{transform:scale(1.07)}
+
+    .pillar-head{
+      padding:18px 18px 14px;
+      display:flex; gap:14px; align-items:flex-start;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg, rgba(244,247,244,1), rgba(255,255,255,1));
+    }
+    .icon{
+      width:44px;height:44px;border-radius:12px;
+      background:rgba(26,67,50,.10);
+      display:grid;place-items:center;
+      color:var(--primary);
+      flex:0 0 auto;
+    }
+    .pillar h3{font-size:1.22rem;color:var(--primary);margin:0 0 4px}
+    .pillar .sub{color:var(--muted);font-weight:700;font-size:.95rem}
+    .pillar-body{padding:16px 18px 18px}
+    .pillar-body p{color:#43515c;margin-bottom:10px}
+    .pillar-body ul{margin-left:18px;color:#43515c}
+    .pillar-body li{margin:7px 0}
+
+    /* VISION TIMELINE */
+    .timeline{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+      align-items:stretch;
+    }
+    .tcard{
+      grid-column: span 4;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .tcard .top{
+      padding:18px;
+      color:#fff;
+      background:linear-gradient(120deg, rgba(26,67,50,1), rgba(45,90,39,.85));
+      position:relative;
+    }
+    .tcard:nth-child(2) .top{background:linear-gradient(120deg, rgba(197,160,89,1), rgba(26,67,50,.80))}
+    .tcard:nth-child(3) .top{background:linear-gradient(120deg, rgba(52,152,219,1), rgba(26,67,50,.75))}
+    .tcard .top .tag{
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      opacity:.92;
+    }
+    .tcard .top h3{margin-top:8px;font-size:1.35rem}
+    .tcard .body{padding:16px 18px;color:#43515c;flex:1}
+    .tcard .body p{margin:0}
+
+    /* PROJETS */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+      margin-top:26px;
+    }
+    .proj{
+      grid-column: span 4;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow2);
+      overflow:hidden;
+      position:relative;
+    }
+
+    /* ✅ BANNERS projets remplacés par tes 3 images Google Drive */
+    .proj .banner{
+      height:160px;
+      background:
+        linear-gradient(120deg, rgba(0,0,0,.45), rgba(0,0,0,.12)),
+        url("https://lh3.googleusercontent.com/d/1xw3rTS5s-q--bxZfDWra-wV9HqANf9p-") center/cover no-repeat; /* projets réalisés */
+    }
+    .proj:nth-child(2) .banner{
+      background:
+        linear-gradient(120deg, rgba(0,0,0,.45), rgba(0,0,0,.12)),
+        url("https://lh3.googleusercontent.com/d/1E5jjtfK6BXsBT31aDT1y8aJD5jO_abV7") center/cover no-repeat; /* projets en cours */
+    }
+    .proj:nth-child(3) .banner{
+      background:
+        linear-gradient(120deg, rgba(0,0,0,.45), rgba(0,0,0,.12)),
+        url("https://lh3.googleusercontent.com/d/15gBhT6o_8XbefkZB3XLRt-FB4C5fMNKO") center/cover no-repeat; /* projets futurs */
+    }
+
+    .proj .body{padding:18px}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.75rem;
+      color:var(--primary);
+      background:rgba(26,67,50,.08);
+      padding:8px 12px;
+      border-radius:999px;
+    }
+    .proj h3{margin:12px 0 8px; font-size:1.25rem; color:var(--primary)}
+    .proj ul{margin-left:18px; color:#43515c}
+    .proj li{margin:7px 0}
+    .proj .actions{padding:0 18px 18px}
+    .proj .actions a{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:11px 14px;
+      border-radius:999px;
+      font-weight:900;
+      border:1px solid rgba(26,67,50,.22);
+      color:var(--primary);
+      background:#fff;
+      transition:.2s ease;
+    }
+    .proj .actions a:hover{
+      background:rgba(26,67,50,.06);
+      transform:translateY(-1px);
+    }
+
+    /* NEWS */
+    .news{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:18px;
+      margin-top:26px;
+    }
+    .news-item{
+      grid-column: span 6;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow2);
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .news-icon{
+      width:46px;height:46px;border-radius:14px;
+      background:rgba(197,160,89,.18);
+      color:#6b5229;
+      display:grid;place-items:center;
+      flex:0 0 auto;
+    }
+    .news-item h3{
+      font-family:"Lato",sans-serif;
+      font-size:1.05rem;
+      margin:0 0 6px;
+      color:#1f2a33;
+    }
+    .news-item p{margin:0;color:#43515c}
+    .news-cta{
+      margin-top:18px;
+      display:flex;justify-content:center;
+    }
+    .news-cta a{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:13px 18px;
+      border-radius:999px;
+      font-weight:900;
+      background:var(--primary);
+      color:#fff;
+      border:1px solid rgba(0,0,0,.08);
+      transition:.2s ease;
+    }
+    .news-cta a:hover{background:var(--accent); color:#1b2b22}
+
+    /* CTA FINAL (optionnel : tu peux remplacer aussi par une de tes photos si tu veux) */
+    .cta-band{
+      background:
+        linear-gradient(120deg, rgba(26,67,50,.95), rgba(45,90,39,.86)),
+        url("https://lh3.googleusercontent.com/d/1x9uu_-Ppg2R8LTfIwQUbaQuvVfAkgcA9") center/cover no-repeat; /* ✅ réutilise ecologie.JPG */
+      color:#fff;
+      padding:64px 0;
+      position:relative;
+      overflow:hidden;
+    }
+    .cta-band .wrap{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:20px;
+      align-items:center;
+    }
+    .cta-band h2{font-size:2.1rem;margin-bottom:10px}
+    .cta-band p{color:rgba(255,255,255,.92)}
+    .cta-panel{
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 20px 50px rgba(0,0,0,.18);
+    }
+    .cta-panel .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .cta-panel a{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:900;
+      background:var(--accent);
+      color:#1b2b22;
+      border:1px solid rgba(0,0,0,.10);
+      transition:.2s ease;
+    }
+    .cta-panel a.secondary{
+      background:transparent;
+      color:#fff;
+      border-color:rgba(255,255,255,.35);
+    }
+    .cta-panel a:hover{transform:translateY(-1px); filter:brightness(.98)}
+
+    /* FOOTER */
+    footer{
+      background:var(--primary);
+      color:#fff;
+      padding:46px 0 18px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:22px;
+      align-items:start;
+    }
+    footer h3{font-family:"Lato",sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.9rem}
+    footer p{opacity:.9}
+    .copyright{
+      border-top:1px solid rgba(255,255,255,.14);
+      margin-top:20px;
+      padding-top:14px;
+      text-align:center;
+      opacity:.9;
+      font-size:.95rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero h1{font-size:2.4rem}
+      .intro-card{grid-template-columns:1fr}
+      .pillar{grid-column: span 12}
+      .tcard{grid-column: span 12}
+      .proj{grid-column: span 12}
+      .news-item{grid-column: span 12}
+      .cta-band .wrap{grid-template-columns:1fr}
+      .navlinks{display:none}
+      .burger{display:inline-grid;place-items:center;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv" alt="Logo Jardin Botanique des Cayes">
+        <strong>Jardin Botanique des Cayes</strong>
+      </div>
+
+      <!-- NAV DESKTOP -->
+      <nav class="navlinks" aria-label="Navigation">
+        <a href="index.html">Accueil</a>
+
+        <!-- Page principale -->
+        <a href="recherche.html">Science &amp; Conservation</a>
+
+        <!-- Dropdown (sous-pages) -->
+        <div class="dropdown" id="scDropdown">
+          <button class="dropbtn" type="button" aria-haspopup="true" aria-expanded="false">
+            Sous-pages <i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div class="dropdown-menu" role="menu" aria-label="Sous-pages Science & Conservation">
+            <a class="active" href="science.html">
+              <span><i class="fa-solid fa-microscope"></i></span>
+              <span>Science <small>Recherche, inventaires, laboratoire, ethnobotanique</small></span>
+            </a>
+
+            <a href="donnees.html">
+              <span><i class="fa-solid fa-database"></i></span>
+              <span>Données <small>Base de données, cartographie, publications</small></span>
+            </a>
+
+            <a href="conservation.html">
+              <span><i class="fa-solid fa-leaf"></i></span>
+              <span>Conservation <small>Restauration, priorités, plans d’action</small></span>
+            </a>
+          </div>
+        </div>
+
+        <a class="cta" href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </nav>
+
+      <!-- BURGER MOBILE -->
+      <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
+    <a href="index.html"><span>Accueil</span><i class="fa-solid fa-arrow-right"></i></a>
+    <a href="recherche.html"><span>Science &amp; Conservation</span><i class="fa-solid fa-arrow-right"></i></a>
+
+    <button type="button" id="mobileDropBtn">
+      <span>Sous-pages</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+    <div class="sub open" id="mobileSub">
+      <a href="science.html"><i class="fa-solid fa-microscope"></i>&nbsp; Science</a>
+      <a href="donnees.html"><i class="fa-solid fa-database"></i>&nbsp; Données</a>
+      <a href="conservation.html"><i class="fa-solid fa-leaf"></i>&nbsp; Conservation</a>
+    </div>
+
+    <a href="contact.html"><span>Contact</span><i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap hero-content">
+        <div class="kicker">SCIENCE — Sous-page de Science &amp; Conservation</div>
+        <h1>Briser le cycle des erreurs pour sauver notre avenir</h1>
+        <p class="lead">
+          Trop souvent, les efforts de conservation échouent faute de bases scientifiques solides.
+          Sans données fiables, nous répétons les mêmes erreurs, gaspillons des ressources précieuses
+          et voyons la biodiversité s’éteindre sous nos yeux. Au Jardin Botanique des Cayes, nous refusons
+          ce fatalisme : nous faisons appel à la science pour comprendre avant d’agir.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#piliers"><i class="fa-solid fa-microscope"></i> Découvrir nos piliers</a>
+          <a class="btn btn-outline" href="#projets"><i class="fa-solid fa-diagram-project"></i> Voir nos projets</a>
+          <a class="btn" href="#actualites"><i class="fa-regular fa-newspaper"></i> Nouvelles scientifiques</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Comprendre avant d’agir</h2>
+          <p>
+            Notre département scientifique répond à un besoin urgent : sortir de l’approximation
+            pour apporter des solutions concrètes, innovantes et durables.
+          </p>
+        </div>
+        <div class="divider"></div>
+
+        <div class="spacer"></div>
+
+        <div class="intro-card">
+          <div>
+            <h3>La science comme outil de décision</h3>
+            <p>
+              Notre approche repose sur une rigueur méthodologique : inventaires de terrain,
+              analyses écologiques, recherche en laboratoire et documentation des savoirs.
+              C’est le seul chemin pour garantir à la fois la santé de notre nature
+              et celle des hommes qui en dépendent.
+            </p>
+          </div>
+
+          <aside class="callout">
+            <strong>Ce que nous changeons</strong>
+            <ul>
+              <li>Passer des impressions aux preuves mesurées.</li>
+              <li>Prioriser les actions selon les données.</li>
+              <li>Produire des modèles reproductibles et durables.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="piliers" style="background:var(--soft);">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Nos piliers scientifiques</h2>
+          <p>Quatre axes pour connaître, diagnostiquer, expliquer et valoriser.</p>
+        </div>
+        <div class="divider"></div>
+
+        <div class="pillars">
+
+          <!-- ✅ inventaires.JPG -->
+          <article class="pillar">
+            <div class="pillar-media">
+              <img src="https://lh3.googleusercontent.com/d/1-8Jh6MxGb9ZTFw1i26N8vrKnFtFXdu5X"
+                   alt="Inventaires botaniques au Jardin Botanique des Cayes : équipe sur le terrain, observation in situ et collecte de données"
+                   loading="lazy">
+              <div class="label"><i class="fa-solid fa-list-check"></i> Inventaires</div>
+            </div>
+            <div class="pillar-head">
+              <div class="icon"><i class="fa-solid fa-list-check"></i></div>
+              <div>
+                <h3>Inventaires et richesse taxonomique</h3>
+                <div class="sub">La base de la connaissance.</div>
+              </div>
+            </div>
+            <div class="pillar-body">
+              <p>Pour protéger, il faut d’abord connaître. Nos inventaires floristiques rigoureux permettent de :</p>
+              <ul>
+                <li>Identifier et classifier les espèces (taxonomie).</li>
+                <li>Constituer une base de données fiable sur la richesse régionale.</li>
+                <li>Découvrir de nouvelles espèces ou documenter des plantes rares.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ✅ ecologie.JPG -->
+          <article class="pillar">
+            <div class="pillar-media">
+              <img src="https://lh3.googleusercontent.com/d/1x9uu_-Ppg2R8LTfIwQUbaQuvVfAkgcA9"
+                   alt="Écologie au Jardin Botanique des Cayes : habitats, interactions biologiques et dynamique des écosystèmes"
+                   loading="lazy">
+              <div class="label"><i class="fa-solid fa-heart-pulse"></i> Écologie</div>
+            </div>
+            <div class="pillar-head">
+              <div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
+              <div>
+                <h3>Écologie et biologie de la conservation</h3>
+                <div class="sub">Diagnostiquer pour guérir.</div>
+              </div>
+            </div>
+            <div class="pillar-body">
+              <p>Nous évaluons l’état de santé de la biodiversité et les causes du déclin :</p>
+              <ul>
+                <li>Dynamique des écosystèmes (interactions plantes-milieu).</li>
+                <li>Études de populations (démographie, pressions, tendances).</li>
+                <li>Contribution aux priorisations et à la Liste Rouge (in-situ / ex-situ).</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ✅ Laboratoire.jpg -->
+          <article class="pillar">
+            <div class="pillar-media">
+              <img src="https://lh3.googleusercontent.com/d/1AgWTSplY1Jhr1_QEjNS5tIxRwQeH8g2m"
+                   alt="Laboratoire au Jardin Botanique des Cayes : analyses, mesures et observation d’échantillons"
+                   loading="lazy">
+              <div class="label"><i class="fa-solid fa-dna"></i> Laboratoire</div>
+            </div>
+            <div class="pillar-head">
+              <div class="icon"><i class="fa-solid fa-dna"></i></div>
+              <div>
+                <h3>Recherche en laboratoire : génétique et évolution</h3>
+                <div class="sub">Au cœur de l’invisible.</div>
+              </div>
+            </div>
+            <div class="pillar-body">
+              <p>Le terrain et le laboratoire se complètent pour comprendre l’adaptation des espèces :</p>
+              <ul>
+                <li>Évolution et phylogénie (liens de parenté, histoire évolutive).</li>
+                <li>Diversité génétique (ADN, viabilité à long terme).</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- ✅ phychimie.jpg -->
+          <article class="pillar">
+            <div class="pillar-media">
+              <img src="https://lh3.googleusercontent.com/d/14CnRrlYt5XgI7sx41knCxWMqOLeqCGpb"
+                   alt="Phytochimie et pharmacognosie : étude des composés des plantes et des actifs biologiques au Jardin Botanique des Cayes"
+                   loading="lazy">
+              <div class="label"><i class="fa-solid fa-mortar-pestle"></i> Phytochimie</div>
+            </div>
+            <div class="pillar-head">
+              <div class="icon"><i class="fa-solid fa-mortar-pestle"></i></div>
+              <div>
+                <h3>Ethnobotanique et phytochimie</h3>
+                <div class="sub">Les plantes, l’Homme et la santé.</div>
+              </div>
+            </div>
+            <div class="pillar-body">
+              <p>Nous valorisons le lien ancestral et futur entre sociétés humaines et monde végétal :</p>
+              <ul>
+                <li>Ethnobotanique (savoirs, usages alimentaires, artisanaux, culturels).</li>
+                <li>Phytochimie (analyse des molécules, composés actifs liés à la santé).</li>
+              </ul>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Notre vision : apprendre pour innover</h2>
+          <p>La science n’est pas une simple observation : c’est l’outil qui corrige nos trajectoires.</p>
+        </div>
+        <div class="divider"></div>
+
+        <div class="timeline">
+          <article class="tcard">
+            <div class="top">
+              <div class="tag">Passé</div>
+              <h3>Le constat des échecs</h3>
+            </div>
+            <div class="body">
+              <p>
+                Pendant longtemps, la gestion de l’environnement s’est faite à l’aveugle,
+                sans connaître les espèces ni les dynamiques des écosystèmes.
+              </p>
+            </div>
+          </article>
+
+          <article class="tcard">
+            <div class="top">
+              <div class="tag">Présent</div>
+              <h3>La rigueur scientifique</h3>
+            </div>
+            <div class="body">
+              <p>
+                Aujourd’hui, nous changeons de paradigme. Nous ne devinons plus, nous mesurons.
+                Chaque action s’appuie sur des données probantes.
+              </p>
+            </div>
+          </article>
+
+          <article class="tcard">
+            <div class="top">
+              <div class="tag">Futur</div>
+              <h3>Solutions et résilience</h3>
+            </div>
+            <div class="body">
+              <p>
+                Développer des modèles reproductibles, anticiper les crises, et former une nouvelle génération
+                de chercheurs et de gestionnaires.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projets" style="background:var(--soft);">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Nos projets scientifiques</h2>
+          <p>Un engagement continu sur le terrain — du fondamental à l’action.</p>
+        </div>
+        <div class="divider"></div>
+
+        <div class="projects">
+          <article class="proj">
+            <div class="banner" aria-label="Projets réalisés"></div>
+            <div class="body">
+              <span class="badge"><i class="fa-solid fa-clock-rotate-left"></i> Projets réalisés</span>
+              <h3>Explorations fondamentales</h3>
+              <ul>
+                <li>Inventaire de la biodiversité de la Grand’Anse.</li>
+                <li>Étude de la flore et des écosystèmes du Parc National Macaya.</li>
+                <li>Plans de valorisation : stratégies d’usage durable.</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a href="recherche.html"><i class="fa-solid fa-arrow-left"></i> Retour page principale</a>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="banner" aria-label="Projets en cours"></div>
+            <div class="body">
+              <span class="badge"><i class="fa-solid fa-location-dot"></i> Projets en cours</span>
+              <h3>Terrain + laboratoire</h3>
+              <ul>
+                <li>Inventaire floristique du Sud et de la Grand’Anse.</li>
+                <li>Plantes médicinales : ethnobotanique & phytochimie.</li>
+                <li>Phylogénie : compréhension de l’évolution des espèces.</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a href="recherche.html"><i class="fa-solid fa-arrow-left"></i> Retour page principale</a>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="banner" aria-label="Projets futurs"></div>
+            <div class="body">
+              <span class="badge"><i class="fa-solid fa-seedling"></i> Projets futurs</span>
+              <h3>Priorité nationale</h3>
+              <ul>
+                <li>Liste Rouge Nationale (UICN) — planification.</li>
+                <li>Évaluation du statut de conservation des plantes.</li>
+                <li>Priorisation des actions de sauvegarde et restauration.</li>
+              </ul>
+            </div>
+            <div class="actions">
+              <a href="recherche.html"><i class="fa-solid fa-arrow-left"></i> Retour page principale</a>
+            </div>
+          </article>
+        </div>
+
+    </section>
+
+    <section id="actualites">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Nouvelles scientifiques</h2>
+          <p>Restez informés des dernières découvertes et avancées de nos chercheurs.</p>
+        </div>
+        <div class="divider"></div>
+
+        <div class="news">
+          <article class="news-item">
+            <div class="news-icon"><i class="fa-solid fa-book-open"></i></div>
+            <div>
+              <h3>[Publication] Nouvelle espèce décrite.</h3>
+              <p>Résumé court de la découverte, contexte et importance pour la conservation.</p>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <div class="news-icon"><i class="fa-solid fa-person-hiking"></i></div>
+            <div>
+              <h3>[Terrain] Retour d’expédition.</h3>
+              <p>Observations clés, priorités de restauration et suivi des impacts.</p>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <div class="news-icon"><i class="fa-solid fa-flask"></i></div>
+            <div>
+              <h3>[Laboratoire] Résultats préliminaires.</h3>
+              <p>Approche phytochimique, pistes de recherche et précautions scientifiques.</p>
+            </div>
+          </article>
+
+          <article class="news-item">
+            <div class="news-icon"><i class="fa-solid fa-people-group"></i></div>
+            <div>
+              <h3>[Conférence] Présentation et collaborations.</h3>
+              <p>Partage des résultats, collaborations et perspectives de financement.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="news-cta">
+          <a href="recherche.html"><i class="fa-solid fa-arrow-left"></i> Retour à Science &amp; Conservation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <div>
+          <h2>Collaborer avec notre département scientifique</h2>
+          <p>
+            Universités, ONG, institutions et partenaires : travaillons ensemble pour produire des données,
+            développer des protocoles et créer des solutions durables.
+          </p>
+        </div>
+        <div class="cta-panel">
+          <strong style="letter-spacing:.08em;text-transform:uppercase;opacity:.95;">Actions rapides</strong>
+          <div class="row">
+            <a href="contact.html"><i class="fa-solid fa-handshake"></i> Proposer un partenariat</a>
+            <a class="secondary" href="contact.html"><i class="fa-solid fa-file-signature"></i> Demander un devis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <h3>Contact</h3>
+          <p>info@jardinbotaniquecayeshaiti.org</p>
+        </div>
+        <div>
+          <h3>Science</h3>
+          <p>Inventaires • Écologie • Laboratoire • Ethnobotanique • Phytochimie</p>
+        </div>
+        <div>
+          <h3>Localisation</h3>
+          <p>Jardin Botanique des Cayes, Haïti</p>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Desktop dropdown
+    const dd = document.getElementById('scDropdown');
+    const ddBtn = dd ? dd.querySelector('.dropbtn') : null;
+
+    function closeDropdown(){
+      if(!dd || !ddBtn) return;
+      dd.classList.remove('open');
+      ddBtn.setAttribute('aria-expanded','false');
+    }
+
+    if(ddBtn){
+      ddBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dd.classList.toggle('open');
+        ddBtn.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
+
+    document.addEventListener('click', closeDropdown);
+    window.addEventListener('scroll', closeDropdown);
+
+    // Mobile menu
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileDropBtn = document.getElementById('mobileDropBtn');
+    const mobileSub = document.getElementById('mobileSub');
+
+    if(burgerBtn && mobileNav){
+      burgerBtn.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+      });
+    }
+
+    if(mobileDropBtn && mobileSub){
+      mobileDropBtn.addEventListener('click', () => {
+        mobileSub.classList.toggle('open');
+      });
+    }
+  </script>
+
+</body>
+</html>

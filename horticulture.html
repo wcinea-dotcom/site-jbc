@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horticulture | Jardin Botanique des Cayes</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#1a4332;
+      --secondary:#2d5a27;
+      --accent:#c5a059;
+      --light:#f4f7f4;
+      --text:#2c3e50;
+      --white:#ffffff;
+      --shadow: 0 10px 26px rgba(0,0,0,.10);
+      --shadow2: 0 20px 60px rgba(0,0,0,.14);
+      --radius:18px;
+      --radius2:26px;
+      --max:1200px;
+
+      --nav-h:92px;
+      --hero-h: clamp(420px, 58vh, 640px);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.6;
+    }
+    h1,h2,h3,h4{font-family:"Playfair Display",serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .section{padding:70px 0}
+    .muted{color:rgba(44,62,80,.75)}
+
+    /* =========================
+       NAV (menu principal)
+       ========================= */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      height:var(--nav-h);
+      background:rgba(26,67,50,.96);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-inner{
+      height:100%;
+      display:flex;align-items:center;justify-content:space-between;
+      gap:18px;
+    }
+    .nav-left{display:flex;align-items:center}
+    .nav-logo{
+      height:72px;
+      width:auto;
+      filter:drop-shadow(0 2px 10px rgba(0,0,0,.25));
+      border-radius:8px;
+      background:rgba(255,255,255,.06);
+      padding:6px;
+    }
+    .nav-menu{
+      display:flex;align-items:center;gap:22px;
+      flex-wrap:wrap;justify-content:flex-end;
+    }
+    .nav-link{
+      border:none;background:transparent;color:#fff;
+      font-weight:900;font-size:.92rem;
+      letter-spacing:.06em;text-transform:uppercase;
+      padding:10px 8px;border-radius:999px;
+      cursor:pointer;transition:.22s ease;
+      white-space:nowrap;
+    }
+    .nav-link:hover{color:var(--accent)}
+
+    /* =========================
+       HERO full-width (comme Accueil)
+       ========================= */
+    .page-hero{
+      margin-top:var(--nav-h);
+      width:100%;
+      min-height:var(--hero-h);
+      border-radius:0;
+      box-shadow:none;
+      overflow:hidden;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      display:flex;
+      align-items:flex-end;
+    }
+    .page-hero::before{
+      content:"";
+      position:absolute;inset:0;
+      background:
+        radial-gradient(900px 600px at 20% 20%, rgba(197,160,89,.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 40%, rgba(46,204,113,.10), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.70));
+      pointer-events:none;
+    }
+    .page-hero__content{
+      position:relative;z-index:2;
+      width:100%;
+      padding:34px 0;
+      color:#fff;
+      text-shadow:0 2px 10px rgba(0,0,0,.25);
+    }
+    .page-hero__content h1{
+      font-size:clamp(2.4rem, 4.6vw, 4rem);
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      margin:0 0 10px;
+    }
+    .page-hero__content p{
+      font-size:clamp(1.05rem, 1.4vw, 1.25rem);
+      opacity:.95;
+      margin:0;
+      max-width:900px;
+    }
+
+    /* =========================
+       Boutons
+       ========================= */
+    .btn, .btn-outline{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 18px;border-radius:999px;
+      font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+      transition:.22s ease;font-size:.82rem;white-space:nowrap;
+      cursor:pointer;
+    }
+    .btn{
+      background:var(--primary);
+      color:#fff;
+      border:none;
+    }
+    .btn:hover{background:var(--secondary);transform:translateY(-1px)}
+    .btn-outline{
+      background:transparent;
+      color:var(--primary);
+      border:1px solid rgba(26,67,50,.25);
+    }
+    .btn-outline:hover{border-color:rgba(26,67,50,.45);transform:translateY(-1px)}
+
+    /* =========================
+       Sections / Titres
+       ========================= */
+    .section-head{text-align:center;margin-bottom:26px}
+    .section-title{color:var(--primary);margin:0 0 10px}
+    .section-subtitle{color:#666;margin:0}
+
+    .section--soft{
+      background:var(--light);
+      border-radius:16px;
+      padding:52px 0;
+    }
+
+    /* Intro */
+    .intro{max-width:940px;margin:0 auto}
+    .lead{font-size:1.08rem;line-height:1.85;color:#555;text-align:justify;margin:0 0 16px}
+    .pillars-note{font-weight:900;color:var(--primary);text-align:center;margin:0}
+
+    /* =========================
+       Cards
+       ========================= */
+    .cards-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:20px;
+    }
+    .cards-grid--wide{
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card{
+      background:var(--white);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .card-img{width:100%;height:220px;object-fit:cover}
+    .card-img--short{height:200px}
+    .card-body{padding:16px 16px 18px}
+    .card-body h3{margin:0 0 8px;color:var(--primary)}
+    .card-body p{margin:0;color:#555;line-height:1.7}
+
+    .card--top-accent{border-top:5px solid var(--accent)}
+    .card--top-secondary{border-top:5px solid var(--secondary)}
+    .card--top-primary{border-top:5px solid var(--primary)}
+    .card--left-accent{border-left:5px solid var(--accent)}
+    .card--left-secondary{border-left:5px solid var(--secondary)}
+    .card--left-primary{border-left:5px solid var(--primary)}
+
+    /* =========================
+       Tabs Projets
+       ========================= */
+    .tabs{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .tab{
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      cursor:pointer;
+      color:var(--primary);
+      transition:.2s ease;
+    }
+    .tab.is-active{
+      background:var(--primary);
+      color:#fff;
+      border-color:rgba(26,67,50,.35);
+    }
+
+    .project-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:16px;
+      margin-top:18px;
+    }
+    .project-card{
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .project-img{width:100%;height:180px;object-fit:cover}
+    .project-body{padding:14px 14px 16px}
+    .project-body h3{margin:0 0 8px;color:var(--primary);font-size:1.02rem}
+    .project-body p{margin:0;color:#555;line-height:1.75}
+
+    /* =========================
+       CTA + Formulaire Netlify
+       ========================= */
+    .cta-center{text-align:center;margin:40px 0 10px}
+
+    .form-container{
+      margin:48px 0 70px;
+      background:#fff;
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:18px;
+      border-top:6px solid var(--accent);
+    }
+    .form-container h2{
+      text-align:center;
+      margin:6px 0 16px;
+      color:var(--primary);
+      font-size:1.7rem;
+    }
+    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+    .form-group label{
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      color:rgba(26,67,50,.85);
+    }
+    .form-group input,.form-group select,.form-group textarea{
+      padding:12px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.15);
+      outline:none;
+      font-family:inherit;
+      font-size:1rem;
+      background:#fff;
+    }
+    .form-group textarea{min-height:140px;resize:vertical}
+
+    /* =========================
+       Footer (simple)
+       ========================= */
+    footer{
+      background:var(--primary);
+      color:#fff;
+      padding:28px 0;
+      border-top:1px solid rgba(255,255,255,.10);
+      margin-top:40px;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+      opacity:.95;
+    }
+    .footer-inner small{opacity:.9}
+
+    /* =========================
+       Responsive
+       ========================= */
+    @media (max-width: 1040px){
+      .cards-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+      .project-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+    }
+    @media (max-width: 820px){
+      .nav-menu{gap:14px}
+      .nav-link{font-size:.85rem}
+    }
+    @media (max-width: 640px){
+      .cards-grid{grid-template-columns:1fr}
+      .project-grid{grid-template-columns:1fr}
+    }
+    @media (max-width: 560px){
+      :root{--nav-h:86px}
+      .nav-menu{display:none}
+      .nav-logo{height:66px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU PRINCIPAL (comme Accueil) -->
+  <nav>
+    <div class="container nav-inner">
+      <div class="nav-left">
+        <img class="nav-logo"
+             src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv"
+             alt="Logo Jardin Botanique des Cayes" />
+      </div>
+
+      <div class="nav-menu" aria-label="Menu principal">
+        <a class="nav-link" href="index.html">ACCUEIL</a>
+        <a class="nav-link" href="recherche.html">SCIENCE &amp; CONSERVATION</a>
+        <a class="nav-link" href="education.html">ÉDUCATION</a>
+        <a class="nav-link" href="horticulture.html">HORTICULTURE</a>
+        <a class="nav-link" href="medias.html">MÉDIAS</a>
+        <a class="nav-link" href="impliquer.html">S'IMPLIQUER</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO full width -->
+  <header class="page-hero" style="background-image:url('https://lh3.googleusercontent.com/d/1QsuGkngTWAtY5RTJl0o456CChW1TopqT');">
+    <div class="page-hero__content">
+      <div class="container">
+        <h1>DÉPARTEMENT D'HORTICULTURE</h1>
+        <p>La Science au Service du Vivant.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="container" style="padding-top:24px;">
+      <a class="btn-outline" href="index.html"><i class="fa-solid fa-arrow-left"></i> Accueil</a>
+    </div>
+
+    <!-- INTRO -->
+    <section class="section">
+      <div class="container">
+        <div class="intro">
+          <h2 class="section-title" style="text-align:center;">NOTRE MISSION : REPRODUIRE ET RENDRE DISPONIBLE</h2>
+          <p class="lead">
+            Au Jardin Botanique des Cayes, l'horticulture ne se limite pas à planter ; c'est une ingénierie du vivant guidée par la science.
+            Notre mission est de conserver, reproduire et rendre disponibles les plantes natives, les plantes médicinales et les ressources
+            essentielles à la phytothérapie et à la naturopathie.
+          </p>
+          <p class="pillars-note">
+            Nos activités s'articulent autour de trois piliers majeurs : la production scientifique, la conservation ex-situ et le partage d'expertise.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILIER 1 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">1. PRODUCTION &amp; RECHERCHE</h2>
+          <p class="section-subtitle">Créer le savoir pour multiplier la biodiversité.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card card--top-accent">
+            <img
+              src="https://images.unsplash.com/photo-1576085898323-218337e3e43c?auto=format&fit=crop&q=80&w=900"
+              alt="Travail horticole et protocole de germination"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>PROTOCOLES</h3>
+              <p>Développement de méthodes de germination pour les espèces natives difficiles.</p>
+            </div>
+          </article>
+
+          <article class="card card--top-secondary">
+            <img
+              src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=900"
+              alt="Documentation technique et outils de référence"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>DOCUMENTS</h3>
+              <p>Production de manuels techniques de référence pour la sauvegarde.</p>
+            </div>
+          </article>
+
+          <article class="card card--top-primary">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=900"
+              alt="Traçabilité des lots de graines et plants"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>TRAÇABILITÉ</h3>
+              <p>Suivi rigoureux de la graine à la plantation pour l'intégrité génétique.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILIER 2 -->
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">2. NOS COLLECTIONS VIVANTES</h2>
+          <p class="section-subtitle">Des espaces de conservation, d'étude et d'inspiration.</p>
+        </div>
+
+        <div class="cards-grid cards-grid--wide">
+          <article class="card">
+            <img
+              src="https://lh3.googleusercontent.com/d/1wzqy5Fa81Q826PKr4CZWdg1BsbG4YRxl"
+              alt="Conservatoire des plantes natives et endémiques"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>LE CONSERVATOIRE</h3>
+              <p>Le sanctuaire des plantes natives et endémiques rares.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://lh3.googleusercontent.com/d/1WoRSfrc9OU3gKnUnzpyK8NjjUmhFiBNF"
+              alt="Jardin écologique présentant des modèles d'écosystèmes"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>JARDIN ÉCOLOGIQUE</h3>
+              <p>Modèles d'écosystèmes pour comprendre les interactions naturelles.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=900"
+              alt="Arboretum et collection d'arbres remarquables"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>L'ARBORETUM</h3>
+              <p>Collection d'arbres remarquables pour l'étude de la structure forestière.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://lh3.googleusercontent.com/d/1aySewPHjRqgfUBEbIivcMTtzMzzxvuJJ"
+              alt="Jardin ethnobotanique et plantes médicinales"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>JARDIN ETHNOBOTANIQUE</h3>
+              <p>Plantes médicinales et alimentaires liées à notre histoire.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://images.unsplash.com/photo-1507041957456-9c397ce39c97?auto=format&fit=crop&q=80&w=900"
+              alt="Jardin thérapeutique et stimulation sensorielle"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>JARDIN THÉRAPEUTIQUE</h3>
+              <p>Espace de bien-être et de stimulation sensorielle.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img
+              src="https://lh3.googleusercontent.com/d/1lAQgx1uog86j_NYT28X9rA3TDj8i5j_z"
+              alt="Jardin ornemental et art paysager"
+              class="card-img"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>JARDIN ORNEMENTAL</h3>
+              <p>L'esthétique et l'art paysager pour inspirer la beauté.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PILIER 3 -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">3. EXPERTISE &amp; SERVICES</h2>
+          <p class="section-subtitle">Partager notre science pour verdir le pays.</p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card card--left-secondary">
+            <img
+              src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=900"
+              alt="Conception de jardins de conservation"
+              class="card-img card-img--short"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>Jardins de Conservation</h3>
+              <p>Conception d'espaces de sauvegarde.</p>
+            </div>
+          </article>
+
+          <article class="card card--left-accent">
+            <img
+              src="https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&q=80&w=900"
+              alt="Expertise paysagère et aménagement durable"
+              class="card-img card-img--short"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>Expertise Paysagère</h3>
+              <p>Conseils techniques et aménagement durable.</p>
+            </div>
+          </article>
+
+          <article class="card card--left-primary">
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=900"
+              alt="Appui institutionnel pour écoles et municipalités"
+              class="card-img card-img--short"
+              loading="lazy"
+            >
+            <div class="card-body">
+              <h3>Appui Institutionnel</h3>
+              <p>Aide aux écoles et municipalités.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="section section--soft" id="horticulture-projets">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">PROJETS (PASSÉS · PRÉSENTS · FUTURS)</h2>
+          <p class="section-subtitle">Une continuité d’action scientifique, du terrain à la production.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Projets par période">
+          <button class="tab is-active" type="button" data-tab="past" role="tab" aria-selected="true">Passés</button>
+          <button class="tab" type="button" data-tab="present" role="tab" aria-selected="false">Présents</button>
+          <button class="tab" type="button" data-tab="future" role="tab" aria-selected="false">Futurs</button>
+        </div>
+
+        <div class="tab-panels">
+          <!-- Passés -->
+          <div class="tab-panel is-active" data-panel="past" role="tabpanel">
+            <div class="project-grid">
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=1200" alt="Mise en place du Jardin Botanique des Cayes" loading="lazy">
+                <div class="project-body">
+                  <h3>Mise en place du Jardin Botanique des Cayes</h3>
+                  <p>Structuration des espaces horticoles, mise en culture, organisation des collections et appui aux premières actions de conservation.</p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&q=80&w=1200" alt="Jardin des plantes natives pour l’habitat" loading="lazy">
+                <div class="project-body">
+                  <h3>Jardin des plantes natives pour l’habitat</h3>
+                  <p>Développement d’un espace démonstratif pour l’utilisation des plantes natives dans l’habitat, l’éducation et l’aménagement.</p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=1200" alt="Aménagement paysager (FFA / Faya - Nord)" loading="lazy">
+                <div class="project-body">
+                  <h3>Aménagement paysager (FFA / Faya – Nord)</h3>
+                  <p>Appui technique à des partenaires pour verdir des sites, sélectionner des espèces adaptées et améliorer l’intégration écologique.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Présents -->
+          <div class="tab-panel" data-panel="present" role="tabpanel" hidden>
+            <div class="project-grid">
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1457530378978-8bac673b8062?auto=format&fit=crop&q=80&w=1200" alt="Étude des plantes natives pour l’aménagement paysager" loading="lazy">
+                <div class="project-body">
+                  <h3>Étude des plantes natives pour l’aménagement paysager</h3>
+                  <p>Recherche appliquée sur les espèces natives utilisables dans les jardins, espaces publics et projets de restauration.</p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1492496913980-501348b61469?auto=format&fit=crop&q=80&w=1200" alt="Production de plantes natives et endémiques" loading="lazy">
+                <div class="project-body">
+                  <h3>Production de plantes natives et endémiques</h3>
+                  <p>Renforcement de la production horticole pour rendre disponibles des plants fiables, traçables et utiles à la conservation.</p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1461354464878-ad92f492a5a0?auto=format&fit=crop&q=80&w=1200" alt="Suivi d’espèces prioritaires" loading="lazy">
+                <div class="project-body">
+                  <h3>Suivi d’espèces prioritaires</h3>
+                  <p>Observations, essais de multiplication, suivi horticole et documentation technique d’espèces d’intérêt.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Futurs -->
+          <div class="tab-panel" data-panel="future" role="tabpanel" hidden>
+            <div class="project-grid">
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=1200" alt="Produire pour créer d’autres jardins botaniques en Haïti" loading="lazy">
+                <div class="project-body">
+                  <h3>Produire pour créer d’autres jardins botaniques en Haïti</h3>
+                  <p>Développer une capacité de production orientée conservation pour soutenir la création de jardins botaniques et la diffusion de modèles.</p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1615486364462-ef6363ad4fe1?auto=format&fit=crop&q=80&w=1200" alt="Valorisation des plantes médicinales et aromatiques" loading="lazy">
+                <div class="project-body">
+                  <h3>Valorisation des plantes médicinales et aromatiques</h3>
+                  <p>Production, documentation et diffusion de pratiques de valorisation plus sûres autour des plantes médicinales et aromatiques.</p>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <img class="project-img" src="https://images.unsplash.com/photo-1520975958225-8ecce0c7f0f9?auto=format&fit=crop&q=80&w=1200" alt="Centre de thérapie nature & santé mentale" loading="lazy">
+                <div class="project-body">
+                  <h3>Centre de thérapie nature &amp; santé mentale</h3>
+                  <p>Renforcer le Jardin Botanique des Cayes comme centre de bien-être, thérapie par la nature et éducation nature-santé.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-center">
+      <button class="btn" type="button" onclick="document.getElementById('contact-horticulture').scrollIntoView({behavior:'smooth'})">
+        DEMANDER UNE EXPERTISE
+      </button>
+    </div>
+
+    <!-- CONTACT (Netlify Forms) -->
+    <section class="section">
+      <div class="container">
+        <div id="contact-horticulture" class="form-container">
+          <h2>Contactez le Département</h2>
+
+          <form name="contact-horticulture" method="POST" data-netlify="true">
+            <input type="hidden" name="form-name" value="contact-horticulture">
+
+            <div class="form-group">
+              <label for="horti-nom">Nom / Institution</label>
+              <input id="horti-nom" type="text" name="nom" required>
+            </div>
+
+            <div class="form-group">
+              <label for="horti-email">Email</label>
+              <input id="horti-email" type="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="horti-service">Service souhaité</label>
+              <select id="horti-service" name="service">
+                <option>Achat de plantes</option>
+                <option>Conception de jardin</option>
+                <option>Conseil technique</option>
+                <option>Formation</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="horti-message">Message</label>
+              <textarea id="horti-message" name="message" rows="6" required></textarea>
+            </div>
+
+            <button class="btn" type="submit" style="width:100%;">ENVOYER</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div><strong>Jardin Botanique des Cayes</strong></div>
+        <small>&copy; 2026 Tous droits réservés.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tabs Projets
+    document.addEventListener('DOMContentLoaded', function () {
+      const root = document.getElementById('horticulture-projets');
+      if (!root) return;
+
+      const tabButtons = root.querySelectorAll('.tab');
+      const panels = root.querySelectorAll('.tab-panel');
+
+      if (!tabButtons.length || !panels.length) return;
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const target = btn.getAttribute('data-tab');
+
+          tabButtons.forEach(b => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+
+          panels.forEach(p => {
+            const isTarget = p.getAttribute('data-panel') === target;
+            p.hidden = !isTarget;
+            if (isTarget) p.classList.add('is-active');
+            else p.classList.remove('is-active');
+          });
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
