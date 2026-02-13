@@ -6,10 +6,8 @@
 
   <title>Éducation | Jardin Botanique des Cayes</title>
 
-  <!-- =========================
-       SEO (texte prêt)
-       ========================= -->
-  <meta name="description" content="Le Département d’Éducation du Jardin Botanique des Cayes partage la science au public : écologie, botanique, phytothérapie, naturopathie et ethnobotanique. Programmes scolaires, universitaires, formations et cours pour contribuer à la santé de l’homme et de la nature." />
+  <!-- SEO -->
+  <meta name="description" content="Le Département d’Éducation du Jardin Botanique des Cayes rend la science accessible : écologie, botanique, phytothérapie, naturopathie et ethnobotanique. Programmes scolaires, universitaires, formations et cours pour contribuer à la santé de l’homme et de la nature." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://TON-DOMAINE.tld/education.html" />
 
@@ -87,7 +85,6 @@
     .section{padding:70px 0}
     .muted{color:rgba(44,62,80,.75)}
 
-    /* NAV */
     nav{
       position:fixed;top:0;left:0;right:0;z-index:1000;
       height:var(--nav-h);
@@ -102,8 +99,7 @@
     }
     .nav-left{display:flex;align-items:center}
     .nav-logo{
-      height:72px;
-      width:auto;
+      height:72px;width:auto;
       filter:drop-shadow(0 2px 10px rgba(0,0,0,.25));
       border-radius:8px;
       background:rgba(255,255,255,.06);
@@ -128,7 +124,6 @@
       .nav-logo{height:66px}
     }
 
-    /* HERO */
     .page-hero{
       margin-top:var(--nav-h);
       width:100%;
@@ -169,7 +164,6 @@
       max-width:980px;
     }
 
-    /* Boutons */
     .btn, .btn-outline{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
       padding:12px 18px;border-radius:999px;
@@ -182,18 +176,15 @@
     .btn-outline{background:transparent;color:var(--primary);border:1px solid rgba(26,67,50,.25)}
     .btn-outline:hover{border-color:rgba(26,67,50,.45);transform:translateY(-1px)}
 
-    /* Titres */
     .section-head{text-align:center;margin-bottom:26px}
     .section-title{color:var(--primary);margin:0 0 10px}
     .section-subtitle{color:#666;margin:0}
     .section--soft{background:var(--light);border-radius:16px;padding:52px 0}
 
-    /* Intro */
     .intro{max-width:980px;margin:0 auto}
     .lead{font-size:1.08rem;line-height:1.85;color:#555;text-align:justify;margin:0 0 16px}
     .pillars-note{font-weight:900;color:var(--primary);text-align:center;margin:0}
 
-    /* Cards */
     .cards-grid{display:grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap:20px}
     .cards-grid--wide{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
     .card{
@@ -217,10 +208,8 @@
     .card--left-secondary{border-left:5px solid var(--secondary)}
     .card--left-primary{border-left:5px solid var(--primary)}
 
-    /* Cours */
     .course-grid{display:grid;grid-template-columns: repeat(3, minmax(0, 1fr));gap:18px;margin-top:18px}
 
-    /* Tabs Projets */
     .tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
     .tab{
       border:1px solid rgba(0,0,0,.12);
@@ -243,7 +232,6 @@
     .project-body h3{margin:0 0 8px;color:var(--primary);font-size:1.02rem}
     .project-body p{margin:0;color:#555;line-height:1.75}
 
-    /* Actualités */
     .news-wrap{display:grid;grid-template-columns: 1.2fr .8fr;gap:18px;margin-top:22px;align-items:start}
     .news-box{
       background:#fff;border-radius:16px;box-shadow:var(--shadow);
@@ -256,10 +244,8 @@
     .news-item strong{color:var(--primary)}
     .news-item p{margin:6px 0 0;color:#555;line-height:1.75}
 
-    /* CTA */
     .cta-center{text-align:center;margin:40px 0 10px}
 
-    /* Formulaire Netlify */
     .form-container{
       margin:48px 0 70px;
       background:#fff;border-radius:16px;box-shadow:var(--shadow);
@@ -277,7 +263,6 @@
     }
     .form-group textarea{min-height:140px;resize:vertical}
 
-    /* FOOTER */
     .site-footer{
       background: var(--primary);
       color: rgba(255,255,255,.92);
@@ -327,7 +312,6 @@
     .footer-divider{margin: 28px 0 16px;height:1px;background: rgba(255,255,255,.14)}
     .footer-bottom{text-align:center;opacity:.9;font-weight: 700}
 
-    /* Responsive */
     @media (max-width: 1040px){
       .cards-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
       .course-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
@@ -365,15 +349,16 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO (IMPORTANT: utiliser education-hero.jpg) -->
   <header class="page-hero"
-    style="background-image:url('https://drive.google.com/thumbnail?id=1jMM-eotc5wk_pscJdglZY6FlPn9zlLy8&sz=w2000');">
+    style="background-image:url('images/education/education-hero.jpg');">
     <div class="page-hero__content">
       <div class="container">
         <h1>DÉPARTEMENT D’ÉDUCATION</h1>
         <p>
-          Partager la science au public : écologie, botanique, phytothérapie, naturopathie et ethnobotanique — pour contribuer à la santé de l’homme et de la nature.
-          Notre priorité : les enfants, afin d’inspirer créativité, sérénité et espoir.
+          Nous rendons la science accessible au public : écologie, botanique et santé basée sur les plantes.
+          Nous créons des expériences simples, pratiques et inspirantes pour apprendre à mieux comprendre la nature — et à mieux la protéger.
+          Notre priorité : les enfants, pour nourrir la curiosité, la créativité et l’espoir.
         </p>
       </div>
     </div>
@@ -389,18 +374,22 @@
     <section class="section">
       <div class="container">
         <div class="intro">
-          <h2 class="section-title" style="text-align:center;">NOTRE MISSION : RENDRE LA SCIENCE ACCESSIBLE</h2>
+          <h2 class="section-title" style="text-align:center;">NOTRE MISSION : APPRENDRE PAR LA NATURE</h2>
+
           <p class="lead">
-            Le Département d’Éducation du Jardin Botanique des Cayes expose au public les connaissances issues de nos recherches et collaborations.
-            Nous transformons l’information scientifique (écologie, botanique, phytothérapie, naturopathie, ethnobotanique, phytochimie)
-            en apprentissages simples, pratiques et inspirants.
+            Le Département d’Éducation du Jardin Botanique des Cayes traduit les connaissances issues de la recherche et du terrain en apprentissages accessibles.
+            Nous construisons des programmes qui permettent de comprendre les plantes, les écosystèmes et leurs liens directs avec la santé, l’alimentation,
+            la résilience climatique et la conservation.
           </p>
+
           <p class="lead">
-            Nous travaillons prioritairement avec les enfants et les écoles pour que les élèves sortent des quatre murs, explorent la richesse des plantes,
-            développent leur créativité et comprennent que la biodiversité est une ressource essentielle pour l’avenir du pays.
+            Nos activités donnent au public des repères concrets : observer, identifier, comprendre et agir.
+            À travers des ateliers et des sorties, les participants développent des compétences pratiques et une culture scientifique utile à la vie quotidienne,
+            aux métiers de l’environnement et aux décisions communautaires.
           </p>
+
           <p class="pillars-note">
-            Nos activités s’articulent autour de trois piliers : programmes scolaires · programmes universitaires · formations & cours.
+            Nos actions s’organisent autour de trois piliers : programmes scolaires · programmes universitaires · formations & cours.
           </p>
         </div>
       </div>
@@ -411,43 +400,44 @@
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">1. PROGRAMMES SCOLAIRES</h2>
-          <p class="section-subtitle">Inspirer les élèves : exploration, curiosité, apprentissage pratique.</p>
+          <p class="section-subtitle">Donner envie d’apprendre : observation, exploration, pratique.</p>
         </div>
 
         <div class="cards-grid">
           <article class="card card--top-accent">
-            <img src="https://drive.google.com/thumbnail?id=1jMM-eotc5wk_pscJdglZY6FlPn9zlLy8&sz=w1400"
-                 alt="Éducation : Atelier Plantes — Jardin Botanique des Cayes"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-exploration-au-jardin.jpg"
+                 alt="Exploration au jardin — programmes scolaires"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Exploration au Jardin</h3>
-              <p>Visites guidées, observation des plantes, activités sensorielles et découverte de la biodiversité.</p>
+              <p>Visites guidées et ateliers d’observation : biodiversité, formes, odeurs, usages et rôles des plantes.</p>
             </div>
           </article>
 
           <article class="card card--top-secondary">
-            <img src="https://drive.google.com/thumbnail?id=160cbCRIRVaHmEY-gz3vracleeumaQPNB&sz=w1400"
-                 alt="Éducation : Classe Scolaire — Jardin Botanique des Cayes"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-jardin-a-ecole.jpg"
+                 alt="Le jardin à l’école — programmes scolaires"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Le Jardin à l’École</h3>
-              <p>Nos équipes se déplacent dans les écoles pour présenter les plantes, la nature et leurs rôles essentiels.</p>
+              <p>Interventions dans les écoles : activités éducatives, mini-ateliers et sensibilisation à la protection de la nature.</p>
             </div>
           </article>
 
           <article class="card card--top-primary">
-            <img src="https://drive.google.com/thumbnail?id=1_NFRP2eiuTIulBQ2EX0TZ1Lrbk3yTLrc&sz=w1400"
-                 alt="Éducation : Pratique (Mains dans la Terre) — Jardin Botanique des Cayes"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-mains-terre.jpg"
+                 alt="Mains dans la terre — programmes scolaires"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Mains dans la Terre</h3>
-              <p>Ateliers “comment planter” : techniques simples, importance des plantes et gestes pour protéger la nature.</p>
+              <p>Ateliers pratiques : comment planter, arroser, protéger un jeune plant et comprendre le rôle du sol.</p>
             </div>
           </article>
         </div>
 
         <div class="cta-center">
-          <button class="btn" type="button" onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
+          <button class="btn" type="button"
+            onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
             PARTENARIAT SCOLAIRE
           </button>
         </div>
@@ -459,43 +449,44 @@
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">2. PROGRAMMES UNIVERSITAIRES</h2>
-          <p class="section-subtitle">Stages, cours spécialisés et explorations scientifiques.</p>
+          <p class="section-subtitle">Stages, cours spécialisés et apprentissage par le terrain.</p>
         </div>
 
         <div class="cards-grid cards-grid--wide">
           <article class="card">
-            <img src="https://drive.google.com/thumbnail?id=1t5pkmj7IuLgMt7L12qIMVlT_-4elRR3r&sz=w1400"
-                 alt="Formation : Pro Terrain — Jardin Botanique des Cayes"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-stage-formation.jpg"
+                 alt="Stages de formation — programme universitaire"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Stages de formation</h3>
-              <p>Les étudiants peuvent venir au jardin pour se former par la pratique : terrain, collections, méthodes et outils.</p>
+              <p>Stages sur le terrain : méthodes d’inventaire, photographie scientifique, collecte de données et travail sur collections.</p>
             </div>
           </article>
 
           <article class="card">
-            <img src="https://drive.google.com/thumbnail?id=1VjtfCZv-0KDkUd2o5IQ46v54uoI3DrPt&sz=w1400"
-                 alt="Formation : Certification — Jardin Botanique des Cayes"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-cours-specialises.jpg"
+                 alt="Cours spécialisés — programme universitaire"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Cours spécialisés</h3>
-              <p>Écologie, botanique systématique, phytothérapie, naturopathie, ethnobotanique et phytochimie.</p>
+              <p>Cours appliqués : écologie, botanique, ethnobotanique, phytothérapie, naturopathie et autres thématiques liées à la biodiversité.</p>
             </div>
           </article>
 
           <article class="card">
-            <img src="https://drive.google.com/thumbnail?id=1JGAOsdwdP0V0yq6yL9O01VsRQGI_6O0Y&sz=w1400"
-                 alt="Science : Exploration — Inventaires botaniques"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-exploration-inventaires.jpg"
+                 alt="Explorations et inventaires — programme universitaire"
+                 class="card-img" loading="lazy">
             <div class="card-body">
-              <h3>Explorations & sorties</h3>
-              <p>Études et explorations scientifiques pour renforcer la compréhension et l’observation des écosystèmes.</p>
+              <h3>Explorations & inventaires</h3>
+              <p>Sorties d’étude et inventaires floristiques pour renforcer les compétences d’observation, d’identification et d’analyse.</p>
             </div>
           </article>
         </div>
 
         <div class="cta-center">
-          <button class="btn" type="button" onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
+          <button class="btn" type="button"
+            onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
             COLLABORER AVEC UNE UNIVERSITÉ
           </button>
         </div>
@@ -507,37 +498,37 @@
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">3. FORMATIONS &amp; COURS</h2>
-          <p class="section-subtitle">Pour les institutions, les ONG, l’État et le grand public.</p>
+          <p class="section-subtitle">Pour les institutions, ONG, État et grand public.</p>
         </div>
 
         <div class="cards-grid">
           <article class="card card--left-secondary">
-            <img src="https://drive.google.com/thumbnail?id=1A7D8d5uNq1dYR63HWnSsDr1MY-EOmCI7&sz=w1400"
-                 alt="Formation : Employés — Terrain"
-                 class="card-img card-img--short" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-formation-technique.jpg"
+                 alt="Formations pour employés — renforcement de capacités"
+                 class="card-img card-img--short" loading="lazy">
             <div class="card-body">
               <h3>Formations pour employés</h3>
-              <p>Renforcement des capacités des équipes : méthodes, contenus, terrain, et connaissances adaptées.</p>
+              <p>Renforcement des capacités : outils, méthodes de terrain, contenus pédagogiques et bonnes pratiques d’organisation.</p>
             </div>
           </article>
 
           <article class="card card--left-accent">
-            <img src="https://drive.google.com/thumbnail?id=11MuFsALYayWd_ykbkE7xjKoV8zP25_TE&sz=w1400"
-                 alt="Formation : Plantation collective"
-                 class="card-img card-img--short" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-stages-techniques.jpg"
+                 alt="Stages techniques — formations"
+                 class="card-img card-img--short" loading="lazy">
             <div class="card-body">
               <h3>Stages techniques</h3>
-              <p>Les institutions peuvent envoyer des participants pour des stages ciblés et des apprentissages pratiques.</p>
+              <p>Stages ciblés pour apprendre par la pratique : pépinières, inventaires, collecte de données, propagation.</p>
             </div>
           </article>
 
           <article class="card card--left-primary">
-            <img src="https://drive.google.com/thumbnail?id=1n6zdShTsUY9Of3XEkZCTXIuCymKiE6yY&sz=w1400"
-                 alt="Formation : Technique — Exploration terrain"
-                 class="card-img card-img--short" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-exploration-sorties.jpg"
+                 alt="Explorations et sorties — formations"
+                 class="card-img card-img--short" loading="lazy">
             <div class="card-body">
-              <h3>Explorations & inventaires</h3>
-              <p>Participation à des sorties d’inventaire de biodiversité pour renforcer les compétences du terrain.</p>
+              <h3>Explorations & sorties</h3>
+              <p>Sorties de terrain pour développer des compétences réelles : observation, identification, lecture des habitats et suivi.</p>
             </div>
           </article>
         </div>
@@ -549,43 +540,43 @@
 
         <div class="course-grid">
           <article class="card card--top-accent">
-            <img src="https://drive.google.com/thumbnail?id=1K9sxIXrqKdlvLXQvZAI4irZ07lF3zIsp&sz=w1400"
-                 alt="Certificat : Santé & Bien-être"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-certificat-sante-bien-etre.jpg"
+                 alt="Certificat Santé et Bien-être"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Santé & Bien-être</h3>
               <ul>
-                <li>Plantes médicinales (identification & usages)</li>
-                <li>Naturopathie & phytothérapie</li>
-                <li>Phytochimie & ethnobotanique</li>
+                <li>Plantes médicinales : identification & usages</li>
+                <li>Phytothérapie & naturopathie (approche pratique)</li>
+                <li>Ethnobotanique : savoirs & références</li>
               </ul>
             </div>
           </article>
 
           <article class="card card--top-secondary">
-            <img src="https://drive.google.com/thumbnail?id=1GoA3Rpv4pQE-LBfLJPN95SqikUWg62_S&sz=w1400"
-                 alt="Certificat : Nature & Écologie"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-certificat-nature-ecologie.jpg"
+                 alt="Certificat Nature et Écologie"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Nature & Écologie</h3>
               <ul>
-                <li>Écologie & botanique systématique</li>
-                <li>Évolution des plantes</li>
-                <li>Restauration & aménagement paysager</li>
+                <li>Écologie et botanique (bases solides)</li>
+                <li>Évolution des plantes & écosystèmes</li>
+                <li>Restauration et aménagement paysager</li>
               </ul>
             </div>
           </article>
 
           <article class="card card--top-primary">
-            <img src="https://drive.google.com/thumbnail?id=1lLPLH3PsjCeBfU31lFlRMvD3Yg4qgPEA&sz=w1400"
-                 alt="Certificat : Technique spécialisée"
-                 class="card-img" loading="lazy" referrerpolicy="no-referrer">
+            <img src="images/education/education-certificat-technique-specialisee.jpg"
+                 alt="Certificat Technique spécialisée"
+                 class="card-img" loading="lazy">
             <div class="card-body">
               <h3>Technique spécialisée</h3>
               <ul>
-                <li>Gestion de pépinières (natives & endémiques)</li>
-                <li>Inventaire de la biodiversité</li>
-                <li>Apiculture (élevage & production)</li>
+                <li>Pépinières : production de plants</li>
+                <li>Inventaire et suivi de biodiversité</li>
+                <li>Apiculture : élevage & production</li>
               </ul>
             </div>
           </article>
@@ -598,7 +589,7 @@
       <div class="container">
         <div class="section-head">
           <h2 class="section-title">PROJETS D’ÉDUCATION (PASSÉS · PRÉSENTS · FUTURS)</h2>
-          <p class="section-subtitle">Découvrir les projets passés, présents et futurs du Jardin Botanique des Cayes.</p>
+          <p class="section-subtitle">Une vue claire des actions du Département d’Éducation.</p>
         </div>
 
         <div class="tabs" role="tablist" aria-label="Projets par période">
@@ -608,128 +599,143 @@
         </div>
 
         <div class="tab-panels">
+          <!-- PAST -->
           <div class="tab-panel is-active" data-panel="past" role="tabpanel">
             <div class="project-grid">
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=160cbCRIRVaHmEY-gz3vracleeumaQPNB&sz=w1400"
-                     alt="Projet : Visites scolaires" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-visite-scolaires.jpg"
+                     alt="Projet : Visites scolaires" loading="lazy">
                 <div class="project-body">
                   <h3>Visites scolaires</h3>
-                  <p>Visites éducatives, ateliers de découverte et sensibilisation à la biodiversité.</p>
+                  <p>Accueil de classes au jardin : découverte guidée, ateliers et sensibilisation à la biodiversité.</p>
                 </div>
               </article>
+
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=1jMM-eotc5wk_pscJdglZY6FlPn9zlLy8&sz=w1400"
-                     alt="Projet : Cours et ateliers" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-cours-ateliers.jpg"
+                     alt="Projet : Cours et ateliers" loading="lazy">
                 <div class="project-body">
                   <h3>Cours & ateliers</h3>
-                  <p>Premiers cycles de formation nature-santé (à personnaliser selon vos réalisations).</p>
+                  <p>Ateliers thématiques : plantes, environnement, santé basée sur les plantes et pratiques de terrain.</p>
                 </div>
               </article>
+
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=1_NFRP2eiuTIulBQ2EX0TZ1Lrbk3yTLrc&sz=w1400"
-                     alt="Projet : Sensibilisation" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-sensibilisation.jpg"
+                     alt="Projet : Sensibilisation" loading="lazy">
                 <div class="project-body">
                   <h3>Sensibilisation</h3>
-                  <p>Présentations dans les écoles sur les plantes, la nature et les services écosystémiques.</p>
+                  <p>Activités éducatives dans les écoles pour encourager le respect de la nature et des services écosystémiques.</p>
                 </div>
               </article>
             </div>
           </div>
 
+          <!-- PRESENT -->
           <div class="tab-panel" data-panel="present" role="tabpanel" hidden>
             <div class="project-grid">
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=1lLPLH3PsjCeBfU31lFlRMvD3Yg4qgPEA&sz=w1400"
-                     alt="Programme jardin scolaire" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-jardin-a-ecole.jpg"
+                     alt="Programme : Jardin scolaire" loading="lazy">
                 <div class="project-body">
                   <h3>Programme “Jardin scolaire”</h3>
-                  <p>Accompagnement d’écoles pour apprendre à planter et comprendre l’importance des plantes.</p>
+                  <p>Accompagnement d’écoles : mise en place de jardins, apprentissage et gestes simples de conservation.</p>
                 </div>
               </article>
+
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=1K9sxIXrqKdlvLXQvZAI4irZ07lF3zIsp&sz=w1400"
-                     alt="Ateliers grand public" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-grand-public.jpg"
+                     alt="Projet : Ateliers grand public" loading="lazy">
                 <div class="project-body">
                   <h3>Ateliers grand public</h3>
-                  <p>Cours accessibles sur phytothérapie, écologie et botanique, avec exercices pratiques.</p>
+                  <p>Cours accessibles : phytothérapie, écologie, botanique, avec exercices pratiques et supports pédagogiques.</p>
                 </div>
               </article>
+
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=1n6zdShTsUY9Of3XEkZCTXIuCymKiE6yY&sz=w1400"
-                     alt="Formations techniques" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-stages-techniques.jpg"
+                     alt="Projet : Formations techniques" loading="lazy">
                 <div class="project-body">
                   <h3>Formations techniques</h3>
-                  <p>Inventaires, pépinières natives/endémiques, apiculture et sorties de terrain.</p>
+                  <p>Inventaires, pépinières, apiculture et sorties de terrain pour institutions et équipes techniques.</p>
                 </div>
               </article>
             </div>
           </div>
 
+          <!-- FUTURE -->
           <div class="tab-panel" data-panel="future" role="tabpanel" hidden>
             <div class="project-grid">
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=1pr1YfxdLEtpJ24DCwiGHZvS9o2p4dxUS&sz=w1400"
-                     alt="École de la nature" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-ecole-nationale-naturopathie-phytotherapie.jpg"
+                     alt="Projet : École nationale de naturopathie et phytothérapie" loading="lazy">
                 <div class="project-body">
-                  <h3>École de la Nature</h3>
-                  <p>Créer un cadre structuré de formation continue pour élèves, étudiants et professionnels.</p>
+                  <h3>École Nationale de Naturopathie et de Phytothérapie</h3>
+                  <p>Développer un programme national structuré, ancré dans la recherche, l’ethnobotanique et la conservation, afin de renforcer la santé et la valorisation durable de la biodiversité haïtienne.</p>
                 </div>
               </article>
+
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=1EYFrP2Yja263Yzgmi9CODhY4zKjwjIOM&sz=w1400"
-                     alt="Programme national" loading="lazy" referrerpolicy="no-referrer">
+                     src="images/education/education-programme-national-education-environnementale.jpg"
+                     alt="Projet : Programme national d’éducation environnementale" loading="lazy">
                 <div class="project-body">
-                  <h3>Programme national</h3>
-                  <p>Déployer des partenariats pour renforcer l’éducation environnementale à grande échelle.</p>
+                  <h3>Programme national d’éducation environnementale</h3>
+                  <p>Construire des partenariats pour déployer l’éducation environnementale à grande échelle, avec contenus et outils standardisés.</p>
                 </div>
               </article>
+
               <article class="project-card">
                 <img class="project-img"
-                     src="https://drive.google.com/thumbnail?id=REMPLACER_ID_20&sz=w1400"
-                     alt="Cours en ligne" loading="lazy" referrerpolicy="no-referrer">
+                     <img class="project-img"
+     src="images/education/education-plateforme-santé-nature.jpg"
+     alt="Plateforme Santé Nature" loading="lazy">
+
                 <div class="project-body">
-                  <h3>Plateforme de cours en ligne</h3>
-                  <p>Organiser des modules accessibles pour apprendre même à distance.</p>
+                  <h3>Plateforme Santé Nature</h3>
+                  <p>Plateforme de discussion et de rencontres entre botanistes, médecins, naturopathes, phytothérapeutes et écologistes.</p>
                 </div>
               </article>
             </div>
           </div>
         </div>
 
+        <!-- ACTUALITÉS + PARTENARIAT -->
         <div class="news-wrap">
           <div class="news-box">
-            <h3>Actualités — Éducation environnementale</h3>
+            <h3>Actualités — Éducation</h3>
 
             <div class="news-item">
               <strong>[Formation]</strong>
               <p>Remise de certificats : apiculture / pépinières (à personnaliser).</p>
             </div>
+
             <div class="news-item">
               <strong>[Scolaire]</strong>
-              <p>Activités de sensibilisation et visites guidées (à personnaliser).</p>
+              <p>Visites guidées et ateliers éducatifs pour écoles (à personnaliser).</p>
             </div>
+
             <div class="news-item">
               <strong>[Université]</strong>
-              <p>Appel à candidatures : stage d’été en inventaire (à personnaliser).</p>
+              <p>Appel à candidatures : stage terrain / inventaire (à personnaliser).</p>
             </div>
           </div>
 
           <div class="news-box" style="border-top-color: var(--accent);">
             <h3>Créer un partenariat</h3>
             <p class="muted" style="margin-top:6px;">
-              Écoles, universités, ONG, institutions : contactez-nous pour développer un programme adapté à votre besoin.
+              Écoles, universités, ONG, institutions : contactez-nous pour construire un programme adapté à vos objectifs.
             </p>
             <div class="cta-center" style="margin:18px 0 0;">
-              <button class="btn" type="button" onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
+              <button class="btn" type="button"
+                onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
                 CONTACTER LE DÉPARTEMENT
               </button>
             </div>
@@ -870,3 +876,5 @@
 
 </body>
 </html>
+
+
