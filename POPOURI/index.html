@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accueil | Jardin Botanique des Cayes</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Le Jardin Botanique des Cayes est une référence en biodiversité, éducation, science et conservation en Haïti. Visites, données, formations et actions pour la santé de l’homme et de la nature." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="index.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jardin Botanique des Cayes" />
+  <meta property="og:description" content="Biodiversité, science, conservation et éducation au service de la nature et de l’homme." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/index/index-hero.jpg" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --navH: 88px;
+      --primary:#1a4332;
+      --secondary:#2d5a27;
+      --accent:#c5a059;
+      --light:#f4f7f4;
+      --text:#2c3e50;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,.10);
+      --shadow2:0 20px 60px rgba(0,0,0,.14);
+      --radius:18px;
+      --radius2:26px;
+      --max:1200px;
+      --hero-h: clamp(420px, 58vh, 640px);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.6;
+    }
+    h1,h2,h3,h4{font-family:"Playfair Display",serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .section{padding:70px 0}
+
+    /* =========================
+       NAV (FIXED + PROPRE)
+       ========================= */
+    .site-nav{
+      position:fixed;top:0;left:0;right:0;
+      height:var(--navH);
+      z-index:1000;
+      background:rgba(26,67,50,.98);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .nav-container{
+      max-width:var(--max);
+      margin:0 auto;
+      height:100%;
+      padding:0 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:220px;
+    }
+    .brand-logo{
+      height:58px;
+      width:auto;
+      border-radius:12px;
+      background:rgba(255,255,255,.06);
+      padding:6px;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 10px 26px rgba(0,0,0,.18);
+    }
+
+    .nav-burger{
+      display:none;
+      width:46px;height:46px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      gap:5px;
+    }
+    .nav-burger span{
+      display:block;width:20px;height:2px;background:#fff;border-radius:2px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      gap:26px;
+      flex:1;
+    }
+    .nav-item{
+      color:#fff;
+      font-weight:900;
+      font-size:.92rem;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      padding:10px 2px;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:transparent;
+      border:none;
+      cursor:pointer;
+      white-space:nowrap;
+      transition:.18s ease;
+    }
+    .nav-item:hover{ color: var(--accent); }
+
+    .nav-contact{
+      padding:12px 18px;
+      border-radius:999px;
+      background:var(--accent);
+      color:#163527;
+      border:1px solid rgba(255,255,255,.20);
+      box-shadow:0 14px 30px rgba(0,0,0,.18);
+    }
+    .nav-contact:hover{
+      color:#163527;
+      transform: translateY(-1px);
+      filter:brightness(1.02);
+    }
+
+    /* Dropdown ACCUEIL */
+    .nav-drop{ position:relative; }
+    .nav-caret{ font-size:.85em; opacity:.95; transform: translateY(-1px); }
+
+    .nav-drop-menu{
+      display:none;
+      position:absolute;
+      top:calc(100% + 10px);
+      left:0;
+      min-width:240px;
+      background:#fff;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 18px 60px rgba(0,0,0,.20);
+      z-index:2000;
+    }
+    .nav-drop-menu a{
+      display:block;
+      padding:12px 14px;
+      color:var(--primary);
+      font-weight:900;
+      letter-spacing:.02em;
+      text-transform:none;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      transition:.14s ease;
+    }
+    .nav-drop-menu a:hover{
+      background:rgba(26,67,50,.06);
+      color:var(--accent);
+      padding-left:18px;
+    }
+    .nav-drop.open .nav-drop-menu{ display:block; }
+
+    /* Mobile menu */
+    @media (max-width: 980px){
+      .brand{ min-width:auto; }
+      .nav-burger{ display:flex; }
+
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:var(--navH);
+        left:12px;
+        right:12px;
+        background:rgba(26,67,50,.98);
+        border:1px solid rgba(255,255,255,.14);
+        border-radius:18px;
+        padding:12px;
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+        box-shadow:0 22px 70px rgba(0,0,0,.28);
+      }
+      .nav-links.open{ display:flex; }
+
+      .nav-item{
+        justify-content:flex-start;
+        padding:12px 12px;
+        border-radius:14px;
+        letter-spacing:.08em;
+      }
+
+      .nav-drop-menu{
+        position:static;
+        margin-top:8px;
+        min-width:auto;
+        border-radius:14px;
+      }
+
+      .nav-contact{
+        justify-content:center;
+        margin-top:6px;
+      }
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+    .hero{
+      margin-top:var(--navH);
+      height:var(--hero-h);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.70)),
+        url("images/index/index-hero.jpg") center/cover no-repeat;
+    }
+    .hero-overlay{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(900px 600px at 20% 20%, rgba(197,160,89,.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 40%, rgba(46,204,113,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .hero-content{position:relative;z-index:2;width:100%;padding:24px 0;}
+    .hero-text{max-width:980px;color:#fff;}
+    .hero-title{
+      font-size:clamp(2.6rem, 5vw, 4.4rem);
+      letter-spacing:.02em;
+      line-height:1.05;
+      margin-bottom:14px;
+    }
+    .hero-sub{
+      font-size:clamp(1.05rem, 1.5vw, 1.35rem);
+      color:rgba(255,255,255,.92);
+      max-width:900px;
+    }
+
+    /* Vision & Mission */
+    .center-card{
+      background:#fbfbfa;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:36px;
+      box-shadow:0 20px 60px rgba(0,0,0,.06);
+      padding:56px 28px;
+      text-align:center;
+    }
+    .center-card h2{
+      color:var(--primary);
+      font-size:clamp(2.2rem, 4vw, 3.6rem);
+      margin-bottom:18px;
+    }
+    .center-card p{
+      color:rgba(44,62,80,.70);
+      font-size:clamp(1.05rem, 1.35vw, 1.35rem);
+      max-width:980px;
+      margin:0 auto;
+      line-height:1.9;
+    }
+
+    /* FEATURES */
+    .feature-rows{display:flex;flex-direction:column;gap:40px}
+    .feature{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .feature.reverse{grid-template-columns: .9fr 1.1fr}
+    .feature.reverse .feature-media{order:2}
+    .feature.reverse .feature-text{order:1}
+
+    .feature-media{
+      border-radius:var(--radius2);
+      overflow:hidden;
+      box-shadow:var(--shadow2);
+      min-height:380px;
+      position:relative;
+      background:#ddd;
+    }
+    .feature-media img{
+      width:100%;height:100%;
+      object-fit:cover;display:block;
+      transform:scale(1.02);
+      transition:.6s ease;
+    }
+    .feature:hover .feature-media img{transform:scale(1.06)}
+    .feature-badge{
+      position:absolute;left:18px;top:18px;
+      background:rgba(0,0,0,.55);
+      color:#fff;border:1px solid rgba(255,255,255,.16);
+      border-radius:999px;
+      padding:10px 12px;
+      backdrop-filter:blur(6px);
+      font-weight:900;letter-spacing:.06em;text-transform:uppercase;
+      font-size:.78rem;
+    }
+    .feature-text{
+      background:var(--light);
+      border-radius:var(--radius2);
+      padding:28px 26px;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+      display:flex;flex-direction:column;justify-content:center;
+      gap:14px;
+    }
+    .feature-text h2{color:var(--primary);margin:0}
+    .feature-text p{margin:0;color:rgba(44,62,80,.82)}
+    .feature-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 18px;border-radius:999px;
+      border:none;cursor:pointer;font-weight:900;
+      letter-spacing:.06em;text-transform:uppercase;
+      transition:.22s ease;font-size:.82rem;white-space:nowrap;
+    }
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--secondary);transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:var(--primary);border:1px solid rgba(26,67,50,.25)}
+    .btn-outline:hover{border-color:rgba(26,67,50,.45);transform:translateY(-1px)}
+
+    /* À LA UNE */
+    .headline-title{
+      text-align:center;
+      color:var(--primary);
+      font-size:clamp(2rem, 3.2vw, 3rem);
+      margin-bottom:26px;
+    }
+    .headline-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:22px;}
+    .card{
+      border-radius:24px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:0 18px 55px rgba(0,0,0,.08);
+      transition:.25s ease;
+    }
+    .card:hover{transform:translateY(-4px)}
+    .card-media{position:relative;height:220px;background:#eee;}
+    .card-media img{width:100%;height:100%;object-fit:cover;}
+    .pill{
+      position:absolute;left:16px; top:16px;
+      background:rgba(26,67,50,.95);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+    }
+    .card-body{padding:22px 22px 24px;}
+    .card-body h3{color:rgba(25,45,35,.90);font-size:1.65rem;margin-bottom:10px;}
+    .card-body p{color:rgba(44,62,80,.72);font-size:1.05rem;line-height:1.7;}
+
+    /* Témoignages */
+    .testi-title{text-align:center;color:var(--primary);font-size:clamp(1.8rem, 3vw, 2.6rem);margin-bottom:22px;}
+    .testi-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;}
+    .testi{
+      background:#fbfbfa;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:22px;
+      box-shadow:0 16px 48px rgba(0,0,0,.06);
+      padding:22px 20px;
+    }
+    .testi p{color:rgba(44,62,80,.78);font-size:1.02rem;line-height:1.75;margin-bottom:14px;}
+    .testi strong{color:var(--primary);letter-spacing:.04em;text-transform:uppercase;font-size:.88rem;}
+
+    /* CONTACT */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:26px;
+      align-items:stretch;
+      margin-top:22px;
+    }
+    .contact-box{
+      background:#fbfbfa;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:26px;
+      box-shadow:0 18px 55px rgba(0,0,0,.07);
+      padding:26px 24px;
+    }
+    .contact-box h2{color:var(--primary);font-size:2rem;margin-bottom:10px;}
+    .contact-box p{color:rgba(44,62,80,.75);font-size:1.05rem;line-height:1.8;}
+    form{display:flex;flex-direction:column;gap:12px;}
+    .field{display:flex;flex-direction:column;gap:6px;}
+    .field label{
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      color:rgba(26,67,50,.85);
+    }
+    .field input,.field textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+      outline:none;
+      font-size:1rem;
+      font-family:inherit;
+      background:#fff;
+    }
+    .field textarea{min-height:140px;resize:vertical}
+    .submit{
+      margin-top:6px;
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      padding:13px 18px;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:.22s ease;
+      align-self:flex-start;
+    }
+    .submit:hover{background:var(--secondary);transform:translateY(-1px)}
+
+    /* =========================
+       PARTENAIRES (LOGOS) - HORIZONTAL + PETITS
+       ========================= */
+    .partners-bar{
+      background:#fff;
+      border-top:1px solid rgba(0,0,0,.06);
+      border-bottom:1px solid rgba(0,0,0,.06);
+      padding:34px 0;
+    }
+    .partners-title{
+      text-align:center;
+      font-weight:900;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:.78rem;
+      color:rgba(44,62,80,.70);
+      margin-bottom:18px;
+    }
+    .partners-row{
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .partner-item{
+      width:210px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 12px;
+      border-radius:16px;
+      background:rgba(26,67,50,.03);
+      border:1px solid rgba(26,67,50,.08);
+      transition:.2s ease;
+    }
+    .partner-item:hover{
+      transform:translateY(-2px);
+      border-color:rgba(26,67,50,.16);
+      box-shadow:0 16px 44px rgba(0,0,0,.06);
+    }
+    .partner-logo{
+      height:44px;          /* ✅ plus petit */
+      width:auto;
+      object-fit:contain;
+      background:#fff;
+      border-radius:12px;
+      padding:8px 10px;
+      border:1px solid rgba(0,0,0,.06);
+      max-width:170px;
+    }
+    .partner-item span{
+      font-weight:900;
+      color:rgba(44,62,80,.78);
+      font-size:.92rem;
+      text-align:center;
+      letter-spacing:.02em;
+    }
+
+    /* FOOTER */
+    footer{
+      background:var(--primary);
+      color:#fff;
+      padding:54px 0 18px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap:26px;
+      align-items:start;
+    }
+    .footer-title{
+      color:var(--accent);
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-weight:900;
+      font-size:.92rem;
+      margin-bottom:14px;
+    }
+    .footer-contact p{
+      margin:10px 0;
+      opacity:.95;
+      display:flex; gap:10px; align-items:flex-start;
+      line-height:1.45;
+    }
+    .footer-contact i{color:rgba(255,255,255,.85);margin-top:2px}
+    .footer-link{
+      display:inline-flex;align-items:center;gap:10px;
+      margin-top:10px;
+      color:var(--accent);
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:.82rem;
+    }
+    .footer-list{list-style:none;padding:0;margin:0}
+    .footer-list li{margin:10px 0}
+    .footer-list a{opacity:.95}
+    .footer-list a:hover{color:var(--accent)}
+
+    .social-icons{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .social-icons a{
+      width:44px;height:44px;border-radius:999px;
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      transition:.22s ease;
+      color:#fff;
+      font-size:1.05rem;
+    }
+    .social-icons a:hover{
+      transform:translateY(-2px);
+      background:rgba(197,160,89,.20);
+      border-color:rgba(197,160,89,.45);
+    }
+
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.12);
+      margin-top:26px;
+      padding-top:16px;
+      text-align:center;
+      opacity:.88;
+      font-size:.92rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1040px){
+      .headline-grid{grid-template-columns:1fr}
+      .testi-grid{grid-template-columns:1fr}
+      .contact-wrap{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .partner-item{width: 48%;}
+    }
+    @media (max-width: 560px){
+      :root{ --navH: 84px; }
+      .partner-item{width: 100%;}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Jardin Botanique des Cayes",
+    "email":"info@jardinbotaniquecayeshaiti.org",
+    "telephone":["+509 4309 2809","+1 845 248 9803"],
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"# 24, Bergeaud, Rte Nle # 2",
+      "addressLocality":"Les Cayes",
+      "addressCountry":"HT"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="nav-container">
+      <a class="brand" href="index.html" aria-label="Accueil — Jardin Botanique des Cayes">
+        <img src="images/Logo.jpg" alt="Logo Jardin Botanique des Cayes" class="brand-logo">
+      </a>
+
+      <button class="nav-burger" id="navBurger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <div class="nav-drop" id="navDropHome">
+          <button class="nav-item" id="navDropBtnHome" type="button" aria-haspopup="true" aria-expanded="false">
+            ACCUEIL <span class="nav-caret">▾</span>
+          </button>
+          <div class="nav-drop-menu" role="menu" aria-label="Sous-menu Accueil">
+            <a href="index.html" role="menuitem">Vue d’ensemble</a>
+            <a href="apropos.html" role="menuitem">À propos</a>
+          </div>
+        </div>
+
+        <a class="nav-item" href="impliquer.html">S’IMPLIQUER</a>
+        <a class="nav-item" href="scienceconservation.html">SCIENCE &amp; CONSERVATION</a>
+        <a class="nav-item" href="education.html">ÉDUCATION</a>
+        <a class="nav-item" href="horticulture.html">HORTICULTURE</a>
+        <a class="nav-item" href="medias.html">MÉDIAS</a>
+
+        <a class="nav-item nav-contact" href="#contact">CONTACT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Page d'accueil">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">Jardin Botanique des Cayes</h1>
+        <p class="hero-sub">
+          Notre vision est de faire du Jardin Botanique des Cayes une référence d’excellence pour la biodiversité.
+          Notre mission est de produire et partager des connaissances et des données utiles, afin de contribuer à la santé
+          de l’homme et de la nature.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Vision & Mission -->
+    <section class="section">
+      <div class="container">
+        <div class="center-card">
+          <h2>Vision &amp; Mission</h2>
+          <p>
+            Notre vision est de faire du Jardin Botanique des Cayes une référence d’excellence pour la biodiversité.
+            Notre mission est de produire et partager des connaissances et des données utiles, afin de contribuer à la santé
+            de l’homme et de la nature.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE ROWS -->
+    <section class="section" id="impliquer">
+      <div class="container">
+        <div class="feature-rows">
+
+          <article class="feature">
+            <div class="feature-media">
+              <img src="images/index/index-impliquer.png" alt="S'impliquer au Jardin Botanique des Cayes" loading="lazy">
+              <div class="feature-badge">S’impliquer</div>
+            </div>
+            <div class="feature-text">
+              <h2>S’impliquer</h2>
+              <p>Rejoignez nos initiatives : visites, adhésions, partenariats et actions de terrain.</p>
+              <div class="feature-actions">
+                <a class="btn btn-primary" href="membership.html">Rejoindre</a>
+                <a class="btn btn-outline" href="impliquer.html">Découvrir</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature reverse">
+            <div class="feature-media">
+              <img src="images/index/index-science-conservation.jpg" alt="Science et conservation" loading="lazy">
+              <div class="feature-badge">Science &amp; Conservation</div>
+            </div>
+            <div class="feature-text">
+              <h2>Science &amp; Conservation</h2>
+              <p>Inventaires, bases de données et suivi écologique pour guider des décisions solides.</p>
+              <div class="feature-actions">
+                <a class="btn btn-primary" href="scienceconservation.html">Nos travaux</a>
+                <a class="btn btn-outline" href="donnees.html">Données</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature">
+            <div class="feature-media">
+              <img src="images/index/index-education.jpg" alt="Éducation" loading="lazy">
+              <div class="feature-badge">Éducation</div>
+            </div>
+            <div class="feature-text">
+              <h2>Éducation</h2>
+              <p>Programmes et formations pour mieux comprendre la flore, les écosystèmes et la conservation.</p>
+              <div class="feature-actions">
+                <a class="btn btn-primary" href="education.html">Programmes</a>
+                <a class="btn btn-outline" href="formation.html">Formation</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature reverse">
+            <div class="feature-media">
+              <img src="images/index/index-horticulture.png" alt="Horticulture" loading="lazy">
+              <div class="feature-badge">Horticulture</div>
+            </div>
+            <div class="feature-text">
+              <h2>Horticulture</h2>
+              <p>Pépinière, production et solutions horticoles pour renforcer la vitalité des plantes et des paysages.</p>
+              <div class="feature-actions">
+                <a class="btn btn-primary" href="horticulture.html">Nos services</a>
+                <a class="btn btn-outline" href="pepiniere.html">Pépinière</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- À la une -->
+    <section class="section" aria-label="À la une">
+      <div class="container">
+        <h2 class="headline-title">À la une</h2>
+
+        <div class="headline-grid">
+          <a class="card" href="visite.html">
+            <div class="card-media">
+              <span class="pill">VISITE</span>
+              <img src="images/index/index-planifier-visite.jpg" alt="Planifier votre visite" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Planifier votre visite</h3>
+              <p>Itinéraires, immersion éducative et expériences guidées.</p>
+            </div>
+          </a>
+
+          <a class="card" href="evenement.html">
+            <div class="card-media">
+              <span class="pill">ÉVÉNEMENT</span>
+              <img src="images/index/index.evenement.jpg" alt="Événement" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Événement</h3>
+              <p>Transformez vos événements en moments inoubliables.</p>
+            </div>
+          </a>
+
+          <a class="card" href="medias.html">
+            <div class="card-media">
+              <span class="pill">BLOG</span>
+              <img src="images/index/index-dernieres-nouvelles.png" alt="Dernières nouvelles" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3>Dernières nouvelles</h3>
+              <p>Découvrez les activités récentes du jardin.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="section" aria-label="Ce qu'on dit du jardin">
+      <div class="container">
+        <h2 class="testi-title">Ce qu’on dit du Jardin Botanique des Cayes</h2>
+
+        <div class="testi-grid">
+          <div class="testi">
+            <p>« Un lieu de référence pour comprendre la biodiversité et relier la science à l’action. »</p>
+            <strong>Partenaire institutionnel</strong>
+          </div>
+          <div class="testi">
+            <p>« Une équipe engagée qui produit des données utiles pour la conservation, l’éducation et la santé. »</p>
+            <strong>Collaborateur scientifique</strong>
+          </div>
+          <div class="testi">
+            <p>« Un espace inspirant où la nature devient une source d’apprentissage et de solutions concrètes. »</p>
+            <strong>Visiteur</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <div class="contact-box">
+            <h2>Connecter avec nous</h2>
+            <p>
+              Quand vous avez besoin de visiter notre site, d’avoir des données sur la phytothérapie, la naturopathie,
+              les plantes endémiques, les plantes natives, et les écosystèmes, n’hésitez pas à nous contacter pour développer.
+              <br><br>
+              <strong>Envoyez-nous un message via le formulaire.</strong>
+            </p>
+          </div>
+
+          <div class="contact-box">
+            <form action="#" method="post">
+              <div class="field">
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" placeholder="Votre nom" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="Votre email" required>
+              </div>
+              <div class="field">
+                <label for="subject">Sujet</label>
+                <input id="subject" name="subject" type="text" placeholder="Objet du message" required>
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Écrivez votre message..." required></textarea>
+              </div>
+              <button class="submit" type="submit">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTENAIRES (LOGOS) -->
+    <section class="partners-bar" aria-label="Partenaires et reconnaissance">
+      <div class="container">
+        <div class="partners-title">ILS NOUS SOUTIENNENT &amp; RECONNAISSENT NOTRE TRAVAIL</div>
+
+        <div class="partners-row">
+          <a class="partner-item" href="https://www.bgci.org" target="_blank" rel="noopener">
+            <img class="partner-logo" src="images/index/index-bgci.jpg" alt="BGCI" loading="lazy">
+            <span>BGCI</span>
+          </a>
+
+          <a class="partner-item" href="https://www.naplesgarden.org" target="_blank" rel="noopener">
+            <img class="partner-logo" src="images/index/index-naples-botanical-garden.jpg" alt="Naples Botanical Garden" loading="lazy">
+            <span>Naples Botanical Garden</span>
+          </a>
+
+          <a class="partner-item" href="https://mde.gouv.ht" target="_blank" rel="noopener">
+            <img class="partner-logo" src="images/index/index-ministere-environnement-haiti.jpg" alt="Ministère de l’Environnement (Haïti)" loading="lazy">
+            <span>Ministère de l’Environnement</span>
+          </a>
+
+          <a class="partner-item" href="https://earthoutreach.google.com" target="_blank" rel="noopener">
+            <img class="partner-logo" src="images/index/index-google-geo-for-good.jpg" alt="Google Geo for Good" loading="lazy">
+            <span>Google Geo For Good</span>
+          </a>
+
+          <a class="partner-item" href="https://sites.google.com/viahsa.net/villages-apicoles/accueil" target="_blank" rel="noopener">
+            <img class="partner-logo" src="images/index/index-viahsa.jpg" alt="VIAHSA — Les Villages Apicoles" loading="lazy">
+            <span>VIAHSA</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-contact">
+          <div class="footer-title">Jardin Botanique des Cayes</div>
+
+          <p><i class="fa-solid fa-location-dot"></i>
+            <span># 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</span>
+          </p>
+
+          <p><i class="fa-solid fa-phone"></i>
+            <span>Haïti : +509 4309 2809</span>
+          </p>
+          <p><i class="fa-solid fa-phone"></i>
+            <span>USA : +1 845 248 9803</span>
+          </p>
+
+          <p><i class="fa-solid fa-envelope"></i>
+            <span>info@jardinbotaniquecayeshaiti.org</span>
+          </p>
+
+          <a class="footer-link" href="#" target="_blank" rel="noopener">
+            VOIR SUR LA CARTE <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div>
+          <div class="footer-title">Départements</div>
+          <ul class="footer-list">
+            <li><a href="scienceconservation.html">Science &amp; Conservation</a></li>
+            <li><a href="education.html">Éducation</a></li>
+            <li><a href="horticulture.html">Horticulture</a></li>
+            <li><a href="developpement.html">Développement &amp; Communication</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Suivez-nous</div>
+          <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Jardin Botanique des Cayes. Tous droits réservés.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS MENU (stable + mobile + dropdown) -->
+  <script>
+    (function(){
+      const burger = document.getElementById('navBurger');
+      const links  = document.getElementById('navLinks');
+
+      const dropWrap = document.getElementById('navDropHome');
+      const dropBtn  = document.getElementById('navDropBtnHome');
+
+      burger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const open = links.classList.toggle('open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+        if(!open){
+          dropWrap.classList.remove('open');
+          dropBtn.setAttribute('aria-expanded','false');
+        }
+      });
+
+      dropBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = dropWrap.classList.toggle('open');
+        dropBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', () => {
+        links.classList.remove('open');
+        burger.setAttribute('aria-expanded','false');
+        dropWrap.classList.remove('open');
+        dropBtn.setAttribute('aria-expanded','false');
+      });
+
+      links.addEventListener('click', (e) => e.stopPropagation());
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape'){
+          links.classList.remove('open');
+          burger.setAttribute('aria-expanded','false');
+          dropWrap.classList.remove('open');
+          dropBtn.setAttribute('aria-expanded','false');
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
+
