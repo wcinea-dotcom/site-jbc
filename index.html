@@ -9,700 +9,688 @@
   <meta name="description" content="Le Jardin Botanique des Cayes est une référence en biodiversité, éducation, science et conservation en Haïti. Visites, données, formations et actions pour la santé de l’homme et de la nature." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="index.html" />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Jardin Botanique des Cayes" />
   <meta property="og:description" content="Biodiversité, science, conservation et éducation au service de la nature et de l’homme." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://lh3.googleusercontent.com/d/1yOknWRD_1q2p82a8zG8CpieyWd09dNzs" />
+  <meta property="og:image" content="images/index/index-hero.jpg" />
 
+  <!-- Fonts + Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --primary:#1a4332;
-      --secondary:#2d5a27;
-      --accent:#c5a059;
-      --light:#f4f7f4;
-      --text:#2c3e50;
-      --white:#ffffff;
-      --shadow:0 10px 30px rgba(0,0,0,0.10);
-      --shadow2:0 20px 60px rgba(0,0,0,0.14);
+      --deep:#2F5D2F;
+      --botanical:#5E8F3A;
+      --gold:#C5A059;
+
+      --paper:#FBFCFA;
+      --ink:#1f2a33;
+      --muted:rgba(31,42,51,.72);
+      --white:#fff;
+
+      --shadow:0 18px 55px rgba(0,0,0,.08);
+      --shadow2:0 22px 70px rgba(0,0,0,.18);
+
       --radius:18px;
       --radius2:26px;
       --max:1200px;
-      --hero-h: clamp(420px, 58vh, 640px);
+
+      --navH:104px;
+      --heroH: clamp(420px, 56vh, 640px);
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+
     body{
       font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:var(--white);
+      color:var(--ink);
       line-height:1.6;
+      background:
+        radial-gradient(1100px 700px at 12% 10%, rgba(143,175,90,.16) 0%, rgba(143,175,90,0) 55%),
+        radial-gradient(900px 650px at 92% 18%, rgba(156,175,136,.18) 0%, rgba(156,175,136,0) 52%),
+        radial-gradient(900px 700px at 50% 92%, rgba(197,160,89,.12) 0%, rgba(197,160,89,0) 55%),
+        linear-gradient(180deg, var(--paper) 0%, #ffffff 100%);
     }
+
     h1,h2,h3,h4{font-family:"Playfair Display",serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
 
     .container{max-width:var(--max);margin:0 auto;padding:0 22px}
-    .section{padding:70px 0}
+    .section{padding:72px 0}
 
-    /* NAV */
-    nav{
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      height:88px;
-      background:rgba(26,67,50,.98);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.10);
+    .bg-paper{
+      background:
+        radial-gradient(900px 520px at 10% 20%, rgba(94,143,58,.10) 0%, rgba(94,143,58,0) 55%),
+        linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
     }
-    .nav-inner{
+    .bg-institution{
+      background:
+        radial-gradient(900px 520px at 12% 18%, rgba(47,93,47,.18) 0%, rgba(47,93,47,0) 55%),
+        radial-gradient(900px 520px at 88% 28%, rgba(94,143,58,.14) 0%, rgba(94,143,58,0) 56%),
+        linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
+    }
+    .bg-health{
+      background:
+        radial-gradient(900px 520px at 10% 18%, rgba(76,175,80,.14) 0%, rgba(76,175,80,0) 55%),
+        radial-gradient(900px 520px at 92% 30%, rgba(197,160,89,.14) 0%, rgba(197,160,89,0) 58%),
+        linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
+    }
+
+    /* =========================
+       TOP NAV
+       ========================= */
+    .topbar{
+      position:sticky; top:0; z-index:2000;
+      background:#fff;
+      border-bottom:1px solid rgba(0,0,0,.08);
+      height:var(--navH);
+    }
+    .topbar-inner{
       height:100%;
-      display:flex;align-items:center;justify-content:space-between;
-      gap:18px;
-      position:relative;
-    }
-    .nav-left{display:flex;align-items:center;gap:12px}
-    .nav-logo{
-      height:66px;width:auto;
-      border-radius:10px;
-      background:rgba(255,255,255,.06);
-      padding:6px;
-      filter:drop-shadow(0 2px 10px rgba(0,0,0,.25));
-    }
-
-    .nav-menu{
-      display:flex;align-items:center;gap:18px;
-      flex-wrap:wrap;justify-content:flex-end;
-    }
-
-    .nav-link{
-      display:inline-flex;align-items:center;justify-content:center;
-      border:none;background:transparent;color:#fff;
-      font-weight:800;font-size:.9rem;
-      letter-spacing:.08em;text-transform:uppercase;
-      padding:10px 10px;border-radius:999px;
-      cursor:pointer;transition:.18s ease;
-      white-space:nowrap;
-    }
-    .nav-link:hover{color:var(--accent)}
-
-    .nav-cta{
-      background:var(--accent);
-      color:#163527;
-      border:1px solid rgba(255,255,255,.15);
-      box-shadow:0 10px 26px rgba(0,0,0,.18);
-      padding:10px 14px;
-    }
-    .nav-cta:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.03);
-      color:#163527;
-    }
-
-    /* Dropdown (stable au clic) */
-    .dropdown{position:relative;display:inline-block}
-    .dropbtn{display:inline-flex;align-items:center;gap:8px}
-    .caret{font-size:.8em;opacity:.9;transform:translateY(-1px)}
-    .dropdown-content{
-      display:none;
-      position:absolute;
-      top:100%;
-      right:0;
-      min-width:260px;
-      margin-top:10px;
-      background:#fff;
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,.08);
-      box-shadow:0 18px 60px rgba(0,0,0,.18);
-      z-index:2000;
-    }
-    .dropdown-content a{
-      display:block;
-      padding:12px 14px;
-      font-weight:800;
-      letter-spacing:.02em;
-      text-transform:none;
-      color:var(--primary);
-      border-bottom:1px solid rgba(0,0,0,.06);
-      transition:.16s ease;
-      background:#fff;
-    }
-    .dropdown-content a:hover{
-      background:var(--light);
-      color:var(--accent);
-      padding-left:18px;
-    }
-    .dropdown.open .dropdown-content{display:block;}
-
-    /* Bouton hamburger (mobile) */
-    .nav-toggle{
-      display:none;
-      width:46px;height:46px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      cursor:pointer;
-      align-items:center;
-      justify-content:center;
-      gap:5px;
-    }
-    .nav-toggle span{
-      display:block;
-      width:20px;height:2px;
-      background:#fff;
-      border-radius:2px;
-    }
-
-    /* HERO */
-    .hero{
-      margin-top:88px;
-      height:var(--hero-h);
-      position:relative;
-      overflow:hidden;
       display:flex;
       align-items:center;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.70)),
-        url("https://lh3.googleusercontent.com/d/1yOknWRD_1q2p82a8zG8CpieyWd09dNzs") center/cover no-repeat;
+      justify-content:space-between;
+      gap:16px;
     }
-    .hero-overlay{
-      position:absolute;inset:0;
-      background:
-        radial-gradient(900px 600px at 20% 20%, rgba(197,160,89,.18), transparent 60%),
-        radial-gradient(900px 600px at 80% 40%, rgba(46,204,113,.10), transparent 60%);
-      pointer-events:none;
-    }
-    .hero-content{position:relative;z-index:2;width:100%;padding:24px 0;}
-    .hero-text{max-width:980px;color:#fff;}
-    .hero-title{
-      font-size:clamp(2.6rem, 5vw, 4.4rem);
-      letter-spacing:.02em;
-      line-height:1.05;
-      margin-bottom:14px;
-    }
-    .hero-sub{
-      font-size:clamp(1.05rem, 1.5vw, 1.35rem);
-      color:rgba(255,255,255,.92);
-      max-width:900px;
+    .brand{display:flex;align-items:center;gap:12px;min-width:260px}
+    .brand img{
+      height:92px;width:auto;padding:8px;border-radius:16px;background:#fff;
+      border:1px solid rgba(47,93,47,.22);
+      box-shadow:0 18px 50px rgba(0,0,0,.10), 0 0 0 6px rgba(94,143,58,.08);
+      filter: contrast(1.08) saturate(1.08);
     }
 
-    /* Vision & Mission */
-    .center-card{
-      background:#fbfbfa;
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:36px;
-      box-shadow:0 20px 60px rgba(0,0,0,.06);
-      padding:56px 28px;
-      text-align:center;
+    .nav{display:flex;align-items:center;gap:22px;justify-content:center;flex:1}
+    .nav a, .nav button{
+      font-family:inherit;background:transparent;border:none;cursor:pointer;
+      font-weight:900;letter-spacing:.10em;text-transform:uppercase;
+      font-size:.86rem;color:rgba(18,24,30,.92);
+      padding:10px 6px;border-radius:10px;white-space:nowrap;
+      transition:.15s ease;display:inline-flex;align-items:center;gap:8px;
     }
-    .center-card h2{
-      color:var(--primary);
-      font-size:clamp(2.2rem, 4vw, 3.6rem);
-      margin-bottom:18px;
-    }
-    .center-card p{
-      color:rgba(44,62,80,.70);
-      font-size:clamp(1.05rem, 1.35vw, 1.35rem);
-      max-width:980px;
-      margin:0 auto;
-      line-height:1.9;
-    }
+    .nav a:hover, .nav button:hover{ color: var(--deep); background: rgba(47,93,47,.06); }
 
-    /* FEATURES */
-    .feature-rows{display:flex;flex-direction:column;gap:40px}
-    .feature{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:26px;
-      align-items:stretch;
+    .drop{ position:relative; }
+    .drop .menu{
+      display:none;position:absolute;top:calc(100% + 10px);left:0;
+      min-width:240px;background:#fff;border:1px solid rgba(0,0,0,.10);
+      border-radius:16px;overflow:hidden;box-shadow:0 18px 60px rgba(0,0,0,.16);z-index:2500;
     }
-    .feature.reverse{grid-template-columns: .9fr 1.1fr}
-    .feature.reverse .feature-media{order:2}
-    .feature.reverse .feature-text{order:1}
+    .drop.open .menu{ display:block; }
+    .drop .menu a{
+      display:block;padding:12px 14px;font-weight:900;letter-spacing:.03em;text-transform:none;
+      border-bottom:1px solid rgba(0,0,0,.06);background:#fff;
+    }
+    .drop .menu a:hover{ background:rgba(47,93,47,.06); color:var(--deep); padding-left:18px; }
 
-    .feature-media{
-      border-radius:var(--radius2);
-      overflow:hidden;
-      box-shadow:var(--shadow2);
-      min-height:380px;
-      position:relative;
-      background:#ddd;
-    }
-    .feature-media img{
-      width:100%;height:100%;
-      object-fit:cover;display:block;
-      transform:scale(1.02);
-      transition:.6s ease;
-    }
-    .feature:hover .feature-media img{transform:scale(1.06)}
-    .feature-badge{
-      position:absolute;left:18px;top:18px;
-      background:rgba(0,0,0,.55);
-      color:#fff;border:1px solid rgba(255,255,255,.16);
-      border-radius:999px;
-      padding:10px 12px;
-      backdrop-filter:blur(6px);
-      font-weight:900;letter-spacing:.06em;text-transform:uppercase;
-      font-size:.78rem;
-    }
-    .feature-text{
-      background:var(--light);
-      border-radius:var(--radius2);
-      padding:28px 26px;
-      border:1px solid rgba(0,0,0,.06);
-      box-shadow:var(--shadow);
-      display:flex;flex-direction:column;justify-content:center;
-      gap:14px;
-    }
-    .feature-text h2{color:var(--primary);margin:0}
-    .feature-text p{margin:0;color:rgba(44,62,80,.82)}
-    .feature-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-
+    .actions{display:flex;align-items:center;gap:10px;min-width:220px;justify-content:flex-end}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 18px;border-radius:999px;
-      border:none;cursor:pointer;font-weight:900;
-      letter-spacing:.06em;text-transform:uppercase;
-      transition:.22s ease;font-size:.82rem;white-space:nowrap;
+      padding:12px 16px;border-radius:14px;
+      font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;
+      border:1px solid rgba(0,0,0,.10);
+      box-shadow:0 12px 30px rgba(0,0,0,.10);
+      transition:.18s ease;white-space:nowrap;user-select:none;
+      background:#fff;color:rgba(18,24,30,.92);
     }
-    .btn-primary{background:var(--primary);color:#fff}
-    .btn-primary:hover{background:var(--secondary);transform:translateY(-1px)}
-    .btn-outline{background:transparent;color:var(--primary);border:1px solid rgba(26,67,50,.25)}
-    .btn-outline:hover{border-color:rgba(26,67,50,.45);transform:translateY(-1px)}
+    .btn.primary{background:var(--deep);color:#fff;border-color:rgba(0,0,0,.12)}
+    .btn.primary:hover{background:var(--botanical);transform:translateY(-1px)}
 
-    /* À LA UNE */
-    .headline-title{
-      text-align:center;
-      color:var(--primary);
-      font-size:clamp(2rem, 3.2vw, 3rem);
-      margin-bottom:26px;
+    .iconbtn{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;border:1px solid rgba(0,0,0,.10);
+      background:#fff;cursor:pointer;transition:.18s ease;
     }
-    .headline-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:22px;}
-    .card{
+    .iconbtn:hover{ background:rgba(0,0,0,.04); transform:translateY(-1px); }
+
+    .burger{
+      display:none;width:46px;height:46px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;cursor:pointer;align-items:center;justify-content:center;gap:5px;
+    }
+    .burger span{display:block;width:20px;height:2px;background:#111;border-radius:2px}
+
+    .drawer{
+      display:none;position:fixed;top:var(--navH);left:12px;right:12px;
+      background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:18px;padding:12px;
+      box-shadow:var(--shadow2);z-index:2600;
+    }
+    .drawer.open{display:block}
+    .drawer a, .drawer button{
+      width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:12px 12px;border-radius:14px;border:none;background:transparent;cursor:pointer;
+      font-weight:900;letter-spacing:.08em;text-transform:uppercase;font-size:.86rem;color:rgba(18,24,30,.92);
+    }
+    .drawer a:hover, .drawer button:hover{ background:rgba(47,93,47,.06); color:var(--deep); }
+    .drawer-sub{display:none;margin:6px 0 10px;padding-left:6px;border-left:2px solid rgba(47,93,47,.18)}
+    .drawer-sub a{text-transform:none;letter-spacing:.02em;font-weight:900;opacity:.92}
+    .drawer-sub.open{display:block}
+
+    @media (max-width: 1080px){
+      .nav{display:none}
+      .burger{display:flex}
+      .actions{min-width:auto}
+      .brand{min-width:auto}
+      .brand img{height:70px;padding:7px}
+      :root{--navH:92px}
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+    .hero{position:relative;height:var(--heroH);overflow:hidden;background:#000}
+    .hero-media{
+      position:absolute; inset:0;
+      background:url("images/index/index-hero.jpg") center/cover no-repeat;
+      filter:saturate(1.05);
+      transform:scale(1.01);
+    }
+    .hero-gradient{
+      position:absolute; inset:0;
+      background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.70) 34%, rgba(0,0,0,.30) 58%, rgba(0,0,0,.06) 78%, rgba(0,0,0,0) 100%);
+    }
+    .hero-inner{position:relative;height:100%;display:flex;align-items:center}
+    .hero-copy{
+      width:min(900px, 92vw);
+      color:#fff;
+      padding:12px 0;
+    }
+    .hero-copy h1{
+      font-size:clamp(2.2rem, 4.4vw, 4.2rem);
+      line-height:1.05;
+      margin-bottom:12px;
+      white-space:nowrap;
+    }
+    .hero-copy p{
+      font-size:clamp(1.0rem, 1.25vw, 1.25rem);
+      color:rgba(255,255,255,.88);
+      max-width:760px;
+      line-height:1.8;
+    }
+    @media (max-width: 880px){
+      .hero-copy h1{white-space:normal;}
+    }
+
+    /* =========================
+       TITRES + BOUTONS (CENTRAGE GLOBAL)
+       ========================= */
+    .section h2,
+    .p-head,
+    .dept-head,
+    .headline-title,
+    .testi-title{
+      text-align:center;
+    }
+
+    .p-head,
+    .dept-head{
+      max-width:980px;
+      margin:0 auto 34px;
+    }
+
+    /* =========================
+       MISSION
+       ========================= */
+    .mission{ padding:78px 0; }
+    .mission-wrap{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:26px;
+      box-shadow:0 18px 60px rgba(0,0,0,.10);
+      padding:34px 28px;
+      position:relative;
+      overflow:hidden;
+      text-align:center;
+    }
+    .mission-wrap:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 12% 18%, rgba(47,93,47,.12) 0%, rgba(47,93,47,0) 56%),
+        radial-gradient(900px 520px at 88% 30%, rgba(197,160,89,.10) 0%, rgba(197,160,89,0) 58%);
+      pointer-events:none;
+    }
+    .mission-inner{position:relative}
+    .mission h2{
+      font-size:clamp(2.0rem, 3vw, 3.0rem);
+      margin-bottom:10px;
+      color:rgba(18,24,30,.92);
+    }
+    .mission p{
+      font-size:clamp(1.05rem, 1.4vw, 1.35rem);
+      line-height:1.8;
+      color:rgba(31,42,51,.82);
+      max-width:1120px;
+      margin:0 auto;
+    }
+
+    /* =========================
+       DEUX PILIERS (SIMPLE + SÛR)
+       ========================= */
+    .p-head h2{font-size:clamp(2.1rem, 3vw, 3.1rem);margin-bottom:10px;color:rgba(18,24,30,.92)}
+    .p-head p{color:var(--muted);font-size:1.08rem;line-height:1.85}
+
+    .pillars-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:22px;
+      align-items:stretch;
+    }
+
+    .pillar{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:0 18px 60px rgba(0,0,0,.10);
+      transition:.22s ease;
+      display:flex;
+      flex-direction:column;
+    }
+    .pillar:hover{ transform:translateY(-3px); }
+
+    .pillar-media{ height:320px; background:#eee; }
+    .pillar-media img{ width:100%; height:100%; object-fit:cover; }
+
+    .pillar-body{ padding:22px 22px 24px; text-align:center; }
+    .pillar-kicker{
+      font-weight:900;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:.74rem;
+      color:rgba(47,93,47,.95);
+      margin-bottom:10px;
+    }
+    .pillar-title{
+      font-family:"Playfair Display",serif;
+      font-weight:700;
+      font-size:1.85rem;
+      margin-bottom:10px;
+      color:rgba(18,24,30,.92);
+    }
+    .pillar-desc{
+      color:rgba(31,42,51,.78);
+      line-height:1.85;
+      margin:0 auto 16px;
+      font-size:1.05rem;
+      max-width:560px;
+    }
+
+    .pillar-actions{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 1040px){
+      .pillars-grid{ grid-template-columns:1fr; }
+      .pillar-media{ height:300px; }
+    }
+
+    /* =========================
+       DÉPARTEMENTS
+       ========================= */
+    .dept-section{ padding:78px 0 86px; }
+    .dept-head h2{font-size:clamp(2.2rem, 3.2vw, 3.2rem);margin-bottom:10px;letter-spacing:.02em;color:rgba(18,24,30,.92)}
+    .dept-head p{color:var(--muted);font-size:1.08rem;line-height:1.85}
+
+    .dept-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:24px;align-items:stretch}
+    .dept-card{
       border-radius:24px;
       overflow:hidden;
       background:#fff;
       border:1px solid rgba(0,0,0,.06);
-      box-shadow:0 18px 55px rgba(0,0,0,.08);
+      box-shadow:0 18px 60px rgba(0,0,0,.10);
       transition:.25s ease;
+      display:flex;
+      flex-direction:column;
+    }
+    .dept-card:hover{transform:translateY(-3px)}
+    .dept-media{height:320px;background:#eee}
+    .dept-media img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+    .dept-body{padding:20px 20px 22px;text-align:center}
+    .dept-body h3{
+      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-weight:900;font-size:1.55rem;margin-bottom:8px;color:rgba(18,24,30,.92)
+    }
+    .dept-body p{color:rgba(31,42,51,.78);line-height:1.75;margin:0 auto 14px;max-width:520px}
+    .dept-actions{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    @media (max-width: 1040px){
+      .dept-grid{grid-template-columns:1fr}
+      .dept-media{height:300px}
+    }
+
+    /* =========================
+       À LA UNE
+       ========================= */
+    .headline-title{color:var(--deep);font-size:clamp(2rem, 3.2vw, 3rem);margin-bottom:26px}
+    .headline-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:22px}
+    .card{
+      border-radius:24px;overflow:hidden;background:#fff;border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);transition:.25s ease
     }
     .card:hover{transform:translateY(-4px)}
-    .card-media{position:relative;height:220px;background:#eee;}
-    .card-media img{width:100%;height:100%;object-fit:cover;}
-    .pill{
-      position:absolute;left:16px; top:16px;
-      background:rgba(26,67,50,.95);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:.78rem;
-      box-shadow:0 12px 30px rgba(0,0,0,.18);
+    .card-media{position:relative;height:240px;background:#eee}
+    .card-media img{width:100%;height:100%;object-fit:cover}
+    .pillTag{
+      position:absolute;left:16px; top:16px;background:rgba(47,93,47,.96);color:#fff;
+      padding:10px 14px;border-radius:14px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem;
+      box-shadow:0 12px 30px rgba(0,0,0,.16);
     }
-    .card-body{padding:22px 22px 24px;}
-    .card-body h3{color:rgba(25,45,35,.90);font-size:1.65rem;margin-bottom:10px;}
-    .card-body p{color:rgba(44,62,80,.72);font-size:1.05rem;line-height:1.7;}
+    .media-btn{position:absolute;right:14px;bottom:14px;z-index:2}
+    .media-btn .btn{
+      padding:10px 12px;font-size:.78rem;border-radius:14px;
+      box-shadow:0 14px 34px rgba(0,0,0,.18);
+      border-color:rgba(255,255,255,.20);
+      background:rgba(255,255,255,.10);
+      color:#fff;
+      backdrop-filter: blur(6px);
+    }
+    .media-btn .btn:hover{ background:rgba(197,160,89,.92); color:#163527; }
+    .card-body{padding:22px 22px 24px;text-align:center}
+    .card-body h3{color:rgba(25,45,35,.92);font-size:1.65rem;margin-bottom:10px}
+    .card-body p{color:rgba(44,62,80,.72);font-size:1.05rem;line-height:1.7;margin:0 auto;max-width:520px}
+    @media (max-width: 1040px){ .headline-grid{grid-template-columns:1fr} }
 
-    /* Témoignages */
-    .testi-title{text-align:center;color:var(--primary);font-size:clamp(1.8rem, 3vw, 2.6rem);margin-bottom:22px;}
-    .testi-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;}
+    /* =========================
+       TÉMOIGNAGES
+       ========================= */
+    .testi-title{color:var(--deep);font-size:clamp(1.8rem, 3vw, 2.6rem);margin-bottom:22px}
+    .testi-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px}
     .testi{
-      background:#fbfbfa;
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:22px;
-      box-shadow:0 16px 48px rgba(0,0,0,.06);
-      padding:22px 20px;
+      background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;
+      box-shadow:0 16px 48px rgba(0,0,0,.06);padding:22px 20px;text-align:center
     }
-    .testi p{color:rgba(44,62,80,.78);font-size:1.02rem;line-height:1.75;margin-bottom:14px;}
-    .testi strong{color:var(--primary);letter-spacing:.04em;text-transform:uppercase;font-size:.88rem;}
+    .testi p{color:rgba(44,62,80,.78);font-size:1.02rem;line-height:1.75;margin:0 auto 14px;max-width:520px}
+    .testi strong{color:var(--deep);letter-spacing:.04em;text-transform:uppercase;font-size:.88rem}
+    @media (max-width: 1040px){ .testi-grid{grid-template-columns:1fr} }
 
-    /* CONTACT */
-    .contact-wrap{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:26px;
-      align-items:stretch;
-      margin-top:22px;
+    /* =========================
+       CONTACT
+       ========================= */
+    .contact-one{
+      background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:26px;box-shadow:var(--shadow);
+      padding:30px 26px;max-width:980px;margin:0 auto;text-align:center
     }
-    .contact-box{
-      background:#fbfbfa;
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:26px;
-      box-shadow:0 18px 55px rgba(0,0,0,.07);
-      padding:26px 24px;
-    }
-    .contact-box h2{color:var(--primary);font-size:2rem;margin-bottom:10px;}
-    .contact-box p{color:rgba(44,62,80,.75);font-size:1.05rem;line-height:1.8;}
-    form{display:flex;flex-direction:column;gap:12px;}
-    .field{display:flex;flex-direction:column;gap:6px;}
-    .field label{
-      font-weight:900;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size:.78rem;
-      color:rgba(26,67,50,.85);
-    }
-    .field input,.field textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.12);
-      outline:none;
-      font-size:1rem;
-      font-family:inherit;
-      background:#fff;
-    }
-    .field textarea{min-height:140px;resize:vertical}
+    .contact-one h2{color:var(--deep);font-size:2.1rem;margin-bottom:10px}
+    .contact-one p{color:rgba(44,62,80,.75);font-size:1.05rem;line-height:1.85;max-width:860px;margin:0 auto 18px}
+    .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px;text-align:left}
+    .field{display:flex;flex-direction:column;gap:6px}
+    .field.full{grid-column:1 / -1}
+    .field label{font-weight:900;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem;color:rgba(47,93,47,.85)}
+    .field input,.field textarea{width:100%;padding:12px 12px;border-radius:14px;border:1px solid rgba(0,0,0,.12);outline:none;font-size:1rem;font-family:inherit;background:#fff}
+    .field textarea{min-height:150px;resize:vertical}
     .submit{
-      margin-top:6px;
-      background:var(--primary);
-      color:#fff;
-      border:none;
-      border-radius:999px;
-      padding:13px 18px;
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      cursor:pointer;
-      transition:.22s ease;
-      align-self:flex-start;
+      grid-column:1 / -1;justify-self:center;
+      background:var(--deep);color:#fff;border:none;border-radius:14px;
+      padding:14px 20px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:.22s ease;
+      box-shadow:0 14px 34px rgba(0,0,0,.12);
     }
-    .submit:hover{background:var(--secondary);transform:translateY(-1px)}
+    .submit:hover{background:var(--botanical);transform:translateY(-1px)}
+    @media (max-width: 900px){ .contact-form{grid-template-columns:1fr} }
 
-    /* PARTNERS BAR */
-    .partners-bar{
-      background:#ffffff;
-      border-top:1px solid rgba(0,0,0,.06);
-      border-bottom:1px solid rgba(0,0,0,.06);
-      padding:34px 0;
+    /* =========================
+       PARTENAIRES
+       ========================= */
+    .partners-strip{
+      background:#fff;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06);
+      padding:34px 0
     }
-    .partners-title{
-      text-align:center;
-      font-weight:900;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      font-size:.78rem;
-      color:rgba(44,62,80,.70);
-      margin-bottom:18px;
+    .partners-row{display:flex;align-items:center;justify-content:center;gap:34px;flex-wrap:wrap}
+    .partner{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 12px;border-radius:14px;transition:.18s ease;
+      border:1px solid rgba(0,0,0,.06);background:#fff
     }
-    .partners-logos{
-      display:grid;
-      grid-template-columns:repeat(5, 1fr);
-      gap:14px;
-      align-items:center;
-    }
-    .partner-item{
-      display:flex;flex-direction:column;
-      align-items:center;justify-content:center;
-      gap:10px;
-      padding:14px 10px;
-      border-radius:16px;
-      background:rgba(26,67,50,.03);
-      border:1px solid rgba(26,67,50,.08);
-      min-height:110px;
-    }
-    .partner-item span{
-      font-weight:800;
-      color:rgba(44,62,80,.75);
-      font-size:.92rem;
-      text-align:center;
-    }
+    .partner:hover{transform:translateY(-1px);background:rgba(47,93,47,.05);border-color:rgba(47,93,47,.10)}
+    .partner img{height:64px;width:auto;max-width:260px;object-fit:contain;display:block}
 
-    /* FOOTER */
-    footer{
-      background:var(--primary);
-      color:#fff;
-      padding:54px 0 18px;
-      border-top:1px solid rgba(255,255,255,.10);
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap:26px;
-      align-items:start;
-    }
-    .footer-title{
-      color:var(--accent);
-      letter-spacing:.10em;
-      text-transform:uppercase;
-      font-weight:900;
-      font-size:.92rem;
-      margin-bottom:14px;
-    }
-    .footer-contact p{
-      margin:10px 0;
-      opacity:.95;
-      display:flex; gap:10px; align-items:flex-start;
-      line-height:1.45;
-    }
+    /* =========================
+       FOOTER
+       ========================= */
+    footer{background:var(--deep);color:#fff;padding:54px 0 18px;border-top:1px solid rgba(255,255,255,.10)}
+    .footer-grid{display:grid;grid-template-columns: 1.2fr 1fr 1fr;gap:26px;align-items:start}
+    .footer-title{color:var(--gold);letter-spacing:.10em;text-transform:uppercase;font-weight:900;font-size:.92rem;margin-bottom:14px}
+    .footer-contact p{margin:10px 0;opacity:.95;display:flex; gap:10px; align-items:flex-start;line-height:1.45}
     .footer-contact i{color:rgba(255,255,255,.85);margin-top:2px}
-    .footer-link{
-      display:inline-flex;align-items:center;gap:10px;
-      margin-top:10px;
-      color:var(--accent);
-      font-weight:900;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      font-size:.82rem;
-    }
+    .footer-link{display:inline-flex;align-items:center;gap:10px;margin-top:10px;color:var(--gold);font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:.82rem}
     .footer-list{list-style:none;padding:0;margin:0}
     .footer-list li{margin:10px 0}
     .footer-list a{opacity:.95}
-    .footer-list a:hover{color:var(--accent)}
-
-    .social-icons{
-      display:flex; gap:12px; flex-wrap:wrap;
-      margin-top:10px;
-    }
+    .footer-list a:hover{color:var(--gold)}
+    .social-icons{display:flex; gap:12px; flex-wrap:wrap; margin-top:10px}
     .social-icons a{
-      width:44px;height:44px;border-radius:999px;
-      display:grid;place-items:center;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.12);
-      transition:.22s ease;
-      color:#fff;
-      font-size:1.05rem;
+      width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+      transition:.22s ease;color:#fff;font-size:1.05rem
     }
-    .social-icons a:hover{
-      transform:translateY(-2px);
-      background:rgba(197,160,89,.20);
-      border-color:rgba(197,160,89,.45);
-    }
-
-    .footer-bottom{
-      border-top:1px solid rgba(255,255,255,.12);
-      margin-top:26px;
-      padding-top:16px;
-      text-align:center;
-      opacity:.88;
-      font-size:.92rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 1040px){
-      .headline-grid{grid-template-columns:1fr}
-      .testi-grid{grid-template-columns:1fr}
-      .contact-wrap{grid-template-columns:1fr}
-      .partners-logos{grid-template-columns:repeat(2, 1fr)}
-    }
-    @media (max-width: 820px){
-      .nav-menu{gap:12px}
-      .nav-link{font-size:.82rem}
-      .feature, .feature.reverse{grid-template-columns:1fr}
-      .feature.reverse .feature-media, .feature.reverse .feature-text{order:unset}
-      .feature-media{min-height:320px}
-      .footer-grid{grid-template-columns:1fr}
-    }
-
-    /* Mobile: menu visible via hamburger */
-    @media (max-width: 560px){
-      nav{height:84px}
-      .hero{margin-top:84px}
-      .nav-logo{height:62px}
-      .nav-toggle{display:flex;}
-
-      .nav-menu{
-        display:none; /* fermé par défaut */
-        position:absolute;
-        top:84px;
-        left:12px;
-        right:12px;
-        flex-direction:column;
-        align-items:stretch;
-        gap:8px;
-        padding:12px;
-        background:rgba(26,67,50,.98);
-        border:1px solid rgba(255,255,255,.12);
-        border-radius:18px;
-        box-shadow:0 18px 60px rgba(0,0,0,.22);
-      }
-      .nav-menu.is-open{display:flex;}
-
-      .nav-link{justify-content:flex-start;padding:12px 12px;}
-
-      .dropdown-content{
-        position:static;
-        margin-top:8px;
-        min-width:unset;
-      }
-    }
+    .social-icons a:hover{transform:translateY(-2px);background:rgba(197,160,89,.20);border-color:rgba(197,160,89,.45)}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:26px;padding-top:16px;text-align:center;opacity:.88;font-size:.92rem}
+    @media (max-width: 820px){ .footer-grid{grid-template-columns:1fr} }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Jardin Botanique des Cayes",
-    "email":"info@jardinbotaniquecayeshaiti.org",
-    "telephone":["+509 4309 2809","+1 845 248 9803"],
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"# 24, Bergeaud, Rte Nle # 2",
-      "addressLocality":"Les Cayes",
-      "addressCountry":"HT"
-    }
-  }
-  </script>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <div class="container nav-inner">
-      <div class="nav-left">
-        <a href="index.html" aria-label="Retour à l'accueil">
-          <img class="nav-logo"
-               src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv"
-               alt="Logo Jardin Botanique des Cayes" />
-        </a>
-      </div>
+  <!-- TOP NAV -->
+  <header class="topbar" role="banner">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" aria-label="Accueil — Jardin Botanique des Cayes">
+        <img src="images/logo/logo-jardin-botanique-des-cayes.png" alt="Logo Jardin Botanique des Cayes">
+      </a>
 
-      <div class="nav-menu" aria-label="Menu principal" id="navMenu">
-
-        <!-- ACCUEIL (dropdown stable au clic) -->
-        <div class="dropdown" id="homeDropdown">
-          <button class="nav-link dropbtn" type="button" id="homeDrop"
-                  aria-haspopup="true" aria-expanded="false">
-            ACCUEIL <span class="caret">▾</span>
+      <nav class="nav" aria-label="Menu principal">
+        <div class="drop" id="dropAccueil">
+          <button type="button" id="btnAccueil" aria-haspopup="true" aria-expanded="false">
+            ACCUEIL <i class="fa-solid fa-chevron-down" style="font-size:.82em; opacity:.85;"></i>
           </button>
-          <div class="dropdown-content" role="menu" aria-label="Sous-menu Accueil">
+          <div class="menu" role="menu" aria-label="Sous-menu Accueil">
             <a href="index.html" role="menuitem">Vue d’ensemble</a>
             <a href="apropos.html" role="menuitem">À propos</a>
           </div>
         </div>
 
-        <a class="nav-link" href="impliquer.html">S’IMPLIQUER</a>
-        <a class="nav-link" href="scienceconservation.html">SCIENCE &amp; CONSERVATION</a>
-        <a class="nav-link" href="education.html">ÉDUCATION</a>
-        <a class="nav-link" href="horticulture.html">HORTICULTURE</a>
-        <a class="nav-link" href="medias.html">MÉDIAS</a>
-        <a class="nav-link nav-cta" href="#contact">CONTACT</a>
-      </div>
+        <a href="impliquer.html">S’IMPLIQUER</a>
+        <a href="scienceconservation.html">SCIENCE &amp; CONSERVATION</a>
+        <a href="education.html">ÉDUCATION</a>
+        <a href="horticulture.html">HORTICULTURE</a>
+        <a href="medias.html">MÉDIAS</a>
+      </nav>
 
-      <!-- Bouton MENU mobile -->
-      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" type="button">
-        <span></span><span></span><span></span>
-      </button>
-
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Page d'accueil">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">Jardin Botanique des Cayes</h1>
-        <p class="hero-sub">
-          Notre vision est de faire du Jardin Botanique des Cayes une référence d’excellence pour la biodiversité.
-          Notre mission est de produire et partager des connaissances et des données utiles, afin de contribuer à la santé
-          de l’homme et de la nature.
-        </p>
+      <div class="actions">
+        <a class="btn primary" href="impliquer.html">Devenir membre <i class="fa-solid fa-user-plus"></i></a>
+        <button class="iconbtn" type="button" aria-label="Rechercher">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-label="Menu mobile">
+    <button type="button" id="drawerAccueilBtn">
+      ACCUEIL <i class="fa-solid fa-chevron-down" style="opacity:.8;"></i>
+    </button>
+    <div class="drawer-sub" id="drawerAccueilSub">
+      <a href="index.html">Vue d’ensemble</a>
+      <a href="apropos.html">À propos</a>
+    </div>
+
+    <a href="impliquer.html">S’IMPLIQUER</a>
+    <a href="scienceconservation.html">SCIENCE &amp; CONSERVATION</a>
+    <a href="education.html">ÉDUCATION</a>
+    <a href="horticulture.html">HORTICULTURE</a>
+    <a href="medias.html">MÉDIAS</a>
+
+    <a class="btn primary" href="impliquer.html" style="margin-top:8px; justify-content:center;">Devenir membre</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Page d'accueil">
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="hero-gradient" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Jardin Botanique des Cayes</h1>
+        <p>Une institution au service de la biodiversité : données, science, éducation et actions concrètes en Haïti.</p>
+      </div>
+    </div>
+  </section>
+
   <main>
 
-    <!-- Vision & Mission -->
-    <section class="section">
+    <!-- MISSION -->
+    <section class="mission bg-paper" aria-label="Mission">
       <div class="container">
-        <div class="center-card">
-          <h2>Vision &amp; Mission</h2>
-          <p>
-            Notre vision est de faire du Jardin Botanique des Cayes une référence d’excellence pour la biodiversité.
-            Notre mission est de produire et partager des connaissances et des données utiles, afin de contribuer à la santé
-            de l’homme et de la nature.
-          </p>
+        <div class="mission-wrap">
+          <div class="mission-inner">
+            <h2>Notre mission</h2>
+            <p>
+              Notre mission est de collecter et de partager des connaissances et des données sur la biodiversité afin de contribuer à la santé de l’homme et de la nature.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURE ROWS -->
-    <section class="section" id="impliquer">
+    <!-- DEUX PILIERS (CHEMINS UNIFIÉS: images/index/...) -->
+    <section class="section bg-institution" aria-label="Deux piliers fondamentaux">
       <div class="container">
-        <div class="feature-rows">
+        <div class="p-head">
+          <h2>Deux piliers fondamentaux</h2>
+          <p>Notre mission repose sur deux axes : la santé humaine et la santé de la nature.</p>
+        </div>
 
-          <article class="feature">
-            <div class="feature-media">
-              <img src="https://lh3.googleusercontent.com/d/1MDOCWyuTB6HCIDOkuDYcDy20F88GGSbA" alt="S'impliquer au Jardin Botanique des Cayes">
-              <div class="feature-badge">S’impliquer</div>
+        <div class="pillars-grid">
+          <article class="pillar">
+            <div class="pillar-media">
+              <img src="images/index-sante-humaine.jpg" alt="Santé humaine" loading="lazy">
             </div>
-            <div class="feature-text">
-              <h2>S’impliquer</h2>
-              <p>Rejoignez nos initiatives : visites, adhésions, partenariats et actions de terrain.</p>
-              <div class="feature-actions">
-                <a class="btn btn-primary" href="membership.html">Rejoindre</a>
-                <a class="btn btn-outline" href="impliquer.html">Découvrir</a>
+            <div class="pillar-body">
+              <div class="pillar-kicker">PILIER 1</div>
+              <div class="pillar-title">Santé humaine</div>
+              <div class="pillar-desc">
+                Découvrez la puissance des plantes médicinales, la phytothérapie, la naturopathie,
+                ainsi que la nutrition pour votre santé.
+              </div>
+              <div class="pillar-actions">
+                <a class="btn primary" href="education.html">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
               </div>
             </div>
           </article>
 
-          <article class="feature reverse">
-            <div class="feature-media">
-              <img src="https://lh3.googleusercontent.com/d/1gvjrorbpw-goZL28xOxmEAPg0FFUlnyQ" alt="Science et conservation">
-              <div class="feature-badge">Science &amp; Conservation</div>
+          <article class="pillar">
+            <div class="pillar-media">
+              <img src="images/index-sante-nature.jpg" alt="Santé de la nature" loading="lazy">
             </div>
-            <div class="feature-text">
-              <h2>Science &amp; Conservation</h2>
+            <div class="pillar-body">
+              <div class="pillar-kicker">PILIER 2</div>
+              <div class="pillar-title">Santé de la nature</div>
+              <div class="pillar-desc">
+                Votre santé dépend de la nature : comprenez l’écologie, la restauration et la conservation.
+                La biodiversité est une priorité.
+              </div>
+              <div class="pillar-actions">
+                <a class="btn primary" href="scienceconservation.html">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DÉPARTEMENTS (CHEMINS UNIFIÉS: images/index/...) -->
+    <section class="dept-section bg-paper" aria-label="Départements">
+      <div class="container">
+        <div class="dept-head">
+          <h2>Nos départements</h2>
+          <p>Quatre départements structurent le travail du Jardin : science, éducation, horticulture et mobilisation.</p>
+        </div>
+
+        <div class="dept-grid">
+          <a class="dept-card" href="scienceconservation.html" aria-label="Science & Conservation">
+            <div class="dept-media">
+              <img src="images/index/index-science-conservation.jpg" alt="Science & Conservation" loading="lazy">
+            </div>
+            <div class="dept-body">
+              <h3>Science &amp; Conservation</h3>
               <p>Inventaires, bases de données et suivi écologique pour guider des décisions solides.</p>
-              <div class="feature-actions">
-                <a class="btn btn-primary" href="scienceconservation.html">Nos travaux</a>
-                <a class="btn btn-outline" href="donnees.html">Données</a>
+              <div class="dept-actions">
+                <span class="btn primary">Explorer <i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </div>
-          </article>
+          </a>
 
-          <article class="feature">
-            <div class="feature-media">
-              <img src="https://lh3.googleusercontent.com/d/1Rac2LHTDKwTuB3M2KI4pYRZYTpk1YPd7" alt="Éducation">
-              <div class="feature-badge">Éducation</div>
+          <a class="dept-card" href="education.html" aria-label="Éducation">
+            <div class="dept-media">
+              <img src="images/index/index-education.jpg" alt="Éducation" loading="lazy">
             </div>
-            <div class="feature-text">
-              <h2>Éducation</h2>
-              <p>Programmes et formations pour mieux comprendre la flore, les écosystèmes et la conservation.</p>
-              <div class="feature-actions">
-                <a class="btn btn-primary" href="education.html">Programmes</a>
-                <a class="btn btn-outline" href="formation.html">Formation</a>
+            <div class="dept-body">
+              <h3>Éducation</h3>
+              <p>Programmes et formations pour mieux comprendre les plantes, la nature et la conservation.</p>
+              <div class="dept-actions">
+                <span class="btn primary">Explorer <i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </div>
-          </article>
+          </a>
 
-          <article class="feature reverse">
-            <div class="feature-media">
-              <img src="https://lh3.googleusercontent.com/d/1iHXgJSfG_rVvp5rPJAj55LrGrJyQDKtO" alt="Horticulture">
-              <div class="feature-badge">Horticulture</div>
+          <a class="dept-card" href="horticulture.html" aria-label="Horticulture">
+            <div class="dept-media">
+              <img src="images/index/index-horticulture.png" alt="Horticulture" loading="lazy">
             </div>
-            <div class="feature-text">
-              <h2>Horticulture</h2>
+            <div class="dept-body">
+              <h3>Horticulture</h3>
               <p>Pépinière, production et solutions horticoles pour renforcer la vitalité des plantes et des paysages.</p>
-              <div class="feature-actions">
-                <a class="btn btn-primary" href="horticulture.html">Nos services</a>
-                <a class="btn btn-outline" href="pepiniere.html">Pépinière</a>
+              <div class="dept-actions">
+                <span class="btn primary">Découvrir <i class="fa-solid fa-arrow-right"></i></span>
               </div>
             </div>
-          </article>
+          </a>
 
+          <a class="dept-card" href="impliquer.html" aria-label="S’impliquer">
+            <div class="dept-media">
+              <img src="images/index-impliquer.jpg" alt="S’impliquer" loading="lazy">
+            </div>
+            <div class="dept-body">
+              <h3>S’impliquer</h3>
+              <p>Rejoignez nos initiatives : adhésions, partenariats et actions de terrain.</p>
+              <div class="dept-actions">
+                <span class="btn primary">Devenir membre <i class="fa-solid fa-user-plus"></i></span>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- À la une -->
-    <section class="section" aria-label="À la une">
+    <!-- À LA UNE (CHEMINS UNIFIÉS: images/index/...) -->
+    <section class="section bg-paper" aria-label="À la une">
       <div class="container">
         <h2 class="headline-title">À la une</h2>
 
         <div class="headline-grid">
           <a class="card" href="visite.html">
             <div class="card-media">
-              <span class="pill">VISITE</span>
-              <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80" alt="Planifier votre visite">
+              <span class="pillTag">VISITE</span>
+              <img src="images/index/index-planifier-visite.jpg" alt="Planifier votre visite" loading="lazy">
+              <div class="media-btn"><span class="btn">Voir <i class="fa-solid fa-arrow-right"></i></span></div>
             </div>
             <div class="card-body">
               <h3>Planifier votre visite</h3>
@@ -710,21 +698,23 @@
             </div>
           </a>
 
-          <a class="card" href="evenements.html">
+          <a class="card" href="evenement.html">
             <div class="card-media">
-              <span class="pill">ÉVÉNEMENTS</span>
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" alt="Événements">
+              <span class="pillTag">ÉVÉNEMENT</span>
+              <img src="images//index-evenement.jpg" alt="Événement" loading="lazy">
+              <div class="media-btn"><span class="btn">Voir <i class="fa-solid fa-arrow-right"></i></span></div>
             </div>
             <div class="card-body">
-              <h3>Lieu d’exception</h3>
+              <h3>Événement</h3>
               <p>Transformez vos événements en moments inoubliables.</p>
             </div>
           </a>
 
           <a class="card" href="medias.html">
             <div class="card-media">
-              <span class="pill">BLOG</span>
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80" alt="Dernières nouvelles">
+              <span class="pillTag">BLOG</span>
+              <img src="images/index/index-dernieres-nouvelles.png" alt="Dernières nouvelles" loading="lazy">
+              <div class="media-btn"><span class="btn">Voir <i class="fa-solid fa-arrow-right"></i></span></div>
             </div>
             <div class="card-body">
               <h3>Dernières nouvelles</h3>
@@ -735,11 +725,10 @@
       </div>
     </section>
 
-    <!-- Témoignages -->
+    <!-- TÉMOIGNAGES -->
     <section class="section" aria-label="Ce qu'on dit du jardin">
       <div class="container">
         <h2 class="testi-title">Ce qu’on dit du Jardin Botanique des Cayes</h2>
-
         <div class="testi-grid">
           <div class="testi">
             <p>« Un lieu de référence pour comprendre la biodiversité et relier la science à l’action. »</p>
@@ -757,70 +746,62 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section" id="contact" aria-label="Contact">
+    <!-- CONTACT -->
+    <section class="section bg-health" id="contact" aria-label="Contact">
       <div class="container">
-        <div class="contact-wrap">
-          <div class="contact-box">
-            <h2>Connecter avec nous</h2>
-            <p>
-              Quand vous avez besoin de visiter notre site, d’avoir des données sur la phytothérapie, la naturopathie,
-              les plantes endémiques, les plantes natives, et les écosystèmes, n’hésitez pas à nous contacter pour développer.
-              <br><br>
-              <strong>Envoyez-nous un message via le formulaire.</strong>
-            </p>
-          </div>
+        <div class="contact-one">
+          <h2>Connectez avec nous</h2>
+          <p>
+            Connectez avec nous quand vous avez besoin d’avoir des données sur la phytothérapie,
+            la naturopathie, les plantes endémiques, les plantes natives, et la biodiversité.
+          </p>
 
-          <div class="contact-box">
-            <form action="#" method="post">
-              <div class="field">
-                <label for="name">Nom</label>
-                <input id="name" name="name" type="text" placeholder="Votre nom" required>
-              </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="Votre email" required>
-              </div>
-              <div class="field">
-                <label for="subject">Sujet</label>
-                <input id="subject" name="subject" type="text" placeholder="Objet du message" required>
-              </div>
-              <div class="field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Écrivez votre message..." required></textarea>
-              </div>
-              <button class="submit" type="submit">Envoyer</button>
-            </form>
-          </div>
+          <form class="contact-form" action="#" method="post">
+            <div class="field">
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" placeholder="Votre nom" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Votre email" required>
+            </div>
+
+            <div class="field full">
+              <label for="subject">Sujet</label>
+              <input id="subject" name="subject" type="text" placeholder="Objet du message" required>
+            </div>
+
+            <div class="field full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Écrivez votre message..." required></textarea>
+            </div>
+
+            <button class="submit" type="submit">Envoyer</button>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- Partenaires -->
-    <section class="partners-bar" aria-label="Partenaires et reconnaissance">
+    <!-- PARTENAIRES (CHEMINS UNIFIÉS: images/index/...) -->
+    <section class="partners-strip" aria-label="Partenaires et reconnaissance">
       <div class="container">
-        <div class="partners-title">ILS NOUS SOUTIENNENT &amp; RECONNAISSENT NOTRE TRAVAIL</div>
-        <div class="partners-logos">
-          <div class="partner-item">
-            <i class="fa-solid fa-leaf fa-2x" style="color:#2ecc71;"></i>
-            <span>BGCI Membre</span>
-          </div>
-          <div class="partner-item">
-            <i class="fa-solid fa-hand-holding-hand fa-2x" style="color:#27ae60;"></i>
-            <span>The Pulse Botanical Garden</span>
-          </div>
-          <div class="partner-item">
-            <i class="fa-solid fa-landmark fa-2x" style="color:#d9d9d9;"></i>
-            <span>BISI</span>
-          </div>
-          <div class="partner-item">
-            <i class="fa-brands fa-google fa-2x" style="color:#4285F4;"></i>
-            <span>Google Geo For Good</span>
-          </div>
-          <div class="partner-item">
-            <i class="fa-solid fa-seedling fa-2x" style="color:#e67e22;"></i>
-            <span>VIAHSA</span>
-          </div>
+        <div class="partners-row">
+          <a class="partner" href="https://www.bgci.org" target="_blank" rel="noopener" aria-label="BGCI">
+            <img src="images/index/index-bgci.jpg" alt="BGCI" loading="lazy">
+          </a>
+          <a class="partner" href="https://www.naplesgarden.org" target="_blank" rel="noopener" aria-label="Naples Botanical Garden">
+            <img src="images/index/index-naples-botanical-garden.jpg" alt="Naples Botanical Garden" loading="lazy">
+          </a>
+          <a class="partner" href="https://mde.gouv.ht" target="_blank" rel="noopener" aria-label="Ministère de l’Environnement (Haïti)">
+            <img src="images/index/index-ministere-environnement-haiti.jpg" alt="Ministère de l’Environnement (Haïti)" loading="lazy">
+          </a>
+          <a class="partner" href="https://earthoutreach.google.com" target="_blank" rel="noopener" aria-label="Google Geo for Good">
+            <img src="images/index/index-google-geo-for-good.jpg" alt="Google Geo for Good" loading="lazy">
+          </a>
+          <a class="partner" href="https://sites.google.com/viahsa.net/villages-apicoles/accueil" target="_blank" rel="noopener" aria-label="VIAHSA — Les Villages Apicoles">
+            <img src="images/index/index-viahsa.jpg" alt="VIAHSA — Les Villages Apicoles" loading="lazy">
+          </a>
         </div>
       </div>
     </section>
@@ -849,7 +830,7 @@
             <span>info@jardinbotaniquecayeshaiti.org</span>
           </p>
 
-          <a class="footer-link" href="https://goo.gl/maps/..." target="_blank" rel="noopener">
+          <a class="footer-link" href="#" target="_blank" rel="noopener">
             VOIR SUR LA CARTE <i class="fa-solid fa-arrow-right"></i>
           </a>
         </div>
@@ -860,7 +841,7 @@
             <li><a href="scienceconservation.html">Science &amp; Conservation</a></li>
             <li><a href="education.html">Éducation</a></li>
             <li><a href="horticulture.html">Horticulture</a></li>
-            <li><a href="developpement.html">Développement &amp; Communication</a></li>
+            <li><a href="impliquer.html">S’impliquer</a></li>
           </ul>
         </div>
 
@@ -881,50 +862,58 @@
     </div>
   </footer>
 
-  <!-- JS: mobile menu + dropdown stable -->
   <script>
     (function(){
-      const navToggle = document.getElementById('navToggle');
-      const navMenu = document.getElementById('navMenu');
+      const drop = document.getElementById('dropAccueil');
+      const btn = document.getElementById('btnAccueil');
 
-      const homeDrop = document.getElementById('homeDrop');
-      const homeDropdown = document.getElementById('homeDropdown');
-      const homeMenu = homeDropdown.querySelector('.dropdown-content');
+      if(drop && btn){
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const open = drop.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
 
-      // Toggle menu mobile
-      navToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const open = navMenu.classList.toggle('is-open');
-        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
+      const burger = document.getElementById('burger');
+      const drawer = document.getElementById('drawer');
+      const dBtn = document.getElementById('drawerAccueilBtn');
+      const dSub = document.getElementById('drawerAccueilSub');
 
-      // Dropdown Accueil (clic)
-      homeDrop.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = homeDropdown.classList.toggle('open');
-        homeDrop.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
+      if(burger && drawer){
+        burger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = drawer.classList.toggle('open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if(!open && dSub) dSub.classList.remove('open');
+        });
+      }
 
-      homeMenu.addEventListener('click', (e) => e.stopPropagation());
+      if(dBtn && dSub){
+        dBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dSub.classList.toggle('open');
+        });
+      }
 
-      // Fermer si clic ailleurs
       document.addEventListener('click', () => {
-        navMenu.classList.remove('is-open');
-        navToggle.setAttribute('aria-expanded', 'false');
-
-        homeDropdown.classList.remove('open');
-        homeDrop.setAttribute('aria-expanded', 'false');
+        if(drop){ drop.classList.remove('open'); btn && btn.setAttribute('aria-expanded','false'); }
+        if(drawer){ drawer.classList.remove('open'); }
+        if(burger){ burger.setAttribute('aria-expanded','false'); }
+        if(dSub){ dSub.classList.remove('open'); }
       });
 
-      // ESC pour fermer
+      if(drop) drop.addEventListener('click', (e) => e.stopPropagation());
+      if(drawer) drawer.addEventListener('click', (e) => e.stopPropagation());
+
       document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape'){
-          navMenu.classList.remove('is-open');
-          navToggle.setAttribute('aria-expanded', 'false');
-
-          homeDropdown.classList.remove('open');
-          homeDrop.setAttribute('aria-expanded', 'false');
+          if(drop){ drop.classList.remove('open'); btn && btn.setAttribute('aria-expanded','false'); }
+          if(drawer){ drawer.classList.remove('open'); }
+          if(burger){ burger.setAttribute('aria-expanded','false'); }
+          if(dSub){ dSub.classList.remove('open'); }
         }
       });
     })();
@@ -932,5 +921,13 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
