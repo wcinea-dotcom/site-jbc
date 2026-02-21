@@ -1,0 +1,191 @@
+
+<style>
+  /* =========================================================
+     CSS INTÉGRÉ DU HEADER
+     ========================================================= */
+  .topbar {
+    position: sticky; top: 0; z-index: 2000;
+    background: #ffffff; border-bottom: 1px solid rgba(0,0,0,0.08);
+    height: 104px; font-family: 'Lato', sans-serif;
+  }
+  .topbar-inner {
+    height: 100%; display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; max-width: 1240px; margin: 0 auto; padding: 0 20px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 180px; text-decoration: none; }
+  .brand img { height: 80px; width: auto; object-fit: contain; border: none; }
+
+  /* --- Liens de Navigation --- */
+  .nav { display: flex; align-items: center; gap: 22px; justify-content: center; flex: 1; }
+  .nav a, .nav button {
+    font-family: inherit; background: transparent; border: none; cursor: pointer;
+    font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+    font-size: 0.85rem; color: #1f2a33; padding: 10px 0; white-space: nowrap;
+    transition: 0.2s ease; display: inline-flex; align-items: center; text-decoration: none !important;
+  }
+  .nav a:hover, .nav button:hover { color: #3b5a38; }
+
+  /* Pour séparer le Lien et la Flèche du Dropdown */
+  .nav-group { display: flex; align-items: center; gap: 4px; }
+  .nav-group a { padding-right: 2px !important; }
+  .nav-group button { padding-left: 2px !important; }
+
+  /* --- Menus Déroulants --- */
+  .drop { position: relative; }
+  .drop .menu {
+    display: none; position: absolute; top: calc(100% + 10px); left: 0;
+    min-width: 240px; background: #fff; border: 1px solid rgba(0,0,0,.10);
+    border-radius: 12px; overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,.16); z-index: 2500;
+    list-style: none; padding: 0; margin: 0;
+  }
+  .drop.open .menu { display: block; }
+  .drop .menu a {
+    display: block; padding: 12px 18px; font-weight: 700; letter-spacing: 0.02em; text-transform: none;
+    border-bottom: 1px solid rgba(0,0,0,.04); background: #fff; color: #1f2a33;
+  }
+  .drop .menu a:hover { color: #3b5a38; padding-left: 22px; background: #f9f9f9; }
+
+  /* --- Actions --- */
+  .actions { display: flex; align-items: center; gap: 12px; justify-content: flex-end; }
+  
+  /* Bouton Recherche (Couleur Terre/Dorée de votre charte) */
+  .iconbtn {
+    border: none; border-radius: 50%; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.3s ease; cursor: pointer; 
+    background: #C5A059; /* La couleur terre/dorée officielle */
+    color: #ffffff; 
+    box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);
+  }
+  .iconbtn:hover { background: #b08d4b; transform: translateY(-2px); }
+  .iconbtn i { font-size: 1rem; color: #ffffff; }
+  
+  /* Bouton Membre Vert */
+  .btn.primary {
+    background-color: #3b5a38; color: #ffffff !important; padding: 10px 20px;
+    border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase;
+    letter-spacing: 0.5px; display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none !important; transition: all 0.3s ease; border: none;
+    box-shadow: 0 4px 12px rgba(59, 90, 56, 0.2);
+  }
+  .btn.primary:hover { background-color: #2d452b; transform: translateY(-2px); }
+
+  /* --- Menu Mobile --- */
+  .burger {
+    display: none; width: 40px; height: 40px; border-radius: 8px;
+    border: 1px solid #ccc; background: transparent; cursor: pointer;
+    align-items: center; justify-content: center; gap: 5px; flex-direction: column;
+  }
+  .burger span { display: block; width: 20px; height: 2px; background: #111; border-radius: 2px; }
+
+  /* Tiroir Mobile */
+  .drawer {
+    display: none; position: fixed; top: 104px; left: 0; right: 0;
+    background: #fff; border-bottom: 1px solid rgba(0,0,0,.12); padding: 20px;
+    box-shadow: 0 22px 70px rgba(0,0,0,.18); z-index: 2600; max-height: calc(100vh - 104px); overflow-y: auto;
+    font-family: 'Lato', sans-serif;
+  }
+  .drawer.open { display: block; }
+  .drawer > a, .drawer-group a {
+    font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; font-size: 0.9rem; color: #1f2a33;
+    text-decoration: none !important;
+  }
+  .drawer > a { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid #eee; }
+  
+  /* Pour séparer Lien et flèche sur mobile */
+  .drawer-group { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; }
+  .drawer-group a { flex: 1; padding: 12px 0; }
+  .drawer-group button { background: transparent; border: none; cursor: pointer; padding: 12px 10px; font-size: 1rem; color: #1f2a33; }
+
+  .drawer .drawer-sub { display: none; margin: 0; padding-left: 15px; border-left: 3px solid #3b5a38; background: #fafafa; }
+  .drawer .drawer-sub a { text-transform: none; letter-spacing: 0; font-weight: 700; font-size: 0.95rem; padding: 10px; border-bottom: none; display: block; color: #1f2a33; text-decoration: none;}
+  .drawer .drawer-sub.open { display: block; }
+  .drawer .btn.primary { margin-top: 20px; justify-content: center; width: 100%; border-radius: 8px; padding: 15px; }
+
+  @media (max-width: 1150px) {
+    .nav { display: none; }
+    .actions .btn.primary { display: none; }
+    .iconbtn { display: none; }
+    .burger { display: flex; }
+  }
+</style>
+
+<header class="topbar" role="banner">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <img src="images/logo/logo-jardin-botanique-des-cayes.png" alt="Logo JBC">
+    </a>
+
+    <nav class="nav">
+      <div class="drop" id="dropAccueil">
+        <div class="nav-group">
+          <a href="index.html">ACCUEIL</a>
+          <button type="button" id="btnAccueil"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <div class="menu" role="menu">
+          <a href="apropos.html" role="menuitem">À propos</a>
+          <a href="conseil-administration.html" role="menuitem">Conseil d'administration</a>
+        </div>
+      </div>
+
+      <a href="impliquer.html">S’IMPLIQUER</a>
+      
+      <div class="drop" id="dropNature">
+        <div class="nav-group">
+          <a href="sante-de-la-nature.html">SANTÉ DE LA NATURE</a>
+          <button type="button" id="btnNature"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+        <div class="menu" role="menu">
+          <a href="science.html" role="menuitem">Sciences</a>
+          <a href="donnees.html" role="menuitem">Données</a>
+          <a href="conservation.html" role="menuitem">Conservation</a>
+          <a href="horticulture.html" role="menuitem">Horticulture et Restauration</a>
+        </div>
+      </div>
+
+      <a href="sante-humaine.html">SANTÉ HUMAINE</a>
+      <a href="education.html">ÉDUCATION</a>
+      <a href="medias.html">MÉDIAS</a>
+    </nav>
+
+    <div class="actions">
+      <button class="iconbtn" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <a class="btn primary" href="membership.html">DEVENIR MEMBRE <i class="fa-solid fa-user-plus"></i></a>
+      <button class="burger" id="burger" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="drawer-group">
+    <a href="index.html">ACCUEIL</a>
+    <button type="button" id="drawerAccueilBtn"><i class="fa-solid fa-chevron-down"></i></button>
+  </div>
+  <div class="drawer-sub" id="drawerAccueilSub">
+    <a href="apropos.html">À propos</a>
+    <a href="conseil-administration.html">Conseil d'administration</a>
+  </div>
+
+  <a href="impliquer.html">S’IMPLIQUER</a>
+
+  <div class="drawer-group">
+    <a href="sante-de-la-nature.html">SANTÉ DE LA NATURE</a>
+    <button type="button" id="drawerNatureBtn"><i class="fa-solid fa-chevron-down"></i></button>
+  </div>
+  <div class="drawer-sub" id="drawerNatureSub">
+    <a href="science.html">Sciences</a>
+    <a href="donnees.html">Données</a>
+    <a href="conservation.html">Conservation</a>
+    <a href="horticulture.html">Horticulture et Restauration</a>
+  </div>
+
+  <a href="sante-humaine.html">SANTÉ HUMAINE</a>
+  <a href="education.html">ÉDUCATION</a>
+  <a href="medias.html">MÉDIAS</a>
+
+  <a class="btn primary" href="membership.html">Devenir membre</a>
+</div>
+
+
+
+

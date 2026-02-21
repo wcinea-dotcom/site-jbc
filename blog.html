@@ -1,0 +1,66 @@
+---
+layout: default
+title: Blog
+---
+
+<!-- Inclusion du header -->
+{% include header.html %}
+
+<main class="blog-main">
+    <h1>Blog Santé & Nature</h1>
+    
+    <!-- FILTRES PAR CATÉGORIE -->
+    <div class="theme-filters">
+        <div class="filter-group">
+            <h2>Santé Humaine</h2>
+            <div class="filter-links">
+                <a href="/categories/phytotherapie/">🌿 Phytothérapie</a>
+                <a href="/categories/naturopathie/">🍃 Naturopathie</a>
+                <a href="/categories/phytochimie/">⚗️ Phytochimie</a>
+            </div>
+        </div>
+        <div class="filter-group">
+            <h2>Santé de la Nature</h2>
+            <div class="filter-links">
+                <a href="/categories/conservation/">🦜 Conservation</a>
+                <a href="/categories/restauration/">🌳 Restauration</a>
+                <a href="/categories/horticulture/">🌺 Horticulture</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- DERNIERS ARTICLES -->
+    <h2>Derniers articles</h2>
+    <div class="posts-grid">
+        {% for post in site.posts limit:10 %}
+        <article class="post-card">
+            {% if post.image %}
+            <img src="{{ post.image }}" alt="{{ post.title }}" class="post-image">
+            {% endif %}
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <p class="post-subtitle">{{ post.sous_titre }}</p>
+            <div class="post-meta">
+                <span class="date">{{ post.date | date: "%d/%m/%Y" }}</span>
+                <span class="category">{{ post.categorie_principale }} > {{ post.sous_categorie }}</span>
+            </div>
+            <a href="{{ post.url }}" class="read-more">Lire la suite →</a>
+        </article>
+        {% endfor %}
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination">
+        {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="prev">← Précédent</a>
+        {% endif %}
+        
+        {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="next">Suivant →</a>
+        {% endif %}
+    </div>
+</main>
+
+<!-- Inclusion du footer -->
+{% include footer.html %}
+
+<script src="script.js"></script>

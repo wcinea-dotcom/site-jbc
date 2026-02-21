@@ -3,1172 +3,247 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Données | Science & Conservation — Jardin Botanique des Cayes</title>
+  <title>Données & Décisions | Jardin Botanique des Cayes</title>
 
-  <!-- SEO -->
-  <meta name="description" content="Sans données structurées et accessibles, les projets avancent souvent à l’aveugle. Le Jardin Botanique des Cayes transforme l’observation de terrain en données utiles pour guider la conservation, la santé publique et l’aménagement du territoire en Haïti." />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#1a4332" />
-  <link rel="canonical" href="donnees.html" />
-
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="Jardin Botanique des Cayes" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Données | Science & Conservation — Jardin Botanique des Cayes" />
-  <meta property="og:description" content="Données pour la décision : transformer l’observation de terrain en informations structurées pour la conservation, la santé et le territoire." />
-  <meta property="og:image" content="https://lh3.googleusercontent.com/d/1iSIV1eQmH6Ba2dlOZp9UHEbf3kTHxf9R" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Données | Science & Conservation — Jardin Botanique des Cayes" />
-  <meta name="twitter:description" content="Données pour la décision : conservation, santé et territoire." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
-
-  <!-- Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    :root{
-      --primary:#1a4332;
-      --primary2:#143628;
-      --secondary:#2d5a27;
-      --accent:#c5a059;
-
-      --text:#1f2a33;
-      --muted:#5a6772;
-
-      --bg:#ffffff;
-      --soft:#f4f7f4;
-      --soft2:#f7f4ee;
-
-      --card:#ffffff;
-      --border:rgba(0,0,0,.10);
-
-      --shadow:0 14px 40px rgba(0,0,0,.10);
-      --shadow2:0 10px 28px rgba(0,0,0,.08);
-
-      --radius:18px;
-      --max:1180px;
-
-      --topbar-h:76px;
+    /* =========================================
+       VARIABLES GLOBALES
+       ========================================= */
+    :root {
+      /* Couleurs spécifiques à la page Données */
+      --primary: #1a4332;       
+      --primary-dark: #0f291e;
+      --accent: #c5a059;        
+      --text: #333333;
+      --bg-light: #f9f9f9;
+      --white: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --max-width: 1200px;
+      
+      /* Variables Standard JBC */
+      --deep: #2F5D2F;       
+      --botanical: #5E8F3A;  
+      --gold: #C5A059;       
+      --paper: #FBFCFA;      
+      --ink: #1f2a33;        
+      --shadow: 0 18px 55px rgba(0,0,0,.08);
+      --shadow2: 0 22px 70px rgba(0,0,0,.18);
+      --max: 1200px;
+      --navH: 104px;
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:var(--bg);
-      line-height:1.75;
+    /* --- RESET & BASE --- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
     }
-    h1,h2,h3{font-family:"Playfair Display",serif}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-    section{padding:74px 0}
+    h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); font-weight: 700; }
+    a { text-decoration: none !important; transition: 0.3s; }
+    img { max-width: 100%; display: block; object-fit: cover; }
+    
+    .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
+    section { padding: 80px 0; }
 
-    .divider{
-      height:1px;
-      background:linear-gradient(to right, rgba(26,67,50,.22), rgba(197,160,89,.45), rgba(0,0,0,0));
-      margin:18px 0 0;
+    /* =========================================
+       CONTENU SPÉCIFIQUE (PAGE DONNÉES)
+       ========================================= */
+    .hero {
+      height: 60vh;
+      /* CHEMIN CORRIGÉ POUR L'IMAGE HERO */
+      background: linear-gradient(rgba(15, 41, 30, 0.85), rgba(15, 41, 30, 0.7)), 
+                  url('images/donnees/donnees-hero.jpg') center/cover;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #fff;
     }
-    .spacer{height:16px}
+    .hero h1 { color: #fff; font-size: 3.5rem; margin-bottom: 20px; }
+    .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto; font-weight: 300; opacity: 0.9; }
 
-    /* =========================
-       TOPBAR — MENU BLANC PREMIUM
-       ========================= */
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:3000;
-      height:var(--topbar-h);
-      background:rgba(255,255,255,.92);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(0,0,0,.10);
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-      display:flex;
-      align-items:center;
-    }
-    .topbar .wrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-    }
+    .intro-text { font-size: 1.15rem; color: #444; margin-bottom: 50px; border-left: 4px solid var(--accent); padding-left: 25px; }
 
-    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
-    .brand img{
-      height:52px;width:auto;
-      object-fit:contain;
-      border-radius:12px;
-      background:rgba(26,67,50,.06);
-      border:1px solid rgba(26,67,50,.10);
-      padding:6px 8px;
+    .data-module {
+      display: grid; grid-template-columns: 1fr 1.5fr; 
+      gap: 40px; margin-bottom: 80px; align-items: start;
+      background: #fff;
     }
+    .data-module.reverse { grid-template-columns: 1.5fr 1fr; }
+    .data-module.reverse .module-img { order: 2; }
+    .data-module.reverse .module-content { order: 1; }
 
-    .nav{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .module-img {
+      border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      position: relative; height: 100%; min-height: 400px;
+    }
+    .module-img img { width: 100%; height: 100%; object-fit: cover; }
+    .img-caption {
+      position: absolute; bottom: 0; left: 0; width: 100%;
+      background: rgba(26, 67, 50, 0.9); color: #fff; padding: 10px 15px;
+      font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
     }
 
-    .nav a, .nav button{
-      color:var(--text);
-      font-weight:900;
-      font-size:.82rem;
-      text-transform:uppercase;
-      padding:10px 12px;
-      border-radius:999px;
-      transition:.18s ease;
-      border:1px solid transparent;
-      background:transparent;
-      cursor:pointer;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-family:"Lato",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      letter-spacing:.06em;
-    }
+    .module-content h2 { font-size: 2.2rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
+    .module-content h2 i { font-size: 1.5rem; color: var(--accent); }
+    .module-desc { text-align: justify; margin-bottom: 30px; font-size: 1.05rem; }
 
-    .nav a:hover, .nav button:hover{
-      background:rgba(26,67,50,.06);
-      border-color:rgba(26,67,50,.14);
-      color:var(--primary);
+    .data-list { list-style: none; border-top: 2px solid var(--border); }
+    .data-item {
+      padding: 15px 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 180px 1fr; gap: 20px;
     }
+    .data-label { font-weight: 900; color: var(--primary); text-transform: uppercase; font-size: 0.85rem; }
+    .data-val { font-size: 0.95rem; color: #555; }
 
-    .nav a.active{
-      background:rgba(197,160,89,.18);
-      border-color:rgba(197,160,89,.45);
-      color:var(--primary);
+    .cta-section { background: var(--bg-light); text-align: center; border-top: 1px solid var(--border); padding: 80px 0;}
+    .cta-btn {
+      display: inline-block; background: var(--accent); color: var(--primary) !important;
+      padding: 15px 40px; font-weight: 900; font-size: 0.9rem; letter-spacing: 1px;
+      text-transform: uppercase; margin-top: 20px; transition: 0.3s; border-radius: 50px;
     }
+    .cta-btn:hover { background: var(--primary); color: #fff !important; }
 
-    .nav a.cta{
-      background:var(--accent);
-      color:#1b2b22;
-      border-color:rgba(0,0,0,.08);
-      letter-spacing:.08em;
-    }
-    .nav a.cta:hover{filter:brightness(.97);transform:translateY(-1px)}
-
-    /* Dropdown desktop */
-    .dropdown{position:relative;display:inline-flex;align-items:center}
-    .dd-btn{
-      background:rgba(26,67,50,.04);
-      border-color:rgba(26,67,50,.10);
-    }
-    .dd-btn:hover{
-      background:rgba(26,67,50,.08);
-      border-color:rgba(26,67,50,.18);
-    }
-
-    .dropdown-panel{
-      position:absolute;
-      top:calc(100% + 10px);
-      left:0;
-      min-width:320px;
-      background:#ffffff;
-      border:1px solid rgba(0,0,0,.10);
-      box-shadow:0 20px 55px rgba(0,0,0,.16);
-      border-radius:16px;
-      padding:10px;
-      display:none;
-      z-index:4000;
-    }
-    .dropdown.open .dropdown-panel{display:block}
-
-    .dropdown-panel a{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid transparent;
-      color:var(--text);
-      font-weight:900;
-      text-transform:none;
-      line-height:1.15;
-      letter-spacing:0;
-    }
-    .dropdown-panel a span.icon{
-      width:34px;height:34px;
-      border-radius:10px;
-      display:grid;
-      place-items:center;
-      background:rgba(26,67,50,.08);
-      color:var(--primary);
-      flex:0 0 auto;
-    }
-    .dropdown-panel a small{
-      display:block;
-      font-weight:800;
-      color:var(--muted);
-      margin-top:5px;
-    }
-    .dropdown-panel a:hover{
-      background:rgba(26,67,50,.06);
-      border-color:rgba(26,67,50,.12);
-    }
-    .dropdown-panel a[aria-current="page"]{
-      background:rgba(197,160,89,.18);
-      border-color:rgba(197,160,89,.40);
-    }
-
-    /* Burger */
-    .nav-toggle{
-      display:none;
-      width:46px;height:46px;
-      border-radius:14px;
-      border:1px solid rgba(26,67,50,.16);
-      background:#fff;
-      cursor:pointer;
-      color:var(--primary);
-      box-shadow:0 6px 18px rgba(0,0,0,.08);
-    }
-
-    /* Mobile nav */
-    .mobile-nav{
-      display:none;
-      position:fixed;
-      top:var(--topbar-h);
-      left:0; right:0;
-      background:rgba(255,255,255,.98);
-      border-bottom:1px solid rgba(0,0,0,.10);
-      box-shadow:0 18px 40px rgba(0,0,0,.12);
-      padding:12px 16px 16px;
-      z-index:2900;
-    }
-
-    .mobile-nav a, .mobile-nav button{
-      width:100%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:12px 12px;
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.10);
-      background:var(--soft);
-      color:var(--text);
-      font-weight:900;
-      text-transform:uppercase;
-      font-size:.85rem;
-      cursor:pointer;
-    }
-    .mobile-nav a:hover, .mobile-nav button:hover{
-      border-color:rgba(26,67,50,.16);
-      background:rgba(26,67,50,.06);
-      color:var(--primary);
-    }
-
-    .mobile-nav.show{display:block}
-
-    .mobile-sub{
-      margin-top:10px;
-      padding-left:10px;
-      display:none;
-    }
-    .mobile-sub.show{display:block}
-
-    .mobile-sub a{
-      text-transform:none;
-      font-weight:900;
-      font-size:.95rem;
-      justify-content:flex-start;
-      gap:10px;
-      background:#fff;
-    }
-
-    /* =========================
-       HERO (Drive)
-       ========================= */
-    .hero{
-      padding-top:0;
-      min-height:82vh;
-      display:grid;
-      place-items:end start;
-      position:relative;
-      overflow:hidden;
-      background:
-        radial-gradient(1200px 600px at 15% 20%, rgba(197,160,89,.22), rgba(0,0,0,0)),
-        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.74)),
-        url("https://lh3.googleusercontent.com/d/1iSIV1eQmH6Ba2dlOZp9UHEbf3kTHxf9R") center/cover no-repeat;
-    }
-    .hero::after{
-      content:"";
-      position:absolute; inset:auto 0 0 0; height:130px;
-      background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(255,255,255,1));
-    }
-    .hero-content{
-      position:relative; z-index:2;
-      max-width:980px;
-      padding:34px 0 26px;
-    }
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:10px;
-      letter-spacing:.18em;text-transform:uppercase;font-weight:900;font-size:.78rem;
-      color:rgba(255,255,255,.88);
-    }
-    .eyebrow .dot{
-      width:10px;height:10px;border-radius:99px;background:var(--accent);
-      box-shadow:0 0 0 6px rgba(197,160,89,.18);
-    }
-    .hero h1{
-      color:#fff;
-      font-size:3.05rem;
-      line-height:1.07;
-      margin:12px 0 10px;
-      letter-spacing:.02em;
-      text-transform:uppercase;
-      text-shadow:0 10px 40px rgba(0,0,0,.55);
-    }
-    .hero p.lead{
-      color:rgba(255,255,255,.92);
-      font-size:1.16rem;
-      max-width:920px;
-    }
-    .hero .quote{
-      margin-top:14px;
-      color:rgba(255,255,255,.94);
-      font-style:italic;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.18);
-      padding:12px 14px;
-      border-radius:14px;
-      max-width:920px;
-    }
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .btn{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 18px;border-radius:999px;font-weight:900;
-      border:1px solid rgba(255,255,255,.22);
-      color:#fff;background:rgba(255,255,255,.06);
-      transition:.2s ease;
-    }
-    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.10)}
-    .btn-primary{background:var(--accent);color:#1b2b22;border-color:rgba(0,0,0,.10)}
-    .btn-primary:hover{filter:brightness(.97)}
-    .btn-outline{border-color:rgba(255,255,255,.35);background:transparent}
-
-    /* =========================
-       TITRES / INTRO
-       ========================= */
-    .section-title{
-      display:flex;flex-direction:column;
-      gap:10px;
-      margin-bottom:22px;
-    }
-    .section-title.center{align-items:center;text-align:center}
-    .section-title h2{
-      font-size:2.2rem;
-      color:var(--primary);
-      line-height:1.15;
-    }
-    .section-title p{
-      color:var(--muted);
-      font-size:1.02rem;
-      max-width:900px;
-    }
-
-    .feature{
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap:18px;
-      align-items:start;
-      margin-top:18px;
-    }
-    .panel{
-      background:linear-gradient(180deg, rgba(244,247,244,1), rgba(247,244,238,1));
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow:0 10px 30px rgba(0,0,0,.05);
-      position:relative;
-      overflow:hidden;
-    }
-    .panel::before{
-      content:"";
-      position:absolute; inset:-40px -40px auto auto;
-      width:160px;height:160px;border-radius:999px;
-      background:radial-gradient(circle, rgba(197,160,89,.22), rgba(0,0,0,0) 70%);
-      pointer-events:none;
-    }
-    .panel h3{font-size:1.55rem;color:var(--primary);margin-bottom:10px}
-    .panel p{color:#3f4d58}
-
-    .callout{
-      background:#fff;border-radius:16px;border:1px solid rgba(0,0,0,.08);
-      padding:18px;box-shadow:var(--shadow2);
-    }
-    .callout strong{color:var(--primary)}
-    .callout ul{margin:12px 0 0 18px;color:#43515c}
-    .callout li{margin:7px 0}
-    .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      font-weight:900;
-      color:#1f2a33;
-      background:rgba(197,160,89,.18);
-      border:1px solid rgba(197,160,89,.28);
-      padding:8px 12px;
-      border-radius:999px;
-      width:fit-content;
-      margin-bottom:10px;
-    }
-    .badge i{color:var(--primary)}
-
-    /* =========================
-       Cards
-       ========================= */
-    .cards{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:18px;
-    }
-    .card{
-      grid-column: span 4;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow2);
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transition:.18s ease;
-    }
-    .card:hover{transform:translateY(-2px)}
-    .card .media{
-      height:176px;
-      background:#dde7e0 center/cover no-repeat;
-      position:relative;
-    }
-    .card .media::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(120deg, rgba(0,0,0,.10), rgba(0,0,0,.52));
-    }
-    .card .meta{
-      position:absolute;left:14px;bottom:14px;z-index:1;
-      display:inline-flex;align-items:center;gap:8px;
-      background:rgba(255,255,255,.92);
-      color:var(--primary);
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.10em;
-      font-size:.72rem;
-      padding:7px 10px;border-radius:999px;
-      border:1px solid rgba(26,67,50,.10);
-    }
-    .card .body{padding:16px 16px 18px}
-    .card h3{
-      font-family:"Lato",sans-serif;
-      font-size:1.05rem;
-      margin:0 0 8px;
-      color:#1f2a33;
-      font-weight:900;
-    }
-    .card p{margin:0;color:#43515c}
-    .card a.more{
-      margin-top:12px;
-      display:inline-flex;align-items:center;gap:10px;
-      padding:10px 12px;border-radius:999px;
-      font-weight:900;
-      border:1px solid rgba(26,67,50,.22);
-      color:var(--primary);
-      background:#fff;
-      transition:.2s ease;
-      width:fit-content;
-    }
-    .card a.more:hover{background:rgba(26,67,50,.06);transform:translateY(-1px)}
-
-    .band-soft{background:linear-gradient(180deg, var(--soft), #ffffff)}
-    .band-soft2{background:linear-gradient(180deg, var(--soft2), #ffffff)}
-
-    /* Explorer projects */
-    .projects{
-      margin-top:22px;
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:18px;
-    }
-    .proj{
-      grid-column: span 4;
-      border-radius:var(--radius);
-      border:1px solid var(--border);
-      background:#fff;
-      box-shadow:var(--shadow2);
-      overflow:hidden;
-      display:flex; flex-direction:column;
-      transition:.18s ease;
-    }
-    .proj:hover{transform:translateY(-2px)}
-    .proj .banner{
-      height:168px;
-      background:#dde7e0 center/cover no-repeat;
-      position:relative;
-    }
-    .proj .banner::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(120deg, rgba(0,0,0,.10), rgba(0,0,0,.48));
-    }
-    .proj .content{
-      padding:16px 16px 18px;
-      display:flex;flex-direction:column;gap:8px
-    }
-    .proj h3{
-      font-family:"Lato",sans-serif;
-      font-size:1.05rem;
-      margin:0;
-      color:#1f2a33;
-      font-weight:900;
-    }
-    .proj p{margin:0;color:#43515c}
-
-    .center-actions{
-      margin-top:18px;
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-    .btn-dark{
-      background:var(--primary);
-      color:#fff;
-      border-color:rgba(0,0,0,.10);
-    }
-    .btn-dark:hover{filter:brightness(.98)}
-    .btn-gold{
-      background:rgba(197,160,89,.18);
-      color:#1f2a33;
-      border-color:rgba(197,160,89,.35);
-    }
-
-    /* Partnership band */
-    .cta-band{
-      background:
-        radial-gradient(900px 500px at 10% 20%, rgba(197,160,89,.18), rgba(0,0,0,0)),
-        linear-gradient(120deg, rgba(26,67,50,.96), rgba(45,90,39,.86)),
-        url("https://lh3.googleusercontent.com/d/1aI1kq90xg7gE1GBZTGO2zM2EOZi8-3dr") center/cover no-repeat;
-      color:#fff;
-      padding:64px 0;
-      position:relative;
-      overflow:hidden;
-    }
-    .cta-band .wrap{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:20px;
-      align-items:center;
-    }
-    .cta-band h2{font-size:2.1rem;margin-bottom:10px;color:#fff}
-    .cta-band p{color:rgba(255,255,255,.92)}
-    .cta-panel{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.20);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:0 20px 50px rgba(0,0,0,.18);
-    }
-    .cta-panel .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-    .cta-panel a{
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 16px;border-radius:999px;
-      font-weight:900;background:var(--accent);color:#1b2b22;
-      border:1px solid rgba(0,0,0,.10);transition:.2s ease;
-    }
-    .cta-panel a.secondary{
-      background:transparent;color:#fff;border-color:rgba(255,255,255,.35);
-    }
-    .cta-panel a:hover{transform:translateY(-1px);filter:brightness(.98)}
-
-    /* Footer */
-    footer{
-      background: #1b4a3a;
-      color:#fff;
-      padding:46px 0 18px;
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns:repeat(12,1fr);
-      gap:22px;
-      align-items:start;
-    }
-    .f-col{grid-column: span 4;}
-    footer h3{
-      font-family:"Lato",sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      font-size:.95rem;
-      margin-bottom:10px;
-      color:rgba(197,160,89,.95);
-      font-weight:900;
-    }
-    .f-item{
-      display:flex; align-items:center; gap:12px;
-      margin:10px 0;
-      color:rgba(255,255,255,.92);
-      font-weight:700;
-    }
-    .f-item i{opacity:.95}
-    .footer-btn{
-      margin-top:14px;
-      display:inline-flex;align-items:center;gap:10px;
-      padding:12px 16px;border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.18);
-      color:#fff;
-      font-weight:900;
-      transition:.2s ease;
-    }
-    .footer-btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.12)}
-    .dept-link{
-      display:flex; align-items:center; gap:10px;
-      padding:8px 0;
-      color:rgba(255,255,255,.92);
-      font-weight:800;
-    }
-    .dept-link i{opacity:.95}
-    .social{
-      display:flex; gap:14px; align-items:center; margin-top:12px;
-    }
-    .social a{
-      width:44px;height:44px;border-radius:999px;
-      display:grid;place-items:center;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.18);
-      transition:.2s ease;
-      color:#fff;
-      font-weight:900;
-    }
-    .social a:hover{transform:translateY(-1px);background:rgba(255,255,255,.12);color:var(--accent)}
-    .copyright{
-      border-top:1px solid rgba(255,255,255,.14);
-      margin-top:20px;
-      padding-top:14px;
-      text-align:center;
-      opacity:.92;
-      font-size:.98rem;
-      font-weight:700;
-    }
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .nav{display:none}
-      .nav-toggle{display:inline-grid;place-items:center;}
-      .hero h1{font-size:2.25rem}
-      .feature{grid-template-columns:1fr}
-      .card{grid-column: span 12}
-      .proj{grid-column: span 12}
-      .cta-band .wrap{grid-template-columns:1fr}
-      .f-col{grid-column: span 12}
+    @media (max-width: 900px) {
+      .data-module, .data-module.reverse { grid-template-columns: 1fr; }
+      .data-item { grid-template-columns: 1fr; gap: 5px; }
+      .hero h1 { font-size: 2.5rem; }
+      .module-img { min-height: 250px; order: -1 !important; } 
     }
   </style>
 </head>
-
 <body>
 
-  <!-- TOPBAR -->
-  <header class="topbar">
+  <div id="header-placeholder"></div>
+
+  <section class="hero">
     <div class="wrap">
-      <div class="brand">
-        <a href="index.html" aria-label="Retour à l'accueil">
-          <img src="https://lh3.googleusercontent.com/d/1YbPECbqx54jrncNK0yXh5BlehqFZPxKv" alt="Logo Jardin Botanique des Cayes">
-        </a>
-      </div>
-
-      <!-- NAV DESKTOP -->
-      <nav class="nav" aria-label="Navigation principale">
-        <a href="index.html">Accueil</a>
-        <a href="impliquer.html">S'impliquer</a>
-
-        <div class="dropdown" id="dd-science">
-          <button type="button" class="dd-btn" aria-haspopup="true" aria-expanded="false">
-            Science &amp; Conservation <i class="fa-solid fa-chevron-down"></i>
-          </button>
-
-          <div class="dropdown-panel" role="menu" aria-label="Sous-menu Science &amp; Conservation">
-            <a href="scienceconservation.html">
-              <span class="icon"><i class="fa-solid fa-layer-group"></i></span>
-              <span>Présentation <small>Vue d’ensemble du département</small></span>
-            </a>
-
-            <a href="science.html">
-              <span class="icon"><i class="fa-solid fa-microscope"></i></span>
-              <span>Science <small>Recherche, inventaires, laboratoire</small></span>
-            </a>
-
-            <a href="donnees.html" aria-current="page">
-              <span class="icon"><i class="fa-solid fa-database"></i></span>
-              <span>Données <small>Base, cartographie, décision</small></span>
-            </a>
-
-            <a href="conservation.html">
-              <span class="icon"><i class="fa-solid fa-seedling"></i></span>
-              <span>Conservation <small>Restauration, priorités, plans</small></span>
-            </a>
-          </div>
-        </div>
-
-        <a href="education.html">Éducation</a>
-        <a href="horticulture.html">Horticulture</a>
-        <a href="medias.html">Médias</a>
-        <a href="apropos.html">À propos</a>
-
-        <a class="cta" href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
-      </nav>
-
-      <!-- BURGER MOBILE -->
-      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" type="button">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </header>
-
-  <!-- MOBILE NAV -->
-  <div class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
-    <a href="index.html"><span>Accueil</span><i class="fa-solid fa-arrow-right"></i></a>
-    <a href="impliquer.html"><span>S'impliquer</span><i class="fa-solid fa-arrow-right"></i></a>
-
-    <button type="button" id="mobileDropBtn" aria-expanded="false">
-      <span>Science &amp; Conservation</span>
-      <i class="fa-solid fa-chevron-down"></i>
-    </button>
-
-    <div class="mobile-sub" id="mobileSub">
-      <a href="scienceconservation.html"><i class="fa-solid fa-layer-group"></i>&nbsp; Présentation</a>
-      <a href="science.html"><i class="fa-solid fa-microscope"></i>&nbsp; Science</a>
-      <a href="donnees.html" aria-current="page"><i class="fa-solid fa-database"></i>&nbsp; Données</a>
-      <a href="conservation.html"><i class="fa-solid fa-seedling"></i>&nbsp; Conservation</a>
-    </div>
-
-    <a href="education.html"><span>Éducation</span><i class="fa-solid fa-arrow-right"></i></a>
-    <a href="horticulture.html"><span>Horticulture</span><i class="fa-solid fa-arrow-right"></i></a>
-    <a href="medias.html"><span>Médias</span><i class="fa-solid fa-arrow-right"></i></a>
-    <a href="apropos.html"><span>À propos</span><i class="fa-solid fa-arrow-right"></i></a>
-    <a href="contact.html"><span>Contact</span><i class="fa-solid fa-arrow-right"></i></a>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero" aria-label="Données pour la décision">
-    <div class="wrap hero-content">
-      <div class="eyebrow"><span class="dot"></span> Données — Centre d’aide à la décision</div>
-
-      <h1>Données pour la décision</h1>
-
-      <p class="lead">
-        Comprendre, soigner et restaurer Haïti à partir de données fiables.
-      </p>
-
-      <div class="quote">
-        « Dans l’ère de la technologie et de l’IA, les données sont une monnaie : pour décider, il faut savoir collecter, organiser et analyser.
-        Au Jardin Botanique des Cayes, nous parlons de Nature BIG DATA. »
-      </div>
-
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#piliers"><i class="fa-solid fa-compass"></i> Explorer</a>
-        <a class="btn btn-outline" href="#intro"><i class="fa-solid fa-layer-group"></i> Introduction</a>
-        <a class="btn" href="#partenariat"><i class="fa-solid fa-handshake"></i> Collaborer</a>
-      </div>
+      <h1>Données & Décisions</h1>
+      <p>Centre national de collecte et d'analyse des données biologiques pour la conservation et la santé publique.</p>
     </div>
   </section>
 
-  <!-- INTRO -->
-  <section id="intro" class="band-soft">
-    <div class="wrap">
-      <div class="section-title center">
-        <h2>Les données comme fondement des décisions environnementales et sanitaires en Haïti</h2>
-        <p>
-          Sans données structurées et accessibles, les projets avancent souvent à l’aveugle et échouent. Les erreurs se répètent,
-          les ressources sont mal investies et les populations en subissent directement les conséquences, en matière d’environnement
-          comme de santé. Le Jardin Botanique des Cayes transforme l’observation de terrain en données structurées afin de guider
-          la conservation de la biodiversité, la santé publique et l’aménagement du territoire.
-        </p>
-      </div>
-      <div class="divider"></div>
-
-      <div class="feature">
-        <div class="panel">
-          <div class="badge"><i class="fa-solid fa-gears"></i> Produire • Organiser • Valoriser</div>
-          <h3>Des données qui évitent les erreurs coûteuses</h3>
-          <p>
-            Nos équipes convertissent les observations de terrain (photos, géolocalisation, inventaires, suivis) en informations
-            vérifiables et comparables. L’objectif est simple : réduire les décisions approximatives, sécuriser les interventions
-            et améliorer l’efficacité des actions de conservation, de restauration et de santé publique.
-          </p>
-          <div class="spacer"></div>
-          <p>
-            Notre mission est de produire, organiser et valoriser des données solides pour protéger les écosystèmes, orienter
-            les actions de restauration et renforcer la santé des populations.
-          </p>
-        </div>
-
-        <aside class="callout">
-          <strong>Notre cadre de travail (simple et clair)</strong>
-          <ul>
-            <li><strong>Collecte terrain :</strong> observations, photos, géolocalisation.</li>
-            <li><strong>Structuration :</strong> bases de données, listes de référence, jeux de données.</li>
-            <li><strong>Priorisation :</strong> habitats, espèces, risques, actions urgentes.</li>
-            <li><strong>Partage :</strong> partenaires, institutions, universités, communautés.</li>
-          </ul>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILIERS -->
-  <section id="piliers" class="band-soft2">
-    <div class="wrap">
-      <div class="section-title center">
-        <h2>Nos piliers de données</h2>
-        <p>
-          Trois piliers pour transformer la connaissance en décisions concrètes : nature, santé humaine, climat et résilience.
-        </p>
-      </div>
-      <div class="divider"></div>
-
-      <!-- PILIER 1 -->
-      <div class="spacer"></div>
-      <div class="section-title">
-        <h2 style="font-size:1.95rem;">Pilier 1 : Données pour la santé de la nature</h2>
-        <p>Connaître les écosystèmes et les espèces, pour agir avec précision et éviter les reboisements inadaptés.</p>
-      </div>
-
-      <div class="cards" aria-label="Cartes Pilier 1">
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1hiqF-nV_X-Y_Y9fg7lw72CYKtjTtZMRq');">
-            <div class="meta"><i class="fa-solid fa-mountain-sun"></i> Écosystèmes</div>
-          </div>
-          <div class="body">
-            <h3>Écosystèmes prioritaires & territoires suivis</h3>
-            <p>
-              Cartographier forêts sèches, massifs, mangroves et zones humides pour identifier les urgences, cibler les zones à
-              protéger et planifier des restaurations réalistes (sites, espèces, saisons, risques).
-            </p>
-            <a class="more" href="#explorer"><i class="fa-solid fa-arrow-right"></i> Voir</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1sKqj2P56Uxdy3xrt60uNmPoPXZJbbUQ8');">
-            <div class="meta"><i class="fa-solid fa-triangle-exclamation"></i> Priorisation</div>
-          </div>
-          <div class="body">
-            <h3>Listes rouges : décider ce qu’il faut sauver d’abord</h3>
-            <p>
-              Structurer les données sur les espèces rares, endémiques et menacées pour guider les priorités de conservation,
-              la production en pépinière et les choix d’aires à restaurer.
-            </p>
-            <a class="more" href="conservation.html"><i class="fa-solid fa-arrow-right"></i> Conservation</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1WksZA72iCO-vZdNhqKX3VopAo9L64LEr');">
-            <div class="meta"><i class="fa-solid fa-shield-halved"></i> Prévention</div>
-          </div>
-          <div class="body">
-            <h3>Prévenir les erreurs & risques écologiques</h3>
-            <p>
-              Éviter les plantations inadaptées, documenter les menaces et améliorer les choix d’intervention grâce à des données
-              comparables et traçables.
-            </p>
-            <a class="more" href="#partenariat"><i class="fa-solid fa-arrow-right"></i> Collaborer</a>
-          </div>
-        </article>
-      </div>
-
-      <!-- PILIER 2 -->
-      <div class="spacer"></div>
-      <div class="section-title" style="margin-top:26px;">
-        <h2 style="font-size:1.95rem;">Pilier 2 : Données pour la santé de l’homme</h2>
-        <p>Protéger les savoirs, sécuriser les usages, et renforcer la nutrition à partir des plantes locales.</p>
-      </div>
-
-      <div class="cards" aria-label="Cartes Pilier 2">
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/111d5k8K3quSNxVjX0QUAMkYJ-P4ZAUtG');">
-            <div class="meta"><i class="fa-solid fa-people-group"></i> Ethnobotanique</div>
-          </div>
-          <div class="body">
-            <h3>Ethnobotanique : préserver ce qui soigne</h3>
-            <p>
-              Documenter les plantes utilisées, les parties, les préparations et les indications rapportées pour éviter la perte des
-              connaissances et améliorer la qualité des références partagées.
-            </p>
-            <a class="more" href="science.html"><i class="fa-solid fa-arrow-right"></i> Science</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1h0QJzqorwErUnvaPI3xGR-QYvea0xZTI');">
-            <div class="meta"><i class="fa-solid fa-flask"></i> Pharmacognosie</div>
-          </div>
-          <div class="body">
-            <h3>Pharmacognosie & toxicité : réduire les risques</h3>
-            <p>
-              Structurer des informations fiables sur ressources naturelles, effets potentiels et risques de dosage pour prévenir
-              les intoxications et soutenir des pratiques de soin plus sûres.
-            </p>
-            <a class="more" href="medias.html"><i class="fa-solid fa-arrow-right"></i> Ressources</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1JsRYM-qGkIkUna3ANu7s1AagVuYUfWbU');">
-            <div class="meta"><i class="fa-solid fa-apple-whole"></i> Nutrition</div>
-          </div>
-          <div class="body">
-            <h3>Nutrition & sécurité alimentaire</h3>
-            <p>
-              Valoriser les plantes comestibles locales et leur valeur nutritive pour diversifier l’alimentation, lutter contre la
-              malnutrition et renforcer la souveraineté alimentaire.
-            </p>
-            <a class="more" href="#explorer"><i class="fa-solid fa-arrow-right"></i> Explorer</a>
-          </div>
-        </article>
-      </div>
-
-      <!-- PILIER 3 -->
-      <div class="spacer"></div>
-      <div class="section-title" style="margin-top:26px;">
-        <h2 style="font-size:1.95rem;">Pilier 3 : Climat, risques & modélisation</h2>
-        <p>Anticiper les risques, protéger l’eau, les sols et les écosystèmes sur le long terme.</p>
-      </div>
-
-      <div class="cards" aria-label="Cartes Pilier 3">
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1BzynamiHzCJ1pRXsBT6A7UPLoeLNK7mZ');">
-            <div class="meta"><i class="fa-solid fa-chart-line"></i> Modélisation</div>
-          </div>
-          <div class="body">
-            <h3>Modélisation & analyse</h3>
-            <p>
-              Croiser données de terrain, indicateurs et outils d’analyse pour soutenir des décisions robustes et comparables.
-            </p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1j9lS0nNUBchKVEqVj4ve-Inp87nI0g-K');">
-            <div class="meta"><i class="fa-solid fa-wind"></i> Risques</div>
-          </div>
-          <div class="body">
-            <h3>Gestion des risques</h3>
-            <p>
-              Mesurer l’impact des sécheresses, cyclones et catastrophes sur la végétation afin d’orienter un aménagement plus résilient.
-            </p>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="media" style="background-image:url('https://lh3.googleusercontent.com/d/1bwwTcJVkN8eYpG24uhwyyjb5_hCc5Gr9');">
-            <div class="meta"><i class="fa-solid fa-map-location-dot"></i> Territoire</div>
-          </div>
-          <div class="body">
-            <h3>Décision à long terme</h3>
-            <p>
-              Croiser écologie, climat et historique pour mieux gérer l’eau, les sols et les paysages, et renforcer la capacité d’anticipation.
-            </p>
-          </div>
-        </article>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EXPLORER -->
-  <section id="explorer">
-    <div class="wrap">
-      <div class="section-title center">
-        <h2>Explorer nos données et projets</h2>
-        <p>
-          Le Jardin Botanique des Cayes développe des ensembles de données et projets scientifiques destinés à appuyer la prise de décision
-          environnementale et sanitaire en Haïti.
-        </p>
-      </div>
-      <div class="divider"></div>
-
-      <div class="projects" aria-label="Grille Explorer">
-        <article class="proj">
-          <div class="banner" style="background-image:url('https://lh3.googleusercontent.com/d/1aI1kq90xg7gE1GBZTGO2zM2EOZi8-3dr');"></div>
-          <div class="content">
-            <h3>Biodiversité &amp; écosystèmes</h3>
-            <p>
-              Données de terrain sur forêts, mangroves, montagnes et zones humides pour comprendre l’état des milieux, repérer les zones prioritaires
-              et orienter des restaurations efficaces.
-            </p>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="banner" style="background-image:url('https://lh3.googleusercontent.com/d/1cWbaAtKQd4x_ld6LPuF9p807AcxIKxtq');"></div>
-          <div class="content">
-            <h3>Plantes médicinales &amp; nutrition</h3>
-            <p>
-              Données sur usages, sécurité et valeur nutritionnelle pour sécuriser les pratiques, soutenir la prévention et renforcer la souveraineté
-              alimentaire à partir des plantes locales.
-            </p>
-          </div>
-        </article>
-
-        <article class="proj">
-          <div class="banner" style="background-image:url('https://lh3.googleusercontent.com/d/1yQ2rSuQu2uewBWi2GI2_MQm3-l659LjF');"></div>
-          <div class="content">
-            <h3>Climat, risques &amp; résilience</h3>
-            <p>
-              Données écologiques et climatiques pour anticiper les impacts du changement climatique, analyser les risques et guider un aménagement
-              du territoire plus résilient.
-            </p>
-          </div>
-        </article>
-      </div>
-
-      <div class="center-actions">
-        <a class="btn btn-dark" href="scienceconservation.html"><i class="fa-solid fa-layer-group"></i> Retour Science &amp; Conservation</a>
-        <a class="btn btn-gold" href="#partenariat"><i class="fa-solid fa-handshake"></i> Proposer un partenariat</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PARTENARIAT -->
-  <section id="partenariat" class="cta-band">
-    <div class="wrap">
-      <div>
-        <h2>Partenariat — Produire les données ensemble</h2>
-        <p>
-          La production de données fiables et utiles ne peut se faire seul. Le Jardin Botanique des Cayes travaille avec des institutions,
-          ONG, universités, chercheurs et communautés locales pour renforcer la qualité, la couverture et l’impact des données.
-        </p>
-        <div class="spacer"></div>
-        <p>
-          Nous collaborons pour collecter sur le terrain, structurer des jeux de données, développer des projets appliqués et appuyer la prise de décision
-          environnementale et sanitaire.
-        </p>
-      </div>
-
-      <div class="cta-panel">
-        <strong style="letter-spacing:.08em;text-transform:uppercase;opacity:.95;">Actions rapides</strong>
-        <div class="row">
-          <a href="contact.html"><i class="fa-solid fa-handshake"></i> Proposer un partenariat</a>
-          <a class="secondary" href="contact.html"><i class="fa-solid fa-file-signature"></i> Demander un devis</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONCLUSION -->
   <section>
     <div class="wrap">
-      <div class="section-title center">
-        <h2>De la donnée à la décision</h2>
+      
+      <div class="intro-text">
         <p>
-          Une donnée scientifique n’a de valeur que si elle est utilisée et partagée. Le Jardin Botanique des Cayes met ses bases de données
-          au service de l’État, des ONG, des universités et des citoyens pour transformer la connaissance en action et bâtir un avenir plus durable
-          et plus juste pour Haïti.
+          <strong>La donnée est notre outil principal.</strong> Avant de planter, de soigner ou d'aménager, nous devons connaître. 
+          Le Jardin Botanique des Cayes transforme l'observation brute du terrain en bases de données structurées. 
+          Ces données permettent à l'État et aux chercheurs de prendre des décisions factuelles pour la survie des écosystèmes et la sécurité sanitaire des populations.
         </p>
       </div>
-      <div class="divider"></div>
 
-      <div class="center-actions" style="justify-content:center;margin-top:18px;">
-        <a class="btn btn-dark" href="medias.html"><i class="fa-regular fa-newspaper"></i> Publications &amp; nouvelles</a>
-        <a class="btn btn-gold" href="contact.html"><i class="fa-solid fa-envelope"></i> Nous écrire</a>
+      <div class="data-module">
+        <div class="module-img">
+          <img src="images/donnees/donnees-biodiversite-ecosystemes.jpg" alt="Inventaire Forestier">
+          <div class="img-caption">Inventaire Floristique & Taxonomie</div>
+        </div>
+        <div class="module-content">
+          <h2><i class="fa-solid fa-tree"></i> Biodiversité & Écosystèmes</h2>
+          <div class="module-desc">
+            Nous réalisons l'inventaire complet de la flore du Grand Sud. Chaque plante est identifiée, géolocalisée et classifiée selon les standards internationaux (APG IV) pour guider les efforts de reforestation.
+          </div>
+          <ul class="data-list">
+            <li class="data-item">
+              <span class="data-label">Taxonomie</span>
+              <span class="data-val">Identification botanique précise, mises à jour des familles et genres, gestion de l'Herbier National.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Statut IUCN</span>
+              <span class="data-val">Classement des espèces en danger (CR, EN, VU) pour prioriser les actions de conservation urgentes.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Cartographie</span>
+              <span class="data-val">Délimitation des zones clés pour la biodiversité (KBA) et suivi des habitats critiques (Mangroves, Forêts sèches).</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Espèces Invasives</span>
+              <span class="data-val">Suivi de la propagation des espèces exotiques menaçant l'agriculture et la flore native.</span>
+            </li>
+          </ul>
+        </div>
       </div>
+
+      <div class="data-module reverse">
+        <div class="module-img">
+          <img src="images/donnees/donnees-pharmacognosie.png" alt="Plante Médicinale et Préparation">
+          <div class="img-caption">Ethnobotanique & Pharmacognosie</div>
+        </div>
+        <div class="module-content">
+          <h2><i class="fa-solid fa-heart-pulse"></i> Santé Humaine & Phytothérapie</h2>
+          <div class="module-desc">
+            La majorité des Haïtiens se soignent par les plantes. Notre mission est de sécuriser ces pratiques en validant scientifiquement les usages traditionnels et en identifiant les risques de toxicité.
+          </div>
+          <ul class="data-list">
+            <li class="data-item">
+              <span class="data-label">Ethnobotanique</span>
+              <span class="data-val">Recensement des savoirs locaux : quelles plantes sont utilisées, pour quelles maladies, et selon quels dosages.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Toxicologie</span>
+              <span class="data-val"><strong>Donnée critique :</strong> Identification des plantes toxiques souvent confondues avec des remèdes, pour prévenir les intoxications mortelles.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Phytochimie</span>
+              <span class="data-val">Analyse des principes actifs pour valider l'efficacité réelle des traitements traditionnels.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Nutrition</span>
+              <span class="data-val">Valorisation des plantes alimentaires non conventionnelles (PANC) pour lutter contre la malnutrition.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="data-module">
+        <div class="module-img">
+          <img src="images/donnees/donnees-modelisation-climatique.jpg" alt="Paysage et Modélisation">
+          <div class="img-caption">Modélisation & Résilience</div>
+        </div>
+        <div class="module-content">
+          <h2><i class="fa-solid fa-chart-line"></i> Climat & Territoire</h2>
+          <div class="module-desc">
+            Face aux changements climatiques, nous ne pouvons plus planter au hasard. Nous utilisons les données pour modéliser le futur écologique d'Haïti et proposer des solutions durables.
+          </div>
+          <ul class="data-list">
+            <li class="data-item">
+              <span class="data-label">Modélisation</span>
+              <span class="data-val">Projection des niches écologiques futures : quelles espèces survivront dans 10, 20 ou 50 ans ?</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Résilience</span>
+              <span class="data-val">Identification des essences résistantes aux cyclones et aux sécheresses prolongées.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Sols & Eau</span>
+              <span class="data-val">Sélection de plantes pour la fixation des sols (anti-érosion) et la protection des bassins versants.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
+  <section class="cta-section">
     <div class="wrap">
-      <div class="footer-grid">
-
-        <div class="f-col">
-          <h3>Jardin Botanique des Cayes</h3>
-          <div class="f-item"><i class="fa-solid fa-location-dot"></i> # 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</div>
-          <div class="f-item"><i class="fa-solid fa-phone"></i> +509 4309 2809 • +1 845 248 9803</div>
-          <div class="f-item"><i class="fa-solid fa-envelope"></i> info@jardinbotaniquecayeshaiti.org</div>
-          <a class="footer-btn" href="apropos.html"><i class="fa-solid fa-circle-info"></i> À PROPOS <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <div class="f-col">
-          <h3>Départements</h3>
-          <a class="dept-link" href="scienceconservation.html"><i class="fa-solid fa-leaf"></i> Science &amp; Conservation</a>
-          <a class="dept-link" href="education.html"><i class="fa-solid fa-graduation-cap"></i> Éducation</a>
-          <a class="dept-link" href="horticulture.html"><i class="fa-solid fa-seedling"></i> Horticulture</a>
-          <a class="dept-link" href="developpement.html"><i class="fa-solid fa-bullhorn"></i> Développement &amp; Communication</a>
-        </div>
-
-        <div class="f-col">
-          <h3>Suivez-nous</h3>
-          <div class="social" aria-label="Réseaux sociaux">
-            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="copyright">© 2026 Jardin Botanique des Cayes. Tous droits réservés.</div>
+      <h2 style="color: var(--deep); font-size: 2.2rem; margin-bottom: 15px;">Accès aux Données Scientifiques</h2>
+      <p style="max-width:700px; margin:0 auto 20px; font-size: 1.1rem; color: #555;">
+        Nos bases de données sont ouvertes aux collaborations institutionnelles, académiques et gouvernementales.
+      </p>
+      <a href="index.html#contact" class="cta-btn">Collaborer avec le Centre de Données</a>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Desktop dropdown (stable)
-    const dd = document.getElementById('dd-science');
-    const ddBtn = dd ? dd.querySelector('.dd-btn') : null;
+  <div id="footer-placeholder"></div>
 
-    function closeDropdown(){
-      if(!dd || !ddBtn) return;
-      dd.classList.remove('open');
-      ddBtn.setAttribute('aria-expanded','false');
-    }
-
-    if(ddBtn){
-      ddBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = dd.classList.toggle('open');
-        ddBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-    }
-
-    document.addEventListener('click', (e) => {
-      if(dd && !dd.contains(e.target)) closeDropdown();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if(e.key === 'Escape') closeDropdown();
-    });
-
-    // Mobile menu
-    const navToggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNav');
-
-    if(navToggle && mobileNav){
-      navToggle.addEventListener('click', () => {
-        mobileNav.classList.toggle('show');
-      });
-    }
-
-    // Mobile dropdown
-    const mobileDropBtn = document.getElementById('mobileDropBtn');
-    const mobileSub = document.getElementById('mobileSub');
-
-    if(mobileDropBtn && mobileSub){
-      mobileDropBtn.addEventListener('click', () => {
-        const open = mobileSub.classList.toggle('show');
-        mobileDropBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
-
-
-

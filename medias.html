@@ -3,552 +3,437 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Médias | Jardin Botanique des Cayes</title>
-
+  <title>Médiathèque | Jardin Botanique des Cayes</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Lato:wght@300;400;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
 
   <style>
-    :root{
-      --bg:#163f34;        /* vert fond menu/footer */
-      --bg2:#12362c;       /* vert plus sombre */
-      --accent:#c6a35a;    /* doré */
-      --text:#1f2d2b;
-      --muted:#6b7a76;
-      --white:#ffffff;
-      --card:#ffffff;
-      --line:rgba(255,255,255,.12);
-      --shadow:0 10px 26px rgba(0,0,0,.12);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:#f3f6f5;
-    }
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1180px,92%);margin:auto}
+    /* =========================================
+       VARIABLES GLOBALES (STANDARD JBC + MÉDIATHÈQUE)
+       ========================================= */
+    :root {
+      /* STANDARD JBC */
+      --deep: #2F5D2F;       
+      --botanical: #5E8F3A;  
+      --gold: #C5A059;       
+      --paper: #FBFCFA;      
+      --ink: #1f2a33;        
+      --shadow: 0 18px 55px rgba(0,0,0,.08);
+      --shadow2: 0 22px 70px rgba(0,0,0,.18);
+      --max: 1200px;
+      --navH: 104px;
 
-    /* =========================
-       MENU (forme capture)
-    ========================= */
-    .topbar{
-      background:var(--bg);
-      padding:18px 0;
-    }
-    .navwrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-    }
-    .logo-box{
-      width:170px;
-      height:86px;
-      border-radius:10px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px;
-    }
-    .logo-box img{
-      max-width:100%;
-      max-height:100%;
-      object-fit:contain;
-      display:block;
-      border-radius:6px;
-      background:#fff;
-      padding:6px;
+      /* Spécifique à la page Médiathèque */
+      --brand-green: #385241;
+      --brand-dark: #1f2d2b;
+      --brand-gold: #c6a35a;
+      --bg-grey: #f4f7f6;
+      --white: #ffffff;
+      --radius: 16px;
     }
 
-    .navlinks{
-      flex:1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:46px; /* gros espacement comme ta capture */
-      flex-wrap:wrap;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--brand-dark);
+      background: var(--bg-grey);
+      line-height: 1.6;
     }
-    .navlinks a{
-      color:#fff;
-      font-weight:900;
-      letter-spacing:.6px;
-      text-transform:uppercase;
-      opacity:.95;
-    }
-    .navlinks a:hover{opacity:1;text-decoration:underline}
-    .navlinks a.active{color:#fff; text-decoration:underline; text-underline-offset:8px}
+    
+    h1, h2, h3, h4, .btn { font-family: 'Montserrat', sans-serif; }
+    a { text-decoration: none !important; color: inherit; transition: 0.3s; }
+    img { max-width: 100%; display: block; }
+    
+    .media-container { width: min(1240px, 94%); margin: auto; }
+    .section-pad { padding: 80px 0; }
 
-    /* Mobile */
-    @media (max-width: 980px){
-      .navwrap{flex-direction:column; align-items:stretch}
-      .navlinks{gap:18px}
-      .logo-box{width:180px}
-    }
+    /* =========================================
+       LE CSS DU MENU DOIT RESTER ICI POUR LE FETCH
+       ========================================= */
+    .topbar { position: sticky; top: 0; z-index: 2000; background: #fff; border-bottom: 1px solid rgba(0,0,0,.08); height: var(--navH); }
+    .topbar-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: var(--max); margin: 0 auto; padding: 0 22px;}
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 180px; }
+    .brand img { height: 92px; width: auto; filter: contrast(1.08) saturate(1.08); border: none; background: transparent; padding: 0; box-shadow: none; object-fit: contain; }
+    .nav { display: flex; align-items: center; gap: 22px; justify-content: center; flex: 1; }
+    .nav a, .nav button { font-family: "Lato", sans-serif; background: transparent; border: none; cursor: pointer; font-weight: 900; letter-spacing: .10em; text-transform: uppercase; font-size: .86rem; color: rgba(18,24,30,.92); padding: 10px 6px; border-radius: 10px; white-space: nowrap; transition: .15s ease; display: inline-flex; align-items: center; gap: 8px; }
+    .nav a:hover, .nav button:hover { color: var(--deep); background: rgba(47,93,47,.06); }
+    .drop { position: relative; }
+    .drop .menu { display: none; position: absolute; top: calc(100% + 10px); left: 0; min-width: 240px; background: #fff; border: 1px solid rgba(0,0,0,.10); border-radius: 16px; overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,.16); z-index: 2500; list-style: none;}
+    .drop.open .menu { display: block; }
+    .drop .menu a { display: block; padding: 12px 14px; font-weight: 900; letter-spacing: .03em; text-transform: none; border-bottom: 1px solid rgba(0,0,0,.06) !important; background: #fff; color: rgba(18,24,30,.92); }
+    .drop .menu a:hover { background: rgba(47,93,47,.06); color: var(--deep); padding-left: 18px; }
+    .actions { display: flex; align-items: center; gap: 10px; min-width: 220px; justify-content: flex-end; }
+    .btn-member { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; border-radius: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem; transition: .18s ease; white-space: nowrap; user-select: none; background: #3B5D38; color: #fff !important; border: none; font-family: "Lato", sans-serif; }
+    .btn-member:hover { background: #2A4428; transform: translateY(-1px); color: #fff; }
+    .search-pill { border: 1px solid rgba(0,0,0,.10); border-radius: 30px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; transition: .18s ease; cursor: pointer; background: #fff; }
+    .search-pill:hover { background: rgba(0,0,0,.04); transform: translateY(-1px); }
+    .search-pill i { font-size: 1rem; color: #111; }
+    .burger { display: none; width: 46px; height: 46px; border-radius: 14px; border: 1px solid rgba(0,0,0,.12); background: #fff; cursor: pointer; align-items: center; justify-content: center; gap: 5px; flex-direction: column; }
+    .burger span { display: block; width: 20px; height: 2px; background: #111; border-radius: 2px; }
+    .drawer { display: none; position: fixed; top: var(--navH); left: 12px; right: 12px; background: #fff; border: 1px solid rgba(0,0,0,.12); border-radius: 18px; padding: 12px; box-shadow: var(--shadow2); z-index: 2600; max-height: calc(100vh - 120px); overflow-y: auto; }
+    .drawer.open { display: block; }
+    .drawer a, .drawer button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 12px; border-radius: 14px; border: none; background: transparent; cursor: pointer; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: .86rem; color: rgba(18,24,30,.92); font-family: "Lato", sans-serif; }
+    .drawer a:hover, .drawer button:hover { background: rgba(47,93,47,.06); color: var(--deep); }
+    .drawer-sub { display: none; margin: 6px 0 10px; padding-left: 12px; border-left: 3px solid rgba(47,93,47,.15); }
+    .drawer-sub a { text-transform: none; letter-spacing: .02em; font-weight: 900; opacity: .92; font-size: 0.95rem; padding: 10px; }
+    .drawer-sub.open { display: block; }
+    @media (max-width: 1150px) { .nav { display: none; } .burger { display: flex; } .actions { min-width: auto; } .brand { min-width: auto; } .brand img { height: 70px; } .search-pill { display: none; } :root { --navH: 92px; } }
 
-    /* =========================
-       HERO PHOTO (clean)
-    ========================= */
+    /* LE CSS DU FOOTER DOIT RESTER ICI AUSSI */
+    .site-footer { background: #3B5D38; color: white; padding: 60px 0 20px; font-family: "Lato", sans-serif; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding: 0 24px; margin-bottom: 40px; }
+    .footer-col h3 { color: #C5A059; font-size: 0.95rem; letter-spacing: 0.08em; margin-bottom: 25px; font-weight: 900; text-transform: uppercase;}
+    .footer-info { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.95rem; }
+    .footer-info i { margin-top: 4px; color: #fff; width: 16px;}
+    .footer-link { display: block; margin-bottom: 15px; color: #fff !important; font-size: 0.95rem; transition: 0.3s; }
+    .footer-link:hover { opacity: 0.7; }
+    .social-icons { display: flex; gap: 12px; }
+    .social-circle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; color: #fff !important; transition: 0.3s; }
+    .social-circle:hover { background: rgba(255,255,255,0.15); }
+    .copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.9rem; color:#fff;}
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+    /* =========================================
+       NOUVEAU CONTENU MÉDIATHÈQUE
+       ========================================= */
     .hero{
       position:relative;
-      min-height:320px;
-      background:
-        linear-gradient(180deg, rgba(18,54,44,.68), rgba(18,54,44,.35)),
-        url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2000")
-        center/cover no-repeat;
-      color:#fff;
-      display:flex;
-      align-items:flex-end;
+      padding: 100px 0;
+      background: var(--brand-green);
+      color: white;
+      text-align: center;
+      background-image: linear-gradient(rgba(22, 63, 52, 0.85), rgba(22, 63, 52, 0.7)), url('images/medias/medias-hero.jpg');
+      background-size: cover;
+      background-position: center;
     }
-    .hero-inner{
-      width:100%;
-      padding:44px 0 34px;
-      text-align:center;
+    .hero h1{ font-size: clamp(2.5rem, 4vw, 3.8rem); margin: 0 0 15px; text-transform: uppercase; letter-spacing: 1px; color: #fff; }
+    .hero p{ font-size: 1.25rem; max-width: 800px; margin: auto; opacity: 0.95; font-weight: 500; font-family: 'Open Sans', sans-serif;}
+
+    /* Intro de la page */
+    .intro-box {
+      background: var(--white);
+      padding: 50px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-align: center;
+      max-width: 1000px;
+      margin: -60px auto 60px;
+      position: relative;
+      z-index: 10;
+      border-top: 5px solid var(--gold);
     }
-    .hero h1{
-      margin:0 0 10px;
-      font-size:clamp(28px,4vw,44px);
-      font-weight:900;
-      letter-spacing:.6px;
-      text-transform:uppercase;
+    .intro-box h2 { color: var(--deep); font-size: 2rem; margin-bottom: 20px; text-transform: uppercase;}
+    .intro-box p { font-size: 1.1rem; color: #555; line-height: 1.8; margin-bottom: 20px;}
+    .social-tags { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;}
+    .s-tag { padding: 8px 16px; background: rgba(94, 143, 58, 0.1); color: var(--deep); border-radius: 50px; font-weight: 700; font-size: 0.85rem;}
+    .s-tag i { margin-right: 5px; color: var(--gold); }
+
+    .section-header{ text-align:center; margin-bottom: 50px; }
+    .section-header span { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; display: block; margin-bottom: 10px;}
+    .section-header h2{ color:var(--deep); font-size:2.4rem; margin-bottom:15px; text-transform:uppercase; font-weight: 800; font-family: 'Playfair Display', serif;}
+    .section-header p { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto;}
+
+    /* GRILLES */
+    .grid-3{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
     }
-    .hero p{
-      margin:0 auto;
-      max-width:980px;
-      line-height:1.8;
-      font-weight:700;
-      opacity:.95;
+    .media-card{
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .media-card:hover{ transform: translateY(-8px); box-shadow: var(--shadow2); }
+    
+    .thumb-box{ height: 220px; position: relative; overflow: hidden; }
+    .thumb-box img{ width:100%; height:100%; object-fit:cover; transition:0.5s; }
+    .media-card:hover .thumb-box img{ transform:scale(1.08); }
+    
+    .yt-icon{
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      font-size: 3.5rem; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      opacity: 0.9;
     }
 
-    /* =========================
-       SECTIONS (clean)
-    ========================= */
-    main{padding:28px 0 40px}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap:16px;
-      margin-top:16px;
+    .p-content{ padding: 30px; flex-grow: 1; display: flex; flex-direction: column;}
+    .p-content h3{ margin: 0 0 10px; color: var(--deep); font-size: 1.4rem; font-weight: 700; font-family: 'Playfair Display', serif;}
+    .p-content p{ font-size: 1rem; color: #555; margin-bottom: 25px; line-height: 1.6; }
+    
+    .btn-yt{
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 20px; background: #c4302b; color: white !important; border-radius: 8px;
+      font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-top: auto;
+      transition: 0.3s;
     }
-    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+    .btn-yt:hover{ background: #a01d18; }
 
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.06);
-      padding:18px;
+    .btn-blog{
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 20px; background: var(--botanical); color: white !important; border-radius: 8px;
+      font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-top: auto;
+      transition: 0.3s;
     }
-    .card h2{
-      margin:0 0 10px;
-      font-size:1.15rem;
-      font-weight:900;
-      letter-spacing:.2px;
-    }
-    .card p{margin:0; line-height:1.75; color:#2b3a37; font-weight:650}
+    .btn-blog:hover{ background: var(--deep); }
 
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .chip{
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid rgba(22,63,52,.15);
-      background:rgba(22,63,52,.04);
-      font-weight:850;
-      color:#1b4b3d;
-      font-size:.92rem;
-    }
-
-    /* Social row cards */
-    .socials{
-      display:grid;
-      grid-template-columns:repeat(5, minmax(0,1fr));
-      gap:12px;
-      margin-top:14px;
-    }
-    @media (max-width:1100px){ .socials{grid-template-columns:repeat(3,1fr)} }
-    @media (max-width:720px){ .socials{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:420px){ .socials{grid-template-columns:1fr} }
-
-    .social{
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.06);
-      background:#fff;
-      padding:14px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap:12px;
-      transition:.18s ease;
-      min-height:120px;
-    }
-    .social:hover{transform:translateY(-3px); box-shadow:0 14px 28px rgba(0,0,0,.12)}
-    .s-top{display:flex; gap:10px; align-items:flex-start}
-    .s-ico{
-      width:42px;height:42px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background:rgba(22,63,52,.08);
-      border:1px solid rgba(22,63,52,.14);
-      color:#163f34;
-      font-size:18px;
-      flex:0 0 auto;
-    }
-    .s-name{font-weight:900}
-    .s-desc{margin-top:4px; color:#465653; font-weight:650; line-height:1.5}
-    .s-cta{
-      width:fit-content;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(22,63,52,.14);
-      background:rgba(22,63,52,.04);
-      font-weight:900;
-      color:#163f34;
-    }
-
-    /* Download form */
-    .field{display:flex;flex-direction:column;gap:6px;margin-top:10px}
-    label{font-weight:900;color:#163f34}
-    input,select{
-      padding:12px 12px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      font-weight:700;
-      outline:none;
-    }
-    input:focus,select:focus{
-      border-color: rgba(22,63,52,.45);
-      box-shadow:0 0 0 4px rgba(22,63,52,.10);
-    }
-    .btn{
-      margin-top:12px;
-      width:100%;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(22,63,52,.18);
-      background:var(--bg);
-      color:#fff;
-      font-weight:900;
-      cursor:pointer;
-    }
-    .note{margin-top:10px;color:#50625f;font-weight:650;line-height:1.6}
-
-    /* =========================
-       FOOTER (forme capture)
-    ========================= */
-    .footer{
-      background:var(--bg);
-      color:#fff;
-      padding:34px 0 18px;
-    }
-    .footer-grid{
-      display:grid;
-      grid-template-columns: 1.35fr 1fr 1fr;
-      gap:28px;
-      align-items:start;
-    }
-    @media (max-width: 980px){
-      .footer-grid{grid-template-columns:1fr}
-    }
-
-    .footer h3{
-      margin:0 0 14px;
-      color:var(--accent);
-      font-weight:900;
-      letter-spacing:.8px;
-      text-transform:uppercase;
-      font-size:1.05rem;
-    }
-    .f-item{
-      display:flex;
-      gap:14px;
-      align-items:flex-start;
-      margin:14px 0;
-      font-weight:750;
-      opacity:.95;
-    }
-    .f-item i{
-      width:20px;
-      margin-top:2px;
-      opacity:.95;
-    }
-    .map-btn{
-      margin-top:14px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:14px 18px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      font-weight:900;
-      letter-spacing:.6px;
-      text-transform:uppercase;
-    }
-    .map-btn:hover{background:rgba(255,255,255,.10)}
-
-    .dept-list a{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin:12px 0;
-      font-weight:800;
-      opacity:.95;
-    }
-    .dept-list a:hover{opacity:1;text-decoration:underline}
-    .dept-list i{width:22px}
-
-    .social-circles{
-      display:flex;
-      gap:14px;
-      margin-top:10px;
-    }
-    .circle{
-      width:58px;height:58px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.22);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(255,255,255,.06);
-      font-size:20px;
-    }
-    .circle:hover{background:rgba(255,255,255,.10)}
-
-    .footer-line{
-      margin:26px 0 14px;
-      height:1px;
-      background:rgba(255,255,255,.14);
-    }
-    .copyright{
-      text-align:center;
-      font-weight:800;
-      opacity:.95;
-    }
   </style>
 </head>
-
 <body>
 
-  <!-- MENU (forme capture) -->
-  <header class="topbar">
-    <div class="container navwrap">
-      <div class="logo-box">
-        <!-- Remplace le src par ton logo -->
-        <img src="logo.png" alt="Jardin Botanique des Cayes">
-      </div>
+  <div id="header-placeholder"></div>
 
-      <nav class="navlinks" aria-label="Navigation">
-        <a href="index.html">ACCUEIL</a>
-        <a href="scienceconservation.html">SCIENCE &amp; CONSERVATION</a>
-        <a href="education.html">ÉDUCATION</a>
-        <a href="horticulture.html">HORTICULTURE</a>
-        <a class="active" href="medias.html">MÉDIAS</a>
-        <a href="impliquer.html">S'IMPLIQUER</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- PHOTO HERO -->
   <section class="hero">
-    <div class="container hero-inner">
-      <h1>Médias &amp; Ressources</h1>
-      <p>
-        Accédez à nos documents, suivez nos publications et connectez-vous à nos réseaux pour rester informé
-        sur les plantes, la biodiversité, la restauration et la santé de l’homme et de la nature.
-      </p>
+    <div class="media-container">
+      <h1>La Médiathèque du JBC</h1>
+      <p>Plongez au cœur de notre mission de santé par la nature. Nos données, nos formations et nos connaissances sont à votre disposition.</p>
     </div>
   </section>
 
-  <!-- CONTENU CLEAN -->
-  <main class="container">
+  <main class="media-container">
 
-    <section class="card">
-      <h2>Suivez-nous</h2>
-      <p>Remplacez les liens “#” par vos liens réels (Facebook, LinkedIn, X, TikTok, etc.).</p>
+    <div class="intro-box">
+      <h2>Partager la connaissance</h2>
+      <p>
+        La Médiathèque du Jardin Botanique des Cayes est conçue pour vous. Que vous soyez intéressé par la santé humaine (naturopathie, phytochimie) ou par la santé de la nature (restauration des écosystèmes, conservation), nous organisons nos informations pour répondre à vos besoins. 
+      </p>
+      <p style="font-weight: 600; color: var(--botanical);">Retrouvez nos dernières ressources réparties sur nos différents canaux :</p>
+      
+      <div class="social-tags">
+        <span class="s-tag"><i class="fa-brands fa-youtube"></i> Chaîne YouTube</span>
+        <span class="s-tag"><i class="fa-solid fa-blog"></i> Le Blog JBC</span>
+        <span class="s-tag"><i class="fa-brands fa-linkedin"></i> LinkedIn (Pro & Data)</span>
+      </div>
+    </div>
 
-      <div class="socials">
-        <a class="social" href="#" target="_blank" rel="noopener">
-          <div class="s-top">
-            <div class="s-ico"><i class="fa-brands fa-facebook-f"></i></div>
-            <div>
-              <div class="s-name">Facebook</div>
-              <div class="s-desc">Nouvelles, événements, publications</div>
-            </div>
+    <section class="section-pad" id="youtube">
+      <div class="section-header">
+        <span>Vidéothèque</span>
+        <h2>Notre Chaîne YouTube</h2>
+        <p>Découvrez nos vidéos documentaires, nos formations en santé et nos actions sur le terrain.</p>
+      </div>
+      
+      <div class="grid-3">
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-youtube-restauration.jpg" alt="Restauration des écosystèmes">
+            <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
           </div>
-          <div class="s-cta">Suivre</div>
-        </a>
-
-        <a class="social" href="#" target="_blank" rel="noopener">
-          <div class="s-top">
-            <div class="s-ico"><i class="fa-brands fa-linkedin-in"></i></div>
-            <div>
-              <div class="s-name">LinkedIn</div>
-              <div class="s-desc">Partenariats, projets, rapports</div>
-            </div>
+          <div class="p-content">
+            <h3>Santé de la Nature</h3>
+            <p>Vidéos sur la <strong>restauration des écosystèmes</strong>, la conservation des espèces endémiques et la protection des milieux naturels.</p>
+            <a href="#" class="btn-yt">Voir la Playlist <i class="fa-solid fa-play"></i></a>
           </div>
-          <div class="s-cta">Se connecter</div>
-        </a>
+        </div>
 
-        <a class="social" href="#" target="_blank" rel="noopener">
-          <div class="s-top">
-            <div class="s-ico"><i class="fa-brands fa-x-twitter"></i></div>
-            <div>
-              <div class="s-name">X</div>
-              <div class="s-desc">Annonces et mises à jour rapides</div>
-            </div>
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-youtube-sante.jpg" alt="Santé Humaine">
+            <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
           </div>
-          <div class="s-cta">Suivre</div>
-        </a>
+          <div class="p-content">
+            <h3>Santé Humaine</h3>
+            <p>Découvrez les vertus des plantes. Vidéos sur la <strong>phytochimie</strong>, la <strong>naturopathie</strong> et les usages médicinaux de la flore haïtienne.</p>
+            <a href="#" class="btn-yt">Voir la Playlist <i class="fa-solid fa-play"></i></a>
+          </div>
+        </div>
 
-        <a class="social" href="#" target="_blank" rel="noopener">
-          <div class="s-top">
-            <div class="s-ico"><i class="fa-brands fa-tiktok"></i></div>
-            <div>
-              <div class="s-name">TikTok</div>
-              <div class="s-desc">Capsules éducatives & terrain</div>
-            </div>
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-youtube-animaux.jpg" alt="Documentaire Nature">
+            <div class="yt-icon"><i class="fa-brands fa-youtube"></i></div>
           </div>
-          <div class="s-cta">Suivre</div>
-        </a>
-
-        <a class="social" href="#" target="_blank" rel="noopener">
-          <div class="s-top">
-            <div class="s-ico"><i class="fa-brands fa-youtube"></i></div>
-            <div>
-              <div class="s-name">YouTube</div>
-              <div class="s-desc">Séries, documentaires, interviews</div>
-            </div>
+          <div class="p-content">
+            <h3>Vie Sauvage & Animaux</h3>
+            <p>Immersion au cœur de la faune locale et étude des interactions entre les plantes et les animaux d'Haïti.</p>
+            <a href="#" class="btn-yt">Voir la Playlist <i class="fa-solid fa-play"></i></a>
           </div>
-          <div class="s-cta">S’abonner</div>
-        </a>
+        </div>
       </div>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2>Bibliothèque & contenus</h2>
-        <p>
-          Une organisation simple : médias (nouvelles, vidéos, galerie) et ressources (guides, protocoles, fiches).
-          Vous pouvez créer plus tard des sous-pages dédiées.
-        </p>
-
-        <div class="chips">
-          <span class="chip">Taxonomie</span>
-          <span class="chip">Plantes médicinales</span>
-          <span class="chip">Restauration</span>
-          <span class="chip">Biodiversité</span>
-          <span class="chip">Éducation</span>
-          <span class="chip">Données</span>
-        </div>
+    <section class="section-pad" style="border-top: 1px solid #eaeaea;" id="blog">
+      <div class="section-header">
+        <span>Publications</span>
+        <h2>Ressources & Le Blog</h2>
+        <p>Lisez nos derniers articles scientifiques et nos fiches techniques détaillées.</p>
       </div>
 
-      <div class="card">
-        <h2>Télécharger un document</h2>
-        <p>Les PDF doivent être dans <strong>/docs</strong> sur Netlify.</p>
-
-        <form onsubmit="return handleDownload(event)">
-          <div class="field">
-            <label for="dl-name">Nom complet</label>
-            <input id="dl-name" type="text" required />
+      <div class="grid-3">
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-blog-phytochimie.jpg" alt="Phytochimie">
           </div>
-
-          <div class="field">
-            <label for="dl-contact">Email ou Téléphone</label>
-            <input id="dl-contact" type="text" required />
+          <div class="p-content">
+            <h3>Ressources : Phytochimie</h3>
+            <p>Articles détaillés sur les molécules actives des plantes, leurs extractions et leurs bienfaits validés par la science.</p>
+            <a href="#" class="btn-blog">Lire les articles <i class="fa-solid fa-book-open"></i></a>
           </div>
+        </div>
 
-          <div class="field">
-            <label for="dl-doc">Document</label>
-            <select id="dl-doc" required>
-              <option value="" selected disabled>— Sélectionner —</option>
-              <option value="docs/guide_plantes_medicinales.pdf">Guide – Plantes médicinales (PDF)</option>
-              <option value="docs/protocole_collecte_semences.pdf">Protocole – Collecte de semences (PDF)</option>
-              <option value="docs/note_technique_restauration.pdf">Note technique – Restauration (PDF)</option>
-            </select>
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-blog-evolution.jpg" alt="Évolution">
           </div>
+          <div class="p-content">
+            <h3>Ressources : Évolution</h3>
+            <p>Comprendre l'histoire et l'évolution de la flore des Caraïbes à travers nos publications de recherche.</p>
+            <a href="#" class="btn-blog">Lire les articles <i class="fa-solid fa-book-open"></i></a>
+          </div>
+        </div>
 
-          <button class="btn" type="submit">Télécharger</button>
-          <div class="note">
-            En téléchargeant, vous acceptez d’être contacté(e) uniquement pour l’envoi du document et les mises à jour importantes.
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-blog-actualites.jpg" alt="Actualités du JBC">
           </div>
-        </form>
+          <div class="p-content">
+            <h3>Actualités du Jardin</h3>
+            <p>Suivez la vie du jardin, nos événements, nos formations et nos nouveaux partenariats au jour le jour.</p>
+            <a href="#" class="btn-blog">Visiter le Blog <i class="fa-solid fa-blog"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" style="border-top: 1px solid #eaeaea;" id="cartographie">
+      <div class="section-header">
+        <span>Exploration</span>
+        <h2>Cartographie & Visites Virtuelles</h2>
+        <p>Pour mieux comprendre notre vision, laissez-nous vous guider à travers les paysages clés d'Haïti.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-carto-macaya.jpg" alt="Parc Macaya">
+          </div>
+          <div class="p-content">
+            <h3>Le Parc National Macaya</h3>
+            <p>Découvrez la cartographie de ce joyau de biodiversité, ses zones endémiques et nos actions de conservation.</p>
+            <a href="#" class="btn-blog" style="background: var(--gold);">Explorer la carte <i class="fa-solid fa-map-location-dot"></i></a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-carto-citadelle.jpg" alt="La Citadelle">
+          </div>
+          <div class="p-content">
+            <h3>La Citadelle (Nord)</h3>
+            <p>Analyse de la flore environnant ce monument historique pour croiser patrimoine culturel et patrimoine naturel.</p>
+            <a href="#" class="btn-blog" style="background: var(--gold);">Explorer la carte <i class="fa-solid fa-map-location-dot"></i></a>
+          </div>
+        </div>
+
+        <div class="media-card">
+          <div class="thumb-box">
+            <img src="images/medias/medias-carto-jbc.jpg" alt="Plan du JBC">
+          </div>
+          <div class="p-content">
+            <h3>Plan Interactif du JBC</h3>
+            <p>Naviguez dans les différents espaces du Jardin Botanique des Cayes pour préparer votre prochaine visite.</p>
+            <a href="#" class="btn-blog" style="background: var(--gold);">Voir le plan <i class="fa-solid fa-map-location-dot"></i></a>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- BAS DE PAGE (forme capture) -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <h3>Jardin Botanique des Cayes</h3>
 
-        <div class="f-item">
-          <i class="fa-solid fa-location-dot"></i>
-          <div># 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</div>
-        </div>
+  <div id="footer-placeholder"></div>
 
-        <div class="f-item">
-          <i class="fa-solid fa-phone"></i>
-          <div>+509 8452 4898 03</div>
-        </div>
-
-        <div class="f-item">
-          <i class="fa-solid fa-envelope"></i>
-          <div>info@jardinbotaniquecayeshaiti.org</div>
-        </div>
-
-        <a class="map-btn" href="#" target="_blank" rel="noopener">
-          VOIR SUR LA CARTE <i class="fa-solid fa-arrow-right"></i>
-        </a>
-      </div>
-
-      <div>
-        <h3>Départements</h3>
-        <div class="dept-list">
-          <a href="scienceconservation.html"><i class="fa-solid fa-leaf"></i> Science &amp; Conservation</a>
-          <a href="education.html"><i class="fa-solid fa-graduation-cap"></i> Éducation</a>
-          <a href="horticulture.html"><i class="fa-solid fa-seedling"></i> Horticulture</a>
-          <a href="#"><i class="fa-solid fa-bullhorn"></i> Développement &amp; Communication</a>
-        </div>
-      </div>
-
-      <div>
-        <h3>Suivez-nous</h3>
-        <div class="social-circles">
-          <a class="circle" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a class="circle" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a class="circle" href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-          <a class="circle" href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="footer-line"></div>
-      <div class="copyright">© 2026 Jardin Botanique des Cayes. Tous droits réservés.</div>
-    </div>
-  </footer>
 
   <script>
-    function handleDownload(e){
-      e.preventDefault();
-      const name = document.getElementById('dl-name').value.trim();
-      const contact = document.getElementById('dl-contact').value.trim();
-      const file = document.getElementById('dl-doc').value;
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        
+        // Mettre l'onglet MÉDIAS en surbrillance
+        const activeLink = document.querySelector('nav a[href="medias.html"]');
+        if(activeLink) activeLink.style.color = "var(--deep)";
 
-      if(!name || !contact || !file){
-        alert("Veuillez remplir le nom, le contact, et choisir un document.");
-        return false;
+        initMenu();
+      })
+      .catch(error => console.error('Erreur chargement header:', error));
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      })
+      .catch(error => console.error('Erreur chargement footer:', error));
+
+    function initMenu() {
+      const dropAccueil = document.getElementById('dropAccueil');
+      const btnAccueil = document.getElementById('btnAccueil');
+      const dropNature = document.getElementById('dropNature');
+      const btnNature = document.getElementById('btnNature');
+      const burger = document.getElementById('burger');
+      const drawer = document.getElementById('drawer');
+      const dBtnAccueil = document.getElementById('drawerAccueilBtn');
+      const dSubAccueil = document.getElementById('drawerAccueilSub');
+      const dBtnNature = document.getElementById('drawerNatureBtn');
+      const dSubNature = document.getElementById('drawerNatureSub');
+
+      if(dropAccueil && btnAccueil){
+        btnAccueil.addEventListener('click', (e) => {
+          e.preventDefault(); e.stopPropagation();
+          if(dropNature) dropNature.classList.remove('open');
+          const open = dropAccueil.classList.toggle('open');
+          btnAccueil.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
       }
-      window.open(file, "_blank");
-      return false;
+
+      if(dropNature && btnNature){
+        btnNature.addEventListener('click', (e) => {
+          e.preventDefault(); e.stopPropagation();
+          if(dropAccueil) dropAccueil.classList.remove('open');
+          const open = dropNature.classList.toggle('open');
+          btnNature.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      if(burger && drawer){
+        burger.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = drawer.classList.toggle('open');
+          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+          if(!open){
+            if(dSubAccueil) dSubAccueil.classList.remove('open');
+            if(dSubNature) dSubNature.classList.remove('open');
+          }
+        });
+      }
+
+      if(dBtnAccueil && dSubAccueil){
+        dBtnAccueil.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dSubAccueil.classList.toggle('open'); });
+      }
+
+      if(dBtnNature && dSubNature){
+        dBtnNature.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dSubNature.classList.toggle('open'); });
+      }
+
+      document.addEventListener('click', () => {
+        if(dropAccueil){ dropAccueil.classList.remove('open'); btnAccueil && btnAccueil.setAttribute('aria-expanded','false'); }
+        if(dropNature){ dropNature.classList.remove('open'); btnNature && btnNature.setAttribute('aria-expanded','false'); }
+        if(drawer){ drawer.classList.remove('open'); }
+        if(burger){ burger.setAttribute('aria-expanded','false'); }
+        if(dSubAccueil){ dSubAccueil.classList.remove('open'); }
+        if(dSubNature){ dSubNature.classList.remove('open'); }
+      });
+
+      if(dropAccueil) dropAccueil.addEventListener('click', (e) => e.stopPropagation());
+      if(dropNature) dropNature.addEventListener('click', (e) => e.stopPropagation());
+      if(drawer) drawer.addEventListener('click', (e) => e.stopPropagation());
     }
   </script>
 
 </body>
 </html>
-
