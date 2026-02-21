@@ -1,20 +1,2 @@
-title: "Jardin Botanique des Cayes"
-description: "Blog sur la santé humaine et la santé de la nature"
-baseurl: ""
-url: ""
-
-permalink: /blog/:categories/:title/
-paginate: 10
-paginate_path: "/blog/page:num/"
-
-defaults:
-  -
-    scope:
-      path: "_posts/sante-humaine"
-    values:
-      categorie_principale: "Santé Humaine"
-  -
-    scope:
-      path: "_posts/sante-nature"
-    values:
-      categorie_principale: "Santé de la Nature"
+title: Jardin Botanique des Cayes
+markdown: kramdown
