@@ -1,59 +1,27 @@
-<style>
-  /* Correction de la taille du bouton Devenir Membre */
-  .btn-member {
-    background: var(--header-btn-green);
-    color: #fff;
-    border-radius: 25px;
-    padding: 8px 18px; /* Plus petit */
-    font-weight: 700;
-    font-size: 0.8rem; /* Plus compact */
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: 0.3s;
-  }
-  .btn-member:hover { background: var(--botanical); transform: translateY(-2px); }
+/* --- Dropdowns --- */
+.drop { position: relative; }
+.drop .menu { 
+  display: none; 
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  background: #fff; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+  border-radius: 12px; 
+  min-width: 220px; 
+  z-index: 3000;
+  padding: 10px 0;
+}
+.drop.open .menu { display: block; }
+.drop .menu a { display: block; padding: 10px 20px; color: #1f2a33; font-weight: 500; border-bottom: 1px solid #f5f5f5; }
+.drop .menu a:last-child { border-bottom: none; }
 
-  /* Style du champ de recherche */
-  #searchInput.active { display: inline-block !important; width: 150px; animation: slideIn 0.3s ease; }
-  @keyframes slideIn { from { width: 0; opacity: 0; } to { width: 150px; opacity: 1; } }
-</style>
+/* --- Recherche --- */
+.search-wrap { display: flex; align-items: center; position: relative; }
+#searchInput { 
+  width: 0; opacity: 0; transition: 0.3s; border-radius: 20px; border: 1px solid #ddd; padding: 0;
+}
+#searchInput.active { width: 180px; opacity: 1; padding: 6px 15px; margin-right: 8px; }
 
-<script>
-  (function(){
-    // Fonction universelle pour les dropdowns
-    function setupDrop(btnId, dropId) {
-      const btn = document.getElementById(btnId);
-      const drop = document.getElementById(dropId);
-      if(btn && drop) {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          // Ferme les autres menus ouverts
-          document.querySelectorAll('.drop').forEach(d => { if(d !== drop) d.classList.remove('open'); });
-          drop.classList.toggle('open');
-        });
-      }
-    }
-
-    setupDrop('btnAccueil', 'dropAccueil');
-    setupDrop('btnNature', 'dropNature');
-
-    // Gestion de la Recherche
-    const btnSearch = document.getElementById('btnSearch');
-    const searchInput = document.getElementById('searchInput');
-    if(btnSearch && searchInput) {
-      btnSearch.addEventListener('click', (e) => {
-        e.stopPropagation();
-        searchInput.classList.toggle('active');
-        if(searchInput.classList.contains('active')) searchInput.focus();
-      });
-    }
-
-    // Fermer tout si on clique ailleurs
-    document.addEventListener('click', () => {
-      document.querySelectorAll('.drop').forEach(d => d.classList.remove('open'));
-      if(searchInput) searchInput.classList.remove('active');
-    });
-  })();
-</script>
+/* --- Bouton Membre --- */
+.btn-member { background: #4b5e46; color: #fff; padding: 8px 18px; border-radius: 25px; font-size: 0.8rem; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
