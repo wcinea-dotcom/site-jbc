@@ -10,6 +10,7 @@ image: "images/index/index-sante-humaine.jpg"
 La phytothérapie est une science à part entière qui étudie et utilise les plantes médicinales pour le traitement et la prévention de certaines maladies. Bien avant l'avènement des médicaments synthétiques au XXe siècle, l'humanité a puisé dans les ressources végétales pour se soigner. Depuis l'apparition des premières sociétés humaines, les plantes ont constitué une pharmacie naturelle accessible, dont les savoirs se sont transmis de génération en génération.
 
 Historiquement, cette pratique a longtemps été associée à **l'ethnobotanique**, c'est-à-dire à l'observation et à la transmission des usages traditionnels des plantes par les communautés. Les détenteurs de ces connaissances — guérisseurs, herboristes ou praticiens traditionnels — étaient reconnus comme des « maîtres des plantes », forts d'une maîtrise empirique du monde végétal. 
+![Un herboriste préparant des plantes médicinales](images/herboristerie.jpg)
 
 Cependant, avec l'essor spectaculaire des médicaments de synthèse au XXe siècle, la phytothérapie a été progressivement reléguée au second plan, certains la considérant à tort comme une pratique obsolète, dépourvue de fondement scientifique.
 
