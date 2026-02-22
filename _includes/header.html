@@ -5,8 +5,8 @@
     </a>
 
     <nav class="nav">
-      <div class="drop" id="dropAccueil">
-        <button class="nav-btn" id="btnAccueil">Accueil <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="drop">
+        <button class="nav-btn">Accueil <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
         <div class="menu">
           <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
           <a href="#">Conseil d'administration</a>
@@ -16,8 +16,8 @@
 
       <a href="{{ '/impliquer.html' | relative_url }}">S'impliquer</a>
 
-      <div class="drop" id="dropNature">
-        <button class="nav-btn" id="btnNature">Santé de la Nature <i class="fa-solid fa-chevron-down"></i></button>
+      <div class="drop">
+        <button class="nav-btn">Santé de la Nature <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
         <div class="menu">
           <a href="{{ '/science.html' | relative_url }}">Sciences</a>
           <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
@@ -27,21 +27,16 @@
 
       <a href="{{ '/sante-humaine.html' | relative_url }}">Santé Humaine</a>
       <a href="{{ '/education.html' | relative_url }}">Éducation</a>
+      <a href="{{ '/medias.html' | relative_url }}">Médias</a>
       <a href="{{ '/blog.html' | relative_url }}">Actualités</a>
     </nav>
 
     <div class="actions">
       <div class="search-wrap">
         <input type="text" id="searchInput" placeholder="Rechercher...">
-        <button class="btn-search" id="btnSearch" title="Rechercher">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+        <button class="btn-search" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
       <a href="#" class="btn-member">Devenir Membre</a>
     </div>
-
-    <button class="burger" id="burger" aria-label="Menu mobile">
-      <i class="fa-solid fa-bars"></i>
-    </button>
   </div>
 </header>
