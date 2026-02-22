@@ -1,66 +1,68 @@
 ---
-layout: default
-title: Blog
+title: Blog Santé & Nature
 ---
 
-<!-- Inclusion du header -->
 {% include header.html %}
 
-<main class="blog-main">
-    <h1>Blog Santé & Nature</h1>
+<main class="blog-main container" style="padding: 40px 22px;">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <h1 style="font-family: 'Playfair Display', serif; color: #4b5e46; font-size: 3rem;">Blog Santé & Nature</h1>
+        <p style="color: rgba(31,42,51,.72); font-size: 1.1rem;">Découvrez nos derniers articles sur la conservation, la phytothérapie et la biodiversité.</p>
+    </div>
     
-    <!-- FILTRES PAR CATÉGORIE -->
-    <div class="theme-filters">
-        <div class="filter-group">
-            <h2>Santé Humaine</h2>
-            <div class="filter-links">
-                <a href="/categories/phytotherapie/">🌿 Phytothérapie</a>
-                <a href="/categories/naturopathie/">🍃 Naturopathie</a>
-                <a href="/categories/phytochimie/">⚗️ Phytochimie</a>
+    <div class="theme-filters" style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; margin-bottom: 60px; background: #fff; padding: 20px; border-radius: 18px; box-shadow: 0 10px 30px rgba(0,0,0,.05);">
+        <div class="filter-group" style="text-align: center;">
+            <h2 style="color: #1f2a33; font-size: 1.2rem; margin-bottom: 10px;">Santé Humaine</h2>
+            <div class="filter-links" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="/categories/phytotherapie/" style="color: #4b5e46; font-weight: bold;">🌿 Phytothérapie</a>
+                <a href="/categories/naturopathie/" style="color: #4b5e46; font-weight: bold;">🍃 Naturopathie</a>
+                <a href="/categories/phytochimie/" style="color: #4b5e46; font-weight: bold;">⚗️ Phytochimie</a>
             </div>
         </div>
-        <div class="filter-group">
-            <h2>Santé de la Nature</h2>
-            <div class="filter-links">
-                <a href="/categories/conservation/">🦜 Conservation</a>
-                <a href="/categories/restauration/">🌳 Restauration</a>
-                <a href="/categories/horticulture/">🌺 Horticulture</a>
+        <div class="filter-group" style="text-align: center;">
+            <h2 style="color: #1f2a33; font-size: 1.2rem; margin-bottom: 10px;">Santé de la Nature</h2>
+            <div class="filter-links" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="/categories/conservation/" style="color: #C5A059; font-weight: bold;">🦜 Conservation</a>
+                <a href="/categories/restauration/" style="color: #C5A059; font-weight: bold;">🌳 Restauration</a>
+                <a href="/categories/horticulture/" style="color: #C5A059; font-weight: bold;">🌺 Horticulture</a>
             </div>
         </div>
     </div>
 
-    <!-- DERNIERS ARTICLES -->
-    <h2>Derniers articles</h2>
-    <div class="posts-grid">
+    <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: #1f2a33; font-size: 2rem; margin-bottom: 30px;">Derniers articles</h2>
+    
+    <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding-bottom: 40px;">
+        
         {% for post in site.posts limit:10 %}
-        <article class="post-card">
+        <article class="post-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.08); transition: transform 0.2s; padding: 20px;">
+            
             {% if post.image %}
-            <img src="{{ post.image }}" alt="{{ post.title }}" class="post-image">
-            {% endif %}
-            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-            <p class="post-subtitle">{{ post.sous_titre }}</p>
-            <div class="post-meta">
-                <span class="date">{{ post.date | date: "%d/%m/%Y" }}</span>
-                <span class="category">{{ post.categorie_principale }} > {{ post.sous_categorie }}</span>
+            <div style="height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; background: #eee;">
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-            <a href="{{ post.url }}" class="read-more">Lire la suite →</a>
+            {% endif %}
+            
+            <span style="color: #C5A059; font-weight: 900; font-size: 0.8rem; text-transform: uppercase;">{{ post.categorie_principale }} > {{ post.sous_categorie }}</span>
+            
+            <h3 style="margin: 8px 0; font-family: 'Playfair Display', serif; font-size: 1.4rem;">
+                <a href="{{ post.url | relative_url }}" style="color: #1f2a33;">{{ post.title }}</a>
+            </h3>
+            
+            <p class="post-subtitle" style="color: rgba(31,42,51,.72); font-size: 0.95rem; margin-bottom: 15px;">{{ post.sous_titre }}</p>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 15px;">
+                <span class="date" style="font-size: 0.85rem; color: #4b5e46; font-weight: bold;">
+                    <i class="fa-regular fa-calendar"></i> {{ post.date | date: "%d/%m/%Y" }}
+                </span>
+                <a href="{{ post.url | relative_url }}" class="read-more" style="color: #4b5e46; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Lire la suite →</a>
+            </div>
+            
         </article>
         {% endfor %}
     </div>
 
-    <!-- PAGINATION -->
-    <div class="pagination">
-        {% if paginator.previous_page %}
-            <a href="{{ paginator.previous_page_path }}" class="prev">← Précédent</a>
-        {% endif %}
-        
-        {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path }}" class="next">Suivant →</a>
-        {% endif %}
-    </div>
 </main>
 
-<!-- Inclusion du footer -->
 {% include footer.html %}
 
 <script src="script.js"></script>
