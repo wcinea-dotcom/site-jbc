@@ -1,328 +1,315 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Science et Conservation au Jardin Botanique des Cayes.">
-    <title>Conservation | Jardin Botanique des Cayes</title>
+---
+layout: default
+title: "Conservation"
+---
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  /* --- VARIABLES SPÉCIFIQUES --- */
+  :root {
+    --primary: #2F4F2F;   /* Vert foncé */
+    --secondary: #4A6741; /* Vert Feuillage */
+    --accent: #C5A059;    /* Or/Terre */
+    --text-dark: #333333;
+    --white: #FFFFFF;
+    --light-bg: #F4F7F5;
+    
+    --radius: 12px;
+    --shadow: 0 10px 25px rgba(0,0,0,0.06);
+  }
 
-    <style>
-        /* --- VARIABLES --- */
-        :root {
-            --primary: #2F4F2F;   /* Vert foncé */
-            --secondary: #4A6741; /* Vert Feuillage */
-            --accent: #C5A059;    /* Or/Terre */
-            --text-dark: #333333;
-            --white: #FFFFFF;
-            --light-bg: #F4F7F5;
-            
-            --radius: 12px;
-            --shadow: 0 10px 25px rgba(0,0,0,0.06);
-        }
+  /* --- BASE --- */
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); }
+  
+  .container-page { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  .section-page { padding: 80px 0; }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Lato', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--white);
-            line-height: 1.6;
-        }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary); }
-        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
-        img { max-width: 100%; display: block; }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        section { padding: 80px 0; }
+  /* --- HERO SECTION --- */
+  .hero-cons {
+    position: relative; 
+    height: 55vh;
+    min-height: 450px;
+    display: flex; align-items: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
+                url('{{ "images/conservation/conservation-hero.jpg" | relative_url }}') center/cover no-repeat;
+    color: var(--white);
+    margin-bottom: 40px;
+  }
+  .hero-content { max-width: 900px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); position: relative; z-index: 2;}
+  .eyebrow { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block;}
+  .hero-cons h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; color: var(--white); margin-bottom: 20px; }
+  .hero-cons p.lead { font-size: clamp(1.1rem, 2vw, 1.25rem); font-weight: 400; margin-bottom: 30px; max-width: 750px; }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            position: relative; 
-            height: 55vh;
-            min-height: 450px;
-            display: flex; align-items: center;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)),
-                        url('images/conservation/conservation-hero.jpg') center/cover no-repeat;
-            color: var(--white);
-        }
-        .hero-content { max-width: 900px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
-        .eyebrow { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; display: block;}
-        .hero h1 { font-size: 3rem; line-height: 1.1; color: var(--white); margin-bottom: 20px; }
-        .hero p.lead { font-size: 1.15rem; font-weight: 400; margin-bottom: 30px; max-width: 750px; }
+  /* --- INTRO (IN SITU / EX SITU) --- */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 40px;
+  }
+  .approach-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+  }
+  .approach-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+  }
+  .approach-card p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    text-align: justify;
+  }
 
-        /* --- INTRO (IN SITU / EX SITU) --- */
-        .approach-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-top: 40px;
-        }
-        .approach-card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 25px;
-        }
-        .approach-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        .approach-card p {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.7;
-        }
+  /* --- PILLARS GRID --- */
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 30px; }
+  
+  .pillar-card { 
+    background: var(--white); border-radius: var(--radius); 
+    overflow: hidden; box-shadow: var(--shadow); 
+    display: flex; 
+    height: 280px; 
+    transition: 0.3s ease;
+  }
+  .pillar-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+  
+  .pillar-img { 
+    flex: 0 0 280px; 
+    position: relative; height: 100%;
+  }
+  .pillar-img img { width: 100%; height: 100%; object-fit: cover; }
+  
+  .pillar-tag {
+    position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.95);
+    color: var(--primary); padding: 6px 14px; border-radius: 20px;
+    font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
+  }
+  .pillar-body { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+  .pillar-body h3 { font-size: 1.4rem; margin-bottom: 10px; }
+  .pillar-body p { color: #555; font-size: 1.05rem; }
 
-        /* --- PILLARS GRID --- */
-        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 30px; }
-        
-        .pillar-card { 
-            background: var(--white); border-radius: var(--radius); 
-            overflow: hidden; box-shadow: var(--shadow); 
-            display: flex; 
-            height: 280px; 
-        }
-        
-        .pillar-img { 
-            flex: 0 0 280px; 
-            position: relative; height: 100%;
-        }
-        
-        .pillar-img img { 
-            width: 100%; height: 100%; 
-            object-fit: cover; 
-        }
-        
-        .pillar-tag {
-            position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.95);
-            color: var(--primary); padding: 6px 14px; border-radius: 20px;
-            font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
-        }
-        .pillar-body { padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+  /* --- PROJECTS --- */
+  .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+  .proj-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; transition: 0.3s; }
+  .proj-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+  .proj-banner { height: 220px; }
+  .proj-banner img { width: 100%; height: 100%; object-fit: cover; }
+  .proj-body { padding: 25px; }
+  .proj-body h3 { font-size: 1.3rem; margin-bottom: 10px; }
+  .proj-body p { color: #666; }
 
-        /* --- PROJECTS --- */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .proj-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-        .proj-banner { height: 220px; }
-        .proj-banner img { width: 100%; height: 100%; object-fit: cover; }
-        .proj-body { padding: 25px; }
+  /* --- FORMULAIRE DE CONTACT --- */
+  .contact-section { background-color: var(--light-bg); }
+  .contact-one {
+    background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: 26px; box-shadow: var(--shadow);
+    padding: 50px 40px; max-width: 980px; margin: 0 auto; text-align: center;
+  }
+  .contact-one h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 15px; }
+  .contact-one p { color: #555; font-size: 1.1rem; line-height: 1.8; max-width: 860px; margin: 0 auto 30px; }
+  .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field.full { grid-column: 1 / -1; }
+  .field label { font-weight: 900; letter-spacing: .04em; text-transform: uppercase; font-size: .8rem; color: var(--secondary); }
+  .field input, .field textarea {
+    width: 100%; padding: 15px; border-radius: 12px; border: 1px solid rgba(0,0,0,.15);
+    outline: none; font-size: 1rem; font-family: inherit; background: #fafafa; transition: 0.3s;
+  }
+  .field input:focus, .field textarea:focus { border-color: var(--accent); background: #fff;}
+  .field textarea { min-height: 150px; resize: vertical; }
+  .submit {
+    grid-column: 1 / -1; justify-self: center;
+    background: var(--primary); color: #fff; border: none; border-radius: 50px;
+    padding: 16px 40px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
+    cursor: pointer; transition: 0.3s ease; box-shadow: 0 10px 20px rgba(47, 79, 47, 0.2); margin-top: 10px; width: 100%; font-size: 1rem;
+  }
+  .submit:hover { background: var(--secondary); transform: translateY(-2px); }
 
-        /* --- FORMULAIRE DE CONTACT --- */
-        .contact-section { background-color: var(--light-bg); }
-        .contact-one {
-            background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: 26px; box-shadow: var(--shadow);
-            padding: 40px 30px; max-width: 980px; margin: 0 auto; text-align: center;
-        }
-        .contact-one h2 { color: var(--primary); font-size: 2.2rem; margin-bottom: 15px; }
-        .contact-one p { color: #555; font-size: 1.1rem; line-height: 1.8; max-width: 860px; margin: 0 auto 30px; }
-        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
-        .field { display: flex; flex-direction: column; gap: 8px; }
-        .field.full { grid-column: 1 / -1; }
-        .field label { font-weight: 900; letter-spacing: .04em; text-transform: uppercase; font-size: .8rem; color: var(--secondary); }
-        .field input, .field textarea {
-            width: 100%; padding: 15px; border-radius: 12px; border: 1px solid rgba(0,0,0,.15);
-            outline: none; font-size: 1rem; font-family: inherit; background: #fff; transition: 0.3s;
-        }
-        .field input:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.2); }
-        .field textarea { min-height: 150px; resize: vertical; }
-        .submit {
-            grid-column: 1 / -1; justify-self: center;
-            background: var(--primary); color: #fff; border: none; border-radius: 50px;
-            padding: 16px 35px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase;
-            cursor: pointer; transition: 0.3s ease; box-shadow: 0 10px 20px rgba(47, 79, 47, 0.2); margin-top: 10px;
-        }
-        .submit:hover { background: var(--secondary); transform: translateY(-2px); }
+  @media (max-width: 1024px) {
+    .approach-grid { grid-template-columns: 1fr; gap: 40px; }
+    .pillar-card { flex-direction: column; height: auto; }
+    .pillar-img { flex: none; height: 250px; width: 100%; }
+    .contact-form { grid-template-columns: 1fr; }
+    .contact-one { padding: 40px 20px; }
+  }
+</style>
 
-        @media (max-width: 1024px) {
-            .hero h1 { font-size: 2.5rem; }
-            .approach-grid { grid-template-columns: 1fr; gap: 30px; }
-            .pillar-card { flex-direction: column; height: auto; }
-            .pillar-img { flex: none; height: 250px; width: 100%; }
-            .contact-form { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
+<main>
+  <section class="hero-cons">
+    <div class="container-page hero-content">
+      <span class="eyebrow">Jardin Botanique des Cayes</span>
+      <h1>Protéger la vie, préserver la santé, sécuriser l’avenir</h1>
+      <p class="lead">
+        Nous protégeons la biodiversité d'Haïti par la science : conservation in situ, banque de semences et restauration des écosystèmes.
+      </p>
+    </div>
+  </section>
 
-    <div id="header-placeholder"></div>
+  <section class="section-page">
+    <div class="container-page">
+      <div style="text-align: center; max-width: 850px; margin: 0 auto 50px;">
+        <h2 style="font-size: 2.5rem;">Conserver pour la vie</h2>
+        <div style="width: 60px; height: 3px; background: var(--accent); margin: 20px auto;"></div>
+        <p style="font-size: 1.15rem; color: #555; line-height: 1.8;">
+          La conservation est fondamentale pour stopper l'accélération de la destruction de nos habitats afin de contribuer à la santé de la nature. Notre approche de conservation est double :
+        </p>
+      </div>
+      
+      <div class="approach-grid">
+        <div class="approach-card">
+          <img src="{{ 'images/conservation/conservation-insitu-habitats-ecosystemes.jpg' | relative_url }}" alt="Conservation In Situ avec les communautés">
+          <h3>Conservation In Situ</h3>
+          <p>
+            Cette approche consiste à mobiliser les populations et les communautés qui vivent autour d'un espace naturel existant. En les impliquant directement, nous les aidons à s'engager activement pour protéger et conserver leurs propres habitats naturels sur le long terme.
+          </p>
+        </div>
 
-    <main>
-        <section class="hero">
-            <div class="container hero-content">
-                <span class="eyebrow">Jardin Botanique des Cayes</span>
-                <h1>Protéger la vie, préserver la santé, sécuriser l’avenir</h1>
-                <p class="lead">
-                    Nous protégeons la biodiversité d'Haïti par la science : conservation in situ, banque de semences et restauration des écosystèmes.
-                </p>
-            </div>
-        </section>
+        <div class="approach-card">
+          <img src="{{ 'images/conservation/conservation-exsitu.jpg' | relative_url }}" alt="Travail de laboratoire et pépinière Ex Situ">
+          <h3>Conservation Ex Situ</h3>
+          <p>
+            Le Jardin Botanique des Cayes intervient pour sauver les espèces végétales menacées. Nous prélevons des échantillons, nous les étudions rigoureusement et nous développons des protocoles de germination et de multiplication pour assurer leur survie en dehors de leur milieu d'origine.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section>
-            <div class="container">
-                <div style="text-align: center; max-width: 850px; margin: 0 auto 50px;">
-                    <h2>Conserver pour la vie</h2>
-                    <div style="width: 60px; height: 3px; background: var(--accent); margin: 20px auto;"></div>
-                    <p style="font-size: 1.15rem; color: #555;">
-                        La conservation est fondamentale pour stopper l'accélération de la destruction de nos habitats afin de contribuer à la santé de la nature. Notre approche de conservation est double :
-                    </p>
-                </div>
-                
-                <div class="approach-grid">
-                    <div class="approach-card">
-                        <img src="images/conservation/conservation-insitu-habitats-ecosystemes.jpg" alt="Conservation In Situ avec les communautés">
-                        <h3>Conservation In Situ</h3>
-                        <p>
-                            Cette approche consiste à mobiliser les populations et les communautés qui vivent autour d'un espace naturel existant. En les impliquant directement, nous les aidons à s'engager activement pour protéger et conserver leurs propres habitats naturels sur le long terme.
-                        </p>
-                    </div>
+  <section id="piliers" class="section-page" style="background: var(--light-bg);">
+    <div class="container-page">
+      <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem;">Nos 4 Piliers d'Action</h2>
 
-                    <div class="approach-card">
-                        <img src="images/conservation/conservation-exsitu.jpg" alt="Travail de laboratoire et pépinière Ex Situ">
-                        <h3>Conservation Ex Situ</h3>
-                        <p>
-                            Le Jardin Botanique des Cayes intervient pour sauver les espèces végétales menacées. Nous prélevons des échantillons, nous les étudions rigoureusement et nous développons des protocoles de germination et de multiplication pour assurer leur survie en dehors de leur milieu d'origine.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <span class="pillar-tag">In Situ</span>
+            <img src="{{ 'images/conservation/conservation-insitu-habitats-ecosystemes.jpg' | relative_url }}" alt="Conservation In Situ">
+          </div>
+          <div class="pillar-body">
+            <h3>Habitats & Écosystèmes</h3>
+            <p>Suivi écologique et protection des zones clés de biodiversité avec les communautés locales.</p>
+          </div>
+        </article>
 
-        <section id="piliers" style="background: var(--light-bg);">
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 50px;">Nos 4 Piliers d'Action</h2>
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <span class="pillar-tag">Génétique</span>
+            <img src="{{ 'images/conservation/conservation-diversite-genetique-polulation.jpg' | relative_url }}" alt="Génétique">
+          </div>
+          <div class="pillar-body">
+            <h3>Diversité Génétique</h3>
+            <p>Étude des populations pour garantir des reboisements résilients et sans pollution génétique.</p>
+          </div>
+        </article>
 
-                <div class="pillars-grid">
-                    <article class="pillar-card">
-                        <div class="pillar-img">
-                            <span class="pillar-tag">In Situ</span>
-                            <img src="images/conservation/conservation-insitu-habitats-ecosystemes.jpg" alt="Conservation In Situ">
-                        </div>
-                        <div class="pillar-body">
-                            <h3>Habitats & Écosystèmes</h3>
-                            <p>Suivi écologique et protection des zones clés de biodiversité avec les communautés locales.</p>
-                        </div>
-                    </article>
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <span class="pillar-tag">Ex Situ</span>
+            <img src="{{ 'images/conservation/conservation-exsitu.jpg' | relative_url }}" alt="Conservation Ex Situ">
+          </div>
+          <div class="pillar-body">
+            <h3>Sécuriser & Multiplier</h3>
+            <p>Collections vivantes et multiplication des espèces menacées pour la réintroduction.</p>
+          </div>
+        </article>
 
-                    <article class="pillar-card">
-                        <div class="pillar-img">
-                            <span class="pillar-tag">Génétique</span>
-                            <img src="images/conservation/conservation-diversite-genetique-polulation.jpg" alt="Génétique">
-                        </div>
-                        <div class="pillar-body">
-                            <h3>Diversité Génétique</h3>
-                            <p>Étude des populations pour garantir des reboisements résilients et sans pollution génétique.</p>
-                        </div>
-                    </article>
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <span class="pillar-tag">Science</span>
+            <img src="{{ 'images/conservation/conservation-banque-semence-herbier.jpg' | relative_url }}" alt="Herbier">
+          </div>
+          <div class="pillar-body">
+            <h3>Banque de Semences & Herbier</h3>
+            <p>Collecte, stockage et documentation scientifique de la flore d'Haïti.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-                    <article class="pillar-card">
-                        <div class="pillar-img">
-                            <span class="pillar-tag">Ex Situ</span>
-                            <img src="images/conservation/conservation-exsitu.jpg" alt="Conservation Ex Situ">
-                        </div>
-                        <div class="pillar-body">
-                            <h3>Sécuriser & Multiplier</h3>
-                            <p>Collections vivantes et multiplication des espèces menacées pour la réintroduction.</p>
-                        </div>
-                    </article>
+  <section class="section-page">
+    <div class="container-page">
+      <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5rem;">Nos Projets</h2>
+      
+      <div class="project-grid">
+        <div class="proj-card">
+          <div class="proj-banner">
+            <img src="{{ 'images/conservation/conservation-projets-passes.jpg' | relative_url }}" alt="Projets passés">
+          </div>
+          <div class="proj-body">
+            <h3>Projets Passés</h3>
+            <p>Inventaires floristiques et premières mises en protection de zones vulnérables.</p>
+          </div>
+        </div>
 
-                    <article class="pillar-card">
-                        <div class="pillar-img">
-                            <span class="pillar-tag">Science</span>
-                            <img src="images/conservation/conservation-banque-semence-herbier.jpg" alt="Herbier">
-                        </div>
-                        <div class="pillar-body">
-                            <h3>Banque de Semences & Herbier</h3>
-                            <p>Collecte, stockage et documentation scientifique de la flore d'Haïti.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <div class="proj-card">
+          <div class="proj-banner">
+            <img src="{{ 'images/conservation/conservation-projet-encours.jpg' | relative_url }}" alt="Projets en cours">
+          </div>
+          <div class="proj-body">
+            <h3 style="color: var(--secondary);">Projets En Cours</h3>
+            <p>Restauration active, implication communautaire et suivi des espèces endémiques.</p>
+          </div>
+        </div>
 
-        <section>
-            <div class="container">
-                <h2 style="text-align: center; margin-bottom: 50px;">Nos Projets</h2>
-                
-                <div class="project-grid">
-                    <div class="proj-card">
-                        <div class="proj-banner">
-                            <img src="images/conservation/conservation-projets-passes.jpg" alt="Projets passés">
-                        </div>
-                        <div class="proj-body">
-                            <h3>Projets Passés</h3>
-                            <p>Inventaires floristiques et premières mises en protection.</p>
-                        </div>
-                    </div>
+        <div class="proj-card">
+          <div class="proj-banner">
+            <img src="{{ 'images/conservation/conservation-projet-futurs.jpg' | relative_url }}" alt="Projets futurs">
+          </div>
+          <div class="proj-body">
+            <h3 style="color: var(--accent);">Projets Futurs</h3>
+            <p>Expansion de l'herbier national et développement de nouveaux protocoles de germination.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                    <div class="proj-card">
-                        <div class="proj-banner">
-                            <img src="images/conservation/conservation-projet-encours.jpg" alt="Projets en cours">
-                        </div>
-                        <div class="proj-body">
-                            <h3 style="color: var(--secondary);">Projets En Cours</h3>
-                            <p>Restauration active et suivi des espèces endémiques.</p>
-                        </div>
-                    </div>
+  <section class="section-page contact-section">
+    <div class="container-page">
+      <div class="contact-one">
+        <h2>Nous contacter pour la conservation</h2>
+        <p>
+          Que vous soyez un chercheur, un partenaire institutionnel ou une communauté souhaitant protéger son environnement local, envoyez-nous un message. Nous serons ravis de collaborer avec vous.
+        </p>
 
-                    <div class="proj-card">
-                        <div class="proj-banner">
-                            <img src="images/conservation/conservation-projet-futurs.jpg" alt="Projets futurs">
-                        </div>
-                        <div class="proj-body">
-                            <h3>Projets Futurs</h3>
-                            <p>Expansion de l'herbier et nouveaux protocoles de germination.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <form class="contact-form" name="contact-conservation" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact-conservation">
+          
+          <div class="field">
+            <label for="name">Nom / Organisation</label>
+            <input id="name" name="name" type="text" placeholder="Votre nom" required>
+          </div>
 
-        <section class="contact-section">
-            <div class="container">
-                <div class="contact-one">
-                    <h2>Nous contacter pour la conservation</h2>
-                    <p>
-                        Que vous soyez un chercheur, un partenaire institutionnel ou une communauté souhaitant protéger son environnement local, envoyez-nous un message. Nous serons ravis de collaborer avec vous.
-                    </p>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Votre adresse email" required>
+          </div>
 
-                    <form class="contact-form" action="#" method="post">
-                        <div class="field">
-                            <label for="name">Nom / Organisation</label>
-                            <input id="name" name="name" type="text" placeholder="Votre nom" required>
-                        </div>
+          <div class="field full">
+            <label for="subject">Sujet de votre demande</label>
+            <input id="subject" name="subject" type="text" placeholder="Ex: Projet de conservation In Situ, Demande de données..." required>
+          </div>
 
-                        <div class="field">
-                            <label for="email">Email</label>
-                            <input id="email" name="email" type="email" placeholder="Votre adresse email" required>
-                        </div>
+          <div class="field full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Détaillez votre projet ou votre question ici..." required></textarea>
+          </div>
 
-                        <div class="field full">
-                            <label for="subject">Sujet de votre demande</label>
-                            <input id="subject" name="subject" type="text" placeholder="Ex: Projet de conservation In Situ, Demande de données..." required>
-                        </div>
-
-                        <div class="field full">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" placeholder="Détaillez votre projet ou votre question ici..." required></textarea>
-                        </div>
-
-                        <button class="submit" type="submit">Envoyer le message</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div id="footer-placeholder"></div>
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+          <button class="submit" type="submit">Envoyer le message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
