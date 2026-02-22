@@ -4,155 +4,356 @@ title: "S'impliquer"
 ---
 
 <style>
-    /* VARIABLES ET STYLE DE LA PAGE */
-    .hero {
-      position: relative; height: 450px;
-      background: url('{{ "images/impliquer/evenement-page-principale.jpg" | relative_url }}') center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; color: #fff;
-    }
-    .hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
-    .hero-content { position: relative; z-index: 2; padding: 20px; }
-    .hero h1 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 2px; }
+  /* =========================================
+     CSS SPÉCIFIQUE (PAGE S'IMPLIQUER)
+     ========================================= */
+  .hero {
+    position: relative; height: 450px;
+    background: url('{{ "images/impliquer/evenement-page-principale.jpg" | relative_url }}') center/cover no-repeat;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: #fff;
+  }
+  .hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+  .hero-content { position: relative; z-index: 2; padding: 20px; }
+  .hero h1 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 2px; }
 
-    .subnav-wrapper { margin-top: -30px; position: relative; z-index: 10; text-align: center; padding: 0 20px; }
-    .subnav { display: inline-flex; background: #fff; padding: 8px 10px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); gap: 5px; flex-wrap: wrap; justify-content: center; }
-    .sub-btn { background: transparent; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; color: #666; cursor: pointer; transition: 0.3s; }
-    .sub-btn:hover { background: #f0f0f0; color: #2F5D2F; }
-    .sub-btn.active { background: #2F5D2F; color: #fff; box-shadow: 0 4px 12px rgba(26,67,50,0.3); }
+  .subnav-wrapper { margin-top: -30px; position: relative; z-index: 10; text-align: center; padding: 0 20px; }
+  .subnav { display: inline-flex; background: #fff; padding: 8px 10px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); gap: 5px; flex-wrap: wrap; justify-content: center; }
+  .sub-btn { background: transparent; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; color: #666; cursor: pointer; transition: 0.3s; }
+  .sub-btn:hover { background: #f0f0f0; color: #2F5D2F; }
+  .sub-btn.active { background: #2F5D2F; color: #fff; box-shadow: 0 4px 12px rgba(26,67,50,0.3); }
 
-    .page-section { display: none; padding: 60px 0; animation: fadeUp 0.4s ease forwards; opacity: 0; }
-    .page-section.active { display: block; opacity: 1; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+  .page-section { display: none; padding: 60px 0; animation: fadeUp 0.4s ease forwards; opacity: 0; }
+  .page-section.active { display: block; opacity: 1; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-    .intro-box { text-align: center; max-width: 900px; margin: 0 auto 50px; }
-    .intro-box h2 { color: #2F5D2F; font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; }
-    
-    .main-cards-list { display: flex; flex-direction: column; gap: 40px; }
-    .main-card { display: flex; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee; min-height: 320px; transition: 0.3s; }
-    .main-card-img { width: 45%; object-fit: cover; }
-    .main-card-body { width: 55%; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-    
-    .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
-    .card img { width: 100%; height: 240px; object-fit: cover; }
-    
-    .btn-action { display: inline-block; padding: 12px 28px; background: #2F5D2F; color: white; border-radius: 30px; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; width: fit-content; }
-    .form-box { max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-top: 5px solid #C5A059; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-    .form-control { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; }
+  .intro-box { text-align: center; max-width: 900px; margin: 0 auto 50px; }
+  .intro-box h2 { color: #2F5D2F; font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+  .intro-box p { font-size: 1.1rem; color: #555; margin-bottom: 25px; text-align: justify; }
+  
+  .note-box { 
+    background: #e8f5e9; border-left: 5px solid #5E8F3A; 
+    padding: 20px; text-align: left; font-weight: 700; color: #2F5D2F; 
+    border-radius: 8px; margin-bottom: 20px;
+  }
 
-    @media (max-width: 900px) { .main-card { flex-direction: column; } .main-card-img { width: 100%; height: 250px; } .main-card-body { width: 100%; } .form-grid { grid-template-columns: 1fr; } }
+  .main-cards-list { display: flex; flex-direction: column; gap: 40px; }
+  .main-card { display: flex; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee; min-height: 320px; transition: 0.3s; }
+  .main-card:hover { transform: translateY(-5px); }
+  .main-card-img { width: 45%; object-fit: cover; }
+  .main-card-body { width: 55%; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+  .main-card h3 { color: #2F5D2F; font-size: 1.8rem; margin-bottom: 15px; text-transform: uppercase; }
+  .main-card p { font-size: 1.1rem; color: #666; margin-bottom: 25px; }
+
+  .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+  .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+  .card img { width: 100%; height: 240px; object-fit: cover; }
+  .card-body { padding: 25px; }
+  .card h3 { color: #2F5D2F; margin-bottom: 10px; font-size: 1.3rem; }
+  .card p { color: #555; font-size: 0.95rem; }
+
+  .btn-action { display: inline-block; padding: 12px 28px; background: #2F5D2F; color: white; border-radius: 30px; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; width: fit-content; text-decoration: none !important;}
+  .btn-action:hover { background: #5E8F3A; color: white;}
+  
+  .form-box { max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-top: 5px solid #C5A059; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { display: block; font-weight: 800; margin-bottom: 8px; color: #444; font-size: 0.9rem;}
+  .form-control { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: inherit;}
+  .form-control:focus { outline: none; border-color: #5E8F3A; }
+
+  @media (max-width: 900px) {
+    .main-card { flex-direction: column; }
+    .main-card-img { width: 100%; height: 250px; }
+    .main-card-body { width: 100%; padding: 25px; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
 </style>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>S'IMPLIQUER</h1>
-        <p style="font-size: 1.2rem;">Votre engagement fait grandir la nature et protège notre biodiversité.</p>
-    </div>
+  <div class="hero-content">
+    <h1>S'IMPLIQUER</h1>
+    <p style="font-size: 1.2rem;">Votre engagement fait grandir la nature et protège notre biodiversité.</p>
+  </div>
 </section>
 
 <div class="subnav-wrapper">
-    <div class="subnav">
-        <button class="sub-btn active" onclick="showSection('overview', this)">Vue d'ensemble</button>
-        <button class="sub-btn" onclick="showSection('visite', this)">Visite</button>
-        <button class="sub-btn" onclick="showSection('membership', this)">Adhésion</button>
-        <button class="sub-btn" onclick="showSection('evenement', this)">Événement</button>
-        <button class="sub-btn" onclick="showSection('partenariat', this)">Partenariat</button>
-        <button class="sub-btn" onclick="showSection('volontariat', this)">Volontariat</button>
-    </div>
+  <div class="subnav">
+    <button class="sub-btn active" onclick="showSection('overview', this)">Vue d'ensemble</button>
+    <button class="sub-btn" onclick="showSection('visite', this)">Visite</button>
+    <button class="sub-btn" onclick="showSection('membership', this)">Adhésion</button>
+    <button class="sub-btn" onclick="showSection('evenement', this)">Événement</button>
+    <button class="sub-btn" onclick="showSection('partenariat', this)">Partenariat</button>
+  </div>
 </div>
 
 <main class="container">
-    <section id="overview" class="page-section active">
-        <div class="intro-box">
-            <h2>Une Science Partagée</h2>
-            <p>Au Jardin Botanique des Cayes (JBC), notre vision est de transformer la donnée scientifique en action concrète pour la santé de l’homme et de la nature.</p>
-        </div>
-        <div class="main-cards-list">
-            <article class="main-card">
-                <img src="{{ 'images/impliquer/visite-page-principale.jpg' | relative_url }}" class="main-card-img">
-                <div class="main-card-body">
-                    <h3>Visite</h3>
-                    <p>Découvrez la beauté et la science de nos collections.</p>
-                    <button class="btn-action" onclick="showSection('visite')">En savoir plus</button>
-                </div>
-            </article>
-        </div>
-    </section>
+  
+  <section id="overview" class="page-section active">
+    <div class="intro-box">
+      <h2>Une Science Partagée</h2>
+      <p>Au Jardin Botanique des Cayes (JBC), notre vision est de devenir le centre de référence pour la collecte, l’analyse et la diffusion de données de haute précision sur la nature en Haïti. Pour que cette science serve réellement la santé de l’homme et de la nature, elle doit être partagée, appropriée et valorisée par la société.</p>
+      <div class="note-box"><i class="fa-solid fa-leaf"></i> S'impliquer au JBC, c'est transformer la donnée scientifique en action concrète.</div>
+    </div>
 
-    <section id="visite" class="page-section">
-        <div class="grid-cards">
-            <div class="card">
-                <img src="{{ 'images/impliquer/visite-simple.jpg' | relative_url }}">
-                <div class="card-body"><h3>Visite Simple</h3><p>Une promenade libre et relaxante.</p></div>
-            </div>
-            <div class="card">
-                <img src="{{ 'images/impliquer/visite-scientifique.jpg' | relative_url }}">
-                <div class="card-body"><h3>Visite Scientifique</h3><p>Guidée par un expert botaniste.</p></div>
-            </div>
+    <div class="main-cards-list">
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/visite-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Visite">
+        <div class="main-card-body">
+          <h3>Visite</h3>
+          <p>Venez découvrir les différentes visites au Jardin Botanique des Cayes. Explorez la beauté, la science et les vertus thérapeutiques des plantes à travers des parcours adaptés à vos besoins.</p>
+          <button class="btn-action" onclick="showSection('visite', null)">Découvrir les visites</button>
         </div>
-    </section>
+      </article>
 
-    <section id="membership" class="page-section">
-        <div class="form-box">
-            <h3>Formulaire d'Adhésion</h3>
-            <div class="form-grid">
-                <input type="text" class="form-control" placeholder="Prénom">
-                <input type="text" class="form-control" placeholder="Nom">
-                <input type="email" class="form-control" placeholder="Email">
-            </div>
-            <button class="btn-action" style="width:100%; margin-top:20px;">Devenir Membre</button>
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/adhesion-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Adhesion">
+        <div class="main-card-body">
+          <h3>Adhésion (Membership)</h3>
+          <p>Soutenir le jardin, c'est protéger l'avenir. Devenez membre pour bénéficier d'avantages exclusifs, accéder à nos recherches et rejoindre notre communauté d'experts.</p>
+          <button class="btn-action" onclick="showSection('membership', null)">Devenir Membre</button>
         </div>
-    </section>
+      </article>
 
-    <section id="evenement" class="page-section">
-        <div class="intro-box">
-            <h2>Un cadre naturel d'exception</h2>
-            <p>Organisez vos mariages, colloques ou ateliers au cœur du Jardin.</p>
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/evenement-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Événements">
+        <div class="main-card-body">
+          <h3>Organiser un Événement</h3>
+          <p>Transformez vos rencontres professionnelles, célébrations, mariages ou colloques en moments d'exception au cœur d'un sanctuaire botanique unique.</p>
+          <button class="btn-action" onclick="showSection('evenement', null)">Planifier un événement</button>
         </div>
-        <div class="grid-cards">
-            <div class="card"><img src="{{ 'images/impliquer/evenement-celebrations.jpg' | relative_url }}"><div class="card-body"><h3>Célébrations</h3></div></div>
-        </div>
-    </section>
+      </article>
 
-    <section id="partenariat" class="page-section">
-        <div class="intro-box">
-            <h2>Travaillons ensemble</h2>
-            <p>Nous collaborons avec des institutions pour la restauration écologique et la phytochimie.</p>
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/partenariat-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Partenariat">
+        <div class="main-card-body">
+          <h3>Partenariat & Experts</h3>
+          <p>Nous collaborons avec des institutions et experts pour développer des programmes de restauration écologique, d'apiculture, de phytochimie et de naturopathie en Haïti.</p>
+          <button class="btn-action" onclick="showSection('partenariat', null)">Collaborer avec nous</button>
         </div>
-    </section>
+      </article>
+    </div>
+    
+    <div class="form-box" style="margin-top: 80px;">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 10px; font-size: 1.8rem;">Nous Contacter</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">Vous avez une question générale ? Laissez-nous un message.</p>
+      <form name="contact-general" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" name="prenom" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" name="nom" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Téléphone</label>
+            <input type="tel" name="telephone" class="form-control">
+          </div>
+          <div class="form-group full">
+            <label>Message</label>
+            <textarea name="message" class="form-control" rows="4" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Envoyer le message</button>
+      </form>
+    </div>
+  </section>
 
-    <section id="volontariat" class="page-section">
-        <div class="intro-box">
-            <h2>Devenez Volontaire</h2>
-            <p>Mettez vos compétences au service du Jardin. Que vous soyez passionné de jardinage, de communication ou d'éducation, nous avons besoin de vous.</p>
+  <section id="visite" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Venez découvrir nos espaces</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Le Jardin Botanique des Cayes propose des parcours immersifs. Que vous souhaitiez vous détendre, faire des recherches pointues ou apprendre comment la nature guérit, nous avons une visite pour vous.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-simple.jpg' | relative_url }}" alt="Visite Simple">
+        <div class="card-body">
+          <h3>Visite Simple</h3>
+          <p>Une promenade libre et relaxante à travers nos paysages pour profiter du calme et de la beauté de la nature.</p>
         </div>
-        <div class="form-box">
-            <h3>Candidature Spontanée</h3>
-            <form>
-                <div class="form-grid">
-                    <input type="text" class="form-control" placeholder="Nom complet">
-                    <input type="email" class="form-control" placeholder="Email">
-                    <div class="form-group full" style="grid-column: 1 / -1;">
-                        <textarea class="form-control" rows="4" placeholder="Pourquoi voulez-vous devenir volontaire au JBC ?"></textarea>
-                    </div>
-                </div>
-                <button class="btn-action" style="width:100%; margin-top:20px;">Envoyer ma candidature</button>
-            </form>
+      </div>
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-scientifique.jpg' | relative_url }}" alt="Visite Scientifique">
+        <div class="card-body">
+          <h3>Visite Scientifique</h3>
+          <p>Une exploration guidée par un expert botaniste, idéale pour les chercheurs, étudiants et passionnés de sciences.</p>
         </div>
-    </section>
+      </div>
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-phytotherapie.jpg' | relative_url }}" alt="Phytothérapie">
+        <div class="card-body">
+          <h3>Phytothérapie</h3>
+          <p>Découvrez les vertus des plantes. Un parcours pour comprendre les remèdes naturels et la médecine traditionnelle.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Réserver une visite</h3>
+      <form name="reservation-visite" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group"><label>Prénom</label><input type="text" name="prenom" class="form-control" required></div>
+          <div class="form-group"><label>Nom</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Téléphone</label><input type="tel" name="telephone" class="form-control" required></div>
+          <div class="form-group"><label>Date souhaitée</label><input type="date" name="date" class="form-control" required></div>
+          <div class="form-group">
+            <label>Type de visite</label>
+            <select name="type_visite" class="form-control">
+              <option value="Simple">Visite Simple</option>
+              <option value="Scientifique">Visite Scientifique</option>
+              <option value="Phytotherapie">Phytothérapie</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Confirmer la réservation</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="membership" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Pourquoi devenir membre ?</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Adhérer au Jardin Botanique, c'est poser un acte fort pour la sauvegarde du patrimoine naturel haïtien. Votre contribution financière nous permet d'entretenir les collections et de financer nos chercheurs.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Étudiant</h3><p>$25 / an</p></div></div>
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Individuel</h3><p>$50 / an</p></div></div>
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Famille</h3><p>$100 / an</p></div></div>
+    </div>
+    
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Formulaire d'Adhésion</h3>
+      <form name="formulaire-adhesion" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group"><label>Prénom</label><input type="text" name="prenom" class="form-control" required></div>
+          <div class="form-group"><label>Nom</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Téléphone</label><input type="tel" name="telephone" class="form-control" required></div>
+          <div class="form-group full">
+            <label>Niveau de soutien</label>
+            <select name="niveau" class="form-control">
+              <option value="Etudiant">Étudiant ($25/an)</option>
+              <option value="Individuel">Individuel ($50/an)</option>
+              <option value="Famille">Famille ($100/an)</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Rejoindre le Jardin</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="evenement" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Un cadre naturel d'exception</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Offrez à vos invités un environnement pur et inspirant. Au niveau de nos espaces, vous pouvez organiser des célébrations de mariage majestueuses, des colloques d'entreprise ou des retraites spirituelles.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><img src="{{ 'images/impliquer/evenement-celebrations.jpg' | relative_url }}" alt="Célébrations"><div class="card-body"><h3>Célébrations & Mariages</h3><p>Un décor fleuri inoubliable.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/evenement-ateliers.jpg' | relative_url }}" alt="Ateliers"><div class="card-body"><h3>Ateliers & Formations</h3><p>Espaces calmes pour apprendre.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/evenement-colloques.jpg' | relative_url }}" alt="Colloques"><div class="card-body"><h3>Colloques</h3><p>Idéal pour les réunions institutionnelles.</p></div></div>
+    </div>
+    
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Demander un devis</h3>
+      <form name="devis-evenement" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group"><label>Prénom / Nom</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Email ou Téléphone</label><input type="text" name="contact" class="form-control" required></div>
+          <div class="form-group"><label>Date prévue</label><input type="date" name="date" class="form-control" required></div>
+          <div class="form-group">
+            <label>Type d'événement</label>
+            <select name="type" class="form-control">
+              <option value="Mariage">Mariage / Célébration</option>
+              <option value="Colloque">Colloque / Réunion</option>
+              <option value="Atelier">Atelier éducatif</option>
+            </select>
+          </div>
+          <div class="form-group full"><label>Détails (Nombre de personnes...)</label><textarea name="details" class="form-control" rows="3"></textarea></div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Demander le devis</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="partenariat" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Travaillons ensemble</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Nous développons des programmes techniques pointus : de la restauration écologique à l'apiculture, en passant par la phytochimie et l'enseignement de la naturopathie pour les médecins en Haïti. Nous cherchons des institutions partenaires pour étendre notre impact.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-universites.jpg' | relative_url }}" alt="Universités"><div class="card-body"><h3>Universités</h3><p>Recherche fondamentale & Science.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-institutions.jpg' | relative_url }}" alt="Institutions"><div class="card-body"><h3>Institutions & ONG</h3><p>Programmes de conservation et santé publique.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-experts.jpg' | relative_url }}" alt="Experts"><div class="card-body"><h3>Experts Internationaux</h3><p>Appui technique (Phytochimie, Naturopathie).</p></div></div>
+    </div>
+    
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Proposer une Collaboration</h3>
+      <form name="collaboration" method="POST" data-netlify="true">
+        <div class="form-grid">
+          <div class="form-group"><label>Nom du contact</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Nom de l'Institution</label><input type="text" name="institution" class="form-control" required></div>
+          <div class="form-group"><label>Email officiel</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Téléphone</label><input type="tel" name="telephone" class="form-control"></div>
+          <div class="form-group full"><label>Objet du partenariat</label><textarea name="objet" class="form-control" rows="4" required></textarea></div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Envoyer la proposition</button>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <script>
-    function showSection(id, btn) {
-        document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo({ top: 400, behavior: 'smooth' });
-        
-        if(btn) {
-            document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-        }
+  // === GESTION DES ONGLETS DE LA PAGE ===
+  function showSection(id, btn) {
+    // Masquer toutes les sections
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    
+    // Afficher la section demandée
+    const targetSection = document.getElementById(id);
+    if(targetSection) {
+      targetSection.classList.add('active');
     }
+    
+    // Scroll fluide vers le haut du contenu
+    window.scrollTo({ top: 400, behavior: 'smooth' });
+    
+    // Gestion du bouton actif dans le sous-menu
+    document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+    
+    if(btn) {
+      btn.classList.add('active');
+    } else {
+      // Si appelé depuis un lien externe (sans bouton cliqué), on trouve le bon bouton
+      document.querySelectorAll('.sub-btn').forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) {
+          b.classList.add('active');
+        }
+      });
+    }
+  }
+
+  // Permet d'ouvrir le bon onglet si quelqu'un clique sur un lien depuis une autre page 
+  // (ex: impliquer.html#visite)
+  document.addEventListener("DOMContentLoaded", () => {
+    if(window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      if(document.getElementById(targetId)) {
+        showSection(targetId, null);
+      }
+    }
+  });
 </script>
