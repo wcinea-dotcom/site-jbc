@@ -1,8 +1,7 @@
 ---
+layout: default
 title: Actualités du Jardin
 ---
-
-{% include header.html %}
 
 <main class="blog-main container" style="padding: 40px 22px;">
     <div style="text-align: center; margin-bottom: 40px;">
@@ -32,37 +31,25 @@ title: Actualités du Jardin
     <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: #1f2a33; font-size: 2rem; margin-bottom: 30px;">Derniers articles</h2>
     
     <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding-bottom: 40px;">
-        
         {% for post in site.posts limit:10 %}
         <article class="post-card" style="background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,.08); transition: transform 0.2s; padding: 20px;">
-            
             {% if post.image %}
             <div style="height: 200px; border-radius: 12px; overflow: hidden; margin-bottom: 15px; background: #eee;">
                 <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             {% endif %}
-            
             <span style="color: #C5A059; font-weight: 900; font-size: 0.8rem; text-transform: uppercase;">{{ post.categorie_principale }} > {{ post.sous_categorie }}</span>
-            
             <h3 style="margin: 8px 0; font-family: 'Playfair Display', serif; font-size: 1.4rem;">
                 <a href="{{ post.url | relative_url }}" style="color: #1f2a33;">{{ post.title }}</a>
             </h3>
-            
             <p class="post-subtitle" style="color: rgba(31,42,51,.72); font-size: 0.95rem; margin-bottom: 15px;">{{ post.sous_titre }}</p>
-            
             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 15px;">
                 <span class="date" style="font-size: 0.85rem; color: #4b5e46; font-weight: bold;">
                     <i class="fa-regular fa-calendar"></i> {{ post.date | date: "%d/%m/%Y" }}
                 </span>
                 <a href="{{ post.url | relative_url }}" class="read-more" style="color: #4b5e46; font-weight: 900; font-size: 0.85rem; text-transform: uppercase;">Lire la suite →</a>
             </div>
-            
         </article>
         {% endfor %}
     </div>
-
 </main>
-
-{% include footer.html %}
-
-<script src="script.js"></script>
