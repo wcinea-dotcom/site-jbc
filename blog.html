@@ -38,11 +38,15 @@ title: Actualités du Jardin
                 <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
             {% endif %}
+            
             <span style="color: #C5A059; font-weight: 900; font-size: 0.8rem; text-transform: uppercase;">{{ post.categorie_principale }} > {{ post.sous_categorie }}</span>
+            
             <h3 style="margin: 8px 0; font-family: 'Playfair Display', serif; font-size: 1.4rem;">
                 <a href="{{ post.url | relative_url }}" style="color: #1f2a33;">{{ post.title }}</a>
             </h3>
+            
             <p class="post-subtitle" style="color: rgba(31,42,51,.72); font-size: 0.95rem; margin-bottom: 15px;">{{ post.sous_titre }}</p>
+            
             <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 15px;">
                 <span class="date" style="font-size: 0.85rem; color: #4b5e46; font-weight: bold;">
                     <i class="fa-regular fa-calendar"></i> {{ post.date | date: "%d/%m/%Y" }}
