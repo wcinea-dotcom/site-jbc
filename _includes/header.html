@@ -1,42 +1,73 @@
-<header class="topbar">
-  <div class="container topbar-inner">
-    <a href="{{ '/' | relative_url }}" class="brand">
-      <img src="{{ 'images/logo-jbc.png' | relative_url }}" alt="Jardin Botanique des Cayes">
+<div class="top-tier" style="background-color: #2F5D2F; color: #fff; font-size: 0.85rem; padding: 10px 0;">
+  <div class="container" style="display: flex; justify-content: flex-end; align-items: center; gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 22px;">
+    
+    <div class="top-tier-links" style="display: flex; gap: 25px;">
+      <a href="{{ '/blog.html' | relative_url }}" style="color: rgba(255,255,255,0.9); font-weight: 700; text-decoration: none; letter-spacing: 0.03em;">Actualités</a>
+      <a href="#" style="color: rgba(255,255,255,0.9); font-weight: 700; text-decoration: none; letter-spacing: 0.03em;">Événements</a>
+      <a href="{{ '/blog.html' | relative_url }}" style="color: rgba(255,255,255,0.9); font-weight: 700; text-decoration: none; letter-spacing: 0.03em;">Blog</a>
+      <a href="#" style="color: rgba(255,255,255,0.9); font-weight: 700; text-decoration: none; letter-spacing: 0.03em;">Ressources</a>
+      <a href="{{ '/donnees.html' | relative_url }}" style="color: #C5A059; font-weight: 900; text-decoration: none; letter-spacing: 0.03em;">Données</a>
+    </div>
+    
+    <div class="top-tier-tools" style="display: flex; align-items: center; gap: 20px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 20px;">
+      <div class="tool-item" style="color: rgba(255,255,255,0.9); font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+        Recherche <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <div class="tool-item lang-switch" style="display: flex; align-items: center;">
+        <a href="#" style="color: #fff; font-weight:900; text-decoration: none;">FR</a> 
+        <span style="font-weight:normal; margin:0 4px; opacity:0.5; color: #fff;">|</span> 
+        <a href="#" style="color: #fff; font-weight:normal; opacity:0.7; text-decoration: none;">EN</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<header class="main-tier" style="background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 2000;">
+  <div class="container main-tier-inner" style="display: flex; justify-content: space-between; align-items: center; height: 90px; max-width: 1200px; margin: 0 auto; padding: 0 22px;">
+    
+    <a href="{{ '/' | relative_url }}" class="brand" style="text-decoration: none;">
+      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes" style="height: 75px; width: auto; filter: contrast(1.08) saturate(1.08);">
     </a>
 
-    <nav class="nav">
-      <div class="drop">
-        <button class="nav-btn">Accueil <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
-        <div class="menu">
-          <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
-          <a href="#">Conseil d'administration</a>
-          <a href="{{ '/petition.html' | relative_url }}">SOS Pétition</a>
+    <nav class="main-nav" style="display: flex; gap: 30px; align-items: center;">
+      
+      <div class="drop" id="dropAccueil" style="position: relative;">
+        <div class="nav-group" style="display: flex; align-items: center; gap: 4px;">
+          <a href="{{ '/' | relative_url }}" style="font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.95rem; color: #1f2a33; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; padding-right: 2px;">ACCUEIL</a>
+          <button type="button" id="btnAccueil" style="background: none; border: none; cursor: pointer; color: #1f2a33; padding-left: 2px;"><i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
+        </div>
+        <div class="menu" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border-top: 4px solid #5E8F3A; box-shadow: 0 15px 40px rgba(0,0,0,0.1); min-width: 260px; z-index: 2500; padding: 10px 0;">
+          <a href="{{ '/apropos.html' | relative_url }}" style="display: block; padding: 12px 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem; text-decoration: none;">À propos</a>
+          <a href="#" style="display: block; padding: 12px 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem; text-decoration: none;">Conseil d'administration</a>
+          <a href="{{ '/petition.html' | relative_url }}" style="display: block; padding: 12px 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem; text-decoration: none;">SOS Pétition</a>
         </div>
       </div>
 
-      <a href="{{ '/impliquer.html' | relative_url }}">S'impliquer</a>
+      <a href="{{ '/impliquer.html' | relative_url }}" style="font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.95rem; color: #1f2a33; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">S'IMPLIQUER</a>
 
-      <div class="drop">
-        <button class="nav-btn">Santé de la Nature <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
-        <div class="menu">
-          <a href="{{ '/science.html' | relative_url }}">Sciences</a>
-          <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
-          <a href="{{ '/horticulture.html' | relative_url }}">Horticulture</a>
+      <div class="drop" id="dropNature" style="position: relative;">
+        <div class="nav-group" style="display: flex; align-items: center; gap: 4px;">
+          <a href="{{ '/sante-de-la-nature.html' | relative_url }}" style="font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.95rem; color: #1f2a33; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; padding-right: 2px;">SANTÉ DE LA NATURE</a>
+          <button type="button" id="btnNature" style="background: none; border: none; cursor: pointer; color: #1f2a33; padding-left: 2px;"><i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
+        </div>
+        <div class="menu" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border-top: 4px solid #5E8F3A; box-shadow: 0 15px 40px rgba(0,0,0,0.1); min-width: 260px; z-index: 2500; padding: 10px 0;">
+          <a href="{{ '/science.html' | relative_url }}" style="display: block; padding: 12px 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem; text-decoration: none;">Sciences</a>
+          <a href="{{ '/donnees.html' | relative_url }}" style="display: block; padding: 12px 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem; text-decoration: none;">Données</a>
+          <a href="{{ '/conservation.html' | relative_url }}" style="display: block; padding: 12px 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem; text-decoration: none;">Conservation</a>
+          <a href="{{ '/recherche.html' | relative_url }}" style="display: block; padding: 12px 20px; color: #333; font-weight: 700; border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem; text-decoration: none;">Horticulture & Restauration</a>
         </div>
       </div>
 
-      <a href="{{ '/sante-humaine.html' | relative_url }}">Santé Humaine</a>
-      <a href="{{ '/education.html' | relative_url }}">Éducation</a>
-      <a href="{{ '/medias.html' | relative_url }}">Médias</a>
-      <a href="{{ '/blog.html' | relative_url }}">Actualités</a>
+      <a href="{{ '/sante-humaine.html' | relative_url }}" style="font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.95rem; color: #1f2a33; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">SANTÉ HUMAINE</a>
+
+      <a href="{{ '/education.html' | relative_url }}" style="font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.95rem; color: #1f2a33; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">ÉDUCATION</a>
+
     </nav>
 
-    <div class="actions">
-      <div class="search-wrap">
-        <input type="text" id="searchInput" placeholder="Rechercher...">
-        <button class="btn-search" id="btnSearch"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </div>
-      <a href="#" class="btn-member">Devenir Membre</a>
+    <div class="main-actions" style="display: flex; align-items: center; gap: 15px;">
+      <a href="{{ '/impliquer.html' | relative_url }}" style="background-color: #2F5D2F; color: #fff; font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.95rem; padding: 10px 24px; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; box-shadow: 0 4px 15px rgba(47, 93, 47, 0.2);">DEVENIR MEMBRE</a>
     </div>
+
   </div>
 </header>
