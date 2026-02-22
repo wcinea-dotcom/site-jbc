@@ -1,82 +1,47 @@
-<header class="topbar" role="banner">
+<header class="topbar">
   <div class="container topbar-inner">
-    <a class="brand" href="index.html" aria-label="Accueil — Jardin Botanique des Cayes">
-      <img src="images/logo/logo-jardin-botanique-des-cayes.png" alt="Logo Jardin Botanique des Cayes">
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <img src="{{ 'images/logo-jbc.png' | relative_url }}" alt="Jardin Botanique des Cayes">
     </a>
 
-    <nav class="nav" aria-label="Menu principal">
-      <a href="index.html">ACCUEIL</a>
-      <a href="impliquer.html">S’IMPLIQUER</a>
-      
+    <nav class="nav">
+      <div class="drop" id="dropAccueil">
+        <button class="nav-btn" id="btnAccueil">Accueil <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="menu">
+          <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
+          <a href="#">Conseil d'administration</a>
+          <a href="{{ '/petition.html' | relative_url }}">SOS Pétition</a>
+        </div>
+      </div>
+
+      <a href="{{ '/impliquer.html' | relative_url }}">S'impliquer</a>
+
       <div class="drop" id="dropNature">
-        <button type="button" id="btnNature" aria-haspopup="true" aria-expanded="false">
-          SANTÉ DE LA NATURE <i class="fa-solid fa-chevron-down" style="font-size:.82em; opacity:.85;"></i>
-        </button>
-        <div class="menu" role="menu" aria-label="Sous-menu Santé de la Nature">
-          <a href="science.html" role="menuitem">Sciences</a>
-          <a href="donnees.html" role="menuitem">Données</a>
-          <a href="conservation.html" role="menuitem">Conservation</a>
-          <a href="horticulture.html" role="menuitem">Horticulture et Restauration</a>
+        <button class="nav-btn" id="btnNature">Santé de la Nature <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="menu">
+          <a href="{{ '/science.html' | relative_url }}">Sciences</a>
+          <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
+          <a href="{{ '/horticulture.html' | relative_url }}">Horticulture</a>
         </div>
       </div>
 
-      <a href="sante-humaine.html">SANTÉ HUMAINE</a>
-      <a href="education.html">ÉDUCATION</a>
-
-      <div class="drop" id="dropMedias">
-        <button type="button" id="btnMedias" aria-haspopup="true" aria-expanded="false">
-          MÉDIAS <i class="fa-solid fa-chevron-down" style="font-size:.82em; opacity:.85;"></i>
-        </button>
-        <div class="menu" role="menu" aria-label="Sous-menu Médias">
-          <a href="blog.html" role="menuitem">Actualités du Jardin</a>
-        </div>
-      </div>
+      <a href="{{ '/sante-humaine.html' | relative_url }}">Santé Humaine</a>
+      <a href="{{ '/education.html' | relative_url }}">Éducation</a>
+      <a href="{{ '/blog.html' | relative_url }}">Actualités</a>
     </nav>
 
     <div class="actions">
-      <button class="btn-search" type="button" aria-label="Rechercher" style="flex-shrink: 0; min-width: 44px; padding: 0;">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-      <a class="btn-member" href="impliquer.html">
-        DEVENIR MEMBRE <i class="fa-solid fa-user-plus"></i>
-      </a>
-      <button class="burger" id="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="Rechercher...">
+        <button class="btn-search" id="btnSearch" title="Rechercher">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <a href="#" class="btn-member">Devenir Membre</a>
     </div>
+
+    <button class="burger" id="burger" aria-label="Menu mobile">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
 </header>
-
-<div class="drawer" id="drawer" aria-label="Menu mobile">
-  <a href="index.html">ACCUEIL</a>
-  <a href="impliquer.html">S’IMPLIQUER</a>
-
-  <button type="button" id="drawerNatureBtn">
-    SANTÉ DE LA NATURE <i class="fa-solid fa-chevron-down" style="opacity:.8;"></i>
-  </button>
-  <div class="drawer-sub" id="drawerNatureSub">
-    <a href="science.html">Sciences</a>
-    <a href="donnees.html">Données</a>
-    <a href="conservation.html">Conservation</a>
-    <a href="horticulture.html">Horticulture et Restauration</a>
-  </div>
-
-  <a href="sante-humaine.html">SANTÉ HUMAINE</a>
-  <a href="education.html">ÉDUCATION</a>
-
-  <button type="button" id="drawerMediasBtn">
-    MÉDIAS <i class="fa-solid fa-chevron-down" style="opacity:.8;"></i>
-  </button>
-  <div class="drawer-sub" id="drawerMediasSub">
-    <a href="blog.html">Actualités du Jardin</a>
-  </div>
-
-  <div style="display:flex; gap:10px; margin-top:15px; justify-content:center;">
-    <button class="btn-search" type="button" aria-label="Rechercher" style="position:static; width:44px; height:44px; flex-shrink: 0; min-width: 44px; padding: 0;">
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-    <a class="btn-member" href="impliquer.html">DEVENIR MEMBRE <i class="fa-solid fa-user-plus"></i></a>
-  </div>
-</div>
-
-
