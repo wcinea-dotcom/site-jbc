@@ -109,6 +109,7 @@
 <div class="hdr-top-tier">
   <div class="hdr-top-inner">
     <div class="hdr-top-links">
+      <a href="{{ '/petition.html' | relative_url }}" style="color: #e74c3c; font-weight: 900;"><i class="fa-solid fa-fire"></i> SOS PÉTITION</a>
       <a href="{{ '/actualites.html#news' | relative_url }}">Actualités</a>
       <a href="{{ '/actualites.html#event' | relative_url }}">Événements</a>
       <a href="{{ '/blog.html' | relative_url }}">Blog</a>
@@ -145,7 +146,7 @@
         <div class="hdr-menu">
           <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
           <a href="#">Conseil d'administration</a>
-          <a href="{{ '/petition.html' | relative_url }}">SOS Pétition</a>
+          <a href="{{ '/petition.html' | relative_url }}" style="color: #c0392b; font-weight: bold;">SOS Pétition</a>
         </div>
       </div>
 
@@ -184,7 +185,7 @@
   <div class="hdr-drawer-sub" id="hdr-drawerAccueilSub">
     <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
     <a href="#">Conseil d'administration</a>
-    <a href="{{ '/petition.html' | relative_url }}">SOS Pétition</a>
+    <a href="{{ '/petition.html' | relative_url }}" style="color: #c0392b; font-weight: bold;">SOS Pétition</a>
   </div>
 
   <a href="{{ '/impliquer.html' | relative_url }}">S'IMPLIQUER</a>
@@ -204,56 +205,3 @@
   <a href="{{ '/education.html' | relative_url }}">ÉDUCATION</a>
 
   <hr style="border:none; border-top:1px solid #eee; margin:15px 0;">
-
-  <a href="{{ '/actualites.html#news' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Actualités</a>
-  <a href="{{ '/actualites.html#event' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Événements</a>
-  <a href="{{ '/blog.html' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Blog</a>
-  <a href="{{ '/ressources.html' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Ressources</a>
-  <a href="{{ '/donnees.html' | relative_url }}" style="color:#C5A059; font-size:0.9rem; text-transform: none;">Données</a>
-
-  <div style="display:flex; justify-content:center; margin-top:20px;">
-    <a class="hdr-btn-member" href="{{ '/impliquer.html#membership' | relative_url }}" style="width:100%; justify-content:center;">DEVENIR MEMBRE</a>
-  </div>
-</div>
-
-<script>
-  (function(){
-    function setupDropdown(btnId, dropId) {
-      const btn = document.getElementById(btnId);
-      const drop = document.getElementById(dropId);
-      if (btn && drop) {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          document.querySelectorAll('.hdr-drop, .hdr-drawer-sub').forEach(d => { if(d !== drop) d.classList.remove('open'); });
-          drop.classList.toggle('open');
-        });
-      }
-    }
-
-    // Ordinateur
-    setupDropdown('hdr-btnAccueil', 'hdr-dropAccueil');
-    setupDropdown('hdr-btnNature', 'hdr-dropNature');
-
-    // Mobile
-    setupDropdown('hdr-drawerAccueilBtn', 'hdr-drawerAccueilSub');
-    setupDropdown('hdr-drawerNatureBtn', 'hdr-drawerNatureSub');
-
-    // Menu Burger
-    const burger = document.getElementById('hdr-burger');
-    const drawer = document.getElementById('hdr-drawer');
-    if (burger && drawer) {
-      burger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        drawer.classList.toggle('open');
-      });
-    }
-
-    // Fermeture en cliquant dehors
-    document.addEventListener('click', () => {
-      document.querySelectorAll('.hdr-drop, .hdr-drawer-sub').forEach(d => d.classList.remove('open'));
-      if (drawer) drawer.classList.remove('open');
-    });
-
-    document.querySelectorAll('.hdr-drop, .hdr-drawer').forEach(el => el.addEventListener('click', e => e.stopPropagation()));
-  })();
-</script>
