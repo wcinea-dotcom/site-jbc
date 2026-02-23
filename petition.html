@@ -24,9 +24,9 @@ title: "Sauvons le Jardin Botanique des Cayes - Pétition Officielle"
       100% { background-color: #c0392b; }
   }
 
-  /* Header Pétition */
+  /* Header Pétition - AVEC VOTRE IMAGE DE JARDIN */
   .petition-header {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ "images/petition/Jardin.jpg" | relative_url }}');
       background-size: cover; background-position: center; color: white;
       text-align: center; padding: 150px 20px; position: relative;
   }
@@ -72,7 +72,7 @@ title: "Sauvons le Jardin Botanique des Cayes - Pétition Officielle"
   /* GRANDE PHOTO DU JARDIN */
   .large-garden-photo {
       width: 100%; height: 500px;
-      background: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+      background: url('{{ "images/petition/espace-ecologique.jpg" | relative_url }}') center/cover;
       border-radius: 15px; margin: 60px 0 20px 0; box-shadow: 0 15px 30px rgba(0,0,0,0.3); position: relative;
   }
   .large-garden-photo .caption {
@@ -237,21 +237,21 @@ title: "Sauvons le Jardin Botanique des Cayes - Pétition Officielle"
           
           <div class="danger-grid">
               <div class="danger-card">
-                  <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Jardin avant les destructions">
+                  <img src="{{ 'images/petition/elimination-jardin-ecologique.jpg' | relative_url }}" alt="Jardin avant les destructions">
                   <div class="overlay">
                       <h3>Le Jardin avant les destructions</h3>
                       <p>Un paradis de verdure de 8 hectares, joyau de la biodiversité haïtienne.</p>
                   </div>
               </div>
               <div class="danger-card">
-                  <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Plantes endémiques">
+                  <img src="{{ 'images/petition/jbc-plantes.jpg' | relative_url }}" alt="Plantes endémiques">
                   <div class="overlay">
                       <h3>Plantes endémiques uniques au monde</h3>
                       <p>Des espèces qu'on ne trouve nulle part ailleurs qu'en Haïti, aujourd'hui menacées.</p>
                   </div>
               </div>
               <div class="danger-card">
-                  <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Incendies">
+                  <img src="{{ 'images/petition/charbon.jpg' | relative_url }}" alt="Incendies">
                   <div class="overlay">
                       <h3>Incendies allumés dans le jardin</h3>
                       <p>Des feux criminels détruisent méthodiquement la végétation.</p>
@@ -266,21 +266,21 @@ title: "Sauvons le Jardin Botanique des Cayes - Pétition Officielle"
           
           <div class="fire-grid">
               <div class="fire-card">
-                  <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Incendie criminel">
+                  <img src="{{ 'images/petition/Jardin-ecologique-enfeu.jpg' | relative_url }}" alt="Incendie criminel">
                   <div class="caption">
                       <h3>Incendie criminel - Janvier 2026</h3>
                       <p>Des feux allumés délibérément pour tout raser. La zone "Jardin Écologique" est ravagée.</p>
                   </div>
               </div>
               <div class="fire-card">
-                  <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Avant incendie">
+                  <img src="{{ 'images/petition/espace-ecologique.jpg' | relative_url }}" alt="Avant incendie">
                   <div class="caption">
                       <h3>La même zone avant</h3>
                       <p>Un paradis de biodiversité unique au monde, avec des espèces qu'on ne trouve nulle part ailleurs.</p>
                   </div>
               </div>
               <div class="fire-card">
-                  <img src="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Accès bloqué">
+                  <img src="{{ 'images/petition/barriere.jpg' | relative_url }}" alt="Accès bloqué">
                   <div class="caption">
                       <h3>Accès bloqué pendant l'incendie</h3>
                       <p>Des barrières illégales ont empêché les secours et les pompiers d'intervenir.</p>
@@ -297,9 +297,9 @@ title: "Sauvons le Jardin Botanique des Cayes - Pétition Officielle"
               </div>
               
               <div class="donna-info">
-                  <h2><i class="fas fa-user"></i> MADAME DONNA BASTIEN</h2>
+                  <h2><i class="fas fa-user"></i> L'ACTRICE DE LA DESTRUCTION</h2>
                   <div class="fact">
-                      <i class="fas fa-user-tag" style="color: #c0392b;"></i> <strong>Statut :</strong> Épouse de Bruno Gérard (l'un des 11 héritiers). <span style="color: #c0392b; font-weight: bold;">ELLE N'EST PAS HÉRITIÈRE ET N'A AUCUN DROIT FONCIER.</span>
+                      <i class="fas fa-user-tag" style="color: #c0392b;"></i> <strong>Statut :</strong> Épouse d'un des 11 héritiers. <span style="color: #c0392b; font-weight: bold;">ELLE N'EST PAS HÉRITIÈRE ET N'A AUCUN DROIT FONCIER.</span>
                   </div>
                   <div class="fact">
                       <i class="fas fa-chart-line" style="color: #c0392b;"></i> <strong>Ce qu'elle revendique :</strong> 0,32 hectare (3% du terrain) pour son mari.
