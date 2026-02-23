@@ -1,2 +1,13 @@
-title: Jardin Botanique des Cayes
-markdown: kramdown
+
+# Site settings
+url: "https://votre-site.netlify.app" # Remplacez par votre URL
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /articles/:year/:month/:day/:title/
+
+# Plugins (si utilisés)
+plugins:
+  - jekyll-feed
