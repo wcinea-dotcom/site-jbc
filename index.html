@@ -170,7 +170,7 @@ title: Accueil
     .hero-media{position:absolute; inset:0; background:url("{{ 'images/index/index-hero.jpg' | relative_url }}") center/cover no-repeat; filter:saturate(1.05); transform:scale(1.01);}
     .hero-gradient{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.70) 34%, rgba(0,0,0,.30) 58%, rgba(0,0,0,.06) 78%, rgba(0,0,0,0) 100%);}
     .hero-inner{position:relative;height:100%;display:flex;align-items:center}
-    .hero-copy{width:min(900px, 92vw); color:#fff; padding:12px 0;}
+    .hero-copy{width:min(900px, 92vw); color:#fff; padding:12px 0; position: relative; z-index: 5;}
     .hero-copy h1{font-size:clamp(2.2rem, 4.4vw, 4.2rem); line-height:1.05; margin-bottom:12px;}
     .hero-copy p{font-size:clamp(1.0rem, 1.25vw, 1.25rem); color:rgba(255,255,255,.88); max-width:760px; line-height:1.8;}
 
@@ -361,21 +361,6 @@ title: Accueil
   </div>
 
   <main>
-    
-    <div style="background: linear-gradient(135deg, #c0392b 0%, #a93226 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid #f1c40f; box-shadow: 0 10px 30px rgba(192, 57, 43, 0.3); position: relative; z-index: 10;">
-        <div style="max-width: 1000px; margin: 0 auto;">
-            <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 15px; font-weight: 900; font-family: 'Lato', sans-serif; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); color: white;">
-                <i class="fa-solid fa-fire" style="color: #f1c40f;"></i> URGENT : Le Jardin Botanique des Cayes est en danger
-            </h2>
-            <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); margin: 0 auto 25px; line-height: 1.6; color: white;">
-                Notre patrimoine national brûle. Aidez-nous à rassembler <strong>5 000 signatures</strong> pour forcer les autorités à arrêter cette destruction écologique immédiatement.
-            </p>
-            <a href="{{ '/sos-petition.html' | relative_url }}" style="display: inline-flex; align-items: center; gap: 10px; background: #f1c40f; color: #c0392b; font-weight: 900; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-                <i class="fa-solid fa-pen-fancy"></i> SIGNEZ LA PÉTITION MAINTENANT
-            </a>
-        </div>
-    </div>
-
     <section class="hero">
       <div class="hero-media"></div>
       <div class="hero-gradient"></div>
@@ -383,6 +368,11 @@ title: Accueil
         <div class="hero-copy">
           <h1>Jardin Botanique des Cayes</h1>
           <p>Une institution au service de la biodiversité : données, science, éducation et actions concrètes en Haïti.</p>
+          
+          <a href="{{ '/sos-petition.html' | relative_url }}" style="display: inline-flex; align-items: center; gap: 10px; background: #c0392b; color: #fff; font-weight: 900; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; margin-top: 25px; border: 2px solid #f1c40f; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
+            <i class="fa-solid fa-fire" style="color:#f1c40f;"></i> SOS PÉTITION - SAUVONS LE JARDIN
+          </a>
+
         </div>
       </div>
     </section>
@@ -558,6 +548,20 @@ title: Accueil
         </div>
       </div>
     </section>
+
+    <div style="background: linear-gradient(135deg, #c0392b 0%, #a93226 100%); color: white; padding: 60px 20px; text-align: center; box-shadow: 0 -10px 30px rgba(192, 57, 43, 0.15); border-top: 5px solid #f1c40f; position: relative; z-index: 10;">
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 15px; font-weight: 900; font-family: 'Lato', sans-serif; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); color: white;">
+                <i class="fa-solid fa-fire" style="color: #f1c40f;"></i> URGENT : Le Jardin Botanique des Cayes est en danger
+            </h2>
+            <p style="font-size: clamp(1.1rem, 2vw, 1.3rem); margin: 0 auto 25px; line-height: 1.6; color: white;">
+                Notre patrimoine national brûle. Aidez-nous à rassembler <strong>5 000 signatures</strong> pour forcer les autorités à arrêter cette destruction écologique immédiatement.
+            </p>
+            <a href="{{ '/sos-petition.html' | relative_url }}" style="display: inline-flex; align-items: center; gap: 10px; background: #f1c40f; color: #c0392b; font-weight: 900; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-size: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <i class="fa-solid fa-pen-fancy"></i> SIGNEZ LA PÉTITION MAINTENANT
+            </a>
+        </div>
+    </div>
 
     <section class="section bg-health" id="contact">
       <div class="container">
