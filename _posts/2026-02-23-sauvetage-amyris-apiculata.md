@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "De 250 à 10 000 : le sauvetage spectaculaire d'Amyris apiculata en Haïti"
-date: 2026-02-23 12:00:00 -0500
+title:title: "De 250 à 10 000 : le sauvetage spectaculaire d'Amyris apiculata en Haïti"
 categories: [conservation, haiti, biodiversite]
 author: "William Cinéa"
 image: "images/blog/amyris-apiculata-flower.jpg"
