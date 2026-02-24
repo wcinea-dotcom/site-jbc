@@ -9,5 +9,5 @@ collections:
     permalink: /articles/:year/:month/:day/:title/
 
 # Plugins (si utilisés)
-plugins:
+
 
