@@ -2,7 +2,7 @@
 layout: post
 title: "Bassin Bleu : un trésor naturel à conserver"
 date: 2026-02-24 12:00:00 -0500
-categories: [conservation]
+categories: [restauration]
 author: "William Cinéa"
 image: "images/restauration/bassin-bleu.jpg"
 excerpt: "Découvrez l'importance écologique du Bassin Bleu dans la Vallée de Jacmel, un écosystème unique abritant des espèces rares qui nécessite une gestion durable."
