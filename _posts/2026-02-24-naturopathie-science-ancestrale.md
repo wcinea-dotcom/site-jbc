@@ -4,7 +4,7 @@ title: "La Naturopathie : Une Science Ancestrale au Service de la Santé Moderne
 date: 2026-02-24 12:00:00 -0500
 categories: [naturopathie]
 author: "William Cinéa"
-image: "images/naturophatie/naturophatie-science-anscestrale"
+image: "images/naturophatie/naturopathie-science-ancestrale.jpg"
 excerpt: "Découvrez comment la naturopathie, loin d'être une simple philosophie, est une véritable science préventive et globale soutenue par le Jardin Botanique des Cayes."
 ---
 
