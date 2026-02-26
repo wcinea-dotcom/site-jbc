@@ -237,12 +237,6 @@ title: Accueil
     .partners-row{display:flex; align-items:center; justify-content:center; gap:34px; flex-wrap:wrap}
     .partner img{height:64px; max-width:260px; object-fit:contain;}
 
-    footer{background:var(--footer-bg); color:#fff; padding:60px 0 20px;}
-    .footer-grid{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:40px; align-items:start}
-    .footer-title{color:var(--gold); letter-spacing:.05em; font-weight:900; margin-bottom:20px}
-    .footer-list{list-style:none; padding:0;} .footer-list li{margin:16px 0} .footer-list a{color:#fff; transition:0.2s;} .footer-list a:hover{color:var(--gold)}
-    .social-icons{display:flex; gap:16px;} .social-icons a{width:40px; height:40px; border-radius:50%; border:1px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff;}
-
     @media (max-width: 1040px){ .pillars-grid, .dept-grid, .headline-grid, .testi-grid, .footer-grid{grid-template-columns:1fr} }
   </style>
 </head>
@@ -577,7 +571,7 @@ title: Accueil
           <p>Naviguez sur notre carte interactive pour découvrir nos différentes collections de plantes, nos espaces d'aménagement et planifier votre visite.</p>
         </div>
         <div style="border-radius: 26px; overflow: hidden; box-shadow: 0 18px 55px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); height: 500px; background: #eee;">
-          <iframe src="PASTE_YOUR_COPIED_LINK_HERE" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121058.46011494548!2d-73.8291884!3d18.195022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaab0cb374ba2e1%3A0x88ea3061214e21a4!2sLes%20Cayes%2C%20Haiti!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
       </div>
     </section>
@@ -595,36 +589,49 @@ title: Accueil
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
+  <footer style="background-color: #1a3a1a; color: #ffffff; padding: 60px 20px 20px; font-family: sans-serif; margin-top: 60px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
         <div>
-          <div class="footer-title">JARDIN BOTANIQUE DES CAYES</div>
-          <p style="margin:16px 0; display:flex; gap:12px;"><i class="fa-solid fa-location-dot" style="margin-top:4px;"></i> # 24, Bergeaud, Rte Nle # 2, Les Cayes, Haïti</p>
-          <p style="margin:16px 0; display:flex; gap:12px;"><i class="fa-solid fa-phone" style="margin-top:4px;"></i> Haïti : +509 4309 2809</p>
-          <p style="margin:16px 0; display:flex; gap:12px;"><i class="fa-solid fa-envelope" style="margin-top:4px;"></i> info@jardinbotaniquecayeshaiti.org</p>
+            <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px;">Jardin Botanique des Cayes</h3>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem;">
+                Notre mission est de contribuer à la santé de l'homme et de la nature par la recherche scientifique, la conservation de la biodiversité haïtienne et l'éducation.
+            </p>
         </div>
+        
         <div>
-          <div class="footer-title">DÉPARTEMENTS</div>
-          <ul class="footer-list">
-            <li><a href="{{ '/science.html' | relative_url }}">Sciences</a></li>
-            <li><a href="{{ '/donnees.html' | relative_url }}">Données</a></li>
-            <li><a href="{{ '/conservation.html' | relative_url }}">Conservation</a></li>
-            <li><a href="{{ '/recherche.html' | relative_url }}">Horticulture et Restauration</a></li>
-          </ul>
+            <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px;">Liens Rapides</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+                <li><a href="{{ '/blog.html' | relative_url }}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Actualités & Recherches</a></li>
+                <li><a href="{{ '/impliquer.html' | relative_url }}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">S'impliquer</a></li>
+                <li><a href="{{ '/impliquer.html#membership' | relative_url }}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Devenir Membre</a></li>
+                <li><a href="{{ '/donnees.html' | relative_url }}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Ressources</a></li>
+            </ul>
         </div>
+
         <div>
-          <div class="footer-title">SUIVEZ-NOUS</div>
-          <div class="social-icons">
-            <a href="https://www.facebook.com/jbchaiti/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/in/jardin-botanique-des-cayes-haiti-71b92163/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.youtube.com/@JardinBotaniqueHaiti" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-          </div>
+            <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px;">Contactez-nous</h3>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-location-dot" style="color: #C5A059; margin-right: 10px;"></i> Les Cayes, Haïti
+            </p>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-envelope" style="color: #C5A059; margin-right: 10px;"></i> info@jardinbotaniquecayeshaiti.org
+            </p>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-phone" style="color: #C5A059; margin-right: 10px;"></i> +509 4309 2809
+            </p>
+            
+            <div style="display:flex; gap:16px; margin-top: 20px;">
+              <a href="https://www.facebook.com/jbchaiti/" target="_blank" style="width:35px; height:35px; border-radius:50%; border:1px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; transition: 0.3s;"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.linkedin.com/in/jardin-botanique-des-cayes-haiti-71b92163/" target="_blank" style="width:35px; height:35px; border-radius:50%; border:1px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; transition: 0.3s;"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://www.youtube.com/@JardinBotaniqueHaiti" target="_blank" style="width:35px; height:35px; border-radius:50%; border:1px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; transition: 0.3s;"><i class="fa-brands fa-youtube"></i></a>
+            </div>
         </div>
-      </div>
-      <div style="border-top:1px solid rgba(255,255,255,.15); margin-top:40px; padding-top:20px; text-align:center; font-size:.95rem;">
-        © 2026 Jardin Botanique des Cayes. Tous droits réservés.
-      </div>
+        
+    </div>
+
+    <div style="max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.6; font-size: 0.85rem;">
+        &copy; 2026 Jardin Botanique des Cayes. Tous droits réservés.
     </div>
   </footer>
 
