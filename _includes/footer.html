@@ -1,263 +1,39 @@
-<style>
-  /* =========================================
-     BOUCLIER CSS DU HEADER (Pour qu'il soit identique partout)
-     ========================================= */
-  :root {
-    --hdr-deep: #2F5D2F;
-    --hdr-botanical: #5E8F3A;
-    --hdr-gold: #C5A059;
-  }
+<footer style="background-color: #1a3a1a; color: #ffffff; padding: 60px 20px 20px; font-family: sans-serif; margin-top: 60px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <div>
+            <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px;">Jardin Botanique des Cayes</h3>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem;">
+                Notre mission est de contribuer à la santé de l'homme et de la nature par la recherche scientifique, la conservation de la biodiversité haïtienne et l'éducation.
+            </p>
+        </div>
+        
+        <div>
+            <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px;">Liens Rapides</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+                <li><a href="{{ '/blog.html' | relative_url }}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Actualités & Recherches</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">S'impliquer</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Devenir Membre</a></li>
+                <li><a href="#" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Faire un don</a></li>
+            </ul>
+        </div>
 
-  /* 1. BARRE SUPÉRIEURE */
-  .hdr-top-tier {
-    background-color: var(--hdr-deep); 
-    color: #fff; 
-    font-size: 0.85rem; 
-    padding: 10px 0;
-    font-family: 'Lato', sans-serif;
-  }
-  .hdr-top-inner { display: flex; justify-content: flex-end; align-items: center; gap: 30px; max-width: 1200px; margin: 0 auto; padding: 0 22px; }
-  .hdr-top-links { display: flex; gap: 25px; }
-  .hdr-top-links a { color: rgba(255,255,255,0.9); font-weight: 700; text-decoration: none; letter-spacing: 0.03em; transition: 0.2s ease; }
-  .hdr-top-links a:hover { color: var(--hdr-gold); opacity: 1; }
-  
-  .hdr-top-tools { display: flex; align-items: center; gap: 20px; border-left: 1px solid rgba(255,255,255,0.2); padding-left: 20px; }
-  .hdr-tool-item { color: rgba(255,255,255,0.9); font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
-  .hdr-tool-item:hover { color: var(--hdr-gold); }
-  .hdr-lang a { color: #fff; text-decoration: none; transition: 0.2s; }
-  .hdr-lang a:hover { color: var(--hdr-gold) !important; }
-
-  /* 2. BARRE PRINCIPALE */
-  .hdr-main-tier {
-    background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    position: sticky; top: 0; z-index: 2000;
-    font-family: 'Lato', sans-serif;
-  }
-  .hdr-main-inner { display: flex; justify-content: space-between; align-items: center; height: 90px; max-width: 1200px; margin: 0 auto; padding: 0 22px; }
-  .hdr-brand img { height: 75px; width: auto; filter: contrast(1.08) saturate(1.08); border: none; outline: none; }
-  
-  .hdr-nav { display: flex; gap: 30px; align-items: center; }
-  .hdr-nav > a, .hdr-nav-group a {
-    font-family: 'Lato', sans-serif; font-weight: 900; font-size: 0.95rem; 
-    color: #1f2a33; text-transform: uppercase; letter-spacing: 0.05em;
-    text-decoration: none; padding: 10px 0; transition: 0.2s;
-  }
-  .hdr-nav > a:hover, .hdr-nav-group a:hover { color: var(--hdr-botanical); }
-
-  /* Éliminer le carré gris laid autour des flèches */
-  .hdr-nav-group { display: flex; align-items: center; gap: 4px; }
-  .hdr-nav-group a { padding-right: 2px !important; }
-  .hdr-nav-group button { 
-    background: transparent !important; border: none !important; box-shadow: none !important; 
-    outline: none !important; cursor: pointer; color: #1f2a33; padding: 0 4px; margin: 0; appearance: none;
-  }
-  .hdr-nav-group button:hover { color: var(--hdr-botanical); }
-
-  /* MENUS DÉROULANTS */
-  .hdr-drop { position: relative; }
-  .hdr-drop .hdr-menu {
-    display: none; position: absolute; top: 100%; left: 0;
-    background: #fff; border-top: 4px solid var(--hdr-botanical);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1); min-width: 260px; z-index: 2500; padding: 10px 0; border-radius: 0 0 8px 8px;
-  }
-  .hdr-drop.open .hdr-menu { display: block; }
-  .hdr-drop .hdr-menu a {
-    display: block; padding: 12px 20px; color: #333; font-weight: 700; 
-    border-bottom: 1px solid #f0f0f0; text-transform: none; font-size: 1rem;
-  }
-  .hdr-drop .hdr-menu a:hover { background: #f4f6f4; color: var(--hdr-deep); padding-left: 25px; }
-
-  /* BOUTON DEVENIR MEMBRE */
-  .hdr-btn-member {
-    background-color: var(--hdr-deep) !important; color: #fff !important;
-    font-family: 'Lato', sans-serif !important; font-weight: 900 !important; font-size: 0.95rem !important;
-    padding: 10px 24px !important; border-radius: 8px !important; text-transform: uppercase !important;
-    letter-spacing: 0.05em !important; transition: 0.3s !important; border: none !important;
-    box-shadow: 0 4px 15px rgba(47, 93, 47, 0.2) !important; text-decoration: none !important;
-    display: inline-flex; align-items: center; gap: 8px;
-  }
-  .hdr-btn-member:hover { background-color: var(--hdr-botanical) !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(47, 93, 47, 0.3) !important; }
-
-  /* MOBILE BURGER */
-  .hdr-burger { display: none; background: transparent; border: none; font-size: 1.8rem; color: #000; cursor: pointer; outline: none; box-shadow: none;}
-
-  /* MENU MOBILE (DRAWER) */
-  .hdr-drawer {
-    display: none; position: fixed; top: 90px; left: 12px; right: 12px;
-    background: #fff; border-radius: 18px; padding: 12px; box-shadow: 0 22px 70px rgba(0,0,0,.18);
-    z-index: 2600; max-height: calc(100vh - 110px); overflow-y: auto; font-family: 'Lato', sans-serif;
-  }
-  .hdr-drawer.open { display: block; }
-  .hdr-drawer > a, .hdr-drawer-group a { font-weight: 900; font-size: 1rem; padding: 12px; display: block; border-radius: 14px; color: #000; text-transform: uppercase; text-decoration: none;}
-  .hdr-drawer > a:hover, .hdr-drawer-group a:hover { background: #f4f6f4; color: var(--hdr-deep); }
-  .hdr-drawer-group { display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-radius: 14px;}
-  .hdr-drawer-group a { flex: 1; padding: 12px 0; }
-  .hdr-drawer-group button { background: transparent; border: none; cursor: pointer; padding: 12px; font-size: 1.1rem; outline: none;}
-  .hdr-drawer-group:hover { background: #f4f6f4; color: var(--hdr-deep); }
-  .hdr-drawer-sub { display: none; margin: 0 0 10px; padding-left: 12px; border-left: 3px solid rgba(94,143,58,.2); }
-  .hdr-drawer-sub a { font-weight: 700; font-size: 0.95rem; padding: 10px; display: block; color: #333; text-transform: none;}
-  .hdr-drawer-sub.open { display: block; }
-
-  @media (max-width: 1150px) {
-    .hdr-top-tier { display: none; }
-    .hdr-nav { display: none; }
-    .hdr-btn-member { display: none; }
-    .hdr-burger { display: block; }
-  }
-</style>
-
-<div class="hdr-top-tier">
-  <div class="hdr-top-inner">
-    <div class="hdr-top-links">
-      <a href="{{ '/sos-petition.html' | relative_url }}" style="color: #e74c3c; font-weight: 900;"><i class="fa-solid fa-fire"></i> SOS PÉTITION</a>
-      <a href="{{ '/actualites.html#news' | relative_url }}">Actualités</a>
-      <a href="{{ '/actualites.html#event' | relative_url }}">Événements</a>
-      <a href="{{ '/blog.html' | relative_url }}">Blog</a>
-      <a href="{{ '/ressources.html' | relative_url }}">Ressources</a>
-      <a href="{{ '/donnees.html' | relative_url }}" style="color: var(--hdr-gold); font-weight: 900;">Données</a>
+        <div>
+            <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px;">Contactez-nous</h3>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-location-dot" style="color: #C5A059; margin-right: 10px;"></i> Les Cayes, Haïti
+            </p>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-envelope" style="color: #C5A059; margin-right: 10px;"></i> info@jbc-haiti.org
+            </p>
+            <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-phone" style="color: #C5A059; margin-right: 10px;"></i> +509 XX XX XXXX
+            </p>
+        </div>
+        
     </div>
-    
-    <div class="hdr-top-tools">
-      <div class="hdr-tool-item">
-        Recherche <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
-      <div class="hdr-tool-item hdr-lang">
-        <a href="#" style="font-weight:900;">FR</a> 
-        <span style="font-weight:normal; margin:0 4px; opacity:0.5;">|</span> 
-        <a href="#" style="font-weight:normal; opacity:0.7;">EN</a>
-      </div>
+
+    <div style="max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.6; font-size: 0.85rem;">
+        &copy; {{ site.time | date: '%Y' }} Jardin Botanique des Cayes. Tous droits réservés.
     </div>
-  </div>
-</div>
-
-<header class="hdr-main-tier">
-  <div class="hdr-main-inner">
-    <a href="{{ '/' | relative_url }}" class="hdr-brand">
-      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes">
-    </a>
-
-    <nav class="hdr-nav">
-      
-      <div class="hdr-drop" id="hdr-dropAccueil">
-        <div class="hdr-nav-group">
-          <a href="{{ '/' | relative_url }}">ACCUEIL</a>
-          <button type="button" id="hdr-btnAccueil"><i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
-        </div>
-        <div class="hdr-menu">
-          <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
-          <a href="#">Conseil d'administration</a>
-          <a href="{{ '/sos-petition.html' | relative_url }}" style="color: #c0392b; font-weight: bold;">SOS Pétition</a>
-        </div>
-      </div>
-
-      <a href="{{ '/impliquer.html' | relative_url }}">S'IMPLIQUER</a>
-
-      <div class="hdr-drop" id="hdr-dropNature">
-        <div class="hdr-nav-group">
-          <a href="{{ '/sante-de-la-nature.html' | relative_url }}">SANTÉ DE LA NATURE</a>
-          <button type="button" id="hdr-btnNature"><i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
-        </div>
-        <div class="hdr-menu">
-          <a href="{{ '/science.html' | relative_url }}">Sciences</a>
-          <a href="{{ '/donnees.html' | relative_url }}">Données</a>
-          <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
-          <a href="{{ '/horticulture.html' | relative_url }}">Horticulture & Restauration</a>
-        </div>
-      </div>
-
-      <a href="{{ '/sante-humaine.html' | relative_url }}">SANTÉ HUMAINE</a>
-      <a href="{{ '/education.html' | relative_url }}">ÉDUCATION</a>
-
-    </nav>
-
-    <div style="display: flex; align-items: center; gap: 15px;">
-      <a href="{{ '/impliquer.html#membership' | relative_url }}" class="hdr-btn-member">DEVENIR MEMBRE</a>
-      <button class="hdr-burger" id="hdr-burger"><i class="fa-solid fa-bars"></i></button>
-    </div>
-  </div>
-</header>
-
-<div class="hdr-drawer" id="hdr-drawer">
-  <div class="hdr-drawer-group">
-    <a href="{{ '/' | relative_url }}">ACCUEIL</a>
-    <button type="button" id="hdr-drawerAccueilBtn"><i class="fa-solid fa-chevron-down"></i></button>
-  </div>
-  <div class="hdr-drawer-sub" id="hdr-drawerAccueilSub">
-    <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
-    <a href="#">Conseil d'administration</a>
-    <a href="{{ '/sos-petition.html' | relative_url }}" style="color: #c0392b; font-weight: bold;">SOS Pétition</a>
-  </div>
-
-  <a href="{{ '/impliquer.html' | relative_url }}">S'IMPLIQUER</a>
-
-  <div class="hdr-drawer-group">
-    <a href="{{ '/sante-de-la-nature.html' | relative_url }}">SANTÉ DE LA NATURE</a>
-    <button type="button" id="hdr-drawerNatureBtn"><i class="fa-solid fa-chevron-down"></i></button>
-  </div>
-  <div class="hdr-drawer-sub" id="hdr-drawerNatureSub">
-    <a href="{{ '/science.html' | relative_url }}">Sciences</a>
-    <a href="{{ '/donnees.html' | relative_url }}">Données</a>
-    <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
-    <a href="{{ '/horticulture.html' | relative_url }}">Horticulture & Restauration</a>
-  </div>
-
-  <a href="{{ '/sante-humaine.html' | relative_url }}">SANTÉ HUMAINE</a>
-  <a href="{{ '/education.html' | relative_url }}">ÉDUCATION</a>
-
-  <hr style="border:none; border-top:1px solid #eee; margin:15px 0;">
-
-  <a href="{{ '/sos-petition.html' | relative_url }}" style="color:#e74c3c; font-size:1.1rem; font-weight: 900; text-transform: none;"><i class="fa-solid fa-fire"></i> SOS PÉTITION</a>
-  <a href="{{ '/actualites.html#news' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Actualités</a>
-  <a href="{{ '/actualites.html#event' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Événements</a>
-  <a href="{{ '/blog.html' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Blog</a>
-  <a href="{{ '/ressources.html' | relative_url }}" style="color:#555; font-size:0.9rem; text-transform: none;">Ressources</a>
-  <a href="{{ '/donnees.html' | relative_url }}" style="color:#C5A059; font-size:0.9rem; text-transform: none;">Données</a>
-
-  <div style="display:flex; justify-content:center; margin-top:20px;">
-    <a class="hdr-btn-member" href="{{ '/impliquer.html#membership' | relative_url }}" style="width:100%; justify-content:center;">DEVENIR MEMBRE</a>
-  </div>
-</div>
-
-<script>
-  (function(){
-    function setupDropdown(btnId, dropId) {
-      const btn = document.getElementById(btnId);
-      const drop = document.getElementById(dropId);
-      if (btn && drop) {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          document.querySelectorAll('.hdr-drop, .hdr-drawer-sub').forEach(d => { if(d !== drop) d.classList.remove('open'); });
-          drop.classList.toggle('open');
-        });
-      }
-    }
-
-    // Ordinateur
-    setupDropdown('hdr-btnAccueil', 'hdr-dropAccueil');
-    setupDropdown('hdr-btnNature', 'hdr-dropNature');
-
-    // Mobile
-    setupDropdown('hdr-drawerAccueilBtn', 'hdr-drawerAccueilSub');
-    setupDropdown('hdr-drawerNatureBtn', 'hdr-drawerNatureSub');
-
-    // Menu Burger
-    const burger = document.getElementById('hdr-burger');
-    const drawer = document.getElementById('hdr-drawer');
-    if (burger && drawer) {
-      burger.addEventListener('click', (e) => {
-        e.stopPropagation();
-        drawer.classList.toggle('open');
-      });
-    }
-
-    // Fermeture en cliquant dehors
-    document.addEventListener('click', () => {
-      document.querySelectorAll('.hdr-drop, .hdr-drawer-sub').forEach(d => d.classList.remove('open'));
-      if (drawer) drawer.classList.remove('open');
-    });
-
-    document.querySelectorAll('.hdr-drop, .hdr-drawer').forEach(el => el.addEventListener('click', e => e.stopPropagation()));
-  })();
-</script>
-
-
+</footer>
