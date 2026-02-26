@@ -3,7 +3,7 @@ layout: post
 title: "5 Plantes médicinales contre la grippe en Haïti"
 sous_titre: "Ethnobotanique et phytothérapie au service de la santé humaine"
 date: 2026-02-22 10:00:00 -0500
-categories: ["Santé Humaine", "Phytothérapie"]
+categories: ["Santé Humaine", "ethnobotanique"]
 image: "/images/ethnobotanique-Samyda dodecanta.jpg"
 author: "Jardin Botanique des Cayes"
 temps_lecture: "8 min"
