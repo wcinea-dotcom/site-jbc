@@ -1,0 +1,54 @@
+---
+layout: default
+title: "Actualités"
+---
+
+<style>
+  .hero-news {
+    background: linear-gradient(rgba(15, 41, 30, 0.8), rgba(15, 41, 30, 0.9)), url('{{ "images/index/index-hero.jpg" | relative_url }}') center/cover;
+    padding: 80px 20px; text-align: center; color: white; margin-bottom: 50px;
+  }
+  .hero-news h1 { font-family: "Playfair Display", serif; font-size: 3rem; margin-bottom: 15px; }
+
+  .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-bottom: 60px; }
+  .news-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: 0.3s; }
+  .news-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(47, 93, 47, 0.15); }
+
+  .news-img { width: 100%; height: 220px; object-fit: cover; }
+  .news-body { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+  .news-date { color: #C5A059; font-weight: 900; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;}
+  .news-title { font-size: 1.4rem; color: #2F5D2F; margin-bottom: 15px; font-family: "Lato", sans-serif; font-weight: 900; line-height: 1.3;}
+  .news-desc { color: #555; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; flex-grow: 1; }
+
+  .btn-news { color: #2F5D2F; font-weight: 900; text-transform: uppercase; font-size: 0.9rem; transition: 0.2s; display: flex; align-items: center; gap: 8px;}
+  .btn-news:hover { color: #C5A059; }
+</style>
+
+<main>
+  <section class="hero-news">
+    <h1>Actualités</h1>
+    <p>Restez informé des dernières actions, recherches et découvertes du Jardin Botanique.</p>
+  </section>
+
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div class="news-grid">
+
+      {% for post in site.categories.actualites %}
+      <article class="news-card">
+        {% if post.image %}
+        <a href="{{ post.url | relative_url }}">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="news-img">
+        </a>
+        {% endif %}
+        <div class="news-body">
+          <div class="news-date">{{ post.date | date: "%d/%m/%Y" }}</div>
+          <h3 class="news-title"><a href="{{ post.url | relative_url }}" style="color: inherit; text-decoration: none;">{{ post.title }}</a></h3>
+          <p class="news-desc">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+          <a href="{{ post.url | relative_url }}" class="btn-news">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+      {% endfor %}
+
+    </div>
+  </div>
+</main>
