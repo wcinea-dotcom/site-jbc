@@ -1,7 +1,6 @@
-
 ---
 layout: default
-title: "Bibliothèque de Ressources"
+title: "Bibliothèque Scientifique"
 ---
 
 <style>
@@ -9,12 +8,9 @@ title: "Bibliothèque de Ressources"
     --primary: #2F5D2F;        
     --secondary: #5E8F3A;
     --accent: #C5A059; 
-    --text-dark: #1f2a33;
-    --text-muted: #555555;
     --bg-light: #f4f7f4;
   }
 
-  /* --- HEADER RESSOURCES --- */
   .hero-resources {
     background: linear-gradient(rgba(15, 41, 30, 0.8), rgba(15, 41, 30, 0.9)), 
                 url('{{ "images/index/index-donnees.jpg" | relative_url }}') center/cover no-repeat;
@@ -26,341 +22,69 @@ title: "Bibliothèque de Ressources"
   .hero-resources h1 { font-family: "Playfair Display", serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 15px; color: #fff;}
   .hero-resources p { font-size: 1.1rem; opacity: 0.9; max-width: 700px; margin: 0 auto; line-height: 1.8;}
 
-  /* --- BARRE DE RECHERCHE --- */
-  .search-bar-container { max-width: 800px; margin: -80px auto 40px auto; position: relative; z-index: 10; padding: 0 20px;}
-  .search-form { display: flex; gap: 10px; background: #fff; padding: 10px; border-radius: 50px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-  .search-input { flex: 1; padding: 15px 25px; border: none; border-radius: 40px; font-size: 1rem; font-family: inherit; outline: none; background: #f9f9f9;}
-  .search-btn { background: var(--primary); color: #fff; border: none; border-radius: 40px; padding: 0 35px; font-weight: 900; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-  .search-btn:hover { background: var(--secondary); }
-
-  /* --- FILTRES --- */
-  .category-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 50px; padding: 0 20px;}
-  .cat-btn {
-    padding: 10px 24px; border-radius: 30px; border: 1px solid var(--primary); background: transparent; 
-    color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; cursor: pointer; transition: 0.3s;
-  }
-  .cat-btn:hover, .cat-btn.active { background: var(--primary); color: white; box-shadow: 0 5px 15px rgba(47, 93, 47, 0.2); }
-
-  /* --- GRILLE DES PUBLICATIONS --- */
   .pub-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
     gap: 30px; 
-    margin-bottom: 60px;
+    margin-bottom: 80px;
   }
   
   .pub-card {
-    background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
-    border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column;
+    background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column; transition: 0.3s;
   }
-  .pub-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0,0,0,0.12); border-color: rgba(47, 93, 47, 0.2);}
+  .pub-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(47, 93, 47, 0.15);}
   
-  .pub-header-color { height: 100px; position: relative; }
-  .bg-deep { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
-  .bg-gold { background: linear-gradient(135deg, var(--accent), #b38f4f); }
-  .bg-botanical { background: linear-gradient(135deg, var(--secondary), #7cb342); }
-  .bg-dark { background: linear-gradient(135deg, #1f2a33, #3a4a58); }
+  .pub-header-color { height: 15px; background: var(--primary); }
+  
+  .pub-body { padding: 30px 25px; flex-grow: 1; display: flex; flex-direction: column; }
+  .pub-title { font-size: 1.3rem; margin-bottom: 15px; color: var(--primary); font-family: "Lato", sans-serif; font-weight: 900; line-height: 1.3;}
+  .pub-desc { color: #555; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; flex-grow: 1; }
 
-  .pub-badge {
-    position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); color: var(--primary); 
-    padding: 4px 12px; border-radius: 30px; font-size: 0.65rem; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase;
+  /* Le nouveau bouton de téléchargement direct */
+  .btn-download-direct {
+    display: flex; justify-content: center; align-items: center; gap: 10px;
+    background: var(--gold); color: white; padding: 12px 20px; border-radius: 8px;
+    font-weight: bold; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s;
+    text-decoration: none; width: 100%; text-align: center;
   }
-  
-  .pub-icon-circle {
-    position: absolute; bottom: -20px; right: 20px; background: white; width: 50px; height: 50px; 
-    border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  }
-  
-  .pub-body { padding: 35px 20px 20px; flex-grow: 1; display: flex; flex-direction: column; }
-  .pub-title { font-size: 1.2rem; margin-bottom: 12px; line-height: 1.4; font-family: "Lato", sans-serif; font-weight: 900;}
-  .pub-title a { text-decoration: none; color: var(--primary); transition: 0.2s;}
-  
-  .pub-desc { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; flex-grow: 1; font-style: italic;}
-  .pub-tags { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px;}
-  .pub-tag { background: #f0f7f0; color: var(--primary); padding: 4px 10px; border-radius: 30px; font-size: 0.7rem; font-weight: 700;}
-
-  .pub-dl-zone { 
-    border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px;
-  }
-  .pub-meta { color: #999; font-size: 0.8rem; font-weight: 700; white-space: nowrap;}
-  
-  /* Bouton d'ouverture du popup */
-  .btn-open-modal { 
-    background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; 
-    border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; font-size: 1.1rem;
-  }
-  .btn-open-modal:hover { background: var(--secondary); transform: scale(1.1);}
-
-  /* --- POPUP DE TÉLÉCHARGEMENT (NOUVEAU) --- */
-  .modal-overlay { 
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; 
-  }
-  .modal-content { 
-    background: white; padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; 
-    position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
-  }
-  .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #999; font-weight: bold;}
-  .close-modal:hover { color: var(--primary); }
-  .modal-content h2 { color: var(--primary); margin-bottom: 10px; font-size: 1.5rem; line-height: 1.3;}
-  .modal-content p { color: #666; margin-bottom: 25px; font-size: 0.95rem; }
-  
-  .form-group { display: flex; gap: 15px; margin-bottom: 15px; }
-  .form-group input { flex: 1; padding: 12px 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; font-size: 0.95rem;}
-  .form-group input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(47,93,47,0.1);}
-  .btn-submit-full { 
-    width: 100%; background: var(--gold); color: white; border: none; padding: 15px; 
-    border-radius: 10px; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; 
-    cursor: pointer; transition: 0.3s; margin-top: 10px; letter-spacing: 0.05em;
-  }
-  .btn-submit-full:hover { background: var(--primary); }
-
-  @media (max-width: 768px) {
-    .search-form { flex-direction: column; background: transparent; box-shadow: none; padding: 0;}
-    .search-input { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-    .search-btn { border-radius: 12px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-    .form-group { flex-direction: column; gap: 15px; }
-  }
+  .btn-download-direct:hover { background: var(--primary); color: white; }
 </style>
 
 <main>
   <section class="hero-resources">
     <h1>Bibliothèque Scientifique</h1>
-    <p>Documents techniques, guides pratiques, études floristiques et rapports stratégiques pour approfondir vos connaissances et soutenir vos actions de conservation.</p>
+    <p>Accédez librement à nos documents techniques, guides de conservation et études floristiques.</p>
   </section>
 
-  <div class="search-bar-container">
-    <form class="search-form" onsubmit="event.preventDefault(); searchResources();">
-      <input type="text" id="searchInput" class="search-input" placeholder="Rechercher par mot-clé (ex: Phytothérapie, Endémique...)">
-      <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Rechercher</button>
-    </form>
-  </div>
-
-  <div class="container" style="max-width: 1240px; margin: 0 auto; padding: 0 22px;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     
-    <div class="category-filters">
-      <button class="cat-btn active" onclick="filterCategory('all', this)">Toutes</button>
-      <button class="cat-btn" onclick="filterCategory('biodiversite', this)">Biodiversité</button>
-      <button class="cat-btn" onclick="filterCategory('conservation', this)">Conservation</button>
-      <button class="cat-btn" onclick="filterCategory('phytotherapie', this)">Phytothérapie</button>
-      <button class="cat-btn" onclick="filterCategory('rapport', this)">Rapports</button>
-    </div>
-
-    <div class="pub-grid" id="resourcesGrid">
+    <div class="pub-grid">
       
-      <article class="pub-card" data-category="biodiversite conservation">
-        <div class="pub-header-color bg-botanical"></div>
-        <div class="pub-badge">LIVRE 2026</div>
-        <div class="pub-icon-circle"><i class="fa-solid fa-book-open" style="color: var(--accent); font-size: 1.4rem;"></i></div>
-        
+      <article class="pub-card">
+        <div class="pub-header-color"></div>
         <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Flora Haïti</a></h3>
+          <h3 class="pub-title">Flora Haïti</h3>
           <p class="pub-desc">Découvrez la richesse et la diversité des plantes d'Haïti à travers cet ouvrage de référence incontournable pour la conservation.</p>
-          <div class="pub-tags">
-            <span class="pub-tag">Plantes</span>
-            <span class="pub-tag">Biodiversité</span>
-            <span class="pub-tag">Flore</span>
-          </div>
-          <div class="pub-dl-zone">
-            <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> PDF</span>
-            <button class="btn-open-modal" data-pdf="/asset/pdf/flore-haiti.pdf" data-title="Flora Haïti" title="Télécharger">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
+          
+          <a href="{{ '/asset/pdf/flore-haiti.pdf' | relative_url }}" class="btn-download-direct" target="_blank">
+            <i class="fa-solid fa-file-pdf"></i> Ouvrir le PDF
+          </a>
         </div>
       </article>
 
-      <article class="pub-card" data-category="rapport phytotherapie">
-        <div class="pub-header-color bg-deep">
-          <div class="pub-badge">RAPPORT 2026</div>
-          <div class="pub-icon-circle"><i class="fa-solid fa-leaf" style="color: var(--primary); font-size: 1.4rem;"></i></div>
-        </div>
+      <article class="pub-card">
+        <div class="pub-header-color" style="background: var(--secondary);"></div>
         <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Inventaire des plantes médicinales du Sud et Grand'Anse</a></h3>
+          <h3 class="pub-title">Inventaire des plantes médicinales du Sud</h3>
           <p class="pub-desc">Étude exhaustive réalisée en partenariat avec la BRH, documentant les usages traditionnels et les risques toxicologiques.</p>
-          <div class="pub-tags">
-            <span class="pub-tag">Phytothérapie</span>
-            <span class="pub-tag">BRH</span>
-          </div>
-          <div class="pub-dl-zone">
-            <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 4.2 Mo</span>
-            <button class="btn-open-modal" data-pdf="/asset/pdf/rapport-brh-2026.pdf" data-title="Inventaire des plantes médicinales" title="Télécharger">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
+          
+          <a href="{{ '/asset/pdf/rapport-brh-2026.pdf' | relative_url }}" class="btn-download-direct" target="_blank">
+            <i class="fa-solid fa-file-pdf"></i> Ouvrir le PDF
+          </a>
         </div>
       </article>
 
-      <article class="pub-card" data-category="conservation">
-        <div class="pub-header-color bg-gold">
-          <div class="pub-badge">GUIDE 2026</div>
-          <div class="pub-icon-circle"><i class="fa-solid fa-seedling" style="color: var(--accent); font-size: 1.4rem;"></i></div>
-        </div>
-        <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Manuel de restauration des écosystèmes forestiers</a></h3>
-          <p class="pub-desc">Méthodes éprouvées de restauration écologique : choix des espèces natives, pépinière, et suivi.</p>
-          <div class="pub-tags">
-            <span class="pub-tag">Restauration</span>
-            <span class="pub-tag">Forêts</span>
-          </div>
-          <div class="pub-dl-zone">
-            <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 3.1 Mo</span>
-            <button class="btn-open-modal" data-pdf="/asset/pdf/guide-restauration.pdf" data-title="Manuel de restauration" title="Télécharger">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <article class="pub-card" data-category="biodiversite">
-        <div class="pub-header-color bg-botanical">
-          <div class="pub-badge">ÉTUDE 2025</div>
-          <div class="pub-icon-circle"><i class="fa-solid fa-droplet" style="color: var(--secondary); font-size: 1.4rem;"></i></div>
-        </div>
-        <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Résilience climatique des espèces endémiques</a></h3>
-          <p class="pub-desc">Modélisation de la survie des essences forestières haïtiennes face à l'augmentation des sécheresses.</p>
-          <div class="pub-tags">
-            <span class="pub-tag">Climat</span>
-            <span class="pub-tag">Endémisme</span>
-          </div>
-          <div class="pub-dl-zone">
-            <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 1.8 Mo</span>
-            <button class="btn-open-modal" data-pdf="/asset/pdf/etude-resilience.pdf" data-title="Résilience climatique" title="Télécharger">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <article class="pub-card" data-category="biodiversite conservation">
-        <div class="pub-header-color bg-dark">
-          <div class="pub-badge">ANALYSE 2025</div>
-          <div class="pub-icon-circle"><i class="fa-solid fa-chart-pie" style="color: #1f2a33; font-size: 1.4rem;"></i></div>
-        </div>
-        <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Évaluation des Zones Clés de Biodiversité (KBA)</a></h3>
-          <p class="pub-desc">Rapport analytique sur l'état de conservation des zones critiques pour la faune et la flore dans le Grand Sud.</p>
-          <div class="pub-tags">
-            <span class="pub-tag">Cartographie</span>
-            <span class="pub-tag">Conservation</span>
-          </div>
-          <div class="pub-dl-zone">
-            <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 5.6 Mo</span>
-            <button class="btn-open-modal" data-pdf="/asset/pdf/analyse-kba.pdf" data-title="Évaluation des Zones Clés" title="Télécharger">
-              <i class="fa-solid fa-download"></i>
-            </button>
-          </div>
-        </div>
-      </article>
-
-    </div>
+      </div>
   </div>
 </main>
-
-<div id="dl-modal" class="modal-overlay">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h2 id="modal-book-title">Télécharger le document</h2>
-    <p>Veuillez remplir vos informations pour accéder à ce document scientifique.</p>
-    
-    <form id="full-dl-form" name="telechargements-ressources" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="telechargements-ressources">
-      <input type="hidden" name="document_demande" id="hidden-doc-name" value="">
-      
-      <div class="form-group">
-        <input type="text" name="prenom" placeholder="Prénom" required>
-        <input type="text" name="nom" placeholder="Nom de famille" required>
-      </div>
-      <div class="form-group">
-        <input type="tel" name="telephone" placeholder="Numéro de téléphone (+509...)">
-        <input type="email" name="email" placeholder="Adresse e-mail" required>
-      </div>
-      
-      <button type="submit" class="btn-submit-full">Obtenir le PDF <i class="fa-solid fa-download"></i></button>
-    </form>
-  </div>
-</div>
-
-<script>
-  // FONCTION POUR LES FILTRES PAR CATÉGORIE
-  function filterCategory(category, btnElement) {
-    const buttons = document.querySelectorAll('.cat-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    btnElement.classList.add('active');
-
-    const cards = document.querySelectorAll('.pub-card');
-    cards.forEach(card => {
-      const cardCategories = card.getAttribute('data-category');
-      if (category === 'all' || cardCategories.includes(category)) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  // FONCTION POUR LA BARRE DE RECHERCHE
-  function searchResources() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const cards = document.querySelectorAll('.pub-card');
-    
-    document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelector('.cat-btn[onclick*="all"]').classList.add('active');
-
-    cards.forEach(card => {
-      const title = card.querySelector('.pub-title').textContent.toLowerCase();
-      const desc = card.querySelector('.pub-desc').textContent.toLowerCase();
-      const tags = card.querySelector('.pub-tags').textContent.toLowerCase();
-
-      if (title.includes(input) || desc.includes(input) || tags.includes(input)) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-
-  // --- LOGIQUE DU NOUVEAU POPUP ---
-  const modal = document.getElementById('dl-modal');
-  const closeBtn = document.querySelector('.close-modal');
-  const hiddenDocInput = document.getElementById('hidden-doc-name');
-  const modalTitle = document.getElementById('modal-book-title');
-  let currentPdfUrl = '';
-
-  // Ouvrir le popup
-  document.querySelectorAll('.btn-open-modal').forEach(btn => {
-    btn.addEventListener('click', function() {
-      currentPdfUrl = this.getAttribute('data-pdf');
-      const title = this.getAttribute('data-title');
-      
-      // Met à jour le titre du popup et le champ caché pour Netlify
-      modalTitle.textContent = "Télécharger : " + title;
-      hiddenDocInput.value = title; 
-      
-      modal.style.display = 'flex';
-    });
-  });
-
-  // Fermer le popup
-  closeBtn.addEventListener('click', () => modal.style.display = 'none');
-  window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
-
-  // Envoi des données (Prénom, Nom, Tel, Email) à Netlify en silence
-  document.getElementById('full-dl-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    
-    fetch('/', {
-      method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-      window.open(currentPdfUrl, '_blank'); // Ouvre le PDF
-      this.reset(); // Vide le formulaire
-      modal.style.display = 'none'; // Ferme le popup
-    })
-    .catch((error) => alert("Une erreur est survenue lors de l'enregistrement."));
-  });
-</script>
