@@ -40,7 +40,7 @@ title: "Bibliothèque de Ressources"
   }
   .cat-btn:hover, .cat-btn.active { background: var(--primary); color: white; box-shadow: 0 5px 15px rgba(47, 93, 47, 0.2); }
 
-  /* --- GRILLE DES PUBLICATIONS (4 COLONNES) --- */
+  /* --- GRILLE DES PUBLICATIONS --- */
   .pub-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
@@ -55,7 +55,6 @@ title: "Bibliothèque de Ressources"
   .pub-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0,0,0,0.12); border-color: rgba(47, 93, 47, 0.2);}
   
   .pub-header-color { height: 100px; position: relative; }
-  
   .bg-deep { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
   .bg-gold { background: linear-gradient(135deg, var(--accent), #b38f4f); }
   .bg-botanical { background: linear-gradient(135deg, var(--secondary), #7cb342); }
@@ -74,10 +73,8 @@ title: "Bibliothèque de Ressources"
   .pub-body { padding: 35px 20px 20px; flex-grow: 1; display: flex; flex-direction: column; }
   .pub-title { font-size: 1.2rem; margin-bottom: 12px; line-height: 1.4; font-family: "Lato", sans-serif; font-weight: 900;}
   .pub-title a { text-decoration: none; color: var(--primary); transition: 0.2s;}
-  .pub-title a:hover { color: var(--secondary); }
   
   .pub-desc { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; flex-grow: 1; font-style: italic;}
-
   .pub-tags { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px;}
   .pub-tag { background: #f0f7f0; color: var(--primary); padding: 4px 10px; border-radius: 30px; font-size: 0.7rem; font-weight: 700;}
 
@@ -86,30 +83,46 @@ title: "Bibliothèque de Ressources"
   }
   .pub-meta { color: #999; font-size: 0.8rem; font-weight: 700; white-space: nowrap;}
   
-  .dl-mini-form { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; justify-content: flex-end;}
-  .dl-mini-input { padding: 8px 10px; border: 1px solid #ddd; border-radius: 20px; font-size: 0.8rem; outline: none; width: 140px;}
-  .dl-mini-input:focus { border-color: var(--primary); }
-  .dl-mini-btn { 
-    background: var(--primary); color: white; width: 35px; height: 35px; border-radius: 50%; 
-    border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s;
+  /* Bouton d'ouverture du popup */
+  .btn-open-modal { 
+    background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; 
+    border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; font-size: 1.1rem;
   }
-  .dl-mini-btn:hover { background: var(--secondary); transform: scale(1.05);}
+  .btn-open-modal:hover { background: var(--secondary); transform: scale(1.1);}
+
+  /* --- POPUP DE TÉLÉCHARGEMENT (NOUVEAU) --- */
+  .modal-overlay { 
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; 
+  }
+  .modal-content { 
+    background: white; padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; 
+    position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+  }
+  .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #999; font-weight: bold;}
+  .close-modal:hover { color: var(--primary); }
+  .modal-content h2 { color: var(--primary); margin-bottom: 10px; font-size: 1.5rem; line-height: 1.3;}
+  .modal-content p { color: #666; margin-bottom: 25px; font-size: 0.95rem; }
+  
+  .form-group { display: flex; gap: 15px; margin-bottom: 15px; }
+  .form-group input { flex: 1; padding: 12px 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; font-size: 0.95rem;}
+  .form-group input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(47,93,47,0.1);}
+  .btn-submit-full { 
+    width: 100%; background: var(--gold); color: white; border: none; padding: 15px; 
+    border-radius: 10px; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; 
+    cursor: pointer; transition: 0.3s; margin-top: 10px; letter-spacing: 0.05em;
+  }
+  .btn-submit-full:hover { background: var(--primary); }
 
   @media (max-width: 768px) {
     .search-form { flex-direction: column; background: transparent; box-shadow: none; padding: 0;}
     .search-input { border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
     .search-btn { border-radius: 12px; padding: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-    .category-filters { justify-content: flex-start; overflow-x: auto; padding-bottom: 10px; flex-wrap: nowrap; }
-    .cat-btn { white-space: nowrap; }
-    .dl-mini-form { flex-direction: column; align-items: stretch; width: 100%;}
-    .dl-mini-input { width: 100%; }
-    .pub-dl-zone { flex-direction: column; align-items: flex-start;}
-    .dl-mini-btn { width: 100%; border-radius: 20px;}
+    .form-group { flex-direction: column; gap: 15px; }
   }
 </style>
 
 <main>
-  
   <section class="hero-resources">
     <h1>Bibliothèque Scientifique</h1>
     <p>Documents techniques, guides pratiques, études floristiques et rapports stratégiques pour approfondir vos connaissances et soutenir vos actions de conservation.</p>
@@ -142,22 +155,16 @@ title: "Bibliothèque de Ressources"
         <div class="pub-body">
           <h3 class="pub-title"><a href="#">Flora Haïti</a></h3>
           <p class="pub-desc">Découvrez la richesse et la diversité des plantes d'Haïti à travers cet ouvrage de référence incontournable pour la conservation.</p>
-          
           <div class="pub-tags">
             <span class="pub-tag">Plantes</span>
             <span class="pub-tag">Biodiversité</span>
             <span class="pub-tag">Flore</span>
           </div>
-          
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> PDF</span>
-            
-            <form class="dl-mini-form" name="dl-flore-haiti" method="POST" data-netlify="true" action="/asset/pdf/flore-haiti.pdf">
-              <input type="hidden" name="form-name" value="dl-flore-haiti">
-              <input type="email" name="email" class="dl-mini-input" placeholder="Votre email" required>
-              <button type="submit" class="dl-mini-btn" title="Télécharger le PDF"><i class="fa-solid fa-download"></i></button>
-            </form>
-            
+            <button class="btn-open-modal" data-pdf="/asset/pdf/flore-haiti.pdf" data-title="Flora Haïti" title="Télécharger">
+              <i class="fa-solid fa-download"></i>
+            </button>
           </div>
         </div>
       </article>
@@ -176,11 +183,9 @@ title: "Bibliothèque de Ressources"
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 4.2 Mo</span>
-            <form class="dl-mini-form" name="dl-rapport-brh" method="POST" data-netlify="true" action="/asset/pdf/rapport-brh-2026.pdf">
-              <input type="hidden" name="form-name" value="dl-rapport-brh">
-              <input type="email" name="email" class="dl-mini-input" placeholder="Votre email" required>
-              <button type="submit" class="dl-mini-btn" title="Télécharger le PDF"><i class="fa-solid fa-download"></i></button>
-            </form>
+            <button class="btn-open-modal" data-pdf="/asset/pdf/rapport-brh-2026.pdf" data-title="Inventaire des plantes médicinales" title="Télécharger">
+              <i class="fa-solid fa-download"></i>
+            </button>
           </div>
         </div>
       </article>
@@ -199,11 +204,9 @@ title: "Bibliothèque de Ressources"
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 3.1 Mo</span>
-            <form class="dl-mini-form" name="dl-guide-restauration" method="POST" data-netlify="true" action="/asset/pdf/guide-restauration.pdf">
-              <input type="hidden" name="form-name" value="dl-guide-restauration">
-              <input type="email" name="email" class="dl-mini-input" placeholder="Votre email" required>
-              <button type="submit" class="dl-mini-btn" title="Télécharger le PDF"><i class="fa-solid fa-download"></i></button>
-            </form>
+            <button class="btn-open-modal" data-pdf="/asset/pdf/guide-restauration.pdf" data-title="Manuel de restauration" title="Télécharger">
+              <i class="fa-solid fa-download"></i>
+            </button>
           </div>
         </div>
       </article>
@@ -222,11 +225,9 @@ title: "Bibliothèque de Ressources"
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 1.8 Mo</span>
-            <form class="dl-mini-form" name="dl-etude-climat" method="POST" data-netlify="true" action="/asset/pdf/etude-resilience.pdf">
-              <input type="hidden" name="form-name" value="dl-etude-climat">
-              <input type="email" name="email" class="dl-mini-input" placeholder="Votre email" required>
-              <button type="submit" class="dl-mini-btn" title="Télécharger le PDF"><i class="fa-solid fa-download"></i></button>
-            </form>
+            <button class="btn-open-modal" data-pdf="/asset/pdf/etude-resilience.pdf" data-title="Résilience climatique" title="Télécharger">
+              <i class="fa-solid fa-download"></i>
+            </button>
           </div>
         </div>
       </article>
@@ -245,11 +246,9 @@ title: "Bibliothèque de Ressources"
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> 5.6 Mo</span>
-            <form class="dl-mini-form" name="dl-analyse-kba" method="POST" data-netlify="true" action="/asset/pdf/analyse-kba.pdf">
-              <input type="hidden" name="form-name" value="dl-analyse-kba">
-              <input type="email" name="email" class="dl-mini-input" placeholder="Votre email" required>
-              <button type="submit" class="dl-mini-btn" title="Télécharger le PDF"><i class="fa-solid fa-download"></i></button>
-            </form>
+            <button class="btn-open-modal" data-pdf="/asset/pdf/analyse-kba.pdf" data-title="Évaluation des Zones Clés" title="Télécharger">
+              <i class="fa-solid fa-download"></i>
+            </button>
           </div>
         </div>
       </article>
@@ -257,6 +256,30 @@ title: "Bibliothèque de Ressources"
     </div>
   </div>
 </main>
+
+<div id="dl-modal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2 id="modal-book-title">Télécharger le document</h2>
+    <p>Veuillez remplir vos informations pour accéder à ce document scientifique.</p>
+    
+    <form id="full-dl-form" name="telechargements-ressources" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="telechargements-ressources">
+      <input type="hidden" name="document_demande" id="hidden-doc-name" value="">
+      
+      <div class="form-group">
+        <input type="text" name="prenom" placeholder="Prénom" required>
+        <input type="text" name="nom" placeholder="Nom de famille" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="telephone" placeholder="Numéro de téléphone (+509...)">
+        <input type="email" name="email" placeholder="Adresse e-mail" required>
+      </div>
+      
+      <button type="submit" class="btn-submit-full">Obtenir le PDF <i class="fa-solid fa-download"></i></button>
+    </form>
+  </div>
+</div>
 
 <script>
   // FONCTION POUR LES FILTRES PAR CATÉGORIE
@@ -297,26 +320,46 @@ title: "Bibliothèque de Ressources"
     });
   }
 
-  // FONCTION MAGIQUE POUR TÉLÉCHARGER SANS QUITTER LA PAGE
-  document.querySelectorAll('.dl-mini-form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Bloque l'erreur de Netlify
+  // --- LOGIQUE DU NOUVEAU POPUP ---
+  const modal = document.getElementById('dl-modal');
+  const closeBtn = document.querySelector('.close-modal');
+  const hiddenDocInput = document.getElementById('hidden-doc-name');
+  const modalTitle = document.getElementById('modal-book-title');
+  let currentPdfUrl = '';
 
-      const formData = new FormData(this);
-      const pdfUrl = this.getAttribute('action'); // Lit le lien du PDF automatiquement
-
-      // Envoie l'email à Netlify en secret
-      fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      })
-      .then(() => {
-        // Succès ! Ouvre le bon PDF et vide la case email
-        window.open(pdfUrl, '_blank');
-        this.reset();
-      })
-      .catch((error) => alert("Une erreur est survenue lors du téléchargement."));
+  // Ouvrir le popup
+  document.querySelectorAll('.btn-open-modal').forEach(btn => {
+    btn.addEventListener('click', function() {
+      currentPdfUrl = this.getAttribute('data-pdf');
+      const title = this.getAttribute('data-title');
+      
+      // Met à jour le titre du popup et le champ caché pour Netlify
+      modalTitle.textContent = "Télécharger : " + title;
+      hiddenDocInput.value = title; 
+      
+      modal.style.display = 'flex';
     });
+  });
+
+  // Fermer le popup
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+
+  // Envoi des données (Prénom, Nom, Tel, Email) à Netlify en silence
+  document.getElementById('full-dl-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      window.open(currentPdfUrl, '_blank'); // Ouvre le PDF
+      this.reset(); // Vide le formulaire
+      modal.style.display = 'none'; // Ferme le popup
+    })
+    .catch((error) => alert("Une erreur est survenue lors de l'enregistrement."));
   });
 </script>
