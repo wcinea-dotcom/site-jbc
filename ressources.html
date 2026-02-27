@@ -301,4 +301,25 @@ title: "Bibliothèque de Ressources"
     });
   }
 </script>
+// FONCTION MAGIQUE POUR TÉLÉCHARGER SANS QUITTER LA PAGE
+  document.querySelectorAll('.dl-mini-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Bloque l'erreur de Netlify
 
+      const formData = new FormData(this);
+      const pdfUrl = this.getAttribute('action'); // Lit le lien du PDF automatiquement
+
+      // Envoie l'email à Netlify en secret
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        // Succès ! Ouvre le bon PDF et vide la case email
+        window.open(pdfUrl, '_blank');
+        this.reset();
+      })
+      .catch((error) => alert("Une erreur est survenue lors du téléchargement."));
+    });
+  });
