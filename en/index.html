@@ -6,24 +6,17 @@ ref: accueil
 ---
 
 <main>
-  <section class="hero">
-    <div class="hero-media"></div>
-    <div class="hero-gradient"></div>
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <h1>Cayes Botanical Garden</h1>
-        <p>An institution serving biodiversity: data, science, education, and concrete actions in Haiti.</p>
-      </div>
+  <section class="hero" style="position: relative; height: 500px; background: url('{{ "images/index/index-hero.jpg" | relative_url }}') center/cover; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+    <div style="background: rgba(0,0,0,0.5); padding: 40px; border-radius: 20px;">
+      <h1 style="font-size: 3.5rem; margin-bottom: 10px;">Cayes Botanical Garden</h1>
+      <p style="font-size: 1.2rem;">An institution serving biodiversity in Haiti.</p>
     </div>
   </section>
 
-  <section class="mission bg-paper">
-    <div class="container">
-      <div class="mission-wrap">
-        <h2>Our Mission</h2>
-        <p>Our mission is to collect and share knowledge and data on biodiversity in order to contribute to human and nature's health.</p>
-      </div>
+  <section class="container" style="padding: 80px 0; text-align: center;">
+    <div class="mission-wrap" style="background: #fff; padding: 40px; border-radius: 26px; box-shadow: 0 18px 60px rgba(0,0,0,0.1);">
+      <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Our Mission</h2>
+      <p style="font-size: 1.2rem; color: #555;">Collecting and sharing knowledge for the health of humans and nature.</p>
     </div>
   </section>
-
-  </main>
+</main>
