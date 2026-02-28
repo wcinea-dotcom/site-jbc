@@ -50,7 +50,8 @@ title: Actualités du Jardin
 
             <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
                 <span style="color: #C5A059; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 10px; display: block;">
-                    Catégorie : {{ post.categories | first | capitalize }}
+                    {% assign cat = post.categories | first | downcase %}
+                    Catégorie : {% if cat == 'nouvelle' or cat == 'nouvelles' %}Actualités{% elsif cat == 'evenement' %}Événements{% else %}{{ cat | capitalize }}{% endif %}
                 </span>
                 
                 <h3 style="margin-bottom: 12px; font-family: 'Playfair Display', serif; font-size: 1.5rem; line-height: 1.3;">
@@ -58,7 +59,7 @@ title: Actualités du Jardin
                 </h3>
                 
                 <p style="color: rgba(31,42,51,.75); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">
-                    {{ post.excerpt }}
+                    {{ post.excerpt | strip_html | truncatewords: 20 }}
                 </p>
                 
                 <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 20px;">
