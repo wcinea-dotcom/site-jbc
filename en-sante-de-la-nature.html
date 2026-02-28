@@ -1,1 +1,258 @@
+---
+layout: default
+title: "Nature's Health"
+lang: en
+ref: sante-de-la-nature
+---
 
+<style>
+  /* J'ai conservé votre style exact pour que le design soit identique */
+  :root {
+    --deep: #2F4F2F;        
+    --botanical: #5E8F3A;   
+    --gold: #C5A059;        
+    --paper: #FBFCFA;       
+    --ink: #1f2a33;
+    --white: #ffffff;
+    --radius-lg: 24px;
+    --shadow-pro: 0 20px 50px rgba(0,0,0,0.06);
+    --transition: all 0.3s ease;
+  }
+
+  .section { padding: 90px 0; }
+
+  /* HERO */
+  .hero {
+    height: 60vh; min-height: 450px; position: relative;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ "images/sante-de-la-nature/hero-sante-de-la-nature.jpg" | relative_url }}') center/cover no-repeat;
+    display: flex; align-items: center; color: var(--white);
+    margin-bottom: 50px;
+  }
+  .hero-content { position: relative; z-index: 10; max-width: 850px; }
+  .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 15px; }
+
+  /* MISSIONS (Z-PATTERN) */
+  .mission-row { display: flex; align-items: center; gap: 60px; margin-bottom: 100px; }
+  .mission-row:nth-child(even) { flex-direction: row-reverse; }
+  .mission-img { flex: 1.1; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-pro); height: 400px; }
+  .mission-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+  .mission-img:hover img { transform: scale(1.03); }
+  .mission-text { flex: 0.9; }
+  .kicker { color: var(--gold); font-weight: 900; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+  .mission-text h2 { font-size: 2.5rem; color: var(--deep); margin-bottom: 20px; line-height: 1.2; }
+  .mission-text p { font-size: 1.1rem; color: var(--muted); margin-bottom: 20px; }
+  
+  /* BOUTONS DES MISSIONS */
+  .btn-mission {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 24px; border: 2px solid var(--deep); border-radius: 50px;
+    color: var(--deep); font-weight: 800; text-transform: uppercase;
+    font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; text-decoration: none;
+  }
+  .btn-mission:hover {
+    background-color: var(--deep); color: var(--white); transform: translateY(-3px);
+  }
+
+  /* TABS PROJETS */
+  .tabs-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap;}
+  .tab-btn {
+    padding: 12px 30px; border-radius: 50px; border: 1.5px solid var(--botanical);
+    background: transparent; color: var(--deep); font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 0.75rem; transition: 0.3s;
+  }
+  .tab-btn.active { background: var(--deep); color: white; border-color: var(--deep); }
+  .tab-content { display: none; animation: fadeIn 0.5s ease; }
+  .grid-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+  .card-pro { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.03); transition: 0.3s; }
+  .card-pro:hover { transform: translateY(-5px); box-shadow: var(--shadow-pro); }
+  .card-img { height: 240px; overflow: hidden; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .card-body { padding: 30px; }
+  .card-body h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--ink); }
+
+  /* COLLABORATION SECTION */
+  .collab-box {
+    background: var(--deep); color: var(--white); border-radius: var(--radius-lg);
+    padding: 70px 40px; text-align: center; box-shadow: var(--shadow-pro); margin-bottom: 40px;
+  }
+  .collab-box h2 { color: var(--gold); font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 20px; }
+  .collab-box p { font-size: 1.15rem; max-width: 850px; margin: 0 auto 15px auto; color: rgba(255,255,255,0.9); line-height: 1.8;}
+  .btn-collab {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 25px; padding: 15px 30px;
+    background: var(--gold); color: var(--deep) !important; border-radius: 50px;
+    font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: 0.3s; text-decoration: none;
+  }
+  .btn-collab:hover { background: #fff; transform: translateY(-3px); }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  
+  @media (max-width: 992px) {
+    .mission-row, .mission-row:nth-child(even) { flex-direction: column; text-align: center; }
+    .collab-box { padding: 50px 25px; }
+  }
+</style>
+
+<main>
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="kicker" style="color:var(--gold);">Department</span>
+      <h1>Nature's Health</h1>
+      <p style="font-size:1.2rem; opacity:0.9; max-width:600px;">
+        A center of excellence dedicated to the study, protection, and restoration of Haiti's unique biodiversity.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      
+      <div class="mission-row">
+        <div class="mission-img">
+          <img src="{{ 'images/sante-de-la-nature/science-appliquee.jpg' | relative_url }}" alt="Botanical Science">
+        </div>
+        <div class="mission-text">
+          <span class="kicker">Job 01</span>
+          <h2>Applied Science</h2>
+          <p>We conduct rigorous floristic inventories and develop scientific protocols to document Haiti's plant wealth and identify research priorities.</p>
+          <a href="{{ '/en/science.html' | relative_url }}" class="btn-mission">Discover Science <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="mission-row">
+        <div class="mission-img">
+          <img src="{{ 'images/sante-de-la-nature/gestion-donnees.jpg' | relative_url }}" alt="Biodiversity Data">
+        </div>
+        <div class="mission-text">
+          <span class="kicker">Job 02</span>
+          <h2>Data Management</h2>
+          <p>Data structuring is key. We transform field observations into mapping and taxonomic databases to inform conservation decisions.</p>
+          <a href="{{ '/en/data.html' | relative_url }}" class="btn-mission">Explore Data <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="mission-row">
+        <div class="mission-img">
+          <img src="{{ 'images/sante-de-la-nature/jconservation-strategique.jpg' | relative_url }}" alt="Conservation Terrain">
+        </div>
+        <div class="mission-text">
+          <span class="kicker">Job 03</span>
+          <h2>Strategic Conservation</h2>
+          <p>From seed banks to in-situ restoration, we implement concrete actions to safeguard threatened species and restore degraded habitats.</p>
+          <a href="{{ '/en/conservation.html' | relative_url }}" class="btn-mission">View Conservation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="mission-row">
+        <div class="mission-img">
+          <img src="{{ 'images/sante-de-la-nature/restauration-horticulture.jpg' | relative_url }}" alt="Horticulture and Restoration">
+        </div>
+        <div class="mission-text">
+          <span class="kicker">Job 04</span>
+          <h2>Horticulture & Restoration</h2>
+          <p>Conservation requires action. Through our nurseries and advanced horticultural techniques, we produce and multiply native and endemic plants necessary to restore fragile ecosystems and green our landscapes sustainably.</p>
+          <a href="{{ '/en/research.html' | relative_url }}" class="btn-mission">Discover Horticulture <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="background: #f4f7f4;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:40px;">
+        <span class="kicker">Portfolio</span>
+        <h2 style="color:var(--deep); font-size:2.5rem;">Our Projects</h2>
+      </div>
+
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="openTab(event, 'past')">Past</button>
+        <button class="tab-btn" onclick="openTab(event, 'present')">Ongoing</button>
+        <button class="tab-btn" onclick="openTab(event, 'future')">Future</button>
+      </div>
+
+      <div id="past" class="tab-content" style="display:block;">
+        <div class="grid-pro">
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/structuration-scientifique.jpg' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Scientific Structuring</h3><p>Implementation of initial standards.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/collections-vivantes.jpg' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Living Collections</h3><p>Ex-situ species inventory.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/Appui-technique.jpg' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Technical Support</h3><p>Support for local nurseries.</p></div>
+          </article>
+        </div>
+      </div>
+
+      <div id="present" class="tab-content">
+        <div class="grid-pro">
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/etudes-especes-natives.jpg' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Native Studies</h3><p>Research on species resilience.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/suivi-especes-prioritaires.jpg' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Monitoring</h3><p>GPS tracking of rare populations.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/production-pour-conservation copy.JPG' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Production</h3><p>Mass multiplication for reforestation.</p></div>
+          </article>
+        </div>
+      </div>
+
+      <div id="future" class="tab-content">
+        <div class="grid-pro">
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/diffuser.JPG' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Standard Diffusion</h3><p>Scaling standards nationwide.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/plantes-medicinales.jpg' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Phytotherapy</h3><p>Medicinal plant laboratory.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/nature-sante-mentale.JPG' | relative_url }}" alt="Project"></div>
+            <div class="card-body"><h3>Health & Nature</h3><p>Forest wellness programs.</p></div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 40px;">
+    <div class="container">
+      <div class="collab-box">
+        <h2>Let's Work Together</h2>
+        <p>
+          Are you a scientist, researcher, student, or institutional representative? Do you work on projects related to science, biodiversity data, conservation, or horticulture?
+        </p>
+        <p>
+          <strong>We know we cannot accomplish this work alone.</strong> The Cayes Botanical Garden is deeply committed to collaborating, sharing expertise, and joining forces with you for the health of nature.
+        </p>
+        <a href="{{ '/en/index.html#contact' | relative_url }}" class="btn-collab">
+          Feel free to contact us <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
