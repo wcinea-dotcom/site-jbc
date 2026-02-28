@@ -1,55 +1,28 @@
-<footer style="background-color: #1a3a1a; color: #ffffff; padding: 60px 20px 20px; font-family: sans-serif; margin-top: 60px;">
-  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
-      
-      <div>
-          <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 20px;">
-            {% if page.lang == 'en' %}Cayes Botanical Garden{% else %}Jardin Botanique des Cayes{% endif %}
-          </h3>
-          <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem;">
-            {% if page.lang == 'en' %}
-              Our mission is to contribute to human and nature's health through scientific research, conservation of Haitian biodiversity, and education.
-            {% else %}
-              Notre mission est de contribuer à la santé de l'homme et de la nature par la recherche scientifique, la conservation de la biodiversité haïtienne et l'éducation.
-            {% endif %}
-          </p>
-      </div>
-      
-      <div>
-          <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px;">
-            {% if page.lang == 'en' %}Quick Links{% else %}Liens Rapides{% endif %}
-          </h3>
-          <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
-              <li><a href="{% if page.lang == 'en' %}{{ '/en/actualites.html' | relative_url }}{% else %}{{ '/actualites.html' | relative_url }}{% endif %}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">{% if page.lang == 'en' %}News{% else %}Nouvelles{% endif %}</a></li>
-              <li><a href="{% if page.lang == 'en' %}{{ '/en/evenements.html' | relative_url }}{% else %}{{ '/evenements.html' | relative_url }}{% endif %}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">{% if page.lang == 'en' %}Events{% else %}Événements{% endif %}</a></li>
-              <li><a href="{% if page.lang == 'en' %}{{ '/en/blog.html' | relative_url }}{% else %}{{ '/blog.html' | relative_url }}{% endif %}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">Blog</a></li>
-              <li><a href="{% if page.lang == 'en' %}{{ '/en/impliquer.html' | relative_url }}{% else %}{{ '/impliquer.html' | relative_url }}{% endif %}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">{% if page.lang == 'en' %}Get Involved{% else %}S'impliquer{% endif %}</a></li>
-              <li><a href="{% if page.lang == 'en' %}{{ '/en/ressources.html' | relative_url }}{% else %}{{ '/ressources.html' | relative_url }}{% endif %}" style="color: #ffffff; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;">{% if page.lang == 'en' %}Resources{% else %}Ressources{% endif %}</a></li>
-          </ul>
-      </div>
+{% assign is_en = page.lang == 'en' %}
 
-      <div>
-          <h3 style="color: #C5A059; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 20px;">
-            {% if page.lang == 'en' %}Contact Us{% else %}Contactez-nous{% endif %}
-          </h3>
-          <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
-              <i class="fa-solid fa-location-dot" style="color: #C5A059; margin-right: 10px;"></i> Les Cayes, Haïti
-          </p>
-          <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
-              <i class="fa-solid fa-envelope" style="color: #C5A059; margin-right: 10px;"></i> info@jardinbotaniquecayeshaiti.org
-          </p>
-          <p style="opacity: 0.8; line-height: 1.6; font-size: 0.95rem; margin-bottom: 10px;">
-              <i class="fa-solid fa-phone" style="color: #C5A059; margin-right: 10px;"></i> +509 4309 2809
-          </p>
-          
-          <div style="display:flex; gap:16px; margin-top: 20px;">
-            <a href="https://www.facebook.com/jbchaiti/" target="_blank" style="width:35px; height:35px; border-radius:50%; border:1px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; transition: 0.3s;"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/in/jardin-botanique-des-cayes-haiti-71b92163/" target="_blank" style="width:35px; height:35px; border-radius:50%; border:1px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; transition: 0.3s;"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="https://www.youtube.com/@JardinBotaniqueHaiti" target="_blank" style="width:35px; height:35px; border-radius:50%; border:1px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; color:#fff; transition: 0.3s;"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-      </div>
+<footer style="margin-top:40px; padding:28px 0; background:#1f2a33; color:#fff;">
+  <div class="container" style="display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; justify-content:space-between;">
+    <div style="max-width:520px;">
+      <strong style="display:block; margin-bottom:8px;">
+        {% if is_en %}Les Cayes Botanical Garden{% else %}Jardin Botanique des Cayes{% endif %}
+      </strong>
+      <p style="opacity:.85;">
+        {% if is_en %}
+          Science, conservation and education for Haiti’s biodiversity.
+        {% else %}
+          Science, conservation et éducation pour la biodiversité d’Haïti.
+        {% endif %}
+      </p>
+    </div>
+
+    <div style="display:flex; gap:22px; flex-wrap:wrap;">
+      <a href="{{ '/' | relative_url }}" style="color:#fff; opacity:.9;">{% if is_en %}Home{% else %}Accueil{% endif %}</a>
+      <a href="{{ '/impliquer.html' | relative_url }}" style="color:#fff; opacity:.9;">{% if is_en %}Get involved{% else %}S’impliquer{% endif %}</a>
+      <a href="{{ '/donnees.html' | relative_url }}" style="color:#fff; opacity:.9;">{% if is_en %}Data{% else %}Données{% endif %}</a>
+    </div>
   </div>
 
-  <div style="max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; opacity: 0.6; font-size: 0.85rem;">
-      © 2026 Jardin Botanique des Cayes. {% if page.lang == 'en' %}All rights reserved.{% else %}Tous droits réservés.{% endif %}
+  <div class="container" style="margin-top:16px; opacity:.7; font-size:.9rem;">
+    © {{ "now" | date: "%Y" }} — {% if is_en %}All rights reserved{% else %}Tous droits réservés{% endif %}.
   </div>
 </footer>
