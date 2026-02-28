@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 
+  <!-- CSS global existant (si tu l’utilises déjà) -->
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+
+  <!-- CSS du header -->
+  <link rel="stylesheet" href="{{ '/assets/css/header.css' | relative_url }}">
+
   <style>
     :root{
       --deep:#2F5D2F;
@@ -22,7 +28,6 @@
       --paper:#FBFCFA;
       --ink:#1f2a33;
 
-      /* header tokens (si tu utilises hdr-*) */
       --hdr-deep: var(--deep);
       --hdr-gold: var(--gold);
     }
@@ -42,5 +47,8 @@
   </main>
 
   {% include footer.html %}
+
+  <!-- JS du header (dropdown + burger) -->
+  <script src="{{ '/assets/js/header.js' | relative_url }}"></script>
 </body>
 </html>
