@@ -1,1 +1,90 @@
+<main>
+  <section class="hero-news">
+    <div class="container">
+      <h1>News & Events</h1>
+      <p>Follow our latest research, field actions, and upcoming events.</p>
+    </div>
+  </section>
 
+  <div class="filters-container">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">View All</button>
+    <button class="filter-btn" onclick="filterPosts('news', this)">News</button>
+    <button class="filter-btn" onclick="filterPosts('event', this)">Events</button>
+  </div>
+
+  <div class="news-container" id="post-list">
+
+    <article class="post-item" data-type="news">
+      <div class="post-img">
+        <img src="{{ 'images/sante-de-la-nature/etudes-especes-natives.jpg' | relative_url }}" alt="Floristic research">
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-tag">News</span>
+          <span class="post-date">FEB 18, 2026</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">
+            Discovery of a New Population of Endemic Plants in the Massif de la Hotte
+            <i class="fa-solid fa-caret-right arrow-icon"></i>
+          </a>
+        </h3>
+      </div>
+    </article>
+
+    <article class="post-item" data-type="event">
+      <div class="post-img">
+        <img src="{{ 'images/education/education-formation-technique.jpg' | relative_url }}" alt="Beekeeping Training">
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-tag tag-event">Event</span>
+          <span class="post-date">MARCH 10, 2026</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">
+            National Training: Beekeeping Practices and Preservation of Pollinator Ecosystems
+            <i class="fa-solid fa-caret-right arrow-icon"></i>
+          </a>
+        </h3>
+      </div>
+    </article>
+
+    <article class="post-item" data-type="news">
+      <div class="post-img">
+        <img src="{{ 'images/sante-de-la-nature/jconservation-strategique.jpg' | relative_url }}" alt="Conservation">
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-tag">News</span>
+          <span class="post-date">FEB 05, 2026</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">
+            New Partnership with the Central Bank of Haiti (BRH) for Mapping Medicinal Plants in Southern Haiti
+            <i class="fa-solid fa-caret-right arrow-icon"></i>
+          </a>
+        </h3>
+      </div>
+    </article>
+
+    <article class="post-item" data-type="event">
+      <div class="post-img">
+        <img src="{{ 'images/education/education-grand-public.jpg' | relative_url }}" alt="Guided Visit">
+      </div>
+      <div class="post-content">
+        <div class="post-meta">
+          <span class="post-tag tag-event">Event</span>
+          <span class="post-date">MARCH 22, 2026</span>
+        </div>
+        <h3 class="post-title">
+          <a href="#">
+            Public Workshop: Introduction to Naturopathy and Family Medicinal Gardens
+            <i class="fa-solid fa-caret-right arrow-icon"></i>
+          </a>
+        </h3>
+      </div>
+    </article>
+
+  </div>
+</main>
