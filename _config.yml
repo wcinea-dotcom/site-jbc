@@ -1,12 +1,16 @@
+# _config.yml
+title: Jardin Botanique des Cayes
+# IMPORTANT: mets ça si ton site est dans un sous-dossier GitHub Pages (ex: /site-jbc)
+# baseurl: "/site-jbc"
+# url: "https://ton-user.github.io"
 
-# Site settings
-url: "https://votre-site.netlify.app" # Remplacez par votre URL
+# Si Netlify / domaine, laisse baseurl vide:
+baseurl: ""
+url: ""
 
-# Collections
-collections:
-  posts:
-    output: true
-    permalink: /articles/:year/:month/:day/:title/
+markdown: kramdown
+permalink: pretty
+
 
 
 
