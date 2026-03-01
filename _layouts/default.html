@@ -1,55 +1,52 @@
-<!doctype html>
+<!-- _layouts/default.html -->
+<!DOCTYPE html>
 <html lang="{{ page.lang | default: 'fr' }}">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>{{ page.title }} | Jardin Botanique des Cayes</title>
+  <title>{% if page.title %}{{ page.title }} | {% endif %}Jardin Botanique des Cayes</title>
 
-  <link rel="icon" type="image/png" href="{{ '/images/favicon.png' | relative_url }}">
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+  {% endif %}
 
-  <meta property="og:title" content="{{ page.title }} | Jardin Botanique des Cayes" />
-  <meta property="og:image" content="{{ '/images/index/index-hero.jpg' | relative_url }}" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.og_title %}{{ page.og_title }}{% else %}Jardin Botanique des Cayes{% endif %}">
+  <meta property="og:description" content="{% if page.og_description %}{{ page.og_description }}{% else %}Biodiversité, science, conservation et éducation au service de la nature et de l’homme.{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{% if page.og_image %}{{ page.og_image | relative_url | absolute_url }}{% else %}{{ 'images/index/index-hero.jpg' | relative_url | absolute_url }}{% endif %}">
 
-  <!-- CSS global existant (si tu l’utilises déjà) -->
-  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+  <!-- Fonts + Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
 
-  <!-- CSS du header (nouveau) -->
-  <link rel="stylesheet" href="{{ '/assets/css/header.css' | relative_url }}">
+  <!-- CSS global -->
+  <link rel="stylesheet" href="{{ 'assets/css/site.css' | relative_url }}">
 
-  <style>
-    :root{
-      --deep:#2F5D2F;
-      --botanical:#5E8F3A;
-      --gold:#C5A059;
-      --paper:#FBFCFA;
-      --ink:#1f2a33;
+  <!-- CSS spécifique page (optionnel) -->
+  {% if page.page_css %}
+  <link rel="stylesheet" href="{{ page.page_css | relative_url }}">
+  {% endif %}
 
-      /* tokens header */
-      --hdr-deep: var(--deep);
-      --hdr-gold: var(--gold);
-    }
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    body{ font-family:"Lato",sans-serif; color:var(--ink); background:var(--paper); line-height:1.6; }
-    h1,h2,h3{ font-family:"Playfair Display",serif; }
-    a{ text-decoration:none; color:inherit; }
-    .container{ max-width:1200px; margin:0 auto; padding:0 22px; }
-  </style>
+  <!-- Extra head (optionnel) -->
+  {% if page.head_extra %}{{ page.head_extra }}{% endif %}
 </head>
 
 <body>
   {% include header.html %}
+  {% include drawer.html %}
 
-  <main>
-    {{ content }}
-  </main>
+  {{ content }}
 
   {% include footer.html %}
 
-  <!-- JS du header (dropdown + burger) -->
-  <script src="{{ '/assets/js/header.js' | relative_url }}"></script>
+  <script src="{{ 'assets/js/site.js' | relative_url }}"></script>
+  {% if page.body_extra %}{{ page.body_extra }}{% endif %}
 </body>
 </html>
