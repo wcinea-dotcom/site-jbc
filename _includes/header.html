@@ -1,5 +1,17 @@
 <!-- _includes/header.html -->
-{% assign is_en = page.lang == "en" %}
+
+{%- comment -%}
+  Détection langue ROBUSTE :
+  - si page.lang == "en" (front-matter)
+  - OU si l'URL contient "/en/"
+{%- endcomment -%}
+{% assign current_url = page.url | default: "/" %}
+{% assign is_en = false %}
+{% if page.lang == "en" or current_url contains "/en/" %}
+  {% assign is_en = true %}
+{% endif %}
+
+{%- comment -%} Base pour construire les liens internes {%- endcomment -%}
 {% assign base = "" %}
 {% if is_en %}{% assign base = "/en" %}{% endif %}
 
@@ -22,6 +34,34 @@
 {% assign url_horticulture = base | append: "/horticulture.html" %}
 {% assign url_research = base | append: "/recherche.html" %}
 
+{%- comment -%}
+  Switch langue ROBUSTE (sans ref)
+  Règle :
+  - FR : /page.html
+  - EN : /en/page.html
+  - Home : / <-> /en/
+{%- endcomment -%}
+
+{% assign fr_url = current_url %}
+{% assign en_url = current_url %}
+
+{% if current_url == "/en/" or current_url == "/en/index.html" %}
+  {% assign fr_url = "/" %}
+  {% assign en_url = "/en/" %}
+{% elsif current_url == "/" or current_url == "/index.html" %}
+  {% assign fr_url = "/" %}
+  {% assign en_url = "/en/" %}
+{% elsif current_url contains "/en/" %}
+  {%- comment -%} EN -> FR : retirer le préfixe /en/ uniquement {%- endcomment -%}
+  {% assign fr_url = current_url | remove_first: "/en" %}
+  {% if fr_url == "" %}{% assign fr_url = "/" %}{% endif %}
+  {% assign en_url = current_url %}
+{% else %}
+  {%- comment -%} FR -> EN : ajouter le préfixe /en {%- endcomment -%}
+  {% assign fr_url = current_url %}
+  {% assign en_url = "/en" | append: current_url %}
+{% endif %}
+
 <div class="top-tier">
   <div class="container top-tier-inner">
     <div class="top-tier-links">
@@ -33,28 +73,11 @@
     </div>
 
     <div class="top-tier-tools">
-      <div class="tool-item">{% if is_en %}Search{% else %}Recherche{% endif %} <i class="fa-solid fa-magnifying-glass"></i></div>
+      <div class="tool-item">
+        {% if is_en %}Search{% else %}Recherche{% endif %} <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
 
-      <!-- Switch langue (ROBUSTE : basé sur l’URL, évite les 404 quand ref manque) -->
       <div class="tool-item lang-switch">
-        {% assign current_url = page.url %}
-
-        {%- comment -%} FR URL = enlever /en si présent {%- endcomment -%}
-        {% if current_url == '/en/' or current_url == '/en/index.html' %}
-          {% assign fr_url = '/' %}
-        {% else %}
-          {% assign fr_url = current_url | replace_first: '/en', '' %}
-        {% endif %}
-
-        {%- comment -%} EN URL = ajouter /en si absent {%- endcomment -%}
-        {% if current_url == '/' or current_url == '/index.html' %}
-          {% assign en_url = '/en/' %}
-        {% elsif current_url contains '/en/' %}
-          {% assign en_url = current_url %}
-        {% else %}
-          {% assign en_url = '/en' | append: current_url %}
-        {% endif %}
-
         <a href="{{ fr_url | relative_url }}" class="{% unless is_en %}is-active{% endunless %}">FR</a>
         <span class="lang-sep">|</span>
         <a href="{{ en_url | relative_url }}" class="{% if is_en %}is-active{% endif %}">EN</a>
