@@ -128,4 +128,3 @@ body{
   .main-nav.is-open{display:block} /* ✅ burger ouvre le menu */
   .footer-inner{grid-template-columns:1fr}
 }
-
