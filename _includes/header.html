@@ -1,40 +1,49 @@
-<!-- =========================
-     _includes/header.html
-     (corrigé: menu visible + FR/EN fonctionne partout via ref + liens adaptés selon la langue)
-     ========================= -->
+<!-- _includes/header.html -->
+{% assign is_en = page.lang == "en" %}
+{% assign base = "" %}
+{% if is_en %}{% assign base = "/en" %}{% endif %}
 
-{% assign lang = page.lang | default: "fr" %}
-{% if lang == "en" %}
-  {% assign lang_prefix = "/en" %}
-  {% assign home_url = "/en/" %}
-{% else %}
-  {% assign lang_prefix = "" %}
-  {% assign home_url = "/" %}
-{% endif %}
+{% assign home_url = base | append: "/" %}
 
-{% assign current_ref = page.ref | default: page.url %}
-{% assign fr_page = site.pages | where: "ref", current_ref | where: "lang", "fr" | first %}
-{% assign en_page = site.pages | where: "ref", current_ref | where: "lang", "en" | first %}
-{% assign fr_url = fr_page.url | default: "/" %}
-{% assign en_url = en_page.url | default: "/en/" %}
+{% assign url_news = base | append: "/actualites.html" %}
+{% assign url_events = base | append: "/evenements.html" %}
+{% assign url_blog = base | append: "/blog.html" %}
+{% assign url_resources = base | append: "/ressources.html" %}
+{% assign url_data = base | append: "/donnees.html" %}
+
+{% assign url_about = base | append: "/apropos.html" %}
+{% assign url_get_involved = base | append: "/impliquer.html" %}
+{% assign url_nature_health = base | append: "/sante-de-la-nature.html" %}
+{% assign url_human_health = base | append: "/sante-humaine.html" %}
+{% assign url_education = base | append: "/education.html" %}
+
+{% assign url_science = base | append: "/science.html" %}
+{% assign url_conservation = base | append: "/conservation.html" %}
+{% assign url_horticulture = base | append: "/horticulture.html" %}
+{% assign url_research = base | append: "/recherche.html" %}
 
 <div class="top-tier">
   <div class="container top-tier-inner">
     <div class="top-tier-links">
-      <a href="{{ (lang_prefix | append: '/actualites.html') | relative_url }}">Nouvelles</a>
-      <a href="{{ (lang_prefix | append: '/evenements.html') | relative_url }}">Événements</a>
-      <a href="{{ (lang_prefix | append: '/blog.html') | relative_url }}">Blog</a>
-      <a href="{{ (lang_prefix | append: '/ressources.html') | relative_url }}">Ressources</a>
-      <a href="{{ (lang_prefix | append: '/donnees.html') | relative_url }}" class="top-data-link">Données</a>
+      <a href="{{ url_news | relative_url }}">{% if is_en %}News{% else %}Nouvelles{% endif %}</a>
+      <a href="{{ url_events | relative_url }}">{% if is_en %}Events{% else %}Événements{% endif %}</a>
+      <a href="{{ url_blog | relative_url }}">{% if is_en %}Blog{% else %}Blog{% endif %}</a>
+      <a href="{{ url_resources | relative_url }}">{% if is_en %}Resources{% else %}Ressources{% endif %}</a>
+      <a href="{{ url_data | relative_url }}" class="top-data-link">{% if is_en %}Data{% else %}Données{% endif %}</a>
     </div>
 
     <div class="top-tier-tools">
-      <div class="tool-item">Recherche <i class="fa-solid fa-magnifying-glass"></i></div>
+      <div class="tool-item">{% if is_en %}Search{% else %}Recherche{% endif %} <i class="fa-solid fa-magnifying-glass"></i></div>
 
-      <div class="tool-item lang-switch" aria-label="Language switch">
-        <a href="{{ fr_url | relative_url }}" class="{% if lang == 'fr' %}is-active{% endif %}">FR</a>
+      <!-- Switch langue (auto via ref/lang) -->
+      <div class="tool-item lang-switch">
+        {% assign current_ref = page.ref %}
+        {% assign fr_page = site.pages | where: "ref", current_ref | where: "lang", "fr" | first %}
+        {% assign en_page = site.pages | where: "ref", current_ref | where: "lang", "en" | first %}
+
+        <a href="{{ fr_page.url | default: '/' | relative_url }}" class="{% if page.lang == 'fr' %}is-active{% endif %}">FR</a>
         <span class="lang-sep">|</span>
-        <a href="{{ en_url | relative_url }}" class="{% if lang == 'en' %}is-active{% endif %}">EN</a>
+        <a href="{{ en_page.url | default: '/en/' | relative_url }}" class="{% if page.lang == 'en' %}is-active{% endif %}">EN</a>
       </div>
     </div>
   </div>
@@ -46,44 +55,46 @@
       <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes">
     </a>
 
-    <nav class="main-nav" id="mainNav" aria-label="Menu principal">
+    <nav class="main-nav">
       <div class="drop" id="dropAccueil">
         <div class="nav-group">
-          <a href="{{ home_url | relative_url }}">ACCUEIL</a>
-          <button type="button" class="drop-toggle" data-target="menuAccueil" aria-expanded="false" aria-controls="menuAccueil" aria-label="Ouvrir menu Accueil">
+          <a href="{{ home_url | relative_url }}">{% if is_en %}HOME{% else %}ACCUEIL{% endif %}</a>
+          <button type="button" id="btnAccueil" aria-label="{% if is_en %}Open Home menu{% else %}Ouvrir menu Accueil{% endif %}">
             <i class="fa-solid fa-chevron-down"></i>
           </button>
         </div>
-        <div class="menu" id="menuAccueil">
-          <a href="{{ (lang_prefix | append: '/apropos.html') | relative_url }}">À propos</a>
-          <a href="#">Conseil d'administration</a>
+        <div class="menu">
+          <a href="{{ url_about | relative_url }}">{% if is_en %}About{% else %}À propos{% endif %}</a>
+          <a href="#">{% if is_en %}Board of Directors{% else %}Conseil d'administration{% endif %}</a>
         </div>
       </div>
 
-      <a href="{{ (lang_prefix | append: '/impliquer.html') | relative_url }}">S'IMPLIQUER</a>
+      <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% else %}S'IMPLIQUER{% endif %}</a>
 
       <div class="drop" id="dropNature">
         <div class="nav-group">
-          <a href="{{ (lang_prefix | append: '/sante-de-la-nature.html') | relative_url }}">SANTÉ DE LA NATURE</a>
-          <button type="button" class="drop-toggle" data-target="menuNature" aria-expanded="false" aria-controls="menuNature" aria-label="Ouvrir menu Santé de la nature">
+          <a href="{{ url_nature_health | relative_url }}">{% if is_en %}NATURE'S HEALTH{% else %}SANTÉ DE LA NATURE{% endif %}</a>
+          <button type="button" id="btnNature" aria-label="{% if is_en %}Open Nature's Health menu{% else %}Ouvrir menu Santé de la nature{% endif %}">
             <i class="fa-solid fa-chevron-down"></i>
           </button>
         </div>
-        <div class="menu" id="menuNature">
-          <a href="{{ (lang_prefix | append: '/science.html') | relative_url }}">Sciences</a>
-          <a href="{{ (lang_prefix | append: '/donnees.html') | relative_url }}">Données</a>
-          <a href="{{ (lang_prefix | append: '/conservation.html') | relative_url }}">Conservation</a>
-          <a href="{{ (lang_prefix | append: '/horticulture.html') | relative_url }}">Horticulture & Restauration</a>
+        <div class="menu">
+          <a href="{{ url_science | relative_url }}">{% if is_en %}Science{% else %}Sciences{% endif %}</a>
+          <a href="{{ url_data | relative_url }}">{% if is_en %}Data{% else %}Données{% endif %}</a>
+          <a href="{{ url_conservation | relative_url }}">{% if is_en %}Conservation{% else %}Conservation{% endif %}</a>
+          <a href="{{ url_horticulture | relative_url }}">{% if is_en %}Horticulture & Restoration{% else %}Horticulture & Restauration{% endif %}</a>
         </div>
       </div>
 
-      <a href="{{ (lang_prefix | append: '/sante-humaine.html') | relative_url }}">SANTÉ HUMAINE</a>
-      <a href="{{ (lang_prefix | append: '/education.html') | relative_url }}">ÉDUCATION</a>
+      <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% else %}SANTÉ HUMAINE{% endif %}</a>
+      <a href="{{ url_education | relative_url }}">{% if is_en %}EDUCATION{% else %}ÉDUCATION{% endif %}</a>
     </nav>
 
     <div class="main-actions">
-      <a href="{{ (lang_prefix | append: '/impliquer.html#membership') | relative_url }}" class="btn-member-main">DEVENIR MEMBRE</a>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu mobile" aria-expanded="false" aria-controls="mainNav">
+      <a href="{{ url_get_involved | append: '#membership' | relative_url }}" class="btn-member-main">
+        {% if is_en %}BECOME A MEMBER{% else %}DEVENIR MEMBRE{% endif %}
+      </a>
+      <button class="burger" id="burger" aria-label="{% if is_en %}Open mobile menu{% else %}Ouvrir le menu mobile{% endif %}">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
