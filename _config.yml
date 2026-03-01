@@ -1,5 +1,14 @@
-url: "https://wcinea-dotcom.github.io"
-baseurl: "/site-jbc"
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      lang: "fr"
+  - scope:
+      path: "en"
+      type: "pages"
+    values:
+      lang: "en"
 
 
 
