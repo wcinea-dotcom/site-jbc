@@ -4,11 +4,11 @@ defaults:
       type: "pages"
     values:
       lang: "fr"
+
   - scope:
       path: "en"
       type: "pages"
     values:
       lang: "en"
-
 
 
