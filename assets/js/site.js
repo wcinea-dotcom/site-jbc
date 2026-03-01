@@ -1,58 +1,42 @@
-// assets/js/site.js
-function setupDropdown(btnId, dropId) {
-  const btn = document.getElementById(btnId);
-  const drop = document.getElementById(dropId);
+/* =========================
+   assets/site.js
+   (menu dropdown + burger, sans casser ton design)
+   ========================= */
+(function () {
+  // Dropdowns
+  const toggles = document.querySelectorAll(".drop-toggle");
+  toggles.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.getAttribute("data-target");
+      const menu = document.getElementById(id);
+      if (!menu) return;
 
-  if (!btn || !drop) return;
-
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-
-    document.querySelectorAll('.drop').forEach(d => {
-      if (d !== drop) d.classList.remove('open');
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      menu.classList.toggle("is-open", !isOpen);
     });
-
-    drop.classList.toggle('open');
   });
-}
 
-function setupDrawerSub(btnId, subId) {
-  const btn = document.getElementById(btnId);
-  const sub = document.getElementById(subId);
-  if (!btn || !sub) return;
-
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-
-    document.querySelectorAll('.drawer-sub').forEach(s => {
-      if (s !== sub) s.classList.remove('open');
+  // Burger (mobile)
+  const burger = document.getElementById("burger");
+  const nav = document.getElementById("mainNav");
+  if (burger && nav) {
+    burger.addEventListener("click", () => {
+      const isOpen = burger.getAttribute("aria-expanded") === "true";
+      burger.setAttribute("aria-expanded", String(!isOpen));
+      nav.classList.toggle("is-open", !isOpen);
     });
+  }
 
-    sub.classList.toggle('open');
+  // Close dropdowns on outside click
+  document.addEventListener("click", (e) => {
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+
+    // Ignore clicks inside dropdown areas
+    if (target.closest(".drop")) return;
+
+    toggles.forEach(btn => btn.setAttribute("aria-expanded", "false"));
+    document.querySelectorAll(".menu.is-open").forEach(m => m.classList.remove("is-open"));
   });
-}
-
-setupDropdown('btnAccueil', 'dropAccueil');
-setupDropdown('btnNature', 'dropNature');
-setupDrawerSub('drawerAccueilBtn', 'drawerAccueilSub');
-setupDrawerSub('drawerNatureBtn', 'drawerNatureSub');
-
-const burger = document.getElementById('burger');
-const drawer = document.getElementById('drawer');
-
-if (burger && drawer) {
-  burger.addEventListener('click', (e) => {
-    e.stopPropagation();
-    drawer.classList.toggle('open');
-  });
-}
-
-document.addEventListener('click', () => {
-  document.querySelectorAll('.drop').forEach(d => d.classList.remove('open'));
-  document.querySelectorAll('.drawer-sub').forEach(s => s.classList.remove('open'));
-  if (drawer) drawer.classList.remove('open');
-});
-
-document.querySelectorAll('.drop, .drawer').forEach(el => {
-  el.addEventListener('click', (e) => e.stopPropagation());
-});
+})();
