@@ -1,1 +1,146 @@
+---
+layout: default
+title: "Data & Decision-Making"
+lang: en
+ref: donnees
+permalink: /en/donnees.html
+description: "National center for biological data collection and analysis supporting conservation, public health, and climate resilience in Haiti."
+---
 
+<style>
+  /* (CSS IDENTIQUE — NE PAS MODIFIER) */
+  :root {
+    --primary: #1a4332;        
+    --primary-dark: #0f291e;
+    --accent: #c5a059;         
+    --text: #333333;
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --max-width: 1200px;
+    --deep: #2F5D2F;        
+    --botanical: #5E8F3A;  
+  }
+</style>
+
+<main>
+  <section class="hero-donnees">
+    <div class="wrap">
+      <h1>Data & Decision-Making</h1>
+      <p>National center for biological data collection and analysis supporting conservation and public health.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="wrap">
+      
+      <div class="intro-text">
+        <p>
+          <strong>Data is our primary tool.</strong> Before planting, treating, or designing landscapes, we must understand.  
+          The Jardin Botanique des Cayes transforms raw field observations into structured databases.  
+          These data enable government agencies and researchers to make evidence-based decisions for ecosystem survival and public health security.
+        </p>
+      </div>
+
+      <div class="data-module">
+        <div class="module-img">
+          <img src="{{ 'images/donnees/donnees-biodiversite-ecosystemes.jpg' | relative_url }}" alt="Forest Inventory">
+          <div class="img-caption">Floristic Inventory & Taxonomy</div>
+        </div>
+        <div class="module-content">
+          <h2><i class="fa-solid fa-tree"></i> Biodiversity & Ecosystems</h2>
+          <div class="module-desc">
+            We conduct comprehensive inventories of the flora of Haiti’s Grand Sud region. Each plant is identified, geolocated, and classified according to international standards (APG IV) to guide restoration and reforestation efforts.
+          </div>
+          <ul class="data-list">
+            <li class="data-item">
+              <span class="data-label">Taxonomy</span>
+              <span class="data-val">Accurate botanical identification, updated family and genus classifications, and management of the National Herbarium.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">IUCN Status</span>
+              <span class="data-val">Assessment of threatened species (CR, EN, VU) to prioritize urgent conservation actions.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Mapping</span>
+              <span class="data-val">Delineation of Key Biodiversity Areas (KBAs) and monitoring of critical habitats (mangroves, dry forests).</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Invasive Species</span>
+              <span class="data-val">Monitoring the spread of exotic species threatening agriculture and native flora.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="data-module reverse">
+        <div class="module-img">
+          <img src="{{ 'images/donnees/donnees-pharmacognosie.png' | relative_url }}" alt="Medicinal Plant Preparation">
+          <div class="img-caption">Ethnobotany & Pharmacognosy</div>
+        </div>
+        <div class="module-content">
+          <h2><i class="fa-solid fa-heart-pulse"></i> Human Health & Phytotherapy</h2>
+          <div class="module-desc">
+            A majority of Haitians rely on medicinal plants for healthcare. Our mission is to ensure safety and scientific validation of traditional practices while identifying toxicity risks.
+          </div>
+          <ul class="data-list">
+            <li class="data-item">
+              <span class="data-label">Ethnobotany</span>
+              <span class="data-val">Documentation of local knowledge: which plants are used, for which conditions, and at what dosages.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Toxicology</span>
+              <span class="data-val"><strong>Critical data:</strong> Identification of toxic plants frequently mistaken for remedies to prevent fatal poisonings.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Phytochemistry</span>
+              <span class="data-val">Analysis of active compounds to validate the real efficacy of traditional treatments.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Nutrition</span>
+              <span class="data-val">Promotion of non-conventional food plants (NUS) to combat malnutrition.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="data-module">
+        <div class="module-img">
+          <img src="{{ 'images/donnees/donnees-modelisation-climatique.jpg' | relative_url }}" alt="Landscape Modeling">
+          <div class="img-caption">Modeling & Resilience</div>
+        </div>
+        <div class="module-content">
+          <h2><i class="fa-solid fa-chart-line"></i> Climate & Territory</h2>
+          <div class="module-desc">
+            In the face of climate change, random planting is no longer an option. We use ecological modeling to anticipate Haiti’s environmental future and propose sustainable solutions.
+          </div>
+          <ul class="data-list">
+            <li class="data-item">
+              <span class="data-label">Modeling</span>
+              <span class="data-val">Projection of future ecological niches: which species will survive in 10, 20, or 50 years?</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Resilience</span>
+              <span class="data-val">Identification of species resistant to cyclones and prolonged drought.</span>
+            </li>
+            <li class="data-item">
+              <span class="data-label">Soil & Water</span>
+              <span class="data-val">Selection of plants for soil stabilization (erosion control) and watershed protection.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="wrap">
+      <h2 style="color: var(--deep); font-size: 2.2rem; margin-bottom: 15px;">Access to Scientific Data</h2>
+      <p style="max-width:700px; margin:0 auto 20px; font-size: 1.1rem; color: #555;">
+        Our databases are open to institutional, academic, and governmental collaborations.
+      </p>
+      <a href="{{ '/en/impliquer.html#partenariat' | relative_url }}" class="cta-btn">Collaborate with the Data Center</a>
+    </div>
+  </section>
+</main>
