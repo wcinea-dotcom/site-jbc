@@ -3,9 +3,10 @@
 {%- comment -%}
   Détection langue ROBUSTE :
   - si page.lang == "en" (front-matter)
-  - OU si l'URL contient "/en/"
+  - OU si l'URL commence par "/en/"
 {%- endcomment -%}
 {% assign current_url = page.url | default: "/" %}
+
 {% assign is_en = false %}
 {% if page.lang == "en" or current_url contains "/en/" %}
   {% assign is_en = true %}
@@ -17,6 +18,10 @@
 
 {% assign home_url = base | append: "/" %}
 
+{%- comment -%}
+  URLs internes
+  (on garde les noms de fichiers stables pour éviter les 404)
+{%- endcomment -%}
 {% assign url_news = base | append: "/actualites.html" %}
 {% assign url_events = base | append: "/evenements.html" %}
 {% assign url_blog = base | append: "/blog.html" %}
@@ -42,8 +47,8 @@
   - Home : / <-> /en/
 {%- endcomment -%}
 
-{% assign fr_url = current_url %}
-{% assign en_url = current_url %}
+{% assign fr_url = "/" %}
+{% assign en_url = "/en/" %}
 
 {% if current_url == "/en/" or current_url == "/en/index.html" %}
   {% assign fr_url = "/" %}
@@ -52,12 +57,11 @@
   {% assign fr_url = "/" %}
   {% assign en_url = "/en/" %}
 {% elsif current_url contains "/en/" %}
-  {%- comment -%} EN -> FR : retirer le préfixe /en/ uniquement {%- endcomment -%}
-  {% assign fr_url = current_url | remove_first: "/en" %}
-  {% if fr_url == "" %}{% assign fr_url = "/" %}{% endif %}
+  {%- comment -%} EN -> FR : enlever seulement le préfixe "/en/" {%- endcomment -%}
+  {% assign fr_url = current_url | replace_first: "/en/", "/" %}
   {% assign en_url = current_url %}
 {% else %}
-  {%- comment -%} FR -> EN : ajouter le préfixe /en {%- endcomment -%}
+  {%- comment -%} FR -> EN : ajouter le préfixe "/en" {%- endcomment -%}
   {% assign fr_url = current_url %}
   {% assign en_url = "/en" | append: current_url %}
 {% endif %}
@@ -67,7 +71,10 @@
     <div class="top-tier-links">
       <a href="{{ url_news | relative_url }}">{% if is_en %}News{% else %}Nouvelles{% endif %}</a>
       <a href="{{ url_events | relative_url }}">{% if is_en %}Events{% else %}Événements{% endif %}</a>
-      <a href="{{ url_blog | relative_url }}">{% if is_en %}Blog{% else %}Blog{% endif %}</a>
+
+      <!-- ✅ Blog EN / Blogue FR -->
+      <a href="{{ url_blog | relative_url }}">{% if is_en %}Blog{% else %}Blogue{% endif %}</a>
+
       <a href="{{ url_resources | relative_url }}">{% if is_en %}Resources{% else %}Ressources{% endif %}</a>
       <a href="{{ url_data | relative_url }}" class="top-data-link">{% if is_en %}Data{% else %}Données{% endif %}</a>
     </div>
