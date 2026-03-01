@@ -19,7 +19,6 @@ body{
   background: radial-gradient(1100px 700px at 12% 10%, rgba(143,175,90,.16) 0%, rgba(143,175,90,0) 55%),
               linear-gradient(180deg, var(--paper) 0%, #ffffff 100%);
 }
-
 .container{max-width:var(--max);margin:0 auto;padding:0 22px}
 .section{padding:72px 0}
 
@@ -35,30 +34,16 @@ body{
 .lang-switch a.is-active{color:var(--gold)}
 
 /* MAIN TIER */
-.main-tier{
-  background:#fff;
-  border-bottom:1px solid rgba(0,0,0,.06);
-  position:sticky;
-  top:0;
-  z-index:3000;
-}
+.main-tier{background:#fff; border-bottom:1px solid rgba(0,0,0,.06); position:sticky; top:0; z-index:3000}
 .main-tier-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0; gap:18px}
 .brand img{height:56px; width:auto}
 
 .main-nav{display:flex; align-items:center; gap:18px}
-.main-nav > a{
-  font-weight:900;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  font-size:.82rem;
-  color:rgba(31,42,51,.92);
-}
+.main-nav > a{font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:.82rem; color:rgba(31,42,51,.92)}
 .nav-group{display:flex; align-items:center; gap:8px}
 .drop{position:relative}
 .drop button{background:transparent; border:none; cursor:pointer}
 .drop button i{font-size:.75rem}
-
-/* Dropdown menu */
 .menu{
   position:absolute; top:100%; left:0;
   min-width:220px;
@@ -70,7 +55,7 @@ body{
   padding:8px 0;
   display:none;
 }
-.menu.is-open{display:block;} /* ✅ compatible avec le JS */
+.drop.open .menu{display:block}
 .menu a{display:block; padding:10px 14px; color:rgba(31,42,51,.92)}
 .menu a:hover{background:rgba(94,143,58,.08)}
 
@@ -81,15 +66,9 @@ body{
   padding:12px 14px; border-radius:14px;
   font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:.78rem;
 }
-.burger{
-  background:#fff;
-  border:1px solid rgba(0,0,0,.10);
-  border-radius:14px;
-  padding:10px 12px;
-  cursor:pointer
-}
+.burger{background:#fff; border:1px solid rgba(0,0,0,.10); border-radius:14px; padding:10px 12px; cursor:pointer}
 
-/* DRAWER (si tu l’utilises plus tard) */
+/* DRAWER */
 .drawer{
   position:fixed; right:0; top:0; height:100vh; width:min(380px, 88vw);
   background:#fff; box-shadow:-24px 0 70px rgba(0,0,0,.18);
@@ -117,14 +96,13 @@ body{
 .footer-inner{display:grid; grid-template-columns:2fr 1fr 1fr; gap:26px; padding:44px 0}
 .footer h3, .footer h4{margin-bottom:10px}
 .footer p{opacity:.85; line-height:1.8}
-.footer a{opacity:.85; margin:6px 0; display:inline-block}
+.footer a{opacity:.85; margin:6px 0}
 .footer a:hover{opacity:1}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.10)}
 .footer-bottom-inner{padding:14px 0; opacity:.75; font-size:.95rem}
 
-/* RESPONSIVE */
+/* ✅ IMPORTANT: accolades manquantes corrigées ici */
 @media (max-width: 980px){
   .main-nav{display:none}
-  .main-nav.is-open{display:block} /* ✅ burger ouvre le menu */
   .footer-inner{grid-template-columns:1fr}
 }
