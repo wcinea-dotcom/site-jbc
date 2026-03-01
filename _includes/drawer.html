@@ -1,0 +1,43 @@
+<!-- _includes/drawer.html -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-group">
+    <a href="{{ '/' | relative_url }}">ACCUEIL</a>
+    <button type="button" id="drawerAccueilBtn" aria-label="Ouvrir sous-menu Accueil">
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+  </div>
+  <div class="drawer-sub" id="drawerAccueilSub">
+    <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
+    <a href="#">Conseil d'administration</a>
+  </div>
+
+  <a href="{{ '/impliquer.html' | relative_url }}">S'IMPLIQUER</a>
+
+  <div class="drawer-group">
+    <a href="{{ '/sante-de-la-nature.html' | relative_url }}">SANTÉ DE LA NATURE</a>
+    <button type="button" id="drawerNatureBtn" aria-label="Ouvrir sous-menu Santé de la nature">
+      <i class="fa-solid fa-chevron-down"></i>
+    </button>
+  </div>
+  <div class="drawer-sub" id="drawerNatureSub">
+    <a href="{{ '/science.html' | relative_url }}">Sciences</a>
+    <a href="{{ '/donnees.html' | relative_url }}">Données</a>
+    <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
+    <a href="{{ '/recherche.html' | relative_url }}">Horticulture & Restauration</a>
+  </div>
+
+  <a href="{{ '/sante-humaine.html' | relative_url }}">SANTÉ HUMAINE</a>
+  <a href="{{ '/education.html' | relative_url }}">ÉDUCATION</a>
+
+  <hr class="drawer-sep">
+
+  <a href="{{ '/actualites.html' | relative_url }}" class="drawer-secondary">Nouvelles</a>
+  <a href="{{ '/evenements.html' | relative_url }}" class="drawer-secondary">Événements</a>
+  <a href="{{ '/blog.html' | relative_url }}" class="drawer-secondary">Blog</a>
+  <a href="{{ '/ressources.html' | relative_url }}" class="drawer-secondary">Ressources</a>
+  <a href="{{ '/donnees.html' | relative_url }}" class="drawer-secondary is-gold">Données</a>
+
+  <div class="drawer-cta">
+    <a class="btn-member-main" href="{{ '/impliquer.html#membership' | relative_url }}">DEVENIR MEMBRE</a>
+  </div>
+</div>
