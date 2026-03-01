@@ -1,4 +1,13 @@
 <!-- _includes/header.html -->
+
+{% assign current_ref = page.ref | default: "accueil" %}
+
+{% assign fr_page = site.pages | where: "ref", current_ref | where: "lang", "fr" | first %}
+{% assign en_page = site.pages | where: "ref", current_ref | where: "lang", "en" | first %}
+
+{% assign fr_url = fr_page.url | default: "/" %}
+{% assign en_url = en_page.url | default: "/en/" %}
+
 <div class="top-tier">
   <div class="container top-tier-inner">
     <div class="top-tier-links">
@@ -10,17 +19,24 @@
     </div>
 
     <div class="top-tier-tools">
-      <div class="tool-item">Recherche <i class="fa-solid fa-magnifying-glass"></i></div>
+      <div class="tool-item">Recherche <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
 
       <!-- Switch langue (auto via ref/lang) -->
-      <div class="tool-item lang-switch">
-        {% assign current_ref = page.ref %}
-        {% assign fr_page = site.pages | where: "ref", current_ref | where: "lang", "fr" | first %}
-        {% assign en_page = site.pages | where: "ref", current_ref | where: "lang", "en" | first %}
+      <div class="tool-item lang-switch" aria-label="Sélecteur de langue">
+        {% if fr_page %}
+          <a href="{{ fr_url | relative_url }}" class="{% if page.lang == 'fr' %}is-active{% endif %}">FR</a>
+        {% else %}
+          <a href="{{ '/' | relative_url }}" class="{% if page.lang == 'fr' %}is-active{% endif %}">FR</a>
+        {% endif %}
 
-        <a href="{{ fr_page.url | default: '/' | relative_url }}" class="{% if page.lang == 'fr' %}is-active{% endif %}">FR</a>
-        <span class="lang-sep">|</span>
-        <a href="{{ en_page.url | default: '/index-en.html' | relative_url }}" class="{% if page.lang == 'en' %}is-active{% endif %}">EN</a>
+        <span class="lang-sep" aria-hidden="true">|</span>
+
+        {% if en_page %}
+          <a href="{{ en_url | relative_url }}" class="{% if page.lang == 'en' %}is-active{% endif %}">EN</a>
+        {% else %}
+          <!-- Si la page EN n'existe pas encore, on pointe vers l'accueil EN -->
+          <a href="{{ '/en/' | relative_url }}" class="{% if page.lang == 'en' %}is-active{% endif %}">EN</a>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -29,20 +45,24 @@
 <header class="main-tier">
   <div class="container main-tier-inner">
     <a class="brand" href="{{ '/' | relative_url }}">
-      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes">
+      <img
+        src="{{ '/images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}"
+        alt="Logo Jardin Botanique des Cayes"
+        loading="lazy"
+      >
     </a>
 
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="Navigation principale">
       <div class="drop" id="dropAccueil">
         <div class="nav-group">
           <a href="{{ '/' | relative_url }}">ACCUEIL</a>
-          <button type="button" id="btnAccueil" aria-label="Ouvrir menu Accueil">
-            <i class="fa-solid fa-chevron-down"></i>
+          <button type="button" id="btnAccueil" aria-label="Ouvrir menu Accueil" aria-expanded="false" aria-controls="menuAccueil">
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
           </button>
         </div>
-        <div class="menu">
+        <div class="menu" id="menuAccueil">
           <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
-          <a href="#">Conseil d'administration</a>
+          <a href="{{ '/conseil.html' | relative_url }}">Conseil d'administration</a>
         </div>
       </div>
 
@@ -51,15 +71,15 @@
       <div class="drop" id="dropNature">
         <div class="nav-group">
           <a href="{{ '/sante-de-la-nature.html' | relative_url }}">SANTÉ DE LA NATURE</a>
-          <button type="button" id="btnNature" aria-label="Ouvrir menu Santé de la nature">
-            <i class="fa-solid fa-chevron-down"></i>
+          <button type="button" id="btnNature" aria-label="Ouvrir menu Santé de la nature" aria-expanded="false" aria-controls="menuNature">
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
           </button>
         </div>
-        <div class="menu">
+        <div class="menu" id="menuNature">
           <a href="{{ '/science.html' | relative_url }}">Sciences</a>
           <a href="{{ '/donnees.html' | relative_url }}">Données</a>
           <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
-          <a href="{{ '/recherche.html' | relative_url }}">Horticulture & Restauration</a>
+          <a href="{{ '/recherche.html' | relative_url }}">Horticulture &amp; Restauration</a>
         </div>
       </div>
 
@@ -69,8 +89,8 @@
 
     <div class="main-actions">
       <a href="{{ '/impliquer.html#membership' | relative_url }}" class="btn-member-main">DEVENIR MEMBRE</a>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu mobile">
-        <i class="fa-solid fa-bars"></i>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu mobile" aria-expanded="false" aria-controls="drawer">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
     </div>
   </div>
