@@ -1,11 +1,16 @@
+
 ---
 layout: default
-title: "Données & Santé"
+title: "Human Health"
+lang: en
+ref: sante-humaine
+permalink: /en/human-health.html
+description: "Human health and applied botany: taxonomy, ecology, ethnobotany, and phytochemistry to support One Health in Haiti."
 ---
 
 <style>
   :root{
-    /* VOS VARIABLES INTACTES */
+    /* SAME VARIABLES (UNCHANGED) */
     --primary-green:#3A5F40;
     --dark-green:#0F1A13;
     --btn-green:#3E5641;
@@ -34,9 +39,6 @@ title: "Données & Santé"
   img{display:block;width:100%;height:auto;object-fit:cover;}
   .container{max-width:1200px;margin:0 auto;padding:0 24px;}
 
-  /* =========================================
-     VOTRE CODE DE CONTENU (TOTALEMENT INTACT)
-     ========================================= */
   /* HERO */
   .hero-donnees{
     position:relative;
@@ -85,7 +87,7 @@ title: "Données & Santé"
   }
   .btn-hero:hover{filter:brightness(.95);transform:translateY(-1px);}
 
-  /* TITRES SECTIONS */
+  /* SECTION HEADERS */
   .section-header{text-align:center;margin-bottom:50px;}
   .section-header span{
     display:block;
@@ -119,7 +121,7 @@ title: "Données & Santé"
     font-style:italic;
   }
 
-  /* SECTION DONNEES (2x2) */
+  /* DATA SECTION */
   .science-section{padding:80px 0;background:var(--bg-light);}
   .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;}
   .data-card{
@@ -138,7 +140,7 @@ title: "Données & Santé"
     margin-bottom:14px;
   }
 
-  /* HISTOIRE (2 colonnes) */
+  /* HISTORY */
   .history-section{padding:100px 0;background:#fff;}
   .history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:60px;align-items:start;}
   .history-col{text-align:center;}
@@ -162,7 +164,7 @@ title: "Données & Santé"
     text-align:justify;
   }
 
-  /* QUI ACCOMPAGNONS-NOUS (3 cartes horizontales) */
+  /* AUDIENCES */
   .target-section{padding:100px 0;background:var(--cream);}
   .grid-3{
     display:grid;
@@ -196,7 +198,7 @@ title: "Données & Santé"
     font-family:'Lato',sans-serif;
   }
 
-  /* ACTIVITES (4) */
+  /* ACTIVITIES */
   .activity-section{padding:80px 0;background:#fff;}
   .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;}
   .activity-card{
@@ -256,20 +258,20 @@ title: "Données & Santé"
   <section class="hero-donnees">
     <div class="container hero-content">
       <span class="hero-badge">ONE HEALTH</span>
-      <h1>La Botanique : Le Socle de<br>l'Efficacité Thérapeutique</h1>
+      <h1>Botany: The Foundation of<br>Therapeutic Effectiveness</h1>
       <p>
-        Toutes les sciences comme la phytothérapie et la nutrithérapie nécessitent des données fondamentales pour assurer leur rigueur et leur efficacité.
+        Plant-based health sciences require robust foundational data to ensure rigor, safety, and effectiveness.
       </p>
-      <a href="#donnees" class="btn-hero">Explorer nos Données</a>
+      <a href="#donnees" class="btn-hero">Explore Our Data</a>
     </div>
   </section>
 
   <section class="intro-section">
     <div class="intro-box">
-      <h2 class="intro-title">Sans botanique, pas de santé par les plantes</h2>
-      <span class="intro-subtitle">Notre conviction scientifique</span>
+      <h2 class="intro-title">Without botany, there is no plant-based health</h2>
+      <span class="intro-subtitle">Our scientific position</span>
       <p class="intro-text">
-        "La phytothérapie, la naturopathie, la nutrithérapie et les approches holistiques ont un point commun : elles ont besoin de connaissances fondamentales sur les plantes. Sans données botaniques structurées (identification, écologie, chimie), les décisions en santé restent fragiles."
+        "Phytotherapy, naturopathy, nutritional therapy, and holistic approaches share a core requirement: structured botanical knowledge. Without rigorous data (identification, ecology, chemistry), health decisions remain fragile."
       </p>
     </div>
   </section>
@@ -277,40 +279,40 @@ title: "Données & Santé"
   <section class="science-section" id="donnees">
     <div class="container">
       <div class="section-header">
-        <span>Fondements</span>
-        <h2>Les 4 Sources de Données</h2>
+        <span>Foundations</span>
+        <h2>The 4 Data Pillars</h2>
       </div>
 
       <div class="grid-2">
         <article class="data-card">
-          <img src="{{ 'images/sante/sante-evolution-taxonomie.jpg' | relative_url }}" alt="Évolution & Taxonomie" class="data-img">
+          <img src="{{ 'images/sante/sante-evolution-taxonomie.jpg' | relative_url }}" alt="Evolution & Taxonomy" class="data-img">
           <div class="data-body">
-            <h3>1. Évolution & Taxonomie</h3>
-            <p>Comprendre l'évolution des plantes explique pourquoi certaines familles développent des propriétés spécifiques. La Taxonomie permet de nommer et identifier les plantes sans erreur.</p>
+            <h3>1. Evolution & Taxonomy</h3>
+            <p>Understanding plant evolution helps explain why certain families develop specific properties. Taxonomy provides accurate names and identification.</p>
           </div>
         </article>
 
         <article class="data-card">
-          <img src="{{ 'images/sante/sante-ecologie-zoopharmacognosie.jpg' | relative_url }}" alt="Écologie & Zoopharmacognosie" class="data-img">
+          <img src="{{ 'images/sante/sante-ecologie-zoopharmacognosie.jpg' | relative_url }}" alt="Ecology & Zoopharmacognosy" class="data-img">
           <div class="data-body">
-            <h3>2. Écologie & Zoopharmacognosie</h3>
-            <p>L'interaction plante-environnement est essentielle. La plante produit des molécules pour s'adapter. Nous étudions aussi la Zoopharmacognosie pour comprendre les effets thérapeutiques.</p>
+            <h3>2. Ecology & Zoopharmacognosy</h3>
+            <p>Plant–environment interactions shape molecular production. We also study zoopharmacognosy to better understand therapeutic effects.</p>
           </div>
         </article>
 
         <article class="data-card">
-          <img src="{{ 'images/sante/sante-ethnobotanique-nutrition.jpg' | relative_url }}" alt="Ethnobotanique & Nutrition" class="data-img">
+          <img src="{{ 'images/sante/sante-ethnobotanique-nutrition.jpg' | relative_url }}" alt="Ethnobotany & Nutrition" class="data-img">
           <div class="data-body">
-            <h3>3. Ethnobotanique & Nutrition</h3>
-            <p>Des millénaires d'expérience. Nous collectons les données culturelles sur l'usage nutritionnel et thérapeutique pour identifier "quoi manger" et "comment se soigner".</p>
+            <h3>3. Ethnobotany & Nutrition</h3>
+            <p>Millennia of experience. We document cultural knowledge on nutritional and therapeutic uses to inform safe and relevant practices.</p>
           </div>
         </article>
 
         <article class="data-card">
-          <img src="{{ 'images/sante/sante-phytochimie-pharmacognosie.jpg' | relative_url }}" alt="Phytochimie & Pharmacognosie" class="data-img">
+          <img src="{{ 'images/sante/sante-phytochimie-pharmacognosie.jpg' | relative_url }}" alt="Phytochemistry & Pharmacognosy" class="data-img">
           <div class="data-body">
-            <h3>4. Phytochimie & Pharmacognosie</h3>
-            <p>L'analyse des molécules. La phytochimie identifie ces composés, et la pharmacognosie étudie leurs effets thérapeutiques réels sur l'organisme.</p>
+            <h3>4. Phytochemistry & Pharmacognosy</h3>
+            <p>Compound analysis. Phytochemistry identifies plant molecules, and pharmacognosy studies their real physiological effects.</p>
           </div>
         </article>
       </div>
@@ -320,7 +322,7 @@ title: "Données & Santé"
   <section class="history-section">
     <div class="container">
       <div class="section-header">
-        <h2>Retour aux Sources</h2>
+        <h2>Returning to the Origins</h2>
       </div>
 
       <div class="history-grid">
@@ -330,17 +332,17 @@ title: "Données & Santé"
           </div>
           <span class="history-caption">Jardin Botanique des Cayes (2026)</span>
           <p class="history-text">
-            Nous revenons à la mission originelle : documenter la riche culture (Taïnos, Africaine, Européenne) et produire les données scientifiques pour sécuriser la santé par les plantes aujourd'hui.
+            We return to the original mission: documenting rich cultural knowledge and producing scientific data to strengthen safe plant-based health today.
           </p>
         </div>
 
         <div class="history-col">
           <div class="history-img-frame">
-            <img src="{{ 'images/sante/sante-jardin-botanique-padoue.jpg' | relative_url }}" alt="Jardin de Padoue (1545)">
+            <img src="{{ 'images/sante/sante-jardin-botanique-padoue.jpg' | relative_url }}" alt="Padua Botanical Garden (1545)">
           </div>
-          <span class="history-caption">Jardin de Padoue (1545)</span>
+          <span class="history-caption">Padua Botanical Garden (1545)</span>
           <p class="history-text">
-            Le premier jardin botanique au monde a été créé en Italie pour enseigner les plantes médicinales aux futurs médecins. C'était la base historique de la médecine moderne.
+            The first botanical garden was created in Italy to teach medicinal plants to future physicians—one of the historical foundations of modern medicine.
           </p>
         </div>
       </div>
@@ -351,31 +353,31 @@ title: "Données & Santé"
     <div class="container">
       <div class="section-header">
         <span>Collaboration</span>
-        <h2>Qui accompagnons-nous ?</h2>
+        <h2>Who do we support?</h2>
       </div>
 
       <div class="grid-3">
         <div class="expert-card">
-          <img src="{{ 'images/sante/sante-medecins-personnel-de-sante.jpg' | relative_url }}" alt="Médecins et personnel de santé" class="expert-img">
+          <img src="{{ 'images/sante/sante-medecins-personnel-de-sante.jpg' | relative_url }}" alt="Physicians and healthcare professionals" class="expert-img">
           <div class="expert-content">
-            <h3 class="expert-title">Médecins et personnel de santé</h3>
-            <p class="expert-desc">Pour comprendre les interactions plantes-médicaments, la toxicologie et l'usage rationnel en clinique.</p>
+            <h3 class="expert-title">Physicians & healthcare professionals</h3>
+            <p class="expert-desc">To understand plant–drug interactions, toxicology, and rational clinical use.</p>
           </div>
         </div>
 
         <div class="expert-card">
-          <img src="{{ 'images/sante/sante-phytotherapeutes-naturopathes.jpg' | relative_url }}" alt="Phytothérapeutes & Naturophes" class="expert-img">
+          <img src="{{ 'images/sante/sante-phytotherapeutes-naturopathes.jpg' | relative_url }}" alt="Phytotherapists and naturopaths" class="expert-img">
           <div class="expert-content">
-            <h3 class="expert-title">Phytothérapeutes & Naturophes</h3>
-            <p class="expert-desc">Pour rationaliser les pratiques traditionnelles, identifier correctement les plantes et sécuriser les dosages.</p>
+            <h3 class="expert-title">Phytotherapists & naturopaths</h3>
+            <p class="expert-desc">To standardize practices, ensure correct identification, and improve dosage safety.</p>
           </div>
         </div>
 
         <div class="expert-card">
-          <img src="{{ 'images/sante/sante-chercheurs-industrie.jpg' | relative_url }}" alt="Chercheurs & Industrie" class="expert-img">
+          <img src="{{ 'images/sante/sante-chercheurs-industrie.jpg' | relative_url }}" alt="Researchers and industry" class="expert-img">
           <div class="expert-content">
-            <h3 class="expert-title">Chercheurs & Industrie</h3>
-            <p class="expert-desc">Pour découvrir de nouvelles molécules et développer des médicaments à partir de la biodiversité haïtienne.</p>
+            <h3 class="expert-title">Researchers & industry</h3>
+            <p class="expert-desc">To discover new compounds and develop therapies based on Haitian biodiversity.</p>
           </div>
         </div>
       </div>
@@ -385,24 +387,24 @@ title: "Données & Santé"
   <section class="activity-section">
     <div class="container">
       <div class="section-header">
-        <span>Nos Actions</span>
-        <h2>Nos Activités Principales</h2>
+        <span>Our work</span>
+        <h2>Core Activities</h2>
       </div>
 
       <div class="grid-4">
         <div class="activity-card">
-          <img src="{{ 'images/sante/sante-etudes-donnees.jpg' | relative_url }}" alt="Étude & données" class="activity-img">
+          <img src="{{ 'images/sante/sante-etudes-donnees.jpg' | relative_url }}" alt="Research and data" class="activity-img">
           <div class="activity-body">
-            <h3>Étude & données</h3>
-            <p>Recherche fondamentale.</p>
+            <h3>Research & data</h3>
+            <p>Foundational research.</p>
           </div>
         </div>
 
         <div class="activity-card">
-          <img src="{{ 'images/sante/sante-reproduction.jpg' | relative_url }}" alt="Reproduction" class="activity-img">
+          <img src="{{ 'images/sante/sante-reproduction.jpg' | relative_url }}" alt="Propagation" class="activity-img">
           <div class="activity-body">
-            <h3>Reproduction</h3>
-            <p>Pépinière médicinale.</p>
+            <h3>Propagation</h3>
+            <p>Medicinal plant nursery.</p>
           </div>
         </div>
 
@@ -410,15 +412,15 @@ title: "Données & Santé"
           <img src="{{ 'images/sante/sante-conservation.jpg' | relative_url }}" alt="Conservation" class="activity-img">
           <div class="activity-body">
             <h3>Conservation</h3>
-            <p>Protection in-situ.</p>
+            <p>In situ protection.</p>
           </div>
         </div>
 
         <div class="activity-card">
-          <img src="{{ 'images/sante/sante-sensibilisation-formation.jpg' | relative_url }}" alt="Sensibilisation & formation" class="activity-img">
+          <img src="{{ 'images/sante/sante-sensibilisation-formation.jpg' | relative_url }}" alt="Education and training" class="activity-img">
           <div class="activity-body">
-            <h3>Sensibilisation & formation</h3>
-            <p>Éducation santé.</p>
+            <h3>Education & training</h3>
+            <p>Health education.</p>
           </div>
         </div>
       </div>
@@ -428,12 +430,12 @@ title: "Données & Santé"
   <section class="brh-section">
     <div class="container">
       <div class="brh-box">
-        <img src="{{ 'images/sante/sante-logo-brh.jpg' | relative_url }}" alt="Logo BRH" style="height:80px;margin:0 auto 18px;">
-        <h2>Partenariat BRH</h2>
+        <img src="{{ 'images/sante/sante-logo-brh.jpg' | relative_url }}" alt="BRH logo" style="height:80px;margin:0 auto 18px;">
+        <h2>BRH Partnership</h2>
         <p style="margin:14px 0 18px;">
-          Avec le soutien de la Banque de la République d'Haïti, nous avons réalisé l'inventaire des plantes médicinales du Grand Sud, produit un Atlas d'identification et un plan de conservation.
+          With the support of the Bank of the Republic of Haiti, we completed an inventory of medicinal plants in Southern Haiti, produced an identification atlas, and designed a conservation plan.
         </p>
-        <a href="#" style="color:var(--primary-green);font-weight:900;">Découvrir l'Atlas →</a>
+        <a href="#" style="color:var(--primary-green);font-weight:900;">Discover the Atlas →</a>
       </div>
     </div>
   </section>
@@ -441,14 +443,14 @@ title: "Données & Santé"
   <section class="form-section">
     <div class="container">
       <div class="section-header" style="margin-bottom:28px;">
-        <h2 style="color:#fff;">Collaborer avec nous</h2>
-        <p style="color:rgba(255,255,255,.92);margin-top:10px;">Vous voulez travailler pour la santé de l'homme et de la nature ?</p>
+        <h2 style="color:#fff;">Collaborate with us</h2>
+        <p style="color:rgba(255,255,255,.92);margin-top:10px;">Would you like to work for human and environmental health?</p>
       </div>
 
       <div class="form-container">
         <form action="#" method="POST" data-netlify="true">
           <div class="form-group">
-            <label for="nom">Nom Complet</label>
+            <label for="nom">Full Name</label>
             <input type="text" id="nom" name="nom" class="form-control" required>
           </div>
           <div class="form-group">
@@ -459,7 +461,7 @@ title: "Données & Santé"
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
           </div>
-          <button type="submit" class="btn-submit">Envoyer</button>
+          <button type="submit" class="btn-submit">Send</button>
         </form>
       </div>
     </div>
