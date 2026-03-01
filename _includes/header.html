@@ -1,105 +1,77 @@
-<div class="hdr-top-tier">
-  <div class="hdr-top-inner">
-
-    <div class="hdr-top-links">
-      {% if page.lang == 'en' %}
-        <a class="hdr-hot" href="{{ '/en/sos-petition.html' | relative_url }}"><i class="fa-solid fa-fire"></i> SOS PETITION</a>
-        <a href="{{ '/en/actualites.html' | relative_url }}">News</a>
-        <a href="{{ '/en/evenements.html' | relative_url }}">Events</a>
-        <a href="{{ '/en/blog.html' | relative_url }}">Blog</a>
-        <a href="{{ '/en/ressources.html' | relative_url }}">Resources</a>
-        <a class="hdr-gold" href="{{ '/en/donnees.html' | relative_url }}">Data</a>
-      {% else %}
-        <a class="hdr-hot" href="{{ '/sos-petition.html' | relative_url }}"><i class="fa-solid fa-fire"></i> SOS PÉTITION</a>
-        <a href="{{ '/actualites.html' | relative_url }}">Nouvelles</a>
-        <a href="{{ '/evenements.html' | relative_url }}">Événements</a>
-        <a href="{{ '/blog.html' | relative_url }}">Blog</a>
-        <a href="{{ '/ressources.html' | relative_url }}">Resources</a>
-        <a class="hdr-gold" href="{{ '/donnees.html' | relative_url }}">Données</a>
-      {% endif %}
+<!-- _includes/header.html -->
+<div class="top-tier">
+  <div class="container top-tier-inner">
+    <div class="top-tier-links">
+      <a href="{{ '/actualites.html' | relative_url }}">Nouvelles</a>
+      <a href="{{ '/evenements.html' | relative_url }}">Événements</a>
+      <a href="{{ '/blog.html' | relative_url }}">Blog</a>
+      <a href="{{ '/ressources.html' | relative_url }}">Ressources</a>
+      <a href="{{ '/donnees.html' | relative_url }}" class="top-data-link">Données</a>
     </div>
 
-    <div class="hdr-top-tools">
-      <div class="hdr-tool-item">
-        {% if page.lang == 'en' %}Search{% else %}Recherche{% endif %} <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
+    <div class="top-tier-tools">
+      <div class="tool-item">Recherche <i class="fa-solid fa-magnifying-glass"></i></div>
 
-      <div class="hdr-tool-item hdr-lang">
-        {% if page.lang == 'en' %}
-          <a class="hdr-lang-muted" href="{{ '/' | relative_url }}">FR</a>
-          <span class="hdr-sep">|</span>
-          <span class="hdr-lang-active">EN</span>
-        {% else %}
-          <span class="hdr-lang-active">FR</span>
-          <span class="hdr-sep">|</span>
-          <a class="hdr-lang-muted" href="{{ '/en/' | relative_url }}">EN</a>
-        {% endif %}
+      <!-- Switch langue (auto via ref/lang) -->
+      <div class="tool-item lang-switch">
+        {% assign current_ref = page.ref %}
+        {% assign fr_page = site.pages | where: "ref", current_ref | where: "lang", "fr" | first %}
+        {% assign en_page = site.pages | where: "ref", current_ref | where: "lang", "en" | first %}
+
+        <a href="{{ fr_page.url | default: '/' | relative_url }}" class="{% if page.lang == 'fr' %}is-active{% endif %}">FR</a>
+        <span class="lang-sep">|</span>
+        <a href="{{ en_page.url | default: '/index-en.html' | relative_url }}" class="{% if page.lang == 'en' %}is-active{% endif %}">EN</a>
       </div>
     </div>
-
   </div>
 </div>
 
-<header class="hdr-main-tier">
-  <div class="hdr-main-inner">
-
-    <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="hdr-brand">
-      <img src="{{ '/images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes">
+<header class="main-tier">
+  <div class="container main-tier-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes">
     </a>
 
-    <nav class="hdr-nav" id="hdr-nav">
-      <div class="hdr-drop">
-        <div class="hdr-nav-group">
-          <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">
-            {% if page.lang == 'en' %}HOME{% else %}ACCUEIL{% endif %}
-          </a>
-          <button type="button" class="hdr-dropbtn" aria-expanded="false"><i class="fa-solid fa-chevron-down"></i></button>
+    <nav class="main-nav">
+      <div class="drop" id="dropAccueil">
+        <div class="nav-group">
+          <a href="{{ '/' | relative_url }}">ACCUEIL</a>
+          <button type="button" id="btnAccueil" aria-label="Ouvrir menu Accueil">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
         </div>
-        <div class="hdr-menu">
-          <a href="{% if page.lang == 'en' %}{{ '/en/apropos.html' | relative_url }}{% else %}{{ '/apropos.html' | relative_url }}{% endif %}">
-            {% if page.lang == 'en' %}About{% else %}À propos{% endif %}
-          </a>
-          <a href="#">{% if page.lang == 'en' %}Board of Directors{% else %}Conseil d'administration{% endif %}</a>
+        <div class="menu">
+          <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
+          <a href="#">Conseil d'administration</a>
         </div>
       </div>
 
-      <a href="{% if page.lang == 'en' %}{{ '/en/impliquer.html' | relative_url }}{% else %}{{ '/impliquer.html' | relative_url }}{% endif %}">
-        {% if page.lang == 'en' %}GET INVOLVED{% else %}S'IMPLIQUER{% endif %}
-      </a>
+      <a href="{{ '/impliquer.html' | relative_url }}">S'IMPLIQUER</a>
 
-      <div class="hdr-drop">
-        <div class="hdr-nav-group">
-          <a href="{% if page.lang == 'en' %}{{ '/en/sante-de-la-nature.html' | relative_url }}{% else %}{{ '/sante-de-la-nature.html' | relative_url }}{% endif %}">
-            {% if page.lang == 'en' %}NATURE'S HEALTH{% else %}SANTÉ DE LA NATURE{% endif %}
-          </a>
-          <button type="button" class="hdr-dropbtn" aria-expanded="false"><i class="fa-solid fa-chevron-down"></i></button>
+      <div class="drop" id="dropNature">
+        <div class="nav-group">
+          <a href="{{ '/sante-de-la-nature.html' | relative_url }}">SANTÉ DE LA NATURE</a>
+          <button type="button" id="btnNature" aria-label="Ouvrir menu Santé de la nature">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
         </div>
-        <div class="hdr-menu">
-          <a href="{% if page.lang == 'en' %}{{ '/en/science.html' | relative_url }}{% else %}{{ '/science.html' | relative_url }}{% endif %}">Science</a>
-          <a href="{% if page.lang == 'en' %}{{ '/en/donnees.html' | relative_url }}{% else %}{{ '/donnees.html' | relative_url }}{% endif %}">Data</a>
-          <a href="{% if page.lang == 'en' %}{{ '/en/conservation.html' | relative_url }}{% else %}{{ '/conservation.html' | relative_url }}{% endif %}">Conservation</a>
-          <a href="{% if page.lang == 'en' %}{{ '/en/horticulture.html' | relative_url }}{% else %}{{ '/horticulture.html' | relative_url }}{% endif %}">Horticulture & Restoration</a>
+        <div class="menu">
+          <a href="{{ '/science.html' | relative_url }}">Sciences</a>
+          <a href="{{ '/donnees.html' | relative_url }}">Données</a>
+          <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
+          <a href="{{ '/recherche.html' | relative_url }}">Horticulture & Restauration</a>
         </div>
       </div>
 
-      <a href="{% if page.lang == 'en' %}{{ '/en/sante-humaine.html' | relative_url }}{% else %}{{ '/sante-humaine.html' | relative_url }}{% endif %}">
-        {% if page.lang == 'en' %}HUMAN HEALTH{% else %}SANTÉ HUMAINE{% endif %}
-      </a>
-
-      <a href="{% if page.lang == 'en' %}{{ '/en/education.html' | relative_url }}{% else %}{{ '/education.html' | relative_url }}{% endif %}">
-        {% if page.lang == 'en' %}EDUCATION{% else %}ÉDUCATION{% endif %}
-      </a>
+      <a href="{{ '/sante-humaine.html' | relative_url }}">SANTÉ HUMAINE</a>
+      <a href="{{ '/education.html' | relative_url }}">ÉDUCATION</a>
     </nav>
 
-    <div class="hdr-actions">
-      <a class="hdr-btn-member" href="{% if page.lang == 'en' %}{{ '/en/impliquer.html#membership' | relative_url }}{% else %}{{ '/impliquer.html#membership' | relative_url }}{% endif %}">
-        {% if page.lang == 'en' %}BECOME A MEMBER{% else %}DEVENIR MEMBRE{% endif %}
-      </a>
-
-      <button class="hdr-burger" id="hdr-burger" aria-label="Menu">
+    <div class="main-actions">
+      <a href="{{ '/impliquer.html#membership' | relative_url }}" class="btn-member-main">DEVENIR MEMBRE</a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu mobile">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
-
   </div>
 </header>
