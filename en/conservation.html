@@ -1,1 +1,165 @@
+---
+layout: default
+title: "Conservation"
+lang: en
+ref: conservation
+description: "Concrete actions for the preservation of endemic and native species and natural habitats in Haiti."
+---
 
+<style>
+  :root {
+    --primary: #2F4F2F;
+    --secondary: #4A6741;
+    --accent: #C5A059;
+    --text-dark: #333333;
+    --white: #FFFFFF;
+    --light-bg: #F4F7F5;
+    --radius: 12px;
+    --shadow: 0 10px 25px rgba(0,0,0,0.06);
+  }
+  .section { padding: 80px 0; }
+  .hero-conservation {
+    height: 55vh; min-height: 400px;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.45)),
+                url('{{ "images/sante-de-la-nature/jconservation-strategique.jpg" | relative_url }}') center/cover no-repeat;
+    display: flex; align-items: center; color: #fff;
+  }
+  .hero-conservation h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 14px; }
+  .kicker { color: var(--accent); font-weight: 900; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 8px; display: block; }
+
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 26px; margin-top: 50px; }
+  .pillar-card { background: var(--white); border: 1px solid rgba(0,0,0,.06); border-radius: 20px; padding: 34px 28px; box-shadow: var(--shadow); transition: 0.3s; text-align: center; }
+  .pillar-card:hover { transform: translateY(-5px); }
+  .pillar-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 16px; }
+  .pillar-card h3 { font-size: 1.35rem; color: var(--primary); margin-bottom: 10px; }
+  .pillar-card p { color: #666; line-height: 1.7; font-size: 1rem; }
+
+  .feature-row { display: flex; align-items: center; gap: 60px; margin-bottom: 80px; }
+  .feature-row:nth-child(even) { flex-direction: row-reverse; }
+  .feature-img { flex: 1.1; border-radius: 20px; overflow: hidden; height: 400px; box-shadow: 0 20px 55px rgba(0,0,0,.1); }
+  .feature-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+  .feature-img:hover img { transform: scale(1.03); }
+  .feature-text { flex: 0.9; }
+  .feature-text h3 { font-size: 2.2rem; color: var(--primary); margin-bottom: 16px; line-height: 1.2; }
+  .feature-text p { font-size: 1.05rem; color: #666; line-height: 1.8; margin-bottom: 14px; }
+
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; text-align: center; margin: 60px 0; }
+  .stat-box { background: var(--primary); color: #fff; border-radius: 20px; padding: 36px 20px; }
+  .stat-num { font-size: 3rem; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 8px; }
+  .stat-label { font-size: 1rem; opacity: 0.88; }
+
+  .cta-box { background: var(--light-bg); border-radius: 24px; padding: 60px 40px; text-align: center; }
+  .cta-box h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 16px; }
+  .cta-box p { max-width: 700px; margin: 0 auto 26px; color: #666; font-size: 1.1rem; line-height: 1.8; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--primary); color: #fff; border-radius: 50px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: 0.3s; text-decoration: none; }
+  .btn-cta:hover { background: var(--secondary); transform: translateY(-3px); }
+
+  @media (max-width: 900px) {
+    .feature-row, .feature-row:nth-child(even) { flex-direction: column; }
+    .stats-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<main>
+  <section class="hero-conservation">
+    <div class="container">
+      <span class="kicker">Department</span>
+      <h1>Conservation</h1>
+      <p style="font-size:1.2rem; opacity:.9; max-width:620px;">Protecting Haiti's unique biodiversity through science-driven, community-engaged conservation action.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:10px;">
+        <span class="kicker">Our Pillars</span>
+        <h2 style="font-size:2.5rem; color:var(--primary); margin-bottom:16px;">Four Axes of Conservation</h2>
+        <p style="max-width:760px; margin:0 auto; color:#666; font-size:1.1rem; line-height:1.8;">From seed banks to in-situ restoration, our conservation strategy addresses biodiversity loss at every level.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-seedling"></i></div>
+          <h3>Ex-situ Conservation</h3>
+          <p>Living collections, seed banks and tissue culture to safeguard threatened plant genetic resources.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+          <h3>In-situ Protection</h3>
+          <p>On-the-ground monitoring and habitat protection for rare and endemic species in their natural environments.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-tree"></i></div>
+          <h3>Ecological Restoration</h3>
+          <p>Active reforestation and ecosystem rehabilitation using native plant species to restore degraded habitats.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon"><i class="fa-solid fa-people-group"></i></div>
+          <h3>Community Engagement</h3>
+          <p>Education, training and partnership with local communities to build lasting conservation stewardship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--light-bg);">
+    <div class="container">
+      <div class="feature-row">
+        <div class="feature-img"><img src="{{ 'images/sante-de-la-nature/collections-vivantes.jpg' | relative_url }}" alt="Living collections" loading="lazy"></div>
+        <div class="feature-text">
+          <span class="kicker">Ex-situ</span>
+          <h3>Living Collections &amp; Seed Bank</h3>
+          <p>Our botanical garden maintains curated living collections of native and endemic Haitian plants. The accompanying seed bank preserves genetic material from threatened species, providing a vital safety net against extinction.</p>
+          <p>Each accession is documented, georeferenced, and linked to our biodiversity database for scientific use.</p>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-img"><img src="{{ 'images/sante-de-la-nature/suivi-especes-prioritaires.jpg' | relative_url }}" alt="Species monitoring" loading="lazy"></div>
+        <div class="feature-text">
+          <span class="kicker">In-situ</span>
+          <h3>Priority Species Monitoring</h3>
+          <p>Field teams conduct systematic monitoring of Haiti's most threatened plant species, collecting data on population size, health, and habitat quality. This data informs adaptive conservation management.</p>
+          <p>GPS-tracked observations are integrated into our open biodiversity database.</p>
+        </div>
+      </div>
+
+      <div class="feature-row">
+        <div class="feature-img"><img src="{{ 'images/sante-de-la-nature/production-pour-conservation.jpg' | relative_url }}" alt="Plant production" loading="lazy"></div>
+        <div class="feature-text">
+          <span class="kicker">Restoration</span>
+          <h3>Native Plant Production</h3>
+          <p>Our nursery produces thousands of native and endemic plant specimens annually for reforestation and habitat restoration projects. We work with communities, schools and partner organizations to plant and maintain these ecological investments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num">200+</div>
+          <div class="stat-label">Plant species in our living collections</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">50+</div>
+          <div class="stat-label">Priority species monitored</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">1000+</div>
+          <div class="stat-label">Plants produced annually</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:20px;">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Support Conservation</h2>
+        <p>Are you a scientist, donor, organization, or volunteer interested in protecting Haiti's unique biodiversity? Partner with us to amplify conservation impact.</p>
+        <a href="{{ '/en/impliquer.html' | relative_url }}" class="btn-cta">Get Involved <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>

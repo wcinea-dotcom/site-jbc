@@ -1,1 +1,168 @@
+---
+layout: default
+title: "Science & Projects"
+lang: en
+ref: science
+description: "Scientific research, botanical studies and ecological monitoring at the Cayes Botanical Garden."
+---
 
+<style>
+  :root {
+    --primary: #1a4332;
+    --secondary: #2d5a27;
+    --accent: #c5a059;
+    --deep-text: #243039;
+    --text: #1f2a33;
+    --muted: #5a6772;
+    --bg: #ffffff;
+    --soft: #f4f7f4;
+    --border: rgba(0,0,0,.08);
+    --shadow: 0 10px 30px rgba(0,0,0,.05);
+    --radius: 18px;
+  }
+  .section { padding: 80px 0; }
+  .hero-science {
+    height: 55vh; min-height: 400px;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.45)),
+                url('{{ "images/sante-de-la-nature/science-appliquee.jpg" | relative_url }}') center/cover no-repeat;
+    display: flex; align-items: center; color: #fff;
+  }
+  .hero-science h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 14px; }
+  .kicker { color: var(--accent); font-weight: 900; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 8px; display: block; }
+  .intro-text { max-width: 780px; font-size: 1.15rem; color: var(--muted); line-height: 1.8; }
+
+  .axes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-top: 50px; }
+  .axe-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 36px 30px; box-shadow: var(--shadow); transition: 0.3s; }
+  .axe-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,.09); }
+  .axe-icon { font-size: 2.5rem; margin-bottom: 18px; color: var(--primary); }
+  .axe-card h3 { font-size: 1.4rem; color: var(--primary); margin-bottom: 12px; }
+  .axe-card p { color: var(--muted); line-height: 1.7; }
+
+  .projects-section { background: var(--soft); }
+  .project-row { display: flex; align-items: center; gap: 50px; margin-bottom: 70px; }
+  .project-row:nth-child(even) { flex-direction: row-reverse; }
+  .project-img { flex: 1; border-radius: var(--radius); overflow: hidden; height: 380px; box-shadow: 0 20px 55px rgba(0,0,0,.08); }
+  .project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+  .project-img:hover img { transform: scale(1.03); }
+  .project-body { flex: 1; }
+  .project-body h3 { font-size: 2rem; color: var(--primary); margin-bottom: 14px; }
+  .project-body p { font-size: 1.05rem; color: var(--muted); line-height: 1.8; margin-bottom: 16px; }
+  .tag { display: inline-block; background: var(--primary); color: #fff; padding: 5px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; margin-bottom: 8px; }
+  .tag.ongoing { background: var(--secondary); }
+  .tag.future { background: var(--accent); color: var(--primary); }
+
+  .collab-cta { background: var(--primary); color: #fff; border-radius: 24px; padding: 60px 40px; text-align: center; }
+  .collab-cta h2 { color: var(--accent); font-size: 2.2rem; margin-bottom: 16px; }
+  .collab-cta p { max-width: 700px; margin: 0 auto 24px; font-size: 1.1rem; line-height: 1.8; opacity: 0.92; }
+  .btn-cta { display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px; background: var(--accent); color: var(--primary); border-radius: 50px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; text-decoration: none; font-size: 0.9rem; }
+  .btn-cta:hover { background: #fff; transform: translateY(-3px); }
+
+  @media (max-width: 900px) {
+    .project-row, .project-row:nth-child(even) { flex-direction: column; }
+  }
+</style>
+
+<main>
+  <section class="hero-science">
+    <div class="container">
+      <span class="kicker">Department</span>
+      <h1>Science &amp; Projects</h1>
+      <p style="font-size:1.2rem; opacity:.9; max-width:600px;">Rigorous botanical research and applied science at the service of Haiti's biodiversity.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="kicker">Our Approach</span>
+      <h2 style="font-size:2.5rem; color:var(--primary); margin-bottom:20px;">Science in the Field and the Lab</h2>
+      <p class="intro-text">The Cayes Botanical Garden integrates field work, laboratory analyses, and technological tools to produce rigorous scientific data. This knowledge guides conservation decisions and supports public health initiatives in Haiti.</p>
+
+      <div class="axes-grid">
+        <div class="axe-card">
+          <div class="axe-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h3>Botanical Surveys</h3>
+          <p>Systematic floristic inventories to document plant species richness across Haiti's diverse ecosystems.</p>
+        </div>
+        <div class="axe-card">
+          <div class="axe-icon"><i class="fa-solid fa-dna"></i></div>
+          <h3>Taxonomy &amp; Evolution</h3>
+          <p>Species identification, classification, and phylogenetic studies to understand plant diversity and relationships.</p>
+        </div>
+        <div class="axe-card">
+          <div class="axe-icon"><i class="fa-solid fa-leaf"></i></div>
+          <h3>Ecology</h3>
+          <p>Study of ecosystems, species interactions, and habitat dynamics to guide conservation priorities.</p>
+        </div>
+        <div class="axe-card">
+          <div class="axe-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>Phytochemistry</h3>
+          <p>Analysis of plant compounds to support medicinal applications, nutrition and pharmaceutical research.</p>
+        </div>
+        <div class="axe-card">
+          <div class="axe-icon"><i class="fa-solid fa-database"></i></div>
+          <h3>Scientific Data</h3>
+          <p>Structuring, publishing and sharing botanical datasets to support open science and policy decisions.</p>
+        </div>
+        <div class="axe-card">
+          <div class="axe-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>Collaboration</h3>
+          <p>Partnerships with national and international research institutions to strengthen scientific capacity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section projects-section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:50px;">
+        <span class="kicker">Portfolio</span>
+        <h2 style="font-size:2.5rem; color:var(--primary);">Our Scientific Projects</h2>
+      </div>
+
+      <div class="project-row">
+        <div class="project-img"><img src="{{ 'images/sante-de-la-nature/structuration-scientifique.jpg' | relative_url }}" alt="Scientific standards" loading="lazy"></div>
+        <div class="project-body">
+          <span class="kicker">Completed</span>
+          <h3>Scientific Structuring</h3>
+          <p>Establishment of the first botanical standards and protocols at the Cayes Botanical Garden, creating the foundation for all subsequent research activities.</p>
+          <span class="tag">Taxonomy</span>
+          <span class="tag">Protocols</span>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-img"><img src="{{ 'images/sante-de-la-nature/etudes-especes-natives.jpg' | relative_url }}" alt="Native species" loading="lazy"></div>
+        <div class="project-body">
+          <span class="kicker">Ongoing</span>
+          <h3>Native Species Studies</h3>
+          <p>Long-term research on the resilience and ecology of endemic and native plant species. This project tracks population health, documents threats, and generates data for targeted conservation actions.</p>
+          <span class="tag ongoing">In Progress</span>
+          <span class="tag">Ecology</span>
+          <span class="tag">Conservation</span>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-img"><img src="{{ 'images/sante-de-la-nature/plantes-medicinales.jpg' | relative_url }}" alt="Medicinal plants" loading="lazy"></div>
+        <div class="project-body">
+          <span class="kicker">Planned</span>
+          <h3>Medicinal Plant Laboratory</h3>
+          <p>Development of a dedicated phytochemistry laboratory to analyze bioactive compounds in medicinal plants, supporting both pharmaceutical research and traditional medicine validation.</p>
+          <span class="tag future">Upcoming</span>
+          <span class="tag">Phytochemistry</span>
+          <span class="tag">Health</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="collab-cta">
+        <h2>Scientific Collaboration</h2>
+        <p>Are you a researcher, botanist, institution or university interested in Haiti's biodiversity? We are actively seeking scientific partnerships to advance knowledge and conservation.</p>
+        <a href="{{ '/en/index.html#contact' | relative_url }}" class="btn-cta">Partner With Us <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
