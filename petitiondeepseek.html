@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sauvons le Jardin Botanique des Cayes - Pétition Officielle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f2;
+            color: #1e3c2c;
+            line-height: 1.6;
+        }
+
+        /* Barre d'urgence */
+        .urgent-bar {
+            background: #c0392b;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { background-color: #c0392b; }
+            50% { background-color: #e74c3c; }
+            100% { background-color: #c0392b; }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header h1 span {
+            color: #f1c40f;
+        }
+
+        header p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section héros */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            color: #1e3c2c;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 i {
+            color: #c0392b;
+            margin-right: 10px;
+        }
+
+        .signature-counter {
+            background: #1e3c2c;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .signature-counter .number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+
+        .signature-counter .target {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
+        }
+
+        .btn:hover {
+            background: #a93226;
+            transform: scale(1.05);
+        }
+
+        .btn i {
+            margin-right: 10px;
+        }
+
+        /* Section valeurs du jardin */
+        .values {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-card i {
+            font-size: 3rem;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #1e3c2c;
+        }
+
+        /* Section gravité des faits */
+        .gravity {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .gravity h2 {
+            font-size: 2.5rem;
+            color: #c0392b;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .gravity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .gravity-item {
+            background: #f4f7f2;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #c0392b;
+        }
+
+        .gravity-item h3 {
+            font-size: 1.5rem;
+            color: #1e3c2c;
+            margin-bottom: 15px;
+        }
+
+        .gravity-item h3 i {
+            color: #c0392b;
+            margin-right: 10px;
+        }
+
+        /* Section tableau récapitulatif */
+        .summary-table {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .summary-table h2 {
+            font-size: 2.5rem;
+            color: #1e3c2c;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+        table td {
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        table td:first-child {
+            font-weight: bold;
+            color: #1e3c2c;
+            width: 40%;
+        }
+
+        table tr:hover {
+            background: #f4f7f2;
+        }
+
+        /* Section avocats - SPÉCIALE POUR VOUS */
+        .lawyers-section {
+            background: linear-gradient(135deg, #1e3c2c 0%, #2e5c3a 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lawyers-section::before {
+            content: "⚖️";
+            font-size: 150px;
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            opacity: 0.1;
+            transform: rotate(15deg);
+        }
+
+        .lawyers-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .lawyers-section h2 i {
+            color: #f1c40f;
+            margin: 0 10px;
+        }
+
+        .lawyers-section .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+        }
+
+        .lawyers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .lawyer-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .lawyer-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .lawyer-card i {
+            font-size: 3rem;
+            color: #f1c40f;
+            margin-bottom: 20px;
+        }
+
+        .lawyer-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .lawyer-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .lawyer-cta {
+            background: #f1c40f;
+            color: #1e3c2c;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-top: 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .lawyer-cta a {
+            color: #1e3c2c;
+            text-decoration: none;
+            border-bottom: 2px solid #1e3c2c;
+        }
+
+        .lawyer-cta i {
+            margin: 0 10px;
+        }
+
+        /* Section photos */
+        .photo-gallery {
+            margin: 60px 0;
+        }
+
+        .photo-gallery h2 {
+            font-size: 2.5rem;
+            color: #1e3c2c;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Section pétition */
+        .petition {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            margin: 60px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .petition h2 {
+            font-size: 2.5rem;
+            color: #1e3c2c;
+            margin-bottom: 20px;
+        }
+
+        .petition p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .signature-form {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #1e3c2c;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus {
+            border-color: #27ae60;
+            outline: none;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-group input {
+            width: auto;
+        }
+
+        .btn-sign {
+            background: #27ae60;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .btn-sign:hover {
+            background: #219a52;
+        }
+
+        /* Section partage */
+        .share {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .share h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1e3c2c;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .fb { background: #3b5998; }
+        .tw { background: #1da1f2; }
+        .wa { background: #25d366; }
+        .ig { background: #e4405f; }
+        .tg { background: #0088cc; }
+
+        /* Footer */
+        footer {
+            background: #1e3c2c;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        footer .hashtags {
+            margin: 20px 0;
+            font-size: 1.1rem;
+        }
+
+        footer .hashtags span {
+            display: inline-block;
+            margin: 5px 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .hero-content h2 { font-size: 2rem; }
+            .gravity h2 { font-size: 2rem; }
+            .summary-table { padding: 20px; }
+            table td { font-size: 0.9rem; }
+            .lawyers-section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barre d'urgence -->
+    <div class="urgent-bar">
+        <i class="fas fa-exclamation-triangle"></i> URGENT - DERNIÈRE CHANCE POUR NOTRE JARDIN - 5 000 SIGNATURES NÉCESSAIRES <i class="fas fa-exclamation-triangle"></i>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>🇭🇹 SAUVONS LE <span>JARDIN BOTANIQUE</span> DES CAYES</h1>
+        <p>Un patrimoine haïtien unique au monde est en train de brûler. Une seule personne en est responsable. Nous devons l'arrêter MAINTENANT.</p>
+    </header>
+
+    <!-- Conteneur principal -->
+    <div class="container">
+        <!-- Section héros avec image -->
+        <div class="hero">
+            <div class="hero-image"></div>
+            <div class="hero-content">
+                <h2><i class="fas fa-leaf"></i> CE JARDIN, C'EST NOUS !</h2>
+                <p>Le Jardin Botanique des Cayes, ce n'est pas seulement un terrain avec des arbres. C'est notre identité. C'est notre fierté. Pour nos enfants, c'est un lieu de découverte. Pour nos étudiants, c'est une salle de classe grandeur nature. Pour nos chercheurs, c'est un laboratoire vivant reconnu dans le monde entier.</p>
+                
+                <div class="signature-counter">
+                    <div class="number">2,347</div>
+                    <div class="target">sur 5 000 signatures</div>
+                    <div style="margin-top: 10px;">Objectif : 5 000 pour forcer le gouvernement à agir</div>
+                </div>
+
+                <a href="#signer" class="btn"><i class="fas fa-pen"></i> JE SIGNE MAINTENANT</a>
+            </div>
+        </div>
+
+        <!-- Section valeurs du jardin -->
+        <div class="values">
+            <div class="value-card">
+                <i class="fas fa-child"></i>
+                <h3>Pour nos enfants</h3>
+                <p>Un lieu de découverte où des générations d'écoliers ont appris à aimer la nature.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Pour nos étudiants</h3>
+                <p>La majorité des universités haïtiennes y envoyaient leurs stagiaires.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-flask"></i>
+                <h3>Pour nos chercheurs</h3>
+                <p>Le seul jardin botanique haïtien reconnu par le réseau international BGCI.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-globe-americas"></i>
+                <h3>Pour Haïti</h3>
+                <p>Un symbole de fierté nationale et de biodiversité unique au monde.</p>
+            </div>
+        </div>
+
+        <!-- Section gravité des faits -->
+        <div class="gravity">
+            <h2><i class="fas fa-fire"></i> LA GRAVITÉ DES FAITS</h2>
+            <div class="gravity-grid">
+                <div class="gravity-item">
+                    <h3><i class="fas fa-user"></i> QUI EST MADAME DONNA BASTIEN ?</h3>
+                    <p><strong>Épouse de Bruno Gérard</strong> (l'un des 11 héritiers). <span style="color:#c0392b; font-weight:bold;">ELLE N'EST PAS HÉRITIÈRE</span> et n'a AUCUN droit foncier personnel.</p>
+                </div>
+                <div class="gravity-item">
+                    <h3><i class="fas fa-chart-line"></i> CE QU'ELLE REVENDIQUE</h3>
+                    <p><strong>0,32 hectare</strong> (3% du terrain) pour son mari.</p>
+                </div>
+                <div class="gravity-item">
+                    <h3><i class="fas fa-skull-crossbones"></i> CE QU'ELLE DÉTRUIT</h3>
+                    <p><strong>8 hectares</strong> (100% du terrain) avec des chiens, des incendies et des destructions massives.</p>
+                </div>
+                <div class="gravity-item">
+                    <h3><i class="fas fa-gavel"></i> SON MÉPRIS DE LA JUSTICE</h3>
+                    <p>Audiences ignorées : <strong>6 novembre et 10 décembre 2025</strong>. Décision de justice ignorée : levée des scellés le 13 août 2025.</p>
+                </div>
+                <div class="gravity-item">
+                    <h3><i class="fas fa-users"></i> SES COMPLICITÉS</h3>
+                    <p>Elle est accompagnée de plusieurs avocats et bénéficie d'appuis dans l'appareil judiciaire du département du Sud.</p>
+                </div>
+                <div class="gravity-item">
+                    <h3><i class="fas fa-calendar-alt"></i> DEPUIS QUAND ?</h3>
+                    <p><strong>Mai 2025</strong> : blocage, destruction, incendies. Ça dure depuis 9 mois !</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section tableau récapitulatif -->
+        <div class="summary-table">
+            <h2><i class="fas fa-table"></i> RÉSUMÉ DES INFORMATIONS CLÉS</h2>
+            <table>
+                <tr><td>Héritiers du terrain</td><td><strong>11</strong></td></tr>
+                <tr><td>Personne qui détruit</td><td><strong>Madame Donna Bastien</strong> (épouse de Bruno Gérard)</td></tr>
+                <tr><td>Statut de Mme Bastien</td><td><span style="color:#c0392b; font-weight:bold;">PAS HÉRITIÈRE - AUCUN DROIT FONCIER</span></td></tr>
+                <tr><td>Ce qu'elle revendique</td><td>0,32 hectare (3% du terrain) pour son mari</td></tr>
+                <tr><td>Ce qu'elle détruit</td><td><strong>8 hectares (100% du terrain)</strong></td></tr>
+                <tr><td>Part maximale du mari</td><td>4/16 (25%) - JAMAIS la totalité</td></tr>
+                <tr><td>Depuis quand</td><td>Mai 2025</td></tr>
+                <tr><td>Audiences ignorées</td><td>6 novembre 2025 et 10 décembre 2025</td></tr>
+                <tr><td>Décision de justice ignorée</td><td>Levée des scellés le 13 août 2025</td></tr>
+                <tr><td>Âge du jardin</td><td>22 ans</td></tr>
+                <tr><td>Reconnaissance</td><td>Seul jardin botanique haïtien reconnu par le réseau international BGCI</td></tr>
+                <tr><td>Prix reçu</td><td>Institution exemplaire mondiale 2023</td></tr>
+                <tr><td>Étudiants accueillis par an</td><td>Plus de 500 avant la crise</td></tr>
+            </table>
+        </div>
+
+        <!-- SECTION SPÉCIALE AVOCATS - COMME DEMANDÉ -->
+        <div class="lawyers-section" id="avocats">
+            <h2><i class="fas fa-gavel"></i> AVOCATS, JURISTES, MAGISTRATS <i class="fas fa-gavel"></i></h2>
+            <div class="subtitle">
+                "Vous êtes conseiller juridique, avocat, magistrat ? Votre expertise peut sauver le Jardin Botanique des Cayes."
+            </div>
+
+            <!-- Photo d'avocat (simulée avec une icône) -->
+            <div style="margin: 30px auto; width: 150px; height: 150px; background: #f1c40f; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 5px solid white;">
+                <i class="fas fa-user-tie" style="font-size: 5rem; color: #1e3c2c;"></i>
+            </div>
+
+            <div class="lawyers-grid">
+                <div class="lawyer-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Droit foncier</h3>
+                    <p>Nous avons besoin d'experts pour contester les revendications illégales de Madame Bastien.</p>
+                </div>
+                <div class="lawyer-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Droit environnemental</h3>
+                    <p>La destruction d'un patrimoine écologique est un crime. Aidez-nous à le faire reconnaître.</p>
+                </div>
+                <div class="lawyer-card">
+                    <i class="fas fa-hand-fist"></i>
+                    <h3>Droit pénal</h3>
+                    <p>Madame Bastien doit répondre de ses actes : incendies, violences, entrave à la justice.</p>
+                </div>
+                <div class="lawyer-card">
+                    <i class="fas fa-people-group"></i>
+                    <h3>Droit des successions</h3>
+                    <p>Le terrain appartient à 11 héritiers. Personne ne peut décider seul. C'est la loi.</p>
+                </div>
+            </div>
+
+            <div class="lawyer-cta">
+                <i class="fas fa-quote-left"></i> 
+                <strong>VOUS ÊTES AVOCAT ? VOUS POUVEZ CONTRIBUER À SAUVER NOTRE PATRIMOINE.</strong> Rejoignez notre cellule de crise juridique. Votre expertise est notre arme la plus puissante contre l'impunité.
+                <i class="fas fa-quote-right"></i>
+            </div>
+
+            <div style="margin-top: 30px; background: white; color: #1e3c2c; padding: 30px; border-radius: 10px; text-align: left;">
+                <h3 style="color: #1e3c2c; margin-bottom: 20px;"><i class="fas fa-envelope"></i> CONTACTEZ NOTRE CELLULE JURIDIQUE</h3>
+                <p><strong>Email :</strong> <a href="mailto:avocats@sauvonslejardin.org" style="color: #c0392b; text-decoration: none;">avocats@sauvonslejardin.org</a></p>
+                <p><strong>Téléphone / WhatsApp :</strong> <a href="tel:+509XXXXXXXX" style="color: #c0392b; text-decoration: none;">+509 XXXX XXXX</a></p>
+                <p><strong>Groupe Telegram :</strong> <a href="#" style="color: #c0392b; text-decoration: none;">t.me/avocatsjardindescayes</a></p>
+                <p style="margin-top: 20px; font-style: italic;">Chaque avocat qui nous rejoint est un mur de plus contre l'impunité. Ensemble, nous pouvons gagner.</p>
+            </div>
+        </div>
+
+        <!-- Galerie photos -->
+        <div class="photo-gallery">
+            <h2><i class="fas fa-images"></i> LE JARDIN EN DANGER</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Jardin botanique">
+                    <div class="caption">Le Jardin avant les destructions</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Plantes endémiques">
+                    <div class="caption">Plantes endémiques uniques au monde</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Incendie">
+                    <div class="caption">Incendies allumés dans le jardin</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1584999734482-0361aecad844?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Barrière fermée">
+                    <div class="caption">Accès bloqué par des barrières illégales</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Nature luxuriante">
+                    <div class="caption">Ce que nous pourrions perdre à jamais</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1518495973542-4542c06a5843?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Étudiants">
+                    <div class="caption">Des étudiants privés de leur laboratoire vivant</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section pétition -->
+        <div class="petition" id="signer">
+            <h2><i class="fas fa-pen-fancy"></i> SIGNEZ LA PÉTITION</h2>
+            <p>5 000 signatures pour exiger du gouvernement haïtien qu'il agisse immédiatement. Chaque signature est une voix qui dit NON à la destruction de notre patrimoine.</p>
+            
+            <div class="signature-form">
+                <form id="signatureForm">
+                    <div class="form-group">
+                        <label for="nom">Nom complet *</label>
+                        <input type="text" id="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pays">Pays de résidence *</label>
+                        <select id="pays" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="Haiti">Haïti</option>
+                            <option value="USA">États-Unis</option>
+                            <option value="Canada">Canada</option>
+                            <option value="France">France</option>
+                            <option value="RepDom">République Dominicaine</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="profession">Profession (optionnel)</label>
+                        <input type="text" id="profession" placeholder="Ex: Étudiant, Avocat, Enseignant...">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="confirmation" required>
+                        <label for="confirmation">Je confirme mon soutien pour sauver le Jardin Botanique des Cayes et j'exige du gouvernement haïtien qu'il agisse immédiatement.</label>
+                    </div>
+                    <button type="submit" class="btn-sign"><i class="fas fa-check"></i> JE SIGNE MAINTENANT</button>
+                </form>
+                <p style="margin-top: 20px; font-size: 0.9rem;">Nous respectons votre vie privée. Vos informations ne seront utilisées que pour cette pétition.</p>
+            </div>
+
+            <div style="margin-top: 40px; background: #f4f7f2; padding: 20px; border-radius: 5px;">
+                <p style="font-weight: bold;">DERNIERS SIGNATAIRES :</p>
+                <p>Jean R. (Port-au-Prince) • Marie C. (Miami) • Dr. Pierre-Louis (Montréal) • Université Quisqueya • 127 personnes ont signé aujourd'hui</p>
+            </div>
+        </div>
+
+        <!-- Section partage -->
+        <div class="share">
+            <h3><i class="fas fa-share-alt"></i> PARTAGEZ MASSIVEMENT</h3>
+            <p>Chaque partage peut apporter des centaines de signatures supplémentaires.</p>
+            <div class="share-buttons">
+                <a href="#" class="share-btn fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="share-btn tw"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="share-btn wa"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="share-btn ig"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="share-btn tg"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+
+        <!-- Section appel aux professionnels -->
+        <div style="background: #f4f7f2; padding: 40px; border-radius: 15px; text-align: center;">
+            <h2 style="color: #1e3c2c; margin-bottom: 20px;"><i class="fas fa-bullhorn"></i> APPEL À TOUS</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div><strong>🇭🇹 Haïtiens du monde</strong> : Signez et partagez</div>
+                <div><strong>🔬 Scientifiques</strong> : Témoignez, alertez vos réseaux</div>
+                <div><strong>🌿 Écologistes</strong> : Mobilisez vos organisations</div>
+                <
