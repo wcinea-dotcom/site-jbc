@@ -8,9 +8,9 @@ title: "Actualités & Événements"
      VARIABLES SPÉCIFIQUES (PAGE ACTUALITÉS)
      ========================================= */
   :root {
-    --primary: #2F5D2F;        
+    --primary: #2F5D2F;
     --secondary: #5E8F3A;
-    --accent: #f6c344; /* Le jaune doré façon IUCN */
+    --accent: #f6c344;
     --text-dark: #1f2a33;
     --text-muted: #666666;
     --border-color: #e0e0e0;
@@ -18,76 +18,265 @@ title: "Actualités & Événements"
 
   /* --- HERO SECTION --- */
   .hero-news {
-    background: linear-gradient(rgba(15, 41, 30, 0.7), rgba(15, 41, 30, 0.8)), 
+    background: linear-gradient(rgba(15, 41, 30, 0.72), rgba(15, 41, 30, 0.82)),
                 url('{{ "images/index/index-hero.jpg" | relative_url }}') center/cover no-repeat;
-    height: 40vh;
-    min-height: 300px;
+    height: 44vh;
+    min-height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
-    margin-bottom: 40px;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
   }
-  .hero-news h1 { font-family: "Playfair Display", serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 10px; color: #fff;}
-  .hero-news p { font-size: 1.2rem; font-weight: 300; opacity: 0.9; }
+  /* Grain de texture subtil sur le héro */
+  .hero-news::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-news .container { position: relative; z-index: 1; }
+  .hero-news h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 14px;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+  .hero-news p {
+    font-size: 1.15rem;
+    font-weight: 300;
+    opacity: 0.88;
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  /* Vague décorative sous le héro */
+  .hero-wave {
+    display: block;
+    width: 100%;
+    height: 56px;
+    background: transparent;
+  }
+
+  /* --- SECTION WRAPPER --- */
+  .news-section-wrapper {
+    background:
+      radial-gradient(900px 520px at 10% 20%, rgba(94,143,58,.08) 0%, rgba(94,143,58,0) 55%),
+      #FBFCFA;
+    padding-bottom: 80px;
+  }
 
   /* --- FILTRES (ONGLETS) --- */
-  .filters-container {
+  .filters-wrapper {
     max-width: 1000px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto;
     padding: 0 20px;
+    padding-top: 44px;
+  }
+  .filters-container {
     display: flex;
-    gap: 15px;
+    gap: 6px;
     border-bottom: 2px solid var(--border-color);
+    margin-bottom: 40px;
   }
   .filter-btn {
     background: none;
     border: none;
     font-family: 'Lato', sans-serif;
-    font-size: 1.05rem;
+    font-size: 0.92rem;
     font-weight: 700;
     color: var(--text-muted);
-    padding: 15px 20px;
+    padding: 14px 18px;
     cursor: pointer;
     position: relative;
-    transition: 0.3s;
+    transition: color 0.25s;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.07em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
   }
   .filter-btn:hover { color: var(--primary); }
   .filter-btn.active { color: var(--primary); font-weight: 900; }
   .filter-btn.active::after {
-    content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 4px; background: var(--primary);
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 100%; height: 3px;
+    background: var(--primary);
+    border-radius: 2px 2px 0 0;
   }
+  /* Badge compteur sur les filtres */
+  .filter-count {
+    background: var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 20px;
+    transition: background 0.25s, color 0.25s;
+  }
+  .filter-btn.active .filter-count {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  /* --- ARTICLE VEDETTE (À LA UNE) --- */
+  .featured-post {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(47,93,47,0.12);
+    margin-bottom: 50px;
+    transition: box-shadow 0.3s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .featured-post:hover { box-shadow: 0 8px 40px rgba(47,93,47,0.2); }
+  .featured-post .featured-img {
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+  }
+  .featured-post .featured-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .featured-post:hover .featured-img img { transform: scale(1.04); }
+  .featured-badge {
+    position: absolute;
+    top: 18px; left: 18px;
+    background: var(--accent);
+    color: #000;
+    font-size: 0.72rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 3px;
+    z-index: 2;
+  }
+  .featured-content {
+    background: var(--primary);
+    color: #fff;
+    padding: 44px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .featured-content .post-meta { margin-bottom: 18px; }
+  .featured-content .post-tag { background: rgba(255,255,255,0.18); color: #fff; border: 1px solid rgba(255,255,255,0.3); }
+  .featured-content .post-date { color: rgba(255,255,255,0.75); font-size: 0.9rem; text-transform: uppercase; font-weight: 400; }
+  .featured-content h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+  .featured-content .excerpt {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 28px;
+  }
+  .featured-content .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 11px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.25s, transform 0.25s;
+    width: fit-content;
+  }
+  .featured-content .read-more:hover { background: #ffd166; transform: translateX(3px); }
+  .featured-content .read-more i { transition: transform 0.25s; }
+  .featured-content .read-more:hover i { transform: translateX(4px); }
 
   /* --- LISTE STYLE IUCN --- */
   .news-container {
     max-width: 1000px;
-    margin: 0 auto 80px auto;
+    margin: 0 auto;
     padding: 0 20px;
   }
+
+  /* Séparateur de section dans la liste */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .section-divider h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+  }
+
   .post-item {
     display: flex;
-    gap: 35px;
-    padding: 35px 0;
+    gap: 30px;
+    padding: 32px 0;
     border-bottom: 1px solid var(--border-color);
-    transition: opacity 0.4s ease;
+    transition: opacity 0.35s ease, transform 0.35s ease;
   }
-  
+  .post-item.hidden {
+    display: none;
+  }
+  .post-item.fade-out {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
   /* L'image à gauche */
   .post-img {
-    width: 300px;
-    height: 190px;
+    width: 260px;
+    height: 175px;
     flex-shrink: 0;
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
-    background: #eee;
+    background: #e8ede8;
+    position: relative;
   }
   .post-img img {
-    width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s ease;
   }
-  .post-item:hover .post-img img { transform: scale(1.03); }
+  .post-item:hover .post-img img { transform: scale(1.04); }
+
+  /* Bordure verte à gauche au survol */
+  .post-item {
+    border-left: 3px solid transparent;
+    padding-left: 16px;
+    transition: border-color 0.25s, opacity 0.35s, transform 0.35s;
+  }
+  .post-item:hover { border-left-color: var(--primary); }
 
   /* Le contenu à droite */
   .post-content {
@@ -96,188 +285,455 @@ title: "Actualités & Événements"
     flex-direction: column;
     justify-content: center;
   }
-  
+
   /* Le Tag (Nouvelle / Événement) et la Date */
   .post-meta {
-    display: flex; align-items: center; gap: 15px; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
   }
   .post-tag {
     background: var(--accent);
     color: #000;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 900;
-    padding: 4px 10px;
+    padding: 3px 9px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-radius: 2px;
+    border-radius: 3px;
   }
-  /* Tag d'événement (couleur un peu différente si désiré, ici vert clair) */
   .post-tag.tag-event { background: #e8f5e9; color: var(--primary); border: 1px solid var(--primary); }
-  
-  .post-date {
-    color: var(--text-dark);
-    font-size: 0.9rem;
+
+  /* Icône calendrier pour événement */
+  .date-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
     text-transform: uppercase;
     font-weight: 400;
   }
+  .date-wrapper i { font-size: 0.8rem; opacity: 0.7; }
 
   /* Le Titre */
   .post-title {
     font-family: 'Lato', sans-serif;
-    font-size: 1.45rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    color: var(--primary);
+    color: var(--text-dark);
     line-height: 1.4;
     margin-bottom: 10px;
+    transition: color 0.2s;
   }
+  .post-item:hover .post-title { color: var(--primary); }
   .post-title a {
     color: inherit;
-    display: inline-flex;
-    align-items: baseline;
-    gap: 8px;
     text-decoration: none !important;
   }
-  .post-title a:hover { color: var(--secondary); }
-  
-  /* La petite flèche façon IUCN */
-  .arrow-icon { font-size: 0.8rem; transform: translateY(-2px); transition: 0.3s; }
-  .post-item:hover .arrow-icon { transform: translateX(5px) translateY(-2px); }
 
-  /* Responsive (Mobile) */
+  /* L'extrait */
+  .post-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Lien Lire la suite */
+  .post-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    text-decoration: none;
+    transition: gap 0.25s, color 0.25s;
+    width: fit-content;
+  }
+  .post-link:hover { color: var(--secondary); gap: 12px; }
+  .post-link i { font-size: 0.78rem; transition: transform 0.25s; }
+  .post-link:hover i { transform: translateX(3px); }
+
+  /* --- CARTE ÉVÉNEMENT PROCHAIN (highlight) --- */
+  .event-highlight {
+    background: linear-gradient(135deg, #f0f7ee 0%, #e8f5e9 100%);
+    border: 1px solid rgba(47,93,47,0.2);
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    padding: 22px 26px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 40px;
+  }
+  .event-highlight-icon {
+    width: 52px; height: 52px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+    font-size: 1.1rem;
+  }
+  .event-highlight-label {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 4px;
+  }
+  .event-highlight-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+  }
+  .event-highlight-date {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+  .event-highlight-btn {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.25s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .event-highlight-btn:hover { background: var(--secondary); }
+
+  /* --- ÉTAT VIDE --- */
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    display: none;
+  }
+  .empty-state i { font-size: 2.5rem; color: var(--border-color); margin-bottom: 16px; }
+  .empty-state p { color: var(--text-muted); font-size: 1.05rem; }
+
+  /* --- CTA NEWSLETTER --- */
+  .newsletter-cta {
+    background: linear-gradient(135deg, var(--primary) 0%, #3d7a3d 100%);
+    border-radius: 12px;
+    padding: 48px 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 60px auto 0 auto;
+    max-width: 1000px;
+  }
+  .newsletter-cta .cta-text h3 {
+    font-family: "Playfair Display", serif;
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+  .newsletter-cta .cta-text p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  .newsletter-form input {
+    padding: 12px 18px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.95rem;
+    width: 240px;
+    outline: none;
+  }
+  .newsletter-form input:focus { box-shadow: 0 0 0 3px rgba(246,195,68,0.4); }
+  .newsletter-form button {
+    padding: 12px 22px;
+    border-radius: 5px;
+    border: none;
+    background: var(--accent);
+    color: #000;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .newsletter-form button:hover { background: #ffd166; transform: translateY(-1px); }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 900px) {
+    .featured-post { grid-template-columns: 1fr; }
+    .featured-post .featured-img { min-height: 240px; }
+    .newsletter-cta { flex-direction: column; text-align: center; }
+    .newsletter-form { width: 100%; justify-content: center; }
+    .newsletter-form input { flex: 1; width: auto; }
+  }
   @media (max-width: 768px) {
-    .post-item { flex-direction: column; gap: 20px; padding: 25px 0; }
-    .post-img { width: 100%; height: 220px; }
-    .post-title { font-size: 1.25rem; }
-    .filters-container { overflow-x: auto; white-space: nowrap; }
+    .post-item { flex-direction: column; gap: 18px; padding: 24px 0 24px 14px; }
+    .post-img { width: 100%; height: 200px; }
+    .post-title { font-size: 1.18rem; }
+    .filters-container { overflow-x: auto; white-space: nowrap; padding-bottom: 2px; }
+    .event-highlight { flex-wrap: wrap; }
+    .event-highlight-btn { margin-left: 0; width: 100%; justify-content: center; }
+    .newsletter-cta { padding: 34px 24px; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-form input { width: 100%; }
+    .newsletter-form button { width: 100%; }
   }
 </style>
 
 <main>
   <section class="hero-news">
     <div class="container">
-      <h1>Actualités & Événements</h1>
+      <h1>Actualités &amp; Événements</h1>
       <p>Suivez nos dernières recherches, nos actions sur le terrain et nos prochains rendez-vous.</p>
     </div>
   </section>
 
-  <div class="filters-container">
-    <button class="filter-btn active" onclick="filterPosts('all', this)">Tout voir</button>
-    <button class="filter-btn" onclick="filterPosts('news', this)">Nouvelles</button>
-    <button class="filter-btn" onclick="filterPosts('event', this)">Événements</button>
-  </div>
+  <div class="news-section-wrapper">
 
-  <div class="news-container" id="post-list">
+    <div class="filters-wrapper">
 
-    <article class="post-item" data-type="news">
-      <div class="post-img">
-        <img src="{{ 'images/sante-de-la-nature/etudes-especes-natives.jpg' | relative_url }}" alt="Recherche floristique">
+      <!-- *** FILTRES *** -->
+      <div class="filters-container">
+        <button class="filter-btn active" data-filter="all">
+          Tout voir <span class="filter-count" id="count-all">4</span>
+        </button>
+        <button class="filter-btn" data-filter="news">
+          Nouvelles <span class="filter-count" id="count-news">2</span>
+        </button>
+        <button class="filter-btn" data-filter="event">
+          Événements <span class="filter-count" id="count-event">2</span>
+        </button>
       </div>
-      <div class="post-content">
-        <div class="post-meta">
-          <span class="post-tag">Nouvelle</span>
-          <span class="post-date">18 FÉV, 2026</span>
+
+      <!-- *** ARTICLE VEDETTE — À LA UNE *** -->
+      <a class="featured-post featured-only" data-type="news" href="#">
+        <div class="featured-img">
+          <span class="featured-badge">À la une</span>
+          <img src="{{ 'images/sante-de-la-nature/etudes-especes-natives.jpg' | relative_url }}" alt="Recherche floristique">
         </div>
-        <h3 class="post-title">
-          <a href="#">
-            Découverte d'une nouvelle population de plantes endémiques dans le massif de la Hotte
-            <i class="fa-solid fa-caret-right arrow-icon"></i>
-          </a>
-        </h3>
-      </div>
-    </article>
-
-    <article class="post-item" data-type="event">
-      <div class="post-img">
-        <img src="{{ 'images/education/education-formation-technique.jpg' | relative_url }}" alt="Formation Apiculture">
-      </div>
-      <div class="post-content">
-        <div class="post-meta">
-          <span class="post-tag tag-event">Événement</span>
-          <span class="post-date">10 MARS, 2026</span>
+        <div class="featured-content">
+          <div class="post-meta">
+            <span class="post-tag">Nouvelle</span>
+            <span class="post-date">18 FÉV, 2026</span>
+          </div>
+          <h2>Découverte d'une nouvelle population de plantes endémiques dans le massif de la Hotte</h2>
+          <p class="excerpt">Une équipe du JBC a identifié une population jusqu'alors inconnue de plantes endémiques lors d'une expédition dans le massif de la Hotte. Cette découverte majeure renforce l'importance des efforts de conservation dans les zones montagneuses du pays.</p>
+          <span class="read-more">
+            Lire la suite <i class="fa-solid fa-arrow-right"></i>
+          </span>
         </div>
-        <h3 class="post-title">
-          <a href="#">
-            Formation nationale : Pratiques apicoles et préservation des écosystèmes mellifères
-            <i class="fa-solid fa-caret-right arrow-icon"></i>
-          </a>
-        </h3>
-      </div>
-    </article>
+      </a>
 
-    <article class="post-item" data-type="news">
-      <div class="post-img">
-        <img src="{{ 'images/sante-de-la-nature/jconservation-strategique.jpg' | relative_url }}" alt="Conservation">
-      </div>
-      <div class="post-content">
-        <div class="post-meta">
-          <span class="post-tag">Nouvelle</span>
-          <span class="post-date">05 FÉV, 2026</span>
+      <!-- *** ENCART PROCHAIN ÉVÉNEMENT *** -->
+      <div class="event-highlight upcoming-only" data-type="event">
+        <div class="event-highlight-icon">
+          <i class="fa-solid fa-calendar-check"></i>
         </div>
-        <h3 class="post-title">
-          <a href="#">
-            Nouveau partenariat avec la BRH pour la cartographie des plantes médicinales du Grand Sud
-            <i class="fa-solid fa-caret-right arrow-icon"></i>
-          </a>
-        </h3>
-      </div>
-    </article>
-
-    <article class="post-item" data-type="event">
-      <div class="post-img">
-        <img src="{{ 'images/education/education-grand-public.jpg' | relative_url }}" alt="Visite guidée">
-      </div>
-      <div class="post-content">
-        <div class="post-meta">
-          <span class="post-tag tag-event">Événement</span>
-          <span class="post-date">22 MARS, 2026</span>
+        <div>
+          <div class="event-highlight-label">Prochain événement</div>
+          <div class="event-highlight-title">Formation nationale : Pratiques apicoles et préservation des écosystèmes mellifères</div>
+          <div class="event-highlight-date"><i class="fa-regular fa-clock"></i> &nbsp;10 mars 2026 — Cayes, Haïti</div>
         </div>
-        <h3 class="post-title">
-          <a href="#">
-            Atelier grand public : Introduction à la naturopathie et aux jardins médicinaux familiaux
-            <i class="fa-solid fa-caret-right arrow-icon"></i>
-          </a>
-        </h3>
+        <a href="#" class="event-highlight-btn">
+          <i class="fa-solid fa-ticket"></i> S'inscrire
+        </a>
       </div>
-    </article>
 
-  </div>
+      <!-- *** LISTE DES ARTICLES *** -->
+      <div class="section-divider"><h3>Toutes les publications</h3></div>
+
+      <div class="news-container" id="post-list">
+
+        <article class="post-item" data-type="news">
+          <div class="post-img">
+            <img src="{{ 'images/sante-de-la-nature/jconservation-strategique.jpg' | relative_url }}" alt="Conservation">
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="post-tag">Nouvelle</span>
+              <div class="date-wrapper">
+                <i class="fa-regular fa-calendar"></i>
+                <span>05 FÉV, 2026</span>
+              </div>
+            </div>
+            <h3 class="post-title">
+              <a href="#">Nouveau partenariat avec la BRH pour la cartographie des plantes médicinales du Grand Sud</a>
+            </h3>
+            <p class="post-excerpt">Le Jardin Botanique des Cayes s'associe à la Banque de la République d'Haïti pour un programme de cartographie participative visant à documenter et protéger le patrimoine botanique médicinal de la région du Grand Sud.</p>
+            <a href="#" class="post-link">Lire la suite <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="post-item" data-type="event">
+          <div class="post-img">
+            <img src="{{ 'images/education/education-formation-technique.jpg' | relative_url }}" alt="Formation Apiculture">
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="post-tag tag-event">Événement</span>
+              <div class="date-wrapper">
+                <i class="fa-regular fa-calendar"></i>
+                <span>10 MARS, 2026</span>
+              </div>
+            </div>
+            <h3 class="post-title">
+              <a href="#">Formation nationale : Pratiques apicoles et préservation des écosystèmes mellifères</a>
+            </h3>
+            <p class="post-excerpt">Rejoignez notre formation de deux jours destinée aux apiculteurs et agriculteurs locaux. Au programme : techniques d'élevage durable, rôle des pollinisateurs dans les écosystèmes, et identification des plantes mellifères indigènes.</p>
+            <a href="#" class="post-link">Voir les détails <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="post-item" data-type="event">
+          <div class="post-img">
+            <img src="{{ 'images/education/education-grand-public.jpg' | relative_url }}" alt="Atelier grand public">
+          </div>
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="post-tag tag-event">Événement</span>
+              <div class="date-wrapper">
+                <i class="fa-regular fa-calendar"></i>
+                <span>22 MARS, 2026</span>
+              </div>
+            </div>
+            <h3 class="post-title">
+              <a href="#">Atelier grand public : Introduction à la naturopathie et aux jardins médicinaux familiaux</a>
+            </h3>
+            <p class="post-excerpt">Cet atelier ouvert à tous vous invite à découvrir les bases de la naturopathie et à créer votre propre jardin médicinal à domicile. Apprenez à cultiver et utiliser les plantes thérapeutiques adaptées à notre climat tropical.</p>
+            <a href="#" class="post-link">Voir les détails <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- État vide -->
+        <div class="empty-state" id="empty-state">
+          <i class="fa-regular fa-folder-open"></i>
+          <p>Aucune publication dans cette catégorie pour le moment.</p>
+        </div>
+
+      </div><!-- /.news-container -->
+
+      <!-- *** CTA NEWSLETTER *** -->
+      <div class="newsletter-cta">
+        <div class="cta-text">
+          <h3>Restez informé</h3>
+          <p>Inscrivez-vous à notre bulletin pour recevoir nos dernières nouvelles<br>et être alerté de nos prochains événements.</p>
+        </div>
+        <form class="newsletter-form" onsubmit="return handleNewsletter(event)">
+          <input type="email" placeholder="Votre adresse courriel" aria-label="Adresse courriel" required>
+          <button type="submit">S'inscrire <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+
+    </div><!-- /.filters-wrapper -->
+  </div><!-- /.news-section-wrapper -->
 </main>
 
 <script>
-  // 1. La fonction pour filtrer quand on clique sur les boutons de la page
-  function filterPosts(type, btnElement) {
-    const buttons = document.querySelectorAll('.filter-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    btnElement.classList.add('active');
-
-    const posts = document.querySelectorAll('.post-item');
-    posts.forEach(post => {
-      if (type === 'all') {
-        post.style.display = 'flex';
-      } else {
-        if (post.getAttribute('data-type') === type) {
-          post.style.display = 'flex';
-        } else {
-          post.style.display = 'none';
-        }
-      }
-    });
+  // ── Comptage initial ──────────────────────────────────────────────
+  function updateCounts() {
+    const all   = document.querySelectorAll('.post-item').length;
+    const news  = document.querySelectorAll('.post-item[data-type="news"]').length;
+    const event = document.querySelectorAll('.post-item[data-type="event"]').length;
+    document.getElementById('count-all').textContent   = all;
+    document.getElementById('count-news').textContent  = news;
+    document.getElementById('count-event').textContent = event;
   }
 
-  // 2. LA MAGIE : Lire l'URL au chargement de la page
+  // ── Filtrage avec animation fluide ───────────────────────────────
+  function filterPosts(type) {
+    const posts    = document.querySelectorAll('.post-item');
+    const featured = document.querySelector('.featured-only');
+    const upcoming = document.querySelector('.upcoming-only');
+    const empty    = document.getElementById('empty-state');
+    let visible    = 0;
+
+    posts.forEach(post => {
+      const match = type === 'all' || post.getAttribute('data-type') === type;
+      if (match) {
+        post.classList.remove('hidden');
+        // Légère animation d'entrée
+        requestAnimationFrame(() => { post.style.opacity = '0'; post.style.transform = 'translateY(8px)'; });
+        setTimeout(() => { post.style.opacity = ''; post.style.transform = ''; }, 20);
+        visible++;
+      } else {
+        post.classList.add('hidden');
+      }
+    });
+
+    // Afficher/masquer la vedette et l'encart événement selon filtre
+    if (featured) {
+      featured.style.display = (type === 'all' || type === 'news') ? '' : 'none';
+    }
+    if (upcoming) {
+      upcoming.style.display = (type === 'all' || type === 'event') ? '' : 'none';
+    }
+
+    // État vide
+    empty.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // ── Délégation de clic sur les filtres ───────────────────────────
+  document.querySelector('.filters-container').addEventListener('click', function(e) {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterPosts(btn.getAttribute('data-filter'));
+  });
+
+  // ── Lecture du hash URL au chargement ────────────────────────────
   document.addEventListener("DOMContentLoaded", () => {
-    // Regarde s'il y a un #news ou #event dans l'adresse
-    const hash = window.location.hash.substring(1); 
-    
-    if (hash === 'news') {
-      // Trouve le bouton "Nouvelles" et simule un clic dessus
-      const btnNews = document.querySelector('button[onclick="filterPosts(\'news\', this)"]');
-      if (btnNews) filterPosts('news', btnNews);
-    } 
-    else if (hash === 'event') {
-      // Trouve le bouton "Événements" et simule un clic dessus
-      const btnEvent = document.querySelector('button[onclick="filterPosts(\'event\', this)"]');
-      if (btnEvent) filterPosts('event', btnEvent);
+    updateCounts();
+    const hash = window.location.hash.substring(1);
+    if (hash === 'news' || hash === 'event') {
+      const btn = document.querySelector(`.filter-btn[data-filter="${hash}"]`);
+      if (btn) {
+        btn.classList.add('active');
+        document.querySelector('.filter-btn[data-filter="all"]').classList.remove('active');
+        filterPosts(hash);
+      }
     }
   });
+
+  // ── Newsletter ────────────────────────────────────────────────────
+  function handleNewsletter(e) {
+    e.preventDefault();
+    const btn   = e.target.querySelector('button');
+    const input = e.target.querySelector('input');
+    btn.textContent = 'Merci ! ✓';
+    btn.style.background = '#4CAF50';
+    btn.style.color = '#fff';
+    input.value = '';
+    input.disabled = true;
+    btn.disabled = true;
+    return false;
+  }
 </script>
