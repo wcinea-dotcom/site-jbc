@@ -2,20 +2,15 @@
 #  _config.yml — Jardin Botanique des Cayes
 # =========================================================
 
-title: "Jardin Botanique des Cayes"
+title:       "Jardin Botanique des Cayes"
 description: "Données, science, éducation et actions concrètes au service de la biodiversité en Haïti."
-url: "https://wcinea-dotcom.github.io"
-baseurl: "/site-jbc"
+url:         "https://wcinea-dotcom.github.io"
+baseurl:     "/site-jbc"
+author:      "Jardin Botanique des Cayes"
+og_image:    "/images/index/index-hero.jpg"
 
-# Langue par défaut
-lang: "fr"
-
-# Auteur / contact
-author: "Jardin Botanique des Cayes"
-email: ""
-
-# Réseaux sociaux (pour Open Graph)
-og_image: "/site-jbc/images/index/index-hero.jpg"
+# Langues supportées : fr / en / ht (Kreyòl ayisyen)
+languages:   ["fr", "en", "ht"]
 
 # Build
 markdown: kramdown
@@ -26,10 +21,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - "*.DS_Store"
+  - "**/.DS_Store"
   - README.md
   - vendor/
 
-# Defaults de langue par page
+# Defaults par dossier/langue
 defaults:
   - scope:
       path: ""
@@ -42,3 +38,9 @@ defaults:
       type: "pages"
     values:
       lang: "en"
+
+  - scope:
+      path: "ht"
+      type: "pages"
+    values:
+      lang: "ht"

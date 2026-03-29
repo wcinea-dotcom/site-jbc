@@ -1,0 +1,239 @@
+---
+layout: default
+title: "Akèy"
+lang: ht
+ref: accueil
+permalink: /ht/
+description: "Jaden Botanik Kaye — syans, konsèvasyon, edikasyon ak done pou biodivèsite ann Ayiti."
+---
+
+<style>
+  :root{
+    --deep:#2F5D2F;
+    --botanical:#5E8F3A;
+    --gold:#C5A059;
+    --header-btn-green: #4b5e46;
+    --paper:#FBFCFA;
+    --ink:#1f2a33;
+    --heroH: clamp(420px, 56vh, 640px);
+  }
+  .bg-paper{background: radial-gradient(900px 520px at 10% 20%, rgba(94,143,58,.10) 0%, rgba(94,143,58,0) 55%), linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);}
+  .bg-institution{background: radial-gradient(900px 520px at 12% 18%, rgba(47,93,47,.18) 0%, rgba(47,93,47,0) 55%), radial-gradient(900px 520px at 88% 28%, rgba(94,143,58,.14) 0%, rgba(94,143,58,0) 56%), linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);}
+
+  .hero{position:relative;height:var(--heroH);overflow:hidden;background:#000}
+  .hero-media{position:absolute; inset:0; background:url("{{ '/images/index/index-hero.jpg' | relative_url }}") center/cover no-repeat; filter:saturate(1.05); transform:scale(1.01);}
+  .hero-gradient{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.70) 34%, rgba(0,0,0,.30) 58%, rgba(0,0,0,.06) 78%, rgba(0,0,0,0) 100%);}
+  .hero-inner{position:relative;height:100%;display:flex;align-items:center}
+  .hero-copy{width:min(900px, 92vw); color:#fff; padding:12px 0; position: relative; z-index: 5;}
+  .hero-copy h1{font-family:"Playfair Display",serif; font-size:clamp(2.2rem, 4.4vw, 4.2rem); line-height:1.05; margin-bottom:12px;}
+  .hero-copy p{font-size:clamp(1.0rem, 1.25vw, 1.25rem); color:rgba(255,255,255,.88); max-width:760px; line-height:1.8;}
+
+  .mission{ padding:78px 0; }
+  .mission-wrap{ background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:26px; box-shadow:0 18px 60px rgba(0,0,0,.10); padding:34px 28px; text-align:center;}
+  .mission-wrap h2{font-family:"Playfair Display",serif; font-size:clamp(2.0rem, 3vw, 3.0rem); margin-bottom:10px; color:rgba(18,24,30,.92);}
+  .mission-wrap p{font-size:clamp(1.05rem, 1.4vw, 1.35rem); line-height:1.8; color:rgba(31,42,51,.82); max-width:1120px; margin:0 auto;}
+
+  .pillars-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:22px;}
+  .pillar{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:26px; overflow:hidden; box-shadow:0 18px 60px rgba(0,0,0,.10); transition:.22s ease; display:flex; flex-direction:column;}
+  .pillar:hover{ transform:translateY(-3px); }
+  .pillar-media{ height:320px; background:#eee; }
+  .pillar-media img{ width:100%; height:100%; object-fit:cover; }
+  .pillar-body{ padding:22px 22px 24px; text-align:center; }
+  .pillar-kicker{font-weight:900; letter-spacing:.12em; text-transform:uppercase; font-size:.74rem; color:var(--header-btn-green); margin-bottom:10px;}
+  .pillar-title{font-family:"Playfair Display",serif; font-weight:700; font-size:1.85rem; margin-bottom:10px;}
+  .pillar-desc{color:rgba(31,42,51,.78); line-height:1.85; margin:0 auto 16px; font-size:1.05rem; max-width:560px;}
+
+  .dept-section{ padding:78px 0 86px; }
+  .dept-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;}
+  .dept-card{border-radius:24px; overflow:hidden; background:#fff; border:1px solid rgba(0,0,0,.06); box-shadow:0 18px 60px rgba(0,0,0,.10); transition:.25s ease; display:flex; flex-direction:column;}
+  .dept-card:hover{transform:translateY(-3px)}
+  .dept-media{height:280px; background:#eee}
+  .dept-media img{width:100%; height:100%; object-fit:cover;}
+  .dept-body{padding:20px 20px 22px; text-align:center}
+  .dept-body h3{font-family:"Lato",sans-serif; font-weight:900; font-size:1.55rem; margin-bottom:8px;}
+  .dept-body p{color:rgba(31,42,51,.78); line-height:1.75; margin:0 auto 14px; max-width:520px}
+
+  .headline-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px}
+  .card{border-radius:24px; overflow:hidden; background:#fff; border:1px solid rgba(0,0,0,.06); box-shadow:0 14px 40px rgba(0,0,0,.10); transition:.25s ease}
+  .card:hover{transform:translateY(-4px)}
+  .card-media{position:relative; height:240px; background:#eee}
+  .card-media img{width:100%; height:100%; object-fit:cover}
+  .pillTag{position:absolute; left:16px; top:16px; background:var(--header-btn-green); color:#fff; padding:10px 14px; border-radius:14px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:.78rem;}
+  .card-body{padding:22px 22px 24px; text-align:center}
+  .card-body h3{font-family:"Playfair Display",serif; font-size:1.65rem; margin-bottom:10px}
+
+  .media-banner {background: linear-gradient(135deg, var(--header-btn-green) 0%, #2c3a29 100%); color: #fff; border-radius: 26px; padding: 56px 40px; text-align: center; box-shadow: 0 26px 70px rgba(0,0,0,.16); margin: 40px auto 20px;}
+  .media-banner h2 { font-family:"Playfair Display",serif; color: var(--gold); font-size: clamp(2.2rem, 3.2vw, 3.2rem); margin-bottom: 18px; }
+  .m-link {display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); padding: 18px 32px; border-radius: 16px; color: #fff; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; transition: .25s ease;}
+  .m-link:hover { background: var(--gold); color: #163527; transform: translateY(-4px); }
+
+  .partners-strip{ background:#fff; border-top:1px solid rgba(0,0,0,.06); padding:34px 0 }
+  .partners-row{display:flex; align-items:center; justify-content:center; gap:34px; flex-wrap:wrap}
+  .partner img{height:64px; max-width:260px; object-fit:contain;}
+
+  @media (max-width: 1040px){ .pillars-grid, .dept-grid, .headline-grid{grid-template-columns:1fr} }
+</style>
+
+<main>
+  <section class="hero">
+    <div class="hero-media"></div>
+    <div class="hero-gradient"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Jaden Botanik Kaye</h1>
+        <p>Yon enstitisyon nan sèvis biodivèsite a : done, syans, edikasyon ak aksyon konkrè ann Ayiti.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission bg-paper" style="padding:78px 0;">
+    <div class="container">
+      <div class="mission-wrap">
+        <h2>Misyon nou</h2>
+        <p>Misyon nou se kolekte ak pataje konesans ak done sou biodivèsite pou kontribye nan sante moun ak lanati.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-institution" style="padding:72px 0;">
+    <div class="container">
+      <div style="text-align:center; max-width:980px; margin:0 auto 34px;">
+        <h2 style="font-family:'Playfair Display',serif; font-size:2.5rem;">De pilye fondamantal</h2>
+        <p>Misyon nou chita sou de aksi : sante moun ak sante lanati.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <article class="pillar">
+          <div class="pillar-media">
+            <img src="{{ '/images/index/index-sante-humaine.jpg' | relative_url }}" alt="Sante moun" loading="lazy">
+          </div>
+          <div class="pillar-body">
+            <div class="pillar-kicker">PILYE 1</div>
+            <div class="pillar-title">Sante Moun</div>
+            <div class="pillar-desc">Dekouvri pouvwa plant medisin yo, fitotèrapi, natyopati, ak nitrisyon pou sante ou.</div>
+            <a class="btn primary" href="{{ '/ht/sante-humaine.html' | relative_url }}" style="background:var(--deep); color:#fff; padding:12px 16px; border-radius:14px; text-transform:uppercase; font-weight:900; font-size:0.8rem;">Dekouvri <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar-media">
+            <img src="{{ '/images/index/index-sante-nature.jpg' | relative_url }}" alt="Sante lanati" loading="lazy">
+          </div>
+          <div class="pillar-body">
+            <div class="pillar-kicker">PILYE 2</div>
+            <div class="pillar-title">Sante Lanati</div>
+            <div class="pillar-desc">Sante ou depann de lanati : konprann ekoloji, restosyon ak konsèvasyon. Biodivèsite se yon priyorite.</div>
+            <a class="btn primary" href="{{ '/ht/sante-de-la-nature.html' | relative_url }}" style="background:var(--deep); color:#fff; padding:12px 16px; border-radius:14px; text-transform:uppercase; font-weight:900; font-size:0.8rem;">Dekouvri <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="dept-section bg-paper">
+    <div class="container">
+      <div style="text-align:center; max-width:980px; margin:0 auto 34px;">
+        <h2 style="font-family:'Playfair Display',serif; font-size:2.5rem;">Domèn aksyon nou yo</h2>
+        <p>Nou fè syans epi kolekte done pou konsèvasyon, otikiltè ak restosyon ekosistèm yo.</p>
+      </div>
+
+      <div class="dept-grid">
+        <a class="dept-card" href="{{ '/ht/science.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-science-conservation.jpg' | relative_url }}" alt="Syans" loading="lazy"></div>
+          <div class="dept-body">
+            <h3>Syans</h3>
+            <p>Rechèch syantifik, etid botanik ak swivi ekolojik pou pi byen konprann biodivèsite nou.</p>
+          </div>
+        </a>
+
+        <a class="dept-card" href="{{ '/ht/donnees.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-donnees.jpg' | relative_url }}" alt="Done" loading="lazy"></div>
+          <div class="dept-body">
+            <h3>Done</h3>
+            <p>Envantè floristik, kat jeyografik ak baz done pou gide desizyon solid yo.</p>
+          </div>
+        </a>
+
+        <a class="dept-card" href="{{ '/ht/conservation.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-conservation.jpg' | relative_url }}" alt="Konsèvasyon" loading="lazy"></div>
+          <div class="dept-body">
+            <h3>Konsèvasyon</h3>
+            <p>Aksyon konkrèt pou prezèvasyon espès endemik, natif natal ak abita natirèl yo.</p>
+          </div>
+        </a>
+
+        <a class="dept-card" href="{{ '/ht/horticulture.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-horticulture-restauration.jpg' | relative_url }}" alt="Restosyon" loading="lazy"></div>
+          <div class="dept-body">
+            <h3>Rechèch ak Restosyon</h3>
+            <p>Pepinyè, pwodiksyon plant ak solisyon pou restore vitalite peyzaj yo.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-paper" style="padding:72px 0;">
+    <div class="container">
+      <h2 style="font-family:'Playfair Display',serif; color:var(--header-btn-green); font-size:clamp(2rem, 3.2vw, 3rem); text-align:center; margin-bottom:26px;">Patisipe</h2>
+      <div class="headline-grid">
+        <a class="card" href="{{ '/ht/impliquer.html#visite' | relative_url }}">
+          <div class="card-media">
+            <span class="pillTag">VIZIT</span>
+            <img src="{{ '/images/index/index-planifier-visite.jpg' | relative_url }}" alt="Planifye vizit ou" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Planifye Vizit Ou</h3>
+            <p>Itenèrè, imèsyon edikasyon ak eksperyans gide pou dekouvri espas nou yo.</p>
+          </div>
+        </a>
+
+        <a class="card" href="{{ '/ht/impliquer.html#membership' | relative_url }}">
+          <div class="card-media">
+            <span class="pillTag">MANM</span>
+            <img src="{{ '/images/index/devenir-membre-page-principale.jpg' | relative_url }}" alt="Tounen manm" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Tounen Manm</h3>
+            <p>Rantre nan kominote angaje nou an epi sipòte aktivman biodivèsite a.</p>
+          </div>
+        </a>
+
+        <a class="card" href="{{ '/ht/education.html' | relative_url }}">
+          <div class="card-media">
+            <span class="pillTag">FÒMASYON</span>
+            <img src="{{ '/images/index/index-formation.jpg' | relative_url }}" alt="Fòmasyon" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h3>Fòmasyon</h3>
+            <p>Patisipe nan pwogram edikasyon nou yo pou konprann epi pwoteje lanati.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:72px 0;">
+    <div class="container">
+      <div class="media-banner">
+        <h2>Medyatèk & Resous</h2>
+        <p>Done ak enfòmasyon esansyèl pou prise desizyon yo pibliye regilyèman. Ekspilore blog nou, chaîne YouTube nou ak paj Facebook nou kote nou òganize fòmasyon e pataje done.</p>
+        <div style="display: flex; justify-content: center;">
+          <a href="{{ '/ht/blogue.html' | relative_url }}" class="m-link">Ekspilore resous yo <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners-strip">
+    <div class="container">
+      <div class="partners-row">
+        <a class="partner" href="https://www.bgci.org" target="_blank" rel="noopener"><img src="{{ '/images/index/index-bgci.jpg' | relative_url }}" alt="BGCI"></a>
+        <a class="partner" href="https://www.naplesgarden.org" target="_blank" rel="noopener"><img src="{{ '/images/index/index-naples-botanical-garden.jpg' | relative_url }}" alt="Naples Botanical Garden"></a>
+        <a class="partner" href="https://mde.gouv.ht" target="_blank" rel="noopener"><img src="{{ '/images/index/index-ministere-environnement-haiti.jpg' | relative_url }}" alt="Ministère de l'Environnement"></a>
+        <a class="partner" href="https://earthoutreach.google.com" target="_blank" rel="noopener"><img src="{{ '/images/index/index-google-geo-for-good.jpg' | relative_url }}" alt="Google Geo for Good"></a>
+        <a class="partner" href="https://sites.google.com/viahsa.net/villages-apicoles/accueil" target="_blank" rel="noopener"><img src="{{ '/images/index/index-viahsa.jpg' | relative_url }}" alt="VIAHSA"></a>
+      </div>
+    </div>
+  </section>
+</main>
