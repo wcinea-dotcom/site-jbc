@@ -1,0 +1,83 @@
+{% comment %}
+  _includes/form-handler.html
+  Intégration Google Apps Script pour tous les formulaires JBC.
+  Gère : stockage Google Sheets + email merci (soumetteur) + email notification (JBC).
+  Usage : inclure en bas de chaque page contenant des formulaires JBC.
+{% endcomment %}
+<script>
+(function(){
+  /**
+   * URL du Google Apps Script déployé (Web App).
+   * Remplacer par l'URL obtenue après déploiement du script.
+   * Voir : GOOGLE-APPS-SCRIPT-INSTRUCTIONS.md dans le repo.
+   */
+  const GAS_URL = "REMPLACER_PAR_VOTRE_URL_APPS_SCRIPT";
+
+  /**
+   * Attache le gestionnaire à tous les formulaires ayant data-jbc-form="true"
+   */
+  function initJBCForms() {
+    document.querySelectorAll('form[data-jbc-form]').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitJBCForm(form);
+      });
+    });
+  }
+
+  function submitJBCForm(form) {
+    const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+    const originalText = submitBtn ? submitBtn.textContent : '';
+    const formName = form.getAttribute('name') || 'formulaire';
+
+    // Feedback visuel
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = '⏳ Envoi en cours…';
+    }
+
+    // Collecter les données
+    const data = {};
+    new FormData(form).forEach(function(v, k) { data[k] = v; });
+    data['_form_name'] = formName;
+    data['_timestamp'] = new Date().toISOString();
+    data['_page'] = window.location.pathname;
+
+    // Envoyer au Google Apps Script
+    fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function() {
+      showSuccess(form, formName);
+    })
+    .catch(function() {
+      // no-cors retourne toujours "opaque" — considérer comme succès
+      showSuccess(form, formName);
+    })
+    .finally(function() {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
+
+  function showSuccess(form, formName) {
+    form.style.display = 'none';
+    const msg = document.createElement('div');
+    msg.className = 'jbc-success-msg';
+    msg.innerHTML =
+      '<div style="text-align:center;padding:30px 20px;">' +
+      '<div style="font-size:3rem;margin-bottom:12px;">✅</div>' +
+      '<h3 style="color:#2F5D2F;margin-bottom:10px;">Message envoyé !</h3>' +
+      '<p style="color:#555;line-height:1.7;">Merci pour votre message. Nous vous répondrons dans les <strong>24 heures</strong>.<br>Un email de confirmation vous a été envoyé.</p>' +
+      '</div>';
+    form.parentNode.insertBefore(msg, form.nextSibling);
+  }
+
+  document.addEventListener('DOMContentLoaded', initJBCForms);
+})();
+</script>

@@ -1,0 +1,310 @@
+---
+layout: default
+lang: ht
+title: "Sou Nou"
+description: "Gouvènans Jardin Botanique des Cayes - Ekip ekspè dedye konservasyon biodivèsite Ayiti"
+ref: apropos
+---
+
+<style>
+  /* =========================================
+     VARIABLES ET STYLES SPÉCIFIQUES (PAGE À PROPOS)
+     ========================================= */
+  :root {
+    --primary: #1a4332;
+    --secondary: #2d5a27;
+    --accent: #c5a059;
+    --text-dark: #333333;
+    --white: #ffffff;
+    --max-apropos: 1300px;
+  }
+
+  .container-apropos { max-width: var(--max-apropos); margin: 0 auto; padding: 0 22px; }
+
+  .page-header {
+    min-height: 400px;
+    background-image: url('{{ "images/conseil/conseil-hero.jpg" | relative_url }}');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+  .page-header::before {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  }
+  .page-header .inner { position: relative; z-index: 2; padding: 0 20px; }
+  .breadcrumb {
+    display:flex; gap:10px; justify-content:center;
+    text-transform: uppercase; font-size: 0.8rem; font-weight: 700;
+    margin-bottom: 15px; letter-spacing: 1px; opacity: 0.9;
+  }
+  .page-header h1 {
+    font-family:"Playfair Display", serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  .section-intro { padding: 40px 0 40px; text-align: center; }
+  .section-title {
+    font-family:"Playfair Display", serif;
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .section-subtitle {
+    max-width: 800px; margin: 0 auto;
+    font-size: 1.1rem; color: #555;
+    line-height: 1.8;
+  }
+
+  .people-wrap { padding-bottom: 80px; }
+  .person {
+    display:grid;
+    grid-template-columns: 350px 1fr;
+    gap: 50px;
+    padding: 60px 0;
+    border-bottom: 1px solid #eaeaea;
+    align-items: start;
+  }
+  .person:last-child { border-bottom: none; }
+
+  .person-img img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    background-color: #f4f4f4;
+  }
+
+  .person-content { padding-top: 5px; }
+  .person-name {
+    font-family:"Playfair Display", serif;
+    color: var(--secondary);
+    font-size: 2rem;
+    margin: 0 0 8px 0;
+  }
+  .person-role {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .person-text p {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  @media (max-width: 1024px) {
+    .person { grid-template-columns: 1fr; gap: 30px; text-align: left; }
+    .person-img { max-width: 400px; margin: 0 auto; }
+  }
+</style>
+
+<header class="page-header">
+  <div class="inner">
+    <div class="breadcrumb">
+      <a href="{{ '{{ '/ht/' | relative_url }}' }}" style="color:#fff; text-decoration:none;">Akèy</a> <span style="color:#fff;">/</span> <span style="color:#fff;">Sou Nou</span>
+    </div>
+    <h1>Gouvènans Nou</h1>
+  </div>
+</header>
+
+<main>
+  <section class="section-intro">
+    <div class="container-apropos">
+      <h2 class="section-title">Konsèy Administrasyon an</h2>
+      <p class="section-subtitle">
+        Jardin Botanique des Cayes giye pa yon ekip ekspè divès disiplin yo, inite pa yon misyon komun: konservasyon biodivèsite ak devlopman dirab Ayiti.
+      </p>
+    </div>
+  </section>
+
+  <section class="people-wrap">
+    <div class="container-apropos">
+
+      <article class="person" id="william-cinea">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-william-cinea.jpg' | relative_url }}" alt="William Cinea">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">William Cinea</h3>
+          <div class="person-role">Fondatè | Enjenyè Forestye & Botanis</div>
+          <div class="person-text">
+            <p>William Cinea se enjenyè forestye ak botanis, espesyalize nan syans plant yo ak lidèchip jaden botanik. Li se fondatè Jardin Botanique des Cayes.</p>
+            <p>Li swiv etid ak fòmasyon nan botanik, konservasyon ak lidèchip nan Repiblik Dominiken, nan Eta-Zini (Cornell University), nan Angletè, nan Frans ak nan Kiba.</p>
+            <p>Avèk plis pase yon deseni eksperyans, William Cinea dedike travay li nan rechèch botanik, konservasyon, hortikilti ak striktirasyon syantifik Jaden an. Li aktyèlman responsab depatman Rechèch & Konservasyon.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="silien-jean-jones">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-silien-jean-jones.jpg' | relative_url }}" alt="Silien Jean Jones">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Silien Jean Jones</h3>
+          <div class="person-role">Vis Prezidan | Enjenyè Agronòm</div>
+          <div class="person-text">
+            <p>Silien Jean Jones se enjenyè agronòm avèk plis pase 12 ane eksperyans nan Jardin Botanique des Cayes. Li te okipe plizyè fonksyon kle, espesyalman direktè pwojè ak direktè depatman hortikol yo.</p>
+            <p>Li posede ekspèrtiz pwofon nan kreyasyon ak jesyon jaden botanik, pwodíksyon hortikal ak amenajman peyizaj. Konesans tèren li fè li yon poto estratejik Konsèy Administrasyon an.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="william-casseus">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-casseus-william.jpg' | relative_url }}" alt="William Casséus">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">William Casséus</h3>
+          <div class="person-role">Responsab Afè Jidik | Avoka</div>
+          <div class="person-text">
+            <p>William Casséus patisipe nan demaraj Jardin Botanique des Cayes an 2003. Jeran ak avoka nan pwofesyon, li responsab sipèvisyon jidik ak administrasyon enstitisyon an.</p>
+            <p>Responsablite li yo enkli konformite legal, apwi gouvènans ak swiv ka jidik yo, ansire estabilite enstitisyonal Jaden an.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="paul-ascencio">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-ascencio-paul.jpg' | relative_url }}" alt="Paul Ascencio">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Paul Ascencio</h3>
+          <div class="person-role">Espesyalis Apikil & Antrenprenarya</div>
+          <div class="person-text">
+            <p>Paul Ascencio se espesyalis apikil ak fondatè antrepriz agrikol VIAHSA. Li tou ekspè nan edikasyon anviwonmantal ak antrenprenarya riral.</p>
+            <p>Nan Konsèy Administrasyon an, li kontribye ranfòse lyen ant biodivèsite, pwodíksyon dirab, otonomи ekonomik ak devlopman kominote.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="valencia-logiste">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-valencia-logiste.jpg' | relative_url }}" alt="Valencia Logiste">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Valencia Logiste</h3>
+          <div class="person-role">Sekretè Konsèy | Ekspè Jèsyon</div>
+          <div class="person-text">
+            <p>Kontab fòmasyon, Valencia Logiste gen plis pase 10 ane eksperyans nan Jardin Botanique des Cayes. Li te travay nan tout depatman: administrasyon, edikasyon ak rechèch.</p>
+            <p>Li te reprezante Jaden an nan ekspozisyon ortиkal entènasyonal nan Katè. Traje tansèvèl li fè li yon referans entèn pou fonksyonman enstitisyon an.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="natacha-beaussejour">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-natacha-beaussejour.jpg' | relative_url }}" alt="Natacha Beaussejour">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Natacha Beaussejour</h3>
+          <div class="person-role">Konseyè | Espesyalis Teknoloji & Restorasyonu</div>
+          <div class="person-text">
+            <p>Ansyen direktè koordinasyon Nature Design, Natacha Beaussejour te travay plis pase 10 ane nan Jaden an kòm administatris ak responsab relasyon entènasyonal yo.</p>
+            <p>Li posede ekspèrtiz nan teknoloji aplike ak restorasyonu ekosistèm yo. Jodi a li kontribye estrateji enstitisyonal ak kominikasyon dijital Jaden an.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="decime-pierrette">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-pierrette-pecime.jpg' | relative_url }}" alt="Décime Pierrette">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Décime Pierrette</h3>
+          <div class="person-role">Konseyè Syantifik | Botanis</div>
+          <div class="person-text">
+            <p>Botanis nan pwofesyon, Décime Pierrette responsab ekspedisyon syantifik, koleksyon done botanik ak apwi pwogram rechèch yo.</p>
+            <p>Li aporte ekspèrtiz kle nan idantifikasyon, dokimantasyon ak valorizasyon flòr natif Ayiti.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="jean-philippe-cineas">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-jeean-philippe-cinéas.jpg' | relative_url }}" alt="Jean-Philippe Cinéas">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Jean-Philippe Cinéas</h3>
+          <div class="person-role">Espesyalis Planifikasyon & Done</div>
+          <div class="person-text">
+            <p>Titilè fòmasyon nan agronomi ak jeyografi, Jean-Philippe espesyalis planifikasyon terityal ak jesyon baz done.</p>
+            <p>Li konsey ekip la sou zouti jesyon done, planifikasyon estratejik ak òganizasyon rijid pwojè syantifik yo.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="bruno-mentor">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-bruno-mentor.jpg' | relative_url }}" alt="Bruno Mentor">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Bruno Mentor</h3>
+          <div class="person-role">Konseyè Estratejik | Sosyolog</div>
+          <div class="person-text">
+            <p>Bruno Mentor se sosyolog, milityan anviwonmantal ak fondatè Fondation Macaya. Li entèvni kòm konseyè estratejik sou kesyon gouvènans ak politik anviwonmantal yo.</p>
+            <p>Angajman li ranfòse dimansyon sitoyan, nasyonal ak enstitisyonal Jardin Botanique des Cayes.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="frantza-julien">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-frantza-julien.jpg' | relative_url }}" alt="Frantza Julien">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Frantza Julien</h3>
+          <div class="person-role">Responsab Pwojè Biodivèsite Sid</div>
+          <div class="person-text">
+            <p>Fomasyon nan Meksik, Frantza Julien posede plis pase 15 ane eksperyans nan kolaborasyon avèk jaden botanik ak pwojè anviwonmantal.</p>
+            <p>Li aktyèlman responsab Pwojè Biodivèsite Sid, konsantre sou restorasyonu ekosistèm, edikasyon anviwonmantal ak konservasyon kominote.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="jacqueline-gerard">
+        <div class="person-img">
+          <img src="https://ui-avatars.com/api/?name=Jacqueline+G&background=f4f4f4&color=1a4332&size=400" alt="Jacqueline Gérard">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Jacqueline Gérard</h3>
+          <div class="person-role">Konseyè Sante & Nati</div>
+          <div class="person-text">
+            <p>Pwofesyonal sante avèk yon long eksperyans nan Eta-Zini, Jacqueline Gérard konseyè sou kesyon sante pa plant (naturopath), byenete ak apwòch natirèl.</p>
+            <p>Li ede fè lyen ant konservasyon plant medikal ak sante piblik.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="person" id="cadmus-ronald">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-cademus-ronald.jpg' | relative_url }}" alt="Cadmus Ronald">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Cadmus Ronald</h3>
+          <div class="person-role">Konseyè Syantifik | Enjenyè Forestye & SIG</div>
+          <div class="person-text">
+            <p>Cadmus Ronald se enjenyè forestye ak espesyalis sistèm enfòmasyon jewografik (SIG). Li entèvni kòm konsiltan sou biodivèsite ak restorasyonu ekosistèm yo.</p>
+            <p>Ansyen pwofesè asisyan nan Inivèsite botany Ankaya, li gid Jaden an sou kartografi ekolojik ak konservasyon fonde sou done espasyal.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>

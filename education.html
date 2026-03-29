@@ -777,8 +777,7 @@ title: "Éducation"
           les plantes endémiques, les plantes natives, et la biodiversité.
         </p>
 
-        <form class="contact-form" name="contact-education" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="contact-education">
+        <form class="contact-form" name="contact-education" data-jbc-form="true" action="#">
 
           <div class="contact-grid">
             <div class="field">
@@ -845,3 +844,5 @@ title: "Éducation"
 
 
 
+
+{% include form-handler.html %}

@@ -1,13 +1,16 @@
 ---
 layout: default
-title: "Bibliothèque de Ressources"
+lang: ht
+title: "Resous"
+ref: ressources
+description: "Bibliyotèk syantifik Jardin Botanique des Cayes - Dokiman, gid pratik, etid ak rapò"
 ---
 
 <style>
   :root {
-    --primary: #2F5D2F;        
+    --primary: #2F5D2F;
     --secondary: #5E8F3A;
-    --accent: #C5A059; 
+    --accent: #C5A059;
     --text-dark: #1f2a33;
     --text-muted: #555555;
     --bg-light: #f4f7f4;
@@ -15,7 +18,7 @@ title: "Bibliothèque de Ressources"
 
   /* --- HEADER RESSOURCES --- */
   .hero-resources {
-    background: linear-gradient(rgba(15, 41, 30, 0.8), rgba(15, 41, 30, 0.9)), 
+    background: linear-gradient(rgba(15, 41, 30, 0.8), rgba(15, 41, 30, 0.9)),
                 url('{{ "images/index/index-donnees.jpg" | relative_url }}') center/cover no-repeat;
     padding: 80px 20px;
     text-align: center;
@@ -35,25 +38,25 @@ title: "Bibliothèque de Ressources"
   /* --- FILTRES --- */
   .category-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 50px; padding: 0 20px;}
   .cat-btn {
-    padding: 10px 24px; border-radius: 30px; border: 1px solid var(--primary); background: transparent; 
+    padding: 10px 24px; border-radius: 30px; border: 1px solid var(--primary); background: transparent;
     color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; cursor: pointer; transition: 0.3s;
   }
   .cat-btn:hover, .cat-btn.active { background: var(--primary); color: white; box-shadow: 0 5px 15px rgba(47, 93, 47, 0.2); }
 
   /* --- GRILLE DES PUBLICATIONS --- */
-  .pub-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    gap: 30px; 
+  .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
     margin-bottom: 60px;
   }
-  
+
   .pub-card {
-    background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05); 
+    background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.05);
     border: 1px solid rgba(0,0,0,0.05); transition: 0.3s; display: flex; flex-direction: column;
   }
   .pub-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0,0,0,0.12); border-color: rgba(47, 93, 47, 0.2);}
-  
+
   .pub-header-color { height: 100px; position: relative; }
   .bg-deep { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
   .bg-gold { background: linear-gradient(135deg, var(--accent), #b38f4f); }
@@ -61,55 +64,55 @@ title: "Bibliothèque de Ressources"
   .bg-dark { background: linear-gradient(135deg, #1f2a33, #3a4a58); }
 
   .pub-badge {
-    position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); color: var(--primary); 
+    position: absolute; top: 15px; left: 15px; background: rgba(255,255,255,0.9); color: var(--primary);
     padding: 4px 12px; border-radius: 30px; font-size: 0.65rem; font-weight: 900; letter-spacing: 0.5px; text-transform: uppercase;
   }
-  
+
   .pub-icon-circle {
-    position: absolute; bottom: -20px; right: 20px; background: white; width: 50px; height: 50px; 
+    position: absolute; bottom: -20px; right: 20px; background: white; width: 50px; height: 50px;
     border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
-  
+
   .pub-body { padding: 35px 20px 20px; flex-grow: 1; display: flex; flex-direction: column; }
   .pub-title { font-size: 1.2rem; margin-bottom: 12px; line-height: 1.4; font-family: "Lato", sans-serif; font-weight: 900;}
   .pub-title a { text-decoration: none; color: var(--primary); transition: 0.2s;}
-  
+
   .pub-desc { color: #666; font-size: 0.9rem; margin-bottom: 20px; line-height: 1.6; flex-grow: 1; font-style: italic;}
   .pub-tags { margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 6px;}
   .pub-tag { background: #f0f7f0; color: var(--primary); padding: 4px 10px; border-radius: 30px; font-size: 0.7rem; font-weight: 700;}
 
-  .pub-dl-zone { 
+  .pub-dl-zone {
     border-top: 1px solid #eee; padding-top: 15px; display: flex; justify-content: space-between; align-items: center; gap: 10px;
   }
   .pub-meta { color: #999; font-size: 0.8rem; font-weight: 700; white-space: nowrap;}
-  
+
   /* Bouton d'ouverture du popup */
-  .btn-open-modal { 
-    background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%; 
+  .btn-open-modal {
+    background: var(--primary); color: white; width: 40px; height: 40px; border-radius: 50%;
     border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; font-size: 1.1rem;
   }
   .btn-open-modal:hover { background: var(--secondary); transform: scale(1.1);}
 
   /* --- POPUP DE TÉLÉCHARGEMENT --- */
-  .modal-overlay { 
-    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center; 
+  .modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;
   }
-  .modal-content { 
-    background: white; padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; 
-    position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3); 
+  .modal-content {
+    background: white; padding: 40px; border-radius: 20px; max-width: 500px; width: 90%;
+    position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);
   }
   .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #999; font-weight: bold;}
   .close-modal:hover { color: var(--primary); }
   .modal-content h2 { color: var(--primary); margin-bottom: 10px; font-size: 1.5rem; line-height: 1.3;}
   .modal-content p { color: #666; margin-bottom: 25px; font-size: 0.95rem; }
-  
+
   .form-group { display: flex; gap: 15px; margin-bottom: 15px; }
   .form-group input { flex: 1; padding: 12px 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; font-size: 0.95rem;}
   .form-group input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(47,93,47,0.1);}
-  .btn-submit-full { 
-    width: 100%; background: var(--gold); color: white; border: none; padding: 15px; 
-    border-radius: 10px; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; 
+  .btn-submit-full {
+    width: 100%; background: var(--gold); color: white; border: none; padding: 15px;
+    border-radius: 10px; font-weight: 900; font-size: 1.1rem; text-transform: uppercase;
     cursor: pointer; transition: 0.3s; margin-top: 10px; letter-spacing: 0.05em;
   }
   .btn-submit-full:hover { background: var(--primary); }
@@ -124,45 +127,45 @@ title: "Bibliothèque de Ressources"
 
 <main>
   <section class="hero-resources">
-    <h1>Bibliothèque Scientifique</h1>
-    <p>Documents techniques, guides pratiques, études floristiques et rapports stratégiques pour approfondir vos connaissances et soutenir vos actions de conservation.</p>
+    <h1>Bibliyotèk Syantifik</h1>
+    <p>Dokiman teknik, gid pratik, etid floristik ak rapò estratejik pou aponfon konesans ou ak sipòte aksyon konvasyon ou.</p>
   </section>
 
   <div class="search-bar-container">
     <form class="search-form" onsubmit="event.preventDefault(); searchResources();">
-      <input type="text" id="searchInput" class="search-input" placeholder="Rechercher par mot-clé (ex: Phytothérapie, Endémique...)">
-      <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Rechercher</button>
+      <input type="text" id="searchInput" class="search-input" placeholder="Chèche pa mo-kle (egz: Fitoterapwi, Endemik...)">
+      <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Chèche</button>
     </form>
   </div>
 
   <div class="container" style="max-width: 1240px; margin: 0 auto; padding: 0 22px;">
-    
+
     <div class="category-filters">
-      <button class="cat-btn active" onclick="filterCategory('all', this)">Toutes</button>
-      <button class="cat-btn" onclick="filterCategory('biodiversite', this)">Biodiversité</button>
-      <button class="cat-btn" onclick="filterCategory('conservation', this)">Conservation</button>
-      <button class="cat-btn" onclick="filterCategory('phytotherapie', this)">Phytothérapie</button>
-      <button class="cat-btn" onclick="filterCategory('rapport', this)">Rapports</button>
+      <button class="cat-btn active" onclick="filterCategory('all', this)">Tout</button>
+      <button class="cat-btn" onclick="filterCategory('biodiversite', this)">Biodivèsite</button>
+      <button class="cat-btn" onclick="filterCategory('conservation', this)">Konvasyon</button>
+      <button class="cat-btn" onclick="filterCategory('phytotherapie', this)">Fitoterapwi</button>
+      <button class="cat-btn" onclick="filterCategory('rapport', this)">Rapò</button>
     </div>
 
     <div class="pub-grid" id="resourcesGrid">
-      
+
       <article class="pub-card" data-category="biodiversite conservation">
         <div class="pub-header-color bg-botanical"></div>
-        <div class="pub-badge">LIVRE 2026</div>
+        <div class="pub-badge">LIV 2026</div>
         <div class="pub-icon-circle"><i class="fa-solid fa-book-open" style="color: var(--accent); font-size: 1.4rem;"></i></div>
-        
+
         <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Flora Haïti</a></h3>
-          <p class="pub-desc">Découvrez la richesse et la diversité des plantes d'Haïti à travers cet ouvrage de référence incontournable pour la conservation.</p>
+          <h3 class="pub-title"><a href="#">Flora Ayiti</a></h3>
+          <p class="pub-desc">Dekouvri richès ak divèsite plant Ayiti atravè ouvraj referans enpòtan pou konvasyon.</p>
           <div class="pub-tags">
-            <span class="pub-tag">Plantes</span>
-            <span class="pub-tag">Biodiversité</span>
-            <span class="pub-tag">Flore</span>
+            <span class="pub-tag">Plant</span>
+            <span class="pub-tag">Biodivèsite</span>
+            <span class="pub-tag">Flò</span>
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> PDF</span>
-            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/flore-haiti.pdf' | relative_url }}" data-title="Flora Haïti" title="Télécharger">
+            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/flore-haiti.pdf' | relative_url }}" data-title="Flora Ayiti" title="Telechaje">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
@@ -171,19 +174,19 @@ title: "Bibliothèque de Ressources"
 
       <article class="pub-card" data-category="rapport conservation">
         <div class="pub-header-color bg-gold">
-          <div class="pub-badge">STRATÉGIE 2020</div>
+          <div class="pub-badge">ESTRATEJI 2020</div>
           <div class="pub-icon-circle"><i class="fa-solid fa-bullseye" style="color: var(--accent); font-size: 1.4rem;"></i></div>
         </div>
         <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Haïti Biodiversité 2030 : Stratégie Nationale</a></h3>
-          <p class="pub-desc">Plan d'actions du gouvernement visant à garantir la résilience de la population aux chocs extrêmes à travers la protection de la nature.</p>
+          <h3 class="pub-title"><a href="#">Ayiti Biodivèsite 2030 : Estrateji Nasyonal</a></h3>
+          <p class="pub-desc">Plan aksyon gouvènman vize garantè resilijans popilasyon chok ekstrèm atravè proteksyon nati.</p>
           <div class="pub-tags">
-            <span class="pub-tag">Stratégie</span>
-            <span class="pub-tag">Plan d'Actions</span>
+            <span class="pub-tag">Estrateji</span>
+            <span class="pub-tag">Plan Aksyon</span>
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> PDF</span>
-            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/strategie-biodiversite-2030.pdf' | relative_url }}" data-title="Haïti Biodiversité 2030" title="Télécharger">
+            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/strategie-biodiversite-2030.pdf' | relative_url }}" data-title="Ayiti Biodivèsite 2030" title="Telechaje">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
@@ -191,19 +194,19 @@ title: "Bibliothèque de Ressources"
       </article>
 <article class="pub-card" data-category="biodiversite">
         <div class="pub-header-color bg-botanical">
-          <div class="pub-badge">ÉTUDE 2004</div>
+          <div class="pub-badge">ETID 2004</div>
           <div class="pub-icon-circle"><i class="fa-solid fa-dove" style="color: var(--secondary); font-size: 1.4rem;"></i></div>
         </div>
         <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Inventaire Ornithologique de Macaya</a></h3>
-          <p class="pub-desc">Étude détaillée de la communauté d'oiseaux des forêts de montagne dans la réserve de biosphère de Macaya (2004).</p>
+          <h3 class="pub-title"><a href="#">Envantè Ònitorojik Makaya</a></h3>
+          <p class="pub-desc">Etid detaye komunote zwazo fòrè mòn nan rezèv byosfè Makaya (2004).</p>
           <div class="pub-tags">
-            <span class="pub-tag">Oiseaux</span>
-            <span class="pub-tag">Macaya</span>
+            <span class="pub-tag">Zwazo</span>
+            <span class="pub-tag">Makaya</span>
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> PDF</span>
-            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/inventaire-ornithologique-macaya-2004.pdf' | relative_url }}" data-title="Inventaire Ornithologique Macaya 2004" title="Télécharger">
+            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/inventaire-ornithologique-macaya-2004.pdf' | relative_url }}" data-title="Envantè Ònitorojik Makaya 2004" title="Telechaje">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
@@ -216,15 +219,15 @@ title: "Bibliothèque de Ressources"
           <div class="pub-icon-circle"><i class="fa-solid fa-map" style="color: var(--accent); font-size: 1.4rem;"></i></div>
         </div>
         <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Plan de Gestion Parc National Naturel Macaya</a></h3>
-          <p class="pub-desc">Document stratégique du Ministère de l'Environnement et de l'ANAP pour la gestion et la protection du Parc National Naturel Macaya.</p>
+          <h3 class="pub-title"><a href="#">Plan Jesyon Pak Nasyonal Natirel Makaya</a></h3>
+          <p class="pub-desc">Dokiman estratejik Ministè Anviwònman ak ANAP pou jesyon ak proteksyon Pak Nasyonal Natirel Makaya.</p>
           <div class="pub-tags">
-            <span class="pub-tag">Plan de gestion</span>
-            <span class="pub-tag">Macaya</span>
+            <span class="pub-tag">Plan jesyon</span>
+            <span class="pub-tag">Makaya</span>
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> PDF</span>
-            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/plan-gestion-macaya-2015-2020.pdf' | relative_url }}" data-title="Plan de Gestion Macaya 2015-2020" title="Télécharger">
+            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/plan-gestion-macaya-2015-2020.pdf' | relative_url }}" data-title="Plan Jesyon Makaya 2015-2020" title="Telechaje">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
@@ -233,19 +236,19 @@ title: "Bibliothèque de Ressources"
 
       <article class="pub-card" data-category="rapport biodiversite">
         <div class="pub-header-color bg-deep">
-          <div class="pub-badge">RAPPORT 1992</div>
+          <div class="pub-badge">RAPO 1992</div>
           <div class="pub-icon-circle"><i class="fa-solid fa-book" style="color: var(--primary); font-size: 1.4rem;"></i></div>
         </div>
         <div class="pub-body">
-          <h3 class="pub-title"><a href="#">Rapport Final : Réserve de la Biosphère Macaya</a></h3>
-          <p class="pub-desc">Rapport historique et exhaustif de l'Université de Floride sur le projet de conservation de la réserve de biosphère de Macaya.</p>
+          <h3 class="pub-title"><a href="#">Rapò Final: Rezèv Byosfè Makaya</a></h3>
+          <p class="pub-desc">Rapò istarik ak konplè Inivesite Florid sou pwoje konvasyon rezèv byosfè Makaya.</p>
           <div class="pub-tags">
-            <span class="pub-tag">Réserve Biosphère</span>
-            <span class="pub-tag">Macaya</span>
+            <span class="pub-tag">Rezèv Byosfè</span>
+            <span class="pub-tag">Makaya</span>
           </div>
           <div class="pub-dl-zone">
             <span class="pub-meta"><i class="fa-regular fa-file-pdf" style="color: var(--accent);"></i> PDF</span>
-            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/rapport-final-reserve-biosphere-1992.pdf' | relative_url }}" data-title="Rapport Final Macaya 1992" title="Télécharger">
+            <button class="btn-open-modal" data-pdf="{{ '/asset/pdf/rapport-final-reserve-biosphere-1992.pdf' | relative_url }}" data-title="Rapò Final Makaya 1992" title="Telechaje">
               <i class="fa-solid fa-download"></i>
             </button>
           </div>
@@ -258,27 +261,29 @@ title: "Bibliothèque de Ressources"
 <div id="dl-modal" class="modal-overlay">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
-    <h2 id="modal-book-title">Télécharger le document</h2>
-    <p>Veuillez remplir vos informations pour accéder à ce document scientifique.</p>
-    
+    <h2 id="modal-book-title">Telechaje dokiman an</h2>
+    <p>Tanpri ranpli enfòmasyon ou pou ale nan dokiman syantifik sa a.</p>
+
     <form id="full-dl-form" name="telechargements-ressources" data-jbc-form="true" action="#">
       <input type="hidden" name="document_demande" id="hidden-doc-name" value="">
-      
+
       <div class="form-group">
-        <input type="text" name="prenom" placeholder="Prénom" required>
-        <input type="text" name="nom" placeholder="Nom de famille" required>
+        <input type="text" name="prenom" placeholder="Prenon" required>
+        <input type="text" name="nom" placeholder="Non fanmi" required>
       </div>
       <div class="form-group">
-        <input type="tel" name="telephone" placeholder="Numéro de téléphone (+509...)">
-        <input type="email" name="email" placeholder="Adresse e-mail" required>
+        <input type="tel" name="telephone" placeholder="Nimewo telefòn (+509...)">
+        <input type="email" name="email" placeholder="Adrès imèl" required>
       </div>
-      
-      <button type="submit" class="btn-submit-full">Obtenir le PDF <i class="fa-solid fa-download"></i></button>
+
+      <button type="submit" class="btn-submit-full">Jwenn PDF <i class="fa-solid fa-download"></i></button>
     </form>
   </div>
 </div>
 
 <script>
+  const GAS_URL = "REMPLACER_PAR_VOTRE_URL_APPS_SCRIPT"; // même URL que form-handler.html
+
   // FONCTION POUR LES FILTRES PAR CATÉGORIE
   function filterCategory(category, btnElement) {
     const buttons = document.querySelectorAll('.cat-btn');
@@ -300,7 +305,7 @@ title: "Bibliothèque de Ressources"
   function searchResources() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const cards = document.querySelectorAll('.pub-card');
-    
+
     document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
     document.querySelector('.cat-btn[onclick*="all"]').classList.add('active');
 
@@ -329,10 +334,10 @@ title: "Bibliothèque de Ressources"
     btn.addEventListener('click', function() {
       currentPdfUrl = this.getAttribute('data-pdf');
       const title = this.getAttribute('data-title');
-      
-      modalTitle.textContent = "Télécharger : " + title;
-      hiddenDocInput.value = title; 
-      
+
+      modalTitle.textContent = "Telechaje: " + title;
+      hiddenDocInput.value = title;
+
       modal.style.display = 'flex';
     });
   });
@@ -342,12 +347,11 @@ title: "Bibliothèque de Ressources"
   window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
 
   // Envoi via Google Apps Script + ouverture du PDF
-  const GAS_URL = "REMPLACER_PAR_VOTRE_URL_APPS_SCRIPT"; // même URL que form-handler.html
   const submitFullBtn = document.querySelector('.btn-submit-full');
 
   document.getElementById('full-dl-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    if (submitFullBtn) { submitFullBtn.disabled = true; submitFullBtn.textContent = '⏳ Chargement…'; }
+    if (submitFullBtn) { submitFullBtn.disabled = true; submitFullBtn.textContent = '⏳ Chaje...'; }
 
     const data = {};
     new FormData(this).forEach((v, k) => { data[k] = v; });
@@ -370,7 +374,7 @@ title: "Bibliothèque de Ressources"
       window.open(currentPdfUrl, '_blank');
       this.reset();
       modal.style.display = 'none';
-      if (submitFullBtn) { submitFullBtn.disabled = false; submitFullBtn.textContent = 'Obtenir le PDF ⬇'; }
+      if (submitFullBtn) { submitFullBtn.disabled = false; submitFullBtn.textContent = 'Jwenn PDF ⬇'; }
     }
   });
 </script>
