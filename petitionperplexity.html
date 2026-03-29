@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pétition – Sauvons le Jardin Botanique des Cayes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7f8;
+      color: #222;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+    .banner {
+      background: linear-gradient(135deg, #0b8f5a, #136d3a);
+      color: #fff;
+      padding: 24px 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .banner h1 {
+      margin: 0 0 8px;
+      font-size: 1.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .banner h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .highlight {
+      color: #ffe082;
+      font-weight: 600;
+    }
+    .cta-main {
+      margin-top: 16px;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #ff6b35;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+    }
+    .btn-primary:hover {
+      background: #e05522;
+    }
+    h3.section-title {
+      margin-top: 28px;
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+      color: #0b8f5a;
+    }
+    p {
+      margin: 0 0 10px;
+    }
+    .tagline {
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+    }
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 2fr 1.3fr;
+      }
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px 16px 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .card ul {
+      padding-left: 18px;
+      margin: 4px 0 0;
+    }
+    .card li {
+      margin-bottom: 4px;
+    }
+    .photo-block {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      position: relative;
+      color: #fff;
+    }
+    .photo-block img {
+      width: 100%;
+      display: block;
+      opacity: 0.82;
+      object-fit: cover;
+      max-height: 340px;
+    }
+    .photo-caption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 10px;
+      font-size: 0.9rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(0,0,0,0.45);
+    }
+    .legal-list {
+      counter-reset: num;
+      padding-left: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .legal-list li {
+      counter-increment: num;
+      margin-bottom: 8px;
+      padding-left: 26px;
+      position: relative;
+    }
+    .legal-list li::before {
+      content: counter(num) ".";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      color: #0b8f5a;
+    }
+    .legal-contact p {
+      margin: 4px 0;
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #e3f5eb;
+      color: #0b8f5a;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .quick-share {
+      font-family: monospace;
+      font-size: 0.87rem;
+      background: #111827;
+      color: #e5e7eb;
+      padding: 12px;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      margin-top: 6px;
+    }
+    .footer-note {
+      margin-top: 22px;
+      font-size: 0.85rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- BANNIÈRE -->
+    <header class="banner">
+      <h1>Pétition internationale</h1>
+      <h2>SAUVONS LE JARDIN BOTANIQUE DES CAYES</h2>
+      <p class="tagline">
+        Un patrimoine haïtien unique est en train de brûler. 
+        <span class="highlight">Nous devons agir maintenant.</span>
+      </p>
+      <div class="cta-main">
+        <!-- Remplacer # par le lien réel de la pétition (Change, Avaaz, etc.) -->
+        <a href="#" class="btn-primary" target="_blank" rel="noopener">
+          Je signe pour sauver le Jardin
+        </a>
+      </div>
+    </header>
+
+    <!-- SECTION 1 : CE JARDIN, C'EST NOUS -->
+    <section class="card">
+      <div class="badge">Pourquoi cette pétition ?</div>
+      <h3 class="section-title">Ce jardin, c’est nous, c’est Haïti</h3>
+      <div class="grid grid-2">
+        <div>
+          <p>
+            Le Jardin Botanique des Cayes est le seul jardin botanique haïtien officiellement reconnu à l’international. 
+            Il est à la fois une école vivante, un laboratoire scientifique et un symbole de fierté nationale.
+          </p>
+          <ul>
+            <li>Pour les enfants : un lieu de découverte, d’émerveillement et d’éducation à l’environnement.</li>
+            <li>Pour les étudiants : une salle de classe à ciel ouvert pour agronomes, biologistes et écologues.</li>
+            <li>Pour les chercheurs : un terrain d’étude connecté aux réseaux scientifiques internationaux.</li>
+            <li>Pour Haïti : la preuve que notre pays peut créer et maintenir des institutions exemplaires.</li>
+          </ul>
+        </div>
+        <div class="photo-block">
+          <!-- Remplacer src par l’URL de la photo des enfants au jardin -->
+          <img src="URL_PHOTO_ENFANTS_JARDIN.jpg" alt="Enfants visitant le Jardin Botanique des Cayes">
+          <div class="photo-caption">
+            <div class="pill">Éducation & avenir</div><br>
+            Des centaines d’enfants et d’étudiants y ont découvert la richesse des plantes d’Haïti.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 : CE QUI SE PASSE (INCENDIES, BLOCAGE) -->
+    <section class="card">
+      <div class="badge">Un crime écologique en cours</div>
+      <h3 class="section-title">Ce qui se passe aujourd’hui</h3>
+      <div class="grid grid-2">
+        <div class="photo-block">
+          <!-- Remplacer src par l’URL de la photo montrant le feu / destructions -->
+          <img src="URL_PHOTO_INCENDIE_JARDIN.jpg" alt="Incendie au Jardin Botanique des Cayes">
+          <div class="photo-caption">
+            <div class="pill">Urgence</div><br>
+            Incendies, plantes rares détruites, accès bloqué : le jardin est en danger de mort.
+          </div>
+        </div>
+        <div>
+          <p>
+            Depuis mai 2025, le Jardin Botanique des Cayes est attaqué : accès fermé illégalement, personnel chassé, 
+            incendies déclenchés dans la zone la plus précieuse, destruction de plantes endémiques et construction de barrières.
+          </p>
+          <p>
+            Ces actions sont le fait de <strong>Madame Donna Bastien</strong>, épouse de Bruno Gérard, 
+            qui revendique une petite portion du terrain mais fait détruire la totalité des 8 hectares, 
+            en méprisant les décisions de justice et les convocations au tribunal.
+          </p>
+          <p>
+            Nous refusons que le patrimoine écologique, scientifique et éducatif d’un pays entier 
+            soit sacrifié par la décision d’une seule personne.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 : NOS DEMANDES JURIDIQUES -->
+    <section class="card">
+      <div class="badge">Ce que nous demandons à l’État</div>
+      <h3 class="section-title">Nos demandes au gouvernement haïtien</h3>
+      <ol class="legal-list">
+        <li><strong>Arrêt immédiat des destructions</strong> : fin du blocage, des incendies et des expulsions du personnel.</li>
+        <li><strong>Ouverture d’une enquête pénale</strong> pour destruction de patrimoine écologique, incendie criminel, violences contre les personnes et entrave à la justice.</li>
+        <li><strong>Évaluation indépendante des dégâts</strong> par des experts en environnement et biodiversité.</li>
+        <li><strong>Transparence foncière</strong> : clarification publique des titres de propriété et des droits des héritiers.</li>
+        <li><strong>Obligation de réparation</strong> : financement de la restauration complète du jardin par les responsables.</li>
+        <li><strong>Fin de l’impunité</strong> : sanctions contre tous les complices ayant soutenu ces actes dans l’appareil judiciaire ou ailleurs.</li>
+      </ol>
+    </section>
+
+    <!-- SECTION 4 : APPEL AUX AVOCATS / JURISTES -->
+    <section class="card">
+      <div class="badge">Section juridique</div>
+      <h3 class="section-title">Vous êtes avocat ou juriste ? Rejoignez la défense du jardin</h3>
+      <div class="grid">
+        <div>
+          <p>
+            Nous appelons les avocats, juristes, spécialistes du droit foncier et du droit de l’environnement, 
+            en Haïti et dans la diaspora, à se joindre à notre action.
+          </p>
+          <p>
+            Votre expertise est essentielle pour renforcer la stratégie juridique, soutenir les héritiers 
+            qui défendent le Jardin Botanique des Cayes et porter ce dossier jusqu’aux plus hautes instances.
+          </p>
+        </div>
+        <div class="legal-contact">
+          <p><strong>Contact cellule juridique :</strong></p>
+          <!-- Remplacer par tes vraies coordonnées -->
+          <p>📩 Email : <a href="mailto:contact@exemple.org">contact@exemple.org</a></p>
+          <p>📞 WhatsApp : <a href="https://wa.me/509XXXXXXXX" target="_blank" rel="noopener">+509 XX XX XX XX</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 : APPEL À L’ACTION + VERSION EXPRESS WHATSAPP -->
+    <section class="card">
+      <div class="badge">Agir maintenant</div>
+      <h3 class="section-title">Signez, partagez, faites circuler</h3>
+      <p>
+        Une pétition n’est pas un simple texte : c’est une arme pacifique, la preuve que le peuple haïtien 
+        et la communauté internationale ne restent pas silencieux face à ce crime écologique.
+      </p>
+      <p>
+        Notre objectif : <strong>5 000 signatures</strong> pour exiger une action immédiate du gouvernement haïtien.
+      </p>
+      <p style="margin: 12px 0;">
+        <a href="#" class="btn-primary" target="_blank" rel="noopener">
+          Je signe maintenant
+        </a>
+      </p>
+
+      <p class="tagline">Texte express à partager (WhatsApp / Facebook)</p>
+      <div class="quick-share">
+URGENT – SAUVONS LE JARDIN BOTANIQUE DES CAYES ! 🇭🇹🌿
+Seul jardin botanique haïtien reconnu à l’international, il protège des plantes uniques au monde et forme nos étudiants.
+
+Aujourd’hui, Madame Donna Bastien a fermé le jardin, chassé le personnel avec des chiens et mis le feu à des zones précieuses, alors qu’elle n’est même pas héritière légale du terrain.
+
+Nous avons besoin de 5 000 signatures pour forcer le gouvernement à agir.
+
+👉 LIEN DE LA PÉTITION : [COLLER ICI LE LIEN]
+SIGNEZ, PARTAGEZ, NE RESTEZ PAS SILENCIEUX.
+#SauvonsLeJardinDesCayes #DonnaBastienDoitRépondre #LeJardinCestNous
+      </div>
+    </section>
+
+    <!-- PIED DE PAGE -->
+    <footer class="footer-note">
+      Pétition initiée par les défenseurs du Jardin Botanique des Cayes, 
+      avec le soutien de la majorité des héritiers de la famille Gérard, 
+      de la communauté scientifique et de toutes celles et ceux qui refusent de voir notre patrimoine disparaître.  
+      <br>
+      Fait le 21 février 2026.
+    </footer>
+
+  </div>
+</body>
+</html>
