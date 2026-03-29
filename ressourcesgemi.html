@@ -1,0 +1,159 @@
+---
+layout: default
+title: "Guide de Restauration des Écosystèmes"
+---
+
+<style>
+  :root {
+    --primary: #2F5D2F;        
+    --secondary: #5E8F3A;
+    --accent: #C5A059; 
+    --text-dark: #1f2a33;
+    --text-muted: #555555;
+    --bg-light: #f4f7f4;
+  }
+
+  .resource-wrapper { padding: 60px 0 100px; background: #fff; }
+  
+  /* --- FIL D'ARIANE --- */
+  .breadcrumb {
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--text-muted); margin-bottom: 40px; display: flex; gap: 8px;
+  }
+  .breadcrumb a { color: var(--primary); text-decoration: none; transition: 0.2s; }
+  .breadcrumb a:hover { color: var(--secondary); }
+
+  /* --- GRILLE PRINCIPALE --- */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* --- COLONNE GAUCHE (Image) --- */
+  .doc-cover {
+    width: 100%; border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* --- COLONNE DROITE (Contenu) --- */
+  .meta-tags { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
+  .tag-category {
+    background: var(--accent); color: #000; font-size: 0.75rem; font-weight: 900;
+    padding: 6px 12px; text-transform: uppercase; letter-spacing: 1px; border-radius: 3px;
+  }
+  .doc-date { font-size: 0.9rem; color: var(--text-muted); font-weight: 700; }
+
+  .doc-title {
+    font-family: "Playfair Display", serif; font-size: clamp(2rem, 3.5vw, 3rem);
+    color: var(--primary); line-height: 1.2; margin-bottom: 25px;
+  }
+
+  /* Zone SEO (Introduction) */
+  .doc-intro {
+    font-size: 1.15rem; color: var(--text-dark); line-height: 1.8; margin-bottom: 30px; font-weight: 400;
+  }
+  .doc-details {
+    font-size: 1rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 40px;
+  }
+
+  /* --- BOÎTE DE TÉLÉCHARGEMENT (LEAD MAGNET) --- */
+  .download-box {
+    background: var(--bg-light); border-left: 5px solid var(--primary);
+    padding: 35px; border-radius: 0 12px 12px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+  .download-box h3 {
+    font-size: 1.3rem; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;
+  }
+  .download-box p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; }
+
+  .dl-form { display: flex; flex-direction: column; gap: 15px; }
+  .dl-row { display: flex; gap: 15px; }
+  .dl-input {
+    flex: 1; padding: 15px; border: 1px solid #ccc; border-radius: 6px;
+    font-family: inherit; font-size: 1rem; transition: 0.3s;
+  }
+  .dl-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(47, 93, 47, 0.1); }
+  
+  .dl-btn {
+    background: var(--primary); color: #fff; border: none; padding: 16px 24px;
+    border-radius: 6px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;
+    cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .dl-btn:hover { background: var(--secondary); transform: translateY(-2px); }
+
+  @media (max-width: 900px) {
+    .resource-grid { grid-template-columns: 1fr; gap: 40px; }
+    .doc-cover { max-width: 300px; margin: 0 auto; }
+    .dl-row { flex-direction: column; }
+  }
+</style>
+
+<main class="resource-wrapper">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 22px;">
+    
+    <div class="breadcrumb">
+      <a href="{{ '/donnees.html' | relative_url }}">Ressources</a> 
+      <span>/</span> 
+      <a href="#">Rapports Scientifiques</a> 
+      <span>/</span> 
+      <span style="color: #000;">Restauration des Écosystèmes</span>
+    </div>
+
+    <div class="resource-grid">
+      
+      <div>
+        <img src="{{ 'images/ressources/couverture-rapport-restauration.jpg' | relative_url }}" alt="Couverture du document Restauration" class="doc-cover">
+        
+        <ul style="list-style: none; padding: 0; margin-top: 20px; font-size: 0.9rem; color: var(--text-muted);">
+          <li style="margin-bottom: 8px;"><strong>Auteur :</strong> Jardin Botanique des Cayes</li>
+          <li style="margin-bottom: 8px;"><strong>Pages :</strong> 42 pages</li>
+          <li style="margin-bottom: 8px;"><strong>Langue :</strong> Français</li>
+          <li style="margin-bottom: 8px;"><strong>Format :</strong> PDF (3.4 Mo)</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="meta-tags">
+          <span class="tag-category">Document de recherche</span>
+          <span class="doc-date">Publié le 22 Février 2026</span>
+        </div>
+
+        <h1 class="doc-title">Guide stratégique pour la restauration des écosystèmes dégradés en Haïti</h1>
+
+        <div class="doc-intro">
+          <strong>Résumé :</strong> Ce document de recherche synthétise plus de 10 ans de données collectées par le Jardin Botanique des Cayes. Il propose des méthodologies basées sur la nature pour restaurer les sols arides, protéger les bassins versants et réintroduire les espèces endémiques d'Haïti de manière durable.
+        </div>
+
+        <div class="doc-details">
+          <p>La dégradation des habitats naturels menace directement la sécurité alimentaire et la résilience climatique de notre pays. À travers ce guide, les décideurs politiques, les ONG environnementales et les chercheurs trouveront des protocoles précis de multiplication en pépinière (conservation ex-situ) et des stratégies d'implication communautaire (conservation in-situ).</p>
+          <p>Vous y découvrirez également nos données exclusives sur la sélection des plantes natives résilientes face aux cyclones, un outil indispensable pour tout projet de reboisement dans la région de la Grand'Anse et du Sud.</p>
+        </div>
+
+        <div class="download-box">
+          <h3><i class="fa-solid fa-lock" style="color: var(--accent);"></i> Accéder au document complet</h3>
+          <p>Entrez vos coordonnées pour recevoir immédiatement le lien de téléchargement PDF. Nous vous tiendrons informé de nos futures publications.</p>
+          
+          <form class="dl-form" name="telechargement-restauration" method="POST" data-netlify="true" action="/assets/pdf/guide-restauration-jbc.pdf">
+            <input type="hidden" name="form-name" value="telechargement-restauration">
+            <input type="hidden" name="document_demande" value="Guide Restauration Ecosystemes">
+            
+            <div class="dl-row">
+              <input type="text" name="nom" class="dl-input" placeholder="Votre prénom et nom" required>
+              <input type="text" name="organisation" class="dl-input" placeholder="Votre organisation (Facultatif)">
+            </div>
+            
+            <input type="email" name="email" class="dl-input" placeholder="Votre adresse email officielle" required>
+            
+            <button type="submit" class="dl-btn">
+              Télécharger le PDF <i class="fa-solid fa-file-pdf"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
