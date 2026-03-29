@@ -1,271 +1,236 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Département Science du Jardin Botanique des Cayes : Recherche, inventaires et projets de conservation pour la santé de la nature et de l'homme." />
-  <title>Science & Projets | Jardin Botanique des Cayes</title>
+---
+layout: default
+title: "Science & Projets"
+---
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  /* =========================================
+     VARIABLES GLOBALES SPÉCIFIQUES (PAGE SCIENCE)
+     ========================================= */
+  :root {
+    --primary: #1a4332;        
+    --secondary: #2d5a27;      
+    --accent: #c5a059;         
+    --deep-text: #243039;          
+    --text: #1f2a33;           
+    --muted: #5a6772;          
+    --bg: #ffffff;
+    --soft: #f4f7f4;           
+    --border: rgba(0,0,0,.08);
+    --shadow: 0 10px 30px rgba(0,0,0,.05);
+    --radius: 12px;
+    --max-wrap: 1200px;
+  }
 
-  <style>
-    /* =========================================
-       VARIABLES GLOBALES
-       ========================================= */
-    :root {
-      /* Couleurs Spécifiques à la page Science */
-      --primary: #1a4332;       
-      --secondary: #2d5a27;     
-      --accent: #c5a059;        
-      --deep-text: #243039;          
-      --text: #1f2a33;          
-      --muted: #5a6772;         
-      --bg: #ffffff;
-      --soft: #f4f7f4;          
-      --footer-bg: #385133;
-      --border: rgba(0,0,0,.08);
-      --shadow: 0 10px 30px rgba(0,0,0,.05);
-      --radius: 12px;
-      --max-wrap: 1200px;
-      
-      /* Variables Standard JBC (pour le menu) */
-      --deep: #2F5D2F;       
-      --botanical: #5E8F3A;  
-      --gold: #C5A059;       
-      --paper: #FBFCFA;      
-      --ink: #1f2a33;        
-      --shadow2: 0 22px 70px rgba(0,0,0,.18);
-      --max: 1200px;
-      --navH: 104px;
-    }
+  body {
+    font-family: "Lato", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 { font-family: "Playfair Display", serif; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  
+  .wrap { max-width: var(--max-wrap); margin: 0 auto; padding: 0 25px; }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: "Lato", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-    }
-    h1, h2, h3, h4 { font-family: "Playfair Display", serif; }
-    a { text-decoration: none !important; color: inherit; transition: 0.3s; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
-    
-    .wrap { max-width: var(--max-wrap); margin: 0 auto; padding: 0 25px; }
+  /* =========================================
+     CONTENU SPÉCIFIQUE (PAGE SCIENCE)
+     ========================================= */
+  .hero-science {
+    position: relative; min-height: 65vh;
+    display: flex; align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('{{ "images/science/hero-science.jpg" | relative_url }}') center/cover;
+    color: #fff;
+    margin-bottom: 50px;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 900px; text-align: center; margin: 0 auto; }
+  .hero-label {
+    font-size: 0.9rem; font-weight: 800; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block;
+  }
+  .hero-science h1 { font-size: clamp(2.8rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 25px; color: #fff;}
+  .hero-science p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 35px; max-width: 750px; margin-left: auto; margin-right: auto; }
 
-    /* =========================================
-       CONTENU SPÉCIFIQUE (PAGE SCIENCE)
-       ========================================= */
-    .hero {
-      position: relative; min-height: 65vh;
-      display: flex; align-items: center;
-      /* CHEMIN CORRIGÉ : hero-science.jpg */
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('images/science/hero-science.jpg') center/cover;
-      color: #fff;
-    }
-    .hero-content { position: relative; z-index: 2; max-width: 900px; text-align: center; margin: 0 auto; }
-    .hero-label {
-      font-size: 0.9rem; font-weight: 800; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: block;
-    }
-    .hero h1 { font-size: clamp(2.8rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 25px; color: #fff;}
-    .hero p { font-size: 1.25rem; opacity: 0.95; margin-bottom: 35px; max-width: 750px; margin-left: auto; margin-right: auto; }
+  .manifesto-section { padding: 40px 0 80px; background: #fff; text-align: center; }
+  .manifesto-box { max-width: 900px; margin: 0 auto; position: relative; }
+  .manifesto-box::before {
+    content: "❝"; font-family: serif; font-size: 5rem; color: var(--accent); opacity: 0.3;
+    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+  }
+  .manifesto-text {
+    font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    color: var(--primary); line-height: 1.4; font-weight: 500; font-style: italic;
+  }
+  .divider-leaf {
+    display: block; width: 60px; height: 3px; background: var(--accent);
+    margin: 40px auto 0; border-radius: 2px;
+  }
+  .manifesto-sub { margin-top: 30px; font-size: 1.1rem; color: var(--muted); max-width: 700px; margin-left: auto; margin-right: auto; }
 
-    .manifesto-section { padding: 80px 0; background: #fff; text-align: center; }
-    .manifesto-box { max-width: 900px; margin: 0 auto; position: relative; }
-    .manifesto-box::before {
-      content: "❝"; font-family: serif; font-size: 5rem; color: var(--accent); opacity: 0.3;
-      position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
-    }
-    .manifesto-text {
-      font-family: "Playfair Display", serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      color: var(--primary); line-height: 1.4; font-weight: 500; font-style: italic;
-    }
-    .divider-leaf {
-      display: block; width: 60px; height: 3px; background: var(--accent);
-      margin: 40px auto 0; border-radius: 2px;
-    }
-    .manifesto-sub { margin-top: 30px; font-size: 1.1rem; color: var(--muted); max-width: 700px; margin-left: auto; margin-right: auto; }
+  .sec-title { margin-bottom: 50px; text-align: center; }
+  .sec-title h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+  .sec-title p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
 
-    .sec-title { margin-bottom: 50px; text-align: center; }
-    .sec-title h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-    .sec-title p { color: var(--muted); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+  .pillar-card {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    overflow: hidden; transition: 0.4s; height: 100%; display: flex; flex-direction: column;
+  }
+  .pillar-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-color: var(--primary); }
+  .pillar-img { height: 220px; position: relative; overflow: hidden; }
+  .pillar-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+  .pillar-card:hover .pillar-img img { transform: scale(1.1); }
+  .pillar-body { padding: 30px 25px; flex-grow: 1; display: flex; flex-direction: column; }
+  .pillar-body h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--primary); }
+  .pillar-body p { font-size: 1rem; color: var(--muted); margin-bottom: 20px; flex-grow: 1; }
 
-    .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
-    .pillar-card {
-      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-      overflow: hidden; transition: 0.4s; height: 100%; display: flex; flex-direction: column;
-    }
-    .pillar-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); border-color: var(--primary); }
-    .pillar-img { height: 220px; position: relative; overflow: hidden; }
-    .pillar-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-    .pillar-card:hover .pillar-img img { transform: scale(1.1); }
-    .pillar-body { padding: 30px 25px; flex-grow: 1; display: flex; flex-direction: column; }
-    .pillar-body h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--primary); }
-    .pillar-body p { font-size: 1rem; color: var(--muted); margin-bottom: 20px; flex-grow: 1; }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px;
+  }
+  .project-card {
+    background: #fff; border-radius: var(--radius); overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid var(--border); transition: 0.3s;
+  }
+  .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+  .project-header {
+    height: 160px; background-size: cover; background-position: center;
+    position: relative; display: flex; align-items: flex-end; padding: 20px;
+  }
+  .project-header::after {
+    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  }
+  .project-badge {
+    position: relative; z-index: 2; color: #fff; font-size: 0.75rem;
+    font-weight: 800; text-transform: uppercase; background: var(--primary);
+    padding: 6px 12px; border-radius: 4px; letter-spacing: 0.5px;
+  }
+  .project-body { padding: 25px; }
+  .project-body h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary); }
+  .project-body ul { padding-left: 20px; list-style: disc; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+</style>
 
-    .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px;
-    }
-    .project-card {
-      background: #fff; border-radius: var(--radius); overflow: hidden;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid var(--border); transition: 0.3s;
-    }
-    .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
-    .project-header {
-      height: 160px; background-size: cover; background-position: center;
-      position: relative; display: flex; align-items: flex-end; padding: 20px;
-    }
-    .project-header::after {
-      content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    }
-    .project-badge {
-      position: relative; z-index: 2; color: #fff; font-size: 0.75rem;
-      font-weight: 800; text-transform: uppercase; background: var(--primary);
-      padding: 6px 12px; border-radius: 4px; letter-spacing: 0.5px;
-    }
-    .project-body { padding: 25px; }
-    .project-body h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--primary); }
-    .project-body ul { padding-left: 20px; list-style: disc; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+<main>
+  <section class="hero-science">
+    <div class="wrap hero-content">
+      <span class="hero-label">Département Scientifique</span>
+      <h1>Science, Santé & Harmonie</h1>
+      <p>Reconnecter l'Homme à son environnement pour un avenir durable en Haïti.</p>
+    </div>
+  </section>
 
-  </style>
-</head>
-
-<body>
-
-  <div id="header-placeholder"></div>
-
-  <main>
-    <section class="hero">
-      <div class="wrap hero-content">
-        <span class="hero-label">Département Scientifique</span>
-        <h1>Science, Santé & Harmonie</h1>
-        <p>Reconnecter l'Homme à son environnement pour un avenir durable en Haïti.</p>
+  <section class="manifesto-section">
+    <div class="wrap manifesto-box">
+      <div class="manifesto-text">
+        "Notre santé dépend de la nature. Pour avoir une bonne santé, pensez à la santé de votre environnement. Il est important de faire des recherches scientifiques pour comprendre comment mieux vivre en harmonie avec la nature."
       </div>
-    </section>
+      <div class="divider-leaf"></div>
+      <p class="manifesto-sub">
+        Au Jardin Botanique des Cayes, nous croyons que la science est le pont qui nous permet de guérir notre terre pour guérir nos communautés.
+      </p>
+    </div>
+  </section>
 
-    <section class="manifesto-section">
-      <div class="wrap manifesto-box">
-        <div class="manifesto-text">
-          "Notre santé dépend de la nature. Pour avoir une bonne santé, pensez à la santé de votre environnement. Il est important de faire des recherches scientifiques pour comprendre comment mieux vivre en harmonie avec la nature."
-        </div>
-        <div class="divider-leaf"></div>
-        <p class="manifesto-sub">
-          Au Jardin Botanique des Cayes, nous croyons que la science est le pont qui nous permet de guérir notre terre pour guérir nos communautés.
-        </p>
+  <section id="piliers" style="background: var(--soft); padding: 80px 0;">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>Nos Piliers de Recherche</h2>
+        <p>Des méthodes rigoureuses pour une compréhension holistique.</p>
       </div>
-    </section>
 
-    <section id="piliers" style="background: var(--soft); padding: 80px 0;">
-      <div class="wrap">
-        <div class="sec-title">
-          <h2>Nos Piliers de Recherche</h2>
-          <p>Des méthodes rigoureuses pour une compréhension holistique.</p>
-        </div>
-
-        <div class="pillars-grid">
-          <article class="pillar-card">
-            <div class="pillar-img">
-              <img src="images/science/inventaires.jpg" alt="Inventaire">
-            </div>
-            <div class="pillar-body">
-              <h3>Inventaires</h3>
-              <p>Connaître pour protéger : recensement systématique de la richesse taxonomique d'Haïti.</p>
-            </div>
-          </article>
-          <article class="pillar-card">
-            <div class="pillar-img">
-              <img src="images/science/ecologie.jpg" alt="Écologie">
-            </div>
-            <div class="pillar-body">
-              <h3>Écologie</h3>
-              <p>Diagnostiquer les écosystèmes pour comprendre les interactions vitales.</p>
-            </div>
-          </article>
-          <article class="pillar-card">
-            <div class="pillar-img">
-              <img src="images/science/Laboratoire.jpg" alt="Laboratoire">
-            </div>
-            <div class="pillar-body">
-              <h3>Laboratoire</h3>
-              <p>Analyses génétiques et biologiques pour la conservation ex-situ des espèces.</p>
-            </div>
-          </article>
-          <article class="pillar-card">
-            <div class="pillar-img">
-              <img src="images/science/phychimie.jpg" alt="Phytochimie">
-            </div>
-            <div class="pillar-body">
-              <h3>Phytochimie</h3>
-              <p>Valorisation des plantes médicinales et lien entre savoirs traditionnels et santé.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projets" style="padding: 80px 0;">
-      <div class="wrap">
-        <div class="sec-title">
-          <h2>Nos Projets Scientifiques</h2>
-          <p>L'application concrète de notre vision, du passé vers le futur.</p>
-        </div>
+      <div class="pillars-grid">
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <img src="{{ 'images/science/inventaires.jpg' | relative_url }}" alt="Inventaire">
+          </div>
+          <div class="pillar-body">
+            <h3>Inventaires</h3>
+            <p>Connaître pour protéger : recensement systématique de la richesse taxonomique d'Haïti.</p>
+          </div>
+        </article>
         
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-header" style="background-image: url('images/science/projets-realises.jpg');">
-              <span class="project-badge" style="background: #7f8c8d;">Passé</span>
-            </div>
-            <div class="project-body">
-              <h3>Biodiversité Grand'Anse</h3>
-              <ul>
-                <li>Inventaire complet de la flore régionale.</li>
-                <li>Cartographie des zones critiques et menacées.</li>
-                <li>Publication des premiers résultats taxonomiques.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-header" style="background-image: url('images/science/projets-encours.jpg');">
-              <span class="project-badge" style="background: var(--accent); color: #000;">En Cours</span>
-            </div>
-            <div class="project-body">
-              <h3>Flore du Sud & Ethnobotanique</h3>
-              <ul>
-                <li>Étude des plantes médicinales locales.</li>
-                <li>Collecte d'échantillons pour l'herbier national.</li>
-                <li>Formation des communautés à la récolte durable.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-header" style="background-image: url('images/science/projets-futurs.jpg');">
-              <span class="project-badge" style="background: #3498db;">Futur</span>
-            </div>
-            <div class="project-body">
-              <h3>Liste Rouge Nationale</h3>
-              <ul>
-                <li>Évaluation UICN de toutes les espèces endémiques.</li>
-                <li>Planification stratégique de la restauration.</li>
-                <li>Création du laboratoire de pharmacopée sécurisée.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <img src="{{ 'images/science/ecologie.jpg' | relative_url }}" alt="Écologie">
+          </div>
+          <div class="pillar-body">
+            <h3>Écologie</h3>
+            <p>Diagnostiquer les écosystèmes pour comprendre les interactions vitales.</p>
+          </div>
+        </article>
+        
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <img src="{{ 'images/science/Laboratoire.jpg' | relative_url }}" alt="Laboratoire">
+          </div>
+          <div class="pillar-body">
+            <h3>Laboratoire</h3>
+            <p>Analyses génétiques et biologiques pour la conservation ex-situ des espèces.</p>
+          </div>
+        </article>
+        
+        <article class="pillar-card">
+          <div class="pillar-img">
+            <img src="{{ 'images/science/phychimie.jpg' | relative_url }}" alt="Phytochimie">
+          </div>
+          <div class="pillar-body">
+            <h3>Phytochimie</h3>
+            <p>Valorisation des plantes médicinales et lien entre savoirs traditionnels et santé.</p>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <section id="projets" style="padding: 80px 0;">
+    <div class="wrap">
+      <div class="sec-title">
+        <h2>Nos Projets Scientifiques</h2>
+        <p>L'application concrète de notre vision, du passé vers le futur.</p>
+      </div>
+      
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-header" style="background-image: url('{{ "images/science/projets-realises.jpg" | relative_url }}');">
+            <span class="project-badge" style="background: #7f8c8d;">Passé</span>
+          </div>
+          <div class="project-body">
+            <h3>Biodiversité Grand'Anse</h3>
+            <ul>
+              <li>Inventaire complet de la flore régionale.</li>
+              <li>Cartographie des zones critiques et menacées.</li>
+              <li>Publication des premiers résultats taxonomiques.</li>
+            </ul>
+          </div>
+        </article>
 
-  <div id="footer-placeholder"></div>
+        <article class="project-card">
+          <div class="project-header" style="background-image: url('{{ "images/science/projets-encours.jpg" | relative_url }}');">
+            <span class="project-badge" style="background: var(--accent); color: #000;">En Cours</span>
+          </div>
+          <div class="project-body">
+            <h3>Flore du Sud & Ethnobotanique</h3>
+            <ul>
+              <li>Étude des plantes médicinales locales.</li>
+              <li>Collecte d'échantillons pour l'herbier national.</li>
+              <li>Formation des communautés à la récolte durable.</li>
+            </ul>
+          </div>
+        </article>
 
-  <script src="script.js"></script>
-
-</body>
-</html>
-
+        <article class="project-card">
+          <div class="project-header" style="background-image: url('{{ "images/science/projets-futurs.jpg" | relative_url }}');">
+            <span class="project-badge" style="background: #3498db;">Futur</span>
+          </div>
+          <div class="project-body">
+            <h3>Liste Rouge Nationale</h3>
+            <ul>
+              <li>Évaluation UICN de toutes les espèces endémiques.</li>
+              <li>Planification stratégique de la restauration.</li>
+              <li>Création du laboratoire de pharmacopée sécurisée.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>

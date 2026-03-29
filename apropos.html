@@ -1,484 +1,307 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>À propos | Jardin Botanique des Cayes</title>
+---
+layout: default
+title: "À propos"
+---
+
+<style>
+  /* =========================================
+     VARIABLES ET STYLES SPÉCIFIQUES (PAGE À PROPOS)
+     ========================================= */
+  :root {
+    --primary: #1a4332;
+    --secondary: #2d5a27;
+    --accent: #c5a059;
+    --text-dark: #333333;
+    --white: #ffffff;
+    --max-apropos: 1300px;
+  }
+
+  .container-apropos { max-width: var(--max-apropos); margin: 0 auto; padding: 0 22px; }
+
+  .page-header {
+    min-height: 400px;
+    background-image: url('{{ "images/conseil/conseil-hero.jpg" | relative_url }}');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+  .page-header::before {
+    content:""; position:absolute; inset:0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  }
+  .page-header .inner { position: relative; z-index: 2; padding: 0 20px; }
+  .breadcrumb {
+    display:flex; gap:10px; justify-content:center;
+    text-transform: uppercase; font-size: 0.8rem; font-weight: 700;
+    margin-bottom: 15px; letter-spacing: 1px; opacity: 0.9;
+  }
+  .page-header h1 {
+    font-family:"Playfair Display", serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+
+  .section-intro { padding: 40px 0 40px; text-align: center; }
+  .section-title {
+    font-family:"Playfair Display", serif;
+    color: var(--primary);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .section-subtitle {
+    max-width: 800px; margin: 0 auto;
+    font-size: 1.1rem; color: #555;
+    line-height: 1.8;
+  }
+
+  .people-wrap { padding-bottom: 80px; }
+  .person {
+    display:grid;
+    grid-template-columns: 350px 1fr;
+    gap: 50px;
+    padding: 60px 0;
+    border-bottom: 1px solid #eaeaea;
+    align-items: start;
+  }
+  .person:last-child { border-bottom: none; }
   
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  .person-img img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    background-color: #f4f4f4;
+  }
 
-  <style>
-    /* =========================================
-       VARIABLES GLOBALES
-       ========================================= */
-    :root {
-      /* Spécifique à la page A Propos */
-      --primary: #1a4332;
-      --secondary: #2d5a27;
-      --accent: #c5a059;
-      --text-dark: #333333;
-      --white: #ffffff;
-      --max-apropos: 1300px;
-      
-      /* Variables Standard JBC (pour le menu/footer externe) */
-      --deep: #2F5D2F;       
-      --botanical: #5E8F3A;  
-      --gold: #C5A059;       
-      --paper: #FBFCFA;      
-      --ink: #1f2a33;        
-      --shadow: 0 18px 55px rgba(0,0,0,.08);
-      --shadow2: 0 22px 70px rgba(0,0,0,.18);
-      --max: 1200px;
-      --navH: 104px;
-    }
+  .person-content { padding-top: 5px; }
+  .person-name {
+    font-family:"Playfair Display", serif;
+    color: var(--secondary);
+    font-size: 2rem;
+    margin: 0 0 8px 0;
+  }
+  .person-role {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  .person-text p {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
 
-    *{ box-sizing:border-box; margin: 0; padding: 0; }
-    body{
-      font-family:"Lato", Arial, sans-serif;
-      color: var(--text-dark);
-      background: var(--white);
-      line-height:1.75;
-    }
-    a{ color:inherit; text-decoration:none !important; transition: all 0.3s ease; }
-    img{ max-width:100%; display:block; }
-    
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 22px; }
-    .container-apropos { max-width: var(--max-apropos); margin: 0 auto; padding: 0 22px; }
+  @media (max-width: 1024px) {
+    .person { grid-template-columns: 1fr; gap: 30px; text-align: left; }
+    .person-img { max-width: 400px; margin: 0 auto; }
+  }
+</style>
 
-    /* =========================================
-       LE CSS DU MENU STANDARD JBC
-       ========================================= */
-    .topbar { position: sticky; top: 0; z-index: 2000; background: #fff; border-bottom: 1px solid rgba(0,0,0,.08); height: var(--navH); }
-    .topbar-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .brand { display: flex; align-items: center; gap: 12px; min-width: 180px; }
-    .brand img { height: 92px; width: auto; filter: contrast(1.08) saturate(1.08); border: none; background: transparent; padding: 0; box-shadow: none; object-fit: contain; }
-    .nav { display: flex; align-items: center; gap: 22px; justify-content: center; flex: 1; }
-    .nav a, .nav button { font-family: "Lato", sans-serif; background: transparent; border: none; cursor: pointer; font-weight: 900; letter-spacing: .10em; text-transform: uppercase; font-size: .86rem; color: rgba(18,24,30,.92); padding: 10px 6px; border-radius: 10px; white-space: nowrap; transition: .15s ease; display: inline-flex; align-items: center; gap: 8px; }
-    .nav a:hover, .nav button:hover { color: var(--deep); background: rgba(47,93,47,.06); }
-    .drop { position: relative; }
-    .drop .menu { display: none; position: absolute; top: calc(100% + 10px); left: 0; min-width: 240px; background: #fff; border: 1px solid rgba(0,0,0,.10); border-radius: 16px; overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,.16); z-index: 2500; list-style: none;}
-    .drop.open .menu { display: block; }
-    .drop .menu a { display: block; padding: 12px 14px; font-weight: 900; letter-spacing: .03em; text-transform: none; border-bottom: 1px solid rgba(0,0,0,.06) !important; background: #fff; color: rgba(18,24,30,.92); }
-    .drop .menu a:hover { background: rgba(47,93,47,.06); color: var(--deep); padding-left: 18px; }
-    .actions { display: flex; align-items: center; gap: 10px; min-width: 220px; justify-content: flex-end; }
-    .btn-member { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; border-radius: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem; transition: .18s ease; white-space: nowrap; user-select: none; background: #3B5D38; color: #fff !important; border: none; font-family: "Lato", sans-serif;}
-    .btn-member:hover { background: #2A4428; transform: translateY(-1px); color: #fff; }
-    .search-pill { border: 1px solid rgba(0,0,0,.10); border-radius: 30px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; transition: .18s ease; cursor: pointer; background: #fff; }
-    .search-pill:hover { background: rgba(0,0,0,.04); transform: translateY(-1px); }
-    .search-pill i { font-size: 1rem; color: #111; }
-    .burger { display: none; width: 46px; height: 46px; border-radius: 14px; border: 1px solid rgba(0,0,0,.12); background: #fff; cursor: pointer; align-items: center; justify-content: center; gap: 5px; flex-direction: column; }
-    .burger span { display: block; width: 20px; height: 2px; background: #111; border-radius: 2px; }
-    .drawer { display: none; position: fixed; top: var(--navH); left: 12px; right: 12px; background: #fff; border: 1px solid rgba(0,0,0,.12); border-radius: 18px; padding: 12px; box-shadow: var(--shadow2); z-index: 2600; max-height: calc(100vh - 120px); overflow-y: auto; }
-    .drawer.open { display: block; }
-    .drawer a, .drawer button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 12px; border-radius: 14px; border: none; background: transparent; cursor: pointer; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: .86rem; color: rgba(18,24,30,.92); font-family: "Lato", sans-serif; }
-    .drawer a:hover, .drawer button:hover { background: rgba(47,93,47,.06); color: var(--deep); }
-    .drawer-sub { display: none; margin: 6px 0 10px; padding-left: 12px; border-left: 3px solid rgba(47,93,47,.15); }
-    .drawer-sub a { text-transform: none; letter-spacing: .02em; font-weight: 900; opacity: .92; font-size: 0.95rem; padding: 10px; }
-    .drawer-sub.open { display: block; }
-    @media (max-width: 1150px) { .nav { display: none; } .burger { display: flex; } .actions { min-width: auto; } .brand { min-width: auto; } .brand img { height: 70px; } .search-pill { display: none; } :root { --navH: 92px; } }
-
-    /* LE CSS DU FOOTER DOIT RESTER ICI AUSSI */
-    .site-footer { background: #3B5D38; color: white; padding: 60px 0 20px; font-family: "Lato", sans-serif; }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; max-width: var(--max); margin: 0 auto; padding: 0 24px; margin-bottom: 40px; }
-    .footer-col h3 { color: #C5A059; font-size: 0.95rem; letter-spacing: 0.08em; margin-bottom: 25px; font-weight: 900; text-transform: uppercase; font-family: "Lato", sans-serif;}
-    .footer-info { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.95rem; }
-    .footer-info i { margin-top: 4px; color: #fff; width: 16px;}
-    .footer-link { display: block; margin-bottom: 15px; color: #fff !important; font-size: 0.95rem; transition: 0.3s; }
-    .footer-link:hover { opacity: 0.7; }
-    .social-icons { display: flex; gap: 12px; }
-    .social-circle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; color: #fff !important; transition: 0.3s; }
-    .social-circle:hover { background: rgba(255,255,255,0.15); }
-    .copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.9rem; color:#fff;}
-    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr; gap: 40px; } }
-
-    /* =========================================
-       CONTENU SPÉCIFIQUE (PAGE À PROPOS) INTACT
-       ========================================= */
-    .page-header {
-      min-height: 400px;
-      background-image: url('images/conseil/conseil-hero.jpg');
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: relative;
-      display:flex; align-items:center; justify-content:center;
-      text-align:center;
-      color: #fff;
-    }
-    .page-header::before {
-      content:""; position:absolute; inset:0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
-    }
-    .page-header .inner { position: relative; z-index: 2; padding: 0 20px; }
-    .breadcrumb {
-      display:flex; gap:10px; justify-content:center;
-      text-transform: uppercase; font-size: 0.8rem; font-weight: 700;
-      margin-bottom: 15px; letter-spacing: 1px; opacity: 0.9;
-    }
-    .page-header h1 {
-      font-family:"Playfair Display", serif;
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #fff;
-    }
-
-    .section-intro { padding: 80px 0 40px; text-align: center; }
-    .section-title {
-      font-family:"Playfair Display", serif;
-      color: var(--primary);
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    .section-subtitle {
-      max-width: 800px; margin: 0 auto;
-      font-size: 1.1rem; color: #555;
-      line-height: 1.8;
-    }
-
-    .people-wrap { padding-bottom: 80px; }
-    .person {
-      display:grid;
-      grid-template-columns: 350px 1fr;
-      gap: 50px;
-      padding: 60px 0;
-      border-bottom: 1px solid #eaeaea;
-      align-items: start;
-    }
-    .person:last-child { border-bottom: none; }
-    
-    .person-img img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      border-radius: 4px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      background-color: #f4f4f4;
-    }
-
-    .person-content { padding-top: 5px; }
-    .person-name {
-      font-family:"Playfair Display", serif;
-      color: var(--secondary);
-      font-size: 2rem;
-      margin: 0 0 8px 0;
-    }
-    .person-role {
-      font-weight: 800;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-size: 0.85rem;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-    }
-    .person-text p {
-      margin-bottom: 15px;
-      color: #555;
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 1024px) {
-      .person { grid-template-columns: 1fr; gap: 30px; text-align: left; }
-      .person-img { max-width: 400px; margin: 0 auto; }
-    }
-  </style>
-</head>
-
-<body>
-
-  <div id="header-placeholder"></div>
-
-  <header class="page-header">
-    <div class="inner">
-      <div class="breadcrumb">
-        <a href="index.html">Accueil</a> <span>/</span> <span>À propos</span>
-      </div>
-      <h1>Notre Gouvernance</h1>
+<header class="page-header">
+  <div class="inner">
+    <div class="breadcrumb">
+      <a href="{{ '/' | relative_url }}" style="color:#fff; text-decoration:none;">Accueil</a> <span style="color:#fff;">/</span> <span style="color:#fff;">À propos</span>
     </div>
-  </header>
+    <h1>Notre Gouvernance</h1>
+  </div>
+</header>
 
-  <main>
-    <section class="section-intro">
-      <div class="container-apropos">
-        <h2 class="section-title">Le Conseil d’Administration</h2>
-        <p class="section-subtitle">
-          Le Jardin Botanique des Cayes est guidé par une équipe pluridisciplinaire d'experts passionnés, unis par une mission commune : la conservation de la biodiversité et le développement durable d'Haïti.
-        </p>
-      </div>
-    </section>
+<main>
+  <section class="section-intro">
+    <div class="container-apropos">
+      <h2 class="section-title">Le Conseil d’Administration</h2>
+      <p class="section-subtitle">
+        Le Jardin Botanique des Cayes est guidé par une équipe pluridisciplinaire d'experts passionnés, unis par une mission commune : la conservation de la biodiversité et le développement durable d'Haïti.
+      </p>
+    </div>
+  </section>
 
-    <section class="people-wrap">
-      <div class="container-apropos">
+  <section class="people-wrap">
+    <div class="container-apropos">
 
-        <article class="person" id="william-cinea">
-          <div class="person-img">
-            <img src="images/conseil/conseil-william-cinea.jpg" alt="William Cinea">
+      <article class="person" id="william-cinea">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-william-cinea.jpg' | relative_url }}" alt="William Cinea">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">William Cinea</h3>
+          <div class="person-role">Fondateur | Ingénieur Forestier & Botaniste</div>
+          <div class="person-text">
+            <p>William Cinea est ingénieur forestier et botaniste, spécialisé en sciences des plantes et en leadership des jardins botaniques. Il est le fondateur du Jardin Botanique des Cayes.</p>
+            <p>Il a suivi des études et formations en botanique, conservation et leadership en République dominicaine, aux États-Unis (Cornell University), en Angleterre, en France et à Cuba.</p>
+            <p>Fort de plus d’une décennie d’expérience, William Cinea consacre son travail à la recherche botanique, à la conservation, à l’horticulture et à la structuration scientifique du Jardin. Il est actuellement responsable du département Recherche & Conservation.</p>
           </div>
-          <div class="person-content">
-            <h3 class="person-name">William Cinea</h3>
-            <div class="person-role">Fondateur | Ingénieur Forestier & Botaniste</div>
-            <div class="person-text">
-              <p>William Cinea est ingénieur forestier et botaniste, spécialisé en sciences des plantes et en leadership des jardins botaniques. Il est le fondateur du Jardin Botanique des Cayes.</p>
-              <p>Il a suivi des études et formations en botanique, conservation et leadership en République dominicaine, aux États-Unis (Cornell University), en Angleterre, en France et à Cuba.</p>
-              <p>Fort de plus d’une décennie d’expérience, William Cinea consacre son travail à la recherche botanique, à la conservation, à l’horticulture et à la structuration scientifique du Jardin. Il est actuellement responsable du département Recherche & Conservation.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="person" id="silien-jean-jones">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-silien-jean-jones.jpg' | relative_url }}" alt="Silien Jean Jones">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Silien Jean Jones</h3>
+          <div class="person-role">Vice-Président | Ingénieur Agronome</div>
+          <div class="person-text">
+            <p>Silien Jean Jones est ingénieur agronome avec plus de 12 années d’expérience au sein du Jardin Botanique des Cayes. Il a occupé plusieurs fonctions clés, notamment coordinateur de projets et directeur du département d’horticulture.</p>
+            <p>Il possède une expertise approfondie en création et gestion de jardins botaniques, production horticole et aménagement paysager. Sa connaissance du terrain en fait un pilier stratégique du Conseil d’administration.</p>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="person" id="silien-jean-jones">
-          <div class="person-img">
-            <img src="images/conseil/conseil-silien-jean-jones.jpg" alt="Silien Jean Jones">
+      <article class="person" id="william-casseus">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-casseus-william.jpg' | relative_url }}" alt="William Casséus">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">William Casséus</h3>
+          <div class="person-role">Responsable Affaires Juridiques | Avocat</div>
+          <div class="person-text">
+            <p>William Casséus a participé au démarrage du Jardin Botanique des Cayes en 2003. Gestionnaire et avocat de profession, il est responsable de la supervision juridique et administrative de l'institution.</p>
+            <p>Ses responsabilités incluent la conformité légale, l’appui à la gouvernance et le suivi des dossiers juridiques, assurant la stabilité institutionnelle du Jardin.</p>
           </div>
-          <div class="person-content">
-            <h3 class="person-name">Silien Jean Jones</h3>
-            <div class="person-role">Vice-Président | Ingénieur Agronome</div>
-            <div class="person-text">
-              <p>Silien Jean Jones est ingénieur agronome avec plus de 12 années d’expérience au sein du Jardin Botanique des Cayes. Il a occupé plusieurs fonctions clés, notamment coordinateur de projets et directeur du département d’horticulture.</p>
-              <p>Il possède une expertise approfondie en création et gestion de jardins botaniques, production horticole et aménagement paysager. Sa connaissance du terrain en fait un pilier stratégique du Conseil d’administration.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="person" id="paul-ascencio">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-ascencio-paul.jpg' | relative_url }}" alt="Paul Ascencio">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Paul Ascencio</h3>
+          <div class="person-role">Spécialiste Apiculture & Entrepreneuriat</div>
+          <div class="person-text">
+            <p>Paul Ascencio est spécialiste en apiculture et fondateur de l’entreprise agricole VIAHSA. Il est également expert en éducation environnementale et en entrepreneuriat rural.</p>
+            <p>Au sein du Conseil d’administration, il contribue à renforcer les liens entre biodiversité, production durable, autonomie économique et développement communautaire.</p>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="person" id="william-casseus">
-          <div class="person-img">
-            <img src="images/conseil/conseil-casseus-william.jpg" alt="William Casséus">
+      <article class="person" id="valencia-logiste">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-valencia-logiste.jpg' | relative_url }}" alt="Valencia Logiste">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Valencia Logiste</h3>
+          <div class="person-role">Secrétaire du Conseil | Experte en Gestion</div>
+          <div class="person-text">
+            <p>Comptable de formation, Valencia Logiste cumule plus de 10 ans d’expérience au Jardin Botanique des Cayes. Elle a travaillé dans l’ensemble des départements : administration, éducation et recherche.</p>
+            <p>Elle a représenté le Jardin lors de l'exposition horticole internationale au Qatar. Son parcours transversal fait d’elle une référence interne pour le fonctionnement de l’institution.</p>
           </div>
-          <div class="person-content">
-            <h3 class="person-name">William Casséus</h3>
-            <div class="person-role">Responsable Affaires Juridiques | Avocat</div>
-            <div class="person-text">
-              <p>William Casséus a participé au démarrage du Jardin Botanique des Cayes en 2003. Gestionnaire et avocat de profession, il est responsable de la supervision juridique et administrative de l'institution.</p>
-              <p>Ses responsabilités incluent la conformité légale, l’appui à la gouvernance et le suivi des dossiers juridiques, assurant la stabilité institutionnelle du Jardin.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="person" id="natacha-beaussejour">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-natacha-beaussejour.jpg' | relative_url }}" alt="Natacha Beaussejour">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Natacha Beaussejour</h3>
+          <div class="person-role">Conseillère | Spécialiste Tech & Restauration</div>
+          <div class="person-text">
+            <p>Ancienne coordinatrice de Nature Design, Natacha Beaussejour a travaillé plus de 10 ans au Jardin comme administratrice et responsable des relations internationales.</p>
+            <p>Elle possède une expertise en technologies appliquées et en restauration des écosystèmes. Elle contribue aujourd’hui à la stratégie institutionnelle et à la communication numérique du jardin.</p>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="person" id="paul-ascencio">
-          <div class="person-img">
-            <img src="images/conseil/conseil-ascencio-paul.jpg" alt="Paul Ascencio">
+      <article class="person" id="decime-pierrette">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-pierrette-pecime.jpg' | relative_url }}" alt="Décime Pierrette">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Décime Pierrette</h3>
+          <div class="person-role">Conseillère Scientifique | Botaniste</div>
+          <div class="person-text">
+            <p>Botaniste de profession, Décime Pierrette est responsable des expéditions scientifiques, de la collecte de données botaniques et de l’appui aux programmes de recherche.</p>
+            <p>Elle apporte une expertise clé dans l’identification, la documentation et la valorisation de la flore native d'Haïti.</p>
           </div>
-          <div class="person-content">
-            <h3 class="person-name">Paul Ascencio</h3>
-            <div class="person-role">Spécialiste Apiculture & Entrepreneuriat</div>
-            <div class="person-text">
-              <p>Paul Ascencio est spécialiste en apiculture et fondateur de l’entreprise agricole VIAHSA. Il est également expert en éducation environnementale et en entrepreneuriat rural.</p>
-              <p>Au sein du Conseil d’administration, il contribue à renforcer les liens entre biodiversité, production durable, autonomie économique et développement communautaire.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="person" id="jean-philippe-cineas">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-jeean-philippe-cinéas.jpg' | relative_url }}" alt="Jean-Philippe Cinéas">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Jean-Philippe Cinéas</h3>
+          <div class="person-role">Spécialiste Planification & Données</div>
+          <div class="person-text">
+            <p>Titulaire d’une formation en agronomie et en géographie, Jean-Philippe est spécialiste de la planification territoriale et de la gestion de bases de données.</p>
+            <p>Il conseille l’équipe sur les outils de gestion de données, la planification stratégique et l’organisation rigoureuse des projets scientifiques.</p>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="person" id="valencia-logiste">
-          <div class="person-img">
-            <img src="images/conseil/conseil-valencia-logiste.jpg" alt="Valencia Logiste">
+      <article class="person" id="bruno-mentor">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-bruno-mentor.jpg' | relative_url }}" alt="Bruno Mentor">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Bruno Mentor</h3>
+          <div class="person-role">Conseiller Stratégique | Sociologue</div>
+          <div class="person-text">
+            <p>Bruno Mentor est sociologue, militant environnemental et fondateur de la Fondation Macaya. Il intervient comme conseiller stratégique sur les questions de gouvernance et de politiques environnementales.</p>
+            <p>Son engagement renforce la dimension citoyenne, nationale et institutionnelle du Jardin Botanique des Cayes.</p>
           </div>
-          <div class="person-content">
-            <h3 class="person-name">Valencia Logiste</h3>
-            <div class="person-role">Secrétaire du Conseil | Experte en Gestion</div>
-            <div class="person-text">
-              <p>Comptable de formation, Valencia Logiste cumule plus de 10 ans d’expérience au Jardin Botanique des Cayes. Elle a travaillé dans l’ensemble des départements : administration, éducation et recherche.</p>
-              <p>Elle a représenté le Jardin lors de l'exposition horticole internationale au Qatar. Son parcours transversal fait d’elle une référence interne pour le fonctionnement de l’institution.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="person" id="frantza-julien">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-frantza-julien.jpg' | relative_url }}" alt="Frantza Julien">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Frantza Julien</h3>
+          <div class="person-role">Responsable Projet Biodiversité Sud</div>
+          <div class="person-text">
+            <p>Formée au Mexique, Frantza Julien possède plus de 15 ans d’expérience en collaboration avec des jardins botaniques et des projets environnementaux.</p>
+            <p>Elle est actuellement responsable du Projet Biodiversité Sud, axé sur la restauration des écosystèmes, l’éducation à l'environnement et la conservation communautaire.</p>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="person" id="natacha-beaussejour">
-          <div class="person-img">
-            <img src="images/conseil/conseil-natacha-beaussejour.jpg" alt="Natacha Beaussejour">
+      <article class="person" id="jacqueline-gerard">
+        <div class="person-img">
+          <img src="https://ui-avatars.com/api/?name=Jacqueline+G&background=f4f4f4&color=1a4332&size=400" alt="Jacqueline Gérard">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Jacqueline Gérard</h3>
+          <div class="person-role">Conseillère Santé & Nature</div>
+          <div class="person-text">
+            <p>Professionnelle de la santé avec une longue expérience aux États-Unis, Jacqueline Gérard est conseillère sur les questions de santé par les plantes (naturopathie), de bien-être et d’approches naturelles.</p>
+            <p>Elle aide à faire le lien entre la conservation des plantes médicinales et la santé publique.</p>
           </div>
-          <div class="person-content">
-            <h3 class="person-name">Natacha Beaussejour</h3>
-            <div class="person-role">Conseillère | Spécialiste Tech & Restauration</div>
-            <div class="person-text">
-              <p>Ancienne coordinatrice de Nature Design, Natacha Beaussejour a travaillé plus de 10 ans au Jardin comme administratrice et responsable des relations internationales.</p>
-              <p>Elle possède une expertise en technologies appliquées et en restauration des écosystèmes. Elle contribue aujourd’hui à la stratégie institutionnelle et à la communication numérique du jardin.</p>
-            </div>
+        </div>
+      </article>
+
+      <article class="person" id="cadmus-ronald">
+        <div class="person-img">
+          <img src="{{ 'images/conseil/conseil-cademus-ronald.jpg' | relative_url }}" alt="Cadmus Ronald">
+        </div>
+        <div class="person-content">
+          <h3 class="person-name">Cadmus Ronald</h3>
+          <div class="person-role">Conseiller Scientifique | Ingénieur Forestier & SIG</div>
+          <div class="person-text">
+            <p>Cadmus Ronald est ingénieur forestier et spécialiste en systèmes d’information géographique (SIG). Il intervient comme consultant sur la biodiversité et la restauration des écosystèmes.</p>
+            <p>Ancien professeur assistant à l’Université de botanique d’Ankaya, il guide le Jardin sur la cartographie écologique et la conservation fondée sur les données spatiales.</p>
           </div>
-        </article>
+        </div>
+      </article>
 
-        <article class="person" id="decime-pierrette">
-          <div class="person-img">
-            <img src="images/conseil/conseil-pierrette-pecime.jpg" alt="Décime Pierrette">
-          </div>
-          <div class="person-content">
-            <h3 class="person-name">Décime Pierrette</h3>
-            <div class="person-role">Conseillère Scientifique | Botaniste</div>
-            <div class="person-text">
-              <p>Botaniste de profession, Décime Pierrette est responsable des expéditions scientifiques, de la collecte de données botaniques et de l’appui aux programmes de recherche.</p>
-              <p>Elle apporte une expertise clé dans l’identification, la documentation et la valorisation de la flore native d'Haïti.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="person" id="jean-philippe-cineas">
-          <div class="person-img">
-            <img src="images/conseil/conseil-jeean-philippe-cinéas.jpg" alt="Jean-Philippe Cinéas">
-          </div>
-          <div class="person-content">
-            <h3 class="person-name">Jean-Philippe Cinéas</h3>
-            <div class="person-role">Spécialiste Planification & Données</div>
-            <div class="person-text">
-              <p>Titulaire d’une formation en agronomie et en géographie, Jean-Philippe est spécialiste de la planification territoriale et de la gestion de bases de données.</p>
-              <p>Il conseille l’équipe sur les outils de gestion de données, la planification stratégique et l’organisation rigoureuse des projets scientifiques.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="person" id="bruno-mentor">
-          <div class="person-img">
-            <img src="images/conseil/conseil-bruno-mentor.jpg" alt="Bruno Mentor">
-          </div>
-          <div class="person-content">
-            <h3 class="person-name">Bruno Mentor</h3>
-            <div class="person-role">Conseiller Stratégique | Sociologue</div>
-            <div class="person-text">
-              <p>Bruno Mentor est sociologue, militant environnemental et fondateur de la Fondation Macaya. Il intervient comme conseiller stratégique sur les questions de gouvernance et de politiques environnementales.</p>
-              <p>Son engagement renforce la dimension citoyenne, nationale et institutionnelle du Jardin Botanique des Cayes.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="person" id="frantza-julien">
-          <div class="person-img">
-            <img src="images/conseil/conseil-frantza-julien.jpg" alt="Frantza Julien">
-          </div>
-          <div class="person-content">
-            <h3 class="person-name">Frantza Julien</h3>
-            <div class="person-role">Responsable Projet Biodiversité Sud</div>
-            <div class="person-text">
-              <p>Formée au Mexique, Frantza Julien possède plus de 15 ans d’expérience en collaboration avec des jardins botaniques et des projets environnementaux.</p>
-              <p>Elle est actuellement responsable du Projet Biodiversité Sud, axé sur la restauration des écosystèmes, l’éducation à l'environnement et la conservation communautaire.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="person" id="jacqueline-gerard">
-          <div class="person-img">
-            <img src="https://ui-avatars.com/api/?name=Jacqueline+G&background=f4f4f4&color=1a4332&size=400" alt="Jacqueline Gérard">
-          </div>
-          <div class="person-content">
-            <h3 class="person-name">Jacqueline Gérard</h3>
-            <div class="person-role">Conseillère Santé & Nature</div>
-            <div class="person-text">
-              <p>Professionnelle de la santé avec une longue expérience aux États-Unis, Jacqueline Gérard est conseillère sur les questions de santé par les plantes (naturopathie), de bien-être et d’approches naturelles.</p>
-              <p>Elle aide à faire le lien entre la conservation des plantes médicinales et la santé publique.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="person" id="cadmus-ronald">
-          <div class="person-img">
-            <img src="images/conseil/conseil-cademus-ronald.jpg" alt="Cadmus Ronald">
-          </div>
-          <div class="person-content">
-            <h3 class="person-name">Cadmus Ronald</h3>
-            <div class="person-role">Conseiller Scientifique | Ingénieur Forestier & SIG</div>
-            <div class="person-text">
-              <p>Cadmus Ronald est ingénieur forestier et spécialiste en systèmes d’information géographique (SIG). Il intervient comme consultant sur la biodiversité et la restauration des écosystèmes.</p>
-              <p>Ancien professeur assistant à l’Université de botanique d’Ankaya, il guide le Jardin sur la cartographie écologique et la conservation fondée sur les données spatiales.</p>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-  </main>
-
-  <div id="footer-placeholder"></div>
-
-  <script>
-    // Chargement du Header
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-        
-        // Active l'onglet parent (ACCUEIL)
-        const btnAccueil = document.getElementById('btnAccueil');
-        if(btnAccueil) btnAccueil.style.color = "var(--deep)";
-
-        initMenu();
-      })
-      .catch(error => console.error('Erreur chargement header:', error));
-
-    // Chargement du Footer
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      })
-      .catch(error => console.error('Erreur chargement footer:', error));
-
-    // Script du Menu 
-    function initMenu() {
-      const dropAccueil = document.getElementById('dropAccueil');
-      const btnAccueil = document.getElementById('btnAccueil');
-      const dropNature = document.getElementById('dropNature');
-      const btnNature = document.getElementById('btnNature');
-      const burger = document.getElementById('burger');
-      const drawer = document.getElementById('drawer');
-      const dBtnAccueil = document.getElementById('drawerAccueilBtn');
-      const dSubAccueil = document.getElementById('drawerAccueilSub');
-      const dBtnNature = document.getElementById('drawerNatureBtn');
-      const dSubNature = document.getElementById('drawerNatureSub');
-
-      if(dropAccueil && btnAccueil){
-        btnAccueil.addEventListener('click', (e) => {
-          e.preventDefault(); e.stopPropagation();
-          if(dropNature) dropNature.classList.remove('open');
-          const open = dropAccueil.classList.toggle('open');
-          btnAccueil.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-
-      if(dropNature && btnNature){
-        btnNature.addEventListener('click', (e) => {
-          e.preventDefault(); e.stopPropagation();
-          if(dropAccueil) dropAccueil.classList.remove('open');
-          const open = dropNature.classList.toggle('open');
-          btnNature.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-
-      if(burger && drawer){
-        burger.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const open = drawer.classList.toggle('open');
-          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-          if(!open){
-            if(dSubAccueil) dSubAccueil.classList.remove('open');
-            if(dSubNature) dSubNature.classList.remove('open');
-          }
-        });
-      }
-
-      if(dBtnAccueil && dSubAccueil){
-        dBtnAccueil.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dSubAccueil.classList.toggle('open'); });
-      }
-
-      if(dBtnNature && dSubNature){
-        dBtnNature.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dSubNature.classList.toggle('open'); });
-      }
-
-      document.addEventListener('click', () => {
-        if(dropAccueil){ dropAccueil.classList.remove('open'); btnAccueil && btnAccueil.setAttribute('aria-expanded','false'); }
-        if(dropNature){ dropNature.classList.remove('open'); btnNature && btnNature.setAttribute('aria-expanded','false'); }
-        if(drawer){ drawer.classList.remove('open'); }
-        if(burger){ burger.setAttribute('aria-expanded','false'); }
-        if(dSubAccueil){ dSubAccueil.classList.remove('open'); }
-        if(dSubNature){ dSubNature.classList.remove('open'); }
-      });
-
-      if(dropAccueil) dropAccueil.addEventListener('click', (e) => e.stopPropagation());
-      if(dropNature) dropNature.addEventListener('click', (e) => e.stopPropagation());
-      if(drawer) drawer.addEventListener('click', (e) => e.stopPropagation());
-    }
-  </script>
-
-</body>
-</html>
+    </div>
+  </section>
+</main>

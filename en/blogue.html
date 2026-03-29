@@ -1,0 +1,79 @@
+---
+layout: default
+title: Garden News
+lang: en
+permalink: /en/blog.html
+---
+
+<header class="blog-header" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ "images/index/index-conservation.jpg" | relative_url }}') center/cover; padding: 100px 22px; text-align: center; color: #fff; margin-bottom: 50px;">
+    <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 15px rgba(0,0,0,0.4);">Garden News</h1>
+    <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.95; font-weight: 400;">Explore our work in conservation, phytotherapy, and Haitian biodiversity.</p>
+</header>
+
+<main class="container" style="padding-bottom: 60px;">
+    
+    <div class="theme-filters" style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; margin-bottom: 60px; background: #fff; padding: 30px; border-radius: 18px; box-shadow: 0 10px 40px rgba(0,0,0,.06);">
+        
+        <div class="filter-group" style="text-align: center;">
+            <h2 style="color: #1f2a33; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Human Health</h2>
+            <div class="filter-links" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="{{ '/en/categories/phytotherapie.html' | relative_url }}" style="color: #4b5e46; font-weight: 900; font-size: 0.9rem; text-decoration: none;">🌿 Phytotherapy</a>
+                <a href="{{ '/en/categories/naturopathie.html' | relative_url }}" style="color: #4b5e46; font-weight: 900; font-size: 0.9rem; text-decoration: none;">🍃 Naturopathy</a>
+                <a href="{{ '/en/categories/phytochimie.html' | relative_url }}" style="color: #4b5e46; font-weight: 900; font-size: 0.9rem; text-decoration: none;">⚗️ Phytochemistry</a>
+                <a href="{{ '/en/categories/ethnobotanique.html' | relative_url }}" style="color: #4b5e46; font-weight: 900; font-size: 0.9rem; text-decoration: none;">🏺 Ethnobotany</a>
+            </div>
+        </div>
+
+        <div class="filter-group" style="text-align: center;">
+            <h2 style="color: #1f2a33; font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">Nature’s Health</h2>
+            <div class="filter-links" style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+                <a href="{{ '/en/categories/conservation.html' | relative_url }}" style="color: #C5A059; font-weight: 900; font-size: 0.9rem; text-decoration: none;">🦜 Conservation</a>
+                <a href="{{ '/en/categories/restauration.html' | relative_url }}" style="color: #C5A059; font-weight: 900; font-size: 0.9rem; text-decoration: none;">🌳 Restoration</a>
+                <a href="{{ '/en/categories/horticulture.html' | relative_url }}" style="color: #C5A059; font-weight: 900; font-size: 0.9rem; text-decoration: none;">🌺 Horticulture</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: #1f2a33; font-size: 2.2rem; margin-bottom: 40px;">Latest Posts</h2>
+    
+    <div class="posts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        {% for post in site.posts limit:12 %}
+        <article class="post-card" style="background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 35px rgba(0,0,0,.07); transition: transform 0.3s ease; display: flex; flex-direction: column;">
+            
+            {% if post.image %}
+            <div class="post-card-img" style="height: 220px; overflow: hidden;">
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            {% else %}
+            <div style="height: 220px; background: #f0f3f0; display: flex; align-items: center; justify-content: center;">
+                <i class="fa-solid fa-leaf" style="font-size: 3rem; color: #cbd5cb;"></i>
+            </div>
+            {% endif %}
+
+            <div style="padding: 25px; flex-grow: 1; display: flex; flex-direction: column;">
+                <span style="color: #C5A059; font-weight: 900; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 10px; display: block;">
+                    {% assign cat = post.categories | first | downcase %}
+                    Category: {% if cat == 'nouvelle' or cat == 'nouvelles' %}News{% elsif cat == 'evenement' %}Events{% else %}{{ cat | capitalize }}{% endif %}
+                </span>
+                
+                <h3 style="margin-bottom: 12px; font-family: 'Playfair Display', serif; font-size: 1.5rem; line-height: 1.3;">
+                    <a href="{{ post.url | relative_url }}" style="color: #1f2a33; text-decoration: none;">{{ post.title }}</a>
+                </h3>
+                
+                <p style="color: rgba(31,42,51,.75); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1;">
+                    {{ post.excerpt | strip_html | truncatewords: 20 }}
+                </p>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 20px;">
+                    <span style="font-size: 0.85rem; color: #4b5e46; font-weight: 700;">
+                        <i class="fa-regular fa-calendar-days"></i> {{ post.date | date: "%m/%d/%Y" }}
+                    </span>
+                    <a href="{{ post.url | relative_url }}" style="color: #4b5e46; font-weight: 900; font-size: 0.85rem; text-transform: uppercase; text-decoration: none;">
+                        Read more <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem; margin-left: 4px;"></i>
+                    </a>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</main>

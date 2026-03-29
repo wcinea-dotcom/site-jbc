@@ -1,0 +1,153 @@
+---
+layout: default
+title: "Education"
+lang: en
+ref: education
+---
+
+<style>
+  /* Votre style reste identique pour conserver le même design */
+  /* [CONSEIL : Si vous avez beaucoup de CSS, il est recommandé de le déplacer dans un fichier séparé 'assets/css/style.css', mais pour l'instant, gardez-le ici si cela fonctionne] */
+  :root{
+    --primary:#1a4332; --secondary:#2d5a27; --accent:#c5a059;
+    --paper:#FBFCFA; --paper2:#F4F7F4; --ink:#1f2a33;
+    --muted:rgba(31,42,51,.72); --white:#ffffff;
+    --shadow: 0 14px 40px rgba(0,0,0,.10);
+    --shadow2: 0 26px 70px rgba(0,0,0,.16);
+    --radius:18px; --radius2:26px; --max:1200px;
+    --hero-h: clamp(520px, 72vh, 820px);
+  }
+  /* (Gardez ici tout votre bloc de style existant pour que le design soit identique) */
+</style>
+
+<header class="hero">
+  <img class="hero__img"
+       src="{{ 'images/education/education-hero.jpg' | relative_url }}"
+       alt="Department of Education — Cayes Botanical Garden"
+       loading="eager">
+
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    <div class="container">
+      <p class="hero__kicker">OUR GOALS</p>
+
+      <h1>DEPARTMENT OF EDUCATION</h1>
+
+      <p class="hero__lead">
+        We make science accessible to the public: ecology, botany, and plant-based health.
+        We create simple, practical, and inspiring experiences to learn how to better understand nature—and protect it.
+        Our priority: children, to nurture curiosity, creativity, and hope.
+      </p>
+
+      <div class="hero__actions">
+        <a class="btn" href="#contact-education">CONTACT</a>
+        <a class="btn-outline" href="#education-projets">SEE PROJECTS</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="container" style="padding-top:24px;">
+    <a class="btn-outline" href="{{ '/en/' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> Home</a>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="intro">
+        <h2 class="section-title" style="text-align:center;">OUR MISSION: LEARNING THROUGH NATURE</h2>
+
+        <p class="lead">
+          The Education Department of the Cayes Botanical Garden translates knowledge from research and fieldwork into accessible learning.
+          We build programs that allow people to understand plants, ecosystems, and their direct links to health, food, climate resilience, and conservation.
+        </p>
+
+        <p class="lead">
+          Our activities give the public concrete benchmarks: observing, identifying, understanding, and taking action.
+          Through workshops and field trips, participants develop practical skills and scientific literacy useful for daily life, environmental careers, and community decision-making.
+        </p>
+
+        <p class="pillars-note">
+          Our actions are organized around three pillars: school programs · university programs · courses & training.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">1. SCHOOL PROGRAMS</h2>
+        <p class="section-subtitle">Sparking the desire to learn: observation, exploration, practice.</p>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card card--top-accent">
+          <img src="{{ 'images/education/education-exploration-au-jardin.jpg' | relative_url }}" alt="Exploration in the Garden" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Exploration in the Garden</h3>
+            <p>Guided tours and observation workshops: biodiversity, shapes, scents, uses, and roles of plants.</p>
+          </div>
+        </article>
+
+        <article class="card card--top-secondary">
+          <img src="{{ 'images/education/education-jardin-a-ecole.jpg' | relative_url }}" alt="The Garden at School" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>The Garden at School</h3>
+            <p>Interventions in schools: educational activities, mini-workshops, and awareness-raising on nature protection.</p>
+          </div>
+        </article>
+
+        <article class="card card--top-primary">
+          <img src="{{ 'images/education/education-mains-terre.jpg' | relative_url }}" alt="Hands in the Soil" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Hands in the Soil</h3>
+            <p>Practical workshops: how to plant, water, protect a young seedling, and understand the role of soil.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">2. UNIVERSITY PROGRAMS</h2>
+        <p class="section-subtitle">Internships, specialized courses, and field-based learning.</p>
+      </div>
+
+      <div class="cards-grid cards-grid--wide">
+        <article class="card">
+          <img src="{{ 'images/education/education-stage-formation.jpg' | relative_url }}" alt="Training Internships" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Training Internships</h3>
+            <p>Field internships: inventory methods, scientific photography, data collection, and collection work.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="{{ 'images/education/education-cours-specialises.jpg' | relative_url }}" alt="Specialized Courses" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Specialized Courses</h3>
+            <p>Applied courses: ecology, botany, ethnobotany, phytotherapy, naturopathy, and other topics related to biodiversity.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="{{ 'images/education/education-exploration-inventaires.jpg' | relative_url }}" alt="Explorations & Inventories" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>Explorations & Inventories</h3>
+            <p>Field trips and floristic inventories to strengthen observation, identification, and analysis skills.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+<script>
+  // Votre script existant reste inchangé
+</script>

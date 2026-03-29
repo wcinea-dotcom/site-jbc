@@ -1,0 +1,51 @@
+<!-- Barre de partage pour les articles -->
+<div style="background: white; border-radius: 60px; padding: 15px 30px; margin: -30px 0 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; position: relative; z-index: 10;">
+  
+  <div style="display: flex; align-items: center; gap: 10px; color: #666; font-weight: 600;">
+    <i class="fa-solid fa-share-nodes" style="color: var(--gold); font-size: 1.2rem;"></i>
+    <span>Partager cet article :</span>
+  </div>
+  
+  <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+    
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" 
+       target="_blank" 
+       style="background: #1877f2; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s;"
+       title="Partager sur Facebook">
+      <i class="fa-brands fa-facebook-f"></i>
+    </a>
+    
+    <!-- Twitter/X -->
+    <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}" 
+       target="_blank" 
+       style="background: #1da1f2; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s;"
+       title="Partager sur Twitter">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a>
+    
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" 
+       target="_blank" 
+       style="background: #0a66c2; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s;"
+       title="Partager sur LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+    
+    <!-- WhatsApp -->
+    <a href="https://api.whatsapp.com/send?text={{ page.title }}%20{{ site.url }}{{ page.url }}" 
+       target="_blank" 
+       style="background: #25d366; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s;"
+       title="Partager sur WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    
+    <!-- Email -->
+    <a href="mailto:?subject={{ page.title }}&body=Découvrez cet article du Jardin Botanique des Cayes : {{ site.url }}{{ page.url }}" 
+       style="background: #666; color: white; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s;"
+       title="Partager par email">
+      <i class="fa-regular fa-envelope"></i>
+    </a>
+    
+  </div>
+</div>

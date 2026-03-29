@@ -1,88 +1,329 @@
 ---
 layout: default
-title: "Éducation"
+title: Accueil
+lang: fr
+ref: accueil
 ---
 
 <style>
-    /* Styles spécifiques à la page Éducation */
-    .hero-edu {
-      position: relative; height: 450px;
-      background: url('{{ "images/index/index-formation.jpg" | relative_url }}') center/cover no-repeat;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center; color: #fff; margin-bottom: 50px;
-    }
-    .hero-edu::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.55); }
-    .hero-edu-content { position: relative; z-index: 2; padding: 20px; }
-    .hero-edu h1 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 2px; }
+  /* Styles spécifiques à la page d'accueil */
+  :root{
+    --deep:#2F5D2F;
+    --botanical:#5E8F3A;
+    --gold:#C5A059;
+    --header-btn-green: #4b5e46;
+    --paper:#FBFCFA;
+    --ink:#1f2a33;
+    --heroH: clamp(420px, 56vh, 640px);
+  }
 
-    .intro-box { text-align: center; max-width: 900px; margin: 0 auto 50px; }
-    .intro-box h2 { color: var(--deep, #2F5D2F); font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; }
-    .intro-box p { font-size: 1.1rem; color: #555; text-align: justify; line-height: 1.8; }
+  .bg-paper{background: radial-gradient(900px 520px at 10% 20%, rgba(94,143,58,.10) 0%, rgba(94,143,58,0) 55%), linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);}
+  .bg-institution{background: radial-gradient(900px 520px at 12% 18%, rgba(47,93,47,.18) 0%, rgba(47,93,47,0) 55%), radial-gradient(900px 520px at 88% 28%, rgba(94,143,58,.14) 0%, rgba(94,143,58,0) 56%), linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);}
+  .bg-health{background: radial-gradient(900px 520px at 10% 18%, rgba(76,175,80,.14) 0%, rgba(76,175,80,0) 55%), radial-gradient(900px 520px at 92% 30%, rgba(197,160,89,.14) 0%, rgba(197,160,89,0) 58%), linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);}
 
-    .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee; transition: 0.3s; display: flex; flex-direction: column;}
-    .card:hover { transform: translateY(-5px); }
-    .card-media { height: 220px; background: #eee; }
-    .card-media img { width: 100%; height: 100%; object-fit: cover; }
-    .card-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; text-align: center;}
-    .card-body h3 { color: var(--deep, #2F5D2F); font-size: 1.5rem; margin-bottom: 15px; }
-    .card-body p { color: #666; margin-bottom: 20px; flex-grow: 1; }
+  .hero{position:relative;height:var(--heroH);overflow:hidden;background:#000}
+  .hero-media{position:absolute; inset:0; background:url("{{ '/images/index/index-hero.jpg' | relative_url }}") center/cover no-repeat; filter:saturate(1.05); transform:scale(1.01);}
+  .hero-gradient{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.70) 34%, rgba(0,0,0,.30) 58%, rgba(0,0,0,.06) 78%, rgba(0,0,0,0) 100%);}
+  .hero-inner{position:relative;height:100%;display:flex;align-items:center}
+  .hero-copy{width:min(900px, 92vw); color:#fff; padding:12px 0; position: relative; z-index: 5;}
+  .hero-copy h1{font-family:"Playfair Display",serif; font-size:clamp(2.2rem, 4.4vw, 4.2rem); line-height:1.05; margin-bottom:12px;}
+  .hero-copy p{font-size:clamp(1.0rem, 1.25vw, 1.25rem); color:rgba(255,255,255,.88); max-width:760px; line-height:1.8;}
 
-    .btn-action { display: inline-block; padding: 12px 28px; background: var(--deep, #2F5D2F); color: white; border-radius: 8px; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; text-decoration: none; }
-    .btn-action:hover { background: var(--botanical, #5E8F3A); }
+  .p-head, .dept-head, .headline-title, .testi-title{ text-align:center; }
+  .p-head, .dept-head{ max-width:980px; margin:0 auto 34px; }
+
+  .mission{ padding:78px 0; }
+  .mission-wrap{ background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:26px; box-shadow:0 18px 60px rgba(0,0,0,.10); padding:34px 28px; text-align:center; position:relative; overflow:hidden;}
+  .mission-wrap h2{font-family:"Playfair Display",serif; font-size:clamp(2.0rem, 3vw, 3.0rem); margin-bottom:10px; color:rgba(18,24,30,.92);}
+  .mission-wrap p{font-size:clamp(1.05rem, 1.4vw, 1.35rem); line-height:1.8; color:rgba(31,42,51,.82); max-width:1120px; margin:0 auto;}
+
+  .pillars-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:22px; align-items:stretch;}
+  .pillar{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:26px; overflow:hidden; box-shadow:0 18px 60px rgba(0,0,0,.10); transition:.22s ease; display:flex; flex-direction:column;}
+  .pillar:hover{ transform:translateY(-3px); }
+  .pillar-media{ height:320px; background:#eee; }
+  .pillar-media img{ width:100%; height:100%; object-fit:cover; }
+  .pillar-body{ padding:22px 22px 24px; text-align:center; }
+  .pillar-kicker{font-weight:900; letter-spacing:.12em; text-transform:uppercase; font-size:.74rem; color:var(--header-btn-green); margin-bottom:10px;}
+  .pillar-title{font-family:"Playfair Display",serif; font-weight:700; font-size:1.85rem; margin-bottom:10px;}
+  .pillar-desc{color:rgba(31,42,51,.78); line-height:1.85; margin:0 auto 16px; font-size:1.05rem; max-width:560px;}
+
+  .dept-section{ padding:78px 0 86px; }
+  .dept-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; align-items:stretch}
+  .dept-card{border-radius:24px; overflow:hidden; background:#fff; border:1px solid rgba(0,0,0,.06); box-shadow:0 18px 60px rgba(0,0,0,.10); transition:.25s ease; display:flex; flex-direction:column;}
+  .dept-card:hover{transform:translateY(-3px)}
+  .dept-media{height:320px; background:#eee}
+  .dept-media img{width:100%; height:100%; object-fit:cover;}
+  .dept-body{padding:20px 20px 22px; text-align:center}
+  .dept-body h3{font-family:"Lato",sans-serif; font-weight:900; font-size:1.55rem; margin-bottom:8px;}
+  .dept-body p{color:rgba(31,42,51,.78); line-height:1.75; margin:0 auto 14px; max-width:520px}
+
+  .headline-title{font-family:"Playfair Display",serif; color:var(--header-btn-green); font-size:clamp(2rem, 3.2vw, 3rem); margin-bottom:26px}
+  .headline-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px}
+  .card{border-radius:24px; overflow:hidden; background:#fff; border:1px solid rgba(0,0,0,.06); box-shadow:0 14px 40px rgba(0,0,0,.10); transition:.25s ease}
+  .card:hover{transform:translateY(-4px)}
+  .card-media{position:relative; height:240px; background:#eee}
+  .card-media img{width:100%; height:100%; object-fit:cover}
+  .pillTag{position:absolute; left:16px; top:16px; background:var(--header-btn-green); color:#fff; padding:10px 14px; border-radius:14px; font-weight:900; letter-spacing:.06em; text-transform:uppercase; font-size:.78rem;}
+  .card-body{padding:22px 22px 24px; text-align:center}
+  .card-body h3{font-family:"Playfair Display",serif; font-size:1.65rem; margin-bottom:10px}
+
+  .testi-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px}
+  .testi{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:22px; box-shadow:0 16px 48px rgba(0,0,0,.06); padding:34px 28px; text-align:center; position:relative;}
+  .testi p{color:rgba(31,42,51,.80); font-size:1.1rem; line-height:1.8; font-style:italic; margin-bottom:20px;}
+  .testi strong{color:var(--header-btn-green); letter-spacing:.08em; text-transform:uppercase; font-size:.85rem; font-weight:900;}
+
+  .media-banner {background: linear-gradient(135deg, var(--header-btn-green) 0%, #2c3a29 100%); color: #fff; border-radius: 26px; padding: 56px 40px; text-align: center; box-shadow: 0 26px 70px rgba(0,0,0,.16); margin: 40px auto 20px;}
+  .media-banner h2 { font-family:"Playfair Display",serif; color: var(--gold); font-size: clamp(2.2rem, 3.2vw, 3.2rem); margin-bottom: 18px; }
+  .m-link {display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.3); padding: 18px 32px; border-radius: 16px; color: #fff; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; transition: .25s ease;}
+  .m-link:hover { background: var(--gold); color: #163527; transform: translateY(-4px); }
+
+  .contact-one{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:26px; box-shadow:0 14px 40px rgba(0,0,0,.10); padding:30px 26px; max-width:980px; margin:0 auto; text-align:center}
+  .contact-form{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px; text-align:left}
+  .field{display:flex; flex-direction:column; gap:6px} .field.full{grid-column:1 / -1}
+  .field label{font-weight:900; font-size:.78rem; color:var(--header-btn-green); text-transform:uppercase;}
+  .field input,.field textarea{width:100%; padding:12px; border-radius:14px; border:1px solid rgba(0,0,0,.12); font-family:inherit;}
+  .submit{grid-column:1 / -1; background:var(--header-btn-green); color:#fff; border:none; border-radius:14px; padding:14px; font-weight:900; cursor:pointer;}
+
+  .partners-strip{ background:#fff; border-top:1px solid rgba(0,0,0,.06); padding:34px 0 }
+  .partners-row{display:flex; align-items:center; justify-content:center; gap:34px; flex-wrap:wrap}
+  .partner img{height:64px; max-width:260px; object-fit:contain;}
+
+  @media (max-width: 1040px){ .pillars-grid, .dept-grid, .headline-grid, .testi-grid, .footer-grid{grid-template-columns:1fr} }
 </style>
 
-<section class="hero-edu">
-    <div class="hero-edu-content">
-        <h1>ÉDUCATION</h1>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Comprendre la nature pour mieux la protéger. Découvrez nos programmes de formation et d'immersion.</p>
+<main>
+  <section class="hero">
+    <div class="hero-media"></div>
+    <div class="hero-gradient"></div>
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <h1>Jardin Botanique des Cayes</h1>
+        <p>Une institution au service de la biodiversité : données, science, éducation et actions concrètes en Haïti.</p>
+      </div>
     </div>
-</section>
+  </section>
 
-<main class="container">
-    <div class="intro-box">
-        <h2>Transmettre le Savoir</h2>
-        <p>Le Jardin Botanique des Cayes est un laboratoire à ciel ouvert. Notre mission éducative est de reconnecter la population, les étudiants et les professionnels avec la richesse de la biodiversité haïtienne, en promouvant l'écologie, la phytothérapie et la conservation.</p>
+  <section class="mission bg-paper" style="padding:78px 0;">
+    <div class="container">
+      <div class="mission-wrap">
+        <h2>Notre mission</h2>
+        <p>Notre mission est de collecter et de partager des connaissances et des données sur la biodiversité afin de contribuer à la santé de l’homme et de la nature.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="grid-cards">
-        <article class="card">
-            <div class="card-media">
-                <div style="width: 100%; height: 100%; background: #f4f6f4; display: flex; align-items: center; justify-content: center;">
-                    <i class="fa-solid fa-children" style="font-size: 4rem; color: #5E8F3A;"></i>
-                </div>
+  <section class="section bg-institution" style="padding:72px 0;">
+    <div class="container">
+      <div class="p-head">
+        <h2 style="font-family:'Playfair Display',serif; font-size:2.5rem;">Deux piliers fondamentaux</h2>
+        <p>Notre mission repose sur deux axes : la santé humaine et la santé de la nature.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <article class="pillar">
+          <div class="pillar-media">
+            <img src="{{ '/images/index/index-sante-humaine.jpg' | relative_url }}" alt="Santé humaine" loading="lazy">
+          </div>
+          <div class="pillar-body">
+            <div class="pillar-kicker">PILIER 1</div>
+            <div class="pillar-title">Santé humaine</div>
+            <div class="pillar-desc">
+              Découvrez la puissance des plantes médicinales, la phytothérapie, la naturopathie, ainsi que la nutrition pour votre santé.
             </div>
-            <div class="card-body">
-                <h3>Visites Scolaires</h3>
-                <p>Des parcours immersifs adaptés aux élèves pour éveiller leur conscience écologique dès le plus jeune âge à travers le contact direct avec les plantes.</p>
-                <a href="{{ '/impliquer.html#visite' | relative_url }}" class="btn-action">Planifier une visite</a>
-            </div>
+            <a class="btn primary" href="{{ '/sante-humaine.html' | relative_url }}" style="background:var(--deep); color:#fff; padding:12px 16px; border-radius:14px; text-transform:uppercase; font-weight:900; font-size:0.8rem;">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </article>
 
-        <article class="card">
-            <div class="card-media">
-                <div style="width: 100%; height: 100%; background: #f4f6f4; display: flex; align-items: center; justify-content: center;">
-                    <i class="fa-solid fa-user-graduate" style="font-size: 4rem; color: #C5A059;"></i>
-                </div>
+        <article class="pillar">
+          <div class="pillar-media">
+            <img src="{{ '/images/index/index-sante-nature.jpg' | relative_url }}" alt="Santé de la nature" loading="lazy">
+          </div>
+          <div class="pillar-body">
+            <div class="pillar-kicker">PILIER 2</div>
+            <div class="pillar-title">Santé de la nature</div>
+            <div class="pillar-desc">
+              Votre santé dépend de la nature : comprenez l’écologie, la restauration et la conservation. La biodiversité est une priorité.
             </div>
-            <div class="card-body">
-                <h3>Formations Professionnelles</h3>
-                <p>Programmes avancés en naturopathie, phytothérapie et horticulture pour les étudiants, chercheurs et professionnels de la santé.</p>
-                <a href="#contact" class="btn-action">S'informer</a>
-            </div>
+            <a class="btn primary" href="{{ '/sante-de-la-nature.html' | relative_url }}" style="background:var(--deep); color:#fff; padding:12px 16px; border-radius:14px; text-transform:uppercase; font-weight:900; font-size:0.8rem;">Découvrir <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
         </article>
-
-        <article class="card">
-            <div class="card-media">
-                <div style="width: 100%; height: 100%; background: #f4f6f4; display: flex; align-items: center; justify-content: center;">
-                    <i class="fa-solid fa-users" style="font-size: 4rem; color: #2F5D2F;"></i>
-                </div>
-            </div>
-            <div class="card-body">
-                <h3>Ateliers Grand Public</h3>
-                <p>Apprenez les bases du jardinage, de l'apiculture ou de la création de remèdes naturels traditionnels lors de nos ateliers de week-end.</p>
-                <a href="{{ '/blog.html' | relative_url }}" class="btn-action">Voir les événements</a>
-            </div>
-        </article>
+      </div>
     </div>
+  </section>
+
+  <section class="dept-section bg-paper">
+    <div class="container">
+      <div class="dept-head">
+        <h2 style="font-family:'Playfair Display',serif; font-size:2.5rem;">Nos sphères d'action</h2>
+        <p>Nous faisons de la science et collectons des données pour la conservation, l'horticulture et la restauration des écosystèmes.</p>
+      </div>
+
+      <div class="dept-grid">
+        <a class="dept-card" href="{{ '/science.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-science-conservation.jpg' | relative_url }}" alt="Sciences"></div>
+          <div class="dept-body">
+            <h3>Sciences</h3>
+            <p>Recherche scientifique, études botaniques et suivi écologique pour mieux comprendre notre biodiversité.</p>
+          </div>
+        </a>
+
+        <a class="dept-card" href="{{ '/donnees.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-donnees.jpg' | relative_url }}" alt="Données"></div>
+          <div class="dept-body">
+            <h3>Données</h3>
+            <p>Inventaires floristiques, cartographies et bases de données pour guider des décisions solides.</p>
+          </div>
+        </a>
+
+        <a class="dept-card" href="{{ '/conservation.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-conservation.jpg' | relative_url }}" alt="Conservation"></div>
+          <div class="dept-body">
+            <h3>Conservation</h3>
+            <p>Actions concrètes pour la préservation des espèces endémiques, natives et des habitats naturels.</p>
+          </div>
+        </a>
+
+        <a class="dept-card" href="{{ '/recherche.html' | relative_url }}">
+          <div class="dept-media"><img src="{{ '/images/index/index-horticulture-restauration.jpg' | relative_url }}" alt="Recherche et Restauration"></div>
+          <div class="dept-body">
+            <h3>Recherche et Restauration</h3>
+            <p>Pépinière, production de plantes et mise en place de solutions pour restaurer la vitalité des paysages.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-paper" style="padding:72px 0;">
+    <div class="container">
+      <h2 class="headline-title">S'impliquer</h2>
+      <div class="headline-grid">
+        <a class="card" href="{{ '/impliquer.html#visite' | relative_url }}">
+          <div class="card-media">
+            <span class="pillTag">VISITE</span>
+            <img src="{{ '/images/index/index-planifier-visite.jpg' | relative_url }}" alt="Planifier votre visite">
+          </div>
+          <div class="card-body">
+            <h3>Planifier votre visite</h3>
+            <p>Itinéraires, immersion éducative et expériences guidées pour découvrir nos espaces.</p>
+          </div>
+        </a>
+
+        <a class="card" href="{{ '/impliquer.html#membership' | relative_url }}">
+          <div class="card-media">
+            <span class="pillTag">MEMBRE</span>
+            <img src="{{ '/images/index/devenir-membre-page-principale.jpg' | relative_url }}" alt="Devenir membre">
+          </div>
+          <div class="card-body">
+            <h3>Devenir membre</h3>
+            <p>Rejoignez notre communauté engagée et soutenez activement la biodiversité.</p>
+          </div>
+        </a>
+
+        <a class="card" href="{{ '/education.html' | relative_url }}">
+          <div class="card-media">
+            <span class="pillTag">FORMATION</span>
+            <img src="{{ '/images/index/index-formation.jpg' | relative_url }}" alt="Formation">
+          </div>
+          <div class="card-body">
+            <h3>Formation</h3>
+            <p>Participez à nos programmes éducatifs pour comprendre et protéger la nature.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:72px 0;">
+    <div class="container">
+      <h2 class="testi-title" style="font-family:'Playfair Display',serif; font-size:2.5rem; margin-bottom:34px;">Ce qu’on dit du Jardin Botanique des Cayes</h2>
+      <div class="testi-grid">
+        <div class="testi">
+          <p>« Un lieu de référence pour comprendre la biodiversité et relier la science à l’action. »</p>
+          <strong>Partenaire institutionnel</strong>
+        </div>
+        <div class="testi">
+          <p>« Une équipe engagée qui produit des données utiles pour la conservation, l’éducation et la santé. »</p>
+          <strong>Collaborateur scientifique</strong>
+        </div>
+        <div class="testi">
+          <p>« Un espace inspirant où la nature devient une source d’apprentissage et de solutions concrètes. »</p>
+          <strong>Visiteur</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding:72px 0;">
+    <div class="container">
+      <div class="media-banner">
+        <h2>Médiathèque & Ressources</h2>
+        <p>
+          Les données et les informations essentielles pour la prise de décision sont publiées régulièrement. N'hésitez pas à explorer notre blog, notre chaîne YouTube et notre page Facebook où nous organisons des formations et partageons des données précieuses.
+        </p>
+        <div style="display: flex; justify-content: center;">
+          <a href="{{ '/blog.html' | relative_url }}" class="m-link">Explorer nos ressources <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-health" id="contact" style="padding:72px 0;">
+    <div class="container">
+      <div class="contact-one">
+        <h2 style="font-family:'Playfair Display',serif; color:var(--header-btn-green); font-size:2.1rem; margin-bottom:10px">Connectez avec nous</h2>
+        <p style="color:rgba(44,62,80,.75); font-size:1.05rem; margin-bottom:18px">
+          Connectez avec nous quand vous avez besoin d’avoir des données sur la phytothérapie, la naturopathie, les plantes endémiques, les plantes natives, et la biodiversité.
+        </p>
+
+        <!-- IMPORTANT: Netlify (optionnel mais recommandé) -->
+        <form class="contact-form" name="contact" action="#" method="post" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact">
+
+          <div class="field">
+            <label for="nom-contact">Nom</label>
+            <input type="text" id="nom-contact" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div class="field">
+            <label for="email-contact">Email</label>
+            <input type="email" id="email-contact" name="email" placeholder="Votre email" required>
+          </div>
+          <div class="field full">
+            <label for="sujet-contact">Sujet</label>
+            <input type="text" id="sujet-contact" name="sujet" placeholder="Objet du message" required>
+          </div>
+          <div class="field full">
+            <label for="message-contact">Message</label>
+            <textarea id="message-contact" name="message" placeholder="Écrivez votre message..." required style="min-height:150px;"></textarea>
+          </div>
+          <button class="submit" type="submit">Envoyer</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-paper" style="padding:72px 0;">
+    <div class="container">
+      <div class="p-head">
+        <h2 style="font-family:'Playfair Display',serif; font-size:2.5rem;">Explorez le Jardin Virtuellement</h2>
+        <p>Naviguez sur notre carte interactive pour découvrir nos différentes collections de plantes, nos espaces d'aménagement et planifier votre visite.</p>
+      </div>
+      <div style="border-radius: 26px; overflow: hidden; box-shadow: 0 18px 55px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); height: 500px; background: #eee;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121058.46011494548!2d-73.8291884!3d18.195022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaab0cb374ba2e1%3A0x88ea3061214e21a4!2sLes%20Cayes%2C%20Haiti!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners-strip">
+    <div class="container">
+      <div class="partners-row">
+        <a class="partner" href="https://www.bgci.org" target="_blank"><img src="{{ '/images/index/index-bgci.jpg' | relative_url }}" alt="BGCI"></a>
+        <a class="partner" href="https://www.naplesgarden.org" target="_blank"><img src="{{ '/images/index/index-naples-botanical-garden.jpg' | relative_url }}" alt="Naples Botanical Garden"></a>
+        <a class="partner" href="https://mde.gouv.ht" target="_blank"><img src="{{ '/images/index/index-ministere-environnement-haiti.jpg' | relative_url }}" alt="Ministère de l’Environnement"></a>
+        <a class="partner" href="https://earthoutreach.google.com" target="_blank"><img src="{{ '/images/index/index-google-geo-for-good.jpg' | relative_url }}" alt="Google Geo for Good"></a>
+        <a class="partner" href="https://sites.google.com/viahsa.net/villages-apicoles/accueil" target="_blank"><img src="{{ '/images/index/index-viahsa.jpg' | relative_url }}" alt="VIAHSA"></a>
+      </div>
+    </div>
+  </section>
 </main>

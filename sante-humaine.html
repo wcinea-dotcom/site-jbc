@@ -1,391 +1,260 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Données & Santé | Jardin Botanique des Cayes</title>
+---
+layout: default
+title: "Données & Santé"
+lang: fr
+ref: sante-humaine
+permalink: /sante-humaine.html
+description: "Données et botanique appliquée à la santé : taxonomie, écologie, ethnobotanique et phytochimie pour une santé One Health en Haïti."
+---
 
-  <meta name="description" content="La botanique comme fondement scientifique de la santé. Production de données pour la phytothérapie et la naturopathie." />
-  <meta name="theme-color" content="#2F5D2F" />
+<style>
+  :root{
+    /* VOS VARIABLES INTACTES */
+    --primary-green:#3A5F40;
+    --dark-green:#0F1A13;
+    --btn-green:#3E5641;
+    --accent-gold:#C5A059;
+    --text-body:#333;
+    --bg-light:#F9F9F9;
+    --cream:#fffcf5;
+    --white:#fff;
+    --radius:12px;
+    --shadow:0 4px 20px rgba(0,0,0,0.08);
+  }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  body{
+    font-family:'Lato',sans-serif;
+    color:var(--text-body);
+    background:var(--white);
+    line-height:1.6;
+    font-size:16px;
+  }
+  h1,h2,h3,h4{
+    font-family:'Playfair Display',serif;
+    color:var(--primary-green);
+    line-height:1.2;
+  }
+  a{color:inherit;text-decoration:none !important;transition:.25s ease;}
+  img{display:block;width:100%;height:auto;object-fit:cover;}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px;}
 
-  <style>
-    :root{
-      /* VOS VARIABLES INTACTES */
-      --primary-green:#3A5F40;
-      --dark-green:#0F1A13;
-      --btn-green:#3E5641;
-      --accent-gold:#C5A059;
-      --text-body:#333;
-      --bg-light:#F9F9F9;
-      --cream:#fffcf5;
-      --white:#fff;
-      --radius:12px;
-      --shadow:0 4px 20px rgba(0,0,0,0.08);
+  /* HERO */
+  .hero-donnees{
+    position:relative;
+    min-height:600px;height:75vh;
+    display:flex;align-items:center;
+    background:
+      linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.55)),
+      url('{{ "images/sante/sante-hero.jpg" | relative_url }}') center/cover no-repeat;
+    color:#fff;
+    margin-bottom: 50px;
+  }
+  .hero-content{text-align:center;max-width:900px;margin:0 auto;padding:20px; position: relative; z-index: 2;}
+  .hero-badge{
+    display:inline-block;
+    padding:8px 16px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:999px;
+    margin-bottom:18px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    font-size:.85rem;
+  }
+  .hero-donnees h1{
+    color:#fff;
+    font-size:3.2rem;
+    margin-bottom:16px;
+    text-shadow:0 2px 10px rgba(0,0,0,.3);
+  }
+  .hero-donnees p{
+    font-size:1.25rem;
+    color:rgba(255,255,255,.95);
+    margin-bottom:26px;
+    font-weight:300;
+  }
+  .btn-hero{
+    display:inline-block;
+    padding:15px 35px;
+    background:var(--accent-gold);
+    color:#fff !important;
+    border-radius:999px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+  }
+  .btn-hero:hover{filter:brightness(.95);transform:translateY(-1px);}
 
-      /* VARIABLES DU STANDARD JBC AJOUTÉES ICI */
-      --deep: #2F5D2F;
-      --botanical: #5E8F3A;
-      --navH: 104px;
-      --shadow2: 0 22px 70px rgba(0,0,0,.18);
-    }
+  /* TITRES SECTIONS */
+  .section-header{text-align:center;margin-bottom:50px;}
+  .section-header span{
+    display:block;
+    font-weight:900;
+    color:var(--accent-gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:.85rem;
+    margin-bottom:10px;
+    font-family:'Lato',sans-serif;
+  }
+  .section-header h2{font-size:2.4rem;}
 
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{
-      font-family:'Lato',sans-serif;
-      color:var(--text-body);
-      background:var(--white);
-      line-height:1.6;
-      font-size:16px;
-    }
-    h1,h2,h3,h4{
-      font-family:'Playfair Display',serif;
-      color:var(--primary-green);
-      line-height:1.2;
-    }
-    /* RETRAIT DU SOULIGNEMENT GLOBAL */
-    a{color:inherit;text-decoration:none !important;transition:.25s ease;}
-    img{display:block;width:100%;height:auto;object-fit:cover;}
-    .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+  /* INTRO */
+  .intro-section{padding:80px 0;background:#fff;text-align:center;}
+  .intro-box{max-width:900px;margin:0 auto;padding:0 20px;}
+  .intro-title{font-size:2.1rem;margin-bottom:8px;}
+  .intro-subtitle{
+    display:block;margin-bottom:26px;
+    font-weight:900;
+    color:var(--accent-gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:.85rem;
+    font-family:'Lato',sans-serif;
+  }
+  .intro-text{
+    font-size:1.15rem;
+    line-height:1.85;
+    color:#555;
+    font-style:italic;
+  }
 
-    /* =========================================
-       LE MENU STANDARD JBC
-       ========================================= */
-    .topbar {
-      position: sticky; top: 0; z-index: 2000;
-      background: #fff; border-bottom: 1px solid rgba(0,0,0,.08);
-      height: var(--navH);
-    }
-    .topbar-inner {
-      height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
-    }
-    
-    .brand { display: flex; align-items: center; gap: 12px; min-width: 180px; }
-    .brand img {
-      height: 92px; width: auto;
-      filter: contrast(1.08) saturate(1.08);
-      border: none; background: transparent; padding: 0; box-shadow: none; object-fit: contain;
-    }
+  /* SECTION DONNEES (2x2) */
+  .science-section{padding:80px 0;background:var(--bg-light);}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;}
+  .data-card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);
+    display:flex;flex-direction:column;
+    border:1px solid rgba(0,0,0,.04);
+  }
+  .data-img{height:250px;object-fit:cover;}
+  .data-body{padding:30px;}
+  .data-body h3{
+    font-size:1.35rem;
+    display:inline-block;
+    padding-bottom:6px;
+    border-bottom:2px solid var(--accent-gold);
+    margin-bottom:14px;
+  }
 
-    .nav { display: flex; align-items: center; gap: 22px; justify-content: center; flex: 1; }
-    .nav a, .nav button {
-      font-family: inherit; background: transparent; border: none; cursor: pointer;
-      font-weight: 900; letter-spacing: .10em; text-transform: uppercase;
-      font-size: .86rem; color: rgba(18,24,30,.92);
-      padding: 10px 6px; border-radius: 10px; white-space: nowrap;
-      transition: .15s ease; display: inline-flex; align-items: center; gap: 8px;
-    }
-    .nav a:hover, .nav button:hover { color: var(--deep); background: rgba(47,93,47,.06); }
+  /* HISTOIRE (2 colonnes) */
+  .history-section{padding:100px 0;background:#fff;}
+  .history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:60px;align-items:start;}
+  .history-col{text-align:center;}
+  .history-img-frame{
+    height:350px;border-radius:var(--radius);
+    overflow:hidden;box-shadow:var(--shadow);
+    margin-bottom:18px;
+  }
+  .history-caption{
+    display:block;
+    font-weight:900;
+    color:var(--primary-green);
+    font-size:1.05rem;
+    margin-top:6px;
+    font-family:'Lato',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+  }
+  .history-text{
+    color:#666;font-size:.95rem;margin-top:10px;
+    text-align:justify;
+  }
 
-    .drop { position: relative; }
-    .drop .menu {
-      display: none; position: absolute; top: calc(100% + 10px); left: 0;
-      min-width: 240px; background: #fff; border: 1px solid rgba(0,0,0,.10);
-      border-radius: 16px; overflow: hidden; box-shadow: 0 18px 60px rgba(0,0,0,.16); z-index: 2500;
-    }
-    .drop.open .menu { display: block; }
-    .drop .menu a {
-      display: block; padding: 12px 14px; font-weight: 900; letter-spacing: .03em; text-transform: none;
-      border-bottom: 1px solid rgba(0,0,0,.06) !important; background: #fff; color: rgba(18,24,30,.92);
-    }
-    .drop .menu a:hover { background: rgba(47,93,47,.06); color: var(--deep); padding-left: 18px; }
+  /* QUI ACCOMPAGNONS-NOUS (3 cartes horizontales) */
+  .target-section{padding:100px 0;background:var(--cream);}
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:28px;
+    align-items:stretch;
+  }
+  .expert-card{
+    background:#fff;border-radius:14px;overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    border:1px solid rgba(0,0,0,.05);
+    display:flex;flex-direction:column;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .expert-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.12);}
+  .expert-img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+  }
+  .expert-content{padding:24px;}
+  .expert-title{
+    font-size:1.35rem;
+    margin-bottom:12px;
+    color:var(--primary-green);
+  }
+  .expert-desc{
+    font-size:.98rem;
+    color:#555;
+    line-height:1.65;
+    font-family:'Lato',sans-serif;
+  }
 
-    .actions { display: flex; align-items: center; gap: 10px; min-width: 220px; justify-content: flex-end; }
-    
-    .btn-member {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      padding: 12px 20px; border-radius: 10px;
-      font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem;
-      transition: .18s ease; white-space: nowrap; user-select: none;
-      background: #3B5D38; color: #fff !important; border: none;
-    }
-    .btn-member:hover { background: #2A4428; transform: translateY(-1px); }
+  /* ACTIVITES (4) */
+  .activity-section{padding:80px 0;background:#fff;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;}
+  .activity-card{
+    background:#fff;border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);
+    border:1px solid rgba(0,0,0,.05);
+    text-align:center;
+  }
+  .activity-img{height:180px;object-fit:cover;}
+  .activity-body{padding:18px;}
+  .activity-body h3{font-size:1.05rem;margin-bottom:6px;color:var(--primary-green);}
+  .activity-body p{font-size:.9rem;color:#666;}
 
-    .search-pill {
-      border: 1px solid rgba(0,0,0,.10); border-radius: 30px; 
-      width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
-      transition: .18s ease; cursor: pointer; background: #fff;
-    }
-    .search-pill:hover { background: rgba(0,0,0,.04); transform: translateY(-1px); }
-    .search-pill i { font-size: 1rem; color: #111; }
+  /* BRH */
+  .brh-section{padding:80px 0;background:var(--bg-light);text-align:center;}
+  .brh-box{
+    max-width:800px;margin:0 auto;
+    background:#fff;padding:40px;border-radius:var(--radius);
+    box-shadow:var(--shadow);
+  }
 
-    .burger {
-      display: none; width: 46px; height: 46px; border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.12); background: #fff; cursor: pointer;
-      align-items: center; justify-content: center; gap: 5px; flex-direction: column;
-    }
-    .burger span { display: block; width: 20px; height: 2px; background: #111; border-radius: 2px; }
+  /* FORM */
+  .form-section{padding:80px 0;background:var(--primary-green);color:#fff;}
+  .form-container{
+    max-width:600px;margin:0 auto;
+    background:#fff;padding:40px;border-radius:var(--radius);
+    color:var(--text-body);
+    box-shadow:var(--shadow);
+  }
+  .form-group{margin-bottom:14px;}
+  .form-group label{display:block;margin-bottom:6px;font-weight:900;font-size:.9rem;font-family:'Lato',sans-serif;}
+  .form-control{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-family:inherit;}
+  .btn-submit{
+    width:100%;padding:12px;
+    background:var(--accent-gold);color:#fff;
+    border:none;border-radius:10px;
+    font-weight:900;cursor:pointer;
+    text-transform:uppercase;letter-spacing:.5px;
+  }
+  .btn-submit:hover{filter:brightness(.95);}
 
-    .drawer {
-      display: none; position: fixed; top: var(--navH); left: 12px; right: 12px;
-      background: #fff; border: 1px solid rgba(0,0,0,.12); border-radius: 18px; padding: 12px;
-      box-shadow: var(--shadow2); z-index: 2600; max-height: calc(100vh - 120px); overflow-y: auto;
-    }
-    .drawer.open { display: block; }
-    .drawer a, .drawer button {
-      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 12px 12px; border-radius: 14px; border: none; background: transparent; cursor: pointer;
-      font-weight: 900; letter-spacing: .08em; text-transform: uppercase; font-size: .86rem; color: rgba(18,24,30,.92);
-    }
-    .drawer a:hover, .drawer button:hover { background: rgba(47,93,47,.06); color: var(--deep); }
-    .drawer-sub { display: none; margin: 6px 0 10px; padding-left: 12px; border-left: 3px solid rgba(47,93,47,.15); }
-    .drawer-sub a { text-transform: none; letter-spacing: .02em; font-weight: 900; opacity: .92; font-size: 0.95rem; padding: 10px; }
-    .drawer-sub.open { display: block; }
+  /* RESPONSIVE */
+  @media (max-width: 1024px){
+    .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .grid-2{grid-template-columns:1fr;}
+    .history-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width: 700px){
+    .grid-3,.grid-4{grid-template-columns:1fr;}
+    .hero-donnees h1{font-size:2.2rem;}
+    .hero-donnees p{font-size:1.05rem;}
+  }
+</style>
 
-    @media (max-width: 1150px) {
-      .nav { display: none; }
-      .burger { display: flex; }
-      .actions { min-width: auto; }
-      .brand { min-width: auto; }
-      .brand img { height: 70px; }
-      .search-pill { display: none; }
-      :root { --navH: 92px; }
-    }
-
-
-    /* =========================================
-       VOTRE CODE DE CONTENU (TOTALEMENT INTACT)
-       ========================================= */
-    /* HERO */
-    .hero{
-      position:relative;
-      min-height:600px;height:75vh;
-      display:flex;align-items:center;
-      background:
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.55)),
-        url("images/sante/sante-hero.jpg") center/cover no-repeat;
-      color:#fff;
-    }
-    .hero-content{text-align:center;max-width:900px;margin:0 auto;padding:20px;}
-    .hero-badge{
-      display:inline-block;
-      padding:8px 16px;
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:999px;
-      margin-bottom:18px;
-      font-weight:800;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      font-size:.85rem;
-    }
-    .hero h1{
-      color:#fff;
-      font-size:3.2rem;
-      margin-bottom:16px;
-      text-shadow:0 2px 10px rgba(0,0,0,.3);
-    }
-    .hero p{
-      font-size:1.25rem;
-      color:rgba(255,255,255,.95);
-      margin-bottom:26px;
-      font-weight:300;
-    }
-    .btn-hero{
-      display:inline-block;
-      padding:15px 35px;
-      background:var(--accent-gold);
-      color:#fff;
-      border-radius:999px;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:.5px;
-    }
-    .btn-hero:hover{filter:brightness(.95);transform:translateY(-1px);}
-
-    /* TITRES SECTIONS */
-    .section-header{text-align:center;margin-bottom:50px;}
-    .section-header span{
-      display:block;
-      font-weight:900;
-      color:var(--accent-gold);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      font-size:.85rem;
-      margin-bottom:10px;
-      font-family:'Lato',sans-serif;
-    }
-    .section-header h2{font-size:2.4rem;}
-
-    /* INTRO */
-    .intro-section{padding:80px 0;background:#fff;text-align:center;}
-    .intro-box{max-width:900px;margin:0 auto;padding:0 20px;}
-    .intro-title{font-size:2.1rem;margin-bottom:8px;}
-    .intro-subtitle{
-      display:block;margin-bottom:26px;
-      font-weight:900;
-      color:var(--accent-gold);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      font-size:.85rem;
-      font-family:'Lato',sans-serif;
-    }
-    .intro-text{
-      font-size:1.15rem;
-      line-height:1.85;
-      color:#555;
-      font-style:italic;
-    }
-
-    /* SECTION DONNEES (2x2) */
-    .science-section{padding:80px 0;background:var(--bg-light);}
-    .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;}
-    .data-card{
-      background:#fff;border-radius:var(--radius);overflow:hidden;
-      box-shadow:var(--shadow);
-      display:flex;flex-direction:column;
-      border:1px solid rgba(0,0,0,.04);
-    }
-    .data-img{height:250px;object-fit:cover;}
-    .data-body{padding:30px;}
-    .data-body h3{
-      font-size:1.35rem;
-      display:inline-block;
-      padding-bottom:6px;
-      border-bottom:2px solid var(--accent-gold);
-      margin-bottom:14px;
-    }
-
-    /* HISTOIRE (2 colonnes) */
-    .history-section{padding:100px 0;background:#fff;}
-    .history-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:60px;align-items:start;}
-    .history-col{text-align:center;}
-    .history-img-frame{
-      height:350px;border-radius:var(--radius);
-      overflow:hidden;box-shadow:var(--shadow);
-      margin-bottom:18px;
-    }
-    .history-caption{
-      display:block;
-      font-weight:900;
-      color:var(--primary-green);
-      font-size:1.05rem;
-      margin-top:6px;
-      font-family:'Lato',sans-serif;
-      text-transform:uppercase;
-      letter-spacing:.6px;
-    }
-    .history-text{
-      color:#666;font-size:.95rem;margin-top:10px;
-      text-align:justify;
-    }
-
-    /* QUI ACCOMPAGNONS-NOUS (3 cartes horizontales) */
-    .target-section{padding:100px 0;background:var(--cream);}
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:28px;
-      align-items:stretch;
-    }
-    .expert-card{
-      background:#fff;border-radius:14px;overflow:hidden;
-      box-shadow:0 5px 20px rgba(0,0,0,.08);
-      border:1px solid rgba(0,0,0,.05);
-      display:flex;flex-direction:column;
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-    .expert-card:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(0,0,0,.12);}
-    .expert-img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-    }
-    .expert-content{padding:24px;}
-    .expert-title{
-      font-size:1.35rem;
-      margin-bottom:12px;
-      color:var(--primary-green);
-    }
-    .expert-desc{
-      font-size:.98rem;
-      color:#555;
-      line-height:1.65;
-      font-family:'Lato',sans-serif;
-    }
-
-    /* ACTIVITES (4) */
-    .activity-section{padding:80px 0;background:#fff;}
-    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;}
-    .activity-card{
-      background:#fff;border-radius:var(--radius);overflow:hidden;
-      box-shadow:var(--shadow);
-      border:1px solid rgba(0,0,0,.05);
-      text-align:center;
-    }
-    .activity-img{height:180px;object-fit:cover;}
-    .activity-body{padding:18px;}
-    .activity-body h3{font-size:1.05rem;margin-bottom:6px;color:var(--primary-green);}
-    .activity-body p{font-size:.9rem;color:#666;}
-
-    /* BRH */
-    .brh-section{padding:80px 0;background:var(--bg-light);text-align:center;}
-    .brh-box{
-      max-width:800px;margin:0 auto;
-      background:#fff;padding:40px;border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-
-    /* FORM */
-    .form-section{padding:80px 0;background:var(--primary-green);color:#fff;}
-    .form-container{
-      max-width:600px;margin:0 auto;
-      background:#fff;padding:40px;border-radius:var(--radius);
-      color:var(--text-body);
-      box-shadow:var(--shadow);
-    }
-    .form-group{margin-bottom:14px;}
-    .form-group label{display:block;margin-bottom:6px;font-weight:900;font-size:.9rem;font-family:'Lato',sans-serif;}
-    .form-control{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-family:inherit;}
-    .btn-submit{
-      width:100%;padding:12px;
-      background:var(--accent-gold);color:#fff;
-      border:none;border-radius:10px;
-      font-weight:900;cursor:pointer;
-      text-transform:uppercase;letter-spacing:.5px;
-    }
-    .btn-submit:hover{filter:brightness(.95);}
-
-    /* RESPONSIVE (INTACT) */
-    @media (max-width: 1024px){
-      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr));}
-      .grid-2{grid-template-columns:1fr;}
-      .history-grid{grid-template-columns:1fr;}
-    }
-    @media (max-width: 700px){
-      .grid-3,.grid-4{grid-template-columns:1fr;}
-      .hero h1{font-size:2.2rem;}
-      .hero p{font-size:1.05rem;}
-    }
-
-    /* =========================================
-       FOOTER STANDARD JBC
-       ========================================= */
-    .site-footer { background: #3B5D38; color: white; padding: 60px 0 20px; font-family: "Lato", sans-serif; }
-    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 24px; margin-bottom: 40px; }
-    .footer-col h3 { color: #C5A059; font-size: 0.95rem; letter-spacing: 0.08em; margin-bottom: 25px; font-weight: 900; text-transform: uppercase;}
-    .footer-info { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; font-size: 0.95rem; }
-    .footer-info i { margin-top: 4px; color: #fff; width: 16px;}
-    .footer-link { display: block; margin-bottom: 15px; color: #fff; font-size: 0.95rem; transition: 0.3s; }
-    .footer-link:hover { opacity: 0.7; }
-    .social-icons { display: flex; gap: 12px; }
-    .social-circle { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); display: flex; align-items: center; justify-content: center; color: #fff; transition: 0.3s; }
-    .social-circle:hover { background: rgba(255,255,255,0.15); }
-    .copyright { text-align: center; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.9rem; color:#fff;}
-    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr; gap: 40px; } }
-  </style>
-</head>
-
-<body>
-
-  <div id="header-placeholder"></div>
-
-  <section class="hero">
+<main>
+  <section class="hero-donnees">
     <div class="container hero-content">
       <span class="hero-badge">ONE HEALTH</span>
       <h1>La Botanique : Le Socle de<br>l'Efficacité Thérapeutique</h1>
@@ -415,7 +284,7 @@
 
       <div class="grid-2">
         <article class="data-card">
-          <img src="images/sante/sante-evolution-taxonomie.jpg" alt="Évolution & Taxonomie" class="data-img">
+          <img src="{{ 'images/sante/sante-evolution-taxonomie.jpg' | relative_url }}" alt="Évolution & Taxonomie" class="data-img">
           <div class="data-body">
             <h3>1. Évolution & Taxonomie</h3>
             <p>Comprendre l'évolution des plantes explique pourquoi certaines familles développent des propriétés spécifiques. La Taxonomie permet de nommer et identifier les plantes sans erreur.</p>
@@ -423,7 +292,7 @@
         </article>
 
         <article class="data-card">
-          <img src="images/sante/sante-ecologie-zoopharmacognosie.jpg" alt="Écologie & Zoopharmacognosie" class="data-img">
+          <img src="{{ 'images/sante/sante-ecologie-zoopharmacognosie.jpg' | relative_url }}" alt="Écologie & Zoopharmacognosie" class="data-img">
           <div class="data-body">
             <h3>2. Écologie & Zoopharmacognosie</h3>
             <p>L'interaction plante-environnement est essentielle. La plante produit des molécules pour s'adapter. Nous étudions aussi la Zoopharmacognosie pour comprendre les effets thérapeutiques.</p>
@@ -431,7 +300,7 @@
         </article>
 
         <article class="data-card">
-          <img src="images/sante/sante-ethnobotanique-nutrition.jpg" alt="Ethnobotanique & Nutrition" class="data-img">
+          <img src="{{ 'images/sante/sante-ethnobotanique-nutrition.jpg' | relative_url }}" alt="Ethnobotanique & Nutrition" class="data-img">
           <div class="data-body">
             <h3>3. Ethnobotanique & Nutrition</h3>
             <p>Des millénaires d'expérience. Nous collectons les données culturelles sur l'usage nutritionnel et thérapeutique pour identifier "quoi manger" et "comment se soigner".</p>
@@ -439,7 +308,7 @@
         </article>
 
         <article class="data-card">
-          <img src="images/sante/sante-phytochimie-pharmacognosie.jpg" alt="Phytochimie & Pharmacognosie" class="data-img">
+          <img src="{{ 'images/sante/sante-phytochimie-pharmacognosie.jpg' | relative_url }}" alt="Phytochimie & Pharmacognosie" class="data-img">
           <div class="data-body">
             <h3>4. Phytochimie & Pharmacognosie</h3>
             <p>L'analyse des molécules. La phytochimie identifie ces composés, et la pharmacognosie étudie leurs effets thérapeutiques réels sur l'organisme.</p>
@@ -458,7 +327,7 @@
       <div class="history-grid">
         <div class="history-col">
           <div class="history-img-frame">
-            <img src="images/sante/sante-jardin-botanique-des-cayes.jpg" alt="Jardin Botanique des Cayes">
+            <img src="{{ 'images/sante/sante-jardin-botanique-des-cayes.jpg' | relative_url }}" alt="Jardin Botanique des Cayes">
           </div>
           <span class="history-caption">Jardin Botanique des Cayes (2026)</span>
           <p class="history-text">
@@ -468,7 +337,7 @@
 
         <div class="history-col">
           <div class="history-img-frame">
-            <img src="images/sante/sante-jardin-botanique-padoue.jpg" alt="Jardin de Padoue (1545)">
+            <img src="{{ 'images/sante/sante-jardin-botanique-padoue.jpg' | relative_url }}" alt="Jardin de Padoue (1545)">
           </div>
           <span class="history-caption">Jardin de Padoue (1545)</span>
           <p class="history-text">
@@ -488,7 +357,7 @@
 
       <div class="grid-3">
         <div class="expert-card">
-          <img src="images/sante/sante-medecins-personnel-de-sante.jpg" alt="Médecins et personnel de santé" class="expert-img">
+          <img src="{{ 'images/sante/sante-medecins-personnel-de-sante.jpg' | relative_url }}" alt="Médecins et personnel de santé" class="expert-img">
           <div class="expert-content">
             <h3 class="expert-title">Médecins et personnel de santé</h3>
             <p class="expert-desc">Pour comprendre les interactions plantes-médicaments, la toxicologie et l'usage rationnel en clinique.</p>
@@ -496,15 +365,15 @@
         </div>
 
         <div class="expert-card">
-          <img src="images/sante/sante-phytotherapeutes-naturopathes.jpg" alt="Phytothérapeutes & Naturophes" class="expert-img">
+          <img src="{{ 'images/sante/sante-phytotherapeutes-naturopathes.jpg' | relative_url }}" alt="Phytothérapeutes & Naturopathes" class="expert-img">
           <div class="expert-content">
-            <h3 class="expert-title">Phytothérapeutes & Naturophes</h3>
+            <h3 class="expert-title">Phytothérapeutes & Naturopathes</h3>
             <p class="expert-desc">Pour rationaliser les pratiques traditionnelles, identifier correctement les plantes et sécuriser les dosages.</p>
           </div>
         </div>
 
         <div class="expert-card">
-          <img src="images/sante/sante-chercheurs-industrie.jpg" alt="Chercheurs & Industrie" class="expert-img">
+          <img src="{{ 'images/sante/sante-chercheurs-industrie.jpg' | relative_url }}" alt="Chercheurs & Industrie" class="expert-img">
           <div class="expert-content">
             <h3 class="expert-title">Chercheurs & Industrie</h3>
             <p class="expert-desc">Pour découvrir de nouvelles molécules et développer des médicaments à partir de la biodiversité haïtienne.</p>
@@ -523,7 +392,7 @@
 
       <div class="grid-4">
         <div class="activity-card">
-          <img src="images/sante/sante-etudes-donnees.jpg" alt="Étude & données" class="activity-img">
+          <img src="{{ 'images/sante/sante-etudes-donnees.jpg' | relative_url }}" alt="Étude & données" class="activity-img">
           <div class="activity-body">
             <h3>Étude & données</h3>
             <p>Recherche fondamentale.</p>
@@ -531,7 +400,7 @@
         </div>
 
         <div class="activity-card">
-          <img src="images/sante/sante-reproduction.jpg" alt="Reproduction" class="activity-img">
+          <img src="{{ 'images/sante/sante-reproduction.jpg' | relative_url }}" alt="Reproduction" class="activity-img">
           <div class="activity-body">
             <h3>Reproduction</h3>
             <p>Pépinière médicinale.</p>
@@ -539,15 +408,15 @@
         </div>
 
         <div class="activity-card">
-          <img src="images/sante/sante-conservation.jpg" alt="Conservation" class="activity-img">
+          <img src="{{ 'images/sante/sante-conservation.jpg' | relative_url }}" alt="Conservation" class="activity-img">
           <div class="activity-body">
             <h3>Conservation</h3>
-            <p>Protection in-situ.</p>
+            <p>Protection in situ.</p>
           </div>
         </div>
 
         <div class="activity-card">
-          <img src="images/sante/sante-sensibilisation-formation.jpg" alt="Sensibilisation & formation" class="activity-img">
+          <img src="{{ 'images/sante/sante-sensibilisation-formation.jpg' | relative_url }}" alt="Sensibilisation & formation" class="activity-img">
           <div class="activity-body">
             <h3>Sensibilisation & formation</h3>
             <p>Éducation santé.</p>
@@ -560,12 +429,12 @@
   <section class="brh-section">
     <div class="container">
       <div class="brh-box">
-        <img src="images/sante/sante-logo-brh.jpg" alt="Logo BRH" style="height:80px;margin:0 auto 18px;">
+        <img src="{{ 'images/sante/sante-logo-brh.jpg' | relative_url }}" alt="Logo BRH" style="height:80px;margin:0 auto 18px;">
         <h2>Partenariat BRH</h2>
         <p style="margin:14px 0 18px;">
           Avec le soutien de la Banque de la République d'Haïti, nous avons réalisé l'inventaire des plantes médicinales du Grand Sud, produit un Atlas d'identification et un plan de conservation.
         </p>
-        <a href="atlas-brh.html" style="color:var(--primary-green);font-weight:900;">Découvrir l'Atlas →</a>
+        <a href="#" style="color:var(--primary-green);font-weight:900;">Découvrir l'Atlas →</a>
       </div>
     </div>
   </section>
@@ -578,7 +447,7 @@
       </div>
 
       <div class="form-container">
-        <form action="#" method="POST">
+        <form action="#" method="POST" data-netlify="true">
           <div class="form-group">
             <label for="nom">Nom Complet</label>
             <input type="text" id="nom" name="nom" class="form-control" required>
@@ -596,94 +465,4 @@
       </div>
     </div>
   </section>
-
-  <div id="footer-placeholder"></div>
-
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-        
-        // C'est ici que l'on "allume" l'onglet actif (SANTÉ HUMAINE)
-        const activeLink = document.querySelector('nav a[href="sante-humaine.html"]');
-        if(activeLink) activeLink.style.color = "var(--deep)";
-
-        initMenu();
-      })
-      .catch(error => console.error('Erreur chargement header:', error));
-
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('footer-placeholder').innerHTML = data;
-      })
-      .catch(error => console.error('Erreur chargement footer:', error));
-
-    function initMenu() {
-      const dropAccueil = document.getElementById('dropAccueil');
-      const btnAccueil = document.getElementById('btnAccueil');
-      const dropNature = document.getElementById('dropNature');
-      const btnNature = document.getElementById('btnNature');
-      const burger = document.getElementById('burger');
-      const drawer = document.getElementById('drawer');
-      const dBtnAccueil = document.getElementById('drawerAccueilBtn');
-      const dSubAccueil = document.getElementById('drawerAccueilSub');
-      const dBtnNature = document.getElementById('drawerNatureBtn');
-      const dSubNature = document.getElementById('drawerNatureSub');
-
-      if(dropAccueil && btnAccueil){
-        btnAccueil.addEventListener('click', (e) => {
-          e.preventDefault(); e.stopPropagation();
-          if(dropNature) dropNature.classList.remove('open');
-          const open = dropAccueil.classList.toggle('open');
-          btnAccueil.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-
-      if(dropNature && btnNature){
-        btnNature.addEventListener('click', (e) => {
-          e.preventDefault(); e.stopPropagation();
-          if(dropAccueil) dropAccueil.classList.remove('open');
-          const open = dropNature.classList.toggle('open');
-          btnNature.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-
-      if(burger && drawer){
-        burger.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const open = drawer.classList.toggle('open');
-          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-          if(!open){
-            if(dSubAccueil) dSubAccueil.classList.remove('open');
-            if(dSubNature) dSubNature.classList.remove('open');
-          }
-        });
-      }
-
-      if(dBtnAccueil && dSubAccueil){
-        dBtnAccueil.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dSubAccueil.classList.toggle('open'); });
-      }
-
-      if(dBtnNature && dSubNature){
-        dBtnNature.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); dSubNature.classList.toggle('open'); });
-      }
-
-      document.addEventListener('click', () => {
-        if(dropAccueil){ dropAccueil.classList.remove('open'); btnAccueil && btnAccueil.setAttribute('aria-expanded','false'); }
-        if(dropNature){ dropNature.classList.remove('open'); btnNature && btnNature.setAttribute('aria-expanded','false'); }
-        if(drawer){ drawer.classList.remove('open'); }
-        if(burger){ burger.setAttribute('aria-expanded','false'); }
-        if(dSubAccueil){ dSubAccueil.classList.remove('open'); }
-        if(dSubNature){ dSubNature.classList.remove('open'); }
-      });
-
-      if(dropAccueil) dropAccueil.addEventListener('click', (e) => e.stopPropagation());
-      if(dropNature) dropNature.addEventListener('click', (e) => e.stopPropagation());
-      if(drawer) drawer.addEventListener('click', (e) => e.stopPropagation());
-    }
-  </script>
-
-</body>
-</html>
+</main>
