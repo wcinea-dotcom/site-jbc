@@ -1,2 +1,14 @@
-title: Jardin Botanique des Cayes
-markdown: kramdown
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      lang: "fr"
+
+  - scope:
+      path: "en"
+      type: "pages"
+    values:
+      lang: "en"
+
+

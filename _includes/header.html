@@ -1,163 +1,93 @@
-<style>
-  /* =========================================
-     1. BARRE SUPÉRIEURE (TOP TIER - Style IUCN)
-     ========================================= */
-  .top-tier {
-    background-color: #f4f6f4; /* Un gris-vert très clair et élégant */
-    border-bottom: 1px solid #e2e8e2;
-    font-size: 0.85rem;
-    padding: 8px 0;
-  }
-  .top-tier-inner {
-    display: flex;
-    justify-content: flex-end; /* Aligne les liens à droite */
-    align-items: center;
-    gap: 30px;
-  }
-  .top-tier-links {
-    display: flex;
-    gap: 25px;
-  }
-  .top-tier-links a {
-    color: #4b5e46; /* Vert foncé du Jardin */
-    font-weight: 700;
-    transition: 0.2s ease;
-    text-decoration: none;
-  }
-  .top-tier-links a:hover {
-    color: #C5A059; /* Doré au survol */
-  }
-  .top-tier-tools {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    border-left: 1px solid #ccc;
-    padding-left: 20px;
-  }
-  .tool-item {
-    color: #1f2a33;
-    font-weight: 700;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+<!-- _includes/header.html -->
 
-  /* =========================================
-     2. BARRE PRINCIPALE (MAIN TIER)
-     ========================================= */
-  .main-tier {
-    background: #ffffff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    position: sticky;
-    top: 0;
-    z-index: 2000;
-  }
-  .main-tier-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-  }
-  .brand img {
-    height: 75px; /* Taille optimale pour le logo */
-    width: auto;
-  }
-  .main-nav {
-    display: flex;
-    gap: 35px;
-    align-items: center;
-  }
-  .main-nav > a, .main-nav .nav-btn {
-    font-family: 'Lato', sans-serif;
-    font-weight: 900;
-    font-size: 1.05rem; /* Un peu plus grand comme IUCN */
-    color: #000; /* Noir profond */
-    text-transform: capitalize; /* "Santé de la Nature" au lieu de "SANTÉ DE LA NATURE" */
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 0;
-    transition: 0.2s;
-  }
-  .main-nav > a:hover, .main-nav .nav-btn:hover {
-    color: #5E8F3A; /* Vert botanique au survol */
-  }
+{%- comment -%}
+  Détection langue ROBUSTE :
+  - si page.lang == "en" (front-matter)
+  - OU si l'URL commence par "/en/"
+{%- endcomment -%}
+{% assign current_url = page.url | default: "/" %}
 
-  /* Dropdowns */
-  .drop { position: relative; }
-  .drop .menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #fff;
-    border-top: 4px solid #5E8F3A; /* Ligne verte pour le design */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    min-width: 260px;
-    z-index: 2500;
-    padding: 10px 0;
-  }
-  .drop.open .menu { display: block; }
-  .drop .menu a {
-    display: block;
-    padding: 12px 20px;
-    color: #333;
-    font-weight: 700;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  .drop .menu a:hover {
-    background: #f4f6f4;
-    color: #2F5D2F;
-    padding-left: 25px; /* Animation de décalage */
-  }
+{% assign is_en = false %}
+{% if page.lang == "en" or current_url contains "/en/" %}
+  {% assign is_en = true %}
+{% endif %}
 
-  /* =========================================
-     3. BOUTON S'IMPLIQUER (Le jaune "Get Involved")
-     ========================================= */
-  .btn-get-involved {
-    background-color: #f6c344; /* Le fameux jaune/doré IUCN */
-    color: #000 !important;
-    font-weight: 900;
-    font-size: 1.05rem;
-    padding: 15px 30px;
-    border-radius: 4px; /* Forme rectangulaire sérieuse */
-    text-transform: capitalize;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(246, 195, 68, 0.3);
-  }
-  .btn-get-involved:hover {
-    background-color: #e5b232;
-    transform: translateY(-2px);
-  }
+{%- comment -%} Base pour construire les liens internes {%- endcomment -%}
+{% assign base = "" %}
+{% if is_en %}{% assign base = "/en" %}{% endif %}
 
-  @media (max-width: 1050px) {
-    .top-tier { display: none; } /* Cache la petite barre sur mobile */
-    .main-nav { display: none; }
-    .btn-get-involved { display: none; }
-    .burger { display: flex; font-size: 1.5rem; border: none; background: none; cursor: pointer; }
-  }
-</style>
+{% assign home_url = base | append: "/" %}
+
+{%- comment -%}
+  URLs internes
+  (on garde les noms de fichiers stables pour éviter les 404)
+{%- endcomment -%}
+{% assign url_news = base | append: "/actualites.html" %}
+{% assign url_events = base | append: "/evenements.html" %}
+{% assign url_blog = base | append: "/blog.html" %}
+{% assign url_resources = base | append: "/ressources.html" %}
+{% assign url_data = base | append: "/donnees.html" %}
+
+{% assign url_about = base | append: "/apropos.html" %}
+{% assign url_get_involved = base | append: "/impliquer.html" %}
+{% assign url_nature_health = base | append: "/sante-de-la-nature.html" %}
+{% assign url_human_health = base | append: "/sante-humaine.html" %}
+{% assign url_education = base | append: "/education.html" %}
+
+{% assign url_science = base | append: "/science.html" %}
+{% assign url_conservation = base | append: "/conservation.html" %}
+{% assign url_horticulture = base | append: "/horticulture.html" %}
+{% assign url_research = base | append: "/recherche.html" %}
+
+{%- comment -%}
+  Switch langue ROBUSTE (sans ref)
+  Règle :
+  - FR : /page.html
+  - EN : /en/page.html
+  - Home : / <-> /en/
+{%- endcomment -%}
+
+{% assign fr_url = "/" %}
+{% assign en_url = "/en/" %}
+
+{% if current_url == "/en/" or current_url == "/en/index.html" %}
+  {% assign fr_url = "/" %}
+  {% assign en_url = "/en/" %}
+{% elsif current_url == "/" or current_url == "/index.html" %}
+  {% assign fr_url = "/" %}
+  {% assign en_url = "/en/" %}
+{% elsif current_url contains "/en/" %}
+  {%- comment -%} EN -> FR : enlever seulement le préfixe "/en/" {%- endcomment -%}
+  {% assign fr_url = current_url | replace_first: "/en/", "/" %}
+  {% assign en_url = current_url %}
+{% else %}
+  {%- comment -%} FR -> EN : ajouter le préfixe "/en" {%- endcomment -%}
+  {% assign fr_url = current_url %}
+  {% assign en_url = "/en" | append: current_url %}
+{% endif %}
 
 <div class="top-tier">
   <div class="container top-tier-inner">
     <div class="top-tier-links">
-      <a href="{{ '/apropos.html' | relative_url }}">À propos</a>
-      <a href="{{ '/medias.html' | relative_url }}">Actualités & Événements</a>
-      <a href="{{ '/medias.html' | relative_url }}">Presse</a>
-      <a href="{{ '/blog.html' | relative_url }}">Blog</a>
-      <a href="{{ '/donnees.html' | relative_url }}" style="color: #C5A059;">Données & Ressources</a>
+      <a href="{{ url_news | relative_url }}">{% if is_en %}News{% else %}Nouvelles{% endif %}</a>
+      <a href="{{ url_events | relative_url }}">{% if is_en %}Events{% else %}Événements{% endif %}</a>
+
+      <!-- ✅ Blog EN / Blogue FR -->
+      <a href="{{ url_blog | relative_url }}">{% if is_en %}Blog{% else %}Blogue{% endif %}</a>
+
+      <a href="{{ url_resources | relative_url }}">{% if is_en %}Resources{% else %}Ressources{% endif %}</a>
+      <a href="{{ url_data | relative_url }}" class="top-data-link">{% if is_en %}Data{% else %}Données{% endif %}</a>
     </div>
-    
+
     <div class="top-tier-tools">
-      <div class="tool-item" id="btnSearchTop">
-        Rechercher <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
       <div class="tool-item">
-        Français <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i>
+        {% if is_en %}Search{% else %}Recherche{% endif %} <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <div class="tool-item lang-switch">
+        <a href="{{ fr_url | relative_url }}" class="{% unless is_en %}is-active{% endunless %}">FR</a>
+        <span class="lang-sep">|</span>
+        <a href="{{ en_url | relative_url }}" class="{% if is_en %}is-active{% endif %}">EN</a>
       </div>
     </div>
   </div>
@@ -165,51 +95,52 @@
 
 <header class="main-tier">
   <div class="container main-tier-inner">
-    
-    <a href="{{ '/' | relative_url }}" class="brand">
-      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo JBC">
+    <a class="brand" href="{{ home_url | relative_url }}">
+      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes">
     </a>
 
     <nav class="main-nav">
-      <a href="{{ '/' | relative_url }}">Accueil</a>
-      
-      <a href="{{ '/sante-humaine.html' | relative_url }}">Santé Humaine</a>
-
-      <div class="drop" id="dropNature">
-        <button class="nav-btn" id="btnNature">Santé de la Nature <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i></button>
+      <div class="drop" id="dropAccueil">
+        <div class="nav-group">
+          <a href="{{ home_url | relative_url }}">{% if is_en %}HOME{% else %}ACCUEIL{% endif %}</a>
+          <button type="button" id="btnAccueil" aria-label="{% if is_en %}Open Home menu{% else %}Ouvrir menu Accueil{% endif %}">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
         <div class="menu">
-          <a href="{{ '/science.html' | relative_url }}">Sciences</a>
-          <a href="{{ '/donnees.html' | relative_url }}">Données</a>
-          <a href="{{ '/conservation.html' | relative_url }}">Conservation</a>
-          <a href="{{ '/recherche.html' | relative_url }}">Horticulture & Restauration</a>
+          <a href="{{ url_about | relative_url }}">{% if is_en %}About{% else %}À propos{% endif %}</a>
+          <a href="#">{% if is_en %}Board of Directors{% else %}Conseil d'administration{% endif %}</a>
         </div>
       </div>
 
-      <a href="{{ '/education.html' | relative_url }}">Éducation</a>
+      <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% else %}S'IMPLIQUER{% endif %}</a>
+
+      <div class="drop" id="dropNature">
+        <div class="nav-group">
+          <a href="{{ url_nature_health | relative_url }}">{% if is_en %}NATURE'S HEALTH{% else %}SANTÉ DE LA NATURE{% endif %}</a>
+          <button type="button" id="btnNature" aria-label="{% if is_en %}Open Nature's Health menu{% else %}Ouvrir menu Santé de la nature{% endif %}">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+        <div class="menu">
+          <a href="{{ url_science | relative_url }}">{% if is_en %}Science{% else %}Sciences{% endif %}</a>
+          <a href="{{ url_data | relative_url }}">{% if is_en %}Data{% else %}Données{% endif %}</a>
+          <a href="{{ url_conservation | relative_url }}">{% if is_en %}Conservation{% else %}Conservation{% endif %}</a>
+          <a href="{{ url_horticulture | relative_url }}">{% if is_en %}Horticulture & Restoration{% else %}Horticulture & Restauration{% endif %}</a>
+        </div>
+      </div>
+
+      <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% else %}SANTÉ HUMAINE{% endif %}</a>
+      <a href="{{ url_education | relative_url }}">{% if is_en %}EDUCATION{% else %}ÉDUCATION{% endif %}</a>
     </nav>
 
     <div class="main-actions">
-      <a href="{{ '/impliquer.html' | relative_url }}" class="btn-get-involved">S'impliquer</a>
-      <button class="burger" id="burger" style="display: none;"><i class="fa-solid fa-bars"></i></button>
+      <a href="{{ url_get_involved | append: '#membership' | relative_url }}" class="btn-member-main">
+        {% if is_en %}BECOME A MEMBER{% else %}DEVENIR MEMBRE{% endif %}
+      </a>
+      <button class="burger" id="burger" aria-label="{% if is_en %}Open mobile menu{% else %}Ouvrir le menu mobile{% endif %}">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </div>
-
   </div>
 </header>
-
-<script>
-  // Script pour ouvrir le Dropdown Santé de la Nature
-  const btnNature = document.getElementById('btnNature');
-  const dropNature = document.getElementById('dropNature');
-  
-  if (btnNature && dropNature) {
-    btnNature.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropNature.classList.toggle('open');
-    });
-  }
-
-  // Fermer quand on clique ailleurs
-  document.addEventListener('click', () => {
-    if (dropNature) dropNature.classList.remove('open');
-  });
-</script>
