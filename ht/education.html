@@ -1,9 +1,9 @@
 ---
 layout: default
-title: "Education"
-lang: en
+title: "Edikasyon"
+lang: ht
 ref: education
-description: "Educational programs, school visits, university courses and training at the Cayes Botanical Garden."
+description: "Pwogram edikasyon, vizit lekòl, kou inivèsite ak fòmasyon nan Jaden Botanik des Cayes."
 ---
 
 <style>
@@ -200,7 +200,6 @@ description: "Educational programs, school visits, university courses and traini
   .card--top-accent{border-top:6px solid rgba(197,160,89,.90)}
   .card--top-secondary{border-top:6px solid rgba(45,90,39,.85)}
   .card--top-primary{border-top:6px solid rgba(26,67,50,.90)}
-
   .card--left-accent{border-left:6px solid rgba(197,160,89,.90)}
   .card--left-secondary{border-left:6px solid rgba(45,90,39,.85)}
   .card--left-primary{border-left:6px solid rgba(26,67,50,.90)}
@@ -252,154 +251,76 @@ description: "Educational programs, school visits, university courses and traini
   .project-body h3{
     margin:0 0 10px;
     color:rgba(26,67,50,.96);
-    font-size:1.06rem;
-    font-family:"Lato";font-weight:900;
+    font-family:"Lato";
+    font-weight:900;
+    letter-spacing:.02em;
   }
-  .project-body p{margin:0;color:rgba(31,42,51,.78);line-height:1.85}
-
-  /* News + Partnership */
-  .news-wrap{display:grid;grid-template-columns: 1.2fr .8fr;gap:18px;margin-top:26px;align-items:start}
-  .news-box{
-    background:rgba(255,255,255,.92);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    border:1px solid rgba(0,0,0,.08);
-    padding:18px;
-    border-top:7px solid rgba(45,90,39,.85);
-  }
-  .news-box h3{margin:0 0 12px;color:rgba(26,67,50,.96)}
-  .news-item{padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08)}
-  .news-item:last-child{border-bottom:none}
-  .news-item strong{color:rgba(26,67,50,.96)}
-  .news-item p{margin:6px 0 0;color:rgba(31,42,51,.78);line-height:1.85}
-
-  .cta-center{text-align:center;margin:40px 0 10px}
-
-  /* Fond doux derrière la carte (comme ton screenshot) */
-  .contact-shell{
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 54px 54px 44px;
-    border-radius: 34px;
-    background: #ffffff;
-    border: 1px solid rgba(0,0,0,.06);
-    box-shadow: 0 18px 60px rgba(0,0,0,.08);
-    position: relative;
-    overflow: hidden;
+  .project-body p{
+    margin:0;
+    color:rgba(31,42,51,.78);
+    line-height:1.8;
+    font-size:0.95rem;
   }
 
-  .contact-shell::before{
-    content:"";
-    position:absolute;
-    inset:-80px;
-    background:
-      radial-gradient(900px 520px at 10% 15%, rgba(45,90,39,.12), transparent 60%),
-      radial-gradient(900px 520px at 90% 25%, rgba(197,160,89,.12), transparent 60%),
-      radial-gradient(900px 520px at 50% 95%, rgba(26,67,50,.08), transparent 60%);
-    pointer-events:none;
-  }
-
-  .contact-shell > *{ position: relative; z-index: 1; }
-
+  /* Contact */
+  .contact-shell{max-width:720px;margin:0 auto}
   .contact-title{
     text-align:center;
-    margin: 0 0 10px;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(2.1rem, 3.6vw, 3.1rem);
-    color: #2d5a27;
-    font-weight: 700;
+    margin:0 0 10px;
+    font-size:clamp(1.9rem,2.8vw,2.6rem);
+    color:rgba(18,24,30,.92);
   }
-
   .contact-subtitle{
     text-align:center;
-    max-width: 980px;
-    margin: 0 auto 26px;
-    color: rgba(31,42,51,.72);
-    font-size: 1.08rem;
-    line-height: 1.9;
+    color:var(--muted);
+    margin:0 0 32px;
+    font-size:1.08rem;
+    line-height:1.8;
   }
-
-  .contact-form{ margin-top: 8px; }
-
+  .contact-form{max-width:100%}
   .contact-grid{
     display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px 22px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:18px;
+    margin-bottom:18px;
   }
-
-  .field{ display:flex; flex-direction:column; gap: 10px; }
-  .field-full{ grid-column: 1 / -1; }
-
-  .field label{
-    font-weight: 900;
-    letter-spacing: .10em;
-    text-transform: uppercase;
-    font-size: .82rem;
-    color: rgba(45,90,39,.90);
-  }
-
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field-full{grid-column:1 / -1}
+  .field label{font-weight:900;font-size:0.95rem;color:rgba(26,67,50,.92);letter-spacing:.01em}
   .field input,
   .field textarea{
-    width:100%;
-    padding: 16px 16px;
-    border-radius: 18px;
-    border: 1px solid rgba(0,0,0,.14);
-    background: #fff;
-    font-family: "Lato", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    font-size: 1.05rem;
-    outline: none;
-    transition: .15s ease;
+    padding:12px 16px;
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:6px;
+    font-family:"Lato",system-ui,-apple-system,sans-serif;
+    font-size:1rem;
+    color:var(--ink);
+    transition:.18s ease;
   }
-
-  .field textarea{
-    min-height: 220px;
-    resize: vertical;
-  }
-
   .field input:focus,
   .field textarea:focus{
-    border-color: rgba(45,90,39,.40);
-    box-shadow: 0 0 0 4px rgba(45,90,39,.10);
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(26,67,50,.10);
   }
-
-  .contact-actions{
-    display:flex;
-    justify-content:center;
-    margin-top: 22px;
-  }
-
+  .field textarea{resize:vertical}
+  .contact-actions{display:flex;justify-content:center}
   .contact-btn{
-    border: none;
-    cursor: pointer;
-    padding: 14px 34px;
-    border-radius: 999px;
-    background: #2d5a27;
-    color: #fff;
-    font-weight: 900;
-    letter-spacing: .10em;
-    text-transform: uppercase;
-    box-shadow: 0 16px 40px rgba(0,0,0,.12);
-    transition: .18s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:12px 28px;border-radius:999px;
+    font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+    background:var(--primary);
+    color:#fff;
+    border:1px solid rgba(0,0,0,.10);
+    box-shadow:0 14px 34px rgba(0,0,0,.12);
+    cursor:pointer;
+    transition:.18s ease;
+    font-size:.82rem;
   }
+  .contact-btn:hover{background:var(--secondary);transform:translateY(-1px)}
+  .contact-btn:active{transform:translateY(0)}
 
-  .contact-btn:hover{
-    background: #1a4332;
-    transform: translateY(-1px);
-  }
-
-  /* Responsive */
-  @media (max-width: 1040px){
-    .cards-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
-    .course-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
-    .project-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
-    .news-wrap{grid-template-columns:1fr}
-  }
-
-  @media (max-width: 900px){
-    .contact-shell{ padding: 38px 22px 28px; border-radius: 26px; }
-    .contact-grid{ grid-template-columns: 1fr; }
-    .field-full{ grid-column: auto; }
-  }
+  .cta-center{display:flex;justify-content:center;margin-top:30px}
 
   @media (max-width: 640px){
     .cards-grid{grid-template-columns:1fr}
@@ -411,26 +332,26 @@ description: "Educational programs, school visits, university courses and traini
 <header class="hero">
   <img class="hero__img"
        src="images/education/education-hero.jpg"
-       alt="Education Department — Cayes Botanical Garden"
+       alt="Depatman Edikasyon — Jaden Botanik des Cayes"
        loading="eager">
 
   <div class="hero__overlay"></div>
 
   <div class="hero__content">
     <div class="container">
-      <p class="hero__kicker">OUR OBJECTIVES</p>
+      <p class="hero__kicker">OBJEKTIF NOU</p>
 
-      <h1>EDUCATION DEPARTMENT</h1>
+      <h1>DEPATMAN EDIKASYON</h1>
 
       <p class="hero__lead">
-        We make science accessible to the public: ecology, botany and plant-based health.
-        We create simple, practical and inspiring experiences to learn to better understand nature — and to better protect it.
-        Our priority: children, to nurture curiosity, creativity and hope.
+        Nou rann syans aksesib piblik la: ekologi, botanik ak sante ki baze sou plant.
+        Nou kreye eksperyans senp, pratik ak enspiran pou aprann pi byen konprann nati - ak pou proteje l pi byen.
+        Priyorite nou: timoun yo, pou noulen kiryozite, kreyativite ak espwa.
       </p>
 
       <div class="hero__actions">
-        <a class="btn" href="#contact-education">CONTACT US</a>
-        <a class="btn-outline" href="#education-projets">VIEW PROJECTS</a>
+        <a class="btn" href="#contact-education">KONTAKTE</a>
+        <a class="btn-outline" href="#education-projets">WE PWOJE YO</a>
       </div>
     </div>
   </div>
@@ -439,28 +360,28 @@ description: "Educational programs, school visits, university courses and traini
 <main>
 
   <div class="container" style="padding-top:24px;">
-    <a class="btn-outline" href="{{ '/en/' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> Home</a>
+    <a class="btn-outline" href="{{ '/ht/' | relative_url }}"><i class="fa-solid fa-arrow-left"></i> Akèy</a>
   </div>
 
   <section class="section">
     <div class="container">
       <div class="intro">
-        <h2 class="section-title" style="text-align:center;">OUR MISSION: LEARNING THROUGH NATURE</h2>
+        <h2 class="section-title" style="text-align:center;">MISYON NOU: APRANN NAN NATI</h2>
 
         <p class="lead">
-          The Education Department of the Cayes Botanical Garden translates knowledge from research and the field into accessible learning.
-          We build programs that help people understand plants, ecosystems and their direct links to health, food,
-          climate resilience and conservation.
+          Depatman Edikasyon Jaden Botanik des Cayes tradui konesans ki soti nan rechèch ak tèren an nan apprentisaj aksesib.
+          Nou bati pwogram ki pèmèt konprann plant, ekosistèm ak lyen dirèk yo ak sante, alimantasyon,
+          rezilians klimatik ak konsèvasyon.
         </p>
 
         <p class="lead">
-          Our activities give the public concrete understanding: observe, identify, understand and act.
-          Through workshops and field trips, participants develop practical skills and scientific knowledge useful to daily life,
-          environmental careers and community decisions.
+          Aktivite nou yo bay piblik la repè konkrè: obsèvwa, idantifye, konprann ak aji.
+          Atravè atelie ak soti, patisipan yo devlope konpetans pratik ak yon kilti syantifik itil nan lavi chak jou,
+          nan metye anviwònman ak desizyon kominote.
         </p>
 
         <p class="pillars-note">
-          Our actions are organized around three pillars: school programs · university programs · training & courses.
+          Aksyon nou yo òganize alantou twa pil: pwogram lekòl · pwogram inivèsite · fòmasyon & kou.
         </p>
       </div>
     </div>
@@ -469,38 +390,38 @@ description: "Educational programs, school visits, university courses and traini
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">1. SCHOOL PROGRAMS</h2>
-        <p class="section-subtitle">Inspire learning: observation, exploration, practice.</p>
+        <h2 class="section-title">1. PWOGRAM LEKÒL</h2>
+        <p class="section-subtitle">Bay dezi pou aprann: obsèvasyon, eksplorasyòn, pratik.</p>
       </div>
 
       <div class="cards-grid">
         <article class="card card--top-accent">
           <img src="images/education/education-exploration-au-jardin.jpg"
-               alt="Garden exploration — school programs"
+               alt="Eksplorasyòn nan jaden - pwogram lekòl"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Garden Exploration</h3>
-            <p>Guided visits and observation workshops: biodiversity, plant forms, scents, uses and plant roles.</p>
+            <h3>Eksplorasyòn nan Jaden</h3>
+            <p>Vizit gide ak atelie obsèvasyon: byodivèsite, fòm, odorasyon, itilizasyon ak wòl plant.</p>
           </div>
         </article>
 
         <article class="card card--top-secondary">
           <img src="images/education/education-jardin-a-ecole.jpg"
-               alt="Garden at school — school programs"
+               alt="Jaden nan lekòl - pwogram lekòl"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Garden at School</h3>
-            <p>School programs: educational activities, mini-workshops and nature protection awareness.</p>
+            <h3>Jaden nan Lekòl</h3>
+            <p>Entèvansyon nan lekòl: aktivite edikasyonèl, mini-atelie ak sansibilizasyon sou proteksyon nati.</p>
           </div>
         </article>
 
         <article class="card card--top-primary">
           <img src="images/education/education-mains-terre.jpg"
-               alt="Hands in the soil — school programs"
+               alt="Men nan tè - pwogram lekòl"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Hands in the Soil</h3>
-            <p>Practical workshops: how to plant, water, protect a seedling and understand the role of soil.</p>
+            <h3>Men nan Tè</h3>
+            <p>Atelie pratik: kouman plante, vese dlo, proteje yon jèn plant ak konprann wòl tè a.</p>
           </div>
         </article>
       </div>
@@ -508,7 +429,7 @@ description: "Educational programs, school visits, university courses and traini
       <div class="cta-center">
         <button class="btn" type="button"
           onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
-          SCHOOL PARTNERSHIP
+          PATNÈ LEKÒL
         </button>
       </div>
     </div>
@@ -517,38 +438,38 @@ description: "Educational programs, school visits, university courses and traini
   <section class="section section--soft">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">2. UNIVERSITY PROGRAMS</h2>
-        <p class="section-subtitle">Internships, specialized courses and field learning.</p>
+        <h2 class="section-title">2. PWOGRAM INIVÈSITE</h2>
+        <p class="section-subtitle">Staj, kou espesyalize ak aprann nan tèren.</p>
       </div>
 
       <div class="cards-grid cards-grid--wide">
         <article class="card">
           <img src="images/education/education-stage-formation.jpg"
-               alt="Training internships — university program"
+               alt="Staj fòmasyon - pwogram inivèsite"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Training Internships</h3>
-            <p>Field internships: inventory methods, scientific photography, data collection and work with collections.</p>
+            <h3>Staj Fòmasyon</h3>
+            <p>Staj nan tèren: metòd envanteri, fotografi syantifik, koleksyon done ak travay sou koleksyon.</p>
           </div>
         </article>
 
         <article class="card">
           <img src="images/education/education-cours-specialises.jpg"
-               alt="Specialized courses — university program"
+               alt="Kou espesyalize - pwogram inivèsite"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Specialized Courses</h3>
-            <p>Applied courses: ecology, botany, ethnobotany, phytotherapy, naturopathy and other biodiversity topics.</p>
+            <h3>Kou Espesyalize</h3>
+            <p>Kou aplike: ekologi, botanik, etnobotanik, fitotèrapi, naturopati ak lòt tèm ki gen rapò ak byodivèsite.</p>
           </div>
         </article>
 
         <article class="card">
           <img src="images/education/education-exploration-inventaires.jpg"
-               alt="Explorations and inventories — university program"
+               alt="Eksplorasyòn ak envanteri - pwogram inivèsite"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Explorations & Inventories</h3>
-            <p>Study field trips and floristic inventories to strengthen observation, identification and analysis skills.</p>
+            <h3>Eksplorasyòn & Envanteri</h3>
+            <p>Soti dapre etid ak envanteri floriSTIK pou ranfòse konpetans obsèvasyon, idantifikasyon ak analiz.</p>
           </div>
         </article>
       </div>
@@ -556,7 +477,7 @@ description: "Educational programs, school visits, university courses and traini
       <div class="cta-center">
         <button class="btn" type="button"
           onclick="document.getElementById('contact-education').scrollIntoView({behavior:'smooth'})">
-          COLLABORATE WITH A UNIVERSITY
+          KOLABORE AK INIVÈSITE
         </button>
       </div>
     </div>
@@ -565,86 +486,86 @@ description: "Educational programs, school visits, university courses and traini
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">3. TRAINING & COURSES</h2>
-        <p class="section-subtitle">For institutions, NGOs, government and the general public.</p>
+        <h2 class="section-title">3. FÒMASYON & KOU</h2>
+        <p class="section-subtitle">Pou enstitisyon, ONG, leta ak piblik la.</p>
       </div>
 
       <div class="cards-grid">
         <article class="card card--left-secondary">
           <img src="images/education/education-formation-technique.jpg"
-               alt="Training for employees — capacity building"
+               alt="Fòmasyon pou anplwaye - ranfòsman kapasite"
                class="card-img card-img--short" loading="lazy">
           <div class="card-body">
-            <h3>Employee Training</h3>
-            <p>Capacity building: tools, field methods, educational content and best organizational practices.</p>
+            <h3>Fòmasyon pou Anplwaye</h3>
+            <p>Ranfòsman kapasite: zouti, metòd tèren, kontni pedagojik ak bon pratik òganizasyon.</p>
           </div>
         </article>
 
         <article class="card card--left-accent">
           <img src="images/education/education-stages-techniques.jpg"
-               alt="Technical internships — training"
+               alt="Staj teknik - fòmasyon"
                class="card-img card-img--short" loading="lazy">
           <div class="card-body">
-            <h3>Technical Internships</h3>
-            <p>Targeted internships to learn hands-on: nurseries, inventories, data collection, propagation.</p>
+            <h3>Staj Teknik</h3>
+            <p>Staj sible pou aprann nan pratik: pepinyè, envanteri, koleksyon done, pwopagasyon.</p>
           </div>
         </article>
 
         <article class="card card--left-primary">
           <img src="images/education/education-exploration-sorties.jpg"
-               alt="Explorations and field trips — training"
+               alt="Eksplorasyòn ak soti - fòmasyon"
                class="card-img card-img--short" loading="lazy">
           <div class="card-body">
-            <h3>Explorations & Field Trips</h3>
-            <p>Field trips to develop real skills: observation, identification, habitat assessment and monitoring.</p>
+            <h3>Eksplorasyòn & Soti</h3>
+            <p>Soti nan tèren pou devlope konpetans rèl: obsèvasyon, idantifikasyon, lekti abita ak swiv.</p>
           </div>
         </article>
       </div>
 
       <div class="section-head" style="margin-top:50px;">
-        <h2 class="section-title">PUBLIC COURSES & CERTIFICATIONS</h2>
-        <p class="section-subtitle">Health · Nature · Specialized Techniques.</p>
+        <h2 class="section-title">KOU PIBLIK & SÈRTIFIKASYON</h2>
+        <p class="section-subtitle">Sante · Nati · Teknik Espesyalize.</p>
       </div>
 
       <div class="course-grid">
         <article class="card card--top-accent">
           <img src="images/education/education-certificat-sante-bien-etre.jpg"
-               alt="Health and Wellness Certificate"
+               alt="Sèrtifika Sante ak Byen-etwa"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Health & Wellness</h3>
+            <h3>Sante & Byen-Etwa</h3>
             <ul>
-              <li>Medicinal plants: identification & uses</li>
-              <li>Phytotherapy & naturopathy (practical approach)</li>
-              <li>Ethnobotany: knowledge & references</li>
+              <li>Plant medikaman: idantifikasyon & itilizasyon</li>
+              <li>Fitotèrapi & naturopati (apwòch pratik)</li>
+              <li>Etnobotanik: savwa & referans</li>
             </ul>
           </div>
         </article>
 
         <article class="card card--top-secondary">
           <img src="images/education/education-certificat-nature-ecologie.jpg"
-               alt="Nature and Ecology Certificate"
+               alt="Sèrtifika Nati ak Ekologi"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Nature & Ecology</h3>
+            <h3>Nati & Ekologi</h3>
             <ul>
-              <li>Ecology and botany (solid foundations)</li>
-              <li>Plant evolution & ecosystems</li>
-              <li>Restoration and landscape design</li>
+              <li>Ekologi ak botanik (baz solid)</li>
+              <li>Evolisyon plant & ekosistèm</li>
+              <li>Restorasyon ak amenajman paysa</li>
             </ul>
           </div>
         </article>
 
         <article class="card card--top-primary">
           <img src="images/education/education-certificat-technique-specialisee.jpg"
-               alt="Specialized Technical Certificate"
+               alt="Sèrtifika Teknik espesyalize"
                class="card-img" loading="lazy">
           <div class="card-body">
-            <h3>Specialized Technique</h3>
+            <h3>Teknik Espesyalize</h3>
             <ul>
-              <li>Nurseries: plant production</li>
-              <li>Inventory and biodiversity monitoring</li>
-              <li>Beekeeping: raising & production</li>
+              <li>Pepinyè: pwoduksyon plant</li>
+              <li>Envanteri ak swiv byodivèsite</li>
+              <li>Apikiltir: elveaj & pwoduksyon</li>
             </ul>
           </div>
         </article>
@@ -655,14 +576,14 @@ description: "Educational programs, school visits, university courses and traini
   <section class="section section--soft" id="education-projets">
     <div class="container">
       <div class="section-head">
-        <h2 class="section-title">EDUCATION PROJECTS (PAST · PRESENT · FUTURE)</h2>
-        <p class="section-subtitle">A clear view of the Education Department's actions.</p>
+        <h2 class="section-title">PWOJE EDIKASYON (PASE · KOUNYE A · LAVNI)</h2>
+        <p class="section-subtitle">Yon vi klè sou aksyon Depatman Edikasyon an.</p>
       </div>
 
-      <div class="tabs" role="tablist" aria-label="Projects by period">
-        <button class="tab is-active" type="button" data-tab="past" role="tab" aria-selected="true">Past</button>
-        <button class="tab" type="button" data-tab="present" role="tab" aria-selected="false">Present</button>
-        <button class="tab" type="button" data-tab="future" role="tab" aria-selected="false">Future</button>
+      <div class="tabs" role="tablist" aria-label="Pwoje pa peryòd">
+        <button class="tab is-active" type="button" data-tab="past" role="tab" aria-selected="true">Pase</button>
+        <button class="tab" type="button" data-tab="present" role="tab" aria-selected="false">Kounye a</button>
+        <button class="tab" type="button" data-tab="future" role="tab" aria-selected="false">Lavni</button>
       </div>
 
       <div class="tab-panels">
@@ -671,30 +592,30 @@ description: "Educational programs, school visits, university courses and traini
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-visite-scolaires.jpg"
-                   alt="Project: School visits" loading="lazy">
+                   alt="Pwoje: Vizit lekòl" loading="lazy">
               <div class="project-body">
-                <h3>School Visits</h3>
-                <p>Welcoming school classes to the garden: guided discovery, workshops and biodiversity awareness.</p>
+                <h3>Vizit Lekòl</h3>
+                <p>Aksèy klas nan jaden: dekouvèt gide, atelie ak sansibilizasyon sou byodivèsite.</p>
               </div>
             </article>
 
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-cours-ateliers.jpg"
-                   alt="Project: Courses and workshops" loading="lazy">
+                   alt="Pwoje: Kou ak atelie" loading="lazy">
               <div class="project-body">
-                <h3>Courses & Workshops</h3>
-                <p>Thematic workshops: plants, environment, plant-based health and field practices.</p>
+                <h3>Kou & Atelie</h3>
+                <p>Atelie tematik: plant, anviwònman, sante ki baze sou plant ak pratik tèren.</p>
               </div>
             </article>
 
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-sensibilisation.jpg"
-                   alt="Project: Awareness" loading="lazy">
+                   alt="Pwoje: Sansibilizasyon" loading="lazy">
               <div class="project-body">
-                <h3>Awareness</h3>
-                <p>Educational activities in schools to encourage respect for nature and ecosystem services.</p>
+                <h3>Sansibilizasyon</h3>
+                <p>Aktivite edikasyonèl nan lekòl pou ankouraje respè pou nati ak sèvis ekosistèm.</p>
               </div>
             </article>
           </div>
@@ -705,30 +626,30 @@ description: "Educational programs, school visits, university courses and traini
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-jardin-a-ecole.jpg"
-                   alt="Program: School garden" loading="lazy">
+                   alt="Pwogram: Jaden lekòl" loading="lazy">
               <div class="project-body">
-                <h3>School Garden Program</h3>
-                <p>Supporting schools: setting up gardens, learning and simple conservation practices.</p>
+                <h3>Pwogram "Jaden Lekòl"</h3>
+                <p>Akonpanyaman lekòl: mete an plas jaden, apprentisaj ak jès senp konservayson.</p>
               </div>
             </article>
 
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-grand-public.jpg"
-                   alt="Project: Public workshops" loading="lazy">
+                   alt="Pwoje: Atelie piblik" loading="lazy">
               <div class="project-body">
-                <h3>Public Workshops</h3>
-                <p>Accessible courses: phytotherapy, ecology, botany, with practical exercises and teaching materials.</p>
+                <h3>Atelie Piblik</h3>
+                <p>Kou aksesib: fitotèrapi, ekologi, botanik, ak egzèsis pratik ak sipò pedagojik.</p>
               </div>
             </article>
 
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-stages-techniques.jpg"
-                   alt="Project: Technical training" loading="lazy">
+                   alt="Pwoje: Fòmasyon teknik" loading="lazy">
               <div class="project-body">
-                <h3>Technical Training</h3>
-                <p>Inventories, nurseries, beekeeping and field trips for institutions and technical teams.</p>
+                <h3>Fòmasyon Teknik</h3>
+                <p>Envanteri, pepinyè, apikiltir ak soti tèren pou enstitisyon ak ekip teknik.</p>
               </div>
             </article>
           </div>
@@ -739,30 +660,30 @@ description: "Educational programs, school visits, university courses and traini
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-ecole-nationale-naturopathie-phytotherapie.jpg"
-                   alt="Project: National school of naturopathy and phytotherapy" loading="lazy">
+                   alt="Pwoje: Lekòl nasyonal naturopati ak fitotèrapi" loading="lazy">
               <div class="project-body">
-                <h3>National School of Naturopathy and Phytotherapy</h3>
-                <p>Develop a structured national program, grounded in research, ethnobotany and conservation, to strengthen health and sustainable valuation of Haitian biodiversity.</p>
+                <h3>Lekòl Nasyonal Naturopati ak Fitotèrapi</h3>
+                <p>Devlope yon pwogram nasyonal estriktire, anraje nan rechèch, etnobotanik ak konsèvasyon, pou ranfòse sante ak valoziasyon dirab byodivèsite Ayiti.</p>
               </div>
             </article>
 
             <article class="project-card">
               <img class="project-img"
                    src="images/education/education-programme-national-education-environnementale.jpg"
-                   alt="Project: National environmental education program" loading="lazy">
+                   alt="Pwoje: Pwogram nasyonal edikasyon anviwònman" loading="lazy">
               <div class="project-body">
-                <h3>National Environmental Education Program</h3>
-                <p>Build partnerships to deploy environmental education at large scale, with standardized content and tools.</p>
+                <h3>Pwogram Nasyonal Edikasyon Anviwònman</h3>
+                <p>Bati patnè pou deplwaye edikasyon anviwònman alè gwo echèl, ak kontni ak zouti estandardize.</p>
               </div>
             </article>
 
             <article class="project-card">
               <img class="project-img"
-                   src="images/education/education-plateforme-sante-nature.jpg"
-                   alt="Health Nature Platform" loading="lazy">
+                   src="images/education/education-plateforme-santé-nature.jpg"
+                   alt="Platfòm Sante Nati" loading="lazy">
               <div class="project-body">
-                <h3>Health Nature Platform</h3>
-                <p>Platform for discussion and meetings between botanists, physicians, naturopaths, phytotherapists and ecologists.</p>
+                <h3>Platfòm Sante Nati</h3>
+                <p>Platfòm diskisyon ak rankontr ant botanis, doktè, naturopatzwa, fitotèrapèt ak ekolojis.</p>
               </div>
             </article>
           </div>
@@ -774,39 +695,39 @@ description: "Educational programs, school visits, university courses and traini
   <section class="section" id="contact-education">
     <div class="container">
       <div class="contact-shell">
-        <h2 class="contact-title">Connect with us</h2>
+        <h2 class="contact-title">Konekte ak Nou</h2>
 
         <p class="contact-subtitle">
-          Connect with us when you need data on phytotherapy, naturopathy,
-          endemic plants, native plants, and biodiversity.
+          Konekte ak nou lè ou bezwen gen done sou fitotèrapi, naturopati,
+          plant endemik, plant natif, ak byodivèsite.
         </p>
 
         <form class="contact-form" name="contact-education" data-jbc-form="true" action="#">
 
           <div class="contact-grid">
             <div class="field">
-              <label for="c-nom">Name</label>
-              <input id="c-nom" name="nom" type="text" placeholder="Your name" required>
+              <label for="c-nom">Non</label>
+              <input id="c-nom" name="nom" type="text" placeholder="Non ou" required>
             </div>
 
             <div class="field">
-              <label for="c-email">Email</label>
-              <input id="c-email" name="email" type="email" placeholder="Your email" required>
+              <label for="c-email">Imèl</label>
+              <input id="c-email" name="email" type="email" placeholder="Imèl ou" required>
             </div>
 
             <div class="field field-full">
-              <label for="c-sujet">Subject</label>
-              <input id="c-sujet" name="sujet" type="text" placeholder="Message subject" required>
+              <label for="c-sujet">Sijè</label>
+              <input id="c-sujet" name="sujet" type="text" placeholder="Sijè mesaj la" required>
             </div>
 
             <div class="field field-full">
-              <label for="c-message">Message</label>
-              <textarea id="c-message" name="message" placeholder="Write your message..." rows="7" required></textarea>
+              <label for="c-message">Mesaj</label>
+              <textarea id="c-message" name="message" placeholder="Ekri mesaj ou..." rows="7" required></textarea>
             </div>
           </div>
 
           <div class="contact-actions">
-            <button class="contact-btn" type="submit">SEND</button>
+            <button class="contact-btn" type="submit">VOYE</button>
           </div>
         </form>
       </div>
@@ -816,7 +737,7 @@ description: "Educational programs, school visits, university courses and traini
 </main>
 
 <script>
-  // Tabs Projets
+  // Tabs Pwoje
   document.addEventListener('DOMContentLoaded', function () {
     const root = document.getElementById('education-projets');
     if (!root) return;
@@ -844,5 +765,7 @@ description: "Educational programs, school visits, university courses and traini
     });
   });
 </script>
+
+
 
 {% include form-handler.html %}

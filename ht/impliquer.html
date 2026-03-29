@@ -1,0 +1,364 @@
+---
+layout: default
+lang: ht
+title: "Patisipe"
+ref: impliquer
+description: "Patisipe nan Jardin Botanique des Cayes - Vizit, manmbèship, evènman, patnè"
+---
+
+<style>
+  /* =========================================
+     CSS SPÉCIFIQUE (PAGE S'IMPLIQUER)
+     ========================================= */
+  .hero {
+    position: relative; height: 450px;
+    background: url('{{ "images/impliquer/evenement-page-principale.jpg" | relative_url }}') center/cover no-repeat;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: #fff;
+  }
+  .hero::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+  .hero-content { position: relative; z-index: 2; padding: 20px; }
+  .hero h1 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 2px; }
+
+  .subnav-wrapper { margin-top: -30px; position: relative; z-index: 10; text-align: center; padding: 0 20px; }
+  .subnav { display: inline-flex; background: #fff; padding: 8px 10px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); gap: 5px; flex-wrap: wrap; justify-content: center; }
+  .sub-btn { background: transparent; border: none; padding: 12px 24px; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; color: #666; cursor: pointer; transition: 0.3s; }
+  .sub-btn:hover { background: #f0f0f0; color: #2F5D2F; }
+  .sub-btn.active { background: #2F5D2F; color: #fff; box-shadow: 0 4px 12px rgba(26,67,50,0.3); }
+
+  .page-section { display: none; padding: 60px 0; animation: fadeUp 0.4s ease forwards; opacity: 0; }
+  .page-section.active { display: block; opacity: 1; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+  .intro-box { text-align: center; max-width: 900px; margin: 0 auto 50px; }
+  .intro-box h2 { color: #2F5D2F; font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+  .intro-box p { font-size: 1.1rem; color: #555; margin-bottom: 25px; text-align: justify; }
+
+  .note-box {
+    background: #e8f5e9; border-left: 5px solid #5E8F3A;
+    padding: 20px; text-align: left; font-weight: 700; color: #2F5D2F;
+    border-radius: 8px; margin-bottom: 20px;
+  }
+
+  .main-cards-list { display: flex; flex-direction: column; gap: 40px; }
+  .main-card { display: flex; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #eee; min-height: 320px; transition: 0.3s; }
+  .main-card:hover { transform: translateY(-5px); }
+  .main-card-img { width: 45%; object-fit: cover; }
+  .main-card-body { width: 55%; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+  .main-card h3 { color: #2F5D2F; font-size: 1.8rem; margin-bottom: 15px; text-transform: uppercase; }
+  .main-card p { font-size: 1.1rem; color: #666; margin-bottom: 25px; }
+
+  .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+  .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+  .card img { width: 100%; height: 240px; object-fit: cover; }
+  .card-body { padding: 25px; }
+  .card h3 { color: #2F5D2F; margin-bottom: 10px; font-size: 1.3rem; }
+  .card p { color: #555; font-size: 0.95rem; }
+
+  .btn-action { display: inline-block; padding: 12px 28px; background: #2F5D2F; color: white; border-radius: 30px; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; width: fit-content; text-decoration: none !important;}
+  .btn-action:hover { background: #5E8F3A; color: white;}
+
+  .form-box { max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-top: 5px solid #C5A059; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { display: block; font-weight: 800; margin-bottom: 8px; color: #444; font-size: 0.9rem;}
+  .form-control { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; font-family: inherit;}
+  .form-control:focus { outline: none; border-color: #5E8F3A; }
+
+  @media (max-width: 900px) {
+    .main-card { flex-direction: column; }
+    .main-card-img { width: 100%; height: 250px; }
+    .main-card-body { width: 100%; padding: 25px; }
+    .form-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>PATISIPE</h1>
+    <p style="font-size: 1.2rem;">Angajman ou fè nati a grandi e protèje biodivèsite pa nou.</p>
+  </div>
+</section>
+
+<div class="subnav-wrapper">
+  <div class="subnav">
+    <button class="sub-btn active" onclick="showSection('overview', this)">Apèvu jeneral</button>
+    <button class="sub-btn" onclick="showSection('visite', this)">Vizit</button>
+    <button class="sub-btn" onclick="showSection('membership', this)">Manmbèship</button>
+    <button class="sub-btn" onclick="showSection('evenement', this)">Evènman</button>
+    <button class="sub-btn" onclick="showSection('partenariat', this)">Patnè</button>
+  </div>
+</div>
+
+<main class="container">
+
+  <section id="overview" class="page-section active">
+    <div class="intro-box">
+      <h2>Syans Pataje</h2>
+      <p>Nan Jardin Botanique des Cayes (JBC), vizyon pa nou se vin sant referans pou koleksyon, analiz ak distribisyon done presizyon sou nati nan Haïti. Pou syans sa a sèvi rèlman pou sante moun ak nati, li dwe pataje, apriyasyon ak valè pa sosyete a.</p>
+      <div class="note-box"><i class="fa-solid fa-leaf"></i> Patisipe nan JBC, se transforme done syantifik nan aksyon konkrè.</div>
+    </div>
+
+    <div class="main-cards-list">
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/visite-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Vizit">
+        <div class="main-card-body">
+          <h3>Vizit</h3>
+          <p>Vini dekouvri vizit diferan nan Jardin Botanique des Cayes. Eksplore bote, syans ak vèti terepetik plant yo atravè chemen adapte ak bezwen ou.</p>
+          <button class="btn-action" onclick="showSection('visite', null)">Dekouvri vizit yo</button>
+        </div>
+      </article>
+
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/adhesion-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Manmbèship">
+        <div class="main-card-body">
+          <h3>Manmbèship</h3>
+          <p>Sipòte jaden an, se protèje avni an. Vin manm pou jwi avantaj eksklusif, ale nan rechèch nou ak rejwenn komunote ekspè pa nou.</p>
+          <button class="btn-action" onclick="showSection('membership', null)">Vin Manm</button>
+        </div>
+      </article>
+
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/evenement-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Evènman">
+        <div class="main-card-body">
+          <h3>Òganize yon Evènman</h3>
+          <p>Transforme rankont pwofesyonèl ou, selebrasyon, maryaj oswa kolok an moman ekseptyonèl nan kè yon santiye botnik inik.</p>
+          <button class="btn-action" onclick="showSection('evenement', null)">Planifye yon evènman</button>
+        </div>
+      </article>
+
+      <article class="main-card">
+        <img src="{{ 'images/impliquer/partenariat-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Patnè">
+        <div class="main-card-body">
+          <h3>Patnè ak Ekspè</h3>
+          <p>Nou kolabore ak enstitisyon ak ekspè pou devlope pwogram restorasyon ekolojik, apikil, fitochimi ak naturopati nan Haïti.</p>
+          <button class="btn-action" onclick="showSection('partenariat', null)">Kolabore avèk nou</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="form-box" style="margin-top: 80px;">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 10px; font-size: 1.8rem;">Kontakte Nou</h3>
+      <p style="text-align: center; color: #666; margin-bottom: 30px;">Ou gen yon kesyon jeneral? Kite yon mesaj pou nou.</p>
+      <form name="contact-general" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Prenon</label>
+            <input type="text" name="prenom" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Non</label>
+            <input type="text" name="nom" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Imèl</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Telefòn</label>
+            <input type="tel" name="telephone" class="form-control">
+          </div>
+          <div class="form-group full">
+            <label>Mesaj</label>
+            <textarea name="message" class="form-control" rows="4" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Voye mesaj la</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="visite" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Vini dekouvri espas pa nou</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Jardin Botanique des Cayes offri chemen imèrsif. Ke ou vle detann, fè rechèch avanse oswa aprann ki jan nati geri, nou gen yon vizit pou ou.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-simple.jpg' | relative_url }}" alt="Vizit Senp">
+        <div class="card-body">
+          <h3>Vizit Senp</h3>
+          <p>Yon pwomenad lib ak detant atravè peyizaj pa nou pou jwi kalm ak bote nati.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-scientifique.jpg' | relative_url }}" alt="Vizit Syantifik">
+        <div class="card-body">
+          <h3>Vizit Syantifik</h3>
+          <p>Yon eksplorasyon gide pa yon ekspè botanis, ideal pou chèchè, elèv ak pasyone syans.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-phytotherapie.jpg' | relative_url }}" alt="Fitoterapwi">
+        <div class="card-body">
+          <h3>Fitoterapwi</h3>
+          <p>Dekouvri vèti plant yo. Yon chemen pou konprann remèd natirèl ak medsin tradisyonèl.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Rezève yon vizit</h3>
+      <form name="reservation-visite" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>Prenon</label><input type="text" name="prenom" class="form-control" required></div>
+          <div class="form-group"><label>Non</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Imèl</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Telefòn</label><input type="tel" name="telephone" class="form-control" required></div>
+          <div class="form-group"><label>Dat souhayte</label><input type="date" name="date" class="form-control" required></div>
+          <div class="form-group">
+            <label>Kalite vizit</label>
+            <select name="type_visite" class="form-control">
+              <option value="Simple">Vizit Senp</option>
+              <option value="Scientifique">Vizit Syantifik</option>
+              <option value="Phytotherapie">Fitoterapwi</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Konfime rezèvasyon an</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="membership" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Pouksa vin manm?</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Adhere nan Jardin Botanique, se fè yon aksyon fò pou sovegad patimwan natirel Ayisyen an. Kontribisyon finansyal ou pèmèt nou antretyen koleksyon ak finanse chèchè pa nou.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Elèv</h3><p>$25 / an</p></div></div>
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Endividi</h3><p>$50 / an</p></div></div>
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Fanmi</h3><p>$100 / an</p></div></div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Fòmilè Manmbèship</h3>
+      <form name="formulaire-adhesion" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>Prenon</label><input type="text" name="prenom" class="form-control" required></div>
+          <div class="form-group"><label>Non</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Imèl</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Telefòn</label><input type="tel" name="telephone" class="form-control" required></div>
+          <div class="form-group full">
+            <label>Nivo sipò</label>
+            <select name="niveau" class="form-control">
+              <option value="Etudiant">Elèv ($25/an)</option>
+              <option value="Individuel">Endividi ($50/an)</option>
+              <option value="Famille">Fanmi ($100/an)</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Rejwenn Jaden an</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="evenement" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Yon kad natirèl ekseptyonèl</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Bay envite ou yon anviwònman pi ak enspiran. Nan espas pa nou, ou ka òganize selebrasyon maryaj majestis, kolok dèsk oswa retret espirityèl.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><img src="{{ 'images/impliquer/evenement-celebrations.jpg' | relative_url }}" alt="Selebrasyon"><div class="card-body"><h3>Selebrasyon ak Maryaj</h3><p>Yon dekò fleri inoubliab.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/evenement-ateliers.jpg' | relative_url }}" alt="Atelye"><div class="card-body"><h3>Atelye ak Fòmasyon</h3><p>Espas kalm pou aprann.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/evenement-colloques.jpg' | relative_url }}" alt="Kolok"><div class="card-body"><h3>Kolok</h3><p>Ideal pou ranko enstitisyonèl.</p></div></div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Mande yon devis</h3>
+      <form name="devis-evenement" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>Prenon / Non</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Imèl oswa Telefòn</label><input type="text" name="contact" class="form-control" required></div>
+          <div class="form-group"><label>Dat prevwa</label><input type="date" name="date" class="form-control" required></div>
+          <div class="form-group">
+            <label>Kalite evènman</label>
+            <select name="type" class="form-control">
+              <option value="Mariage">Maryaj / Selebrasyon</option>
+              <option value="Colloque">Kolok / Ranko</option>
+              <option value="Atelier">Atelye edikasyonèl</option>
+            </select>
+          </div>
+          <div class="form-group full"><label>Detay (Nomb moun...)</label><textarea name="details" class="form-control" rows="3"></textarea></div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Mande devis la</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="partenariat" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Travay ansanm</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Nou devlope pwogram teknik avanse: soti nan restorasyon ekolojik nan apikil, atravè fitochimi ak ansèyman naturopati pou doktè nan Haïti. Nou chèche enstitisyon patnè pou elaji enpak pa nou.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-universites.jpg' | relative_url }}" alt="Inivesite"><div class="card-body"><h3>Inivesite</h3><p>Rechèch fondamantal ak Syans.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-institutions.jpg' | relative_url }}" alt="Enstitisyon"><div class="card-body"><h3>Enstitisyon ak ONG</h3><p>Pwogram konvasyon ak sante piblik.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-experts.jpg' | relative_url }}" alt="Ekspè"><div class="card-body"><h3>Ekspè Entènasyonal</h3><p>Apiye teknik (Fitochimi, Naturopati).</p></div></div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Pwopoze yon Kolaborasyon</h3>
+      <form name="collaboration" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>Non kontak</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Non Enstitisyon</label><input type="text" name="institution" class="form-control" required></div>
+          <div class="form-group"><label>Imèl ofisyèl</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Telefòn</label><input type="tel" name="telephone" class="form-control"></div>
+          <div class="form-group full"><label>Sije patnèya</label><textarea name="objet" class="form-control" rows="4" required></textarea></div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Voye pwopozisyon an</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // === GESTION DES ONGLETS DE LA PAGE ===
+  function showSection(id, btn) {
+    // Masquer toutes les sections
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+
+    // Afficher la section demandée
+    const targetSection = document.getElementById(id);
+    if(targetSection) {
+      targetSection.classList.add('active');
+    }
+
+    // Scroll fluide vers le haut du contenu
+    window.scrollTo({ top: 400, behavior: 'smooth' });
+
+    // Gestion du bouton actif dans le sous-menu
+    document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+
+    if(btn) {
+      btn.classList.add('active');
+    } else {
+      // Si appelé depuis un lien externe (sans bouton cliqué), on trouve le bon bouton
+      document.querySelectorAll('.sub-btn').forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) {
+          b.classList.add('active');
+        }
+      });
+    }
+  }
+
+  // Permet d'ouvrir le bon onglet si quelqu'un clique sur un lien depuis une autre page
+  // (ex: impliquer.html#visite)
+  document.addEventListener("DOMContentLoaded", () => {
+    if(window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      if(document.getElementById(targetId)) {
+        showSection(targetId, null);
+      }
+    }
+  });
+</script>
+
+{% include form-handler.html %}

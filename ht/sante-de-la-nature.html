@@ -1,0 +1,197 @@
+---
+layout: default
+title: "Sante Lanati"
+lang: ht
+ref: sante-de-la-nature
+permalink: /ht/sante-de-la-nature.html
+description: "Yon sant ekselans dediyen nan etid, proteksyon ak restorasyons nan biodivèsite inik Ayiti."
+---
+
+<style>
+  :root {
+    --deep: #2F4F2F;
+    --botanical: #5E8F3A;
+    --gold: #C5A059;
+    --paper: #FBFCFA;
+    --ink: #1f2a33;
+    --muted: rgba(31,42,51,.72);
+    --white: #ffffff;
+    --radius-lg: 24px;
+    --shadow-pro: 0 20px 50px rgba(0,0,0,0.06);
+  }
+  .section { padding: 90px 0; }
+  .hero {
+    height: 60vh; min-height: 450px; position: relative;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('{{ "images/sante-de-la-nature/hero-sante-de-la-nature.jpg" | relative_url }}') center/cover no-repeat;
+    display: flex; align-items: center; color: var(--white); margin-bottom: 50px;
+  }
+  .hero-content { position: relative; z-index: 10; max-width: 850px; }
+  .hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 15px; }
+  .mission-row { display: flex; align-items: center; gap: 60px; margin-bottom: 100px; }
+  .mission-row:nth-child(even) { flex-direction: row-reverse; }
+  .mission-img { flex: 1.1; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-pro); height: 400px; }
+  .mission-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+  .mission-img:hover img { transform: scale(1.03); }
+  .mission-text { flex: 0.9; }
+  .kicker { color: var(--gold); font-weight: 900; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 10px; display: block; }
+  .mission-text h2 { font-size: 2.5rem; color: var(--deep); margin-bottom: 20px; line-height: 1.2; }
+  .mission-text p { font-size: 1.1rem; color: var(--muted); margin-bottom: 20px; }
+  .btn-mission { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border: 2px solid var(--deep); border-radius: 50px; color: var(--deep); font-weight: 800; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; text-decoration: none; }
+  .btn-mission:hover { background-color: var(--deep); color: var(--white); transform: translateY(-3px); }
+  .tabs-nav { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+  .tab-btn { padding: 12px 30px; border-radius: 50px; border: 1.5px solid var(--botanical); background: transparent; color: var(--deep); font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 0.75rem; transition: 0.3s; }
+  .tab-btn.active { background: var(--deep); color: white; border-color: var(--deep); }
+  .tab-content { display: none; animation: fadeIn 0.5s ease; }
+  .grid-pro { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+  .card-pro { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.03); transition: 0.3s; }
+  .card-pro:hover { transform: translateY(-5px); box-shadow: var(--shadow-pro); }
+  .card-img { height: 240px; overflow: hidden; }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .card-body { padding: 30px; }
+  .card-body h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--ink); }
+  .card-body p { color: var(--muted); line-height: 1.6; }
+  .collab-box { background: var(--deep); color: var(--white); border-radius: var(--radius-lg); padding: 70px 40px; text-align: center; box-shadow: var(--shadow-pro); margin-bottom: 40px; }
+  .collab-box h2 { color: var(--gold); font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 20px; }
+  .collab-box p { font-size: 1.15rem; max-width: 850px; margin: 0 auto 15px auto; color: rgba(255,255,255,0.9); line-height: 1.8; }
+  .btn-collab { display: inline-flex; align-items: center; gap: 10px; margin-top: 25px; padding: 15px 30px; background: var(--gold); color: var(--deep) !important; border-radius: 50px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; transition: 0.3s; text-decoration: none; }
+  .btn-collab:hover { background: #fff; transform: translateY(-3px); }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @media (max-width: 992px) {
+    .mission-row, .mission-row:nth-child(even) { flex-direction: column; text-align: center; }
+    .collab-box { padding: 50px 25px; }
+  }
+</style>
+
+<main>
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="kicker">Depatman</span>
+      <h1>Sante Lanati</h1>
+      <p style="font-size:1.2rem; opacity:0.9; max-width:600px;">Yon sant ekselans dediyen nan etid, proteksyon ak restorasyons nan biodivèsite inik Ayiti.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="mission-row">
+        <div class="mission-img"><img src="{{ 'images/sante-de-la-nature/science-appliquee.jpg' | relative_url }}" alt="Syans botanik" loading="lazy"></div>
+        <div class="mission-text">
+          <span class="kicker">Misyon 01</span>
+          <h2>Syans Aplike</h2>
+          <p>Nou menen sondaj floristik rigore ak devlope protokol syantifik pou dokimante richès vejetal Ayiti ak idantifye priyorite rechèch.</p>
+          <a href="{{ '/science.html' | relative_url }}" class="btn-mission">Dekouvri Syans yo <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="mission-row">
+        <div class="mission-img"><img src="{{ 'images/sante-de-la-nature/gestion-donnees.jpg' | relative_url }}" alt="Done biodivèsite" loading="lazy"></div>
+        <div class="mission-text">
+          <span class="kicker">Misyon 02</span>
+          <h2>Jesyon Done</h2>
+          <p>Estrikturasyon done se prèmyoral. Nou transfòme obsèvasyon chan an nan baz done katografik ak taksonomik pou oryante desizyon konsèvasyon.</p>
+          <a href="{{ '/donnees.html' | relative_url }}" class="btn-mission">Eksplore Done <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="mission-row">
+        <div class="mission-img"><img src="{{ 'images/sante-de-la-nature/jconservation-strategique.jpg' | relative_url }}" alt="Konsèvasyon chan" loading="lazy"></div>
+        <div class="mission-text">
+          <span class="kicker">Misyon 03</span>
+          <h2>Konsèvasyon Estratejik</h2>
+          <p>Soti nan bank grenn jouk restorasyons in situ, nou mete an aplikasyon aksyon konkrè pou sove espès yo an danje ak retablir abita yo ki degade.</p>
+          <a href="{{ '/conservation.html' | relative_url }}" class="btn-mission">Wè Konsèvasyon <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="mission-row">
+        <div class="mission-img"><img src="{{ 'images/sante-de-la-nature/restauration-horticulture.jpg' | relative_url }}" alt="Ortikilti ak restorasyons" loading="lazy"></div>
+        <div class="mission-text">
+          <span class="kicker">Misyon 04</span>
+          <h2>Ortikuli ak Restorasyons</h2>
+          <p>Pa pepinyè nou yo ak teknik ortikol avanse, nou pwodui ak miltipliye plant natif ak endemik ki nesesè pou retablisman ekosistèm frajil.</p>
+          <a href="{{ '/horticulture.html' | relative_url }}" class="btn-mission">Dekouvri Ortikuli <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#f4f7f4;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:40px;">
+        <span class="kicker">Portefèy</span>
+        <h2 style="color:var(--deep); font-size:2.5rem;">Pwojè Nou yo</h2>
+      </div>
+      <div class="tabs-nav">
+        <button class="tab-btn active" onclick="openTab(event,'passes')">Pase yo</button>
+        <button class="tab-btn" onclick="openTab(event,'encours')">An Kou</button>
+        <button class="tab-btn" onclick="openTab(event,'futurs')">Avni</button>
+      </div>
+      <div id="passes" class="tab-content" style="display:block;">
+        <div class="grid-pro">
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/structuration-scientifique.jpg' | relative_url }}" alt="Estrikturasyon syantifik" loading="lazy"></div>
+            <div class="card-body"><h3>Estrikturasyon Syantifik</h3><p>Etablisma premye estanda botanik JBC yo.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/collections-vivantes.jpg' | relative_url }}" alt="Koleksyon vivan" loading="lazy"></div>
+            <div class="card-body"><h3>Koleksyon Vivan</h3><p>Envanntè espès ex-situ konsève nan jaden an.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/Appui-technique.jpg' | relative_url }}" alt="Sipò teknik" loading="lazy"></div>
+            <div class="card-body"><h3>Sipò Teknik</h3><p>Soutèn pepinyè kominote lokal yo.</p></div>
+          </article>
+        </div>
+      </div>
+      <div id="encours" class="tab-content">
+        <div class="grid-pro">
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/etudes-especes-natives.jpg' | relative_url }}" alt="Espès natif" loading="lazy"></div>
+            <div class="card-body"><h3>Etid Espès Natif</h3><p>Rechèch sou rezilyan espès endemik yo.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/suivi-especes-prioritaires.jpg' | relative_url }}" alt="Swiv espès" loading="lazy"></div>
+            <div class="card-body"><h3>Suiv Espès Priyorite</h3><p>Monitò GPS popilasyon ra yo.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/production-pour-conservation.jpg' | relative_url }}" alt="Pwoduksyon konsèvasyon" loading="lazy"></div>
+            <div class="card-body"><h3>Pwoduksyon pou Konsèvasyon</h3><p>Miltiplikasyon masif pou rebwazman.</p></div>
+          </article>
+        </div>
+      </div>
+      <div id="futurs" class="tab-content">
+        <div class="grid-pro">
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/diffuser.jpg' | relative_url }}" alt="Difsyon estanda" loading="lazy"></div>
+            <div class="card-body"><h3>Difsyon Estanda</h3><p>Deplwaman estanda botanik nan nivo nasyonal.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/plantes-medicinales.jpg' | relative_url }}" alt="Fitoterapì" loading="lazy"></div>
+            <div class="card-body"><h3>Fitoterapì</h3><p>Etablisma yon laboratwa plant medikal.</p></div>
+          </article>
+          <article class="card-pro">
+            <div class="card-img"><img src="{{ 'images/sante-de-la-nature/nature-sante-mentale.jpg' | relative_url }}" alt="Nati ak lasante mantal" loading="lazy"></div>
+            <div class="card-body"><h3>Nati ak Lasante Mantal</h3><p>Pwogram byennèt nan mitan forè.</p></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:40px;">
+    <div class="container">
+      <div class="collab-box">
+        <h2>Travay Ansanm</h2>
+        <p>Ou syantis, chèchè, etidyan oswa reprezantan enstitisyonèl? Ou travay sou pwojè ki gen rapò ak syans, done sou biodivèsite, konsèvasyon oswa ortikuli?</p>
+        <p><strong>Nou konnen nou pa ka fè travay sa a sèl.</strong> Jardin Botanique des Cayes angaje pwofondman pou kolabore, pataje ekspètiz ak inite fòs avèk ou pou lasante nati.</p>
+        <a href="{{ '/index.html#contact' | relative_url }}" class="btn-collab">Tanpri kontakte nou <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  function openTab(evt, tabName) {
+    document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabName).style.display = 'block';
+    evt.currentTarget.classList.add('active');
+  }
+</script>
