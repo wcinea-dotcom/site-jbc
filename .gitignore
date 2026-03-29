@@ -1,0 +1,20 @@
+# ── macOS ─────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+._*
+
+# ── Jekyll ────────────────────────────────────────
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# ── Dépendances Ruby ──────────────────────────────
+vendor/
+Gemfile.lock
+
+# ── Éditeurs ──────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*~

@@ -1,146 +1,135 @@
-<!-- _includes/header.html -->
+<!-- _includes/header.html — FR / EN / KR (Kreyòl ayisyen) -->
 
-{%- comment -%}
-  Détection langue ROBUSTE :
-  - si page.lang == "en" (front-matter)
-  - OU si l'URL commence par "/en/"
-{%- endcomment -%}
 {% assign current_url = page.url | default: "/" %}
 
 {% assign is_en = false %}
+{% assign is_ht = false %}
+
 {% if page.lang == "en" or current_url contains "/en/" %}
   {% assign is_en = true %}
+{% elsif page.lang == "ht" or current_url contains "/ht/" %}
+  {% assign is_ht = true %}
 {% endif %}
 
-{%- comment -%} Base pour construire les liens internes {%- endcomment -%}
 {% assign base = "" %}
 {% if is_en %}{% assign base = "/en" %}{% endif %}
+{% if is_ht %}{% assign base = "/ht" %}{% endif %}
 
-{% assign home_url = base | append: "/" %}
-
-{%- comment -%}
-  URLs internes
-  (on garde les noms de fichiers stables pour éviter les 404)
-{%- endcomment -%}
-{% assign url_news = base | append: "/nouvelles.html" %}
-{% assign url_events = base | append: "/nouvelles.html#event" %}
-{% assign url_blog = base | append: "/blogue.html" %}
-{% assign url_resources = base | append: "/ressources.html" %}
-{% assign url_data = base | append: "/donnees.html" %}
-
-{% assign url_about = base | append: "/apropos.html" %}
-{% assign url_get_involved = base | append: "/impliquer.html" %}
+{% assign home_url          = base | append: "/" %}
+{% assign url_news          = base | append: "/nouvelles.html" %}
+{% assign url_events        = base | append: "/nouvelles.html#event" %}
+{% assign url_blog          = base | append: "/blogue.html" %}
+{% assign url_resources     = base | append: "/ressources.html" %}
+{% assign url_data          = base | append: "/donnees.html" %}
+{% assign url_about         = base | append: "/apropos.html" %}
+{% assign url_get_involved  = base | append: "/impliquer.html" %}
 {% assign url_nature_health = base | append: "/sante-de-la-nature.html" %}
-{% assign url_human_health = base | append: "/sante-humaine.html" %}
-{% assign url_education = base | append: "/education.html" %}
-
-{% assign url_science = base | append: "/science.html" %}
-{% assign url_conservation = base | append: "/conservation.html" %}
-{% assign url_horticulture = base | append: "/horticulture.html" %}
-{% assign url_research = base | append: "/recherche.html" %}
-
-{%- comment -%}
-  Switch langue ROBUSTE (sans ref)
-  Règle :
-  - FR : /page.html
-  - EN : /en/page.html
-  - Home : / <-> /en/
-{%- endcomment -%}
+{% assign url_human_health  = base | append: "/sante-humaine.html" %}
+{% assign url_education     = base | append: "/education.html" %}
+{% assign url_science       = base | append: "/science.html" %}
+{% assign url_conservation  = base | append: "/conservation.html" %}
+{% assign url_horticulture  = base | append: "/horticulture.html" %}
 
 {% assign fr_url = "/" %}
 {% assign en_url = "/en/" %}
+{% assign ht_url = "/ht/" %}
 
-{% if current_url == "/en/" or current_url == "/en/index.html" %}
-  {% assign fr_url = "/" %}
-  {% assign en_url = "/en/" %}
-{% elsif current_url == "/" or current_url == "/index.html" %}
-  {% assign fr_url = "/" %}
-  {% assign en_url = "/en/" %}
-{% elsif current_url contains "/en/" %}
-  {%- comment -%} EN -> FR : enlever seulement le préfixe "/en/" {%- endcomment -%}
+{% if current_url contains "/en/" %}
   {% assign fr_url = current_url | replace_first: "/en/", "/" %}
   {% assign en_url = current_url %}
-{% else %}
-  {%- comment -%} FR -> EN : ajouter le préfixe "/en" {%- endcomment -%}
+  {% assign ht_url = current_url | replace_first: "/en/", "/ht/" %}
+{% elsif current_url contains "/ht/" %}
+  {% assign fr_url = current_url | replace_first: "/ht/", "/" %}
+  {% assign en_url = current_url | replace_first: "/ht/", "/en/" %}
+  {% assign ht_url = current_url %}
+{% elsif current_url != "/" and current_url != "/index.html" %}
   {% assign fr_url = current_url %}
   {% assign en_url = "/en" | append: current_url %}
+  {% assign ht_url = "/ht" | append: current_url %}
 {% endif %}
 
+<!-- ═══ BARRE SECONDAIRE (top-tier) ═══════════════════════════════════ -->
 <div class="top-tier">
   <div class="container top-tier-inner">
+
     <div class="top-tier-links">
-      <a href="{{ url_news | relative_url }}">{% if is_en %}News{% else %}Nouvelles{% endif %}</a>
-      <a href="{{ url_events | relative_url }}">{% if is_en %}Events{% else %}Événements{% endif %}</a>
-
-      <!-- ✅ Blog EN / Blogue FR -->
-      <a href="{{ url_blog | relative_url }}">{% if is_en %}Blog{% else %}Blogue{% endif %}</a>
-
-      <a href="{{ url_resources | relative_url }}">{% if is_en %}Resources{% else %}Ressources{% endif %}</a>
-      <a href="{{ url_data | relative_url }}" class="top-data-link">{% if is_en %}Data{% else %}Données{% endif %}</a>
+      <a href="{{ url_news      | relative_url }}">{% if is_en %}News{% elsif is_ht %}Nouvèl{% else %}Nouvelles{% endif %}</a>
+      <a href="{{ url_events    | relative_url }}">{% if is_en %}Events{% elsif is_ht %}Evènman{% else %}Événements{% endif %}</a>
+      <a href="{{ url_blog      | relative_url }}">{% if is_en %}Blog{% elsif is_ht %}Blog{% else %}Blogue{% endif %}</a>
+      <a href="{{ url_resources | relative_url }}">{% if is_en %}Resources{% elsif is_ht %}Resous{% else %}Ressources{% endif %}</a>
+      <a href="{{ url_data      | relative_url }}" class="top-data-link">{% if is_en %}Data{% elsif is_ht %}Done{% else %}Données{% endif %}</a>
     </div>
 
     <div class="top-tier-tools">
-      <div class="tool-item">
-        {% if is_en %}Search{% else %}Recherche{% endif %} <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
-
       <div class="tool-item lang-switch">
-        <a href="{{ fr_url | relative_url }}" class="{% unless is_en %}is-active{% endunless %}">FR</a>
+        <a href="{{ fr_url | relative_url }}" class="{% unless is_en or is_ht %}is-active{% endunless %}" title="Français">FR</a>
         <span class="lang-sep">|</span>
-        <a href="{{ en_url | relative_url }}" class="{% if is_en %}is-active{% endif %}">EN</a>
+        <a href="{{ en_url | relative_url }}" class="{% if is_en %}is-active{% endif %}" title="English">EN</a>
+        <span class="lang-sep">|</span>
+        <a href="{{ ht_url | relative_url }}" class="{% if is_ht %}is-active{% endif %}" title="Kreyòl ayisyen">KR</a>
       </div>
     </div>
+
   </div>
 </div>
 
+<!-- ═══ EN-TÊTE PRINCIPALE (main-tier) ════════════════════════════════ -->
 <header class="main-tier">
   <div class="container main-tier-inner">
+
     <a class="brand" href="{{ home_url | relative_url }}">
-      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}" alt="Logo Jardin Botanique des Cayes">
+      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}"
+           alt="Logo Jardin Botanique des Cayes">
     </a>
 
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav">
+
       <div class="drop" id="dropAccueil">
         <div class="nav-group">
-          <a href="{{ home_url | relative_url }}">{% if is_en %}HOME{% else %}ACCUEIL{% endif %}</a>
-          <button type="button" id="btnAccueil" aria-label="{% if is_en %}Open Home menu{% else %}Ouvrir menu Accueil{% endif %}">
+          <a href="{{ home_url | relative_url }}">{% if is_en %}HOME{% elsif is_ht %}AKÈY{% else %}ACCUEIL{% endif %}</a>
+          <button type="button" id="btnAccueil"
+                  aria-label="{% if is_en %}Open Home menu{% elsif is_ht %}Ouvri meni{% else %}Ouvrir menu{% endif %}">
             <i class="fa-solid fa-chevron-down"></i>
           </button>
         </div>
         <div class="menu">
-          <a href="{{ url_about | relative_url }}">{% if is_en %}About{% else %}À propos{% endif %}</a>
-          <a href="#">{% if is_en %}Board of Directors{% else %}Conseil d'administration{% endif %}</a>
+          <a href="{{ url_about | relative_url }}">{% if is_en %}About{% elsif is_ht %}Sou nou{% else %}À propos{% endif %}</a>
+          <a href="#">{% if is_en %}Board of Directors{% elsif is_ht %}Konsèy Administrasyon{% else %}Conseil d'administration{% endif %}</a>
         </div>
       </div>
 
-      <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% else %}S'IMPLIQUER{% endif %}</a>
+      <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% elsif is_ht %}PATISIPE{% else %}S'IMPLIQUER{% endif %}</a>
 
       <div class="drop" id="dropNature">
         <div class="nav-group">
-          <a href="{{ url_nature_health | relative_url }}">{% if is_en %}NATURE'S HEALTH{% else %}SANTÉ DE LA NATURE{% endif %}</a>
-          <button type="button" id="btnNature" aria-label="{% if is_en %}Open Nature's Health menu{% else %}Ouvrir menu Santé de la nature{% endif %}">
+          <a href="{{ url_nature_health | relative_url }}">{% if is_en %}NATURE'S HEALTH{% elsif is_ht %}SANTE LANATI{% else %}SANTÉ DE LA NATURE{% endif %}</a>
+          <button type="button" id="btnNature"
+                  aria-label="{% if is_en %}Open Nature menu{% elsif is_ht %}Ouvri meni Lanati{% else %}Ouvrir menu Nature{% endif %}">
             <i class="fa-solid fa-chevron-down"></i>
           </button>
         </div>
         <div class="menu">
-          <a href="{{ url_science | relative_url }}">{% if is_en %}Science{% else %}Sciences{% endif %}</a>
-          <a href="{{ url_data | relative_url }}">{% if is_en %}Data{% else %}Données{% endif %}</a>
-          <a href="{{ url_conservation | relative_url }}">{% if is_en %}Conservation{% else %}Conservation{% endif %}</a>
-          <a href="{{ url_horticulture | relative_url }}">{% if is_en %}Horticulture & Restoration{% else %}Horticulture & Restauration{% endif %}</a>
+          <a href="{{ url_science      | relative_url }}">{% if is_en %}Science{% elsif is_ht %}Syans{% else %}Sciences{% endif %}</a>
+          <a href="{{ url_data         | relative_url }}">{% if is_en %}Data{% elsif is_ht %}Done{% else %}Données{% endif %}</a>
+          <a href="{{ url_conservation | relative_url }}">{% if is_en %}Conservation{% elsif is_ht %}Konsèvasyon{% else %}Conservation{% endif %}</a>
+          <a href="{{ url_horticulture | relative_url }}">{% if is_en %}Horticulture & Restoration{% elsif is_ht %}Otikiltè & Restosyon{% else %}Horticulture & Restauration{% endif %}</a>
         </div>
       </div>
 
-      <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% else %}SANTÉ HUMAINE{% endif %}</a>
-      <a href="{{ url_education | relative_url }}">{% if is_en %}EDUCATION{% else %}ÉDUCATION{% endif %}</a>
+      <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% elsif is_ht %}SANTE MOUN{% else %}SANTÉ HUMAINE{% endif %}</a>
+      <a href="{{ url_education    | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
+
     </nav>
 
     <div class="main-actions">
       <a href="{{ url_get_involved | append: '#membership' | relative_url }}" class="btn-member-main">
-        {% if is_en %}BECOME A MEMBER{% else %}DEVENIR MEMBRE{% endif %}
+        {% if is_en %}BECOME A MEMBER{% elsif is_ht %}TOUNEN MANM{% else %}DEVENIR MEMBRE{% endif %}
       </a>
-      <button class="burger" id="burger" aria-label="{% if is_en %}Open mobile menu{% else %}Ouvrir le menu mobile{% endif %}">
+      <button class="burger" id="burger"
+              aria-label="{% if is_en %}Open mobile menu{% elsif is_ht %}Ouvri meni{% else %}Ouvrir le menu{% endif %}">
         <i class="fa-solid fa-bars"></i>
       </button>
     </div>
+
   </div>
 </header>
