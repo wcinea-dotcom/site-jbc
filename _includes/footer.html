@@ -1,33 +1,54 @@
-<!-- _includes/footer.html -->
+<!-- _includes/footer.html — trilingual FR / EN / KR -->
+{% assign is_en = false %}
+{% assign is_ht = false %}
+{% if page.lang == "en" %}{% assign is_en = true %}{% endif %}
+{% if page.lang == "ht" %}{% assign is_ht = true %}{% endif %}
+
 <footer class="footer">
   <div class="container footer-inner">
-    <div class="footer-col">
+
+    <!-- Col 1 — Brand -->
+    <div class="footer-col footer-brand">
       <h3>Jardin Botanique des Cayes</h3>
       <p>
-        Données, science, éducation et actions concrètes au service de la biodiversité en Haïti.
+        {% if is_en %}
+          Our mission is to contribute to human and nature health through scientific research, conservation of Haitian biodiversity, and education.
+        {% elsif is_ht %}
+          Misyon nou se kontribye nan sante moun ak lanati atravè rechèch syantifik, konsèvasyon biodivèsite Ayisyen ak edikasyon.
+        {% else %}
+          Notre mission est de contribuer à la santé de l'homme et de la nature par la recherche scientifique, la conservation de la biodiversité haïtienne et l'éducation.
+        {% endif %}
       </p>
     </div>
 
+    <!-- Col 2 — Quick links -->
     <div class="footer-col">
-      <h4>Navigation</h4>
-      <a href="{{ '/' | relative_url }}">Accueil</a>
-      <a href="{{ '/sante-de-la-nature.html' | relative_url }}">Santé de la nature</a>
-      <a href="{{ '/sante-humaine.html' | relative_url }}">Santé humaine</a>
-      <a href="{{ '/education.html' | relative_url }}">Éducation</a>
-      <a href="{{ '/impliquer.html' | relative_url }}">S'impliquer</a>
+      <h4>{% if is_en %}Quick Links{% elsif is_ht %}Lyen Rapid{% else %}Liens Rapides{% endif %}</h4>
+      <a href="{{ '/nouvelles.html' | relative_url }}">{% if is_en %}News{% elsif is_ht %}Nouvèl{% else %}Nouvelles{% endif %}</a>
+      <a href="{{ '/nouvelles.html#evenements' | relative_url }}">{% if is_en %}Events{% elsif is_ht %}Evènman{% else %}Événements{% endif %}</a>
+      <a href="{{ '/blogue.html' | relative_url }}">{% if is_en %}Blog{% elsif is_ht %}Blog{% else %}Blogue{% endif %}</a>
+      <a href="{{ '/impliquer.html' | relative_url }}">{% if is_en %}Get Involved{% elsif is_ht %}Patisipe{% else %}S'impliquer{% endif %}</a>
+      <a href="{{ '/ressources.html' | relative_url }}">{% if is_en %}Resources{% elsif is_ht %}Resous{% else %}Ressources{% endif %}</a>
     </div>
 
+    <!-- Col 3 — Contact -->
     <div class="footer-col">
-      <h4>Ressources</h4>
-      <a href="{{ '/blogue.html' | relative_url }}">Blogue</a>
-      <a href="{{ '/ressources.html' | relative_url }}">Ressources</a>
-      <a href="{{ '/donnees.html' | relative_url }}">Données</a>
+      <h4>{% if is_en %}Contact Us{% elsif is_ht %}Kontakte Nou{% else %}Contactez-nous{% endif %}</h4>
+      <p class="footer-contact-line"><i class="fa-solid fa-location-dot"></i> Les Cayes, Haïti</p>
+      <p class="footer-contact-line"><i class="fa-solid fa-envelope"></i> info@jardinbotaniquecayeshaiti.org</p>
+      <p class="footer-contact-line"><i class="fa-solid fa-phone"></i> +509 4309 2809</p>
+      <div class="footer-socials">
+        <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
     </div>
+
   </div>
 
   <div class="footer-bottom">
     <div class="container footer-bottom-inner">
-      <span>© {{ "now" | date: "%Y" }} Jardin Botanique des Cayes. Tous droits réservés.</span>
+      <span>© {{ "now" | date: "%Y" }} Jardin Botanique des Cayes. {% if is_en %}All rights reserved.{% elsif is_ht %}Tout dwa rezève.{% else %}Tous droits réservés.{% endif %}</span>
     </div>
   </div>
 </footer>
