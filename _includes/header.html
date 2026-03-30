@@ -63,11 +63,15 @@
 
     <div class="top-tier-tools">
       <div class="tool-item lang-switch">
-        <a href="{{ fr_url | relative_url }}" class="{% unless is_en or is_ht %}is-active{% endunless %}" title="Français">FR</a>
-        <span class="lang-sep">|</span>
-        <a href="{{ en_url | relative_url }}" class="{% if is_en %}is-active{% endif %}" title="English">EN</a>
-        <span class="lang-sep">|</span>
-        <a href="{{ ht_url | relative_url }}" class="{% if is_ht %}is-active{% endif %}" title="Kreyòl ayisyen">KR</a>
+        <a href="{{ fr_url | relative_url }}" class="lang-btn {% unless is_en or is_ht %}is-active{% endunless %}" title="Français">
+          <span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span>
+        </a>
+        <a href="{{ en_url | relative_url }}" class="lang-btn {% if is_en %}is-active{% endif %}" title="English">
+          <span class="lang-flag">🇺🇸</span><span class="lang-code">EN</span>
+        </a>
+        <a href="{{ ht_url | relative_url }}" class="lang-btn {% if is_ht %}is-active{% endif %}" title="Kreyòl ayisyen">
+          <span class="lang-flag">🇭🇹</span><span class="lang-code">KR</span>
+        </a>
       </div>
     </div>
 
