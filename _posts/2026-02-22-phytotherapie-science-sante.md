@@ -4,7 +4,7 @@ title: "La phytothérapie : une science au cœur de la santé humaine"
 sous_titre: "Entre savoirs ancestraux et découvertes scientifiques modernes."
 categorie_principale: "Santé Humaine"
 sous_categorie: "Phytothérapie"
-image: "images/index/index-sante-humaine.jpg"
+image: "images/index/index-sante-humaine.png"
 ---
 
 La phytothérapie est une science à part entière qui étudie et utilise les plantes médicinales pour le traitement et la prévention de certaines maladies. Bien avant l'avènement des médicaments synthétiques au XXe siècle, l'humanité a puisé dans les ressources végétales pour se soigner. Depuis l'apparition des premières sociétés humaines, les plantes ont constitué une pharmacie naturelle accessible, dont les savoirs se sont transmis de génération en génération.
