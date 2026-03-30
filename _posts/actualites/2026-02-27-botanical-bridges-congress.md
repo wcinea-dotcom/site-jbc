@@ -3,7 +3,7 @@ layout: post
 title: "Le 2026 Botanical Bridges Congress"
 date: 2026-02-27
 categories: actualites
-image: "/images/congres-botanique.jpg"
+image: "/images/conservation/conservation-hero.jpg"
 ---
 
 Le **[2026 Botanical Bridges Congress](https://botanicalbridges.com/2024-botanical-bridges-congress/)** se déroulera du **20 au 24 avril 2026** au **Jardín Botánico Nacional Dr. Rafael M. Moscoso** à Saint-Domingue, en République dominicaine.
