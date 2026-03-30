@@ -21,13 +21,13 @@ ref: accueil
   .bg-institution{background: radial-gradient(900px 520px at 12% 18%, rgba(47,93,47,.18) 0%, rgba(47,93,47,0) 55%), radial-gradient(900px 520px at 88% 28%, rgba(94,143,58,.14) 0%, rgba(94,143,58,0) 56%), linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);}
   .bg-health{background: radial-gradient(900px 520px at 10% 18%, rgba(76,175,80,.14) 0%, rgba(76,175,80,0) 55%), radial-gradient(900px 520px at 92% 30%, rgba(197,160,89,.14) 0%, rgba(197,160,89,0) 58%), linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);}
 
-  .hero{position:relative;height:var(--heroH);overflow:hidden;background:#000}
-  .hero-media{position:absolute; inset:0; background:url("{{ '/images/index/index-hero.png' | relative_url }}") center/cover no-repeat; filter:saturate(1.05); transform:scale(1.01);}
-  .hero-gradient{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.70) 34%, rgba(0,0,0,.30) 58%, rgba(0,0,0,.06) 78%, rgba(0,0,0,0) 100%);}
+  .hero{position:relative;height:var(--heroH);overflow:hidden;background:#0a1a0a}
+  .hero-media{position:absolute; inset:0; background:url("{{ '/images/index/index-hero.png' | relative_url }}") center/cover no-repeat; filter:saturate(1.15) brightness(1.12); transform:scale(1.01);}
+  .hero-gradient{position:absolute; inset:0; background:linear-gradient(90deg, rgba(8,22,8,.68) 0%, rgba(8,22,8,.55) 32%, rgba(8,22,8,.22) 58%, rgba(8,22,8,.04) 78%, rgba(8,22,8,0) 100%);}
   .hero-inner{position:relative;height:100%;display:flex;align-items:center}
   .hero-copy{width:min(900px, 92vw); color:#fff; padding:12px 0; position: relative; z-index: 5;}
-  .hero-copy h1{font-family:"Playfair Display",serif; font-size:clamp(2.2rem, 4.4vw, 4.2rem); line-height:1.05; margin-bottom:12px;}
-  .hero-copy p{font-size:clamp(1.0rem, 1.25vw, 1.25rem); color:rgba(255,255,255,.88); max-width:760px; line-height:1.8;}
+  .hero-copy h1{font-family:"Playfair Display",serif; font-size:clamp(2.2rem, 4.4vw, 4.2rem); line-height:1.05; margin-bottom:12px; text-shadow:0 2px 18px rgba(0,0,0,.45);}
+  .hero-copy p{font-size:clamp(1.0rem, 1.25vw, 1.25rem); color:rgba(255,255,255,.92); max-width:760px; line-height:1.8; text-shadow:0 1px 8px rgba(0,0,0,.35);}
 
   .p-head, .dept-head, .headline-title, .testi-title{ text-align:center; }
   .p-head, .dept-head{ max-width:980px; margin:0 auto 34px; }
@@ -308,12 +308,22 @@ ref: accueil
         <h2 style="font-family:'Playfair Display',serif; font-size:2.5rem;">Explorez le Jardin Virtuellement</h2>
         <p>Naviguez sur notre carte interactive pour découvrir nos différentes collections de plantes, nos espaces d'aménagement et planifier votre visite.</p>
       </div>
-      <div style="border-radius: 26px; overflow: hidden; box-shadow: 0 18px 55px rgba(0,0,0,.08); border: 1px solid rgba(0,0,0,.06); height: 500px; background: #eee; position:relative;">
-        <!-- Jardin Botanique des Cayes — Les Cayes, Haïti (coordonnées 18.1954°N 73.7489°W) -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.2!2d-73.7489!3d18.1954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaab0cb374ba2e1%3A0x88ea3061214e21a4!2sJardin%20Botanique%20des%20Cayes%2C%20Les%20Cayes%2C%20Haiti!5e1!3m2!1sfr!2sht!4v1700000000001!5m2!1sfr!2sht" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <div style="position:absolute; bottom:12px; left:12px; background:rgba(47,93,47,.92); color:#fff; padding:8px 14px; border-radius:10px; font-size:0.82rem; font-weight:900; pointer-events:none; letter-spacing:.04em;">
-          📍 Jardin Botanique des Cayes — Les Cayes, Haïti
+      <div style="border-radius: 26px; overflow: hidden; box-shadow: 0 18px 55px rgba(0,0,0,.12); border: 1px solid rgba(0,0,0,.06); height: 520px; background: #eee; position:relative;">
+        <!-- Jardin Botanique des Cayes — coordonnées précises 18.234639, -73.755301 — vue satellite -->
+        <iframe
+          src="https://maps.google.com/maps?q=18.234639,-73.755301&z=18&t=k&output=embed"
+          width="100%" height="100%" style="border:0;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Carte satellite du Jardin Botanique des Cayes">
+        </iframe>
+        <div style="position:absolute; bottom:14px; left:14px; background:rgba(47,93,47,.94); color:#fff; padding:9px 16px; border-radius:12px; font-size:0.82rem; font-weight:900; pointer-events:none; letter-spacing:.04em; box-shadow:0 4px 12px rgba(0,0,0,.25); display:flex; align-items:center; gap:8px;">
+          <span>📍</span><span>Jardin Botanique des Cayes — Les Cayes, Haïti</span>
         </div>
+        <a href="https://maps.app.goo.gl/HeySnB6pSVjWTAxd8" target="_blank" rel="noopener"
+           style="position:absolute; bottom:14px; right:14px; background:#fff; color:#2F5D2F; padding:8px 14px; border-radius:10px; font-size:0.8rem; font-weight:900; text-decoration:none; box-shadow:0 4px 12px rgba(0,0,0,.18); letter-spacing:.03em;">
+          Ouvrir dans Google Maps ↗
+        </a>
       </div>
     </div>
   </section>
