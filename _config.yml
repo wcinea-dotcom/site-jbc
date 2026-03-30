@@ -4,8 +4,8 @@
 
 title:       "Jardin Botanique des Cayes"
 description: "Données, science, éducation et actions concrètes au service de la biodiversité en Haïti."
-url:         "https://wcinea-dotcom.github.io"
-baseurl:     "/site-jbc"
+url:         "https://jardinbotaniquecayeshaiti.org"
+baseurl:     "/site-jbc"   # GitHub Pages uses /site-jbc; Netlify overrides this to "" via netlify.toml
 author:      "Jardin Botanique des Cayes"
 og_image:    "/images/index/index-hero.jpg"
 

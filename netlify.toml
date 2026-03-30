@@ -1,0 +1,27 @@
+# =========================================================
+#  netlify.toml — Jardin Botanique des Cayes
+#  Deployment config for Netlify (jardinbotaniquecayeshaiti.org)
+#
+#  NOTE: _config.yml keeps baseurl: "/site-jbc" for GitHub Pages.
+#  Here we override baseurl to "" so all paths resolve from root.
+# =========================================================
+
+[build]
+  command   = "jekyll build --baseurl ''"
+  publish   = "_site"
+
+[build.environment]
+  JEKYLL_ENV   = "production"
+  RUBY_VERSION = "3.1"
+
+# Redirect bare domain to www (optional — remove if not needed)
+# [[redirects]]
+#   from   = "https://www.jardinbotaniquecayeshaiti.org/*"
+#   to     = "https://jardinbotaniquecayeshaiti.org/:splat"
+#   status = 301
+
+# Custom 404 page
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
