@@ -1,284 +1,101 @@
-<!-- _includes/header.html — FR / EN / KR (Kreyòl ayisyen) -->
-
-{% assign current_url = page.url | default: "/" %}
-
-{% assign is_en = false %}
-{% assign is_ht = false %}
-
-{% if page.lang == "en" or current_url contains "/en/" %}
-  {% assign is_en = true %}
-{% elsif page.lang == "ht" or current_url contains "/ht/" %}
-  {% assign is_ht = true %}
-{% endif %}
-
-{% assign base = "" %}
-{% if is_en %}{% assign base = "/en" %}{% endif %}
-{% if is_ht %}{% assign base = "/ht" %}{% endif %}
-
-{% assign home_url          = base | append: "/" %}
-{% assign url_news          = base | append: "/nouvelles.html" %}
-{% assign url_events        = base | append: "/nouvelles.html#event" %}
-{% assign url_blog          = base | append: "/blogue.html" %}
-{% assign url_resources     = base | append: "/ressources.html" %}
-{% assign url_data          = base | append: "/donnees.html" %}
-{% assign url_about         = base | append: "/apropos.html" %}
-{% assign url_get_involved  = base | append: "/impliquer.html" %}
-{% assign url_nature_health = base | append: "/sante-de-la-nature.html" %}
-{% assign url_human_health  = base | append: "/sante-humaine.html" %}
-{% assign url_education     = base | append: "/education.html" %}
-{% assign url_science       = base | append: "/science.html" %}
-{% assign url_conservation  = base | append: "/conservation.html" %}
-{% assign url_horticulture  = base | append: "/horticulture.html" %}
-{% assign url_sos           = "/sos-petitionoffline.html" %}
-
-{% assign fr_url = "/" %}
-{% assign en_url = "/en/" %}
-{% assign ht_url = "/ht/" %}
-
-{% if current_url contains "/en/" %}
-  {% assign fr_url = current_url | replace_first: "/en/", "/" %}
-  {% assign en_url = current_url %}
-  {% assign ht_url = current_url | replace_first: "/en/", "/ht/" %}
-{% elsif current_url contains "/ht/" %}
-  {% assign fr_url = current_url | replace_first: "/ht/", "/" %}
-  {% assign en_url = current_url | replace_first: "/ht/", "/en/" %}
-  {% assign ht_url = current_url %}
-{% elsif current_url != "/" and current_url != "/index.html" %}
-  {% assign fr_url = current_url %}
-  {% assign en_url = "/en" | append: current_url %}
-  {% assign ht_url = "/ht" | append: current_url %}
-{% endif %}
-
-<!-- ═══ BARRE SECONDAIRE (top-tier) ═══════════════════════════════════ -->
-<div class="top-tier">
-  <div class="container top-tier-inner">
-
-    <div class="top-tier-links">
-      <a href="{{ url_news      | relative_url }}">{% if is_en %}News{% elsif is_ht %}Nouvèl{% else %}Nouvelles{% endif %}</a>
-      <a href="{{ url_events    | relative_url }}">{% if is_en %}Events{% elsif is_ht %}Evènman{% else %}Événements{% endif %}</a>
-      <a href="{{ url_blog      | relative_url }}">{% if is_en %}Blog{% elsif is_ht %}Blog{% else %}Blogue{% endif %}</a>
-      <a href="{{ url_resources | relative_url }}">{% if is_en %}Resources{% elsif is_ht %}Resous{% else %}Ressources{% endif %}</a>
-      <a href="{{ url_data      | relative_url }}" class="top-data-link">{% if is_en %}Data{% elsif is_ht %}Done{% else %}Données{% endif %}</a>
-    </div>
-
-    <div class="top-tier-tools">
-      <div class="tool-item lang-switch">
-        <a href="{{ fr_url | relative_url }}" class="lang-btn {% unless is_en or is_ht %}is-active{% endunless %}" title="Français">
-          <span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span>
-        </a>
-        <a href="{{ en_url | relative_url }}" class="lang-btn {% if is_en %}is-active{% endif %}" title="English">
-          <span class="lang-flag">🇺🇸</span><span class="lang-code">EN</span>
-        </a>
-        <a href="{{ ht_url | relative_url }}" class="lang-btn {% if is_ht %}is-active{% endif %}" title="Kreyòl ayisyen">
-          <span class="lang-flag">🇭🇹</span><span class="lang-code">KR</span>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- ═══ EN-TÊTE PRINCIPALE (main-tier) ════════════════════════════════ -->
-<header class="main-tier">
-  <div class="container main-tier-inner">
-
-    <a class="brand" href="{{ home_url | relative_url }}">
-      <img src="{{ 'images/logo/logo-jardin-botanique-des-cayes.png' | relative_url }}"
-           alt="Logo Jardin Botanique des Cayes">
-    </a>
-
-    <nav class="main-nav" id="main-nav">
-
-      <div class="drop" id="dropAccueil">
-        <div class="nav-group">
-          <a href="{{ home_url | relative_url }}">{% if is_en %}HOME{% elsif is_ht %}AKÈY{% else %}ACCUEIL{% endif %}</a>
-          <button type="button" id="btnAccueil"
-                  aria-label="{% if is_en %}Open Home menu{% elsif is_ht %}Ouvri meni{% else %}Ouvrir menu{% endif %}">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-        </div>
-        <div class="menu">
-          <a href="{{ url_about | relative_url }}">{% if is_en %}About{% elsif is_ht %}Sou nou{% else %}À propos{% endif %}</a>
-          <a href="#">{% if is_en %}Board of Directors{% elsif is_ht %}Konsèy Administrasyon{% else %}Conseil d'administration{% endif %}</a>
-          <a href="{{ url_sos | relative_url }}">{% if is_en %}SOS Petition{% elsif is_ht %}Petisyon SOS{% else %}SOS Pétition{% endif %}</a>
-        </div>
-      </div>
-
-      <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% elsif is_ht %}PATISIPE{% else %}S'IMPLIQUER{% endif %}</a>
-
-      <div class="drop" id="dropNature">
-        <div class="nav-group">
-          <a href="{{ url_nature_health | relative_url }}">{% if is_en %}NATURE'S HEALTH{% elsif is_ht %}SANTE LANATI{% else %}SANTÉ DE LA NATURE{% endif %}</a>
-          <button type="button" id="btnNature"
-                  aria-label="{% if is_en %}Open Nature menu{% elsif is_ht %}Ouvri meni Lanati{% else %}Ouvrir menu Nature{% endif %}">
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-        </div>
-        <div class="menu">
-          <a href="{{ url_science      | relative_url }}">{% if is_en %}Science{% elsif is_ht %}Syans{% else %}Sciences{% endif %}</a>
-          <a href="{{ url_data         | relative_url }}">{% if is_en %}Data{% elsif is_ht %}Done{% else %}Données{% endif %}</a>
-          <a href="{{ url_conservation | relative_url }}">{% if is_en %}Conservation{% elsif is_ht %}Konsèvasyon{% else %}Conservation{% endif %}</a>
-          <a href="{{ url_horticulture | relative_url }}">{% if is_en %}Horticulture & Restoration{% elsif is_ht %}Otikiltè & Restosyon{% else %}Horticulture & Restauration{% endif %}</a>
-        </div>
-      </div>
-
-      <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% elsif is_ht %}SANTE MOUN{% else %}SANTÉ HUMAINE{% endif %}</a>
-      <a href="{{ url_education    | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
-
-    </nav>
-
-    <div class="main-actions">
-      <button class="search-toggle" id="searchToggle" aria-label="{% if is_en %}Search{% elsif is_ht %}Chèche{% else %}Rechercher{% endif %}" title="{% if is_en %}Search{% elsif is_ht %}Chèche{% else %}Rechercher{% endif %}">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
-      <a href="{{ url_get_involved | append: '#membership' | relative_url }}" class="btn-member-main">
-        {% if is_en %}BECOME A MEMBER{% elsif is_ht %}TOUNEN MANM{% else %}DEVENIR MEMBRE{% endif %}
-      </a>
-      <button class="burger" id="burger"
-              aria-label="{% if is_en %}Open mobile menu{% elsif is_ht %}Ouvri meni{% else %}Ouvrir le menu{% endif %}">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-
-  </div>
-</header>
-
-<!-- ═══ PANNEAU DE RECHERCHE ══════════════════════════════════════════ -->
-<div id="search-overlay" class="search-overlay" role="search" aria-hidden="true">
-  <div class="search-overlay-inner">
-    <form class="search-overlay-form" onsubmit="jbcSearch(event)">
-      <i class="fa-solid fa-magnifying-glass search-overlay-icon"></i>
-      <input type="text" id="searchOverlayInput" class="search-overlay-input"
-             placeholder="{% if is_en %}Search the site…{% elsif is_ht %}Chèche sou sit la…{% else %}Rechercher sur le site…{% endif %}"
-             autocomplete="off" spellcheck="false">
-      <button type="button" class="search-overlay-close" id="searchClose" aria-label="Fermer">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </form>
-    <div id="searchResults" class="search-results"></div>
-  </div>
-</div>
-
-<style>
-  /* --- Bouton loupe --- */
-  .search-toggle {
-    background: none; border: none; cursor: pointer;
-    color: var(--nav-text, #2F5D2F); font-size: 1.1rem;
-    padding: 8px 10px; border-radius: 8px; transition: .2s;
-    display: flex; align-items: center;
-  }
-  .search-toggle:hover { background: rgba(47,93,47,.08); }
-
-  /* --- Overlay de recherche --- */
-  .search-overlay {
-    position: fixed; inset: 0; z-index: 9900;
-    background: rgba(10,20,12,.82);
-    backdrop-filter: blur(6px);
-    display: flex; align-items: flex-start; justify-content: center;
-    padding-top: 80px;
-    opacity: 0; pointer-events: none; transition: opacity .22s;
-  }
-  .search-overlay.is-open { opacity: 1; pointer-events: all; }
-  .search-overlay-inner { width: min(760px, 94vw); }
-
-  .search-overlay-form {
-    display: flex; align-items: center; gap: 12px;
-    background: #fff; border-radius: 16px; padding: 14px 20px;
-    box-shadow: 0 24px 60px rgba(0,0,0,.28);
-  }
-  .search-overlay-icon { color: #2F5D2F; font-size: 1.2rem; flex-shrink: 0; }
-  .search-overlay-input {
-    flex: 1; border: none; outline: none; font-size: 1.15rem;
-    font-family: inherit; background: transparent; color: #1f2a33;
-  }
-  .search-overlay-close {
-    background: none; border: none; cursor: pointer;
-    font-size: 1.2rem; color: #999; padding: 4px; transition: .2s;
-  }
-  .search-overlay-close:hover { color: #2F5D2F; }
-
-  .search-results {
-    margin-top: 14px; display: flex; flex-direction: column; gap: 8px;
-    max-height: 60vh; overflow-y: auto;
-  }
-  .search-result-item {
-    background: rgba(255,255,255,.96); border-radius: 12px; padding: 14px 18px;
-    text-decoration: none; color: #1f2a33; transition: .18s;
-    border: 1px solid rgba(0,0,0,.06);
-  }
-  .search-result-item:hover { background: #fff; transform: translateX(4px); border-color: #5E8F3A; }
-  .search-result-item strong { display: block; color: #2F5D2F; margin-bottom: 4px; font-size: 1rem; }
-  .search-result-item span { font-size: .88rem; color: #666; line-height: 1.5; }
-  .search-no-results { text-align: center; color: rgba(255,255,255,.7); padding: 20px; font-size: 1rem; }
-</style>
 
 <script>
-(function(){
-  /* Index des pages du site */
-  const PAGES = [
-    { title:"Accueil / Home",        url:"{{ '/' | relative_url }}",                         desc:"Jardin Botanique des Cayes — biodiversité, santé, éducation" },
-    { title:"Santé de la Nature",    url:"{{ '/sante-de-la-nature.html' | relative_url }}",  desc:"Sciences, données, conservation, horticulture" },
-    { title:"Santé Humaine",         url:"{{ '/sante-humaine.html' | relative_url }}",        desc:"Plantes médicinales, phytothérapie, naturopathie" },
-    { title:"Éducation",             url:"{{ '/education.html' | relative_url }}",            desc:"Programmes scolaires, formations, cours publics" },
-    { title:"S'impliquer",           url:"{{ '/impliquer.html' | relative_url }}",            desc:"Visite, adhésion, événement, partenariat" },
-    { title:"Sciences",              url:"{{ '/science.html' | relative_url }}",              desc:"Recherche scientifique, botanique, projets" },
-    { title:"Données",               url:"{{ '/donnees.html' | relative_url }}",              desc:"Bases de données biodiversité, cartographie" },
-    { title:"Conservation",          url:"{{ '/conservation.html' | relative_url }}",         desc:"Protection espèces, restauration écosystèmes" },
-    { title:"Horticulture",          url:"{{ '/horticulture.html' | relative_url }}",         desc:"Pépinière, production de plantes, restauration" },
-    { title:"Nouvelles",             url:"{{ '/nouvelles.html' | relative_url }}",            desc:"Actualités et événements du jardin" },
-    { title:"Blogue",                url:"{{ '/blogue.html' | relative_url }}",               desc:"Articles scientifiques et éducatifs" },
-    { title:"Ressources",            url:"{{ '/ressources.html' | relative_url }}",           desc:"Bibliothèque, publications, téléchargements PDF" },
-    { title:"À propos",              url:"{{ '/apropos.html' | relative_url }}",              desc:"Histoire et mission du Jardin Botanique des Cayes" },
-    { title:"SOS Pétition",          url:"{{ '/sos-petitionoffline.html' | relative_url }}",  desc:"Signer la pétition pour la protection de la biodiversité" },
-    { title:"Nature's Health (EN)",  url:"{{ '/en/sante-de-la-nature.html' | relative_url }}",desc:"Science, data, conservation, horticulture" },
-    { title:"Human Health (EN)",     url:"{{ '/en/sante-humaine.html' | relative_url }}",     desc:"Medicinal plants, phytotherapy, naturopathy" },
-    { title:"Education (EN)",        url:"{{ '/en/education.html' | relative_url }}",         desc:"School programs, training, public courses" },
-  ];
+(function () {
+  'use strict';
 
-  const toggle = document.getElementById('searchToggle');
-  const overlay = document.getElementById('search-overlay');
-  const input = document.getElementById('searchOverlayInput');
-  const closeBtn = document.getElementById('searchClose');
-  const results = document.getElementById('searchResults');
-
-  function openSearch() {
-    overlay.classList.add('is-open');
-    overlay.setAttribute('aria-hidden','false');
-    setTimeout(()=> input.focus(), 80);
-  }
-  function closeSearch() {
-    overlay.classList.remove('is-open');
-    overlay.setAttribute('aria-hidden','true');
-    input.value = '';
-    results.innerHTML = '';
+  /* ── Attendre que le DOM soit prêt ─────────────────────────────── */
+  function ready(fn) {
+    if (document.readyState !== 'loading') { fn(); }
+    else { document.addEventListener('DOMContentLoaded', fn); }
   }
 
-  toggle && toggle.addEventListener('click', openSearch);
-  closeBtn && closeBtn.addEventListener('click', closeSearch);
-  overlay && overlay.addEventListener('click', function(e){ if(e.target===overlay) closeSearch(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeSearch(); });
+  ready(function () {
 
-  input && input.addEventListener('input', function(){
-    const q = this.value.trim().toLowerCase();
-    results.innerHTML = '';
-    if(q.length < 2) return;
-    const hits = PAGES.filter(p =>
-      p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)
-    );
-    if(!hits.length){
-      results.innerHTML = '<p class="search-no-results">Aucun résultat trouvé.</p>';
-      return;
-    }
-    hits.forEach(p => {
-      const a = document.createElement('a');
-      a.className = 'search-result-item';
-      a.href = p.url;
-      a.innerHTML = '<strong>'+p.title+'</strong><span>'+p.desc+'</span>';
-      results.appendChild(a);
+    /* ── Éléments ───────────────────────────────────────────────── */
+    var burger  = document.getElementById('burger');
+    var mainNav = document.getElementById('main-nav');
+
+    /* Sécurité : on arrête si les éléments n'existent pas */
+    if (!burger || !mainNav) { return; }
+
+    /* ── 1. Ouvrir / fermer le menu mobile ──────────────────────── */
+    burger.setAttribute('aria-expanded', 'false');
+
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = mainNav.classList.toggle('nav-open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      /* Bloquer le scroll du body quand le menu est ouvert */
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-  });
 
-  window.jbcSearch = function(e){ e.preventDefault(); };
+    /* ── 2. Fermer en cliquant en dehors du menu ─────────────────── */
+    document.addEventListener('click', function (e) {
+      if (
+        mainNav.classList.contains('nav-open') &&
+        !mainNav.contains(e.target) &&
+        !burger.contains(e.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    /* ── 3. Fermer avec la touche Échap ─────────────────────────── */
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Escape' || e.key === 'Esc') &&
+           mainNav.classList.contains('nav-open')) {
+        closeMenu();
+        burger.focus(); /* remettre le focus sur le bouton */
+      }
+    });
+
+    /* ── 4. Fermer en cliquant sur un lien du menu (mobile) ──────── */
+    mainNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        if (window.innerWidth <= 900) { closeMenu(); }
+      });
+    });
+
+    /* ── 5. Dropdowns (chevrons Accueil / Nature) ────────────────── */
+    document.querySelectorAll('.drop').forEach(function (drop) {
+      var btn  = drop.querySelector('button');
+      var menu = drop.querySelector('.menu');
+      if (!btn || !menu) { return; }
+
+      btn.setAttribute('aria-expanded', 'false');
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = drop.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(open));
+        /* Fermer les autres dropdowns */
+        document.querySelectorAll('.drop').forEach(function (other) {
+          if (other !== drop) {
+            other.classList.remove('is-open');
+            var otherBtn = other.querySelector('button');
+            if (otherBtn) { otherBtn.setAttribute('aria-expanded', 'false'); }
+          }
+        });
+      });
+    });
+
+    /* ── 6. Fermer les dropdowns en cliquant ailleurs ────────────── */
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.drop.is-open').forEach(function (drop) {
+        drop.classList.remove('is-open');
+        var btn = drop.querySelector('button');
+        if (btn) { btn.setAttribute('aria-expanded', 'false'); }
+      });
+    });
+
+    /* ── Fonction utilitaire ─────────────────────────────────────── */
+    function closeMenu() {
+      mainNav.classList.remove('nav-open');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+  }); /* fin ready() */
+
 })();
 </script>
-
