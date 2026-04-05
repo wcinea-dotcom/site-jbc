@@ -1,15 +1,52 @@
+---
+layout: default
+title: SOS Pétition
+lang: fr
+ref: sos-petition-privee
+---
 
+<script>
+(function(){
+  'use strict';
+  /* ── Protection mot de passe ─────────────────────────────────── */
+  var KEY = 'jbc_sos_access';
+  var MOT_DE_PASSE = 'JBC-SOS-2026'; /* ← Changez ce mot de passe */
+
+  function verifier() {
+    if (sessionStorage.getItem(KEY) === 'ok') { return; }
+    var container = document.getElementById('petition-protected');
+    if (container) { container.style.display = 'none'; }
+    var pwd = prompt('🔒 Entrez le mot de passe pour accéder à la pétition :');
+    if (pwd === MOT_DE_PASSE) {
+      sessionStorage.setItem(KEY, 'ok');
+      if (container) { container.style.display = 'block'; }
+    } else {
+      document.body.innerHTML =
+        '<div style="text-align:center;padding:100px 20px;font-family:sans-serif;">' +
+        '<div style="font-size:4rem;margin-bottom:20px;">⛔</div>' +
+        '<h2 style="color:#c0392b;margin-bottom:14px;">Accès refusé</h2>' +
+        '<p style="color:#555;margin-bottom:30px;">Vous n\'avez pas l\'autorisation d\'accéder à cette page.<br>Faites une demande d\'accès si vous souhaitez signer la pétition.</p>' +
+        '<a href="/sos-petitionoffline.html" style="display:inline-block;background:#2F5D2F;color:#fff;padding:14px 30px;border-radius:14px;font-weight:900;text-decoration:none;">Demander l\'accès</a>' +
+        '&nbsp;&nbsp;' +
+        '<a href="/" style="display:inline-block;background:#eee;color:#333;padding:14px 30px;border-radius:14px;font-weight:900;text-decoration:none;">← Retour à l\'accueil</a>' +
+        '</div>';
+    }
+  }
+
+  if (document.readyState !== 'loading') { verifier(); }
+  else { document.addEventListener('DOMContentLoaded', verifier); }
+})();
+</script>
+
+<div id="petition-protected">
 
 <style>
-  /* RESET ET STYLES SPÉCIFIQUES POUR LA PÉTITION */
   .petition-page-container {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f7f2;
       color: #1e3c2c;
       line-height: 1.6;
   }
-
-  /* Barre d'urgence */
   .urgent-bar {
       background: #c0392b; color: white; text-align: center; padding: 15px;
       font-weight: bold; font-size: 1.3rem; letter-spacing: 1px;
@@ -20,10 +57,8 @@
       50% { background-color: #e74c3c; }
       100% { background-color: #c0392b; }
   }
-
-  /* Header Pétition - AVEC VOTRE NOUVELLE IMAGE HERO */
   .petition-header {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}');
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}');
       background-size: cover; background-position: center; color: white;
       text-align: center; padding: 150px 20px; position: relative;
   }
@@ -32,20 +67,12 @@
       font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   }
   .petition-header h1 span { color: #f1c40f; }
-  .petition-header p {
-      font-size: 1.6rem; max-width: 900px; margin: 0 auto;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  }
-
-  /* Conteneur principal */
+  .petition-header p { font-size: 1.6rem; max-width: 900px; margin: 0 auto; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
   .petition-content { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-
-  /* Section héros avec compteur */
   .hero-pet { text-align: center; margin-bottom: 60px; }
-  .hero-pet h2 { font-size: 3rem; color: #1e3c2c; margin-bottom: 20px; font-weight: 900;}
+  .hero-pet h2 { font-size: 3rem; color: #1e3c2c; margin-bottom: 20px; font-weight: 900; }
   .hero-pet h2 i { color: #c0392b; margin-right: 10px; }
   .hero-pet p { font-size: 1.4rem; max-width: 900px; margin: 0 auto 30px; }
-
   .signature-counter {
       background: linear-gradient(135deg, #1e3c2c 0%, #2e5c3a 100%); color: white;
       padding: 50px; border-radius: 15px; text-align: center; margin: 40px auto;
@@ -57,88 +84,71 @@
       font-size: 1.3rem; background: rgba(255,255,255,0.2);
       padding: 10px; border-radius: 50px; margin-top: 15px;
   }
-
   .btn-pet {
       display: inline-block; background: #c0392b; color: white; padding: 20px 60px;
       font-size: 1.8rem; font-weight: bold; text-decoration: none; border-radius: 50px;
-      transition: all 0.3s; border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4); margin: 20px 0;
+      transition: all 0.3s; border: none; cursor: pointer;
+      box-shadow: 0 5px 15px rgba(192,57,43,0.4); margin: 20px 0;
   }
-  .btn-pet:hover { background: #a93226; transform: scale(1.05); color: white;}
-  .btn-pet i { margin-right: 10px; }
-
-  /* GRANDE PHOTO DU JARDIN */
+  .btn-pet:hover { background: #a93226; transform: scale(1.05); color: white; }
   .large-garden-photo {
       width: 100%; height: 500px;
       background: url('{{ "images/sos-petition/espace-ecologique.jpg" | relative_url }}') center/cover;
-      border-radius: 15px; margin: 60px 0 20px 0; box-shadow: 0 15px 30px rgba(0,0,0,0.3); position: relative;
+      border-radius: 15px; margin: 60px 0 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.3); position: relative;
   }
   .large-garden-photo .caption {
       position: absolute; bottom: 30px; left: 30px; background: rgba(0,0,0,0.7);
       color: white; padding: 15px 30px; border-radius: 50px; font-size: 1.3rem; font-weight: bold;
   }
   .large-garden-photo .caption i { color: #f1c40f; margin-right: 10px; }
-
   .garden-description {
       text-align: center; font-size: 1.8rem; font-weight: bold; color: #1e3c2c;
-      margin: 20px 0 40px 0; padding: 20px; background: white; border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 8px solid #27ae60; border-right: 8px solid #27ae60;
+      margin: 20px 0 40px; padding: 20px; background: white; border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-left: 8px solid #27ae60; border-right: 8px solid #27ae60;
   }
-  .garden-description i { color: #27ae60; margin: 0 10px; }
-
-  /* Section POURQUOI CE JARDIN */
   .treasure-section { background: white; padding: 70px 40px; border-radius: 15px; margin: 40px 0 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-  .treasure-section h2 { font-size: 2.8rem; color: #1e3c2c; text-align: center; margin-bottom: 20px; font-weight: 900;}
-  .treasure-section h2 i { color: #c0392b; }
+  .treasure-section h2 { font-size: 2.8rem; color: #1e3c2c; text-align: center; margin-bottom: 20px; font-weight: 900; }
   .treasure-subtitle { text-align: center; font-size: 1.3rem; color: #555; max-width: 800px; margin: 0 auto 50px; font-style: italic; }
   .treasure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
   .treasure-card { text-align: center; padding: 35px 20px; background: #f9fbf8; border-radius: 10px; transition: all 0.3s; border-bottom: 5px solid transparent; }
   .treasure-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-bottom: 5px solid #27ae60; }
   .treasure-card i { font-size: 4.5rem; color: #27ae60; margin-bottom: 20px; }
-  .treasure-card h3 { font-size: 2rem; color: #1e3c2c; margin-bottom: 15px; font-weight: 800;}
-
-  /* Section LE JARDIN EN DANGER */
+  .treasure-card h3 { font-size: 2rem; color: #1e3c2c; margin-bottom: 15px; font-weight: 800; }
   .danger-section { margin: 70px 0; }
-  .danger-section h2 { font-size: 2.8rem; color: #c0392b; text-align: center; margin-bottom: 20px; font-weight: 900;}
+  .danger-section h2 { font-size: 2.8rem; color: #c0392b; text-align: center; margin-bottom: 20px; font-weight: 900; }
   .danger-section .subtitle { text-align: center; font-size: 1.3rem; color: #555; margin-bottom: 40px; }
-  .danger-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+  .danger-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
   .danger-card { position: relative; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.3); height: 280px; cursor: pointer; transition: all 0.3s; }
-  .danger-card:hover { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .danger-card:hover { transform: scale(1.03); }
   .danger-card img { width: 100%; height: 100%; object-fit: cover; }
   .danger-card .overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: white; padding: 20px; transform: translateY(100%); transition: transform 0.4s; }
   .danger-card:hover .overlay { transform: translateY(0); }
   .danger-card .overlay h3 { font-size: 1.4rem; margin-bottom: 8px; color: #f1c40f; }
-
-  /* Section FLAMMES */
   .fire-section { background: #1a1a1a; color: white; padding: 70px 40px; border-radius: 15px; margin: 70px 0; }
-  .fire-section h2 { font-size: 2.8rem; color: #e74c3c; margin-bottom: 20px; text-align: center; font-weight: 900;}
+  .fire-section h2 { font-size: 2.8rem; color: #e74c3c; margin-bottom: 20px; text-align: center; font-weight: 900; }
   .fire-section .subtitle { text-align: center; font-size: 1.2rem; color: #ccc; margin-bottom: 40px; }
-  .fire-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 20px; }
+  .fire-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
   .fire-card { background: #2a2a2a; border-radius: 10px; overflow: hidden; transition: transform 0.3s; border: 1px solid #444; height: 320px; }
   .fire-card:hover { transform: scale(1.02); border-color: #e74c3c; }
   .fire-card img { width: 100%; height: 200px; object-fit: cover; }
   .fire-card .caption { padding: 20px; }
   .fire-card .caption h3 { color: #e74c3c; margin-bottom: 8px; font-size: 1.3rem; }
-
-  /* Section Madame Donna Bastien */
   .donna-section { background: white; padding: 60px 50px; border-radius: 15px; margin: 70px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
   .donna-grid { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
   .donna-image { flex: 1; min-width: 300px; text-align: center; }
   .donna-image img { width: 100%; max-width: 350px; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.2); border: 5px solid #f1c40f; }
   .donna-info { flex: 2; }
-  .donna-info h2 { font-size: 2.8rem; color: #c0392b; margin-bottom: 25px; font-weight: 900;}
-  .fact { background: #f4f7f2; padding: 20px; margin: 15px 0; border-left: 8px solid #c0392b; border-radius: 5px; font-size: 1.2rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-
-  /* Section DOCUMENTS */
+  .donna-info h2 { font-size: 2.8rem; color: #c0392b; margin-bottom: 25px; font-weight: 900; }
+  .fact { background: #f4f7f2; padding: 20px; margin: 15px 0; border-left: 8px solid #c0392b; border-radius: 5px; font-size: 1.2rem; }
   .documents-section { background: linear-gradient(135deg, #1e3c2c 0%, #2e5c3a 100%); color: white; padding: 60px 50px; border-radius: 15px; margin: 70px 0; }
-  .documents-section h2 { font-size: 2.8rem; margin-bottom: 20px; text-align: center; font-weight: 900;}
+  .documents-section h2 { font-size: 2.8rem; margin-bottom: 20px; text-align: center; font-weight: 900; }
   .documents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 40px 0; }
-  .document-item { background: rgba(255, 255, 255, 0.15); padding: 15px 12px; border-radius: 50px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.3); transition: all 0.3s; cursor: pointer; font-weight: 500; }
-  .document-item:hover { background: rgba(255, 255, 255, 0.3); transform: scale(1.05); border-color: #f1c40f; }
+  .document-item { background: rgba(255,255,255,0.15); padding: 15px 12px; border-radius: 50px; text-align: center; border: 1px solid rgba(255,255,255,0.3); transition: all 0.3s; cursor: pointer; font-weight: 500; }
+  .document-item:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); border-color: #f1c40f; }
   .btn-download-all { display: inline-block; background: #f1c40f; color: #1e3c2c; padding: 15px 40px; font-size: 1.3rem; font-weight: bold; text-decoration: none; border-radius: 50px; transition: all 0.3s; margin-top: 20px; }
-
-  /* Section FORMULAIRE PÉTITION NETLIFY */
   .petition-form-section { background: white; padding: 70px 50px; border-radius: 15px; margin: 70px 0; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-  .petition-form-section h2 { font-size: 2.8rem; color: #1e3c2c; margin-bottom: 20px; font-weight: 900;}
+  .petition-form-section h2 { font-size: 2.8rem; color: #1e3c2c; margin-bottom: 20px; font-weight: 900; }
   .signature-form { max-width: 700px; margin: 0 auto; text-align: left; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
   .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #1e3c2c; font-size: 1.1rem; }
@@ -148,251 +158,211 @@
   .checkbox-group input { width: 25px; height: 25px; }
   .btn-sign { background: #27ae60; color: white; padding: 20px 40px; font-size: 1.6rem; font-weight: bold; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s; width: 100%; }
   .btn-sign:hover { background: #219a52; transform: scale(1.02); }
-
-  /* Section PARTAGE */
   .share-section { background: linear-gradient(135deg, #2980b9 0%, #3498db 100%); color: white; padding: 70px 50px; border-radius: 15px; margin: 70px 0; text-align: center; }
-  .share-section h2 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 900;}
+  .share-section h2 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 900; }
   .share-buttons { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; margin: 40px 0; }
   .share-btn { width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white !important; font-size: 3rem; text-decoration: none !important; transition: all 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
   .share-btn:hover { transform: scale(1.15); }
-  .fb { background: #3b5998; } .tw { background: #1da1f2; } .wa { background: #25d366; } .ig { background: #e4405f; } .tg { background: #0088cc; }
-
+  .fb { background: #3b5998; } .tw { background: #1da1f2; } .wa { background: #25d366; }
   @media (max-width: 768px) {
-      .form-row { grid-template-columns: 1fr; }
-      .petition-page-container section, .petition-page-container div[class$="-section"] { padding: 40px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .donna-grid { flex-direction: column; }
   }
 </style>
 
 <div class="petition-page-container">
-  
+
   <div class="urgent-bar">
-      <i class="fas fa-exclamation-triangle"></i> URGENT - LE JARDIN BOTANIQUE DES CAYES BRÛLE - 5 000 SIGNATURES NÉCESSAIRES <i class="fas fa-exclamation-triangle"></i>
+    <i class="fas fa-exclamation-triangle"></i>
+    URGENT - LE JARDIN BOTANIQUE DES CAYES BRÛLE - 5 000 SIGNATURES NÉCESSAIRES
+    <i class="fas fa-exclamation-triangle"></i>
   </div>
 
   <header class="petition-header">
-      <h1>🇭🇹 SAUVONS LE <span>JARDIN BOTANIQUE</span> DES CAYES</h1>
-      <p>Un patrimoine haïtien unique au monde est en train de brûler. Une seule personne en est responsable. Nous devons l'arrêter MAINTENANT.</p>
+    <h1>🇭🇹 SAUVONS LE <span>JARDIN BOTANIQUE</span> DES CAYES</h1>
+    <p>Un patrimoine haïtien unique au monde est en train de brûler. Une seule personne en est responsable. Nous devons l'arrêter MAINTENANT.</p>
   </header>
 
   <div class="petition-content">
-      
-      <div class="hero-pet">
-          <h2><i class="fas fa-leaf"></i> CE JARDIN, C'EST NOUS !</h2>
-          <p>Le Jardin Botanique des Cayes, ce n'est pas seulement un terrain avec des arbres. C'est notre identité. C'est notre fierté. C'est la carte postale verte d'Haïti que nous montrons au monde.</p>
-          
-          <div class="signature-counter">
-              <div class="number">2,347</div>
-              <div class="target">sur 5 000 signatures</div>
-              <div class="remaining">Encore 2,653 signatures pour forcer le gouvernement haïtien à agir immédiatement</div>
-          </div>
-          <a href="#signer" class="btn-pet"><i class="fas fa-pen"></i> JE SIGNE MAINTENANT</a>
-      </div>
 
-      <div class="large-garden-photo">
-          <div class="caption">
-              <i class="fas fa-leaf"></i> Le Jardin Botanique des Cayes - Un trésor national à préserver
-          </div>
+    <div class="hero-pet">
+      <h2><i class="fas fa-leaf"></i> CE JARDIN, C'EST NOUS !</h2>
+      <p>Le Jardin Botanique des Cayes, ce n'est pas seulement un terrain avec des arbres. C'est notre identité. C'est notre fierté. C'est la carte postale verte d'Haïti que nous montrons au monde.</p>
+      <div class="signature-counter">
+        <div class="number">2,347</div>
+        <div class="target">sur 5 000 signatures</div>
+        <div class="remaining">Encore 2,653 signatures pour forcer le gouvernement haïtien à agir immédiatement</div>
       </div>
+      <a href="#signer" class="btn-pet"><i class="fas fa-pen"></i> JE SIGNE MAINTENANT</a>
+    </div>
 
-      <div class="garden-description">
-          <i class="fas fa-quote-left"></i> Le Jardin Botanique des Cayes est notre carte postale, l'une des plus grandes réalisations environnementales des 50 dernières années. <i class="fas fa-quote-right"></i>
-          <div style="margin-top: 10px; font-size: 1.2rem; color: #555;">Un héritage que nous devons absolument sauver pour les générations futures.</div>
-      </div>
+    <div class="large-garden-photo">
+      <div class="caption"><i class="fas fa-leaf"></i> Le Jardin Botanique des Cayes - Un trésor national à préserver</div>
+    </div>
 
-      <div class="treasure-section">
-          <h2><i class="fas fa-heart" style="color: #c0392b;"></i> POURQUOI CE JARDIN EST NOTRE TRÉSOR À NOUS</h2>
-          <div class="treasure-subtitle">
-              "Le Jardin Botanique des Cayes, c'est l'âme verte d'Haïti. Voici pourquoi nous devons le sauver."
-          </div>
-          <div class="treasure-grid">
-              <div class="treasure-card">
-                  <i class="fas fa-child"></i>
-                  <h3>Pour nos enfants</h3>
-                  <p>Un lieu de découverte où des générations d'écoliers haïtiens ont appris à aimer et respecter la nature. C'est l'héritage que nous devons leur transmettre.</p>
-              </div>
-              <div class="treasure-card">
-                  <i class="fas fa-graduation-cap"></i>
-                  <h3>Pour nos étudiants</h3>
-                  <p>La majorité des universités haïtiennes y envoyaient leurs stagiaires en agronomie, biologie et sciences environnementales. Plus de 500 étudiants par an formaient la relève.</p>
-              </div>
-              <div class="treasure-card">
-                  <i class="fas fa-flask"></i>
-                  <h3>Pour nos chercheurs</h3>
-                  <p>Le SEUL jardin botanique haïtien reconnu par le réseau international BGCI. Prix d'institution exemplaire mondiale en 2023. Une fierté scientifique nationale.</p>
-              </div>
-              <div class="treasure-card">
-                  <i class="fas fa-globe-americas"></i>
-                  <h3>Pour Haïti et sa diaspora</h3>
-                  <p>La carte postale verte d'Haïti. Ce que nous montrons au monde pour dire : notre pays a de la valeur, notre pays a un avenir, notre pays est riche de sa biodiversité.</p>
-              </div>
-          </div>
-      </div>
+    <div class="garden-description">
+      <i class="fas fa-quote-left"></i> Le Jardin Botanique des Cayes est notre carte postale, l'une des plus grandes réalisations environnementales des 50 dernières années. <i class="fas fa-quote-right"></i>
+      <div style="margin-top:10px; font-size:1.2rem; color:#555;">Un héritage que nous devons absolument sauver pour les générations futures.</div>
+    </div>
 
-      <div class="danger-section">
-          <h2><i class="fas fa-exclamation-triangle" style="color: #c0392b;"></i> LE JARDIN EN DANGER</h2>
-          <div class="subtitle">6 photos pour comprendre ce que nous sommes en train de perdre</div>
-          
-          <div class="danger-grid">
-              <div class="danger-card">
-                  <img src="{{ 'images/sos-petition/elimination-jardin-ecologique.jpg' | relative_url }}" alt="Jardin avant les destructions">
-                  <div class="overlay">
-                      <h3>Le Jardin avant les destructions</h3>
-                      <p>Un paradis de verdure de 8 hectares, joyau de la biodiversité haïtienne.</p>
-                  </div>
-              </div>
-              <div class="danger-card">
-                  <img src="{{ 'images/sos-petition/Jbc-plantes.jpg' | relative_url }}" alt="Plantes endémiques">
-                  <div class="overlay">
-                      <h3>Plantes endémiques uniques au monde</h3>
-                      <p>Des espèces qu'on ne trouve nulle part ailleurs qu'en Haïti, aujourd'hui menacées.</p>
-                  </div>
-              </div>
-              <div class="danger-card">
-                  <img src="{{ 'images/sos-petition/charbon.jpg' | relative_url }}" alt="Incendies">
-                  <div class="overlay">
-                      <h3>Incendies allumés dans le jardin</h3>
-                      <p>Des feux criminels détruisent méthodiquement la végétation.</p>
-                  </div>
-              </div>
-          </div>
+    <div class="treasure-section">
+      <h2><i class="fas fa-heart" style="color:#c0392b;"></i> POURQUOI CE JARDIN EST NOTRE TRÉSOR</h2>
+      <div class="treasure-subtitle">"Le Jardin Botanique des Cayes, c'est l'âme verte d'Haïti."</div>
+      <div class="treasure-grid">
+        <div class="treasure-card">
+          <i class="fas fa-child"></i>
+          <h3>Pour nos enfants</h3>
+          <p>Un lieu de découverte où des générations d'écoliers haïtiens ont appris à aimer et respecter la nature.</p>
+        </div>
+        <div class="treasure-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Pour nos étudiants</h3>
+          <p>Plus de 500 étudiants par an en agronomie, biologie et sciences environnementales y formaient la relève.</p>
+        </div>
+        <div class="treasure-card">
+          <i class="fas fa-flask"></i>
+          <h3>Pour nos chercheurs</h3>
+          <p>Le SEUL jardin botanique haïtien reconnu par le réseau international BGCI. Prix d'institution exemplaire en 2023.</p>
+        </div>
+        <div class="treasure-card">
+          <i class="fas fa-globe-americas"></i>
+          <h3>Pour Haïti</h3>
+          <p>La carte postale verte d'Haïti. Ce que nous montrons au monde pour dire : notre pays a un avenir.</p>
+        </div>
       </div>
+    </div>
 
-      <div class="fire-section">
-          <h2><i class="fas fa-fire"></i> LE JARDIN ÉCOLOGIQUE EN FLAMMES</h2>
-          <div class="subtitle">La partie la plus précieuse du jardin volontairement incendiée</div>
-          
-          <div class="fire-grid">
-              <div class="fire-card">
-                  <img src="{{ 'images/sos-petition/Jardin-ecologique-enfeu.jpg' | relative_url }}" alt="Incendie criminel">
-                  <div class="caption">
-                      <h3>Incendie criminel - Janvier 2026</h3>
-                      <p>Des feux allumés délibérément pour tout raser. La zone "Jardin Écologique" est ravagée.</p>
-                  </div>
-              </div>
-              <div class="fire-card">
-                  <img src="{{ 'images/sos-petition/espace-ecologique.jpg' | relative_url }}" alt="Avant incendie">
-                  <div class="caption">
-                      <h3>La même zone avant</h3>
-                      <p>Un paradis de biodiversité unique au monde, avec des espèces qu'on ne trouve nulle part ailleurs.</p>
-                  </div>
-              </div>
-              <div class="fire-card">
-                  <img src="{{ 'images/sos-petition/barriere.jpg' | relative_url }}" alt="Accès bloqué">
-                  <div class="caption">
-                      <h3>Accès bloqué pendant l'incendie</h3>
-                      <p>Des barrières illégales ont empêché les secours et les pompiers d'intervenir.</p>
-                  </div>
-              </div>
-          </div>
+    <div class="danger-section">
+      <h2><i class="fas fa-exclamation-triangle" style="color:#c0392b;"></i> LE JARDIN EN DANGER</h2>
+      <div class="subtitle">6 photos pour comprendre ce que nous sommes en train de perdre</div>
+      <div class="danger-grid">
+        <div class="danger-card">
+          <img src="{{ 'images/sos-petition/elimination-jardin-ecologique.jpg' | relative_url }}" alt="Jardin avant">
+          <div class="overlay"><h3>Le Jardin avant les destructions</h3><p>Un paradis de verdure de 8 hectares.</p></div>
+        </div>
+        <div class="danger-card">
+          <img src="{{ 'images/sos-petition/Jbc-plantes.jpg' | relative_url }}" alt="Plantes endémiques">
+          <div class="overlay"><h3>Plantes endémiques uniques au monde</h3><p>Des espèces qu'on ne trouve nulle part ailleurs qu'en Haïti.</p></div>
+        </div>
+        <div class="danger-card">
+          <img src="{{ 'images/sos-petition/charbon.jpg' | relative_url }}" alt="Incendies">
+          <div class="overlay"><h3>Incendies allumés dans le jardin</h3><p>Des feux criminels détruisent méthodiquement la végétation.</p></div>
+        </div>
       </div>
+    </div>
 
-      <div class="donna-section">
-          <div class="donna-grid">
-              <div class="donna-image">
-                  <img src="https://static.vecteezy.com/system/resources/previews/020/765/399/non_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Madame Donna Bastien">
-                  <p><i class="fas fa-user"></i> Madame Donna Bastien</p>
-              </div>
-              
-              <div class="donna-info">
-                  <h2><i class="fas fa-user"></i> L'ACTRICE DE LA DESTRUCTION</h2>
-                  <div class="fact">
-                      <i class="fas fa-user-tag" style="color: #c0392b;"></i> <strong>Statut :</strong> Épouse d'un des 11 héritiers. <span style="color: #c0392b; font-weight: bold;">ELLE N'EST PAS HÉRITIÈRE ET N'A AUCUN DROIT FONCIER.</span>
-                  </div>
-                  <div class="fact">
-                      <i class="fas fa-chart-line" style="color: #c0392b;"></i> <strong>Ce qu'elle revendique :</strong> 0,32 hectare (3% du terrain) pour son mari.
-                  </div>
-                  <div class="fact">
-                      <i class="fas fa-skull-crossbones" style="color: #c0392b;"></i> <strong>Ce qu'elle détruit :</strong> 8 hectares (100% du terrain) avec des chiens, des incendies et des destructions massives.
-                  </div>
-                  <div class="fact">
-                      <i class="fas fa-gavel" style="color: #c0392b;"></i> <strong>Son mépris de la justice :</strong> Audiences ignorées (6 novembre et 10 décembre 2025). Décision de justice ignorée (levée des scellés le 13 août 2025).
-                  </div>
-              </div>
-          </div>
+    <div class="fire-section">
+      <h2><i class="fas fa-fire"></i> LE JARDIN ÉCOLOGIQUE EN FLAMMES</h2>
+      <div class="subtitle">La partie la plus précieuse du jardin volontairement incendiée</div>
+      <div class="fire-grid">
+        <div class="fire-card">
+          <img src="{{ 'images/sos-petition/Jardin-ecologique-enfeu.jpg' | relative_url }}" alt="Incendie">
+          <div class="caption"><h3>Incendie criminel - Janvier 2026</h3><p>Des feux allumés délibérément pour tout raser.</p></div>
+        </div>
+        <div class="fire-card">
+          <img src="{{ 'images/sos-petition/espace-ecologique.jpg' | relative_url }}" alt="Avant incendie">
+          <div class="caption"><h3>La même zone avant</h3><p>Un paradis de biodiversité unique au monde.</p></div>
+        </div>
+        <div class="fire-card">
+          <img src="{{ 'images/sos-petition/barriere.jpg' | relative_url }}" alt="Accès bloqué">
+          <div class="caption"><h3>Accès bloqué pendant l'incendie</h3><p>Des barrières illégales ont empêché les secours d'intervenir.</p></div>
+        </div>
       </div>
+    </div>
 
-      <div class="documents-section" id="documents">
-          <h2><i class="fas fa-folder-open"></i> TOUS LES DOCUMENTS JURIDIQUES</h2>
-          <p style="text-align: center; font-size: 1.2rem; margin-bottom: 20px;">Cliquez sur chaque document pour le consulter</p>
-          
-          <div class="documents-grid">
-              <div class="document-item"><i class="fas fa-file-contract"></i> Contrat 2002</div>
-              <div class="document-item"><i class="fas fa-gavel"></i> Citation tribunal</div>
-              <div class="document-item"><i class="fas fa-file-pdf"></i> Sommation</div>
-              <div class="document-item"><i class="fas fa-file-signature"></i> Constats</div>
-              <div class="document-item"><i class="fas fa-envelope"></i> Email 2017</div>
-              <div class="document-item"><i class="fas fa-balance-scale"></i> Levée scellés</div>
-              <div class="document-item"><i class="fas fa-users"></i> 11 héritiers</div>
-              <div class="document-item"><i class="fas fa-newspaper"></i> Presse</div>
-          </div>
-          
-          <div style="text-align: center;">
-              <a href="#" class="btn-download-all"><i class="fas fa-file-archive"></i> TOUS LES DOCUMENTS (ZIP)</a>
-          </div>
+    <div class="donna-section">
+      <div class="donna-grid">
+        <div class="donna-image">
+          <img src="https://static.vecteezy.com/system/resources/previews/020/765/399/non_2x/default-profile-account-unknown-icon-black-silhouette-free-vector.jpg" alt="Madame Donna Bastien">
+          <p><i class="fas fa-user"></i> Madame Donna Bastien</p>
+        </div>
+        <div class="donna-info">
+          <h2><i class="fas fa-user"></i> L'ACTRICE DE LA DESTRUCTION</h2>
+          <div class="fact"><i class="fas fa-user-tag" style="color:#c0392b;"></i> <strong>Statut :</strong> Épouse d'un des 11 héritiers. <span style="color:#c0392b;font-weight:bold;">ELLE N'EST PAS HÉRITIÈRE.</span></div>
+          <div class="fact"><i class="fas fa-chart-line" style="color:#c0392b;"></i> <strong>Ce qu'elle revendique :</strong> 0,32 hectare (3% du terrain).</div>
+          <div class="fact"><i class="fas fa-skull-crossbones" style="color:#c0392b;"></i> <strong>Ce qu'elle détruit :</strong> 8 hectares (100%) avec incendies et destructions.</div>
+          <div class="fact"><i class="fas fa-gavel" style="color:#c0392b;"></i> <strong>Mépris de la justice :</strong> Audiences ignorées (6 nov. et 10 déc. 2025). Décision ignorée (13 août 2025).</div>
+        </div>
       </div>
+    </div>
 
-      <div class="petition-form-section" id="signer">
-          <h2><i class="fas fa-pen-fancy"></i> SIGNEZ LA PÉTITION</h2>
-          <p style="font-size: 1.3rem; margin-bottom: 40px;">5 000 signatures pour exiger du gouvernement haïtien qu'il agisse immédiatement. Chaque signature est une voix qui dit NON à la destruction de notre patrimoine.</p>
-          
-          <div class="signature-form">
-              <form name="petition-signatures" method="POST" data-netlify="true" action="/merci-petition.html">
-                  <input type="hidden" name="form-name" value="petition-signatures">
-                  <div class="form-row">
-                      <div class="form-group">
-                          <label for="prenom">Prénom *</label>
-                          <input type="text" id="prenom" name="prenom" required>
-                      </div>
-                      <div class="form-group">
-                          <label for="nom">Nom *</label>
-                          <input type="text" id="nom" name="nom" required>
-                      </div>
-                  </div>
-                  
-                  <div class="form-group">
-                      <label for="email">Email *</label>
-                      <input type="email" id="email" name="email" required>
-                  </div>
-                  
-                  <div class="form-row">
-                      <div class="form-group">
-                          <label for="pays">Pays de résidence *</label>
-                          <select id="pays" name="pays" required>
-                              <option value="">Sélectionnez</option>
-                              <option value="Haiti">Haïti</option>
-                              <option value="USA">États-Unis</option>
-                              <option value="Canada">Canada</option>
-                              <option value="France">France</option>
-                              <option value="RepDom">République Dominicaine</option>
-                              <option value="Autre">Autre</option>
-                          </select>
-                      </div>
-                      <div class="form-group">
-                          <label for="profession">Profession (optionnel)</label>
-                          <input type="text" id="profession" name="profession" placeholder="Ex: Avocat, Enseignant...">
-                      </div>
-                  </div>
-                  
-                  <div class="checkbox-group">
-                      <input type="checkbox" id="confirmation" name="confirmation" required>
-                      <label for="confirmation">Je confirme mon soutien pour sauver le Jardin Botanique des Cayes et j'exige du gouvernement haïtien qu'il agisse immédiatement.</label>
-                  </div>
-                  
-                  <button type="submit" class="btn-sign"><i class="fas fa-check"></i> JE SIGNE MAINTENANT</button>
-              </form>
-          </div>
+    <div class="documents-section" id="documents">
+      <h2><i class="fas fa-folder-open"></i> TOUS LES DOCUMENTS JURIDIQUES</h2>
+      <p style="text-align:center;font-size:1.2rem;margin-bottom:20px;">Cliquez sur chaque document pour le consulter</p>
+      <div class="documents-grid">
+        <div class="document-item"><i class="fas fa-file-contract"></i> Contrat 2002</div>
+        <div class="document-item"><i class="fas fa-gavel"></i> Citation tribunal</div>
+        <div class="document-item"><i class="fas fa-file-pdf"></i> Sommation</div>
+        <div class="document-item"><i class="fas fa-file-signature"></i> Constats</div>
+        <div class="document-item"><i class="fas fa-envelope"></i> Email 2017</div>
+        <div class="document-item"><i class="fas fa-balance-scale"></i> Levée scellés</div>
+        <div class="document-item"><i class="fas fa-users"></i> 11 héritiers</div>
+        <div class="document-item"><i class="fas fa-newspaper"></i> Presse</div>
       </div>
+      <div style="text-align:center;">
+        <a href="#" class="btn-download-all"><i class="fas fa-file-archive"></i> TOUS LES DOCUMENTS (ZIP)</a>
+      </div>
+    </div>
 
-      <div class="share-section">
-          <h2><i class="fas fa-share-alt"></i> PARTAGEZ MASSIVEMENT</h2>
-          <p>Chaque partage peut apporter des centaines de signatures supplémentaires. Aidez-nous à faire entendre notre voix !</p>
-          
-          <div class="share-buttons">
-              <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/sos-petition.html" target="_blank" class="share-btn fb"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://twitter.com/intent/tweet?text=Sauvons%20le%20Jardin%20Botanique%20des%20Cayes!%20Signez%20la%20pétition:&url={{ site.url }}/sos-petition.html" target="_blank" class="share-btn tw"><i class="fab fa-twitter"></i></a>
-              <a href="https://api.whatsapp.com/send?text=Urgent:%20Sauvons%20le%20Jardin%20Botanique%20des%20Cayes.%20Signez%20la%20pétition%20ici:%20{{ site.url }}/sos-petition.html" target="_blank" class="share-btn wa"><i class="fab fa-whatsapp"></i></a>
+    <div class="petition-form-section" id="signer">
+      <h2><i class="fas fa-pen-fancy"></i> SIGNEZ LA PÉTITION</h2>
+      <p style="font-size:1.3rem;margin-bottom:40px;">5 000 signatures pour exiger du gouvernement haïtien qu'il agisse immédiatement.</p>
+      <div class="signature-form">
+        <form name="petition-signatures" data-jbc-form="true">
+          <input type="hidden" name="form-name" value="petition-signatures">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prenom">Prénom *</label>
+              <input type="text" id="prenom" name="prenom" required>
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" required>
+            </div>
           </div>
+          <div class="form-group" style="margin-bottom:20px;">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pays">Pays de résidence *</label>
+              <select id="pays" name="pays" required>
+                <option value="" disabled selected>Sélectionnez</option>
+                <option value="Haiti">Haïti</option>
+                <option value="USA">États-Unis</option>
+                <option value="Canada">Canada</option>
+                <option value="France">France</option>
+                <option value="RepDom">République Dominicaine</option>
+                <option value="Autre">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="profession">Profession (optionnel)</label>
+              <input type="text" id="profession" name="profession" placeholder="Ex: Avocat, Enseignant...">
+            </div>
+          </div>
+          <div class="checkbox-group">
+            <input type="checkbox" id="confirmation" name="confirmation" required>
+            <label for="confirmation">Je confirme mon soutien pour sauver le Jardin Botanique des Cayes et j'exige du gouvernement haïtien qu'il agisse immédiatement.</label>
+          </div>
+          <button type="submit" class="btn-sign"><i class="fas fa-check"></i> JE SIGNE MAINTENANT</button>
+        </form>
       </div>
+    </div>
+
+    <div class="share-section">
+      <h2><i class="fas fa-share-alt"></i> PARTAGEZ MASSIVEMENT</h2>
+      <p>Chaque partage peut apporter des centaines de signatures supplémentaires !</p>
+      <div class="share-buttons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/sos-petition-privee.html" target="_blank" class="share-btn fb"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=Sauvons%20le%20Jardin%20Botanique%20des%20Cayes!&url={{ site.url }}/sos-petition-privee.html" target="_blank" class="share-btn tw"><i class="fab fa-twitter"></i></a>
+        <a href="https://api.whatsapp.com/send?text=Urgent:%20Sauvons%20le%20Jardin%20Botanique%20des%20Cayes:%20{{ site.url }}/sos-petition-privee.html" target="_blank" class="share-btn wa"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
 
   </div>
 </div>
+
+</div><!-- fin #petition-protected -->
+{% include form-handler.html %}
