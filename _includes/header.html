@@ -1,9 +1,7 @@
-
 <script>
 (function () {
   'use strict';
 
-  /* ── Attendre que le DOM soit prêt ─────────────────────────────── */
   function ready(fn) {
     if (document.readyState !== 'loading') { fn(); }
     else { document.addEventListener('DOMContentLoaded', fn); }
@@ -11,75 +9,63 @@
 
   ready(function () {
 
-    /* ── Éléments ───────────────────────────────────────────────── */
     var burger  = document.getElementById('burger');
-    var mainNav = document.getElementById('main-nav');
+    var drawer  = document.querySelector('.drawer');
+    var overlay = document.getElementById('drawer-overlay');
 
-    /* Sécurité : on arrête si les éléments n'existent pas */
-    if (!burger || !mainNav) { return; }
+    if (!burger || !drawer) { return; }
 
-    /* ── 1. Ouvrir / fermer le menu mobile ──────────────────────── */
+    /* ── 1. Ouvrir / fermer le drawer ───────────────────────────── */
     burger.setAttribute('aria-expanded', 'false');
 
     burger.addEventListener('click', function (e) {
       e.stopPropagation();
-      var isOpen = mainNav.classList.toggle('nav-open');
+      var isOpen = drawer.classList.toggle('open');
       burger.setAttribute('aria-expanded', String(isOpen));
-      /* Bloquer le scroll du body quand le menu est ouvert */
       document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    /* ── 2. Fermer en cliquant en dehors du menu ─────────────────── */
-    document.addEventListener('click', function (e) {
-      if (
-        mainNav.classList.contains('nav-open') &&
-        !mainNav.contains(e.target) &&
-        !burger.contains(e.target)
-      ) {
-        closeMenu();
+      if (overlay) {
+        overlay.style.display = isOpen ? 'block' : 'none';
       }
     });
 
-    /* ── 3. Fermer avec la touche Échap ─────────────────────────── */
+    /* ── 2. Fermer avec Échap ────────────────────────────────────── */
     document.addEventListener('keydown', function (e) {
       if ((e.key === 'Escape' || e.key === 'Esc') &&
-           mainNav.classList.contains('nav-open')) {
-        closeMenu();
-        burger.focus(); /* remettre le focus sur le bouton */
+           drawer.classList.contains('open')) {
+        closeDrawer();
+        burger.focus();
       }
     });
 
-    /* ── 4. Fermer en cliquant sur un lien du menu (mobile) ──────── */
-    mainNav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        if (window.innerWidth <= 900) { closeMenu(); }
-      });
-    });
+    /* ── 3. Fermer via overlay ───────────────────────────────────── */
+    if (overlay) {
+      overlay.addEventListener('click', closeDrawer);
+    }
 
-    /* ── 5. Dropdowns (chevrons Accueil / Nature) ────────────────── */
+    /* ── 4. Dropdowns desktop (chevrons Accueil / Nature) ────────── */
     document.querySelectorAll('.drop').forEach(function (drop) {
-      var btn  = drop.querySelector('button');
-      var menu = drop.querySelector('.menu');
-      if (!btn || !menu) { return; }
+      var btn = drop.querySelector('button');
+      if (!btn) { return; }
 
       btn.setAttribute('aria-expanded', 'false');
 
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
-        var open = drop.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', String(open));
+        var isOpen = drop.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+
         /* Fermer les autres dropdowns */
         document.querySelectorAll('.drop').forEach(function (other) {
           if (other !== drop) {
             other.classList.remove('is-open');
-            var otherBtn = other.querySelector('button');
-            if (otherBtn) { otherBtn.setAttribute('aria-expanded', 'false'); }
+            var ob = other.querySelector('button');
+            if (ob) { ob.setAttribute('aria-expanded', 'false'); }
           }
         });
       });
     });
 
-    /* ── 6. Fermer les dropdowns en cliquant ailleurs ────────────── */
+    /* ── 5. Fermer dropdowns en cliquant ailleurs ────────────────── */
     document.addEventListener('click', function () {
       document.querySelectorAll('.drop.is-open').forEach(function (drop) {
         drop.classList.remove('is-open');
@@ -88,14 +74,25 @@
       });
     });
 
+    /* ── 6. Sous-menus dans le drawer (mobile) ───────────────────── */
+    document.querySelectorAll('.drawer-group button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var sub = btn.closest('.drawer-group')
+                     .nextElementSibling;
+        if (sub && sub.classList.contains('drawer-sub')) {
+          sub.classList.toggle('open');
+        }
+      });
+    });
+
     /* ── Fonction utilitaire ─────────────────────────────────────── */
-    function closeMenu() {
-      mainNav.classList.remove('nav-open');
+    function closeDrawer() {
+      drawer.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      if (overlay) { overlay.style.display = 'none'; }
     }
 
-  }); /* fin ready() */
-
+  });
 })();
 </script>
