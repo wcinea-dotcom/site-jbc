@@ -25,7 +25,7 @@ body{
 .container{max-width:var(--max);margin:0 auto;padding:0 22px}
 .section{padding:72px 0}
 
-/* ACCESSIBILITY: focus visible */
+/* ACCESSIBILITY */
 a:focus-visible,
 button:focus-visible{
   outline:3px solid rgba(197,160,89,.85);
@@ -33,7 +33,9 @@ button:focus-visible{
   border-radius:10px;
 }
 
-/* TOP TIER */
+/* ══════════════════════════════════════════
+   TOP TIER
+══════════════════════════════════════════ */
 .top-tier{background:var(--deep); color:#fff; font-size:.95rem}
 .top-tier-inner{
   display:flex;
@@ -71,7 +73,9 @@ button:focus-visible{
 .lang-flag{font-size:.95rem; line-height:1}
 .lang-code{font-size:.78rem; letter-spacing:.05em}
 
-/* MAIN TIER */
+/* ══════════════════════════════════════════
+   MAIN TIER (navbar principale)
+══════════════════════════════════════════ */
 .main-tier{
   background:#fff;
   border-bottom:1px solid rgba(0,0,0,.06);
@@ -88,6 +92,7 @@ button:focus-visible{
 }
 .brand img{height:56px; width:auto}
 
+/* Nav desktop */
 .main-nav{display:flex; align-items:center; gap:18px}
 .main-nav > a{
   font-weight:900;
@@ -98,13 +103,12 @@ button:focus-visible{
   padding:10px 6px;
   border-radius:10px;
 }
-.main-nav > a:hover{
-  background:rgba(94,143,58,.08);
-}
+.main-nav > a:hover{background:rgba(94,143,58,.08)}
 
-.nav-group{display:flex; align-items:center; gap:8px}
+/* Dropdown desktop */
+.nav-group{display:flex; align-items:center; gap:4px}
 .drop{position:relative}
-.drop button{
+.drop > .nav-group > button{
   background:transparent;
   border:none;
   cursor:pointer;
@@ -115,61 +119,86 @@ button:focus-visible{
   text-transform:uppercase;
   font-size:.82rem;
   color:rgba(31,42,51,.92);
+  transition:.18s;
 }
-.drop button:hover{background:rgba(94,143,58,.08)}
-.drop button i{font-size:.75rem}
+.drop > .nav-group > button:hover{background:rgba(94,143,58,.08)}
+.drop > .nav-group > button i{
+  font-size:.75rem;
+  transition:transform .22s;
+}
+/* Rotation du chevron quand ouvert */
+.drop.is-open > .nav-group > button i{transform:rotate(180deg)}
 
 .menu{
   position:absolute;
-  top:100%;
+  top:calc(100% + 4px);
   left:0;
-  min-width:220px;
+  min-width:230px;
   background:#fff;
   border:1px solid rgba(0,0,0,.08);
   border-top:3px solid var(--gold);
-  border-radius:0 0 12px 12px;
+  border-radius:0 0 14px 14px;
   box-shadow:0 18px 55px rgba(0,0,0,.12);
   padding:8px 0;
+  /* caché par défaut */
   display:none;
-
-  /* évite le débordement sur petits écrans */
   max-height:60vh;
-  overflow:auto;
+  overflow-y:auto;
+  z-index:100;
 }
-.drop.open .menu{display:block}
+/* ✅ CORRIGÉ : is-open (pas open) */
+.drop.is-open > .menu{display:block}
+
 .menu a{
   display:block;
-  padding:10px 14px;
+  padding:10px 16px;
   color:rgba(31,42,51,.92);
+  font-size:.88rem;
+  font-weight:700;
+  transition:.15s;
 }
-.menu a:hover{background:rgba(94,143,58,.08)}
+.menu a:hover{background:rgba(94,143,58,.08); padding-left:20px}
 
-/* MAIN ACTIONS */
+/* ══════════════════════════════════════════
+   MAIN ACTIONS (loupe + membre + burger)
+══════════════════════════════════════════ */
 .main-actions{display:flex; align-items:center; gap:12px}
+
 .btn-member-main{
   display:inline-flex;
   align-items:center;
   justify-content:center;
   background:var(--header-btn-green);
   color:#fff;
-  padding:12px 14px;
+  padding:12px 16px;
   border-radius:14px;
   font-weight:900;
   letter-spacing:.06em;
   text-transform:uppercase;
   font-size:.78rem;
+  transition:.18s;
 }
-.btn-member-main:hover{filter:brightness(1.03)}
+.btn-member-main:hover{filter:brightness(1.08)}
+
+/* Burger — caché sur desktop, visible sur mobile */
 .burger{
+  display:none;
   background:#fff;
   border:1px solid rgba(0,0,0,.10);
   border-radius:14px;
-  padding:10px 12px;
+  padding:10px 13px;
   cursor:pointer;
+  font-size:1.1rem;
+  color:var(--deep);
+  transition:.18s;
+  align-items:center;
+  justify-content:center;
 }
-.burger:hover{background:rgba(0,0,0,.03)}
+.burger:hover{background:rgba(47,93,47,.06)}
 
-/* DRAWER */
+/* ══════════════════════════════════════════
+   DRAWER (menu mobile panneau latéral)
+══════════════════════════════════════════ */
 .drawer{
   position:fixed;
   right:0;
@@ -179,58 +208,117 @@ button:focus-visible{
   background:#fff;
   box-shadow:-24px 0 70px rgba(0,0,0,.18);
   transform:translateX(110%);
-  transition:.22s ease;
+  transition:transform .25s ease;
   z-index:4000;
-  padding:18px;
-  overflow:auto;
+  padding:22px 18px;
+  overflow-y:auto;
 }
 .drawer.open{transform:translateX(0)}
+
 .drawer a{
   display:block;
   padding:12px 10px;
   font-weight:900;
   letter-spacing:.04em;
   border-radius:10px;
+  transition:.15s;
 }
 .drawer a:hover{background:rgba(94,143,58,.08)}
-.drawer-group{display:flex; align-items:center; justify-content:space-between; gap:10px}
-.drawer-group button{border:none; background:transparent; cursor:pointer}
-.drawer-sub{display:none; padding-left:8px}
+
+.drawer-group{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.drawer-group > a{flex:1}
+.drawer-group button{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  padding:8px;
+  border-radius:8px;
+  color:var(--deep);
+  transition:.18s;
+}
+.drawer-group button:hover{background:rgba(94,143,58,.08)}
+.drawer-group button i{transition:transform .22s}
+.drawer-group button[aria-expanded="true"] i{transform:rotate(180deg)}
+
+.drawer-sub{display:none; padding-left:12px; margin-top:4px}
 .drawer-sub.open{display:block}
-.drawer-sub a{font-weight:700; opacity:.9}
-.drawer-sep{border:none; border-top:1px solid rgba(0,0,0,.10); margin:14px 0}
+.drawer-sub a{font-weight:700; font-size:.92rem; opacity:.88}
+
+.drawer-sep{border:none; border-top:1px solid rgba(0,0,0,.08); margin:14px 0}
 .drawer-secondary{font-weight:700; color:#555; text-transform:none; font-size:.95rem}
 .drawer-secondary.is-gold{color:var(--gold); font-weight:900}
 .drawer-cta{margin-top:16px}
-.drawer-cta .btn-member-main{width:100%}
+.drawer-cta .btn-member-main{width:100%; justify-content:center}
 
-/* FOOTER */
+/* Overlay sombre derrière le drawer */
+.drawer-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:3999;
+  cursor:pointer;
+}
+.drawer-overlay.visible{display:block}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
 .footer{background:#0f1a12; color:#fff; margin-top:40px}
 .footer-inner{
   display:grid;
   grid-template-columns:2fr 1fr 1fr;
   gap:26px;
-  padding:44px 0
+  padding:44px 0;
 }
-.footer h3, .footer h4{margin-bottom:10px}
+.footer h3,.footer h4{margin-bottom:10px}
 .footer p{opacity:.85; line-height:1.8}
 .footer a{opacity:.85; margin:6px 0; display:inline-block}
 .footer a:hover{opacity:1}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.10)}
 .footer-bottom-inner{padding:14px 0; opacity:.75; font-size:.95rem}
-.footer-contact-line{display:flex; align-items:flex-start; gap:10px; margin:6px 0; opacity:.85; font-size:.95rem}
+.footer-contact-line{
+  display:flex; align-items:flex-start; gap:10px;
+  margin:6px 0; opacity:.85; font-size:.95rem;
+}
 .footer-contact-line i{margin-top:4px; color:#C5A059; flex-shrink:0}
 .footer-socials{display:flex; gap:12px; margin-top:16px}
-.footer-socials a{width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.10); display:flex; align-items:center; justify-content:center; transition:.2s; margin:0}
+.footer-socials a{
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(255,255,255,.10);
+  display:flex; align-items:center; justify-content:center;
+  transition:.2s; margin:0;
+}
 .footer-socials a:hover{background:#C5A059; opacity:1}
 
-/* MOBILE */
+/* ══════════════════════════════════════════
+   RESPONSIVE MOBILE (≤ 980px)
+══════════════════════════════════════════ */
 @media (max-width: 980px){
+
+  /* Cacher nav desktop, montrer burger */
   .main-nav{display:none}
+  .burger{display:inline-flex}
+
+  /* Footer colonne unique */
   .footer-inner{grid-template-columns:1fr}
 
-  /* petits ajustements mobiles */
-  .brand img{height:48px}
-  .btn-member-main{padding:10px 12px; font-size:.75rem}
-  .main-tier-inner{gap:12px}
+  /* Ajustements taille */
+  .brand img{height:46px}
+  .btn-member-main{padding:10px 12px; font-size:.74rem}
+  .main-tier-inner{gap:10px}
+
+  /* Top tier compact */
+  .top-tier{font-size:.82rem}
+  .top-tier-links{gap:10px}
+}
+
+@media (max-width: 480px){
+  .top-tier-links{display:none}
+  .btn-member-main span{display:none}
 }
