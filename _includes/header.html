@@ -1,3 +1,4 @@
+
 <!-- _includes/header.html — FR / EN / KR (Kreyòl ayisyen) -->
 
 {% assign current_url = page.url | default: "/" %}
@@ -31,13 +32,13 @@
 {% assign url_horticulture  = base | append: "/horticulture.html" %}
 {% assign url_conseil       = base | append: "/conseiladministration.html" %}
 
-{% comment %} Pétition SOS — version selon la langue active {% endcomment %}
+{% comment %} Pétition SOS — URLs absolues pour éviter le préfixe /en/ ou /ht/ {% endcomment %}
 {% if is_en %}
-  {% assign url_sos = "/sos-petition-en.html" %}
+  {% assign url_sos = site.baseurl | append: "/sos-petition-en.html" %}
 {% elsif is_ht %}
-  {% assign url_sos = "/sos-petition-ht.html" %}
+  {% assign url_sos = site.baseurl | append: "/sos-petition-ht.html" %}
 {% else %}
-  {% assign url_sos = "/sos-petition-fr.html" %}
+  {% assign url_sos = site.baseurl | append: "/sos-petition-fr.html" %}
 {% endif %}
 
 {% assign fr_url = "/" %}
@@ -105,7 +106,7 @@
         <div class="menu">
           <a href="{{ url_about   | relative_url }}">{% if is_en %}About{% elsif is_ht %}Sou nou{% else %}À propos{% endif %}</a>
           <a href="{{ url_conseil | relative_url }}">{% if is_en %}Board of Directors{% elsif is_ht %}Konsèy Administrasyon{% else %}Conseil d'administration{% endif %}</a>
-          <a href="{{ url_sos     | relative_url }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
+          <a href="{{ url_sos }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
         </div>
       </div>
 
@@ -186,7 +187,7 @@
   <div class="drawer-sub">
     <a href="{{ url_about   | relative_url }}">{% if is_en %}About{% elsif is_ht %}Sou nou{% else %}À propos{% endif %}</a>
     <a href="{{ url_conseil | relative_url }}">{% if is_en %}Board of Directors{% elsif is_ht %}Konsèy Administrasyon{% else %}Conseil d'administration{% endif %}</a>
-    <a href="{{ url_sos     | relative_url }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
+    <a href="{{ url_sos }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
   </div>
 
   <!-- S'IMPLIQUER -->
@@ -389,9 +390,9 @@
       { title:"Blogue",                   url:"{{ '/blogue.html' | relative_url }}",                    desc:"Articles scientifiques et éducatifs" },
       { title:"Ressources",               url:"{{ '/ressources.html' | relative_url }}",                desc:"Bibliothèque, publications, téléchargements PDF" },
       { title:"À propos",                 url:"{{ '/apropos.html' | relative_url }}",                   desc:"Histoire et mission du Jardin Botanique des Cayes" },
-      { title:"🚨 SOS Pétition (FR)",     url:"{{ '/sos-petition-fr.html' | relative_url }}",           desc:"Pétition urgente pour la réouverture du JBC — Français" },
-      { title:"🚨 SOS Petition (EN)",     url:"{{ '/sos-petition-en.html' | relative_url }}",           desc:"Urgent petition to reopen the JBC — English" },
-      { title:"🚨 Petisyon SOS (KR)",     url:"{{ '/sos-petition-ht.html' | relative_url }}",           desc:"Petisyon ijan pou reouvri JBC a — Kreyòl ayisyen" }
+      { title:"🚨 SOS Pétition (FR)",     url:"{{ site.baseurl }}/sos-petition-fr.html",           desc:"Pétition urgente pour la réouverture du JBC — Français" },
+      { title:"🚨 SOS Petition (EN)",     url:"{{ site.baseurl }}/sos-petition-en.html",           desc:"Urgent petition to reopen the JBC — English" },
+      { title:"🚨 Petisyon SOS (KR)",     url:"{{ site.baseurl }}/sos-petition-ht.html",           desc:"Petisyon ijan pou reouvri JBC a — Kreyòl ayisyen" }
     ];
 
     function openSearch() {
