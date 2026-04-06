@@ -1,0 +1,586 @@
+---
+layout: default
+title: SOS Pétition — Jardin Botanique des Cayes
+lang: fr
+ref: sos-petition-privee
+---
+
+<div id="pp">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap');
+:root{--vf:#1e3c2c;--vm:#2e5c3a;--vc:#27ae60;--rouge:#c0392b;--rv:#e74c3c;--or:#f1c40f;--fond:#f4f7f2;--gris:#666;}
+*{box-sizing:border-box;margin:0;padding:0;}
+.jbc{font-family:'Source Sans 3',sans-serif;background:var(--fond);color:#222;line-height:1.7;}
+
+/* BARRE */
+.ub{background:var(--rouge);color:#fff;text-align:center;padding:13px 20px;font-weight:700;font-size:.98rem;position:sticky;top:0;z-index:1000;animation:pb 2s infinite;}
+@keyframes pb{0%,100%{background:var(--rouge);}50%{background:var(--rv);}}
+
+/* HERO */
+.hero{background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}') center/cover no-repeat;color:#fff;text-align:center;padding:100px 20px 80px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.6rem);font-weight:900;text-transform:uppercase;text-shadow:2px 2px 8px rgba(0,0,0,.7);margin-bottom:16px;line-height:1.2;}
+.hero h1 span{color:var(--or);}
+.hero .hs{font-size:clamp(.95rem,2.2vw,1.3rem);max-width:780px;margin:0 auto 20px;opacity:.95;}
+.hb1{display:inline-block;background:var(--rouge);color:#fff;font-weight:900;font-size:.98rem;padding:11px 24px;border-radius:50px;margin:5px;border:2px solid rgba(255,255,255,.3);}
+.hb2{display:inline-block;background:var(--or);color:var(--vf);font-weight:900;font-size:.98rem;padding:11px 24px;border-radius:50px;margin:5px;}
+
+/* LAYOUT */
+.ct{max-width:1100px;margin:0 auto;padding:48px 20px;}
+.sw{background:#fff;border-radius:16px;padding:50px 48px;margin-bottom:50px;box-shadow:0 5px 22px rgba(0,0,0,.07);}
+.sv{background:linear-gradient(135deg,var(--vf),var(--vm));border-radius:16px;padding:50px 48px;margin-bottom:50px;color:#fff;text-align:center;}
+
+/* TITRES */
+.tr{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;color:var(--rouge);margin-bottom:10px;}
+.tv{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;color:var(--vf);margin-bottom:10px;}
+.to{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;color:var(--or);margin-bottom:10px;text-align:center;}
+.tw2{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;color:#fff;margin-bottom:10px;text-align:center;}
+.sub{color:var(--gris);font-style:italic;margin-bottom:26px;font-size:1rem;}
+.subl{color:rgba(255,255,255,.7);font-style:italic;margin-bottom:26px;font-size:1rem;}
+
+/* SITUATION */
+.sit p{font-size:1.07rem;margin-bottom:13px;color:#2a2a2a;}
+.sit strong{color:var(--rouge);}
+.alb{background:#fff3f3;border:2px solid var(--rouge);border-radius:12px;padding:16px 20px;margin:18px 0;font-size:1rem;font-weight:600;color:var(--vf);}
+.alb i{color:var(--rouge);margin-right:7px;}
+.cit-box{background:linear-gradient(135deg,var(--vf),var(--vm));border-radius:12px;padding:18px 24px;margin:18px 0;color:#fff;font-size:1.05rem;font-style:italic;text-align:center;}
+.cit-box strong{color:var(--or);display:block;font-size:1.15rem;margin-bottom:5px;}
+
+/* ══ CARROUSEL AVANT / APRÈS ══ */
+.carousel-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0;}
+.carousel-col{}
+.carousel-label{padding:9px 16px;font-weight:700;font-size:.95rem;border-radius:10px 10px 0 0;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;}
+.carousel-label.avant{background:var(--vc);color:#fff;}
+.carousel-label.apres{background:var(--rouge);color:#fff;}
+.carousel-inner{position:relative;overflow:hidden;border-radius:0 0 12px 12px;}
+.carousel-track{display:flex;transition:transform .45s ease;}
+.carousel-slide{flex:0 0 100%;position:relative;}
+.carousel-slide img{width:100%;height:320px;object-fit:cover;display:block;}
+.slide-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.85));color:#fff;padding:14px 16px;}
+.slide-caption h3{color:var(--or);font-size:.9rem;margin-bottom:2px;}
+.slide-caption p{font-size:.78rem;opacity:.9;}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;font-size:1.4rem;padding:8px 13px;cursor:pointer;z-index:10;transition:background .2s;border-radius:6px;}
+.carousel-btn:hover{background:rgba(0,0,0,.8);}
+.carousel-btn.prev{left:8px;}
+.carousel-btn.next{right:8px;}
+.carousel-dots{display:flex;justify-content:center;gap:7px;padding:10px 0;background:#f0f0f0;border-radius:0 0 12px 12px;}
+.dot{width:9px;height:9px;border-radius:50%;background:#ccc;cursor:pointer;transition:background .3s;}
+.dot.active{background:var(--vf);}
+.dot.active-r{background:var(--rouge);}
+
+/* CARTE GOOGLE MAPS */
+.map-wrap{border-radius:14px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,.15);margin:26px 0;}
+.map-wrap iframe{width:100%;height:380px;border:none;display:block;}
+.map-btn{display:inline-block;background:var(--vf);color:#fff;padding:12px 28px;border-radius:50px;font-weight:700;font-size:.95rem;text-decoration:none;margin-top:12px;transition:all .3s;}
+.map-btn:hover{background:var(--vm);transform:scale(1.03);color:#fff;}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin:22px 0;}
+.stat{background:var(--fond);border-radius:13px;padding:22px 12px;text-align:center;border-bottom:4px solid var(--vc);transition:transform .3s;}
+.stat:hover{transform:translateY(-5px);box-shadow:0 10px 22px rgba(0,0,0,.1);}
+.sn{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:900;color:var(--vf);line-height:1;}
+.sl{font-size:.8rem;color:var(--gris);margin-top:5px;font-weight:600;}
+
+/* CHRONO — fond clair */
+.chrono{display:flex;flex-direction:column;gap:14px;}
+.ci{display:flex;gap:15px;align-items:flex-start;}
+.cd{flex-shrink:0;width:135px;background:var(--vf);color:#fff;border-radius:10px;padding:9px 11px;text-align:center;font-weight:700;font-size:.82rem;line-height:1.3;}
+.cd.r{background:var(--rouge);} .cd.o{background:#a07010;} .cd.rv{background:var(--rv);}
+.cb{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:14px 17px;flex:1;border-left:4px solid var(--vc);font-size:.94rem;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.cb.al{border-left-color:var(--rouge);}
+.cb.vi{border-left-color:var(--or);background:#fffbea;}
+.cb.cr{border-left-color:var(--rv);background:#fff5f5;}
+.cb strong{display:block;margin-bottom:3px;color:var(--vf);font-size:.94rem;}
+.cb.vi strong{color:#8b6500;} .cb.cr strong{color:var(--rouge);}
+.cb p{color:#555;font-size:.88rem;line-height:1.5;}
+
+/* TRÉSOR — 2 lignes x 2 colonnes avec photos */
+.tr-g{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px;}
+.tr-c{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 5px 18px rgba(0,0,0,.09);border:1px solid #eee;transition:all .3s;}
+.tr-c:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(0,0,0,.13);}
+.tr-img{width:100%;height:200px;object-fit:cover;display:block;}
+.tr-body{padding:20px 18px;}
+.tr-body i{font-size:1.8rem;color:var(--vc);margin-bottom:7px;display:block;}
+.tr-body h3{font-size:1.05rem;color:var(--vf);margin-bottom:6px;font-weight:800;}
+.tr-body p{font-size:.88rem;color:#555;line-height:1.5;}
+
+/* CONSTITUTION */
+.cbox{background:#fffbea;border:3px solid var(--or);border-radius:14px;padding:22px 26px;margin:28px 0;text-align:center;}
+.cbox.dk{background:rgba(255,255,255,.08);border-color:var(--or);}
+.cbox .cn{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:900;color:var(--vf);margin-bottom:8px;}
+.cbox.dk .cn{color:var(--or);}
+.cbox .cx{font-size:1rem;color:#333;line-height:1.7;font-style:italic;max-width:750px;margin:0 auto;}
+.cbox.dk .cx{color:#eee;}
+.cbox .cs{margin-top:8px;font-size:.83rem;color:var(--gris);font-weight:600;}
+.cbox.dk .cs{color:rgba(255,255,255,.5);}
+
+/* DEMANDES */
+.dem{display:flex;gap:14px;align-items:flex-start;margin-bottom:13px;padding:17px 19px;background:var(--fond);border-radius:12px;border-left:5px solid var(--vc);transition:box-shadow .3s;}
+.dem:hover{box-shadow:0 5px 16px rgba(0,0,0,.08);}
+.dn{flex-shrink:0;width:38px;height:38px;background:var(--vf);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.98rem;}
+.dt strong{display:block;font-size:.95rem;color:var(--vf);margin-bottom:3px;font-weight:800;}
+.dt p{font-size:.87rem;color:#444;line-height:1.5;}
+
+/* COMPTEUR */
+.sig{background:linear-gradient(135deg,var(--vf),var(--vm));color:#fff;padding:42px 30px;border-radius:20px;max-width:560px;margin:0 auto 30px;box-shadow:0 14px 36px rgba(30,60,44,.3);text-align:center;}
+.sig-n{font-family:'Playfair Display',serif;font-size:4.4rem;font-weight:900;color:var(--or);line-height:1;}
+.sig-t{font-size:1.2rem;opacity:.85;margin:7px 0 3px;}
+.sig-bw{background:rgba(255,255,255,.15);border-radius:50px;height:11px;margin:12px 0;overflow:hidden;}
+.sig-b{background:var(--or);height:100%;border-radius:50px;transition:width 1s ease;}
+.sig-r{font-size:.93rem;background:rgba(255,255,255,.13);padding:7px 15px;border-radius:50px;display:inline-block;margin-top:4px;}
+.btn-s{display:inline-block;background:var(--rouge);color:#fff;padding:16px 48px;font-size:1.35rem;font-weight:900;text-decoration:none;border-radius:50px;border:none;cursor:pointer;box-shadow:0 7px 17px rgba(192,57,43,.4);transition:all .3s;margin:9px 0;}
+.btn-s:hover{background:#a93226;transform:scale(1.04);color:#fff;}
+
+/* FORM */
+.fw{max-width:640px;margin:0 auto;text-align:left;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;}
+.fg label{display:block;margin-bottom:5px;font-weight:700;color:var(--vf);font-size:.92rem;}
+.fg label.lt{color:rgba(255,255,255,.85);}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 13px;border:2px solid #ddd;border-radius:10px;font-size:.92rem;font-family:inherit;transition:border-color .3s;background:#fafafa;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--vc);outline:none;background:#fff;}
+.ff{grid-column:1/-1;}
+.chk{display:flex;align-items:flex-start;gap:10px;margin:16px 0;background:var(--fond);padding:12px;border-radius:10px;}
+.chk input[type=checkbox]{width:18px;height:18px;flex-shrink:0;margin-top:3px;accent-color:var(--vc);}
+.chk label{font-size:.88rem;color:var(--vf);line-height:1.5;cursor:pointer;}
+.btn-sub{background:var(--vc);color:#fff;padding:14px 30px;font-size:1.15rem;font-weight:900;border:none;border-radius:50px;cursor:pointer;width:100%;transition:all .3s;font-family:inherit;}
+.btn-sub:hover{background:#219a52;transform:scale(1.02);}
+.ok{display:none;background:#d4edda;border:2px solid var(--vc);border-radius:12px;padding:17px;text-align:center;margin-top:13px;color:var(--vf);font-size:.96rem;font-weight:600;}
+
+/* CELLULE — fond vert doux */
+.sc{background:linear-gradient(135deg,#1a3d28,#245c36);border-radius:16px;padding:50px 48px;margin-bottom:50px;color:#fff;border:2px solid var(--or);}
+.cel-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:15px;margin:24px 0;}
+.cel-c{background:rgba(255,255,255,.1);border-radius:12px;padding:22px 15px;text-align:center;border-top:3px solid var(--or);transition:all .3s;}
+.cel-c:hover{background:rgba(255,255,255,.18);transform:translateY(-4px);}
+.cel-c i{font-size:2rem;color:var(--or);margin-bottom:9px;display:block;}
+.cel-c h3{font-size:.92rem;color:#fff;margin-bottom:4px;font-weight:700;}
+.cel-c p{color:rgba(255,255,255,.7);font-size:.8rem;line-height:1.5;}
+.btn-cel{background:var(--or);color:var(--vf);padding:13px 30px;font-size:1.05rem;font-weight:900;border:none;border-radius:50px;cursor:pointer;width:100%;transition:all .3s;font-family:inherit;}
+.btn-cel:hover{opacity:.9;transform:scale(1.02);}
+.ok.dk{background:rgba(39,174,96,.2);border-color:var(--vc);color:#fff;}
+
+/* PARTAGE */
+.sbs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:24px 0;}
+.sb{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff!important;font-size:1.75rem;text-decoration:none!important;transition:all .3s;box-shadow:0 5px 14px rgba(0,0,0,.2);}
+.sb:hover{transform:scale(1.15);}
+.fb{background:#3b5998;} .tw{background:#1da1f2;} .wa{background:#25d366;}
+
+@media(max-width:768px){
+  .sw,.sv,.sc{padding:30px 16px;}
+  .fr{grid-template-columns:1fr;}
+  .ci{flex-direction:column;} .cd{width:100%;}
+  .carousel-wrap{grid-template-columns:1fr;}
+  .tr-g{grid-template-columns:1fr;}
+  .sig-n{font-size:3.4rem;}
+}
+</style>
+
+<div class="jbc">
+
+  <!-- BARRE -->
+  <div class="ub">
+    <i class="fas fa-exclamation-triangle"></i>
+    &nbsp;URGENT — LE JARDIN BOTANIQUE DES CAYES EST FERMÉ ET DÉTRUIT DEPUIS JUILLET 2025 — 5 000 SIGNATURES NÉCESSAIRES&nbsp;
+    <i class="fas fa-exclamation-triangle"></i>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1>🇭🇹 Sauvons le <span>Jardin Botanique</span> des Cayes</h1>
+    <p class="hs">Depuis juillet 2025, une institution scientifique de 23 ans est fermée de force, brûlée, et ses plantes endémiques — rares et uniques au monde — transformées en charbon de bois. Nous disons NON.</p>
+    <div style="margin-top:16px;">
+      <span class="hb1"><i class="fas fa-stop-circle"></i> ARRÊT IMMÉDIAT de toute action de Mme Donna Bastien et ses alliés</span>
+      <br>
+      <span class="hb2" style="margin-top:10px;display:inline-block;">🌍 RÉOUVERTURE OFFICIELLE LE 5 JUIN 2026 — Journée Mondiale de l'Environnement</span>
+    </div>
+  </header>
+
+  <div class="ct">
+
+    <!-- ══ 1. LA SITUATION ══ -->
+    <section class="sw" style="border-top:6px solid var(--rouge);">
+      <h2 class="tr"><i class="fas fa-exclamation-circle"></i> La situation — Ce qui se passe aujourd'hui</h2>
+      <div class="sit">
+        <p>Depuis le <strong>23 juillet 2025</strong>, le Jardin Botanique des Cayes est fermé de force. <strong>Madame Marie Donna Bastien</strong> — épouse d'un héritier de la famille Gérard, sans mandat légal sur un bien indivis — a mandaté un cabinet d'avocats pour expulser l'équipe du JBC en 8 jours. Depuis ce jour, elle ordonne la destruction systématique : incendies criminels, abattage de plantes, fabrication de charbon de bois, plantation de bananiers. L'équipe du JBC est empêchée d'entrer — même pour soigner les plantes.</p>
+        <p>Les plantes médicinales, les plantes aromatiques, les plantes endémiques rares — ce patrimoine vivant qui appartient à toute Haïti — sont coupées comme des mauvaises herbes. Le genre Cereus, des espèces irremplaçables, disparaissent chaque jour. L'espace est abandonné, délabré, laissé à la dérive. <strong>Chaque jour qui passe augmente d'une année le temps nécessaire pour reconstruire ce qui a été détruit. Il est urgent d'agir.</strong></p>
+      </div>
+
+      <div class="alb">
+        <i class="fas fa-fire"></i> Ces actes sont des <strong>crimes environnementaux</strong>, officiellement constatés par un Juge de Paix le 22 janvier 2026. Les héritiers légitimes de la famille Gérard ont désavoué Donna Bastien. Le Commissaire du Gouvernement a ordonné la réouverture dès le 13 août 2025. Cette décision a été ignorée.
+      </div>
+
+      <div class="cit-box">
+        <strong>Sans soins, sans eau — le jardin souffre et meurt.</strong>
+        Nous ne pouvons pas accepter ce crime. Nous ne pouvons pas rester silencieux.
+      </div>
+
+      <!-- ══ CARROUSEL AVANT / APRÈS ══ -->
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.28rem;color:var(--vf);margin:34px 0 6px;">📷 Le jardin — avant et après les destructions</h3>
+      <p style="color:var(--gris);font-size:.9rem;margin-bottom:16px;">Utilisez les flèches pour défiler et voir les 5 photos de chaque côté.</p>
+
+      <div class="carousel-wrap">
+
+        <!-- AVANT -->
+        <div class="carousel-col">
+          <div class="carousel-label avant"><i class="fas fa-check-circle"></i> AVANT — Le jardin en vie</div>
+          <div class="carousel-inner">
+            <div class="carousel-track" id="track-av">
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/espace-ecologique.jpg' | relative_url }}" alt="Espace écologique avant">
+                <div class="slide-caption"><h3>L'espace écologique</h3><p>Un paradis de biodiversité unique au monde.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/Jbc-plantes.jpg' | relative_url }}" alt="Plantes endémiques avant">
+                <div class="slide-caption"><h3>Plantes endémiques</h3><p>Des espèces rares, soignées avec passion depuis 23 ans.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/Jbc-plantes.jpg' | relative_url }}" alt="Collections botaniques avant">
+                <div class="slide-caption"><h3>Collections botaniques</h3><p>Des collections uniques au monde, construites sur 23 ans.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/espace-ecologique.jpg' | relative_url }}" alt="Palmiers rares avant">
+                <div class="slide-caption"><h3>Palmiers rares protégés</h3><p>Aujourd'hui abattus et transformés en charbon de bois.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/Jbc-plantes.jpg' | relative_url }}" alt="Biodiversité haïtienne avant">
+                <div class="slide-caption"><h3>La biodiversité haïtienne</h3><p>Un patrimoine vivant conservé pour les générations futures.</p></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" onclick="moveCarousel('av',-1)">&#8592;</button>
+            <button class="carousel-btn next" onclick="moveCarousel('av',1)">&#8594;</button>
+          </div>
+          <div class="carousel-dots" id="dots-av">
+            <div class="dot active" onclick="goToSlide('av',0)"></div>
+            <div class="dot" onclick="goToSlide('av',1)"></div>
+            <div class="dot" onclick="goToSlide('av',2)"></div>
+            <div class="dot" onclick="goToSlide('av',3)"></div>
+            <div class="dot" onclick="goToSlide('av',4)"></div>
+          </div>
+        </div>
+
+        <!-- APRÈS -->
+        <div class="carousel-col">
+          <div class="carousel-label apres"><i class="fas fa-fire"></i> APRÈS — La destruction</div>
+          <div class="carousel-inner">
+            <div class="carousel-track" id="track-ap">
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/elimination-jardin-ecologique.jpg' | relative_url }}" alt="Espace rasé après">
+                <div class="slide-caption"><h3>L'espace rasé et brûlé</h3><p>Des plantes centenaires effacées en quelques semaines.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/Jardin-ecologique-enfeu.jpg' | relative_url }}" alt="Incendie criminel">
+                <div class="slide-caption"><h3>🔥 Incendie criminel — Janv. 2026</h3><p>Constaté officiellement par un Juge de Paix.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/charbon.jpg' | relative_url }}" alt="Charbon de bois">
+                <div class="slide-caption"><h3>Charbon fait avec arbres endémiques</h3><p>Des centenaires transformés en charbon. Irréversible.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/barriere.jpg' | relative_url }}" alt="Accès bloqué">
+                <div class="slide-caption"><h3>Accès illégalement bloqué</h3><p>L'équipe empêchée d'intervenir pendant les incendies.</p></div>
+              </div>
+              <div class="carousel-slide">
+                <img src="{{ 'images/sos-petition/elimination-jardin-ecologique.jpg' | relative_url }}" alt="Bananiers plantés">
+                <div class="slide-caption"><h3>Bananiers à la place des espèces rares</h3><p>Transformation criminelle et irréversible du terrain.</p></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" onclick="moveCarousel('ap',-1)">&#8592;</button>
+            <button class="carousel-btn next" onclick="moveCarousel('ap',1)">&#8594;</button>
+          </div>
+          <div class="carousel-dots" id="dots-ap">
+            <div class="dot active-r" onclick="goToSlide('ap',0)"></div>
+            <div class="dot" onclick="goToSlide('ap',1)"></div>
+            <div class="dot" onclick="goToSlide('ap',2)"></div>
+            <div class="dot" onclick="goToSlide('ap',3)"></div>
+            <div class="dot" onclick="goToSlide('ap',4)"></div>
+          </div>
+        </div>
+
+      </div><!-- fin carousel-wrap -->
+
+      <!-- CARTE GOOGLE MAPS -->
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.28rem;color:var(--vf);margin:36px 0 8px;">🗺️ Visitez le Jardin Botanique des Cayes</h3>
+      <p style="color:var(--gris);font-size:.9rem;margin-bottom:14px;">Localisez le jardin à Bergeaud, Cayes et explorez le site.</p>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps/d/embed?mid=1kNKV6ZtsXQ0JDafq5wFHhnEGz2zva18&ehbc=2E312F"
+          allowfullscreen="" loading="lazy"
+          title="Jardin Botanique des Cayes — Carte officielle">
+        </iframe>
+      </div>
+      <div style="text-align:center;">
+        <a href="https://www.google.com/maps/d/edit?mid=1kNKV6ZtsXQ0JDafq5wFHhnEGz2zva18" target="_blank" class="map-btn">
+          <i class="fas fa-map-marker-alt"></i> Ouvrir la carte complète du JBC
+        </a>
+      </div>
+    </section>
+
+    <!-- ══ 2. IMPACT 23 ANS ══ -->
+    <section class="sw" style="border-top:6px solid var(--vc);">
+      <h2 class="tv"><i class="fas fa-seedling"></i> 23 ans de travail — Une génération entière transformée</h2>
+      <p class="sub">Depuis 2002, le JBC a construit un patrimoine vivant pour Haïti. Ces chiffres représentent des vies, des carrières, des espoirs.</p>
+      <div class="stats">
+        <div class="stat"><div class="sn">23</div><div class="sl">ans d'existence et de conservation</div></div>
+        <div class="stat"><div class="sn">15 000+</div><div class="sl">étudiants formés depuis 2013</div></div>
+        <div class="stat"><div class="sn">500 000+</div><div class="sl">visiteurs accueillis</div></div>
+        <div class="stat"><div class="sn">500+</div><div class="sl">étudiants formés chaque année</div></div>
+        <div class="stat"><div class="sn">#1</div><div class="sl">Seul jardin botanique haïtien reconnu par le BGCI</div></div>
+      </div>
+      <div class="cbox">
+        <div class="cn">🏆 Prix Google Geo for Good 2023</div>
+        <div class="cx">Le Jardin Botanique des Cayes a été récompensé par Google Geo for Good pour sa contribution exemplaire à la collecte de données botaniques et à la conservation environnementale en Haïti.</div>
+        <div class="cs">Reconnaissance internationale d'une institution d'excellence — aujourd'hui fermée et détruite.</div>
+      </div>
+      <div class="cbox">
+        <div class="cn">📜 Article 257 de la Constitution Haïtienne</div>
+        <div class="cx">« L'État a l'obligation de créer des jardins botaniques en différents points du territoire national pour la conservation et la valorisation des ressources végétales d'Haïti. »</div>
+        <div class="cs">Le JBC est la réalisation vivante de cette obligation constitutionnelle. Le détruire est un crime contre la Constitution.</div>
+      </div>
+    </section>
+
+    <!-- ══ 3. CHRONOLOGIE — FOND CLAIR ══ -->
+    <section class="sw" style="border-top:6px solid var(--vf);">
+      <h2 class="tv"><i class="fas fa-history"></i> Chronologie des faits</h2>
+      <p class="sub">De la fondation aux destructions criminelles — chaque acte est documenté et prouvé.</p>
+      <div class="chrono">
+        <div class="ci"><div class="cd o">2002</div><div class="cb vi"><strong>🌱 Naissance du JBC</strong><p>Contrat de bail signé avec Mme Laurette Milard, mère des héritiers Gérard. Le jardin naît à Bergeaud, Cayes. Une vision de 23 ans commence.</p></div></div>
+        <div class="ci"><div class="cd">Oct. 2018</div><div class="cb"><strong>L'État haïtien s'engage</strong><p>Réunion ANAP + Bruno Gérard (et Donna Bastien présente). L'État accepte d'acheter le terrain. Bruno Gérard ne fournira jamais les pièces demandées.</p></div></div>
+        <div class="ci"><div class="cd r">23 juil. 2025</div><div class="cb al"><strong>Fermeture forcée — sans préavis</strong><p>Sans lettre ni rencontre, la police et un juge de paix ferment physiquement le JBC. L'équipe perd tout accès. Les plantes cessent de recevoir soins.</p></div></div>
+        <div class="ci"><div class="cd o">13 août 2025</div><div class="cb vi"><strong>🏆 Ordonnance du Commissaire — Victoire</strong><p>Le Commissaire du Gouvernement ORDONNE la reprise des activités du JBC. Décision ignorée par Donna Bastien.</p></div></div>
+        <div class="ci"><div class="cd r">30 août 2025</div><div class="cb al"><strong>La décision est bafouée</strong><p>Donna Bastien change les barrières, harcèle le personnel, reprend le contrôle du site avec ses propres employés.</p></div></div>
+        <div class="ci"><div class="cd">19 sept. 2025</div><div class="cb"><strong>Les héritiers désavouent Donna Bastien</strong><p>Les héritiers légitimes de la famille Gérard la dénoncent officiellement. Elle agit sans mandat légal sur un bien indivis.</p></div></div>
+        <div class="ci"><div class="cd rv">Déc. 2025 — Mars 2026</div><div class="cb cr"><strong>🔥 Destructions criminelles massives</strong><p>Incendie de l'espace botanique principal. Plantes endémiques abattues, transformées en charbon de bois. Bananiers plantés. Constat officiel du Juge de Paix Me Paul Tarte — 22 janvier 2026.</p></div></div>
+        <div class="ci"><div class="cd rv">Aujourd'hui</div><div class="cb cr"><strong>⚠️ Les plantes natives disparaissent chaque jour</strong><p>Le jardin est toujours fermé. Le genre Cereus, les plantes médicinales et aromatiques, les espèces endémiques rares — tout disparaît sans soins. Chaque jour qui passe augmente d'une année le temps de reconstruction.</p></div></div>
+        <div class="ci"><div class="cd o">7 avr. 2026</div><div class="cb vi"><strong>⚖️ Audience — Tribunal de Paix des Cayes</strong><p>Les avocats du JBC comparaissent avec l'ensemble du dossier documenté.</p></div></div>
+      </div>
+    </section>
+
+    <!-- ══ 4. TRÉSOR — 2x2 AVEC PHOTOS ══ -->
+    <section class="sw" style="border-top:6px solid var(--vc);">
+      <h2 class="tv">🌿 Pourquoi ce jardin est irremplaçable</h2>
+      <p class="sub">« Le Jardin Botanique des Cayes, c'est l'âme verte d'Haïti. »</p>
+      <div class="tr-g">
+        <div class="tr-c">
+          <img class="tr-img" src="{{ 'images/sos-petition/Jbc-plantes.jpg' | relative_url }}" alt="Pour nos enfants">
+          <div class="tr-body">
+            <i class="fas fa-child"></i>
+            <h3>Pour nos enfants</h3>
+            <p>Depuis 23 ans, des générations d'écoliers haïtiens y ont appris à connaître et protéger la nature haïtienne. Un lieu d'éveil qui a changé toute une génération.</p>
+          </div>
+        </div>
+        <div class="tr-c">
+          <img class="tr-img" src="{{ 'images/sos-petition/espace-ecologique.jpg' | relative_url }}" alt="Pour nos étudiants">
+          <div class="tr-body">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Pour nos étudiants</h3>
+            <p>15 000+ étudiants formés depuis 2013. 500+ par an en agronomie, biologie et sciences environnementales. Une institution académique irremplaçable.</p>
+          </div>
+        </div>
+        <div class="tr-c">
+          <img class="tr-img" src="{{ 'images/sos-petition/Jbc-plantes.jpg' | relative_url }}" alt="Pour la science">
+          <div class="tr-body">
+            <i class="fas fa-flask"></i>
+            <h3>Pour la science mondiale</h3>
+            <p>Seul jardin haïtien reconnu par le BGCI. Prix Google Geo for Good 2023. Référence internationale pour la conservation des plantes endémiques d'Haïti.</p>
+          </div>
+        </div>
+        <div class="tr-c">
+          <img class="tr-img" src="{{ 'images/sos-petition/espace-ecologique.jpg' | relative_url }}" alt="Pour la biodiversité">
+          <div class="tr-body">
+            <i class="fas fa-leaf"></i>
+            <h3>Pour la biodiversité</h3>
+            <p>Des plantes médicinales, aromatiques et endémiques uniques au monde. Irremplaçables une fois détruites. Un patrimoine naturel d'Haïti que personne d'autre ne peut reconstruire.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 5. 5 JUIN ══ -->
+    <section class="sv">
+      <h2 class="tw2" style="font-size:2rem;">🌍 5 Juin — Journée Mondiale de l'Environnement</h2>
+      <p style="font-size:1.06rem;max-width:700px;margin:0 auto 13px;opacity:.95;">Avant le <strong>1er mai 2026</strong> : arrêt complet de toute activité de Donna Bastien et ses alliés, accès immédiat de l'équipe du JBC pour soigner les plantes en danger, et début de l'évaluation nationale et internationale des dégâts.</p>
+      <p style="font-size:1.03rem;max-width:700px;margin:0 auto 20px;opacity:.9;">Le <strong>5 juin 2026</strong> doit être une date mémorable pour le Jardin Botanique des Cayes : sa <strong>réouverture officielle</strong>, après évaluation complète et début du plan de reconstruction.</p>
+      <div style="display:inline-block;background:var(--or);color:var(--vf);font-size:1.3rem;font-weight:900;padding:14px 36px;border-radius:50px;margin-top:6px;">
+        🌿 RÉOUVERTURE OFFICIELLE EXIGÉE LE 5 JUIN 2026
+      </div>
+    </section>
+
+    <!-- ══ 6. NOS DEMANDES ══ -->
+    <section class="sw" style="border-top:6px solid var(--vc);">
+      <h2 class="tv"><i class="fas fa-fist-raised"></i> Nos exigences au gouvernement haïtien</h2>
+      <div class="dem"><div class="dn">1</div><div class="dt"><strong>ARRÊT TOTAL ET IMMÉDIAT — TOUTE ACTION DE DONNA BASTIEN ET SES ALLIÉS</strong><p>Arrêt immédiat de toute activité, destruction ou présence de Madame Marie Donna Bastien et ses associés au niveau du Jardin Botanique des Cayes, dans l'attente du jugement définitif.</p></div></div>
+      <div class="dem"><div class="dn">2</div><div class="dt"><strong>ACCÈS IMMÉDIAT POUR L'ÉQUIPE DU JBC</strong><p>Permettre immédiatement à l'équipe du Jardin Botanique des Cayes d'entrer sur le site pour prendre soin des plantes en danger qui souffrent chaque jour sans soins ni eau.</p></div></div>
+      <div class="dem"><div class="dn">3</div><div class="dt"><strong>COMMISSION D'ÉVALUATION NATIONALE ET INTERNATIONALE</strong><p>Création d'une commission d'experts botaniques, environnementaux et judiciaires — nationale et internationale — pour évaluer l'intégralité des dégâts causés depuis juillet 2025 et proposer un plan complet de reconstruction.</p></div></div>
+      <div class="dem"><div class="dn">4</div><div class="dt"><strong>RÉOUVERTURE OFFICIELLE LE 5 JUIN 2026</strong><p>Décision officielle du gouvernement haïtien pour la réouverture du JBC le 5 juin 2026, Journée Mondiale de l'Environnement — après évaluation complète des dégâts et début des travaux de reconstruction.</p></div></div>
+      <div class="dem"><div class="dn">5</div><div class="dt"><strong>POURSUITES PÉNALES ET JUGEMENT NATIONAL EXEMPLAIRE</strong><p>Poursuites pénales conformément aux articles 250, 305A, 356, 358, 364 et 365 du Code Pénal haïtien. Un jugement national exemplaire pour que ces crimes environnementaux ne se reproduisent jamais en Haïti.</p></div></div>
+      <div class="dem"><div class="dn">6</div><div class="dt"><strong>IMPLICATION DE L'ÉTAT + RECONSTRUCTION + NOUVEAUX JARDINS</strong><p>L'État haïtien s'engage dans la reconstruction du JBC ET dans la création de jardins botaniques à travers tout le territoire, comme l'exige l'Article 257 de la Constitution haïtienne.</p></div></div>
+    </section>
+
+    <!-- ══ 7. COMPTEUR ══ -->
+    <section class="sw" id="signer" style="text-align:center;">
+      <h2 class="tv"><i class="fas fa-pen-fancy"></i> Signez la pétition</h2>
+      <p class="sub">5 000 signatures pour forcer le gouvernement haïtien à agir avant le 5 juin 2026.</p>
+      <div class="sig">
+        <div class="sig-n" id="sig-count">0</div>
+        <div class="sig-t">signatures sur <strong>5 000</strong></div>
+        <div class="sig-bw"><div class="sig-b" id="sig-bar" style="width:0%"></div></div>
+        <div class="sig-r" id="sig-rem">Chargement…</div>
+      </div>
+      <a href="#formulaire" class="btn-s"><i class="fas fa-pen"></i> JE SIGNE MAINTENANT</a>
+    </section>
+
+    <!-- ══ 8. FORMULAIRE ══ -->
+    <section class="sw" id="formulaire">
+      <h2 class="tv" style="text-align:center;"><i class="fas fa-signature"></i> Votre signature compte</h2>
+      <p style="text-align:center;color:var(--gris);margin-bottom:28px;">En signant, vous exigez l'arrêt immédiat des destructions, l'accès de l'équipe au jardin, et la réouverture officielle le 5 juin 2026.</p>
+      <div class="fw">
+        <form name="petition-signatures" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="pf">
+          <input type="hidden" name="form-name" value="petition-signatures">
+          <p style="display:none;"><input name="bot-field"></p>
+          <div class="fr">
+            <div class="fg"><label for="prenom">Prénom *</label><input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required></div>
+            <div class="fg"><label for="nom">Nom *</label><input type="text" id="nom" name="nom" placeholder="Votre nom" required></div>
+          </div>
+          <div class="fr"><div class="fg ff"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="votre@email.com" required></div></div>
+          <div class="fr">
+            <div class="fg"><label for="pays">Pays *</label>
+              <select id="pays" name="pays" required>
+                <option value="" disabled selected>Sélectionnez</option>
+                <option>🇭🇹 Haïti</option><option>🇺🇸 États-Unis</option>
+                <option>🇨🇦 Canada</option><option>🇫🇷 France</option>
+                <option>🇩🇴 Rép. Dominicaine</option><option>🌍 Autre pays</option>
+              </select>
+            </div>
+            <div class="fg"><label for="prof">Profession <span style="font-weight:400;color:#999;">(optionnel)</span></label><input type="text" id="prof" name="profession" placeholder="Ex : Agronome, Avocat…"></div>
+          </div>
+          <div class="chk">
+            <input type="checkbox" id="conf" name="confirmation" required>
+            <label for="conf">Je signe pour exiger l'<strong>arrêt immédiat de toute action de Donna Bastien</strong>, l'accès de l'équipe du JBC pour soigner les plantes, et la <strong>réouverture officielle le 5 juin 2026</strong>.</label>
+          </div>
+          <button type="submit" class="btn-sub"><i class="fas fa-check-circle"></i> JE SIGNE — ROUVRONS LE JBC LE 5 JUIN 2026</button>
+        </form>
+        <div class="ok" id="pok">✅ <strong>Merci ! Votre signature a été enregistrée.</strong><br>Partagez maintenant et rejoignez la Cellule de réflexion !</div>
+      </div>
+    </section>
+
+    <!-- ══ 9. CELLULE — FOND VERT ══ -->
+    <section class="sc" id="cellule">
+      <h2 class="to"><i class="fas fa-users"></i> Rejoignez la Cellule de réflexion pour sauver le JBC</h2>
+      <p style="text-align:center;opacity:.9;font-size:1.03rem;max-width:720px;margin:0 auto 24px;">Signer, c'est bien. S'engager pour reconstruire et créer d'autres jardins botaniques à travers Haïti — c'est mieux. La Constitution l'exige. Rejoignez la Cellule.</p>
+
+      <div class="cbox dk">
+        <div class="cn">📜 Article 257 de la Constitution Haïtienne</div>
+        <div class="cx">« L'État a l'obligation de créer des jardins botaniques en différents points du territoire national pour la conservation et la valorisation des ressources végétales d'Haïti. »</div>
+        <div class="cs">Cette obligation constitutionnelle doit être respectée. Ensemble, nous allons reconstruire et créer d'autres jardins.</div>
+      </div>
+
+      <div class="cel-g">
+        <div class="cel-c"><i class="fas fa-gavel"></i><h3>Avocat / Juriste</h3><p>Défendez le JBC et poursuivez les responsables des destructions.</p></div>
+        <div class="cel-c"><i class="fas fa-leaf"></i><h3>Environnementaliste</h3><p>Évaluez les dommages et contribuez au plan de reconstruction.</p></div>
+        <div class="cel-c"><i class="fas fa-graduation-cap"></i><h3>Chercheur / Étudiant</h3><p>Documentez et publiez pour que ce crime ne reste pas sans réponse.</p></div>
+        <div class="cel-c"><i class="fas fa-bullhorn"></i><h3>Citoyen engagé</i></h3><p>Mobilisez votre réseau. Chaque voix compte pour reconstruire Haïti en vert.</p></div>
+        <div class="cel-c"><i class="fas fa-newspaper"></i><h3>Journaliste</h3><p>Informez Haïti et le monde. Le dossier complet est disponible.</p></div>
+        <div class="cel-c"><i class="fas fa-hand-holding-heart"></i><h3>Ami d'Haïti</h3><p>Peu importe votre nationalité — votre soutien est précieux.</p></div>
+      </div>
+
+      <div style="max-width:580px;margin:0 auto;">
+        <form name="cellule-reflexion" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="cf">
+          <input type="hidden" name="form-name" value="cellule-reflexion">
+          <p style="display:none;"><input name="bot-field"></p>
+          <div class="fr" style="margin-bottom:12px;">
+            <div class="fg"><label for="cn" class="lt">Prénom et Nom *</label><input type="text" id="cn" name="nom_complet" placeholder="Votre nom complet" required></div>
+            <div class="fg"><label for="ce" class="lt">Email *</label><input type="email" id="ce" name="email" placeholder="votre@email.com" required></div>
+          </div>
+          <div class="fr" style="margin-bottom:12px;">
+            <div class="fg"><label for="cr" class="lt">Votre profil *</label>
+              <select id="cr" name="profil" required>
+                <option value="" disabled selected>Votre profil</option>
+                <option>Avocat / Juriste</option><option>Environnementaliste / Botaniste</option>
+                <option>Chercheur / Étudiant</option><option>Journaliste / Médias</option>
+                <option>Citoyen engagé</option><option>Ami d'Haïti / International</option><option>Autre</option>
+              </select>
+            </div>
+            <div class="fg"><label for="cp" class="lt">Pays</label>
+              <select id="cp" name="pays">
+                <option value="" disabled selected>Votre pays</option>
+                <option>🇭🇹 Haïti</option><option>🇺🇸 États-Unis</option>
+                <option>🇨🇦 Canada</option><option>🇫🇷 France</option><option>🌍 Autre</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg ff" style="margin-bottom:12px;"><label for="cm" class="lt">Comment souhaitez-vous contribuer ? <span style="font-weight:400;opacity:.6;">(optionnel)</span></label><textarea id="cm" name="contribution" rows="3" placeholder="Décrivez comment vous souhaitez aider…" style="resize:vertical;"></textarea></div>
+          <button type="submit" class="btn-cel"><i class="fas fa-users"></i> JE REJOINS LA CELLULE DE RÉFLEXION</button>
+        </form>
+        <div class="ok dk" id="cok">🌿 <strong>Bienvenue dans la Cellule de réflexion !</strong><br>Vous serez contacté très prochainement.</div>
+      </div>
+    </section>
+
+    <!-- ══ 10. PARTAGE ══ -->
+    <section class="sv" style="margin-bottom:0;">
+      <h2 class="tw2"><i class="fas fa-share-alt"></i> Partagez massivement</h2>
+      <p style="opacity:.9;font-size:1.03rem;max-width:580px;margin:0 auto 24px;">Chaque partage peut apporter des centaines de signatures. Le jardin a besoin de vous <strong>maintenant</strong>.</p>
+      <div class="sbs">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/sos-petition-privee.html" target="_blank" class="sb fb"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=🇭🇹%20URGENT%20-%20Plantes%20endémiques%20brûlées%20aux%20Cayes.%20Signez%20pour%20rouvrir%20le%20JBC%20le%205%20juin%202026%20:&url={{ site.url }}/sos-petition-privee.html" target="_blank" class="sb tw"><i class="fab fa-twitter"></i></a>
+        <a href="https://api.whatsapp.com/send?text=🇭🇹%20URGENT%20:%20Jardin%20Botanique%20des%20Cayes%20fermé%20et%20détruit.%20Signez%20:%20{{ site.url }}/sos-petition-privee.html" target="_blank" class="sb wa"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p style="opacity:.65;font-size:.88rem;margin-top:12px;">
+        <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--or);">info@jardinbotaniquecayeshaiti.org</a>
+        &nbsp;|&nbsp;
+        <a href="https://www.jardinbotaniquecayeshaiti.org" style="color:var(--or);" target="_blank">www.jardinbotaniquecayeshaiti.org</a>
+      </p>
+    </section>
+
+  </div>
+</div>
+</div>
+
+<script>
+// ══ CARROUSELS ══
+var carousels = { av: { cur: 0, total: 5 }, ap: { cur: 0, total: 5 } };
+
+function moveCarousel(id, dir) {
+  var c = carousels[id];
+  c.cur = (c.cur + dir + c.total) % c.total;
+  applyCarousel(id);
+}
+function goToSlide(id, i) {
+  carousels[id].cur = i;
+  applyCarousel(id);
+}
+function applyCarousel(id) {
+  var c = carousels[id];
+  var track = document.getElementById('track-' + id);
+  var dots = document.getElementById('dots-' + id).querySelectorAll('.dot');
+  if (track) track.style.transform = 'translateX(-' + (c.cur * 100) + '%)';
+  dots.forEach(function(d, i) {
+    d.className = 'dot' + (i === c.cur ? (id === 'av' ? ' active' : ' active-r') : '');
+  });
+}
+
+// ══ COMPTEUR ══
+(function(){
+  var T=5000;
+  function gc(){ return parseInt(localStorage.getItem('jbc_sig')||'0',10); }
+  function upd(n){
+    var el=document.getElementById('sig-count'),bar=document.getElementById('sig-bar'),rem=document.getElementById('sig-rem');
+    if(!el) return;
+    var c=0,step=Math.max(1,Math.ceil(n/60));
+    var t=setInterval(function(){ c=Math.min(c+step,n); el.textContent=c.toLocaleString('fr-FR'); if(c>=n) clearInterval(t); },25);
+    bar.style.width=Math.min((n/T)*100,100).toFixed(1)+'%';
+    var r=T-n; rem.textContent=r>0?'Encore '+r.toLocaleString('fr-FR')+' signatures pour forcer le gouvernement à agir':'🎉 Objectif atteint ! Continuons !';
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    upd(gc());
+    var pf=document.getElementById('pf'),po=document.getElementById('pok');
+    if(pf) pf.addEventListener('submit',function(){
+      var n=gc()+1; localStorage.setItem('jbc_sig',n);
+      setTimeout(function(){ pf.style.display='none'; if(po) po.style.display='block'; upd(n); },400);
+    });
+    var cf=document.getElementById('cf'),co=document.getElementById('cok');
+    if(cf) cf.addEventListener('submit',function(){
+      setTimeout(function(){ cf.style.display='none'; if(co) co.style.display='block'; },400);
+    });
+  });
+})();
+</script>
+
+{% include form-handler.html %}
