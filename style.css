@@ -27,7 +27,7 @@
   --radius:18px;
   --radius2:26px;
   --max:1200px;
-  --navH:92px;
+  --navH:150px;
   --heroH: clamp(420px, 56vh, 640px);
 
   /* Thème Nature (TNC-like) */
@@ -135,7 +135,7 @@ h1,h2,h3,h4{ font-family:"Playfair Display",serif; }
 }
 .brand{ display:flex; align-items:center; gap:12px; min-width:260px; }
 .brand img{
-  height:70px;
+  height:130px;
   width:auto;
   padding:7px;
   border-radius:16px;
@@ -270,7 +270,8 @@ h1,h2,h3,h4{ font-family:"Playfair Display",serif; }
   .nav{ display:none; }
   .burger{ display:flex; }
   .brand{ min-width:auto; }
-  :root{ --navH:92px; }
+  :root{ --navH:120px; }
+  .brand img{ height:100px; }
 }
 
 /* =========================
