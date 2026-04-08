@@ -1,0 +1,88 @@
+---
+layout: default
+title: "Page Not Found"
+permalink: /en/404.html
+lang: en
+---
+
+<style>
+  .error-page {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+  }
+  .error-inner { max-width: 560px; margin: 0 auto; }
+  .error-code {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(5rem, 14vw, 9rem);
+    font-weight: 900;
+    color: #2F5D2F;
+    line-height: 1;
+    margin-bottom: 12px;
+    opacity: 0.15;
+  }
+  .error-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    color: #2F5D2F;
+    margin-bottom: 16px;
+  }
+  .error-msg {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .error-links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn-home {
+    background: #2F5D2F;
+    color: #fff;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .btn-home:hover { background: #5E8F3A; }
+  .btn-news {
+    background: transparent;
+    color: #2F5D2F;
+    padding: 13px 28px;
+    border-radius: 8px;
+    border: 2px solid #2F5D2F;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+  }
+  .btn-news:hover { background: #2F5D2F; color: #fff; }
+</style>
+
+<main>
+  <div class="error-page">
+    <div class="error-inner">
+      <div class="error-code">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-msg">
+        The page you are looking for does not exist or has been moved.<br>
+        Return to the homepage or browse our latest news.
+      </p>
+      <div class="error-links">
+        <a href="{{ '/en/' | relative_url }}" class="btn-home">
+          <i class="fa-solid fa-house"></i> Home
+        </a>
+        <a href="{{ '/en/nouvelles' | relative_url }}" class="btn-news">
+          <i class="fa-solid fa-newspaper"></i> News
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
