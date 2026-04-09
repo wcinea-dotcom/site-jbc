@@ -34,9 +34,9 @@
 
 {% comment %} Pétition SOS — URLs absolues pour éviter le préfixe /en/ ou /ht/ {% endcomment %}
 {% if is_en %}
-  {% assign url_sos = site.baseurl | append: "/sos-petition-en.html" %}
+  {% assign url_sos = site.baseurl | append: "/en/sos-petition-en.html" %}
 {% elsif is_ht %}
-  {% assign url_sos = site.baseurl | append: "/sos-petition-ht.html" %}
+  {% assign url_sos = site.baseurl | append: "/ht/sos-petition-ht.html" %}
 {% else %}
   {% assign url_sos = site.baseurl | append: "/sos-petition-fr.html" %}
 {% endif %}
@@ -57,6 +57,13 @@
   {% assign fr_url = current_url %}
   {% assign en_url = "/en" | append: current_url %}
   {% assign ht_url = "/ht" | append: current_url %}
+{% endif %}
+
+{% comment %} Correction spéciale pour les pages pétition SOS (noms de fichiers différents par langue) {% endcomment %}
+{% if current_url contains "sos-petition" %}
+  {% assign fr_url = "/sos-petition-fr.html" %}
+  {% assign en_url = "/en/sos-petition-en.html" %}
+  {% assign ht_url = "/ht/sos-petition-ht.html" %}
 {% endif %}
 
 <!-- ═══ BARRE SECONDAIRE (top-tier) ═══════════════════════════════════ -->
@@ -129,6 +136,7 @@
 
       <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% elsif is_ht %}SANTE MOUN{% else %}SANTÉ HUMAINE{% endif %}</a>
       <a href="{{ url_education    | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
+      <a href="{{ url_sos }}" style="color:#c0392b;font-weight:800;animation:pulse-sos 2s infinite;">{% if is_en %}🚨 SOS{% elsif is_ht %}🚨 SOS{% else %}🚨 SOS{% endif %}</a>
 
     </nav>
 
@@ -210,6 +218,9 @@
 
   <!-- ÉDUCATION -->
   <a href="{{ url_education | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
+
+  <!-- SOS PÉTITION — bien visible -->
+  <a href="{{ url_sos }}" style="color:#c0392b;font-weight:800;font-size:1.1rem;animation:pulse-sos 2s infinite;">{% if is_en %}🚨 SOS PETITION{% elsif is_ht %}🚨 PETISYON SOS{% else %}🚨 SOS PÉTITION{% endif %}</a>
 
   <hr class="drawer-sep">
 
@@ -391,8 +402,8 @@
       { title:"Ressources",               url:"{{ '/ressources.html' | relative_url }}",                desc:"Bibliothèque, publications, téléchargements PDF" },
       { title:"À propos",                 url:"{{ '/apropos.html' | relative_url }}",                   desc:"Histoire et mission du Jardin Botanique des Cayes" },
       { title:"🚨 SOS Pétition (FR)",     url:"{{ site.baseurl }}/sos-petition-fr.html",           desc:"Pétition urgente pour la réouverture du JBC — Français" },
-      { title:"🚨 SOS Petition (EN)",     url:"{{ site.baseurl }}/sos-petition-en.html",           desc:"Urgent petition to reopen the JBC — English" },
-      { title:"🚨 Petisyon SOS (KR)",     url:"{{ site.baseurl }}/sos-petition-ht.html",           desc:"Petisyon ijan pou reouvri JBC a — Kreyòl ayisyen" }
+      { title:"🚨 SOS Petition (EN)",     url:"{{ site.baseurl }}/en/sos-petition-en.html",        desc:"Urgent petition to reopen the JBC — English" },
+      { title:"🚨 Petisyon SOS (KR)",     url:"{{ site.baseurl }}/ht/sos-petition-ht.html",        desc:"Petisyon ijan pou reouvri JBC a — Kreyòl ayisyen" }
     ];
 
     function openSearch() {
