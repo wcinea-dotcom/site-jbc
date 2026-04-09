@@ -135,7 +135,7 @@ h1,h2,h3,h4{ font-family:"Playfair Display",serif; }
 }
 .brand{ display:flex; align-items:center; gap:12px; min-width:260px; }
 .brand img{
-  height:130px;
+  height:180px;
   width:auto;
   padding:7px;
   border-radius:16px;
@@ -271,7 +271,7 @@ h1,h2,h3,h4{ font-family:"Playfair Display",serif; }
   .burger{ display:flex; }
   .brand{ min-width:auto; }
   :root{ --navH:120px; }
-  .brand img{ height:100px; }
+  .brand img{ height:140px; }
 }
 
 /* =========================
