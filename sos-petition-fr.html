@@ -15,7 +15,7 @@ ref: sos-petition-privee
 
 /* BARRE */
 .ub{background:var(--rouge);color:#fff;text-align:center;padding:13px 20px;font-weight:700;font-size:.98rem;position:sticky;top:0;z-index:1000;animation:pb 2s infinite;}
-@keyframes pb{0%,100%{background:var(--rouge);}50%{background:var(--rv);}}
+@keyframes pb{0%,100%{background:var(--rouge);} 50%{background:var(--rv);} }
 
 /* HERO */
 .hero{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}') center/cover no-repeat;color:#fff;text-align:center;padding:100px 20px 80px;}
@@ -556,7 +556,7 @@ ref: sos-petition-privee
 
 <script>
 // ══ CARROUSELS ══
-var carousels = { av: { cur: 0, total: 5 }, ap: { cur: 0, total: 5 } };
+var carousels = { av: { cur: 0, total: 7 }, ap: { cur: 0, total: 7 } };
 
 function moveCarousel(id, dir) {
   var c = carousels[id];
