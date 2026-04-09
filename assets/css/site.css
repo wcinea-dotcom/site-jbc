@@ -87,10 +87,11 @@ button:focus-visible{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:12px 0;
-  gap:18px;
+  padding:14px 0;
+  gap:20px;
 }
-.brand img{height:56px; width:auto}
+.brand{ flex-shrink:0; }
+.brand img{height:100px; width:auto}
 
 /* Nav desktop */
 .main-nav{display:flex; align-items:center; gap:18px}
@@ -298,7 +299,7 @@ button:focus-visible{
   .main-nav{display:none}
   .burger{display:inline-flex}
   .footer-inner{grid-template-columns:1fr}
-  .brand img{height:46px}
+  .brand img{height:75px}
   .btn-member-main{padding:10px 12px; font-size:.74rem}
   .main-tier-inner{gap:10px}
   .top-tier{font-size:.82rem}
