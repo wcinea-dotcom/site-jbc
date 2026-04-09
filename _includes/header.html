@@ -136,7 +136,6 @@
 
       <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% elsif is_ht %}SANTE MOUN{% else %}SANTÉ HUMAINE{% endif %}</a>
       <a href="{{ url_education    | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
-      <a href="{{ url_sos }}" style="color:#c0392b;font-weight:800;animation:pulse-sos 2s infinite;">{% if is_en %}🚨 SOS{% elsif is_ht %}🚨 SOS{% else %}🚨 SOS{% endif %}</a>
 
     </nav>
 
@@ -218,9 +217,6 @@
 
   <!-- ÉDUCATION -->
   <a href="{{ url_education | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
-
-  <!-- SOS PÉTITION — bien visible -->
-  <a href="{{ url_sos }}" style="color:#c0392b;font-weight:800;font-size:1.1rem;animation:pulse-sos 2s infinite;">{% if is_en %}🚨 SOS PETITION{% elsif is_ht %}🚨 PETISYON SOS{% else %}🚨 SOS PÉTITION{% endif %}</a>
 
   <hr class="drawer-sep">
 

@@ -13,7 +13,7 @@ ref: sos-petition-privee
 *{box-sizing:border-box;margin:0;padding:0;}
 .jbc{font-family:'Source Sans 3',sans-serif;background:var(--fond);color:#222;line-height:1.7;}
 .ub{background:var(--rouge);color:#fff;text-align:center;padding:13px 20px;font-weight:700;font-size:.98rem;position:sticky;top:0;z-index:1000;animation:pb 2s infinite;}
-@keyframes pb{0%,100%{background:var(--rouge);}50%{background:var(--rv);}}
+@keyframes pb{0%,100%{background:var(--rouge);} 50%{background:var(--rv);} }
 .hero{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}') center/cover no-repeat;color:#fff;text-align:center;padding:100px 20px 80px;}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.6rem);font-weight:900;text-transform:uppercase;text-shadow:2px 2px 8px rgba(0,0,0,.7);margin-bottom:16px;line-height:1.2;}
 .hero h1 span{color:var(--or);}
@@ -125,7 +125,7 @@ ref: sos-petition-privee
 .sb{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff!important;font-size:1.75rem;text-decoration:none!important;transition:all .3s;box-shadow:0 5px 14px rgba(0,0,0,.2);}
 .sb:hover{transform:scale(1.15);}
 .fb{background:#3b5998;} .tw{background:#1da1f2;} .wa{background:#25d366;}
-@media(max-width:768px){.sw,.sv,.sc{padding:30px 16px;}.fr{grid-template-columns:1fr;}.ci{flex-direction:column;}.cd{width:100%;}.carousel-wrap{grid-template-columns:1fr;}.tr-g{grid-template-columns:1fr;}.sig-n{font-size:3.4rem;}}
+@media(max-width:768px){.sw,.sv,.sc{padding:30px 16px;}.fr{grid-template-columns:1fr;}.ci{flex-direction:column;}.cd{width:100%;}.carousel-wrap{grid-template-columns:1fr;}.tr-g{grid-template-columns:1fr;}.sig-n{font-size:3.4rem;} }
 </style>
 
 <div class="jbc">
@@ -394,7 +394,7 @@ ref: sos-petition-privee
 </div>
 
 <script>
-var carousels={av:{cur:0,total:5},ap:{cur:0,total:5}};
+var carousels={ av:{cur:0,total:7}, ap:{cur:0,total:7} };
 function moveCarousel(id,dir){var c=carousels[id];c.cur=(c.cur+dir+c.total)%c.total;applyCarousel(id);}
 function goToSlide(id,i){carousels[id].cur=i;applyCarousel(id);}
 function applyCarousel(id){var c=carousels[id];var track=document.getElementById('track-'+id);var dots=document.getElementById('dots-'+id).querySelectorAll('.dot');if(track)track.style.transform='translateX(-'+(c.cur*100)+'%)';dots.forEach(function(d,i){d.className='dot'+(i===c.cur?(id==='av'?' active':' active-r'):'');});}
