@@ -91,7 +91,7 @@ button:focus-visible{
   gap:20px;
 }
 .brand{ flex-shrink:0; }
-.brand img{height:100px; width:auto}
+.brand img{height:130px; width:auto; padding:4px; border-radius:12px}
 
 /* Nav desktop */
 .main-nav{display:flex; align-items:center; gap:18px}
@@ -299,7 +299,7 @@ button:focus-visible{
   .main-nav{display:none}
   .burger{display:inline-flex}
   .footer-inner{grid-template-columns:1fr}
-  .brand img{height:75px}
+  .brand img{height:90px}
   .btn-member-main{padding:10px 12px; font-size:.74rem}
   .main-tier-inner{gap:10px}
   .top-tier{font-size:.82rem}
