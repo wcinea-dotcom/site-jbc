@@ -18,7 +18,7 @@ ref: sos-petition-privee
 @keyframes pb{0%,100%{background:var(--rouge);} 50%{background:var(--rv);} }
 
 /* HERO */
-.hero{min-height:85vh;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.3)),url('/images/sos-petition/petition-hero.jpg') center/cover no-repeat;color:#fff;text-align:center;padding:60px 20px 40px;}
+.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.3)),url('/images/sos-petition/petition-hero.jpg') center/cover no-repeat;color:#fff;text-align:center;padding:60px 20px 40px;}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.6rem);font-weight:900;text-transform:uppercase;text-shadow:2px 2px 8px rgba(0,0,0,.7);margin-bottom:16px;line-height:1.2;}
 .hero h1 span{color:var(--or);}
 .hero .hs{font-size:clamp(.95rem,2.2vw,1.3rem);max-width:780px;margin:0 auto 20px;opacity:.95;}
@@ -187,7 +187,7 @@ ref: sos-petition-privee
   <!-- HERO -->
   <header class="hero">
     <h1 style="font-size:1.8rem;margin-bottom:10px;text-shadow:2px 2px 8px rgba(0,0,0,.6);">🇭🇹 Sauvons le Jardin Botanique des Cayes</h1>
-    <a href="#petition" class="btn-s" style="margin-top:18px;">✍️ Je signe la pétition</a>
+    <a href="#petition" style="position:absolute;bottom:20px;right:20px;background:var(--vc);color:#fff;padding:10px 20px;border-radius:25px;text-decoration:none;font-size:.9rem;font-weight:600;box-shadow:0 3px 10px rgba(0,0,0,.3);transition:transform .2s;">✍️ Je signe</a>
   </header>
 
 <div class="ct">
@@ -319,11 +319,7 @@ ref: sos-petition-privee
     <!-- ══ 4. TRÉSOR — 2x2 AVEC PHOTOS ══ -->
     <section 
     <!-- Bouton Signer -->
-    <div style="text-align:center; margin: 30px 0 40px;">
-      <a href="#petition" class="btn-s" style="font-size:1.15rem;">✍️ Je signe la pétition maintenant</a>
-    </div>
-
-class="sw" style="border-top:6px solid var(--vc);">
+    <section class="sw" style="border-top:6px solid var(--vc);">
       <h2 class="tv">🌿 Pourquoi ce jardin est irremplaçable</h2>
       <p class="sub">« Le Jardin Botanique des Cayes, c'est l'âme verte d'Haïti. »</p>
       <div class="tr-g">
