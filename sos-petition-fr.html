@@ -18,10 +18,12 @@ ref: sos-petition-privee
 @keyframes pb{0%,100%{background:var(--rouge);} 50%{background:var(--rv);} }
 
 /* HERO */
-.hero{background:linear-gradient(rgba(0,0,0,.18) 0%,rgba(0,0,0,.45) 100%),url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}') center/cover no-repeat;color:#fff;text-align:center;padding:140px 20px 120px;min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4rem);font-weight:900;text-shadow:2px 3px 12px rgba(0,0,0,.6);margin-bottom:16px;line-height:1.15;letter-spacing:-.5px;}
-.hero h1 span{color:var(--or);}
-.hero .hs{font-size:clamp(1rem,2.2vw,1.35rem);max-width:680px;margin:0 auto 10px;opacity:.92;text-shadow:1px 1px 6px rgba(0,0,0,.5);}
+.hero{position:relative;overflow:hidden;}
+.hero-img{width:100%;height:auto;display:block;max-height:75vh;object-fit:cover;}
+.hero-bar{background:var(--vf);color:#fff;text-align:center;padding:28px 20px 32px;}
+.hero-bar h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4.5vw,3rem);font-weight:900;margin-bottom:10px;line-height:1.15;}
+.hero-bar h1 span{color:var(--or);}
+.hero-bar .hs{font-size:clamp(.95rem,2vw,1.15rem);max-width:600px;margin:0 auto 16px;opacity:.85;}
 
 /* LAYOUT */
 .ct{max-width:1100px;margin:0 auto;padding:48px 20px;}
@@ -178,9 +180,10 @@ ref: sos-petition-privee
 
   <!-- HERO -->
   <header class="hero">
-    <h1>Sauvez le <span>Jardin Botanique</span> des Cayes</h1>
-    <p class="hs">Signez la pétition. Partagez. Ensemble, sauvons ce patrimoine vivant.</p>
-    <div style="margin-top:20px;">
+    <img class="hero-img" src="{{ 'images/sos-petition/petition-hero.jpg' | relative_url }}" alt="Jardin Botanique des Cayes">
+    <div class="hero-bar">
+      <h1>Sauvez le <span>Jardin Botanique</span> des Cayes</h1>
+      <p class="hs">Signez la pétition. Partagez. Ensemble, sauvons ce patrimoine vivant.</p>
       <a href="#signer" class="btn-s" style="font-size:1.1rem;padding:14px 38px;"><i class="fas fa-pen"></i> JE SIGNE MAINTENANT</a>
     </div>
   </header>
