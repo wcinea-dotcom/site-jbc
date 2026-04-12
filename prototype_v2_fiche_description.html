@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas JBC — Prototype Fiche + Description</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f5f0eb; color: #2d2d2d; }
+
+  .header { background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%); color: white; padding: 28px 40px; }
+  .header h1 { font-size: 1.5em; letter-spacing: 1px; }
+  .header p { opacity: 0.8; margin-top: 4px; font-size: 0.9em; }
+
+  .container { max-width: 980px; margin: 24px auto; padding: 0 20px; }
+
+  /* Tabs */
+  .main-tabs { display: flex; gap: 0; margin-bottom: 0; }
+  .main-tab { padding: 14px 28px; background: #d4cfc8; border: none; cursor: pointer;
+    font-size: 0.95em; font-family: Georgia, serif; border-radius: 10px 10px 0 0;
+    color: #777; transition: all 0.2s; font-weight: normal; }
+  .main-tab.active { background: white; color: #1a472a; font-weight: bold;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.06); }
+  .main-tab:hover:not(.active) { background: #e0dbd5; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ======================== */
+  /* FICHE TECHNIQUE           */
+  /* ======================== */
+  .fiche { background: white; border-radius: 0 12px 12px 12px; box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+    overflow: hidden; }
+
+  .fiche-top { background: #2d6a4f; color: white; padding: 22px 30px; display: flex;
+    justify-content: space-between; align-items: flex-start; }
+  .fiche-top h2 { font-size: 1.4em; font-style: italic; }
+  .fiche-top .sub { opacity: 0.75; font-size: 0.85em; margin-top: 4px; }
+  .badge { display: inline-block; padding: 5px 16px; border-radius: 14px; font-size: 0.78em;
+    font-weight: bold; letter-spacing: 0.3px; }
+  .badge.native { background: rgba(255,255,255,0.2); }
+  .badge.endemic { background: #c0392b; }
+  .badge.exotic { background: #2471a3; }
+
+  .fiche-names { padding: 14px 30px; background: #faf8f5; border-bottom: 1px solid #e8e0d8;
+    display: flex; flex-wrap: wrap; gap: 20px; }
+  .name-block .lbl { font-size: 0.72em; text-transform: uppercase; color: #999; letter-spacing: 0.5px; }
+  .name-block .val { font-size: 0.95em; margin-top: 2px; }
+
+  /* Etymologie banner */
+  .etym { padding: 14px 30px; background: #f0ede8; border-bottom: 1px solid #e0dbd5;
+    font-size: 0.88em; line-height: 1.6; color: #555; font-style: italic; }
+  .etym strong { color: #2d6a4f; font-style: normal; }
+
+  /* Table */
+  .ft { width: 100%; border-collapse: collapse; }
+  .ft th { text-align: left; padding: 11px 30px; background: #f7f5f2; color: #6a6a6a;
+    font-size: 0.78em; text-transform: uppercase; letter-spacing: 0.5px; width: 190px;
+    border-bottom: 1px solid #e8e4de; vertical-align: top; font-weight: 600; }
+  .ft td { padding: 11px 30px; border-bottom: 1px solid #eae6e0; font-size: 0.9em;
+    line-height: 1.6; vertical-align: top; }
+
+  .src { display: inline-block; background: #c8e6c9; color: #2e7d32; padding: 2px 8px;
+    border-radius: 4px; font-size: 0.7em; margin-left: 6px; font-family: 'Arial', sans-serif;
+    font-weight: 600; letter-spacing: 0.3px; }
+  .src.terrain { background: #dcedc8; color: #558b2f; }
+  .src.tramil { background: #b3e5fc; color: #0277bd; }
+  .src.powo { background: #e1bee7; color: #7b1fa2; }
+  .src.pmid { background: #c8e6c9; color: #2e7d32; }
+  .src.unverified { background: #fff3cd; color: #856404; }
+  .src.none { background: #ffcdd2; color: #c62828; }
+
+  .tox { display: inline-block; padding: 4px 14px; border-radius: 12px; font-size: 0.82em; font-weight: bold; }
+  .tox.green { background: #d4edda; color: #155724; }
+  .tox.gray { background: #e2e3e5; color: #495057; }
+  .tox.orange { background: #fde8d0; color: #8a5a00; }
+  .tox.red { background: #f8d7da; color: #721c24; }
+
+  .study-ind { display: flex; align-items: center; gap: 8px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.yes { background: #27ae60; }
+  .dot.no { background: #c0392b; }
+
+  /* Couleur locale section */
+  .local-section { background: #fef9f0; border-top: 2px solid #e8c87a; padding: 18px 30px; }
+  .local-section h4 { color: #b8860b; font-size: 0.85em; text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 10px; }
+  .local-section p { font-size: 0.88em; line-height: 1.7; color: #5a4a2a; }
+
+  /* Sources footer */
+  .sources-footer { background: #f5f5f5; padding: 16px 30px; border-top: 1px solid #e0e0e0; }
+  .sources-footer h4 { font-size: 0.8em; text-transform: uppercase; color: #888;
+    letter-spacing: 0.5px; margin-bottom: 8px; }
+  .sources-footer .src-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sources-footer .src-item { font-size: 0.8em; padding: 4px 10px; background: white;
+    border-radius: 6px; border: 1px solid #ddd; }
+  .sources-footer .src-item a { color: #1565c0; text-decoration: none; }
+
+  /* ======================== */
+  /* DESCRIPTION LIVRE         */
+  /* ======================== */
+  .book { background: white; border-radius: 0 12px 12px 12px; box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+    padding: 36px 42px; }
+  .book h2 { font-size: 1.3em; color: #1a472a; font-style: italic; margin-bottom: 4px; }
+  .book .book-sub { font-size: 0.9em; color: #888; margin-bottom: 6px; }
+  .book .book-family { font-size: 0.85em; color: #2d6a4f; margin-bottom: 24px;
+    padding-bottom: 14px; border-bottom: 2px solid #e8f5e9; }
+  .book h3 { color: #2d6a4f; font-size: 1em; margin: 22px 0 8px 0; letter-spacing: 0.3px; }
+  .book p { line-height: 1.85; margin-bottom: 10px; font-size: 0.92em; text-align: justify; }
+  .book .ref { color: #1565c0; text-decoration: none; font-size: 0.84em; }
+  .book .ref:hover { text-decoration: underline; }
+  .book .no-data { color: #888; font-style: italic; background: #f8f8f8; padding: 14px 20px;
+    border-radius: 6px; border-left: 4px solid #ccc; margin: 8px 0; font-size: 0.9em; }
+
+  .book-sources { background: #f0f7f0; border: 1px solid #a5d6a7; border-radius: 8px;
+    padding: 18px 22px; margin-top: 28px; }
+  .book-sources h4 { color: #2e7d32; margin-bottom: 10px; font-size: 0.9em; }
+  .book-sources ul { list-style: none; padding: 0; }
+  .book-sources li { padding: 3px 0; font-size: 0.85em; line-height: 1.5; }
+  .book-sources li::before { content: "✓ "; color: #2e7d32; font-weight: bold; }
+  .book-sources .warn { color: #c0392b; }
+  .book-sources .warn::before { content: "⚠ "; }
+
+  .word-count { text-align: right; font-size: 0.78em; color: #aaa; margin-top: 12px;
+    font-family: Arial, sans-serif; }
+
+  /* ======================== */
+  /* RULES SECTION             */
+  /* ======================== */
+  .rules { background: white; border-radius: 12px; box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+    padding: 30px 36px; margin-top: 30px; }
+  .rules h2 { color: #1a472a; font-size: 1.2em; margin-bottom: 18px; padding-bottom: 10px;
+    border-bottom: 3px solid #1a472a; }
+  .rule-group { margin-bottom: 24px; }
+  .rule-group h3 { font-size: 0.95em; padding: 8px 14px; border-radius: 6px; margin-bottom: 10px; }
+  .rule-group.endemic h3 { background: #fcdede; color: #c00000; }
+  .rule-group.native h3 { background: #e8f5e9; color: #2e7d32; }
+  .rule-group.exotic h3 { background: #e3f2fd; color: #1565c0; }
+  .rule-group ul { list-style: none; padding-left: 16px; }
+  .rule-group li { padding: 4px 0; font-size: 0.88em; line-height: 1.6; }
+  .rule-group li::before { content: "→ "; font-weight: bold; }
+
+  .json-note { margin-top: 30px; background: #f5f5f5; padding: 20px; border-radius: 8px;
+    font-family: 'Courier New', monospace; font-size: 0.82em; line-height: 1.5; }
+
+  @media (max-width: 700px) {
+    .fiche-top { flex-direction: column; gap: 8px; }
+    .container { padding: 0 12px; }
+    .book { padding: 24px 20px; }
+    .fiche-names { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Jardin Botanique des Cayes — Atlas des Plantes Médicinales</h1>
+  <p>Département du Sud et de la Grand'Anse · 271 espèces · 89 familles</p>
+</div>
+
+<div class="container">
+
+  <!-- ================================== -->
+  <!-- MAIN TABS: Fiche / Description     -->
+  <!-- ================================== -->
+  <div class="main-tabs">
+    <button class="main-tab active" onclick="showTab('fiche')">Fiche technique</button>
+    <button class="main-tab" onclick="showTab('desc')">Description (livre)</button>
+    <button class="main-tab" onclick="showTab('rules')">Règles par statut</button>
+  </div>
+
+  <!-- ================================== -->
+  <!-- TAB 1: FICHE TECHNIQUE              -->
+  <!-- ================================== -->
+  <div class="tab-content active" id="tab-fiche">
+    <div class="fiche">
+      <div class="fiche-top">
+        <div>
+          <h2>Ruellia tuberosa L.</h2>
+          <div class="sub">Famille 1 — Acanthacées · Fiche 1.1</div>
+        </div>
+        <span class="badge native">Native</span>
+      </div>
+
+      <div class="fiche-names">
+        <div class="name-block"><div class="lbl">Créole</div><div class="val"><strong>Pèpèt</strong></div></div>
+        <div class="name-block"><div class="lbl">Français</div><div class="val">Ruellie tubéreuse</div></div>
+        <div class="name-block"><div class="lbl">Anglais</div><div class="val">Minnie Root</div></div>
+        <div class="name-block"><div class="lbl">Synonyme</div><div class="val"><i>Cryphiacanthus barbadensis</i></div></div>
+      </div>
+
+      <!-- Etymologie — couleur locale -->
+      <div class="etym">
+        <strong>Pourquoi « Pèpèt » ?</strong> — Le nom créole vient du son produit par le fruit à maturité. Lorsqu'on touche la capsule mûre, elle s'ouvre brusquement en projetant les graines avec un petit claquement sec — un « pèt ». Les enfants du Sud connaissent bien ce jeu.
+      </div>
+
+      <table class="ft">
+        <tr>
+          <th>Forme biologique</th>
+          <td>Herbe vivace, 60–100 cm <span class="src terrain">TERRAIN</span></td>
+        </tr>
+        <tr>
+          <th>Altitude</th>
+          <td>Basse altitude</td>
+        </tr>
+        <tr>
+          <th>Abondance</th>
+          <td>Commune</td>
+        </tr>
+        <tr>
+          <th>Distribution</th>
+          <td>Native d'Amérique tropicale · Commune au Sud et à la Grand'Anse
+            <span class="src powo">POWO</span> <span class="src terrain">TERRAIN</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Parties utilisées</th>
+          <td>Racines, feuilles, tiges
+            <span class="src tramil">TRAMIL</span> <span class="src terrain">TERRAIN</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Usages traditionnels</th>
+          <td>Diurétique · Antidiabétique · Anti-inflammatoire · Fièvre · Troubles urinaires
+            <span class="src terrain">TERRAIN</span> <span class="src tramil">TRAMIL</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Préparation</th>
+          <td>Infusion des feuilles <span class="src terrain">TERRAIN</span></td>
+        </tr>
+        <tr>
+          <th>Systèmes ciblés</th>
+          <td>Digestif · Urinaire</td>
+        </tr>
+        <tr>
+          <th>Molécules confirmées</th>
+          <td>Cirsimariline (flavonoïde) · Lupéol (triterpène) · Sitostérol · Saponines
+            <span class="src pmid">PUBMED ✓</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Posologie</th>
+          <td>250–500 mg/kg (rat, modèle animal) · <em>Aucune posologie humaine standardisée</em>
+            <span class="src pmid">PUBMED ✓</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Toxicité</th>
+          <td><span class="tox green">NON TOXIQUE</span> — Profil favorable aux doses traditionnelles
+            <br><small style="color:#888">Prudence : grossesse, insuffisance rénale sévère</small>
+            <span class="src tramil">TRAMIL</span>
+          </td>
+        </tr>
+        <tr>
+          <th>Études publiées</th>
+          <td><div class="study-ind"><span class="dot yes"></span> Oui — ~500 publications</div></td>
+        </tr>
+        <tr>
+          <th>Conservation</th>
+          <td>Préoccupation mineure (LC) — Populations stables
+            <br><strong style="color:#2e7d32">NATIVE → Conserver et valoriser</strong>
+          </td>
+        </tr>
+        <tr>
+          <th>Valeur</th>
+          <td>Locale : remède populaire (Sud & Grand'Anse) · Internationale : ornementale, potentiel antidiabétique</td>
+        </tr>
+      </table>
+
+      <!-- Couleur locale section -->
+      <div class="local-section">
+        <h4>Couleur locale — Sud & Grand'Anse</h4>
+        <p>Plante commune dans les basses terres des deux départements, particulièrement abondante aux abords des Cayes et dans les zones perturbées de Jérémie. Les guérisseurs traditionnels (<em>doktè fèy</em>) du Sud préparent une infusion des feuilles pour « nettoyer les reins » et soulager les gaz intestinaux. Le remède est consommé tiède. Documentée dans l'inventaire du Jardin Botanique des Cayes.</p>
+      </div>
+
+      <!-- Sources -->
+      <div class="sources-footer">
+        <h4>Sources vérifiées</h4>
+        <div class="src-list">
+          <span class="src-item">🌿 <strong>TERRAIN</strong> — W. Cinéa, JBC</span>
+          <span class="src-item">🔬 <a href="https://www.tramil.net/en/plant/ruellia-tuberosa">TRAMIL</a></span>
+          <span class="src-item">🌍 <a href="https://powo.science.kew.org">POWO, Kew Science</a></span>
+          <span class="src-item">📚 <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Ruellia+tuberosa">PubMed (~500 articles)</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================== -->
+  <!-- TAB 2: DESCRIPTION LIVRE            -->
+  <!-- ================================== -->
+  <div class="tab-content" id="tab-desc">
+    <div class="book">
+      <h2>1.1 Ruellia tuberosa L.</h2>
+      <div class="book-sub">« Pèpèt » · Ruellie tubéreuse · Minnie Root</div>
+      <div class="book-family">Famille 1 — Acanthacées · Espèce native</div>
+
+      <h3>Introduction</h3>
+      <p><i>Ruellia tuberosa</i> L. (syn. <i>Cryphiacanthus barbadensis</i>) est une herbe vivace native, commune dans les Départements du Sud et de la Grand'Anse. Elle appartient au genre <i>Ruellia</i>, qui regroupe plus de 250 espèces d'herbes tropicales, dont plusieurs sont utilisées en médecine traditionnelle pour leurs propriétés diurétiques et anti-inflammatoires. Dans le Sud d'Haïti, cette plante est intimement liée au quotidien des communautés rurales, qui la connaissent sous le nom créole de « Pèpèt » — un nom évocateur qui provient du son caractéristique que produit son fruit. Lorsqu'on touche la capsule mûre de <i>R. tuberosa</i>, celle-ci s'ouvre brusquement en projetant les graines à distance, émettant un claquement sec. Ce mécanisme de déhiscence explosive est bien connu des enfants du Sud, pour qui il constitue souvent un premier contact ludique avec la botanique.</p>
+
+      <h3>Description botanique</h3>
+      <p><i>R. tuberosa</i> est une herbe vivace de basse altitude, facilement reconnaissable par ses fleurs violettes tubulaires. Son système racinaire comprend des racines tubérisées — d'où l'épithète spécifique « tuberosa » — qui constituent des organes de réserve permettant à la plante de survivre aux périodes de sécheresse fréquentes dans les basses terres du Sud. Les tiges sont herbacées, dressées, pouvant atteindre 60 à 100 cm de hauteur, souvent ramifiées et légèrement poilues. Les feuilles sont opposées, simples, ovales à elliptiques, de couleur vert foncé, avec des nervures bien marquées. Les fleurs, de couleur violette à bleue, sont disposées en épis terminaux ou axillaires et présentent la corolle bilabiée caractéristique des Acanthacées. Le fruit est une capsule qui, à maturité, s'ouvre de manière explosive, propulsant les graines à distance — c'est ce mécanisme d'autochorie qui a donné son nom créole à la plante.</p>
+
+      <h3>Les molécules produites par la plante et leurs rôles</h3>
+      <p>Les principaux composés secondaires identifiés dans <i>R. tuberosa</i> comprennent des flavonoïdes, notamment la cirsimariline, des triterpènes comme le lupéol, des stérols tels que le sitostérol, des saponines, des tanins et des alcaloïdes. Ces molécules remplissent des fonctions de défense précises pour la plante : les flavonoïdes protègent contre les rayonnements UV et les pathogènes, tout en conférant les propriétés antioxydantes documentées scientifiquement ; les saponines créent une amertume qui dissuade les herbivores tout en contribuant aux effets diurétiques observés ; les triterpènes et stérols renforcent l'intégrité des membranes cellulaires et participent aux mécanismes de défense contre les stress abiotiques. Cette composition a été confirmée par des études publiées dans la littérature scientifique internationale, avec environ 500 publications référencées sur PubMed.</p>
+
+      <h3>Écologie, origine et distribution</h3>
+      <p><i>R. tuberosa</i> est une espèce native d'Amérique tropicale, largement distribuée dans les Caraïbes. Dans les Départements du Sud et de la Grand'Anse, elle colonise préférentiellement les zones perturbées de basse altitude — bords de chemins, terrains vagues, abords des habitations. On la trouve particulièrement en abondance aux alentours des Cayes et dans les zones anthropisées de Jérémie. Sa résistance remarquable à la sécheresse, grâce à ses racines tubérisées, lui permet de prospérer dans des environnements où d'autres espèces peinent à survivre, ce qui en fait une plante pionnière des terrains dégradés.</p>
+
+      <h3>Usages ethnobotaniques, parties utilisées et modes de préparation</h3>
+      <p>Dans les Départements du Sud et de la Grand'Anse, <i>R. tuberosa</i> est documentée comme plante médicinale sous le nom créole de « Pèpèt ». Les guérisseurs traditionnels (<i>doktè fèy</i>) du Sud préparent une infusion des feuilles pour soulager les gaz intestinaux et « nettoyer les reins ». Les racines, feuilles et tiges sont utilisées selon les indications, principalement sous forme d'infusion consommée tiède. Les usages traditionnels comprennent le traitement des troubles urinaires, l'effet diurétique, les propriétés antidiabétiques, les effets anti-inflammatoires, le soulagement de la fièvre et des douleurs musculaires. Dans la pharmacopée TRAMIL, l'espèce est également documentée en Martinique pour les affections des reins et de la vessie. À l'international, elle est utilisée au Suriname et en Inde pour les calculs rénaux et le diabète.</p>
+
+      <h3>Systèmes concernés, maladies et mécanismes d'action</h3>
+      <p><i>R. tuberosa</i> cible principalement les systèmes digestif et urinaire, conformément à la signature thérapeutique de sa famille botanique. Des études expérimentales menées sur des modèles animaux ont démontré une inhibition de l'α-amylase et une amélioration de la tolérance au glucose chez le rat, validant partiellement les usages antidiabétiques traditionnels. Les effets antioxydants et protecteurs rénaux ont également été documentés. Cependant, le mécanisme diurétique exact reste peu documenté, nécessitant des recherches complémentaires pour élucider les voies physiologiques impliquées.</p>
+
+      <h3>Posologie documentée</h3>
+      <p>Les données de posologie clinique standardisée chez l'humain font défaut pour <i>R. tuberosa</i>. Les études expérimentales rapportent l'utilisation de 250 à 500 mg/kg d'extrait hydro-éthanolique chez le rat, mais ces doses animales ne peuvent être directement extrapolées à l'usage humain. Les préparations traditionnelles utilisent généralement des infusions de feuilles ou de racines, sans dosage précisément standardisé.</p>
+
+      <h3>Toxicité et précautions</h3>
+      <p><i>Ruellia tuberosa</i> présente un profil de sécurité favorable, sans toxicité documentée aux doses usuelles d'utilisation traditionnelle. Cependant, la prudence reste recommandée chez les femmes enceintes et les personnes souffrant d'insuffisance rénale sévère, en raison des effets diurétiques et hypoglycémiants démontrés principalement chez l'animal. L'absence de données toxicologiques complètes chez l'humain impose une vigilance particulière lors d'utilisations prolongées ou à doses élevées.</p>
+
+      <h3>Menaces et conservation</h3>
+      <p><i>R. tuberosa</i> bénéficie d'un statut de conservation favorable, classée en « Préoccupation mineure » (LC) en raison de sa large distribution et de sa résistance écologique. En tant qu'espèce native, elle mérite d'être conservée et valorisée dans les Départements du Sud et de la Grand'Anse, tant pour ses usages médicinaux que pour son rôle écologique de plante pionnière des milieux perturbés.</p>
+
+      <h3>Valeur économique</h3>
+      <p>Sur le plan local, <i>R. tuberosa</i> possède une valeur médicinale reconnue comme remède populaire dans les pharmacopées traditionnelles du Sud et de la Grand'Anse. À l'international, elle présente un potentiel ornemental grâce à ses fleurs colorées et un intérêt pharmacologique croissant pour ses propriétés antidiabétiques.</p>
+
+      <h3>Recherches et perspectives</h3>
+      <p>Environ 500 publications scientifiques référencent <i>R. tuberosa</i> dans la littérature internationale, témoignant d'un intérêt scientifique soutenu. Les priorités de recherche incluent l'élucidation des mécanismes diurétiques, les études de toxicologie et pharmacocinétique chez l'humain, et les essais cliniques contrôlés pour valider les usages antidiabétiques traditionnels documentés dans le Sud d'Haïti.</p>
+
+      <p style="margin-top: 18px; padding: 12px 16px; background: #f0f7f0; border-radius: 6px; font-size: 0.88em;">
+        🟢 <strong>À retenir — Pèpèt :</strong> est utilisée en médecine traditionnelle dans le Sud et la Grand'Anse avec un bon profil de sécurité aux doses courantes. Les usages présentés reposent sur des données ethnobotaniques (enquêtes JBC, TRAMIL) et scientifiques publiées (~500 articles PubMed), mais ne constituent pas une prescription. Consulter un professionnel de santé avant tout usage thérapeutique.
+      </p>
+
+      <div class="book-sources">
+        <h4>Sources de cette fiche</h4>
+        <ul>
+          <li>Description botanique et couleur locale : observation de terrain, Jardin Botanique des Cayes (W. Cinéa)</li>
+          <li>Usages traditionnels : enquête ethnobotanique JBC, Départements du Sud et de la Grand'Anse</li>
+          <li>Pharmacopée caribéenne : <a href="https://www.tramil.net/en/plant/ruellia-tuberosa" class="ref">TRAMIL — Ruellia tuberosa</a></li>
+          <li>Taxonomie et distribution : <a href="https://powo.science.kew.org" class="ref">POWO, Kew Science</a></li>
+          <li>Littérature scientifique : <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Ruellia+tuberosa" class="ref">PubMed — ~500 publications</a></li>
+        </ul>
+      </div>
+
+      <div class="word-count">~1 050 mots</div>
+    </div>
+  </div>
+
+  <!-- ================================== -->
+  <!-- TAB 3: RÈGLES PAR STATUT            -->
+  <!-- ================================== -->
+  <div class="tab-content" id="tab-rules">
+    <div class="rules">
+      <h2>Règles d'écriture par statut de la plante</h2>
+
+      <p style="margin-bottom: 24px; font-size: 0.92em; line-height: 1.7;">Ces règles garantissent la cohérence et la crédibilité scientifique de l'Atlas. Elles s'appliquent aux trois sorties : fiche technique (site web), description (livre), et base de données.</p>
+
+      <div class="rule-group endemic">
+        <h3>🔴 Plantes endémiques (strict d'Haïti ou d'Hispaniola) — 25 espèces</h3>
+        <ul>
+          <li><strong>Conservation :</strong> Priorité absolue de conservation. Ces espèces n'existent nulle part ailleurs. Le JBC a un rôle crucial dans leur préservation.</li>
+          <li><strong>Molécules :</strong> Ne JAMAIS lister de molécules sans une étude publiée spécifique à l'espèce (PMID ou DOI vérifié). Sur les 25 endémiques, seules <i>Ekmanianthe longiflora</i> et <i>Illicium hottense</i> ont des études publiées.</li>
+          <li><strong>Formulation :</strong> « Aucune étude phytochimique n'a été publiée pour [espèce]. La composition chimique reste inconnue. La caractérisation phytochimique constitue une priorité de recherche. »</li>
+          <li><strong>Toxicité :</strong> Code gris « DONNÉES INSUFFISANTES ». Jamais « non toxique » ni « toxique » sans étude.</li>
+          <li><strong>Langage interdit :</strong> « probablement », « par analogie avec le genre », « pourrait contenir », « vraisemblablement ».</li>
+          <li><strong>Couleur locale :</strong> Préciser la localisation exacte (ex. Massif de la Hotte, Macaya, basses terres du Sud). Mentionner l'altitude si connue.</li>
+          <li><strong>Exemple :</strong> <i>Amyris apiculata</i> — endémique d'altitude, localisée à Macaya. <i>Amyris</i> autre espèce — basse altitude, plus commune en Haïti.</li>
+          <li><strong>Description livre :</strong> 1000–1200 mots. L'honnêteté sur le manque de données EST la force scientifique.</li>
+        </ul>
+      </div>
+
+      <div class="rule-group native">
+        <h3>🟢 Plantes natives — 82 espèces</h3>
+        <ul>
+          <li><strong>Conservation :</strong> Conserver et valoriser. Espèces à protéger dans leur habitat naturel au Sud et en Grand'Anse.</li>
+          <li><strong>Molécules :</strong> Peuvent être listées SI confirmées par des études publiées vérifiées (PMID/DOI). Si les études portent sur le genre et non l'espèce, le préciser clairement.</li>
+          <li><strong>Références :</strong> Chaque PMID et DOI doit être vérifié — le titre de l'article doit correspondre à l'espèce citée.</li>
+          <li><strong>Toxicité :</strong> Code couleur basé sur les données publiées. Si données insuffisantes, utiliser le code gris.</li>
+          <li><strong>Couleur locale :</strong> Toujours mentionner la présence dans le Sud et/ou la Grand'Anse. Décrire les usages locaux (<i>doktè fèy</i>, préparations traditionnelles). Inclure l'étymologie du nom créole quand elle est significative.</li>
+          <li><strong>Description livre :</strong> 1000–1200 mots. Inclure des données ethnobotaniques de terrain (JBC) + TRAMIL si disponible + littérature scientifique vérifiée.</li>
+        </ul>
+      </div>
+
+      <div class="rule-group exotic">
+        <h3>🔵 Plantes exotiques / introduites — 136 espèces</h3>
+        <ul>
+          <li><strong>Conservation :</strong> JAMAIS « conserver » ou « protéger ». Utiliser : « contrôler », « surveiller le potentiel invasif », « gérer la présence ». Les exotiques peuvent menacer les endémiques.</li>
+          <li><strong>Formulation :</strong> « Espèce exotique introduite, à surveiller pour son potentiel invasif. Sa gestion doit être contrôlée pour protéger la flore native. »</li>
+          <li><strong>Molécules :</strong> Peuvent être listées si des études publiées existent (beaucoup d'exotiques sont bien étudiées internationalement). Toujours citer la source.</li>
+          <li><strong>Toxicité :</strong> Code couleur basé sur les données publiées — souvent disponibles pour les exotiques.</li>
+          <li><strong>Couleur locale :</strong> Mentionner si l'espèce est présente dans le Sud/Grand'Anse et son degré d'invasion. Décrire les usages locaux s'ils existent.</li>
+          <li><strong>Description livre :</strong> 1000–1200 mots. Insister sur le caractère introduit et les risques potentiels pour la biodiversité locale.</li>
+        </ul>
+      </div>
+
+      <div class="rule-group" style="background: #f5f5f5; padding: 16px; border-radius: 8px;">
+        <h3 style="background: #f5f5f5; color: #555;">⬜ Plantes non spécifiées — 28 espèces</h3>
+        <ul>
+          <li><strong>Action prioritaire :</strong> Déterminer le statut (endémique/natif/exotique) en consultant POWO, GBIF, et l'expertise de W. Cinéa.</li>
+          <li>Appliquer ensuite les règles du statut correspondant.</li>
+        </ul>
+      </div>
+
+      <!-- JSON schema changes -->
+      <div class="json-note">
+        <strong>Champs ajoutés au JSON (par rapport à l'ancienne fiche) :</strong><br><br>
+        <strong>+ identite.etymologie_creole</strong> — Origine du nom créole (couleur locale)<br>
+        <strong>+ identite.etymologie_scientifique</strong> — Signification du nom latin<br>
+        <strong>+ couleur_locale{}</strong> — Bloc entier : departements, localisation_precise, pratique_locale, savoir_populaire, inventaire_jbc<br>
+        <strong>+ pharmacologie.etude_publiee</strong> — Boolean true/false (crucial pour les endémiques)<br>
+        <strong>+ pharmacologie.niveau_preuve</strong> — "Études animales" / "Essais cliniques" / "Usage traditionnel uniquement"<br>
+        <strong>+ toxicologie.code_couleur</strong> — vert/jaune/orange/rouge/gris<br>
+        <strong>+ toxicologie.source_toxicite</strong> — D'où vient l'info toxicité<br>
+        <strong>+ conservation.regle_conservation</strong> — "NATIVE → Conserver" / "EXOTIQUE → Contrôler" / "ENDÉMIQUE → Priorité absolue"<br>
+        <strong>+ references_verifiees[]</strong> — Liste avec type, url, verification, contenu<br>
+        <strong>+ _meta{}</strong> — date_creation, derniere_verification, statut_audit, notes_audit
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  const tabs = document.querySelectorAll('.main-tab');
+  const map = { fiche: 0, desc: 1, rules: 2 };
+  if (map[id] !== undefined) tabs[map[id]].classList.add('active');
+}
+</script>
+
+</body>
+</html>

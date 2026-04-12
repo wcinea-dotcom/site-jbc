@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas JBC — Prototype Fiche Plante</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Georgia', serif; background: #f5f0eb; color: #2d2d2d; }
+
+  .header { background: linear-gradient(135deg, #1a472a 0%, #2d6a4f 100%); color: white; padding: 30px 40px; }
+  .header h1 { font-size: 1.6em; letter-spacing: 1px; }
+  .header p { opacity: 0.8; margin-top: 6px; font-size: 0.95em; }
+
+  .nav-bar { background: #264d35; padding: 10px 40px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .nav-bar button { background: rgba(255,255,255,0.15); border: none; color: white; padding: 8px 18px;
+    border-radius: 20px; cursor: pointer; font-size: 0.85em; transition: all 0.2s; }
+  .nav-bar button:hover, .nav-bar button.active { background: rgba(255,255,255,0.35); }
+
+  .container { max-width: 960px; margin: 30px auto; padding: 0 20px; }
+
+  /* === FICHE TECHNIQUE (Summary Card) === */
+  .fiche-card { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    overflow: hidden; margin-bottom: 30px; }
+  .fiche-header { background: #2d6a4f; color: white; padding: 20px 28px; display: flex;
+    justify-content: space-between; align-items: center; }
+  .fiche-header h2 { font-size: 1.3em; font-style: italic; }
+  .fiche-header .badge { background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 12px;
+    font-size: 0.8em; font-weight: bold; }
+  .fiche-header .badge.endemic { background: #c0392b; }
+  .fiche-header .badge.native { background: #27ae60; }
+  .fiche-header .badge.exotic { background: #2980b9; }
+
+  .fiche-names { padding: 16px 28px; background: #f8f6f3; border-bottom: 1px solid #e8e0d8; }
+  .fiche-names span { display: inline-block; margin-right: 20px; font-size: 0.95em; }
+  .fiche-names .label { color: #888; font-size: 0.8em; display: block; }
+
+  .fiche-table { width: 100%; border-collapse: collapse; }
+  .fiche-table th { text-align: left; padding: 10px 28px; background: #f0ede8; color: #5a5a5a;
+    font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.5px; width: 200px;
+    border-bottom: 1px solid #e0dbd5; vertical-align: top; }
+  .fiche-table td { padding: 10px 28px; border-bottom: 1px solid #e8e4de; font-size: 0.92em;
+    line-height: 1.5; vertical-align: top; }
+
+  .tox-badge { display: inline-block; padding: 3px 12px; border-radius: 10px; font-size: 0.8em;
+    font-weight: bold; }
+  .tox-green { background: #d4edda; color: #155724; }
+  .tox-yellow { background: #fff3cd; color: #856404; }
+  .tox-orange { background: #fde8d0; color: #8a5a00; }
+  .tox-red { background: #f8d7da; color: #721c24; }
+  .tox-gray { background: #e2e3e5; color: #495057; }
+
+  .source-tag { display: inline-block; background: #e8eaf6; color: #3949ab; padding: 2px 8px;
+    border-radius: 4px; font-size: 0.75em; margin-left: 6px; font-family: monospace; }
+  .source-tag.verified { background: #c8e6c9; color: #2e7d32; }
+  .source-tag.unverified { background: #fff3cd; color: #856404; }
+  .source-tag.none { background: #ffcdd2; color: #c62828; }
+
+  .study-indicator { display: flex; align-items: center; gap: 8px; }
+  .study-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .study-dot.yes { background: #27ae60; }
+  .study-dot.no { background: #c0392b; }
+
+  /* === TABS === */
+  .tabs { display: flex; gap: 0; margin-bottom: 0; }
+  .tab { padding: 12px 24px; background: #e0dbd5; border: none; cursor: pointer;
+    font-size: 0.9em; font-family: Georgia, serif; border-radius: 8px 8px 0 0;
+    color: #666; transition: all 0.2s; }
+  .tab.active { background: white; color: #2d6a4f; font-weight: bold;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05); }
+
+  /* === DESCRIPTION (Book text) === */
+  .description-card { background: white; border-radius: 0 12px 12px 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 32px 36px; margin-bottom: 30px; }
+  .description-card h3 { color: #2d6a4f; font-size: 1.1em; margin: 24px 0 10px 0;
+    padding-bottom: 6px; border-bottom: 2px solid #e8f5e9; }
+  .description-card h3:first-child { margin-top: 0; }
+  .description-card p { line-height: 1.8; margin-bottom: 12px; font-size: 0.93em; text-align: justify; }
+  .description-card .ref-link { color: #1565c0; text-decoration: none; font-size: 0.85em; }
+  .description-card .ref-link:hover { text-decoration: underline; }
+  .description-card .no-data { color: #888; font-style: italic; background: #f5f5f5;
+    padding: 12px 18px; border-radius: 6px; border-left: 4px solid #ccc; }
+
+  .credibility-box { background: #e8f5e9; border: 1px solid #a5d6a7; border-radius: 8px;
+    padding: 16px 20px; margin-top: 24px; }
+  .credibility-box h4 { color: #2e7d32; margin-bottom: 8px; font-size: 0.95em; }
+  .credibility-box ul { list-style: none; padding: 0; }
+  .credibility-box li { padding: 4px 0; font-size: 0.88em; }
+  .credibility-box li::before { content: "✓ "; color: #2e7d32; font-weight: bold; }
+
+  /* === COMPARISON === */
+  .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 30px 0; }
+  .compare-box { background: white; border-radius: 10px; padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .compare-box h3 { font-size: 1em; margin-bottom: 14px; padding-bottom: 8px; }
+  .compare-box.bad { border-top: 4px solid #c0392b; }
+  .compare-box.bad h3 { color: #c0392b; border-bottom: 2px solid #f8d7da; }
+  .compare-box.good { border-top: 4px solid #27ae60; }
+  .compare-box.good h3 { color: #27ae60; border-bottom: 2px solid #d4edda; }
+  .compare-box p { font-size: 0.88em; line-height: 1.7; }
+  .highlight-bad { background: #fff0f0; padding: 2px 4px; border-radius: 3px; color: #c0392b; }
+  .highlight-good { background: #f0fff0; padding: 2px 4px; border-radius: 3px; color: #2e7d32; }
+
+  .section-title { font-size: 1.3em; color: #2d6a4f; margin: 40px 0 16px 0;
+    padding-bottom: 8px; border-bottom: 3px solid #2d6a4f; }
+
+  @media (max-width: 700px) {
+    .comparison { grid-template-columns: 1fr; }
+    .fiche-header { flex-direction: column; gap: 8px; }
+    .container { padding: 0 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Jardin Botanique des Cayes — Atlas des Plantes Médicinales</h1>
+  <p>271 espèces · 89 familles · Départements du Sud et de la Grand'Anse, Haïti</p>
+</div>
+
+<div class="nav-bar">
+  <button>Toutes (271)</button>
+  <button>Endémiques (25)</button>
+  <button class="active">Natives (82)</button>
+  <button>Exotiques (136)</button>
+  <button>Par famille</button>
+  <button>Par usage</button>
+</div>
+
+<div class="container">
+
+  <!-- ============================================================ -->
+  <!-- EXAMPLE 1: NATIVE PLANT WITH REAL DATA — Ruellia tuberosa    -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title">Exemple 1 — Plante native avec données publiées</h2>
+
+  <div class="fiche-card">
+    <div class="fiche-header">
+      <div>
+        <h2>Ruellia tuberosa L.</h2>
+        <span style="opacity:0.8; font-size:0.85em">Famille 1 — Acanthacées · Fiche 1.1</span>
+      </div>
+      <span class="badge native">Native</span>
+    </div>
+
+    <div class="fiche-names">
+      <span><span class="label">Créole</span>Pèpèt</span>
+      <span><span class="label">Français</span>Ruellie tubéreuse</span>
+      <span><span class="label">Synonyme</span><i>Cryphiacanthus barbadensis</i></span>
+    </div>
+
+    <table class="fiche-table">
+      <tr>
+        <th>Type</th>
+        <td>Herbe vivace</td>
+      </tr>
+      <tr>
+        <th>Distribution</th>
+        <td>Native d'Amérique tropicale, commune aux Caraïbes
+          <span class="source-tag verified">POWO</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Parties utilisées</th>
+        <td>Racines, feuilles, tiges
+          <span class="source-tag verified">TRAMIL</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Usages traditionnels</th>
+        <td>Troubles urinaires, diurétique, antidiabétique, anti-inflammatoire, fièvre
+          <span class="source-tag verified">TERRAIN</span>
+          <span class="source-tag verified">TRAMIL</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Molécules confirmées</th>
+        <td>Cirsimariline (flavonoïde), lupéol (triterpène), sitostérol, saponines
+          <span class="source-tag verified">PMID:19735739</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Toxicité</th>
+        <td><span class="tox-green">PROFIL FAVORABLE</span> — Pas de toxicité aux doses traditionnelles
+          <span class="source-tag verified">TRAMIL</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Études publiées</th>
+        <td>
+          <div class="study-indicator"><span class="study-dot yes"></span> Oui — ~500 publications</div>
+        </td>
+      </tr>
+      <tr>
+        <th>Conservation</th>
+        <td>Préoccupation mineure (LC) — populations stables</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Tabs: Fiche vs Description -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('desc1')">Description (livre)</button>
+    <button class="tab" onclick="showTab('fiche1')">Fiche technique</button>
+  </div>
+
+  <div class="description-card" id="desc1">
+    <h3>Introduction</h3>
+    <p><i>Ruellia tuberosa</i> L. (syn. <i>Cryphiacanthus barbadensis</i>) est une herbe vivace native, commune dans les Départements du Sud et de la Grand'Anse. Elle fait partie du genre <i>Ruellia</i>, qui regroupe plus de 250 espèces d'herbes tropicales, dont plusieurs sont utilisées en médecine traditionnelle pour leurs propriétés diurétiques et anti-inflammatoires.</p>
+
+    <h3>Description botanique</h3>
+    <p>Herbe vivace de basse altitude à racines tubérisées — d'où l'épithète « tuberosa » — permettant de survivre aux périodes de sécheresse. Tiges herbacées dressées de 60 à 100 cm, ramifiées et légèrement poilues. Feuilles opposées, simples, ovales à elliptiques. Fleurs tubulaires violettes à bleues. Fruit en capsule à déhiscence explosive.</p>
+
+    <h3>Molécules et rôles</h3>
+    <p>Les principaux composés secondaires identifiés dans <i>R. tuberosa</i> comprennent des flavonoïdes (cirsimariline), des triterpènes (lupéol), des stérols (sitostérol), des saponines et des tanins <a href="https://pubmed.ncbi.nlm.nih.gov/19735739" class="ref-link">(Lokhande et al., 2009 — PMID: 19735739)</a>. Les flavonoïdes protègent contre les UV et confèrent des propriétés antioxydantes. Les saponines contribuent aux effets diurétiques observés.</p>
+
+    <h3>Usages ethnobotaniques</h3>
+    <p>Dans les Départements du Sud et de la Grand'Anse, <i>R. tuberosa</i> est documentée sous le nom créole de « Pèpèt ». Infusion des feuilles pour soulager les gaz et « nettoyer les reins ». Utilisée pour les troubles urinaires, comme diurétique, antidiabétique et anti-inflammatoire. Documentée dans la pharmacopée <a href="https://www.tramil.net/en/plant/ruellia-tuberosa" class="ref-link">TRAMIL</a>.</p>
+
+    <div class="credibility-box">
+      <h4>Sources de cette fiche</h4>
+      <ul>
+        <li>Description botanique : observation de terrain, JBC (W. Cinéa)</li>
+        <li>Molécules : Lokhande et al. (2009) — <a href="https://pubmed.ncbi.nlm.nih.gov/19735739" class="ref-link">PMID: 19735739</a> ✔ vérifié</li>
+        <li>Usages traditionnels : enquête ethnobotanique JBC + TRAMIL</li>
+        <li>Taxonomie : <a href="https://powo.science.kew.org" class="ref-link">POWO, Kew Science</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- EXAMPLE 2: ENDEMIC — NO DATA (honest approach)               -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title">Exemple 2 — Plante endémique sans étude publiée</h2>
+
+  <div class="fiche-card">
+    <div class="fiche-header" style="background: #8b2020;">
+      <div>
+        <h2>Schefflera tremula</h2>
+        <span style="opacity:0.8; font-size:0.85em">Famille 11 — Araliacées · Fiche 11.3</span>
+      </div>
+      <span class="badge endemic">Endémique strict d'Haïti</span>
+    </div>
+
+    <div class="fiche-names">
+      <span><span class="label">Créole</span>Bwa kanèl mawon</span>
+      <span><span class="label">Synonyme</span><i>Didymopanax tremulus</i></span>
+    </div>
+
+    <table class="fiche-table">
+      <tr>
+        <th>Type</th>
+        <td>Arbre</td>
+      </tr>
+      <tr>
+        <th>Distribution</th>
+        <td>Endémique strict d'Haïti — n'existe nulle part ailleurs sur Terre
+          <span class="source-tag verified">CINÉA</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Parties utilisées</th>
+        <td>Écorce, feuilles
+          <span class="source-tag verified">TERRAIN</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Usages traditionnels</th>
+        <td>Usage en médecine traditionnelle locale (à documenter)
+          <span class="source-tag verified">TERRAIN</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Molécules confirmées</th>
+        <td style="color: #888; font-style: italic;">Aucune étude phytochimique publiée pour cette espèce
+          <span class="source-tag none">AUCUNE ÉTUDE</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Toxicité</th>
+        <td><span class="tox-gray">DONNÉES INSUFFISANTES</span>
+        </td>
+      </tr>
+      <tr>
+        <th>Études publiées</th>
+        <td>
+          <div class="study-indicator"><span class="study-dot no"></span> Non — priorité de recherche</div>
+        </td>
+      </tr>
+      <tr>
+        <th>Conservation</th>
+        <td><strong style="color:#c0392b">Priorité de conservation</strong> — Espèce endémique menacée</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('desc2')">Description (livre)</button>
+  </div>
+
+  <div class="description-card" id="desc2">
+    <h3>Introduction</h3>
+    <p><i>Schefflera tremula</i> (syn. <i>Didymopanax tremulus</i>, <i>Crepinella tremula</i>) est un arbre endémique strict d'Haïti — c'est-à-dire qu'il n'existe nulle part ailleurs sur Terre. Il appartient à la famille des Araliacées.</p>
+
+    <h3>Description botanique</h3>
+    <p>Arbre à feuilles composées palmées, caractéristique des forêts d'altitude d'Haïti. [Description basée sur observation de terrain au JBC.]</p>
+
+    <h3>Molécules et rôles</h3>
+    <div class="no-data">Aucune étude phytochimique n'a été publiée pour <i>Schefflera tremula</i>. La composition chimique de cette espèce endémique reste inconnue. Des études phytochimiques sur d'autres espèces du genre <i>Schefflera</i> (Araliaceae) existent dans la littérature scientifique, mais aucune donnée ne peut être attribuée à <i>S. tremula</i> sans études spécifiques. La caractérisation phytochimique de cette espèce constitue une priorité de recherche.</div>
+
+    <h3>Toxicité et précautions</h3>
+    <div class="no-data">Aucune donnée toxicologique n'est disponible pour <i>Schefflera tremula</i>. En l'absence d'études spécifiques, le profil de sécurité de cette espèce ne peut être établi. La prudence est recommandée.</div>
+
+    <h3>Conservation</h3>
+    <p><strong>Priorité de conservation absolue.</strong> En tant qu'espèce endémique strict d'Haïti, <i>S. tremula</i> ne peut être remplacée si elle disparaît. La déforestation et la dégradation des habitats montagnards constituent des menaces directes. Le Jardin Botanique des Cayes joue un rôle crucial dans la préservation ex situ de cette espèce.</p>
+
+    <div class="credibility-box">
+      <h4>Sources de cette fiche</h4>
+      <ul>
+        <li>Description botanique : observation de terrain, JBC (W. Cinéa)</li>
+        <li>Molécules : aucune étude publiée — section rédigée en toute transparence</li>
+        <li>Usages traditionnels : enquête ethnobotanique JBC</li>
+        <li>Taxonomie : <a href="https://powo.science.kew.org" class="ref-link">POWO, Kew Science</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- COMPARISON: BEFORE vs AFTER                                   -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title">Avant / Après — Pourquoi cette approche donne plus de crédibilité</h2>
+
+  <div class="comparison">
+    <div class="compare-box bad">
+      <h3>❌ AVANT (hallucinations)</h3>
+      <p>« Les principaux composés secondaires identifiés dans <i>S. tremula</i> comprennent des <span class="highlight-bad">saponines triterpéniques</span>, des <span class="highlight-bad">composés phénoliques</span>, des <span class="highlight-bad">flavonoïdes</span> et des <span class="highlight-bad">terpènes</span>... »</p>
+      <p style="margin-top:12px; font-size:0.85em; color:#999"><strong>Problème :</strong> Aucune de ces molécules n'a été identifiée chez cette espèce. L'information a été inventée « par analogie » avec le genre. Un chercheur qui vérifie perdra confiance en tout le document.</p>
+    </div>
+    <div class="compare-box good">
+      <h3>✓ APRÈS (honnête)</h3>
+      <p>« <span class="highlight-good">Aucune étude phytochimique n'a été publiée</span> pour <i>Schefflera tremula</i>. La composition chimique de cette espèce endémique reste inconnue. La <span class="highlight-good">caractérisation phytochimique constitue une priorité de recherche</span>. »</p>
+      <p style="margin-top:12px; font-size:0.85em; color:#999"><strong>Force :</strong> Un lecteur qui lit « nous ne savons pas encore » fait davantage confiance à tout le reste du document. L'honnêteté scientifique EST la crédibilité.</p>
+    </div>
+  </div>
+
+  <div class="comparison">
+    <div class="compare-box bad">
+      <h3>❌ Exotique avec langage conservation</h3>
+      <p>« <i>Sambucus simpsonii</i> [exotique naturalisée] — Le statut de « très rare » souligne un <span class="highlight-bad">besoin de conservation</span> de cette ressource. Sa distribution restreinte la rend <span class="highlight-bad">vulnérable</span>... »</p>
+      <p style="margin-top:12px; font-size:0.85em; color:#999"><strong>Problème :</strong> On ne « conserve » pas une espèce exotique — elle peut devenir invasive. Ce langage est contradictoire avec la mission du JBC.</p>
+    </div>
+    <div class="compare-box good">
+      <h3>✓ Exotique avec langage approprié</h3>
+      <p>« <i>Sambucus simpsonii</i> [exotique naturalisée] — Espèce introduite à <span class="highlight-good">surveiller pour son potentiel invasif</span>. Présente localement pour ses usages médicinaux, sa <span class="highlight-good">gestion doit être contrôlée</span> pour protéger la flore native. »</p>
+      <p style="margin-top:12px; font-size:0.85em; color:#999"><strong>Force :</strong> Le message est cohérent avec la mission du JBC — protéger les endémiques, contrôler les exotiques.</p>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- ARCHITECTURE DIAGRAM                                          -->
+  <!-- ============================================================ -->
+
+  <h2 class="section-title">Architecture recommandée</h2>
+
+  <div style="background:white; border-radius:12px; padding:30px; box-shadow:0 2px 12px rgba(0,0,0,0.08); margin-bottom:30px;">
+    <svg viewBox="0 0 800 420" style="width:100%; max-width:800px; margin:0 auto; display:block;">
+      <!-- Database -->
+      <rect x="280" y="20" width="240" height="70" rx="10" fill="#1F4E79" />
+      <text x="400" y="50" fill="white" text-anchor="middle" font-size="14" font-weight="bold">Base de données vérifiée</text>
+      <text x="400" y="68" fill="white" text-anchor="middle" font-size="11" opacity="0.8">CSV / Excel avec colonnes _SRC</text>
+
+      <!-- Arrow down -->
+      <path d="M400 90 L400 130" stroke="#1F4E79" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+      <defs><marker id="arr" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#1F4E79"/></marker></defs>
+
+      <!-- Verification layer -->
+      <rect x="220" y="130" width="360" height="50" rx="8" fill="#FFF3CD" stroke="#856404" stroke-width="1"/>
+      <text x="400" y="158" text-anchor="middle" font-size="12" fill="#856404" font-weight="bold">COUCHE DE VÉRIFICATION</text>
+      <text x="400" y="172" text-anchor="middle" font-size="10" fill="#856404">PMID ✓ · DOI ✓ · POWO ✓ · TRAMIL ✓ · TERRAIN ✓</text>
+
+      <!-- Three arrows -->
+      <path d="M300 180 L150 240" stroke="#2d6a4f" stroke-width="2" fill="none" marker-end="url(#arr2)"/>
+      <path d="M400 180 L400 240" stroke="#2d6a4f" stroke-width="2" fill="none" marker-end="url(#arr2)"/>
+      <path d="M500 180 L650 240" stroke="#2d6a4f" stroke-width="2" fill="none" marker-end="url(#arr2)"/>
+      <defs><marker id="arr2" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#2d6a4f"/></marker></defs>
+
+      <!-- Output 1: Website Fiche -->
+      <rect x="40" y="245" width="220" height="80" rx="10" fill="#2d6a4f"/>
+      <text x="150" y="272" fill="white" text-anchor="middle" font-size="13" font-weight="bold">Fiche technique</text>
+      <text x="150" y="290" fill="white" text-anchor="middle" font-size="10" opacity="0.8">Site web · Résumé tableau</text>
+      <text x="150" y="305" fill="white" text-anchor="middle" font-size="10" opacity="0.8">Données vérifiées uniquement</text>
+
+      <!-- Output 2: Book Description -->
+      <rect x="290" y="245" width="220" height="80" rx="10" fill="#1F4E79"/>
+      <text x="400" y="272" fill="white" text-anchor="middle" font-size="13" font-weight="bold">Description livre</text>
+      <text x="400" y="290" fill="white" text-anchor="middle" font-size="10" opacity="0.8">Texte narratif complet</text>
+      <text x="400" y="305" fill="white" text-anchor="middle" font-size="10" opacity="0.8">Sources citées en fin de fiche</text>
+
+      <!-- Output 3: Database/API -->
+      <rect x="540" y="245" width="220" height="80" rx="10" fill="#6A1B9A"/>
+      <text x="650" y="272" fill="white" text-anchor="middle" font-size="13" font-weight="bold">Base de données</text>
+      <text x="650" y="290" fill="white" text-anchor="middle" font-size="10" opacity="0.8">JSON / API pour le site</text>
+      <text x="650" y="305" fill="white" text-anchor="middle" font-size="10" opacity="0.8">Recherche, filtres, export</text>
+
+      <!-- Rules boxes -->
+      <rect x="40" y="350" width="220" height="55" rx="6" fill="#E8F5E9" stroke="#2d6a4f" stroke-width="1"/>
+      <text x="150" y="370" text-anchor="middle" font-size="10" fill="#2d6a4f" font-weight="bold">Règles :</text>
+      <text x="150" y="385" text-anchor="middle" font-size="9" fill="#2d6a4f">Pas de molécule sans PMID ✓</text>
+      <text x="150" y="398" text-anchor="middle" font-size="9" fill="#2d6a4f">Chaque cellule a un tag source</text>
+
+      <rect x="290" y="350" width="220" height="55" rx="6" fill="#E3F2FD" stroke="#1F4E79" stroke-width="1"/>
+      <text x="400" y="370" text-anchor="middle" font-size="10" fill="#1F4E79" font-weight="bold">Règles :</text>
+      <text x="400" y="385" text-anchor="middle" font-size="9" fill="#1F4E79">Endémique sans étude = « inconnu »</text>
+      <text x="400" y="398" text-anchor="middle" font-size="9" fill="#1F4E79">Exotique = contrôler, pas conserver</text>
+
+      <rect x="540" y="350" width="220" height="55" rx="6" fill="#EDE7F6" stroke="#6A1B9A" stroke-width="1"/>
+      <text x="650" y="370" text-anchor="middle" font-size="10" fill="#6A1B9A" font-weight="bold">Règles :</text>
+      <text x="650" y="385" text-anchor="middle" font-size="9" fill="#6A1B9A">Champ « étude_publiée » = OUI/NON</text>
+      <text x="650" y="398" text-anchor="middle" font-size="9" fill="#6A1B9A">Champ « réfs_vérifiées » = count</text>
+    </svg>
+  </div>
+
+  <div style="background:#fff; border-radius:12px; padding:24px 30px; box-shadow:0 2px 8px rgba(0,0,0,0.06); margin-bottom:40px; border-left:4px solid #2d6a4f;">
+    <h3 style="color:#2d6a4f; margin-bottom:10px;">Résumé de l'approche</h3>
+    <p style="line-height:1.7; font-size:0.93em;">
+      <strong>1. Base de données propre</strong> — Le fichier Excel <code>Atlas_Database_Template.xlsx</code> est ta source unique de vérité. Chaque information a une colonne source (_SRC). Ce qui n'a pas de source reste vide.<br><br>
+      <strong>2. Fiche technique (site web)</strong> — Générée automatiquement depuis la base. Tableau structuré, pas de prose. Tags de source visibles. Code couleur toxicité. Indicateur « étude publiée : OUI/NON ».<br><br>
+      <strong>3. Description (livre + site)</strong> — Texte narratif alimenté par les données vérifiées. Pour les endémiques sans étude : formulation honnête. Pour les exotiques : langage de gestion/contrôle. Encadré « Sources de cette fiche » en fin de chaque description.<br><br>
+      <strong>4. Crédibilité</strong> — Elle vient de trois choses : dire « nous ne savons pas » quand c'est le cas, montrer les sources de chaque affirmation, et distinguer clairement endémiques (à protéger) des exotiques (à contrôler).
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
