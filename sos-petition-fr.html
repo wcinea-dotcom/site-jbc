@@ -18,12 +18,10 @@ ref: sos-petition-privee
 @keyframes pb{0%,100%{background:var(--rouge);} 50%{background:var(--rv);} }
 
 /* HERO */
-.hero{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}') center/cover no-repeat;color:#fff;text-align:center;padding:100px 20px 80px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.6rem);font-weight:900;text-transform:uppercase;text-shadow:2px 2px 8px rgba(0,0,0,.7);margin-bottom:16px;line-height:1.2;}
+.hero{background:linear-gradient(rgba(0,0,0,.18) 0%,rgba(0,0,0,.45) 100%),url('{{ "images/sos-petition/petition-hero.jpg" | relative_url }}') center/cover no-repeat;color:#fff;text-align:center;padding:140px 20px 120px;min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5.5vw,4rem);font-weight:900;text-shadow:2px 3px 12px rgba(0,0,0,.6);margin-bottom:16px;line-height:1.15;letter-spacing:-.5px;}
 .hero h1 span{color:var(--or);}
-.hero .hs{font-size:clamp(.95rem,2.2vw,1.3rem);max-width:780px;margin:0 auto 20px;opacity:.95;}
-.hb1{display:inline-block;background:var(--rouge);color:#fff;font-weight:900;font-size:.98rem;padding:11px 24px;border-radius:50px;margin:5px;border:2px solid rgba(255,255,255,.3);}
-.hb2{display:inline-block;background:var(--or);color:var(--vf);font-weight:900;font-size:.98rem;padding:11px 24px;border-radius:50px;margin:5px;}
+.hero .hs{font-size:clamp(1rem,2.2vw,1.35rem);max-width:680px;margin:0 auto 10px;opacity:.92;text-shadow:1px 1px 6px rgba(0,0,0,.5);}
 
 /* LAYOUT */
 .ct{max-width:1100px;margin:0 auto;padding:48px 20px;}
@@ -160,9 +158,11 @@ ref: sos-petition-privee
 
 /* PARTAGE */
 .sbs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:24px 0;}
-.sb{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff!important;font-size:1.75rem;text-decoration:none!important;transition:all .3s;box-shadow:0 5px 14px rgba(0,0,0,.2);}
+.sb{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff!important;font-size:1.5rem;text-decoration:none!important;transition:all .3s;box-shadow:0 5px 14px rgba(0,0,0,.2);}
 .sb:hover{transform:scale(1.15);}
-.fb{background:#3b5998;} .tw{background:#1da1f2;} .wa{background:#25d366;}
+.fb{background:#1877f2;} .tw{background:#1da1f2;} .wa{background:#25d366;}
+.ok .sbs{margin:10px 0;}
+.ok .sb{width:52px;height:52px;font-size:1.3rem;}
 
 @media(max-width:768px){
   .sw,.sv,.sc{padding:30px 16px;}
@@ -176,21 +176,12 @@ ref: sos-petition-privee
 
 <div class="jbc">
 
-  <!-- BARRE -->
-  <div class="ub">
-    <i class="fas fa-exclamation-triangle"></i>
-    &nbsp;URGENT — LE JARDIN BOTANIQUE DES CAYES EST FERMÉ ET DÉTRUIT DEPUIS JUILLET 2025 — 5 000 SIGNATURES NÉCESSAIRES&nbsp;
-    <i class="fas fa-exclamation-triangle"></i>
-  </div>
-
   <!-- HERO -->
   <header class="hero">
-    <h1>🇭🇹 Sauvons le <span>Jardin Botanique</span> des Cayes</h1>
-    <p class="hs">Depuis juillet 2025, une institution scientifique de 23 ans est fermée de force, brûlée, et ses plantes endémiques — rares et uniques au monde — transformées en charbon de bois. Nous disons NON.</p>
-    <div style="margin-top:16px;">
-      <span class="hb1"><i class="fas fa-stop-circle"></i> ARRÊT IMMÉDIAT de toute action de Mme Donna Bastien et ses alliés</span>
-      <br>
-      <span class="hb2" style="margin-top:10px;display:inline-block;">🌍 RÉOUVERTURE OFFICIELLE LE 5 JUIN 2026 — Journée Mondiale de l'Environnement</span>
+    <h1>Sauvez le <span>Jardin Botanique</span> des Cayes</h1>
+    <p class="hs">Signez la pétition. Partagez. Ensemble, sauvons ce patrimoine vivant.</p>
+    <div style="margin-top:20px;">
+      <a href="#signer" class="btn-s" style="font-size:1.1rem;padding:14px 38px;"><i class="fas fa-pen"></i> JE SIGNE MAINTENANT</a>
     </div>
   </header>
 
@@ -478,7 +469,18 @@ ref: sos-petition-privee
           </div>
           <button type="submit" class="btn-sub"><i class="fas fa-check-circle"></i> JE SIGNE — ROUVRONS LE JBC LE 5 JUIN 2026</button>
         </form>
-        <div class="ok" id="pok">✅ <strong>Merci ! Votre signature a été enregistrée.</strong><br>Partagez maintenant et rejoignez la Cellule de réflexion !</div>
+        <div class="ok" id="pok" style="padding:28px 22px;">
+          <div style="font-size:1.15rem;margin-bottom:18px;">✅ <strong>Merci ! J'ai signé la pétition.</strong></div>
+          <div style="font-size:1rem;color:var(--vf);font-weight:700;margin-bottom:16px;">Maintenant, je partage la pétition :</div>
+          <div class="sbs" style="margin:14px 0 8px;">
+            <a href="https://api.whatsapp.com/send?text=🇭🇹%20URGENT%20:%20Le%20Jardin%20Botanique%20des%20Cayes%20est%20fermé%20et%20détruit.%20J'ai%20signé%20la%20pétition.%20Signez%20aussi%20:%20{{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb wa" title="Partager sur WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb fb" title="Partager sur Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb" style="background:#0077b5;" title="Partager sur LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=🇭🇹%20J'ai%20signé%20pour%20sauver%20le%20Jardin%20Botanique%20des%20Cayes.%20Signez%20aussi%20:&url={{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb tw" title="Partager sur X/Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:?subject=🇭🇹 Sauvez le Jardin Botanique des Cayes&body=J'ai signé la pétition pour sauver le Jardin Botanique des Cayes. Signez aussi : {{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" class="sb" style="background:#555;" title="Envoyer par email"><i class="fas fa-envelope"></i></a>
+          </div>
+          <p style="font-size:.85rem;color:var(--gris);margin-top:12px;">Chaque partage peut apporter des dizaines de signatures.</p>
+        </div>
       </div>
     </section>
 
@@ -539,9 +541,11 @@ ref: sos-petition-privee
       <h2 class="tw2"><i class="fas fa-share-alt"></i> Partagez massivement</h2>
       <p style="opacity:.9;font-size:1.03rem;max-width:580px;margin:0 auto 24px;">Chaque partage peut apporter des centaines de signatures. Le jardin a besoin de vous <strong>maintenant</strong>.</p>
       <div class="sbs">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/sos-petition-privee.html" target="_blank" class="sb fb"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=🇭🇹%20URGENT%20-%20Plantes%20endémiques%20brûlées%20aux%20Cayes.%20Signez%20pour%20rouvrir%20le%20JBC%20le%205%20juin%202026%20:&url={{ site.url }}/sos-petition-privee.html" target="_blank" class="sb tw"><i class="fab fa-twitter"></i></a>
-        <a href="https://api.whatsapp.com/send?text=🇭🇹%20URGENT%20:%20Jardin%20Botanique%20des%20Cayes%20fermé%20et%20détruit.%20Signez%20:%20{{ site.url }}/sos-petition-privee.html" target="_blank" class="sb wa"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://api.whatsapp.com/send?text=🇭🇹%20URGENT%20:%20Jardin%20Botanique%20des%20Cayes%20fermé%20et%20détruit.%20Signez%20:%20{{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb fb" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb" style="background:#0077b5;" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=🇭🇹%20URGENT%20-%20Plantes%20endémiques%20brûlées%20aux%20Cayes.%20Signez%20pour%20rouvrir%20le%20JBC%20le%205%20juin%202026%20:&url={{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" target="_blank" class="sb tw" title="X/Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:?subject=🇭🇹 Sauvez le Jardin Botanique des Cayes&body=URGENT : Le Jardin Botanique des Cayes est fermé et détruit. Signez la pétition : {{ site.url }}{{ site.baseurl }}/sos-petition-fr.html" class="sb" style="background:#555;" title="Email"><i class="fas fa-envelope"></i></a>
       </div>
       <p style="opacity:.65;font-size:.88rem;margin-top:12px;">
         <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--or);">info@jardinbotaniquecayeshaiti.org</a>
