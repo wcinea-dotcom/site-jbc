@@ -12,14 +12,12 @@ ref: sos-petition-privee
 :root{--vf:#1e3c2c;--vm:#2e5c3a;--vc:#27ae60;--rouge:#c0392b;--rv:#e74c3c;--or:#f1c40f;--fond:#f4f7f2;--gris:#666;}
 *{box-sizing:border-box;margin:0;padding:0;}
 .jbc{font-family:'Source Sans 3',sans-serif;background:var(--fond);color:#222;line-height:1.7;}
-.ub{background:var(--rouge);color:#fff;text-align:center;padding:13px 20px;font-weight:700;font-size:.98rem;position:sticky;top:0;z-index:1000;animation:pb 2s infinite;}
-@keyframes pb{0%,100%{background:var(--rouge);} 50%{background:var(--rv);} }
-.hero{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),url('/images/sos-petition/petition-hero.jpg') center/cover no-repeat;color:#fff;text-align:center;padding:100px 20px 80px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.6rem);font-weight:900;text-transform:uppercase;text-shadow:2px 2px 8px rgba(0,0,0,.7);margin-bottom:16px;line-height:1.2;}
-.hero h1 span{color:var(--or);}
-.hero p{font-size:clamp(.95rem,2.2vw,1.3rem);max-width:780px;margin:0 auto 20px;opacity:.95;}
-.hb1{display:inline-block;background:var(--rouge);color:#fff;font-weight:900;font-size:.98rem;padding:11px 24px;border-radius:50px;margin:5px;border:2px solid rgba(255,255,255,.3);}
-.hb2{display:inline-block;background:var(--or);color:var(--vf);font-weight:900;font-size:.98rem;padding:11px 24px;border-radius:50px;margin:5px;}
+.hero{position:relative;overflow:hidden;background:#000;}
+.hero-img{width:100%;height:auto;display:block;max-height:78vh;object-fit:cover;}
+.hero-bar{background:var(--vf);color:#fff;text-align:center;padding:30px 20px 34px;}
+.hero-bar h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4.5vw,2.9rem);font-weight:900;margin-bottom:12px;line-height:1.2;}
+.hero-bar h1 span{color:var(--or);}
+.hero-bar p{font-size:clamp(.95rem,2vw,1.15rem);max-width:780px;margin:0 auto 18px;opacity:.95;}
 .ct{max-width:1100px;margin:0 auto;padding:48px 20px;}
 .sw{background:#fff;border-radius:16px;padding:50px 48px;margin-bottom:50px;box-shadow:0 5px 22px rgba(0,0,0,.07);}
 .sv{background:linear-gradient(135deg,var(--vf),var(--vm));border-radius:16px;padding:50px 48px;margin-bottom:50px;color:#fff;text-align:center;}
@@ -124,20 +122,21 @@ ref: sos-petition-privee
 .sbs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:24px 0;}
 .sb{width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff!important;font-size:1.75rem;text-decoration:none!important;transition:all .3s;box-shadow:0 5px 14px rgba(0,0,0,.2);}
 .sb:hover{transform:scale(1.15);}
-.fb{background:#3b5998;} .tw{background:#1da1f2;} .wa{background:#25d366;}
+.fb{background:#1877f2;} .tw{background:#1da1f2;} .wa{background:#25d366;} .li{background:#0077b5;} .yt{background:#ff0000;} .em{background:#555;}
+.share-ok{background:#fff;border-radius:16px;padding:30px 24px;margin:20px auto 0;max-width:640px;text-align:center;color:var(--vf);box-shadow:0 10px 28px rgba(0,0,0,.1);}
+.share-ok h3{font-family:'Playfair Display',serif;font-size:1.45rem;color:var(--vf);margin-bottom:10px;}
+.share-ok p{color:#444;margin-bottom:18px;font-size:.98rem;}
 @media(max-width:768px){.sw,.sv,.sc{padding:30px 16px;}.fr{grid-template-columns:1fr;}.ci{flex-direction:column;}.cd{width:100%;}.carousel-wrap{grid-template-columns:1fr;}.tr-g{grid-template-columns:1fr;}.sig-n{font-size:3.4rem;} }
 </style>
 
 <div class="jbc">
-  <div class="ub">
-    <i class="fas fa-exclamation-triangle"></i>
-    &nbsp;IJAN — JADEN BOTANIK OKAY FÈMEN EPI DETWI DEPI JIYÈ 2025 — 5 000 SIYATI NESESÈ&nbsp;
-    <i class="fas fa-exclamation-triangle"></i>
-  </div>
-
   <header class="hero">
-    <h1 style="font-size:2.2rem;margin-bottom:15px;">🇭🇹 Sove Jaden Botanik Kay la</h1>
-    <a href="#petition" class="btn-s" style="margin-top:18px;">✍️ Mwen siyen petisyon an</a>
+    <img class="hero-img" src="/images/sos-petition/petition-hero.jpg" alt="Jaden Botanik Okay">
+    <div class="hero-bar">
+      <h1>🇭🇹 Sove <span>Jaden Botanik</span> Kay la</h1>
+      <p>Siyen petisyon an. Pataje. Ansanm, ann fè jaden an rouvri.</p>
+      <a href="#petition" class="btn-s" style="font-size:1.05rem;padding:13px 34px;"><i class="fas fa-pen"></i> MWEN SIYEN KOUNYE A</a>
+    </div>
   </header>
 
 <div class="sv" style="text-align:center; padding:40px 48px;">
@@ -301,7 +300,19 @@ ref: sos-petition-privee
           </div>
           <button type="submit" class="btn-sub"><i class="fas fa-check-circle"></i> MWEN SIYEN — REOUVRI JBC A 5 JEN 2026</button>
         </form>
-        <div class="ok" id="pok">✅ <strong>Mèsi! Siyati ou anrejistre.</strong><br>Pataje kounye a epi rantre nan Selil Refleksyon an!</div>
+        <div class="ok" id="pok" style="display:none;padding:0;border:none;background:transparent;">
+          <div class="share-ok">
+            <h3>✅ Mwen siyen epi m ap pataje petisyon an</h3>
+            <p>Mèsi! Siyati ou konte. Kounye a pataje pou 5 000 vwa leve anvan 5 jen 2026.</p>
+            <div class="sbs" style="margin:0;">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://twitter.com/intent/tweet?text=🇭🇹%20Mwen%20siyen%20pou%20sove%20Jaden%20Botanik%20Okay%20a.%20Siyen%20tou&url=https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb tw" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+              <a href="https://api.whatsapp.com/send?text=🇭🇹%20Mwen%20siyen%20petisyon%20an%20pou%20sove%20Jaden%20Botanik%20Okay%20a.%20Siyen%20tou%20:%20https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb li" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="mailto:?subject=Mwen%20siyen%20-%20Sove%20Jaden%20Botanik%20Okay%20a&body=Mwen%20fèk%20siyen%20petisyon%20an%20pou%20sove%20Jaden%20Botanik%20Okay%20a.%20Siyen%20tou%20:%20https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" class="sb em" aria-label="Imèl"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -357,9 +368,12 @@ ref: sos-petition-privee
       <h2 class="tw2"><i class="fas fa-share-alt"></i> Pataje masivman</h2>
       <p style="opacity:.9;font-size:1.03rem;max-width:580px;margin:0 auto 24px;">Chak pataj ka pote santèn siyati. Jaden an bezwen ou <strong>kounye a</strong>.</p>
       <div class="sbs">
-        <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}/sos-petition-ht.html" target="_blank" class="sb fb"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=🇭🇹%20IJAN%20-%20Plant%20endemic%20boule%20nan%20Okay.%20Siyen%20pou%20reouvri%20JBC%20a%205%20jen%202026%20:&url={{ site.url }}/sos-petition-ht.html" target="_blank" class="sb tw"><i class="fab fa-twitter"></i></a>
-        <a href="https://api.whatsapp.com/send?text=🇭🇹%20IJAN%20:%20Jaden%20Botanik%20Okay%20fèmen%20epi%20detwi.%20Siyen%20:%20{{ site.url }}/sos-petition-ht.html" target="_blank" class="sb wa"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb fb" aria-label="Pataje sou Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=🇭🇹%20IJAN%20-%20Siyen%20pou%20reouvri%20Jaden%20Botanik%20Okay%20a%205%20jen%202026&url=https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb tw" aria-label="Pataje sou Twitter/X"><i class="fab fa-twitter"></i></a>
+        <a href="https://api.whatsapp.com/send?text=🇭🇹%20IJAN%20:%20Sove%20Jaden%20Botanik%20Okay%20a.%20Siyen%20petisyon%20an%20:%20https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb wa" aria-label="Pataje sou WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" target="_blank" rel="noopener" class="sb li" aria-label="Pataje sou LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/@jardinbotaniquedescayes" target="_blank" rel="noopener" class="sb yt" aria-label="Chèn YouTube JBC"><i class="fab fa-youtube"></i></a>
+        <a href="mailto:?subject=Sove%20Jaden%20Botanik%20Okay%20a&body=Siyen%20petisyon%20an%20pou%20sove%20Jaden%20Botanik%20Okay%20a%20:%20https://jardinbotaniquecayeshaiti.org/ht/sos-petition-ht.html" class="sb em" aria-label="Pataje pa imèl"><i class="fas fa-envelope"></i></a>
       </div>
       <p style="opacity:.65;font-size:.88rem;margin-top:12px;">
         <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--or);">info@jardinbotaniquecayeshaiti.org</a>
