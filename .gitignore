@@ -18,3 +18,17 @@ Gemfile.lock
 .idea/
 *.swp
 *~
+
+# ── Fichiers Atlas (ne pas versionner dans site-jbc) ──
+*.docx
+*.xlsx
+*.xlsm
+*.csv
+*.tsv
+*.gs
+atlas_plantes_medicinales.json
+fiche_amelioree_ruellia.json
+# Ignore tout fichier >50Mo accidentellement ajouté
+Atlas*.docx
+Atlas*.xlsx
+*Atlas*.xlsx
