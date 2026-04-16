@@ -3,9 +3,65 @@
 
 {% assign current_url = page.url | default: "/" %}
 
+{% comment %} ═══ ACCESS CODE — SOS PETITION PAGES ONLY ═══════════════════════ {% endcomment %}
+{% if current_url contains "sos-petition" %}
+<style>
+  #jbc-lock{position:fixed;inset:0;background:linear-gradient(135deg,#0b5d3b 0%,#2F5D2F 100%);z-index:999999;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;padding:20px}
+  #jbc-lock .lb{background:#fff;color:#222;padding:44px 36px;border-radius:18px;max-width:440px;width:100%;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.45)}
+  #jbc-lock h2{color:#0b5d3b;margin:4px 0 10px;font-size:1.55rem;line-height:1.25}
+  #jbc-lock p{margin:0 0 22px;color:#555;font-size:.95rem;line-height:1.5}
+  #jbc-lock input{width:100%;padding:14px;font-size:1.15rem;border:2px solid #0b5d3b;border-radius:10px;box-sizing:border-box;text-align:center;letter-spacing:2px;font-weight:700;outline:none}
+  #jbc-lock input:focus{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.15)}
+  #jbc-lock button{margin-top:14px;background:#0b5d3b;color:#fff;border:0;padding:14px 28px;font-size:1rem;font-weight:700;border-radius:10px;cursor:pointer;width:100%;transition:.2s}
+  #jbc-lock button:hover{background:#0a4d31}
+  #jbc-lock .err{color:#c0392b;margin-top:10px;font-size:.9rem;min-height:20px;font-weight:600}
+  #jbc-lock .logo{font-size:2.6rem;margin-bottom:4px}
+  body.jbc-locked{overflow:hidden!important}
+  body.jbc-locked > *:not(#jbc-lock){visibility:hidden!important}
+</style>
+<div id="jbc-lock" role="dialog" aria-modal="true" aria-label="Access code required">
+  <div class="lb">
+    <div class="logo">🌿🔒</div>
+    <h2>Jardin Botanique des Cayes</h2>
+    <p>This page is private. Enter the access code to continue.<br>
+       <em style="font-size:.85rem;color:#888">Page privée — Entrez le code / Paj prive — Antre kòd la</em></p>
+    <input type="password" id="jbc-code" placeholder="Access code" autocomplete="off" autofocus>
+    <button type="button" id="jbc-go">Enter / Accéder / Antre</button>
+    <div class="err" id="jbc-err"></div>
+  </div>
+</div>
+<script>
+(function(){
+  var CODE = "JBC2026";  /* CHANGE THE ACCESS CODE HERE */
+  document.body.classList.add('jbc-locked');
+  try { if (sessionStorage.getItem('jbcOk') === '1') { unlock(); return; } } catch(e){}
+  var input = document.getElementById('jbc-code');
+  var btn   = document.getElementById('jbc-go');
+  var err   = document.getElementById('jbc-err');
+  function tryUnlock(){
+    var v = (input.value || '').trim().toUpperCase();
+    if (v === CODE.toUpperCase()){
+      try { sessionStorage.setItem('jbcOk','1'); } catch(e){}
+      unlock();
+    } else {
+      err.textContent = 'Invalid code / Code incorrect / Kod la pa bon';
+      input.select();
+    }
+  }
+  function unlock(){
+    var box = document.getElementById('jbc-lock');
+    if (box) box.style.display = 'none';
+    document.body.classList.remove('jbc-locked');
+  }
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
+})();
+</script>
+{% endif %}
+{% comment %} ═══ END ACCESS CODE ══════════════════════════════════════════════ {% endcomment %}
+
 {% assign is_en = false %}
 {% assign is_ht = false %}
-
 {% if page.lang == "en" or current_url contains "/en/" %}
   {% assign is_en = true %}
 {% elsif page.lang == "ht" or current_url contains "/ht/" %}
@@ -32,7 +88,7 @@
 {% assign url_horticulture  = base | append: "/horticulture.html" %}
 {% assign url_conseil       = base | append: "/conseiladministration.html" %}
 
-{% comment %} Pétition SOS — URLs absolues pour éviter le préfixe /en/ ou /ht/ {% endcomment %}
+{% comment %} Petition SOS URLs absolues {% endcomment %}
 {% if is_en %}
   {% assign url_sos = site.baseurl | append: "/en/sos-petition-en.html" %}
 {% elsif is_ht %}
@@ -59,16 +115,16 @@
   {% assign ht_url = "/ht" | append: current_url %}
 {% endif %}
 
-{% comment %} Correction spéciale pour les pages pétition SOS (noms de fichiers différents par langue) {% endcomment %}
 {% if current_url contains "sos-petition" %}
   {% assign fr_url = "/sos-petition-fr.html" %}
   {% assign en_url = "/en/sos-petition-en.html" %}
   {% assign ht_url = "/ht/sos-petition-ht.html" %}
 {% endif %}
 
-<!-- ═══ BARRE SECONDAIRE (top-tier) ═══════════════════════════════════ -->
+<!-- BARRE SECONDAIRE top-tier -->
 <div class="top-tier">
   <div class="container top-tier-inner">
+
     <div class="top-tier-links">
       <a href="{{ url_news      | relative_url }}">{% if is_en %}News{% elsif is_ht %}Nouvèl{% else %}Nouvelles{% endif %}</a>
       <a href="{{ url_events    | relative_url }}">{% if is_en %}Events{% elsif is_ht %}Evènman{% else %}Événements{% endif %}</a>
@@ -76,6 +132,7 @@
       <a href="{{ url_resources | relative_url }}">{% if is_en %}Resources{% elsif is_ht %}Resous{% else %}Ressources{% endif %}</a>
       <a href="{{ url_data      | relative_url }}" class="top-data-link">{% if is_en %}Data{% elsif is_ht %}Done{% else %}Données{% endif %}</a>
     </div>
+
     <div class="top-tier-tools">
       <div class="tool-item lang-switch">
         <a href="{{ fr_url | relative_url }}" class="lang-btn {% unless is_en or is_ht %}is-active{% endunless %}" title="Français">
@@ -89,10 +146,11 @@
         </a>
       </div>
     </div>
+
   </div>
 </div>
 
-<!-- ═══ EN-TÊTE PRINCIPALE (main-tier) ════════════════════════════════ -->
+<!-- EN-TETE PRINCIPALE main-tier -->
 <header class="main-tier">
   <div class="container main-tier-inner">
 
@@ -102,7 +160,6 @@
     </a>
 
     <nav class="main-nav" id="main-nav">
-
       <div class="drop" id="dropAccueil">
         <div class="nav-group">
           <a href="{{ home_url | relative_url }}">{% if is_en %}HOME{% elsif is_ht %}AKÈY{% else %}ACCUEIL{% endif %}</a>
@@ -136,7 +193,6 @@
 
       <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% elsif is_ht %}SANTE MOUN{% else %}SANTÉ HUMAINE{% endif %}</a>
       <a href="{{ url_education    | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
-
     </nav>
 
     <div class="main-actions">
@@ -154,7 +210,7 @@
   </div>
 </header>
 
-<!-- ═══ PANNEAU DE RECHERCHE ══════════════════════════════════════════ -->
+<!-- PANNEAU DE RECHERCHE -->
 <div id="search-overlay" class="search-overlay" role="search" aria-hidden="true">
   <div class="search-overlay-inner">
     <form class="search-overlay-form" onsubmit="jbcSearch(event)">
@@ -170,7 +226,7 @@
   </div>
 </div>
 
-<!-- ═══ OVERLAY + DRAWER MOBILE ══════════════════════════════════════ -->
+<!-- OVERLAY + DRAWER MOBILE -->
 <div class="drawer-overlay" id="drawer-overlay"></div>
 
 <div class="drawer" id="drawer" aria-label="Menu mobile" role="dialog" aria-modal="true">
@@ -186,7 +242,6 @@
 
   <hr class="drawer-sep">
 
-  <!-- ACCUEIL + sous-menu -->
   <div class="drawer-group">
     <a href="{{ home_url | relative_url }}">{% if is_en %}HOME{% elsif is_ht %}AKÈY{% else %}ACCUEIL{% endif %}</a>
     <button aria-expanded="false" aria-label="Sous-menu Accueil"><i class="fa-solid fa-chevron-down"></i></button>
@@ -197,10 +252,8 @@
     <a href="{{ url_sos }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
   </div>
 
-  <!-- S'IMPLIQUER -->
   <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% elsif is_ht %}PATISIPE{% else %}S'IMPLIQUER{% endif %}</a>
 
-  <!-- SANTÉ DE LA NATURE + sous-menu -->
   <div class="drawer-group">
     <a href="{{ url_nature_health | relative_url }}">{% if is_en %}NATURE'S HEALTH{% elsif is_ht %}SANTE LANATI{% else %}SANTÉ DE LA NATURE{% endif %}</a>
     <button aria-expanded="false" aria-label="Sous-menu Nature"><i class="fa-solid fa-chevron-down"></i></button>
@@ -212,15 +265,12 @@
     <a href="{{ url_horticulture | relative_url }}">{% if is_en %}Horticulture & Restoration{% elsif is_ht %}Otikiltè & Restosyon{% else %}Horticulture & Restauration{% endif %}</a>
   </div>
 
-  <!-- SANTÉ HUMAINE -->
   <a href="{{ url_human_health | relative_url }}">{% if is_en %}HUMAN HEALTH{% elsif is_ht %}SANTE MOUN{% else %}SANTÉ HUMAINE{% endif %}</a>
 
-  <!-- ÉDUCATION -->
   <a href="{{ url_education | relative_url }}">{% if is_en %}EDUCATION{% elsif is_ht %}EDIKASYON{% else %}ÉDUCATION{% endif %}</a>
 
   <hr class="drawer-sep">
 
-  <!-- Liens secondaires -->
   <a href="{{ url_news      | relative_url }}" class="drawer-secondary">{% if is_en %}News{% elsif is_ht %}Nouvèl{% else %}Nouvelles{% endif %}</a>
   <a href="{{ url_events    | relative_url }}" class="drawer-secondary">{% if is_en %}Events{% elsif is_ht %}Evènman{% else %}Événements{% endif %}</a>
   <a href="{{ url_blog      | relative_url }}" class="drawer-secondary">{% if is_en %}Blog{% elsif is_ht %}Blog{% else %}Blogue{% endif %}</a>
@@ -229,7 +279,6 @@
 
   <hr class="drawer-sep">
 
-  <!-- Langues -->
   <div class="lang-switch" style="justify-content:center; margin-bottom:16px;">
     <a href="{{ fr_url | relative_url }}" class="lang-btn {% unless is_en or is_ht %}is-active{% endunless %}" style="border-color:rgba(47,93,47,.3); color:var(--deep);">
       <span class="lang-flag">🇫🇷</span><span class="lang-code">FR</span>
@@ -242,7 +291,6 @@
     </a>
   </div>
 
-  <!-- CTA -->
   <div class="drawer-cta">
     <a href="{{ url_get_involved | append: '#membership' | relative_url }}" class="btn-member-main">
       {% if is_en %}BECOME A MEMBER{% elsif is_ht %}TOUNEN MANM{% else %}DEVENIR MEMBRE{% endif %}
@@ -251,7 +299,7 @@
 
 </div>
 
-<!-- ═══ STYLES RECHERCHE ══════════════════════════════════════════════ -->
+<!-- STYLES RECHERCHE -->
 <style>
   .search-toggle {
     background: none; border: none; cursor: pointer;
@@ -260,6 +308,7 @@
     display: flex; align-items: center;
   }
   .search-toggle:hover { background: rgba(47,93,47,.08); }
+
   .search-overlay {
     position: fixed; inset: 0; z-index: 9900;
     background: rgba(10,20,12,.82);
@@ -270,6 +319,7 @@
   }
   .search-overlay.is-open { opacity: 1; pointer-events: all; }
   .search-overlay-inner { width: min(760px, 94vw); }
+
   .search-overlay-form {
     display: flex; align-items: center; gap: 12px;
     background: #fff; border-radius: 16px; padding: 14px 20px;
@@ -285,6 +335,7 @@
     font-size: 1.2rem; color: #999; padding: 4px; transition: .2s;
   }
   .search-overlay-close:hover { color: #2F5D2F; }
+
   .search-results {
     margin-top: 14px; display: flex; flex-direction: column; gap: 8px;
     max-height: 60vh; overflow-y: auto;
@@ -300,7 +351,7 @@
   .search-no-results { text-align: center; color: rgba(255,255,255,.7); padding: 20px; font-size: 1rem; }
 </style>
 
-<!-- ═══ JAVASCRIPT COMPLET ════════════════════════════════════════════ -->
+<!-- JAVASCRIPT COMPLET -->
 <script>
 (function () {
   'use strict';
@@ -311,7 +362,6 @@
   }
 
   ready(function () {
-
     var burger   = document.getElementById('burger');
     var drawer   = document.getElementById('drawer');
     var overlay  = document.getElementById('drawer-overlay');
@@ -323,7 +373,6 @@
       e.stopPropagation();
       openDrawer();
     });
-
     closeBtn && closeBtn.addEventListener('click', closeDrawer);
     overlay.addEventListener('click', closeDrawer);
 
@@ -342,6 +391,7 @@
       var btn = group.querySelector('button');
       var sub = group.nextElementSibling;
       if (!btn || !sub || !sub.classList.contains('drawer-sub')) { return; }
+
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var isOpen = sub.classList.toggle('open');
@@ -352,11 +402,14 @@
     document.querySelectorAll('.drop').forEach(function (drop) {
       var btn = drop.querySelector('.nav-group > button');
       if (!btn) { return; }
+
       btn.setAttribute('aria-expanded', 'false');
+
       btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var isOpen = drop.classList.toggle('is-open');
         btn.setAttribute('aria-expanded', String(isOpen));
+
         document.querySelectorAll('.drop').forEach(function (other) {
           if (other !== drop) {
             other.classList.remove('is-open');
@@ -375,7 +428,6 @@
       });
     });
 
-    /* ── Recherche ────────────────────────────────────────────────── */
     var searchToggle  = document.getElementById('searchToggle');
     var searchOverlay = document.getElementById('search-overlay');
     var searchInput   = document.getElementById('searchOverlayInput');
@@ -427,14 +479,18 @@
     searchInput && searchInput.addEventListener('input', function() {
       var q = this.value.trim().toLowerCase();
       searchResults.innerHTML = '';
+
       if (q.length < 2) { return; }
+
       var hits = PAGES.filter(function(p) {
         return p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
       });
+
       if (!hits.length) {
         searchResults.innerHTML = '<p class="search-no-results">Aucun résultat trouvé.</p>';
         return;
       }
+
       hits.forEach(function(p) {
         var a = document.createElement('a');
         a.className = 'search-result-item';
@@ -452,15 +508,12 @@
       burger.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
     }
-
     function closeDrawer() {
       drawer.classList.remove('open');
       overlay.classList.remove('visible');
       burger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
-
   });
-
 })();
 </script>
