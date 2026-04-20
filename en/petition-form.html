@@ -211,9 +211,11 @@ permalink: /en/petition-form.html
     const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
 
+    // Hide previous messages
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
+    // Validation
     if (!firstname || !lastname || !email || !country) {
       errorMsg.style.display = 'block';
       return;
@@ -223,6 +225,7 @@ permalink: /en/petition-form.html
     submitBtn.textContent = '⏳ Sending...';
 
     try {
+      // Send to Google Apps Script
       const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         body: new URLSearchParams({

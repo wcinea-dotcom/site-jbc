@@ -198,7 +198,7 @@ permalink: /ht/petition-form.html
   }
 
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzjyho3Tbst18JCGs7-pW0WGUoIXz1PDCTEEkqoT6aHgpWPZEj14HSFq7NqpuxfB6U/exec';
-  const LANGUAGE = 'ht'; // Haitian Creole
+  const LANGUAGE = 'ht'; // Kreyòl Ayisyen
 
   document.getElementById('petitionForm').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -211,9 +211,11 @@ permalink: /ht/petition-form.html
     const successMsg = document.getElementById('successMsg');
     const errorMsg = document.getElementById('errorMsg');
 
+    // Kache mesaj anvan yo
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
+    // Validasyon
     if (!firstname || !lastname || !email || !country) {
       errorMsg.style.display = 'block';
       return;
@@ -223,6 +225,7 @@ permalink: /ht/petition-form.html
     submitBtn.textContent = '⏳ Aprèm...';
 
     try {
+      // Voye bay Google Apps Script
       const response = await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         body: new URLSearchParams({
