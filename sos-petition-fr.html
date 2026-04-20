@@ -232,10 +232,9 @@ ref: sos-petition-privee
         <p style="font-size:1.05rem;line-height:1.75;">Cette pétition vise <strong style="color:var(--rouge);">5 000 signatures avant le 5 juin</strong>, Journée mondiale de l'environnement, pour demander à l'État d'agir en urgence : dialoguer avec la famille Gérard pour stopper l'élimination des plantes rares du pays, relancer le processus d'achat, ou identifier un nouveau site pour relocaliser le jardin dans le département du Sud ou, à défaut, dans un autre département, conformément à l'<strong>article 256 de la Constitution haïtienne</strong>.</p>
       </div>
 
-      <!-- Boutons : voir le dossier complet + demander le PDF -->
-      <div style="text-align:center;margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="{{ '/dossier-jbc-fr.html' | relative_url }}" class="btn-s" style="font-size:1.02rem;padding:13px 32px;background:var(--vf);box-shadow:0 7px 17px rgba(30,60,44,.4);"><i class="fas fa-folder-open"></i> VOIR LE DOSSIER COMPLET</a>
-        <a href="#demande-pdf" class="btn-s" style="font-size:1.02rem;padding:13px 32px;background:var(--or);color:var(--vf);box-shadow:0 7px 17px rgba(241,196,15,.4);"><i class="fas fa-file-pdf"></i> DEMANDER LE PDF</a>
+      <!-- Bouton : voir le dossier complet (inclut la demande PDF) -->
+      <div style="text-align:center;margin-top:32px;">
+        <a href="{{ '/dossier-jbc-fr.html' | relative_url }}" class="btn-s" style="font-size:1.1rem;padding:15px 38px;background:var(--vf);box-shadow:0 7px 17px rgba(30,60,44,.4);"><i class="fas fa-folder-open"></i> VOIR LE DOSSIER COMPLET</a>
       </div>
 
       <!-- Liens utiles -->
@@ -262,57 +261,6 @@ ref: sos-petition-privee
         </div>
       </div>
     </section>
-
-    <!-- DEMANDE DU DOSSIER PDF (traitement manuel) -->
-    <section class="sw" style="border-top:6px solid var(--or);" id="demande-pdf">
-      <h2 class="tv" style="text-align:center;"><i class="fas fa-file-pdf"></i> Demander le dossier complet en PDF</h2>
-      <p class="sub" style="text-align:center;max-width:720px;margin:0 auto 20px;">Le dossier de presse complet (plus de 10 pages, avec photos, chronologie, documents officiels et contacts) est disponible sur demande. Remplissez ce formulaire : notre équipe examinera votre demande, puis vous enverra le PDF par email. <strong>Il n'y a pas de téléchargement automatique</strong> — chaque demande est traitée individuellement.</p>
-
-      <div class="fw">
-        <form name="demande-pdf-dossier-fr" method="POST" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="pdf-form">
-          <input type="hidden" name="form-name" value="demande-pdf-dossier-fr">
-          <p style="display:none;"><label>Ne remplissez pas : <input name="bot-field"></label></p>
-
-          <!-- Nom et Prénom -->
-          <div class="fr">
-            <div class="fg"><label for="pdf-prenom">Prénom *</label><input type="text" id="pdf-prenom" name="prenom" placeholder="Votre prénom" required></div>
-            <div class="fg"><label for="pdf-nom">Nom *</label><input type="text" id="pdf-nom" name="nom" placeholder="Votre nom" required></div>
-          </div>
-
-          <!-- Email (requis pour l'envoi) -->
-          <div class="fr">
-            <div class="fg ff"><label for="pdf-email">Email * <span style="font-weight:400;color:#999;">(pour recevoir le dossier)</span></label><input type="email" id="pdf-email" name="email" placeholder="votre@email.com" required></div>
-          </div>
-
-          <!-- Organisation / Média -->
-          <div class="fr">
-            <div class="fg"><label for="pdf-orga">Organisation / Média *</label><input type="text" id="pdf-orga" name="organisation" placeholder="Ex : Le Nouvelliste, Université d'État, ONG…" required></div>
-            <div class="fg"><label for="pdf-pays">Pays *</label><input type="text" id="pdf-pays" name="pays" placeholder="Ex : Haïti, États-Unis, France…" required></div>
-          </div>
-
-          <!-- Profession / Fonction (optionnel) -->
-          <div class="fr">
-            <div class="fg ff"><label for="pdf-fonction">Profession / Fonction <span style="font-weight:400;color:#999;">(optionnel)</span></label><input type="text" id="pdf-fonction" name="fonction" placeholder="Ex : Journaliste, Chercheur, Avocat, Élu…"></div>
-          </div>
-
-          <!-- Raison de la demande -->
-          <div class="fr">
-            <div class="fg ff"><label for="pdf-raison">Raison de la demande *</label><textarea id="pdf-raison" name="raison" rows="4" placeholder="Expliquez brièvement pourquoi vous souhaitez recevoir le dossier (article, recherche, plaidoyer, etc.)" required></textarea></div>
-          </div>
-
-          <button type="submit" class="btn-sub" style="background:var(--vf);margin-top:10px;"><i class="fas fa-paper-plane"></i> ENVOYER MA DEMANDE</button>
-
-          <p style="font-size:.78rem;color:#999;text-align:center;margin-top:12px;">Votre demande sera examinée par l'équipe du JBC. Vous recevrez le dossier PDF par email dans un délai de 24 à 72 heures ouvrables.</p>
-        </form>
-
-        <div id="pdf-ok" style="display:none;background:#d4edda;border:2px solid var(--vc);border-radius:12px;padding:22px;text-align:center;margin-top:14px;color:var(--vf);">
-          <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--vf);margin-bottom:8px;">✅ Demande envoyée avec succès</h3>
-          <p style="font-size:.96rem;color:#333;line-height:1.6;">Merci pour votre intérêt. Notre équipe examinera votre demande et vous enverra le dossier PDF par email dans un délai de 24 à 72 heures ouvrables. Pour toute question urgente : <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--rouge);font-weight:700;">info@jardinbotaniquecayeshaiti.org</a></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- FORMULAIRE DE SIGNATURE -->
 
     <!-- COMPTEUR DE SIGNATURES -->
     <section class="sw" style="border-top:6px solid var(--or);text-align:center;padding:36px 48px;" id="signer">
@@ -412,12 +360,6 @@ document.addEventListener('DOMContentLoaded',function(){_upd(_gc());var pf=docum
     return false;
   }
   var n=_gc()+1;localStorage.setItem('jbc_sig',n);setTimeout(function(){pf.style.display='none';if(po)po.style.display='block';_upd(n);},400);
-});
-
-// Formulaire : demande du dossier PDF (traitement manuel)
-var pdfForm=document.getElementById('pdf-form'),pdfOk=document.getElementById('pdf-ok');
-if(pdfForm)pdfForm.addEventListener('submit',function(e){
-  setTimeout(function(){pdfForm.style.display='none';if(pdfOk)pdfOk.style.display='block';pdfOk.scrollIntoView({behavior:'smooth',block:'center'});},400);
 });
 });
 

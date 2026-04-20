@@ -431,15 +431,73 @@ ref: dossier-jbc
       </div>
     </section>
 
+    <!-- PDF DOSSIER REQUEST (manual processing) -->
+    <section class="sw" style="border-top:6px solid var(--or);" id="demande-pdf">
+      <div class="section-label"><i class="fas fa-file-pdf"></i> Request the full dossier (PDF)</div>
+      <h2 class="tv">Receive the PDF by email</h2>
+      <p style="font-size:1rem;color:#444;margin-bottom:20px;line-height:1.75;">The full press dossier (over 10 pages, with photos, timeline, official documents and contacts) is available on request. Fill in this form: our team will review your request and send the PDF by email. <strong>There is no automatic download</strong> — each request is handled individually.</p>
+
+      <form name="demande-pdf-dossier-en" method="POST" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="pdf-form" style="max-width:720px;margin:0 auto;">
+        <input type="hidden" name="form-name" value="demande-pdf-dossier-en">
+        <p style="display:none;"><label>Do not fill: <input name="bot-field"></label></p>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+          <div><label for="pdf-prenom" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">First name *</label><input type="text" id="pdf-prenom" name="prenom" placeholder="Your first name" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
+          <div><label for="pdf-nom" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Last name *</label><input type="text" id="pdf-nom" name="nom" placeholder="Your last name" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label for="pdf-email" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Email * <span style="font-weight:400;color:#999;">(to receive the dossier)</span></label>
+          <input type="email" id="pdf-email" name="email" placeholder="your@email.com" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;">
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+          <div><label for="pdf-orga" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Organization / Media *</label><input type="text" id="pdf-orga" name="organisation" placeholder="E.g. The New York Times, University, NGO…" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
+          <div><label for="pdf-pays" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Country *</label><input type="text" id="pdf-pays" name="pays" placeholder="E.g. Haiti, United States, France…" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <label for="pdf-fonction" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Occupation / Role <span style="font-weight:400;color:#999;">(optional)</span></label>
+          <input type="text" id="pdf-fonction" name="fonction" placeholder="E.g. Journalist, Researcher, Lawyer, Elected official…" style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;">
+        </div>
+
+        <div style="margin-bottom:18px;">
+          <label for="pdf-raison" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Reason for the request *</label>
+          <textarea id="pdf-raison" name="raison" rows="4" placeholder="Briefly explain why you would like to receive the dossier (article, research, advocacy, etc.)" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;font-family:inherit;resize:vertical;"></textarea>
+        </div>
+
+        <div style="text-align:center;">
+          <button type="submit" class="btn-s" style="background:var(--vf);font-size:1.05rem;padding:14px 36px;"><i class="fas fa-paper-plane"></i> SEND MY REQUEST</button>
+        </div>
+
+        <p style="font-size:.82rem;color:#999;text-align:center;margin-top:14px;">Your request will be reviewed by the JBC team. You will receive the PDF dossier by email within 24 to 72 business hours.</p>
+      </form>
+
+      <div id="pdf-ok" style="display:none;background:#d4edda;border:2px solid var(--vc);border-radius:12px;padding:22px;text-align:center;margin:18px auto 0;max-width:720px;color:var(--vf);">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--vf);margin-bottom:8px;">✅ Request sent successfully</h3>
+        <p style="font-size:.96rem;color:#333;line-height:1.6;">Thank you for your interest. Our team will review your request and send the PDF dossier by email within 24 to 72 business hours. For any urgent questions: <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--rouge);font-weight:700;">info@jardinbotaniquecayeshaiti.org</a></p>
+      </div>
+    </section>
+
     <!-- FINAL CTA -->
     <section style="text-align:center;margin:20px 0 50px;">
       <p style="font-size:1.18rem;color:var(--vf);font-weight:700;margin-bottom:8px;">You have read. Now you know.</p>
       <p style="font-size:1.02rem;color:#555;margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto;">Sign the petition, share this dossier, and help the Cayes Botanical Garden survive.</p>
       <a href="/en/sos-petition-en.html#sign" class="btn-s" style="font-size:1.18rem;"><i class="fas fa-pen"></i> SIGN THE PETITION</a>
       <br><br>
-      <a href="{{ '/Dossier_Presse_JBC.pdf' | relative_url }}" target="_blank" class="btn-pdf" style="margin-right:10px;"><i class="fas fa-file-pdf"></i> DOWNLOAD THE PDF (French)</a>
+      <a href="#demande-pdf" class="btn-s" style="background:var(--or);color:var(--vf);margin-right:10px;"><i class="fas fa-file-pdf"></i> REQUEST THE PDF</a>
       <a href="{{ '/en/sos-petition-en.html' | relative_url }}" class="btn-back"><i class="fas fa-arrow-left"></i> Back to the petition</a>
     </section>
+
+    <script>
+    // PDF request form: show confirmation after submit
+    (function(){
+      var pf=document.getElementById('pdf-form'),ok=document.getElementById('pdf-ok');
+      if(pf)pf.addEventListener('submit',function(){
+        setTimeout(function(){pf.style.display='none';if(ok){ok.style.display='block';ok.scrollIntoView({behavior:'smooth',block:'center'});}},400);
+      });
+    })();
+    </script>
 
   </div>
 </div>
