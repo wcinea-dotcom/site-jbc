@@ -1,0 +1,262 @@
+---
+layout: default
+title: SOS Petisyon — Siyen
+lang: ht
+permalink: /ht/petition-form.html
+---
+
+<style>
+  .petition-form-container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.1);
+  }
+
+  .petition-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .petition-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1e3c2c;
+    margin-bottom: 10px;
+  }
+
+  .progress-section {
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 30px;
+    background: #f0f0f0;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #1e3c2c, #27ae60);
+    width: 0%;
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .progress-text {
+    font-size: 1.1rem;
+    color: #1e3c2c;
+    font-weight: bold;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: #1e3c2c;
+    box-shadow: 0 0 0 3px rgba(30,60,44,.1);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #1e3c2c, #27ae60);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30,60,44,.3);
+  }
+
+  .success-message {
+    display: none;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .error-message {
+    display: none;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+  }
+</style>
+
+<div class="petition-form-container">
+  <div class="petition-header">
+    <h2>🌿 Siyen Petisyon An</h2>
+    <p style="color: #666; font-size: 0.95rem;">Ede nou pou sove Jaden Botanik Kayes yo</p>
+  </div>
+
+  <div class="progress-section">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width: 24%;">
+        <span id="progressPercent">24%</span>
+      </div>
+    </div>
+    <div class="progress-text">
+      <span id="signatureCount">1200</span> / 5000 sinatir
+    </div>
+  </div>
+
+  <form id="petitionForm">
+    <div class="form-group">
+      <label for="firstname">Nonm *</label>
+      <input type="text" id="firstname" name="firstname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Siyati *</label>
+      <input type="text" id="lastname" name="lastname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="country">Peyi *</label>
+      <select id="country" name="country" required>
+        <option value="">-- Chwazi peyi ou --</option>
+        <option value="Haiti">🇭🇹 Ayiti</option>
+        <option value="United States">🇺🇸 Etazini</option>
+        <option value="Canada">🇨🇦 Kanada</option>
+        <option value="France">🇫🇷 Frans</option>
+        <option value="Belgium">🇧🇪 Beljik</option>
+        <option value="Switzerland">🇨🇭 Swis</option>
+        <option value="Other">Lòt</option>
+      </select>
+    </div>
+
+    <button type="submit" class="submit-btn">✍️ Mwen Siyen Petisyon An</button>
+
+    <div class="success-message" id="successMsg">
+      ✅ Mesi! Sinatir ou te anrejistre.
+    </div>
+    <div class="error-message" id="errorMsg">
+      ❌ Yon erè te rive. Tanpri eseye ankò.
+    </div>
+  </form>
+</div>
+
+<script>
+  let currentSignatures = 1200;
+  const targetSignatures = 5000;
+
+  function updateProgress() {
+    const percentage = Math.round((currentSignatures / targetSignatures) * 100);
+    document.getElementById('progressFill').style.width = percentage + '%';
+    document.getElementById('progressPercent').textContent = percentage + '%';
+    document.getElementById('signatureCount').textContent = currentSignatures.toLocaleString();
+  }
+
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzjyho3Tbst18JCGs7-pW0WGUoIXz1PDCTEEkqoT6aHgpWPZEj14HSFq7NqpuxfB6U/exec';
+  const LANGUAGE = 'ht'; // Haitian Creole
+
+  document.getElementById('petitionForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const firstname = document.getElementById('firstname').value.trim();
+    const lastname = document.getElementById('lastname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const country = document.getElementById('country').value.trim();
+    const submitBtn = document.querySelector('.submit-btn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg = document.getElementById('errorMsg');
+
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+
+    if (!firstname || !lastname || !email || !country) {
+      errorMsg.style.display = 'block';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ Aprèm...';
+
+    try {
+      const response = await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: new URLSearchParams({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          country: country,
+          language: LANGUAGE
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        currentSignatures = data.total;
+        updateProgress();
+
+        successMsg.style.display = 'block';
+        document.getElementById('petitionForm').reset();
+
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 5000);
+      } else {
+        throw new Error('Erè sèvè');
+      }
+    } catch (err) {
+      console.error('Erè:', err);
+      errorMsg.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '✍️ Mwen Siyen Petisyon An';
+    }
+  });
+
+  updateProgress();
+</script>
