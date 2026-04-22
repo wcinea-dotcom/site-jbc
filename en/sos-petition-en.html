@@ -288,15 +288,11 @@ ref: sos-petition-privee
             <div class="fg"><label for="telephone">Phone</label><input type="tel" id="telephone" name="telephone" placeholder="E.g. +509 3718 9406"></div>
           </div>
 
-          <!-- Auto geolocation (IP by default, GPS if user accepts) -->
+          <!-- Silent geolocation: country/city captured in background for the Sheet -->
           <input type="hidden" id="pays" name="pays" value="">
           <input type="hidden" id="ville" name="ville" value="">
           <input type="hidden" id="code_pays" name="code_pays" value="">
-          <div class="fr">
-            <div class="fg ff" style="background:#f6faf8;border:1px dashed #cde0d4;border-radius:10px;padding:12px 15px;margin-bottom:13px;">
-              <p style="margin:0;font-size:.9rem;color:var(--gris);"><i class="fas fa-map-marker-alt" style="color:var(--vert);"></i> <strong>Your location:</strong> <span id="geo-display">detecting…</span></p>
-            </div>
-          </div>
+          <span id="geo-display" style="display:none;"></span>
 
           <!-- Occupation (optional) -->
           <div class="fr">
@@ -339,8 +335,11 @@ function slideApres(d){_ap=(_ap+d+_apN)%_apN;goApres(_ap);}
 function goApres(i){_ap=i;var t=document.getElementById('track-apres');if(t)t.style.transform='translateX(-'+(i*100)+'%)';var dots=document.getElementById('dots-apres');if(dots){var spans=dots.querySelectorAll('span');spans.forEach(function(s,j){s.style.background=j===i?'var(--rouge)':'#ccc';});}}
 
 var _T=5000;
-function _gc(){return parseInt(localStorage.getItem('jbc_sig')||'0',10);}
-function _upd(n){var el=document.getElementById('sig-count'),bar=document.getElementById('sig-bar'),rem=document.getElementById('sig-rem');if(!el)return;var c=0,step=Math.max(1,Math.ceil(n/60));var t=setInterval(function(){c=Math.min(c+step,n);el.textContent=c.toLocaleString();if(c>=n)clearInterval(t);},25);if(bar)bar.style.width=Math.min((n/_T)*100,100).toFixed(1)+'%';if(rem){var r=_T-n;rem.textContent=r>0?r.toLocaleString()+' more signatures needed':'🎉 Goal reached!';}}
+var _SCRIPT_URL='https://script.google.com/macros/s/AKfycbzXdDw12efpXHz9NpCoiJ5ERmbVU9lW7vJyWLNcWhFFeY6oHfCBNQWprhZrl0YnjEk/exec';
+var _cur=0;
+function _fetchCount(){return fetch(_SCRIPT_URL+'?t='+Date.now()).then(function(r){return r.json();}).then(function(d){return(d&&typeof d.total==='number')?d.total:null;}).catch(function(){return null;});}
+function _refresh(){_fetchCount().then(function(n){if(n!==null)_upd(n);});}
+function _upd(n){var el=document.getElementById('sig-count'),bar=document.getElementById('sig-bar'),rem=document.getElementById('sig-rem');if(!el)return;var start=_cur,end=n;if(start!==end){var step=Math.max(1,Math.ceil(Math.abs(end-start)/60));var c=start;var t=setInterval(function(){if(end>start){c=Math.min(c+step,end);}else{c=Math.max(c-step,end);}el.textContent=c.toLocaleString();if(c===end)clearInterval(t);},25);}_cur=n;if(bar)bar.style.width=Math.min((n/_T)*100,100).toFixed(1)+'%';if(rem){var r=_T-n;rem.textContent=r>0?r.toLocaleString()+' more signatures needed':'🎉 Goal reached!';}}
 // Auto geolocation (IP by default, GPS if user accepts)
 function _geoDetect(){
   var gd=document.getElementById('geo-display'),
@@ -361,7 +360,7 @@ function _geoDetect(){
     },function(){},{timeout:8000,maximumAge:300000});
   }
 }
-document.addEventListener('DOMContentLoaded',function(){_upd(_gc());_geoDetect();var pf=document.getElementById('pf'),po=document.getElementById('pok');if(pf)pf.addEventListener('submit',function(e){
+document.addEventListener('DOMContentLoaded',function(){_refresh();setInterval(_refresh,30000);_geoDetect();var pf=document.getElementById('pf'),po=document.getElementById('pok');if(pf)pf.addEventListener('submit',function(e){
   // Validation: at least email OR phone must be filled
   var em=document.getElementById('email'),tel=document.getElementById('telephone');
   if(em&&tel&&!em.value.trim()&&!tel.value.trim()){
@@ -370,7 +369,7 @@ document.addEventListener('DOMContentLoaded',function(){_upd(_gc());_geoDetect()
     em.focus();
     return false;
   }
-  var n=_gc()+1;localStorage.setItem('jbc_sig',n);setTimeout(function(){pf.style.display='none';if(po)po.style.display='block';_upd(n);},400);
+  setTimeout(function(){pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,6000);},400);
 });
 });
 
