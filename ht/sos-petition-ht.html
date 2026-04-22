@@ -271,6 +271,7 @@ ref: sos-petition-privee
       <div class="fw">
         <form name="petition-signatures-ht" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="pf">
           <input type="hidden" name="form-name" value="petition-signatures-ht">
+          <input type="hidden" name="langue" value="ht">
           <p style="display:none;"><input name="bot-field"></p>
 
           <!-- Prenon ak Non -->
@@ -346,11 +347,17 @@ function _geoDetect(){
       ip=document.getElementById('pays'),
       iv=document.getElementById('ville'),
       ic=document.getElementById('code_pays');
-  function setF(p,v,c){if(ip)ip.value=p||ip.value;if(iv)iv.value=v||iv.value;if(ic)ic.value=c||ic.value;
+  function setF(p,v,c){if(ip&&p)ip.value=p;if(iv&&v)iv.value=v;if(ic&&c)ic.value=c;
+    try{if(p)localStorage.setItem('jbc_pays',p);if(v)localStorage.setItem('jbc_ville',v);if(c)localStorage.setItem('jbc_code',c);}catch(_){}
     if(gd){var t=(ip.value||'')+(iv.value?' — '+iv.value:'');gd.textContent=t||'pa detekte';}}
+  try{var cp=localStorage.getItem('jbc_pays'),cv=localStorage.getItem('jbc_ville'),cc=localStorage.getItem('jbc_code');if(cp||cv)setF(cp,cv,cc);}catch(_){}
   fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(d){
     setF(d.country_name,d.city,d.country_code);
-  }).catch(function(){if(gd)gd.textContent='pa detekte';});
+  }).catch(function(){
+    fetch('https://ipwho.is/').then(function(r){return r.json();}).then(function(d){
+      setF(d.country,d.city,d.country_code);
+    }).catch(function(){if(gd)gd.textContent='pa detekte';});
+  });
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(function(pos){
       fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+pos.coords.latitude+'&longitude='+pos.coords.longitude+'&localityLanguage=en')
@@ -360,8 +367,9 @@ function _geoDetect(){
     },function(){},{timeout:8000,maximumAge:300000});
   }
 }
+var _submitted=false;
 document.addEventListener('DOMContentLoaded',function(){_refresh();setInterval(_refresh,30000);_geoDetect();var pf=document.getElementById('pf'),po=document.getElementById('pok');if(pf)pf.addEventListener('submit',function(e){
-  // Validasyon : omwen imèl OSWA telefòn dwe ranpli
+  if(_submitted){e.preventDefault();return false;}
   var em=document.getElementById('email'),tel=document.getElementById('telephone');
   if(em&&tel&&!em.value.trim()&&!tel.value.trim()){
     e.preventDefault();
@@ -369,7 +377,13 @@ document.addEventListener('DOMContentLoaded',function(){_refresh();setInterval(_
     em.focus();
     return false;
   }
-  setTimeout(function(){pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,6000);},400);
+  var ip=document.getElementById('pays'),iv=document.getElementById('ville');
+  if(ip&&!ip.value){try{ip.value=localStorage.getItem('jbc_pays')||'';}catch(_){}}
+  if(iv&&!iv.value){try{iv.value=localStorage.getItem('jbc_ville')||'';}catch(_){}}
+  _submitted=true;
+  var btn=pf.querySelector('button[type=submit]');
+  if(btn){btn.disabled=true;btn.style.opacity='.6';btn.style.cursor='not-allowed';btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Y ap voye…';}
+  setTimeout(function(){pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,6000);},600);
 });
 });
 
