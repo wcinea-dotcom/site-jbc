@@ -300,9 +300,14 @@ ref: sos-petition-privee
             <div class="fg"><label for="telephone">Téléphone</label><input type="tel" id="telephone" name="telephone" placeholder="Ex : +509 3718 9406"></div>
           </div>
 
-          <!-- Pays (champ libre) -->
+          <!-- Géolocalisation automatique (IP par défaut, GPS si accepté) -->
+          <input type="hidden" id="pays" name="pays" value="">
+          <input type="hidden" id="ville" name="ville" value="">
+          <input type="hidden" id="code_pays" name="code_pays" value="">
           <div class="fr">
-            <div class="fg ff"><label for="pays">Pays *</label><input type="text" id="pays" name="pays" placeholder="Ex : Haïti, États-Unis, Brésil, Chili, Chine…" required></div>
+            <div class="fg ff" style="background:#f6faf8;border:1px dashed #cde0d4;border-radius:10px;padding:12px 15px;margin-bottom:13px;">
+              <p style="margin:0;font-size:.9rem;color:var(--gris);"><i class="fas fa-map-marker-alt" style="color:var(--vert);"></i> <strong>Votre localisation :</strong> <span id="geo-display">détection en cours…</span></p>
+            </div>
           </div>
 
           <!-- Profession (libre, optionnel) -->
@@ -350,7 +355,29 @@ function goApres(i){_ap=i;var t=document.getElementById('track-apres');if(t)t.st
 var _T=5000;
 function _gc(){return parseInt(localStorage.getItem('jbc_sig')||'0',10);}
 function _upd(n){var el=document.getElementById('sig-count'),bar=document.getElementById('sig-bar'),rem=document.getElementById('sig-rem');if(!el)return;var c=0,step=Math.max(1,Math.ceil(n/60));var t=setInterval(function(){c=Math.min(c+step,n);el.textContent=c.toLocaleString();if(c>=n)clearInterval(t);},25);if(bar)bar.style.width=Math.min((n/_T)*100,100).toFixed(1)+'%';if(rem){var r=_T-n;rem.textContent=r>0?r.toLocaleString()+' ' + (document.documentElement.lang==='fr'?'signatures manquantes':'more signatures needed'):'🎉 Objectif atteint !';}}
-document.addEventListener('DOMContentLoaded',function(){_upd(_gc());var pf=document.getElementById('pf'),po=document.getElementById('pok');if(pf)pf.addEventListener('submit',function(e){
+// Géolocalisation automatique (IP par défaut, GPS si l'utilisateur accepte)
+function _geoDetect(){
+  var gd=document.getElementById('geo-display'),
+      ip=document.getElementById('pays'),
+      iv=document.getElementById('ville'),
+      ic=document.getElementById('code_pays');
+  function setF(p,v,c){if(ip)ip.value=p||ip.value;if(iv)iv.value=v||iv.value;if(ic)ic.value=c||ic.value;
+    if(gd){var t=(ip.value||'')+(iv.value?' — '+iv.value:'');gd.textContent=t||'non détectée';}}
+  // 1) IP — rapide, silencieux, 100% des visiteurs
+  fetch('https://ipapi.co/json/').then(function(r){return r.json();}).then(function(d){
+    setF(d.country_name,d.city,d.country_code);
+  }).catch(function(){if(gd)gd.textContent='non détectée';});
+  // 2) GPS — si le visiteur accepte, affine avec la vraie ville
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(pos){
+      fetch('https://api.bigdatacloud.net/data/reverse-geocode-client?latitude='+pos.coords.latitude+'&longitude='+pos.coords.longitude+'&localityLanguage=fr')
+        .then(function(r){return r.json();}).then(function(d){
+          setF(d.countryName,d.city||d.locality||d.principalSubdivision,d.countryCode);
+        }).catch(function(){});
+    },function(){/* refus : on garde l'IP */},{timeout:8000,maximumAge:300000});
+  }
+}
+document.addEventListener('DOMContentLoaded',function(){_upd(_gc());_geoDetect();var pf=document.getElementById('pf'),po=document.getElementById('pok');if(pf)pf.addEventListener('submit',function(e){
   // Validation : au moins email OU téléphone doit être rempli
   var em=document.getElementById('email'),tel=document.getElementById('telephone');
   if(em&&tel&&!em.value.trim()&&!tel.value.trim()){
