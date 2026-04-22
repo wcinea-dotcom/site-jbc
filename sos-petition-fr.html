@@ -281,8 +281,7 @@ ref: sos-petition-privee
       <h2 class="tv" style="text-align:center;"><i class="fas fa-signature"></i> Votre signature compte</h2>
       <p style="text-align:center;color:var(--gris);margin-bottom:28px;">Que vous soyez <strong>étudiant, élève, professionnel ou simplement passionné de la nature</strong>, votre voix compte pour sauver notre patrimoine.</p>
       <div class="fw">
-        <form name="petition-signatures-fr" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="pf">
-          <input type="hidden" name="form-name" value="petition-signatures-fr">
+        <form id="pf" onsubmit="return false;">
           <input type="hidden" name="langue" value="fr">
           <p style="display:none;"><input name="bot-field"></p>
 
@@ -386,27 +385,30 @@ function _geoDetect(){
   }
 }
 var _submitted=false;
-document.addEventListener('DOMContentLoaded',function(){_refresh();setInterval(_refresh,30000);_geoDetect();var pf=document.getElementById('pf'),po=document.getElementById('pok');if(pf)pf.addEventListener('submit',function(e){
-  // Anti double-soumission
-  if(_submitted){e.preventDefault();return false;}
-  // Validation : au moins email OU téléphone doit être rempli
+function _submitPetition(pf,po){
+  if(_submitted)return;
   var em=document.getElementById('email'),tel=document.getElementById('telephone');
   if(em&&tel&&!em.value.trim()&&!tel.value.trim()){
-    e.preventDefault();
     alert('⚠️ Merci de renseigner au moins un moyen de contact : email OU téléphone.');
-    em.focus();
-    return false;
+    em.focus();return;
   }
-  // Dernière tentative de géolocalisation si champ vide
   var ip=document.getElementById('pays'),iv=document.getElementById('ville');
   if(ip&&!ip.value){try{ip.value=localStorage.getItem('jbc_pays')||'';}catch(_){}}
   if(iv&&!iv.value){try{iv.value=localStorage.getItem('jbc_ville')||'';}catch(_){}}
   _submitted=true;
   var btn=pf.querySelector('button[type=submit]');
   if(btn){btn.disabled=true;btn.style.opacity='.6';btn.style.cursor='not-allowed';btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Envoi en cours…';}
-  setTimeout(function(){pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,6000);},600);
-});
-});
+  var data=new URLSearchParams();
+  var inputs=pf.querySelectorAll('input[name],textarea[name],select[name]');
+  for(var i=0;i<inputs.length;i++){data.append(inputs[i].name,inputs[i].value);}
+  fetch(_SCRIPT_URL,{method:'POST',mode:'no-cors',body:data}).then(function(){
+    pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,4000);
+  }).catch(function(){
+    alert('⚠️ Problème d\'envoi. Vérifiez votre connexion et réessayez.');
+    _submitted=false;if(btn){btn.disabled=false;btn.style.opacity='1';btn.style.cursor='';btn.innerHTML='<i class="fas fa-check-circle"></i> JE SIGNE — SAUVONS LE JARDIN';}
+  });
+}
+document.addEventListener('DOMContentLoaded',function(){_refresh();setInterval(_refresh,30000);_geoDetect();var pf=document.getElementById('pf'),po=document.getElementById('pok');if(pf)pf.addEventListener('submit',function(e){e.preventDefault();_submitPetition(pf,po);});});
 
 </script>
 {% include form-handler.html %}
