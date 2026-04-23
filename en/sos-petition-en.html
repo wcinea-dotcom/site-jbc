@@ -271,7 +271,8 @@ image: /images/sos-petition/petition-hero.jpg
       <h2 class="tv" style="text-align:center;"><i class="fas fa-signature"></i> Your signature matters</h2>
       <p style="text-align:center;color:var(--gris);margin-bottom:28px;">Whether you are a <strong>student, pupil, professional or simply a nature lover</strong>, your voice counts in saving our heritage.</p>
       <div class="fw">
-        <form id="pf" onsubmit="return false;">
+        <form name="petition-signatures-en" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="pf">
+          <input type="hidden" name="form-name" value="petition-signatures-en">
           <input type="hidden" name="langue" value="en">
           <p style="display:none;"><input name="bot-field"></p>
 
@@ -385,7 +386,9 @@ function _submitPetition(pf,po){
   var data=new URLSearchParams();
   var inputs=pf.querySelectorAll('input[name],textarea[name],select[name]');
   for(var i=0;i<inputs.length;i++){data.append(inputs[i].name,inputs[i].value);}
-  fetch(_SCRIPT_URL,{method:'POST',mode:'no-cors',body:data}).then(function(){
+  fetch('/en/sos-petition-en.html',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(function(r){
+    if(!r.ok && r.status!==200) throw new Error('netlify');
+    try{fetch(_SCRIPT_URL,{method:'POST',mode:'no-cors',body:data}).catch(function(){});}catch(_){}
     pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,4000);
   }).catch(function(){
     alert('⚠️ Submission issue. Please check your connection and try again.');

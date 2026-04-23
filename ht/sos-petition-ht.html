@@ -271,7 +271,8 @@ image: /images/sos-petition/petition-hero.jpg
       <h2 class="tv" style="text-align:center;"><i class="fas fa-signature"></i> Siyati ou konte</h2>
       <p style="text-align:center;color:var(--gris);margin-bottom:28px;">Kit ou se yon <strong>etidyan, elèv, pwofesyonèl oswa senpleman yon moun ki renmen lanati</strong>, vwa ou konte pou sove patrimwàn nou an.</p>
       <div class="fw">
-        <form id="pf" onsubmit="return false;">
+        <form name="petition-signatures-ht" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="pf">
+          <input type="hidden" name="form-name" value="petition-signatures-ht">
           <input type="hidden" name="langue" value="ht">
           <p style="display:none;"><input name="bot-field"></p>
 
@@ -385,7 +386,9 @@ function _submitPetition(pf,po){
   var data=new URLSearchParams();
   var inputs=pf.querySelectorAll('input[name],textarea[name],select[name]');
   for(var i=0;i<inputs.length;i++){data.append(inputs[i].name,inputs[i].value);}
-  fetch(_SCRIPT_URL,{method:'POST',mode:'no-cors',body:data}).then(function(){
+  fetch('/ht/sos-petition-ht.html',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(function(r){
+    if(!r.ok && r.status!==200) throw new Error('netlify');
+    try{fetch(_SCRIPT_URL,{method:'POST',mode:'no-cors',body:data}).catch(function(){});}catch(_){}
     pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,4000);
   }).catch(function(){
     alert('⚠️ Pwoblèm voye. Tcheke koneksyon ou epi eseye ankò.');
