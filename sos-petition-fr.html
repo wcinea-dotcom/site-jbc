@@ -283,7 +283,8 @@ image: /images/sos-petition/petition-hero.jpg
       <h2 class="tv" style="text-align:center;"><i class="fas fa-signature"></i> Votre signature compte</h2>
       <p style="text-align:center;color:var(--gris);margin-bottom:28px;">Que vous soyez <strong>étudiant, élève, professionnel ou simplement passionné de la nature</strong>, votre voix compte pour sauver notre patrimoine.</p>
       <div class="fw">
-        <form id="pf" onsubmit="return false;">
+        <form name="petition-signatures-fr" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="pf">
+          <input type="hidden" name="form-name" value="petition-signatures-fr">
           <input type="hidden" name="langue" value="fr">
           <p style="display:none;"><input name="bot-field"></p>
 
@@ -403,7 +404,11 @@ function _submitPetition(pf,po){
   var data=new URLSearchParams();
   var inputs=pf.querySelectorAll('input[name],textarea[name],select[name]');
   for(var i=0;i<inputs.length;i++){data.append(inputs[i].name,inputs[i].value);}
-  fetch(_SCRIPT_URL,{method:'POST',mode:'no-cors',body:data}).then(function(){
+  // PRIMAIRE : Netlify (stockage garanti — source de vérité)
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(function(r){
+    if(!r.ok && r.status!==200) throw new Error('netlify');
+    // SECONDAIRE : Apps Script (email + sheet, best effort)
+    try{fetch(_SCRIPT_URL,{method:'POST',mode:'no-cors',body:data}).catch(function(){});}catch(_){}
     pf.style.display='none';if(po)po.style.display='block';_upd(_cur+1);setTimeout(_refresh,4000);
   }).catch(function(){
     alert('⚠️ Problème d\'envoi. Vérifiez votre connexion et réessayez.');
