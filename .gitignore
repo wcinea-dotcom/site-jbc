@@ -3,6 +3,10 @@
 **/.DS_Store
 ._*
 
+# ── Photos HD pour réseaux sociaux (pas pour le site) ─
+reseaux sociaux/
+CODE CLAUDEJBC/
+
 # ── Jekyll ────────────────────────────────────────
 _site/
 .sass-cache/
