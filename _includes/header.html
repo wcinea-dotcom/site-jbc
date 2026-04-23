@@ -97,6 +97,15 @@
   {% assign url_sos = site.baseurl | append: "/sos-petition-fr.html" %}
 {% endif %}
 
+{% comment %} Dossier "En savoir plus" URLs absolues {% endcomment %}
+{% if is_en %}
+  {% assign url_dossier = site.baseurl | append: "/en/dossier-jbc-en.html" %}
+{% elsif is_ht %}
+  {% assign url_dossier = site.baseurl | append: "/ht/dossier-jbc-ht.html" %}
+{% else %}
+  {% assign url_dossier = site.baseurl | append: "/dossier-jbc-fr.html" %}
+{% endif %}
+
 {% assign fr_url = "/" %}
 {% assign en_url = "/en/" %}
 {% assign ht_url = "/ht/" %}
@@ -170,6 +179,7 @@
         <div class="menu">
           <a href="{{ url_about   | relative_url }}">{% if is_en %}About{% elsif is_ht %}Sou nou{% else %}À propos{% endif %}</a>
           <a href="{{ url_conseil | relative_url }}">{% if is_en %}Board of Directors{% elsif is_ht %}Konsèy Administrasyon{% else %}Conseil d'administration{% endif %}</a>
+          <a href="{{ url_dossier }}" style="color:#2F5D2F;font-weight:700;">{% if is_en %}📖 Learn more — The situation{% elsif is_ht %}📖 Aprann plis — Sitiyasyon an{% else %}📖 En savoir plus — La situation{% endif %}</a>
           <a href="{{ url_sos }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
         </div>
       </div>
@@ -253,6 +263,7 @@
   <div class="drawer-sub">
     <a href="{{ url_about   | relative_url }}">{% if is_en %}About{% elsif is_ht %}Sou nou{% else %}À propos{% endif %}</a>
     <a href="{{ url_conseil | relative_url }}">{% if is_en %}Board of Directors{% elsif is_ht %}Konsèy Administrasyon{% else %}Conseil d'administration{% endif %}</a>
+    <a href="{{ url_dossier }}" style="color:#2F5D2F;font-weight:700;">{% if is_en %}📖 Learn more — The situation{% elsif is_ht %}📖 Aprann plis — Sitiyasyon an{% else %}📖 En savoir plus — La situation{% endif %}</a>
     <a href="{{ url_sos }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
   </div>
 
