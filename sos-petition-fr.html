@@ -229,7 +229,107 @@ image: /images/sos-petition/petition-hero.jpg
       </div>
     </section>
 
-    <!-- PARTAGER — Appel émotionnel final -->
+    <!-- RÉSUMÉ DE LA SITUATION -->
+    <section class="sw" style="border-top:6px solid var(--vc);" id="resume-situation">
+      <h2 class="tv" style="text-align:center;"><i class="fas fa-file-alt"></i> Résumé de la situation</h2>
+      <p class="sub" style="text-align:center;">Ce qui se passe actuellement au Jardin Botanique des Cayes.</p>
+      <div class="sit" style="max-width:820px;margin:0 auto;">
+        <p>Depuis plus de huit mois, ce jardin est fermé de force. Aucun enfant, aucun étudiant, aucun chercheur, aucun visiteur ne peut y entrer. Pendant ce temps, des plantes rares disparaissent chaque jour. Pendant 23 ans, il a été une fierté pour Les Cayes, pour Haïti et pour la diaspora — un lieu unique d'éducation, de recherche et de découverte de notre flore. Il est établi sur <strong>six carreaux de terre</strong> loués à la famille Gérard.</p>
+
+        <p>En <strong>2018</strong>, un héritier a exprimé sa volonté de vendre tout le terrain. L'équipe a alors contacté l'État pour qu'il intervienne et acquière la propriété. L'État est entré en pourparlers et a demandé les titres nécessaires pour intégrer le dossier dans le budget national 2019-2020. Malheureusement, les documents n'ont jamais été fournis, ce qui a bloqué le processus.</p>
+
+        <p>En <strong>juin 2025</strong>, alors que cet héritier vit aux États-Unis, son épouse en Haïti a entamé un processus pour récupérer le terrain. Ce patrimoine a pris 23 ans à être construit. Elle n'a donné que <strong>huit jours francs</strong>, sans avertissement et sans aucune rencontre préalable, pour déplacer toutes les plantes.</p>
+
+        <p>Huit jours plus tard, accompagnée de la police et de ses avocats, elle a interdit l'accès au personnel. Les collections de plantes natives et endémiques ont été coupées pour faire du charbon de bois. Toutes les espèces du jardin écologique ont été systématiquement éliminées et <strong style="color:var(--rouge);">le feu y a été mis sur plus d'un hectare</strong>. Des plantations de bananes ont été installées dans le jardin.</p>
+
+        <p>Face à cette situation, huit des onze héritiers, frustrés par cette action, ont écrit au <strong>ministre de la Justice et de la Sécurité publique</strong> pour lui demander d'intervenir en urgence. Par l'intermédiaire de leur cabinet d'avocats, ils ont également sommé Madame de cesser immédiatement toute action contre le jardin.</p>
+
+        <p>Notre équipe a lancé un appel à plusieurs médias. Le <strong>ministre de l'Environnement</strong> a également été contacté. Pourtant, jusqu'à présent, rien n'a été fait. Pendant ce temps, ce patrimoine continue de disparaître et les plantes conservées se perdent de jour en jour.</p>
+
+        <p style="font-size:1.05rem;line-height:1.75;">Cette pétition vise <strong style="color:var(--rouge);">5 000 signatures avant le 5 juin</strong>, Journée mondiale de l'environnement, pour demander à l'État d'agir en urgence : dialoguer avec la famille Gérard pour stopper l'élimination des plantes rares du pays, relancer le processus d'achat, ou identifier un nouveau site pour relocaliser le jardin dans le département du Sud ou, à défaut, dans un autre département, conformément à l'<strong>article 256 de la Constitution haïtienne</strong>.</p>
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a href="{{ '/dossier-jbc-fr.html' | relative_url }}" class="btn-s" style="font-size:1.1rem;padding:15px 38px;background:var(--vf);box-shadow:0 7px 17px rgba(30,60,44,.4);"><i class="fas fa-folder-open"></i> VOIR LE DOSSIER COMPLET</a>
+      </div>
+
+      <div style="max-width:480px;margin:26px auto 0;">
+        <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="display:flex;align-items:center;gap:12px;background:var(--fond);padding:16px 20px;border-radius:12px;border-left:4px solid var(--rouge);text-decoration:none;color:var(--vf);transition:all .3s;">
+          <i class="fas fa-envelope" style="font-size:1.5rem;color:var(--rouge);"></i>
+          <div>
+            <strong style="display:block;font-size:.95rem;">Nous contacter</strong>
+            <span style="font-size:.82rem;color:var(--gris);">info@jardinbotaniquecayeshaiti.org</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- COMPTEUR DE SIGNATURES -->
+    <section class="sw" style="border-top:6px solid var(--or);text-align:center;padding:36px 48px;" id="signer">
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;color:var(--vf);margin-bottom:6px;"><i class="fas fa-users"></i> Rejoignez le mouvement</h2>
+      <p style="color:var(--gris);margin-bottom:22px;font-size:1rem;"><strong>5 000 signatures avant le 5 juin</strong> — Journée mondiale de l'environnement.</p>
+      <div style="background:linear-gradient(135deg,var(--vf),var(--vm));border-radius:16px;padding:30px 24px;max-width:480px;margin:0 auto 24px;box-shadow:0 14px 36px rgba(30,60,44,.3);color:#fff;">
+        <div id="sig-count" style="font-family:'Playfair Display',serif;font-size:4.2rem;font-weight:900;color:var(--or);line-height:1;">0</div>
+        <div style="font-size:1.1rem;opacity:.9;margin:6px 0 4px;color:#fff;">signatures sur <strong style="color:var(--or);">5 000</strong></div>
+        <div style="background:rgba(255,255,255,.18);border-radius:50px;height:12px;margin:14px 0 10px;overflow:hidden;">
+          <div id="sig-bar" style="background:var(--or);height:100%;border-radius:50px;width:0%;transition:width 1s ease;"></div>
+        </div>
+        <div id="sig-rem" style="font-size:.9rem;background:rgba(255,255,255,.13);padding:7px 15px;border-radius:50px;display:inline-block;color:#fff;">Chargement…</div>
+      </div>
+      <a href="#formulaire" class="btn-s" style="font-size:1.2rem;padding:16px 52px;"><i class="fas fa-pen"></i> JE SIGNE MAINTENANT</a>
+    </section>
+
+    <!-- FORMULAIRE DE SIGNATURE -->
+    <section class="sw" id="formulaire">
+      <h2 class="tv" style="text-align:center;"><i class="fas fa-signature"></i> Votre signature compte</h2>
+      <p style="text-align:center;color:var(--gris);margin-bottom:28px;">Que vous soyez <strong>étudiant, élève, professionnel ou simplement passionné de la nature</strong>, votre voix compte pour sauver notre patrimoine.</p>
+      <div class="fw">
+        <form name="petition-signatures-fr" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="pf">
+          <input type="hidden" name="form-name" value="petition-signatures-fr">
+          <input type="hidden" name="langue" value="fr">
+          <p style="display:none;"><input name="bot-field"></p>
+
+          <div class="fr">
+            <div class="fg"><label for="prenom">Prénom *</label><input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required></div>
+            <div class="fg"><label for="nom">Nom *</label><input type="text" id="nom" name="nom" placeholder="Votre nom" required></div>
+          </div>
+
+          <div style="background:#fffbea;border:1px solid var(--or);border-radius:10px;padding:12px 15px;margin-bottom:13px;font-size:.88rem;color:var(--vf);">
+            <i class="fas fa-info-circle" style="color:var(--or);"></i> <strong>Au moins un moyen de contact requis</strong> — email <em>ou</em> téléphone.
+          </div>
+          <div class="fr">
+            <div class="fg"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="votre@email.com"></div>
+            <div class="fg"><label for="telephone">Téléphone</label><input type="tel" id="telephone" name="telephone" placeholder="Ex : +509 3718 9406"></div>
+          </div>
+
+          <input type="hidden" id="pays" name="pays" value="">
+          <input type="hidden" id="ville" name="ville" value="">
+          <input type="hidden" id="code_pays" name="code_pays" value="">
+          <span id="geo-display" style="display:none;"></span>
+
+          <div class="fr">
+            <div class="fg ff"><label for="prof">Profession <span style="font-weight:400;color:#999;">(optionnel)</span></label><input type="text" id="prof" name="profession" placeholder="Ex : Étudiant, Agronome, Enseignant, Passionné de la nature…"></div>
+          </div>
+
+          <button type="submit" class="btn-sub" style="margin-top:10px;"><i class="fas fa-check-circle"></i> JE SIGNE — SAUVONS LE JARDIN</button>
+
+          <p style="font-size:.78rem;color:#999;text-align:center;margin-top:12px;">Vos informations sont stockées en sécurité et utilisées uniquement pour la pétition.</p>
+        </form>
+        <div class="ok" id="pok" style="display:none;padding:0;border:none;background:transparent;">
+          <div class="share-ok">
+            <h3>✅ J'ai signé et je partage la pétition</h3>
+            <p>Merci ! Votre signature compte. Maintenant, partagez pour que 5 000 voix se lèvent avant le 5 juin 2026.</p>
+            <div class="sbs" style="margin:0;">
+              <a href="https://api.whatsapp.com/send?text=🇭🇹%20J'ai%20signé%20la%20pétition%20pour%20sauver%20le%20Jardin%20Botanique%20des%20Cayes.%20Signez%20vous%20aussi%20:%20https://jardinbotaniquecayeshaiti.org/sos-petition-fr.html" target="_blank" rel="noopener" class="sb wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://jardinbotaniquecayeshaiti.org/sos-petition-fr.html" target="_blank" rel="noopener" class="sb fb" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jardinbotaniquecayeshaiti.org/sos-petition-fr.html" target="_blank" rel="noopener" class="sb li" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://twitter.com/intent/tweet?text=🇭🇹%20J'ai%20signé%20pour%20sauver%20le%20Jardin%20Botanique%20des%20Cayes.%20Signez%20vous%20aussi&url=https://jardinbotaniquecayeshaiti.org/sos-petition-fr.html" target="_blank" rel="noopener" class="sb tw" aria-label="Twitter/X"><i class="fab fa-twitter"></i></a>
+              <a href="mailto:?subject=J'ai%20signé%20-%20Sauvez%20le%20Jardin%20Botanique%20des%20Cayes&body=Je%20viens%20de%20signer%20la%20pétition%20pour%20sauver%20le%20Jardin%20Botanique%20des%20Cayes.%20Signez%20vous%20aussi%20:%20https://jardinbotaniquecayeshaiti.org/sos-petition-fr.html" class="sb em" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div>
 </div>
