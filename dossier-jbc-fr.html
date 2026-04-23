@@ -1,504 +1,111 @@
 ---
 layout: default
-title: Dossier complet — Jardin Botanique des Cayes
+title: "En savoir plus — La situation du Jardin Botanique des Cayes"
+og_title: "En savoir plus — La situation du Jardin Botanique des Cayes"
 lang: fr
 permalink: /dossier-jbc-fr.html
 ref: dossier-jbc
+description: "Comprendre ce qui se passe actuellement au Jardin Botanique des Cayes : l'histoire complète, de la fondation en 2002 à la crise de 2024-2025."
+image: /images/sos-petition/avant-01-vue-aerienne-jardin.jpg
 ---
-<div id="pp">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap');
-:root{--vf:#1e3c2c;--vm:#2e5c3a;--vc:#27ae60;--rouge:#c0392b;--or:#f1c40f;--fond:#f4f7f2;--gris:#666;}
-*{box-sizing:border-box;margin:0;padding:0;}
-.jbc{font-family:'Source Sans 3',sans-serif;background:var(--fond);color:#222;line-height:1.7;}
-.hero{position:relative;overflow:hidden;background:#1e3c2c;}
-.hero-img{width:100%;display:block;min-height:360px;max-height:68vh;object-fit:cover;object-position:center;}
-.hero-bar{background:var(--vf);color:#fff;text-align:center;padding:28px 20px 34px;}
-.hero-bar h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;margin-bottom:10px;line-height:1.2;}
-.hero-bar h1 span{color:var(--or);}
-.hero-bar p{font-size:clamp(.95rem,1.9vw,1.1rem);max-width:750px;margin:0 auto;opacity:.92;}
-.ct{max-width:940px;margin:0 auto;padding:48px 20px;}
-.sw{background:#fff;border-radius:16px;padding:44px 48px;margin-bottom:36px;box-shadow:0 5px 22px rgba(0,0,0,.07);}
-.tv{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--vf);margin-bottom:10px;}
-.sub{color:var(--gris);font-style:italic;margin-bottom:24px;font-size:.97rem;line-height:1.65;}
-.prose p{font-size:1.07rem;margin-bottom:20px;color:#2a2a2a;line-height:1.9;}
-.prose p:last-child{margin-bottom:0;}
-.prose h3{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:900;color:var(--vf);margin:34px 0 12px;padding-top:18px;border-top:2px solid #eee;}
-.prose h3.rouge{color:var(--rouge);}
-.prose ul{padding-left:24px;margin:14px 0 20px;}
-.prose ul li{font-size:1.05rem;margin-bottom:10px;color:#2a2a2a;line-height:1.82;}
-.cbox{background:linear-gradient(135deg,var(--vf),var(--vm));border-radius:12px;padding:26px 32px;margin:24px 0;color:#fff;}
-.cbox .cn{font-size:.76rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--or);margin-bottom:13px;}
-.cbox p{font-size:1.08rem;line-height:1.85;margin:0;}
-.fiche{width:100%;border-collapse:collapse;margin:10px 0 20px;font-size:.98rem;}
-.fiche td{padding:12px 16px;border-bottom:1px solid #e8e8e8;vertical-align:top;line-height:1.65;}
-.fiche td:first-child{font-weight:700;color:var(--vf);width:36%;white-space:nowrap;}
-.fiche tr:last-child td{border-bottom:none;}
-.fiche tr:nth-child(even) td{background:#f8faf7;}
-.photo-block{margin:28px 0;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.1);background:#1e3c2c;}
-.photo-block img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:center;background:#1e3c2c;}
-.photo-block .caption{background:var(--vf);color:#fff;padding:12px 20px;font-size:.9rem;line-height:1.5;font-style:italic;}
-.photo-block .caption strong{color:var(--or);font-style:normal;font-weight:700;}
-.photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0;}
-.photo-duo .photo-block{margin:0;}
-.photo-duo .photo-block img{aspect-ratio:4/3;}
-.article-card{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:18px;box-shadow:0 3px 12px rgba(0,0,0,.07);border-left:5px solid var(--vc);transition:all .3s;}
-.article-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.11);}
-.article-card .article-source{display:inline-block;background:var(--vf);color:var(--or);padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin-bottom:10px;text-transform:uppercase;}
-.article-card h4{font-family:'Playfair Display',serif;color:var(--vf);font-size:1.1rem;font-weight:900;margin-bottom:8px;line-height:1.35;}
-.article-card p{color:#444;font-size:.95rem;line-height:1.7;margin-bottom:12px;}
-.article-card .read-more{display:inline-block;color:var(--rouge);font-weight:700;font-size:.92rem;text-decoration:none;}
-.article-card .read-more:hover{text-decoration:underline;}
-.article-card .date{font-size:.82rem;color:var(--gris);margin-left:10px;font-weight:400;}
-.section-label{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gris);margin-bottom:10px;border-bottom:2px solid var(--vc);padding-bottom:3px;}
-.btn-s{display:inline-block;background:var(--rouge);color:#fff;padding:14px 44px;font-size:1.12rem;font-weight:900;text-decoration:none;border-radius:50px;border:none;cursor:pointer;box-shadow:0 7px 17px rgba(192,57,43,.4);transition:all .3s;margin:8px 0;}
-.btn-s:hover{background:#a93226;transform:scale(1.04);color:#fff;}
-.btn-back{display:inline-block;background:var(--vf);color:#fff;padding:12px 30px;font-size:.96rem;font-weight:700;text-decoration:none;border-radius:50px;transition:all .3s;box-shadow:0 5px 14px rgba(30,60,44,.3);}
-.btn-back:hover{background:var(--vm);transform:scale(1.03);color:#fff;}
-.btn-pdf{display:inline-block;background:var(--or);color:var(--vf);padding:14px 36px;font-size:1.05rem;font-weight:900;text-decoration:none;border-radius:50px;transition:all .3s;box-shadow:0 6px 16px rgba(241,196,15,.4);}
-.btn-pdf:hover{background:#e6b800;transform:scale(1.03);color:var(--vf);}
-.contact-box{background:var(--fond);border-radius:12px;padding:24px 28px;border:2px solid #dde8da;}
-.map-wrap{border-radius:13px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.13);margin:16px 0;}
-.map-wrap iframe{width:100%;height:370px;border:none;display:block;}
-.map-btn{display:inline-block;background:var(--vf);color:#fff;padding:11px 26px;border-radius:50px;font-weight:700;font-size:.93rem;text-decoration:none;margin-top:12px;transition:all .3s;}
-.map-btn:hover{background:var(--vm);transform:scale(1.03);color:#fff;}
-@media(max-width:768px){.sw{padding:26px 16px;}.ct{padding:28px 14px;}.fiche td:first-child{width:44%;white-space:normal;}.photo-duo{grid-template-columns:1fr;}}
+  :root{
+    --dj-deep:#1e3c2c;
+    --dj-green:#2F5D2F;
+    --dj-gold:#C5A059;
+    --dj-rouge:#c0392b;
+    --dj-cream:#faf7f1;
+    --dj-text:#2a2a2a;
+    --dj-gris:#666;
+  }
+  .dj-page{font-family:'Lato','Source Sans 3',sans-serif;color:var(--dj-text);background:#fff;line-height:1.75;}
+  .dj-page h1,.dj-page h2,.dj-page h3{font-family:'Playfair Display',serif;}
+  .dj-page .container{max-width:820px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .dj-hero{background:linear-gradient(135deg,var(--dj-deep),#2e5c3a);color:#fff;padding:72px 0;text-align:center;}
+  .dj-hero .eyebrow{display:inline-block;background:rgba(197,160,89,.18);border:1px solid rgba(197,160,89,.55);color:#f5d69a;padding:6px 16px;border-radius:100px;font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;}
+  .dj-hero h1{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:900;color:#fff;margin:0 0 12px;line-height:1.2;}
+  .dj-hero p{max-width:680px;margin:0 auto;font-size:1.06rem;line-height:1.65;color:rgba(255,255,255,.9);}
+
+  /* CORPS */
+  .dj-body{padding:60px 0 70px;background:var(--dj-cream);}
+  .dj-body .intro{font-size:1.12rem;font-style:italic;color:#555;text-align:center;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid #e5dcc9;}
+  .dj-body p{font-size:1.08rem;line-height:1.85;color:#2a2a2a;margin-bottom:22px;}
+  .dj-body p strong{color:var(--dj-green);font-weight:700;}
+  .dj-body p strong.rouge{color:var(--dj-rouge);}
+
+  /* PHOTOS */
+  .dj-photo{margin:36px 0;border-radius:14px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.14);background:#000;}
+  .dj-photo img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;}
+  .dj-photo .cap{background:var(--dj-deep);color:#fff;padding:12px 20px;font-size:.88rem;font-style:italic;line-height:1.5;}
+  .dj-photo .cap strong{color:var(--dj-gold);font-style:normal;}
+
+  /* CONTACT */
+  .dj-contact{background:#fff;border-radius:14px;padding:26px 30px;margin-top:40px;border-left:5px solid var(--dj-green);box-shadow:0 4px 14px rgba(0,0,0,.05);}
+  .dj-contact h3{font-size:1.2rem;color:var(--dj-deep);margin:0 0 8px;}
+  .dj-contact a{color:var(--dj-green);font-weight:700;text-decoration:none;}
+  .dj-contact a:hover{text-decoration:underline;}
+
+  @media(max-width:640px){
+    .dj-hero{padding:52px 0;}
+    .dj-body{padding:40px 0 52px;}
+    .dj-body p{font-size:1rem;}
+  }
 </style>
-<div class="jbc">
-  <header class="hero">
-    <img class="hero-img" src="{{ '/images/sos-petition/avant-01-vue-aerienne-jardin.jpg' | relative_url }}" alt="Vue aérienne — Jardin Botanique des Cayes">
-    <div class="hero-bar">
-      <h1>📋 Dossier complet — <span>Jardin Botanique</span> des Cayes</h1>
-      <p>L'histoire complète, les faits documentés, les preuves. Pour les journalistes, les décideurs et tous ceux qui veulent comprendre ce qui se passe.</p>
+
+<div class="dj-page">
+
+  <!-- HERO -->
+  <section class="dj-hero">
+    <div class="container">
+      <div class="eyebrow"><i class="fas fa-info-circle"></i> En savoir plus</div>
+      <h1>Ce qui se passe actuellement au Jardin Botanique des Cayes</h1>
+      <p>L'histoire complète d'une institution scientifique haïtienne — de sa fondation en 2002 à la crise qu'elle traverse aujourd'hui.</p>
     </div>
-  </header>
+  </section>
 
-  <div class="ct">
+  <!-- CORPS -->
+  <section class="dj-body">
+    <div class="container">
 
-    <!-- NAVIGATION + TÉLÉCHARGEMENT -->
-    <div style="text-align:center;margin-bottom:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="{{ '/sos-petition-fr.html' | relative_url }}" class="btn-back"><i class="fas fa-arrow-left"></i> Retour à la pétition</a>
-      <a href="{{ '/Dossier_Presse_JBC.pdf' | relative_url }}" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> TÉLÉCHARGER LE DOSSIER (PDF)</a>
-      <a href="/sos-petition-fr.html#signer" class="btn-s" style="font-size:.96rem;padding:12px 30px;"><i class="fas fa-pen"></i> JE SIGNE</a>
+      <p class="intro">Comprendre ce jardin, son histoire, et ce qui est en train de se passer.</p>
+
+      <p>Depuis <strong>plus de huit mois</strong>, le Jardin Botanique des Cayes est fermé de force. Aucun enfant, aucun étudiant, aucun chercheur, aucun visiteur ne peut y entrer. Pendant ce temps, des collections de plantes endémiques et natives rares disparaissent jour après jour. Pendant <strong>23 ans</strong>, ce jardin a fait la fierté des Cayes, d'Haïti et de la diaspora — un lieu unique d'éducation, de recherche et de découverte de notre flore.</p>
+
+      <p>L'histoire du Jardin Botanique des Cayes commence avec la vision d'un homme : <strong>William Cinéa</strong>, ingénieur forestier-botaniste haïtien. Après avoir poursuivi ses études forestières en République dominicaine entre <strong>1995 et 2000</strong>, il rentre au pays avec une idée forte — contribuer au reboisement et à la protection de la nature. C'est ainsi que naît l'initiative « Haïti Verte », précurseur de ce qui allait devenir le jardin botanique.</p>
+
+      <p>En <strong>2002</strong>, lors d'une formation en Israël consacrée aux initiatives agricoles et environnementales, William Cinéa visite le célèbre jardin Bahá'í, d'un design et d'une beauté exceptionnelle, qui lui prouve qu'un projet d'une ampleur comparable peut exister en Haïti. À son retour, il passe à l'acte : il prend à ferme un terrain de <strong>six carreaux et demi</strong> à Bergeaud, au bord de la Route Nationale N°2 aux Cayes, appartenant à la famille Gérard.</p>
+
+      <div class="dj-photo">
+        <img src="{{ '/images/sos-petition/avant-01-vue-aerienne-jardin.jpg' | relative_url }}" alt="Vue aérienne du Jardin Botanique des Cayes avant la crise">
+        <div class="cap"><strong>Le Jardin Botanique des Cayes</strong> — Vue aérienne du site à Bergeaud, Les Cayes.</div>
+      </div>
+
+      <p>Un contrat de bail à ferme est officiellement signé avec la mère des héritiers, <strong>Mme Laurette Milard Gérard</strong>, dans le respect des formes juridiques. C'est Maître Edlan Jabouin, avocat de la famille, qui reçoit les paiements au nom des propriétaires. Dès le début, la relation entre le Jardin Botanique des Cayes et la famille Gérard est marquée par le respect et la confiance mutuelle. En <strong>2004</strong>, l'une des héritières, Jacqueline Gérard, visite les lieux avec sa mère et se trouve tellement touchée par le projet qu'elle propose elle-même de remplacer le nom « Haïti Verte » par « Jardin Botanique des Cayes » — un geste qui témoigne de l'adhésion de toute la famille à cette vision.</p>
+
+      <p>Pour Mme Laurette Milard Gérard, la signataire du bail, le jardin représentait une continuité naturelle avec les valeurs familiales liées à la terre et au reboisement dans le département du Sud, notamment à Port-Salut. Elle a régulièrement rendu visite au jardin au fil des années pour encourager l'équipe, apporter ses conseils et exprimer son soutien. Pendant <strong>plus de vingt ans</strong>, les relations entre les deux parties sont demeurées constructives, respectueuses et mutuellement bénéfiques.</p>
+
+      <p>En <strong>2018</strong>, un héritier, par l'intermédiaire du cabinet d'avocats de la famille, envoie un contrat de promesse de vente et annonce la rupture du bail à ferme. L'équipe du Jardin Botanique des Cayes sollicite alors l'État pour qu'il intervienne et rachète la propriété, estimée à <strong>plus de 800 000 dollars américains</strong>. Par l'entremise du ministère de l'Environnement, et plus précisément de l'ANAP (Agence Nationale des Aires Protégées), une rencontre est organisée avec le bailleur, son épouse et l'équipe du JBC. Un rapport est produit, et les vendeurs sont invités à fournir les titres nécessaires pour que le dossier puisse être intégré au <strong>budget national 2019-2020</strong>. Malheureusement, ces documents ne sont jamais fournis, ce qui bloque le processus.</p>
+
+      <p>En <strong>juin 2024</strong>, Mme Laurette Milard Gérard s'éteint. Son fils, partisan de la vente, réside aux États-Unis ; c'est alors son épouse, présente en Haïti, qui entame sans mandat un processus pour récupérer le terrain. Alors que ce jardin représente plus de 23 ans de travail, de patience et de collection, un délai de seulement <strong>huit jours</strong> est imposé à l'équipe pour déplacer toutes les plantes et libérer l'espace. Huit jours plus tard, accompagnée de la police et de ses avocats, elle interdit l'accès au personnel du jardin. Ses premières actions consistent à couper les collections de plantes natives et endémiques pour les transformer en charbon de bois, à éliminer toutes les plantes de la réserve écologique et <strong class="rouge">à l'incendier sur plus d'un hectare</strong>. Des plantations de bananes sont même installées à l'intérieur du jardin.</p>
+
+      <div class="dj-photo">
+        <img src="{{ '/images/sos-petition/apres-01-destruction-aerienne.png' | relative_url }}" alt="Vue aérienne après destruction">
+        <div class="cap"><strong>Après la prise de contrôle</strong> — Vue aérienne montrant l'étendue des zones défrichées et brûlées.</div>
+      </div>
+
+      <p>Face à cette situation, <strong>sept des neuf héritiers</strong> de la famille, frustrés par cette action, écrivent au <strong>Ministre de la Justice et de la Sécurité publique</strong> pour réclamer une intervention d'urgence. Par l'intermédiaire de leur cabinet d'avocats, ils somment Mme Marie Donna Bastien-Gérard de cesser immédiatement toute action contre le jardin. Pour ces héritiers, le jardin incarne la grandeur et la vision de leurs parents : ils refusent de le voir disparaître.</p>
+
+      <p>Dès le début de la crise, l'équipe du jardin a lancé des appels dans plusieurs médias — <strong>Vision 2000, Radio Caraïbes, Magik 9, Le Nouvelliste, AyiboPost</strong> — afin d'alerter les autorités. Le <strong>Ministre de l'Environnement</strong> a également été contacté. Pourtant, à ce jour, rien n'a été fait. Pendant ce temps, ce patrimoine continue de disparaître, et les plantes conservées se perdent un peu plus chaque jour. Ce jardin dépasse l'intérêt de son fondateur, William Cinéa, et de la famille Gérard : c'est une <strong>institution scientifique d'intérêt national</strong>.</p>
+
+      <div class="dj-contact">
+        <h3><i class="fas fa-envelope"></i> Contact</h3>
+        <p style="margin:0;font-size:1rem;">Pour toute question ou information complémentaire : <a href="mailto:info@jardinbotaniquecayeshaiti.org">info@jardinbotaniquecayeshaiti.org</a> · (509) 4309-2809</p>
+      </div>
+
     </div>
+  </section>
 
-    <!-- L'ESSENTIEL -->
-    <div class="cbox" style="margin-bottom:36px;">
-      <div class="cn"><i class="fas fa-exclamation-circle"></i> &nbsp;L'essentiel de l'affaire — ce qu'il faut savoir avant de lire</div>
-      <p>Le Jardin Botanique des Cayes occupe et exploite légalement depuis <strong style="color:var(--or);">2002</strong> un terrain loué à la famille Gérard en vertu d'un contrat de bail à ferme valide, signé officiellement devant avocat. En 2025, Mme Marie Donna Bastien Gérard — épouse d'un héritier, et non propriétaire à titre exclusif — a décidé d'expulser le jardin par la force, sans dialogue, sans mise en demeure sérieuse, en huit jours. Elle a ensuite pris le contrôle du site, brûlé des collections de plantes endémiques uniques, détruit le jardin écologique, et planté des bananiers à la place d'un patrimoine scientifique construit sur vingt-trois ans. Ce qui aggrave encore la situation : <strong style="color:var(--or);">huit héritiers légitimes de la famille Gérard ont officiellement désavoué ses actions</strong> et lui ont demandé d'arrêter. L'État haïtien n'est pas encore intervenu. Le JBC l'appelle à agir, conformément à l'article 256 de la Constitution, qui fait de la création et de l'entretien des jardins botaniques une <strong style="color:var(--or);">obligation constitutionnelle</strong>.</p>
-    </div>
-
-    <!-- FICHE D'IDENTITÉ -->
-    <section class="sw" style="border-top:6px solid var(--vf);">
-      <div class="section-label"><i class="fas fa-id-card"></i> Fiche d'identité</div>
-      <h2 class="tv">Le Jardin Botanique des Cayes en un coup d'œil</h2>
-      <table class="fiche">
-        <tr><td>Nom officiel</td><td>Jardin Botanique des Cayes (JBC)</td></tr>
-        <tr><td>Fondateur et directeur</td><td>William Cinéa, ingénieur forestier</td></tr>
-        <tr><td>Fondé en</td><td>2002 — à Bergeaud, Les Cayes, département du Sud, Haïti</td></tr>
-        <tr><td>Mission</td><td>Contribuer à la santé humaine et à la protection de la nature — être le cerveau du pays en matière de collecte de données sur les plantes natives, endémiques, médicinales, aromatiques et menacées</td></tr>
-        <tr><td>Superficie</td><td>6 carreaux (≈ 7,7 ha) — loués depuis 2002 à la famille Gérard par contrat de bail officiel</td></tr>
-        <tr><td>Base constitutionnelle</td><td>Article 256 de la Constitution haïtienne : l'État a l'obligation de créer et d'entretenir des jardins botaniques et zoologiques sur le territoire national</td></tr>
-        <tr><td>Reconnaissance internationale</td><td>Seul jardin botanique d'Haïti reconnu par Botanic Gardens Conservation International (BGCI) — réseau mondial de 1 775 jardins dans 148 pays</td></tr>
-        <tr><td>Situation actuelle</td><td>Fermé de force depuis le 23 juillet 2025. Mme Marie Donna Bastien a pris le contrôle du site, brûlé les collections botaniques, détruit le jardin écologique et installé des plantations de bananiers à la place des espèces endémiques.</td></tr>
-        <tr><td>Contact</td><td>info@jardinbotaniquecayeshaiti.org &nbsp;|&nbsp; (509) 4309-2809</td></tr>
-      </table>
-
-      <div class="photo-block" style="margin-top:26px;">
-        <img src="{{ '/images/sos-petition/avant-02-jardin-complet-aerien.jpg' | relative_url }}" alt="Vue aérienne complète du Jardin Botanique des Cayes avant destruction">
-        <div class="caption"><strong>Le Jardin Botanique des Cayes avant la destruction</strong> — Vue aérienne complète du site à Bergeaud, Les Cayes. Six carreaux consacrés à la recherche, la conservation et l'éducation botanique.</div>
-      </div>
-    </section>
-
-    <!-- SECTION I — L'HISTOIRE COMPLÈTE -->
-    <section class="sw" style="border-top:6px solid var(--rouge);">
-      <div class="section-label"><i class="fas fa-book-open"></i> Section I — L'histoire complète</div>
-      <h2 class="tv">Vingt-trois ans de travail légitime</h2>
-      <p class="sub">Comment un ingénieur forestier haïtien a construit, pendant plus de deux décennies, le seul jardin botanique reconnu de son pays — et comment tout cela a failli disparaître en quelques semaines.</p>
-
-      <div class="prose">
-        <h3>Une vision née à l'étranger, enracinée sur la terre haïtienne</h3>
-        <p>L'histoire du Jardin Botanique des Cayes commence avec la vision d'un homme : <strong>William Cinéa</strong>, ingénieur forestier haïtien. Après avoir poursuivi ses études forestières en République dominicaine entre 1995 et 2000, il rentre en Haïti avec une idée forte — contribuer au reboisement et à la protection de la nature dans un pays qui en a profondément besoin. C'est ainsi qu'est née l'initiative <em>« Haïti Verte »</em>, précurseur de ce qui allait devenir le jardin botanique.</p>
-        <p>En 2002, lors d'une formation en Israël consacrée aux initiatives agricoles et à l'environnement, William Cinéa visite les célèbres jardins Bahá'í — des jardins en terrasses d'une beauté exceptionnelle, qui lui prouvent qu'un projet d'envergure comparable peut exister en Haïti. À son retour, il passe à l'acte : il prend à ferme un terrain de <strong>six carreaux</strong> situé à Bergeaud, au bord de la Route Nationale N°2 aux Cayes, appartenant à Mme Laurette Milard Gérard.</p>
-        <p>Un contrat de bail à ferme est signé officiellement et dans le respect des formes juridiques. C'est Maître Edlan Jabouin, avocat de confiance de la famille, qui reçoit les paiements au nom des propriétaires. Dès le début, la relation entre le Jardin Botanique des Cayes et la famille Gérard est marquée par le respect et la confiance mutuelle. L'une des héritières, Jacqueline Gérard, lors d'une visite effectuée avec sa mère, est tellement touchée par le projet qu'elle propose elle-même de remplacer le nom « Haïti Verte » par <em>« Jardin Botanique des Cayes »</em> — témoignant de l'adhésion de toute la famille à cette vision.</p>
-        <p>Pour Mme Laurette Milard Gérard, la signataire du bail, le jardin botanique représentait une continuité naturelle avec les valeurs familiales liées à la terre et au reboisement dans le département du Sud, notamment à Port-Salut. Elle a régulièrement rendu visite au jardin au fil des années pour encourager l'équipe, apporter ses conseils, et témoigner de son soutien. Pendant plus de vingt ans, les relations entre les deux parties ont été constructives, respectueuses et mutuellement bénéfiques.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/avant-03-plantations-organisees.jpg' | relative_url }}" alt="Plantations organisées du jardin">
-          <div class="caption"><strong>Les plantations scientifiques du JBC</strong> — Collections botaniques organisées par espèces, avec étiquetage, documentation et suivi sur plusieurs années.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/avant-06-sections-botaniques.jpg' | relative_url }}" alt="Sections botaniques">
-          <div class="caption"><strong>Les sections botaniques</strong> — Chaque zone du jardin était dédiée à une famille végétale spécifique, avec des protocoles scientifiques de conservation et d'étude.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <h3>Une relation qui se complique — sans que le jardin soit en faute</h3>
-        <p>En 2017, la situation change. Bruno Gérard, l'un des héritiers qui avait acquis une portion limitrophe du terrain familial, exprime son intention de vendre l'ensemble du terrain et d'en revendiquer la propriété exclusive. Un courriel de promesse de vente est formellement adressé par son avocat. Face à cette évolution, l'équipe du Jardin Botanique des Cayes, soucieuse de protéger sa mission à long terme, sollicite l'État haïtien pour qu'il acquière le terrain — une démarche entièrement conforme à l'article 256 de la Constitution, qui oblige l'État à créer et entretenir des jardins botaniques.</p>
-        <p>Des négociations officielles s'engagent entre l'État, représenté par l'ANAP (Agence Nationale des Aires Protégées), et Bruno Gérard, accompagné de son épouse Marie Donna Bastien. Un accord de principe est atteint : l'État s'engage à inscrire l'acquisition du terrain dans son budget national et à avancer rapidement sur le dossier. Cette réunion, documentée par un rapport officiel et un enregistrement audio, constitue une preuve directe de l'engagement de l'État.</p>
-        <p>Mais les choses s'enlisent. De 2018 à 2025, Bruno Gérard ne fournit jamais les pièces justificatives nécessaires pour finaliser la vente. La raison, selon plusieurs membres de la famille : le terrain occupé par le jardin ne relèverait pas de la propriété exclusive de Bruno Gérard, mais d'un <strong>bien indivis partagé entre neuf héritiers</strong>. Aucun d'eux, individuellement, ne peut décider seul de vendre — et encore moins d'expulser. Pendant ces années, le Jardin Botanique des Cayes continue ses activités, honore ses obligations contractuelles, et maintient ses relations de travail avec la famille. Personne ne remet en cause le bail. Personne ne demande au jardin de quitter les lieux.</p>
-
-        <h3 class="rouge">2025 — L'expulsion en huit jours. Sans dialogue. Sans raison légale.</h3>
-        <p>En 2024, Mme Laurette Milard Gérard — la signataire du bail, la femme qui avait soutenu le jardin depuis le premier jour — disparaît. Son décès change l'équilibre. Et c'est dans ce contexte que Mme Marie Donna Bastien, épouse de Bruno Gérard, décide d'agir seule.</p>
-        <p>En juillet 2025, sans lettre préalable, sans rencontre, sans mise en demeure formelle et sérieuse, Mme Donna Bastien mandate le cabinet d'avocats Thimothé pour exiger l'expulsion du Jardin Botanique des Cayes. Le délai qu'elle accorde : <strong>huit jours</strong>. Huit jours pour quitter un lieu où vingt-trois ans de travail scientifique ont été construits. Huit jours pour vider un patrimoine national reconnu dans le monde entier. Le 23 juillet 2025, la police, un juge et d'autres agents se présentent sur le site et procèdent à la fermeture physique du jardin. Aucun dialogue n'avait eu lieu. Aucun accord amiable n'avait été tenté.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/apres-01-destruction-aerienne.png' | relative_url }}" alt="Vue aérienne de la destruction">
-        <div class="caption"><strong>Après la prise de contrôle de Mme Donna Bastien</strong> — Vue aérienne montrant l'étendue des zones défrichées et brûlées. Les photos ont été prises par drone et officiellement constatées par un Juge de Paix.</div>
-      </div>
-
-      <div class="prose">
-        <p>Le 3 septembre 2025, Mme Donna Bastien franchit une nouvelle étape. Elle prend le contrôle total du site avec son propre personnel, fait ériger de nouvelles clôtures et barrières, et commence ce que l'on ne peut qualifier autrement que de <strong>destruction systématique d'un patrimoine national</strong>. Les plantes rares, endémiques, natives, que l'équipe scientifique du JBC avait patiemment collectées, étudiées et protégées pendant plus de deux décennies, sont coupées et brûlées — traitées comme de simples mauvaises herbes. Le jardin écologique, espace sacré du site, est entièrement défriché et incendié. Des collections de plantes médicinales et aromatiques irremplaçables partent en fumée. Et à la place de ces collections botaniques uniques en Haïti, Mme Bastien installe des plantations de bananiers.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-02-flammes-actives.png' | relative_url }}" alt="Flammes actives dans le jardin">
-          <div class="caption"><strong>Flammes actives</strong> — Foyers d'incendie documentés sur le site du jardin écologique.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-06-charbon-cendres.png' | relative_url }}" alt="Charbon fabriqué à partir des plantes">
-          <div class="caption"><strong>Charbon fabriqué à partir des plantes du jardin</strong> — Des sacs de charbon produits avec les plantes médicinales et ethnobotaniques.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <p>Face à cette situation, les huit héritiers légitimes de la famille Gérard — ceux qui n'ont jamais mandaté Mme Bastien — réagissent officiellement. Par l'intermédiaire de leur cabinet d'avocats, ils lui adressent une sommation de cesser ses actions. Ils écrivent également au Ministre de la Justice pour demander son intervention directe. Mais Mme Donna Bastien ne s'arrête pas.</p>
-        <p>Elle ajoute une autre stratégie à ses actions de destruction : elle envoie des convocations successives au Jardin Botanique pour le contraindre à comparaître devant le tribunal. Par deux fois, ni elle ni ses avocats ne se présentent aux audiences. Le 7 avril 2026, les avocats du jardin plaident l'affaire. Le juge renvoie l'affaire vers une autre juridiction. Après la séance, les avocats du JBC prennent une décision difficile mais nécessaire : ils changent toutes les serrures du site pour mettre fin aux destructions de Mme Bastien. <strong>Le Jardin Botanique des Cayes attend maintenant que l'État haïtien intervienne, rencontre la famille Gérard dans son ensemble, et prenne les décisions qui s'imposent pour sauvegarder ce qui reste.</strong></p>
-      </div>
-    </section>
-
-    <!-- SECTION II — NÉCESSITÉ NATIONALE -->
-    <section class="sw" style="border-top:6px solid var(--vc);">
-      <div class="section-label"><i class="fas fa-globe-americas"></i> Section II — Une nécessité nationale</div>
-      <h2 class="tv">Pourquoi ce jardin concerne toute la nation haïtienne</h2>
-      <p class="sub">Pour comprendre ce qu'Haïti est en train de perdre, il faut comprendre ce que représente un jardin botanique — dans le monde, dans la Caraïbe, et surtout en Haïti.</p>
-
-      <div class="prose">
-        <h3>Les jardins botaniques : une institution fondamentale depuis des siècles</h3>
-        <p>Les jardins botaniques ne sont pas de simples espaces verts où l'on vient se promener le dimanche. Depuis plusieurs siècles, ils constituent des <strong>institutions de recherche scientifique, de conservation de la biodiversité, d'éducation du public et de transmission des savoirs</strong>. Le premier jardin botanique universitaire moderne reconnu au monde a été créé à <strong>Padoue, en Italie, en 1545</strong>, pour l'étude scientifique des plantes médicinales. Ce jardin existe encore aujourd'hui, presque cinq siècles plus tard — ce qui dit tout de la valeur durable et permanente de ce type d'institution.</p>
-        <p>Aujourd'hui, à l'échelle mondiale, les jardins botaniques jouent un rôle de plus en plus crucial face à trois crises simultanées : la <strong>crise climatique</strong>, qui perturbe les écosystèmes et menace des milliers d'espèces ; la <strong>crise de biodiversité</strong>, qui voit disparaître des espèces végétales à un rythme alarmant ; et la <strong>crise des savoirs</strong>, qui voit se perdre irrémédiablement les connaissances traditionnelles sur les plantes. Selon <strong>Botanic Gardens Conservation International (BGCI)</strong>, il existe aujourd'hui <strong>1 775 jardins botaniques et arboretums dans 148 pays</strong>, avec de nombreux autres en cours de planification. Ces institutions sont des acteurs irremplaçables de la protection du vivant sur notre planète.</p>
-
-        <h3>Dans la Caraïbe, Haïti est dangereusement en retard</h3>
-        <p>Si l'on regarde la région caribéenne et ses voisins, le contraste est saisissant. <strong>Cuba</strong> dispose d'un Jardin botanique national couvrant environ 600 hectares, inscrit dans un réseau national de jardins à vocation scientifique et éducative. La <strong>République dominicaine</strong>, île que nous partageons, possède un jardin botanique national d'une superficie variant entre 120 et 200 hectares — une institution d'envergure nationale, reconnue et financée par l'État.</p>
-        <p>Et Haïti ? Le Jardin Botanique des Cayes, avec ses <strong>six carreaux (environ 7,7 hectares)</strong>, est le <strong>seul jardin botanique de tout le pays reconnu par le réseau international BGCI</strong>. Un seul. Dans un pays qui compte plus de 11 millions d'habitants, une biodiversité exceptionnelle, et l'un des taux de déforestation les plus élevés au monde. Et ce jardin unique est aujourd'hui fermé, en cours de destruction, et personne dans l'appareil d'État n'est encore intervenu pour l'arrêter.</p>
-        <p>Dans un pays marqué par la dégradation environnementale accélérée, la perte de biodiversité, l'érosion des sols, la disparition des savoirs traditionnels et le manque chronique d'infrastructures scientifiques adaptées, un jardin botanique <strong>n'est pas un luxe. C'est une nécessité nationale absolue.</strong></p>
-      </div>
-
-      <div class="cbox" style="margin-top:28px;">
-        <div class="cn"><i class="fas fa-scroll"></i> &nbsp;Article 256 de la Constitution haïtienne — une obligation, pas une option</div>
-        <p>« Dans le cadre de la protection de l'environnement et de l'éducation publique, <strong style="color:var(--or);">l'État a l'obligation de procéder à la création et à l'entretien de jardins botaniques et zoologiques sur le territoire national.</strong> »</p>
-      </div>
-
-      <div class="prose" style="margin-top:20px;">
-        <p>Sauver le Jardin Botanique des Cayes n'est pas un acte de générosité de la part de l'État haïtien. C'est l'application d'une <strong>obligation constitutionnelle</strong>. L'article 256 de la Constitution haïtienne est clair, sans ambiguïté et sans exception : l'État <em>a l'obligation</em> de créer et d'entretenir des jardins botaniques. Laisser détruire le seul jardin botanique du pays sans intervenir est une violation directe de ce devoir constitutionnel.</p>
-        <p>Mais au-delà de la Constitution, c'est aussi une question d'avenir. Sauver le JBC, c'est poser les bases d'un modèle national. C'est démontrer qu'Haïti est capable de protéger ses institutions scientifiques, de valoriser sa biodiversité unique et de construire une relation durable avec son environnement naturel. C'est inspirer la création d'autres jardins botaniques dans les différents départements du pays. C'est offrir aux générations futures une institution vivante, utile, ancrée dans la réalité haïtienne.</p>
-      </div>
-    </section>
-
-    <!-- SECTION III — LE JARDIN BOTANIQUE DES CAYES : MISSION ET 5 ESPACES -->
-    <section class="sw" style="border-top:6px solid var(--vf);">
-      <div class="section-label"><i class="fas fa-leaf"></i> Section III — Le Jardin Botanique des Cayes</div>
-      <h2 class="tv">Mission, vocation et les cinq espaces du jardin</h2>
-      <p class="sub">Pour comprendre ce qui a été détruit, il faut d'abord comprendre ce que le Jardin Botanique des Cayes était — et ce qu'il est encore, pour ce qui peut être sauvé.</p>
-
-      <div class="prose">
-        <h3>Mission et vocation</h3>
-        <p>Créé en 2002, le Jardin Botanique des Cayes est une institution qui a pour mission de <strong>contribuer à la santé humaine et à la protection de la nature</strong>. Il a été conçu pour être le cerveau du pays en matière de collecte de données sur les plantes natives, endémiques, médicinales, aromatiques et menacées.</p>
-        <p>Par sa structure, son ancienneté et sa mission, le Jardin Botanique des Cayes représente bien plus qu'un simple jardin. Il constitue un <strong>patrimoine scientifique, écologique, éducatif et culturel majeur pour Haïti</strong>, reconnu à travers le monde.</p>
-
-        <h3>Les cinq espaces du jardin</h3>
-        <p>Le jardin est physiquement organisé en cinq espaces principaux, tous essentiels à sa mission.</p>
-      </div>
-
-      <div class="prose" style="margin-top:12px;">
-        <h3 style="border-top:none;padding-top:0;">1. Espace écologique</h3>
-        <p>La santé de la nature est fondamentale pour le bien-être de l'homme et des plantes. Cet espace écologique est un pilier de notre mission : aider la population haïtienne à comprendre les écosystèmes, l'écologie et la biodiversité pour notre bien-être. Il est conçu pour reconstituer et montrer le fonctionnement de l'écologie naturelle.</p>
-        <p>Selon les principes internationaux, un jardin botanique doit consacrer <strong>30 à 60 % de son espace</strong> à une zone naturelle à vocation éducative. Depuis plus de 23 ans, le JBC s'efforçait de construire un tel espace — refuge d'oiseaux sur 16 % du site, où le bruit et la coupe sont interdits, et où l'élimination des plantes exotiques est constante.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/espace-ecologique.jpg' | relative_url }}" alt="Espace écologique du Jardin Botanique des Cayes">
-        <div class="caption"><strong>L'espace écologique du JBC</strong> — Zone de reconstitution d'écosystèmes locaux, refuge d'oiseaux et de faune sauvage, espace sacré de silence et de contemplation.</div>
-      </div>
-
-      <div class="prose">
-        <h3>2. Espace de conservation et d'adaptation (Conservatoire)</h3>
-        <p>Cet espace est consacré à la plantation des <strong>plantes endémiques et natives du pays</strong>, avec collecte de données sur la reproduction, la croissance et l'interaction avec la faune. Une section y est dédiée à la collection des arbres fruitiers natifs et traditionnels du pays.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/jbc-plantes-natives.jpg' | relative_url }}" alt="Conservatoire — plantes natives et endémiques">
-        <div class="caption"><strong>Le Conservatoire botanique</strong> — Collection de plantes natives et endémiques d'Haïti, patiemment constituée au fil des années par l'équipe scientifique du JBC.</div>
-      </div>
-
-      <div class="prose">
-        <h3>3. Espace ornemental et événementiel</h3>
-        <p>Cet espace est construit pour organiser des événements éducatifs et culturels, et pour collecter des plantes importantes pour l'aménagement paysager et le développement de l'horticulture. Il est aménagé pour <strong>inspirer les visiteurs et les décideurs du pays</strong>.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/Beaute du jardin.jpg' | relative_url }}" alt="Espace ornemental du jardin">
-        <div class="caption"><strong>L'espace ornemental</strong> — Espace d'inspiration et de beauté, également utilisé pour des événements éducatifs, culturels et communautaires.</div>
-      </div>
-
-      <div class="prose">
-        <h3>4. Jardin ethnobotanique</h3>
-        <p>Ce jardin s'inscrit directement dans notre mission de contribuer à la santé humaine. Selon le Ministère de la Santé Publique, environ <strong>80 % des Haïtiens utilisent les plantes médicinales</strong> pour se soigner. Cependant, il existe très peu d'informations sur les bienfaits des espèces, sur celles qui sont toxiques, ni sur leur localisation et leur distribution.</p>
-        <p>À travers ce jardin, nos actions consistent à collecter, étudier et documenter les usages ethnobotaniques et les molécules phytochimiques des plantes médicinales et aromatiques, afin de <strong>favoriser le transfert des savoirs entre les connaissances traditionnelles et les approches scientifiques</strong>. Il comprenait également une collection de palmes mise en place pour mieux faire connaître leur diversité et leur importance écologique, culturelle et économique.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/ethno.png' | relative_url }}" alt="Jardin ethnobotanique">
-          <div class="caption"><strong>Le jardin ethnobotanique</strong> — Collection de plantes médicinales, aromatiques et rituelles du patrimoine haïtien.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/ethno2.png' | relative_url }}" alt="Jardin ethnobotanique — vue aérienne">
-          <div class="caption"><strong>Le jardin ethnobotanique — vue aérienne (avant destruction)</strong> — Aménagement scientifique consacré à la santé humaine et à la transmission des savoirs traditionnels.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <h3>5. Pépinière</h3>
-        <p>Toute la valeur scientifique du JBC se résume dans la recherche sur les plantes : <strong>développer des protocoles pour savoir comment les reproduire</strong>, les sauvegarder pour la conservation in-situ et ex-situ, et la restauration écologique. Cœur opérationnel du JBC, la pépinière est destinée à la production de plantes pour la conservation, la restauration écologique, l'éducation et la diffusion. Elle constitue un <strong>refuge essentiel</strong> pour des espèces rares, endémiques, utiles ou menacées, qui exigent suivi, soins et protection.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/Jbc-plantes.jpg' | relative_url }}" alt="Pépinière du JBC">
-        <div class="caption"><strong>La pépinière du JBC</strong> — Cœur opérationnel de l'institution, dédié à la multiplication des plantes rares et endémiques pour la conservation et la restauration écologique.</div>
-      </div>
-    </section>
-
-    <!-- SECTION IV — ÉTAT DES DÉGÂTS CONSTATÉS -->
-    <section class="sw" style="border-top:6px solid var(--rouge);">
-      <div class="section-label"><i class="fas fa-exclamation-triangle"></i> Section IV — État des dégâts constatés</div>
-      <h2 class="tv">Ce qui a été détruit — composante par composante</h2>
-      <p class="sub">Les actes attribués à Mme Marie Donna Bastien Gérard depuis juillet 2025 ont entraîné des pertes considérables. Le jardin aura besoin de plus de 30 ans pour se relever de ces dégâts, dont plusieurs sont <strong>irréversibles</strong>. Les constats ci-dessous concernent les cinq composantes du jardin.</p>
-
-      <div class="prose">
-        <h3 class="rouge" style="border-top:none;padding-top:0;">Bilan chiffré des pertes</h3>
-      </div>
-
-      <table class="fiche" style="margin-top:6px;">
-        <tr style="background:var(--vf);"><td style="color:var(--or);font-weight:800;">Élément du jardin</td><td style="color:var(--or);font-weight:800;">Bilan</td><td style="color:var(--or);font-weight:800;white-space:nowrap;">Gravité</td></tr>
-        <tr><td>Jardin écologique — surface défrichée et brûlée</td><td>1 carreau (≈ 1,29 ha)</td><td style="color:var(--rouge);font-weight:800;">CRITIQUE</td></tr>
-        <tr><td>Espèces végétales éliminées (jardin écologique)</td><td>plus de 200 espèces</td><td style="color:var(--rouge);font-weight:800;">CRITIQUE</td></tr>
-        <tr><td>Plantes natives et endémiques du conservatoire</td><td>plus de 500 plantes</td><td style="color:var(--rouge);font-weight:800;">CRITIQUE</td></tr>
-        <tr><td>Zones écologiques brûlées (foyers d'incendie constatés)</td><td>plusieurs foyers</td><td style="color:var(--rouge);font-weight:800;">GRAVE</td></tr>
-        <tr><td>Espèces remplacées par des bananiers (usage privé)</td><td>plusieurs parcelles</td><td style="color:var(--rouge);font-weight:800;">GRAVE</td></tr>
-        <tr><td>Pépinière — état des infrastructures</td><td>délabrement avancé</td><td style="color:var(--rouge);font-weight:800;">GRAVE</td></tr>
-        <tr><td>Espèce emblématique en péril</td><td><em>Clavija domingensis</em></td><td style="color:var(--rouge);font-weight:800;">CRITIQUE</td></tr>
-        <tr><td>Clôtures non autorisées érigées par l'occupante</td><td>plusieurs</td><td style="color:var(--rouge);font-weight:800;">GRAVE</td></tr>
-        <tr><td>Personnel du JBC empêché d'accéder au site</td><td>depuis juillet 2025</td><td style="color:var(--rouge);font-weight:800;">CRITIQUE</td></tr>
-      </table>
-
-      <div class="prose" style="margin-top:30px;">
-        <h3 class="rouge">1. Jardin écologique — défrichement et incendie</h3>
-        <p>Le jardin écologique du JBC constituait un <strong>espace de démonstration unique</strong>, dédié à la reconstitution d'écosystèmes locaux et à la sensibilisation du public à la biodiversité haïtienne. Si vous avez visité le jardin, vous savez qu'il y était interdit de parler : il s'agissait d'un <strong>espace sacré</strong>, dédié au silence, à la contemplation et à la protection de la faune.</p>
-        <p>Les premières actions attribuées à Mme Marie Donna Bastien Gérard ont consisté à <strong>abattre toutes les plantes de ce patrimoine et à les brûler totalement</strong>. Plus d'un hectare de terre a été éliminé, plus de 200 espèces de plantes natives et endémiques sont parties en feu, et des centaines de sacs de charbon en ont été produits. Les foyers d'incendie documentés ci-dessous montrent l'ampleur et le caractère systématique de la destruction : il ne s'agit pas d'un défrichement ponctuel, mais d'une <strong>opération étendue, méthodique et irréversible</strong>.</p>
-        <p>Le jardin risque aujourd'hui de <strong>perdre son statut d'institution botanique</strong>. Sans espace naturel représentant 30 à 60 % de sa surface — norme internationale reconnue pour les jardins botaniques — il ne pourra plus prétendre à une vocation écologique. Il faudra plus de 30 ans pour reconstituer cet espace.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/autres/Jardin-ecologique-enfeu.jpg' | relative_url }}" alt="Foyers d'incendie dans le jardin écologique">
-          <div class="caption"><strong>Foyers d'incendie dans le jardin écologique</strong> — Vue panoramique montrant l'ampleur des destructions par le feu.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-01-destruction-aerienne.png' | relative_url }}" alt="Vue aérienne d'une zone brûlée">
-          <div class="caption"><strong>Vue aérienne d'une zone brûlée</strong> — Présence de personnes sur le site lors de la destruction, constatée par drone.</div>
-        </div>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-03-fumee-incendie.png' | relative_url }}" alt="Foyer d'incendie actif">
-          <div class="caption"><strong>Foyer d'incendie actif</strong> — Brûlage de végétation coupée, documenté en temps réel.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-07-elimination-ecologique.jpg' | relative_url }}" alt="Piles de végétation coupée">
-          <div class="caption"><strong>Piles de végétation coupée</strong> — Végétation empilée en attente de brûlage, indiquant le caractère systématique de la destruction.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <h3 class="rouge">2. Jardin ethnobotanique — vandalisme et fabrication de charbon</h3>
-        <p>Le jardin ethnobotanique, consacré à la <strong>préservation des plantes médicinales, aromatiques et rituelles du patrimoine culturel haïtien</strong>, a été vandalisé. Les palmes et d'autres plantes de collection sont abattues ou endommagées. Les feuilles sont utilisées pour la fabrication de charbon, et certaines plantes médicinales sont coupées comme de mauvaises herbes — usages <strong>strictement contraires</strong> à la vocation scientifique et pédagogique du site.</p>
-        <p>L'absence de soins, de propreté et de suivi depuis plusieurs mois accélère la disparition progressive de ce patrimoine végétal et culturel. Cette destruction représente une <strong>perte irréparable pour la transmission des connaissances ethnobotaniques haïtiennes</strong>.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/plantes-endemiques-charbon.jpg' | relative_url }}" alt="Plantes transformées en charbon">
-        <div class="caption"><strong>Plantes médicinales et palmes transformées en charbon</strong> — Des espèces ethnobotaniques utilisées pour la fabrication de charbon, contrairement à leur vocation scientifique et culturelle.</div>
-      </div>
-
-      <div class="prose">
-        <h3 class="rouge">3. Conservatoire botanique — élimination systématique des endémiques</h3>
-        <p>Le conservatoire botanique du JBC abritait <strong>plus de 500 plantes natives et endémiques d'Haïti</strong>, dont plusieurs espèces rares, menacées ou strictement endémiques à l'île. Ces collections, constituées patiemment au fil des années par l'équipe scientifique, représentaient un capital botanique national de premier plan et contribuaient aux engagements d'Haïti en matière de conservation de la biodiversité.</p>
-        <p>Leur élimination systématique constitue une <strong>perte scientifique majeure, non compensable à court ou moyen terme</strong>, et prive le pays d'un outil essentiel de préservation de son patrimoine naturel unique. Certaines de ces espèces, disparues du conservatoire, ne sont plus présentes nulle part ailleurs dans des conditions permettant leur étude et leur multiplication.</p>
-
-        <h3 class="rouge">4. Jardin ornemental — abandon et dégradation</h3>
-        <p>Cet espace, conçu pour inspirer et éduquer, accueillait également des <strong>événements éducatifs, culturels et communautaires</strong> (mariages, rencontres, activités pédagogiques). Il est aujourd'hui fortement dégradé. Faute de soins, de suivi et d'entretien, plusieurs plantes perdent leur forme, leur valeur esthétique et leur fonction pédagogique. Un lieu vivant de connexion entre la nature et la société est désormais en train de <strong>disparaître sous l'effet de l'abandon</strong>.</p>
-
-        <h3 class="rouge">5. Plantation de bananes — détournement d'un site public</h3>
-        <p>Des espaces structurants du jardin ont été <strong>détournés de leur vocation scientifique et convertis en plantation de bananes</strong>, transformant un site public de conservation en exploitation agricole ordinaire. Cette substitution — d'un espace de recherche et de conservation à une culture vivrière — dénature la vocation publique et scientifique du site et détruit des années de travail. Elle constitue également un détournement de fait de la destination patrimoniale du terrain.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/apres7.png' | relative_url }}" alt="Plantation de bananiers à la place des collections botaniques">
-        <div class="caption"><strong>Plantation de bananiers installée à la place des collections botaniques du JBC</strong> — Détournement d'un site public de conservation en exploitation agricole privée.</div>
-      </div>
-
-      <div class="prose">
-        <h3 class="rouge">6. Pépinière — délabrement et agonie d'espèces rares</h3>
-        <p>La pépinière — cœur opérationnel du JBC pour la multiplication des plantes, les programmes de reboisement et la production de plants destinés aux partenaires et à la communauté — a été laissée dans un <strong>état de délabrement avancé</strong> : structures endommagées, plants perdus, infrastructures de production hors d'usage.</p>
-        <p>Parmi les espèces les plus emblématiques qui y étaient conservées figure <em><strong>Clavija domingensis</strong></em>, plante d'une très grande valeur scientifique et conservatoire. Faute de soins, de suivi et d'entretien, <em>Clavija domingensis</em> est en train de mourir. À travers cette espèce, c'est toute la gravité de la situation qui apparaît : lorsque la pépinière est abandonnée, ce ne sont pas seulement des plants qui se perdent, mais aussi <strong>des espèces rares, des années de travail et une partie du patrimoine botanique national</strong>.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/elimination-jardin-ecologique.jpg' | relative_url }}" alt="Pépinière laissée sans soins">
-        <div class="caption"><strong>La pépinière du JBC — plants d'espèces rares laissés sans soins ni entretien</strong> — Des années de travail scientifique perdues par absence de suivi et d'accès du personnel au site.</div>
-      </div>
-    </section>
-
-    <!-- ARTICLES DE PRESSE -->
-    <section class="sw" style="border-top:6px solid var(--or);">
-      <div class="section-label"><i class="fas fa-newspaper"></i> Dans la presse</div>
-      <h2 class="tv">Les articles publiés sur le Jardin Botanique</h2>
-      <p class="sub">Une sélection d'articles publiés par les médias haïtiens et internationaux sur le Jardin Botanique des Cayes et la crise en cours.</p>
-
-      <div class="article-card">
-        <span class="article-source">Le Nouvelliste</span>
-        <h4>Le Jardin Botanique des Cayes dans la presse haïtienne</h4>
-        <p>Le plus ancien quotidien d'Haïti a publié plusieurs articles sur le Jardin Botanique des Cayes au fil des années — sur son travail de conservation, et plus récemment sur la crise en cours.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">AlterPresse</span>
-        <h4>SOS pour le Jardin Botanique des Cayes</h4>
-        <p>AlterPresse, agence de presse alternative haïtienne, a suivi l'affaire et publié des reportages documentant les destructions, les positions des différents acteurs, et l'appel à l'État haïtien pour appliquer l'article 256 de la Constitution.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">Loop Haiti</span>
-        <h4>Un patrimoine national en péril</h4>
-        <p>Loop Haiti relaie les informations sur la crise du JBC, ses conséquences pour la conservation de la biodiversité haïtienne et les enjeux constitutionnels soulevés par l'affaire.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">Google Geo for Good</span>
-        <h4>Le JBC honoré pour sa contribution à la conservation en Haïti <span class="date">2018</span></h4>
-        <p>Google Earth Outreach a remis le prix <strong>Geo for Good 2018</strong> au Jardin Botanique des Cayes, reconnaissant son travail de collecte de données botaniques et de conservation environnementale. Une reconnaissance mondiale pour un travail local de plus de deux décennies — la distinction la plus importante obtenue par l'institution.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">BGCI</span>
-        <h4>Cayes Botanical Garden — Haiti <span class="date">Profil international</span></h4>
-        <p>Botanic Gardens Conservation International (BGCI), le plus grand réseau mondial de jardins botaniques avec 1 775 membres dans 148 pays, inclut le JBC dans son registre international — seule institution haïtienne à y figurer.</p>
-        <a href="https://www.bgci.org" target="_blank" class="read-more">bgci.org →</a>
-      </div>
-    </section>
-
-    <!-- LOCALISATION -->
-    <section class="sw" style="border-top:6px solid var(--vc);">
-      <div class="section-label"><i class="fas fa-map-marked-alt"></i> Localisation</div>
-      <h2 class="tv">🗺️ Bergeaud, Les Cayes — Département du Sud, Haïti</h2>
-      <p class="sub">Le Jardin Botanique des Cayes est situé sur la Route Nationale N°2, à Bergeaud, dans la commune des Cayes, chef-lieu du département du Sud d'Haïti.</p>
-      <div class="map-wrap">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1kNKV6ZtsXQ0JDafq5wFHhnEGz2zva18&ehbc=2E312F" allowfullscreen="" loading="lazy" title="Jardin Botanique des Cayes — Carte officielle"></iframe>
-      </div>
-      <div style="text-align:center;margin-top:14px;">
-        <a href="https://www.google.com/maps/d/edit?mid=1kNKV6ZtsXQ0JDafq5wFHhnEGz2zva18" target="_blank" class="map-btn"><i class="fas fa-map-marker-alt"></i> Ouvrir la carte complète du JBC</a>
-      </div>
-    </section>
-
-    <!-- CONTACT PRESSE -->
-    <section class="sw" style="border-top:6px solid var(--or);">
-      <div class="section-label"><i class="fas fa-phone"></i> Contact presse</div>
-      <h2 class="tv">Pour les journalistes et les institutions</h2>
-      <p style="font-size:1rem;color:#444;margin-bottom:20px;line-height:1.75;">Pour toute demande d'entretien, de documentation complémentaire, d'accès aux preuves photographiques et audio, ou pour toute demande de renseignement de la part des médias et des institutions :</p>
-      <div class="contact-box">
-        <p style="font-size:1.06rem;margin-bottom:13px;"><strong style="font-size:1.18rem;">William Cinéa</strong><br><span style="color:var(--gris);">Directeur et ingénieur forestier — Jardin Botanique des Cayes</span></p>
-        <p style="margin-bottom:9px;"><i class="fas fa-envelope" style="color:var(--vc);margin-right:8px;"></i><a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--vf);font-weight:600;">info@jardinbotaniquecayeshaiti.org</a> &nbsp;|&nbsp; <a href="mailto:adm@jardinbotaniquecayeshaiti.org" style="color:var(--vf);font-weight:600;">adm@jardinbotaniquecayeshaiti.org</a></p>
-        <p style="margin-bottom:9px;"><i class="fas fa-phone" style="color:var(--vc);margin-right:8px;"></i>(509) 4309-2809 &nbsp;|&nbsp; USA : +1 845-148-9803</p>
-        <p style="margin-bottom:0;"><i class="fas fa-globe" style="color:var(--vc);margin-right:8px;"></i><a href="https://www.jardinbotaniquecayeshaiti.org" target="_blank" style="color:var(--vf);font-weight:600;">www.jardinbotaniquecayeshaiti.org</a></p>
-        <p style="margin-top:10px;color:var(--gris);font-size:.86rem;">24, Bergeaud, Route Nationale N°2 — Les Cayes, Département du Sud, Haïti</p>
-      </div>
-    </section>
-
-    <!-- DEMANDE DU DOSSIER PDF (traitement manuel) -->
-    <section class="sw" style="border-top:6px solid var(--or);" id="demande-pdf">
-      <div class="section-label"><i class="fas fa-file-pdf"></i> Demander le dossier complet en PDF</div>
-      <h2 class="tv">Recevoir le PDF par email</h2>
-      <p style="font-size:1rem;color:#444;margin-bottom:20px;line-height:1.75;">Le dossier de presse complet (plus de 10 pages, avec photos, chronologie, documents officiels et contacts) est disponible sur demande. Remplissez ce formulaire : notre équipe examinera votre demande, puis vous enverra le PDF par email. <strong>Il n'y a pas de téléchargement automatique</strong> — chaque demande est traitée individuellement.</p>
-
-      <form name="demande-pdf-dossier-fr" method="POST" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="pdf-form" style="max-width:720px;margin:0 auto;">
-        <input type="hidden" name="form-name" value="demande-pdf-dossier-fr">
-        <p style="display:none;"><label>Ne remplissez pas : <input name="bot-field"></label></p>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-          <div><label for="pdf-prenom" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Prénom *</label><input type="text" id="pdf-prenom" name="prenom" placeholder="Votre prénom" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-          <div><label for="pdf-nom" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Nom *</label><input type="text" id="pdf-nom" name="nom" placeholder="Votre nom" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-        </div>
-
-        <div style="margin-bottom:14px;">
-          <label for="pdf-email" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Email * <span style="font-weight:400;color:#999;">(pour recevoir le dossier)</span></label>
-          <input type="email" id="pdf-email" name="email" placeholder="votre@email.com" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;">
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-          <div><label for="pdf-orga" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Organisation / Média *</label><input type="text" id="pdf-orga" name="organisation" placeholder="Ex : Le Nouvelliste, Université d'État, ONG…" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-          <div><label for="pdf-pays" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Pays *</label><input type="text" id="pdf-pays" name="pays" placeholder="Ex : Haïti, États-Unis, France…" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-        </div>
-
-        <div style="margin-bottom:14px;">
-          <label for="pdf-fonction" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Profession / Fonction <span style="font-weight:400;color:#999;">(optionnel)</span></label>
-          <input type="text" id="pdf-fonction" name="fonction" placeholder="Ex : Journaliste, Chercheur, Avocat, Élu…" style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;">
-        </div>
-
-        <div style="margin-bottom:18px;">
-          <label for="pdf-raison" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Raison de la demande *</label>
-          <textarea id="pdf-raison" name="raison" rows="4" placeholder="Expliquez brièvement pourquoi vous souhaitez recevoir le dossier (article, recherche, plaidoyer, etc.)" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;font-family:inherit;resize:vertical;"></textarea>
-        </div>
-
-        <div style="text-align:center;">
-          <button type="submit" class="btn-s" style="background:var(--vf);font-size:1.05rem;padding:14px 36px;"><i class="fas fa-paper-plane"></i> ENVOYER MA DEMANDE</button>
-        </div>
-
-        <p style="font-size:.82rem;color:#999;text-align:center;margin-top:14px;">Votre demande sera examinée par l'équipe du JBC. Vous recevrez le dossier PDF par email dans un délai de 24 à 72 heures ouvrables.</p>
-      </form>
-
-      <div id="pdf-ok" style="display:none;background:#d4edda;border:2px solid var(--vc);border-radius:12px;padding:22px;text-align:center;margin:18px auto 0;max-width:720px;color:var(--vf);">
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--vf);margin-bottom:8px;">✅ Demande envoyée avec succès</h3>
-        <p style="font-size:.96rem;color:#333;line-height:1.6;">Merci pour votre intérêt. Notre équipe examinera votre demande et vous enverra le dossier PDF par email dans un délai de 24 à 72 heures ouvrables. Pour toute question urgente : <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--rouge);font-weight:700;">info@jardinbotaniquecayeshaiti.org</a></p>
-      </div>
-    </section>
-
-    <!-- CTA FINAL -->
-    <section style="text-align:center;margin:20px 0 50px;">
-      <p style="font-size:1.18rem;color:var(--vf);font-weight:700;margin-bottom:8px;">Vous avez lu. Vous savez maintenant.</p>
-      <p style="font-size:1.02rem;color:#555;margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto;">Signez la pétition, partagez ce dossier, et aidez le Jardin Botanique des Cayes à survivre.</p>
-      <a href="/sos-petition-fr.html#signer" class="btn-s" style="font-size:1.18rem;"><i class="fas fa-pen"></i> JE SIGNE LA PÉTITION</a>
-      <br><br>
-      <a href="#demande-pdf" class="btn-s" style="background:var(--or);color:var(--vf);margin-right:10px;"><i class="fas fa-file-pdf"></i> DEMANDER LE PDF</a>
-      <a href="{{ '/sos-petition-fr.html' | relative_url }}" class="btn-back"><i class="fas fa-arrow-left"></i> Retour à la pétition</a>
-    </section>
-
-    <script>
-    // Fòmilè demann PDF : affichage confirmation après soumission
-    (function(){
-      var pf=document.getElementById('pdf-form'),ok=document.getElementById('pdf-ok');
-      if(pf)pf.addEventListener('submit',function(){
-        setTimeout(function(){pf.style.display='none';if(ok){ok.style.display='block';ok.scrollIntoView({behavior:'smooth',block:'center'});}},400);
-      });
-    })();
-    </script>
-
-  </div>
-</div>
 </div>

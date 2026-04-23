@@ -1,504 +1,105 @@
 ---
 layout: default
-title: Full Dossier — Cayes Botanical Garden
+title: "Learn more — The situation at the Cayes Botanical Garden"
+og_title: "Learn more — The situation at the Cayes Botanical Garden"
 lang: en
-permalink: /dossier-jbc-en.html
+permalink: /en/dossier-jbc-en.html
 ref: dossier-jbc
+description: "Understand what is currently happening at the Cayes Botanical Garden: the full story, from its founding in 2002 to the crisis it is now facing."
+image: /images/sos-petition/avant-01-vue-aerienne-jardin.jpg
 ---
-<div id="pp">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap');
-:root{--vf:#1e3c2c;--vm:#2e5c3a;--vc:#27ae60;--rouge:#c0392b;--or:#f1c40f;--fond:#f4f7f2;--gris:#666;}
-*{box-sizing:border-box;margin:0;padding:0;}
-.jbc{font-family:'Source Sans 3',sans-serif;background:var(--fond);color:#222;line-height:1.7;}
-.hero{position:relative;overflow:hidden;background:#1e3c2c;}
-.hero-img{width:100%;display:block;min-height:360px;max-height:68vh;object-fit:cover;object-position:center;}
-.hero-bar{background:var(--vf);color:#fff;text-align:center;padding:28px 20px 34px;}
-.hero-bar h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;margin-bottom:10px;line-height:1.2;}
-.hero-bar h1 span{color:var(--or);}
-.hero-bar p{font-size:clamp(.95rem,1.9vw,1.1rem);max-width:750px;margin:0 auto;opacity:.92;}
-.ct{max-width:940px;margin:0 auto;padding:48px 20px;}
-.sw{background:#fff;border-radius:16px;padding:44px 48px;margin-bottom:36px;box-shadow:0 5px 22px rgba(0,0,0,.07);}
-.tv{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--vf);margin-bottom:10px;}
-.sub{color:var(--gris);font-style:italic;margin-bottom:24px;font-size:.97rem;line-height:1.65;}
-.prose p{font-size:1.07rem;margin-bottom:20px;color:#2a2a2a;line-height:1.9;}
-.prose p:last-child{margin-bottom:0;}
-.prose h3{font-family:'Playfair Display',serif;font-size:1.22rem;font-weight:900;color:var(--vf);margin:34px 0 12px;padding-top:18px;border-top:2px solid #eee;}
-.prose h3.rouge{color:var(--rouge);}
-.prose ul{padding-left:24px;margin:14px 0 20px;}
-.prose ul li{font-size:1.05rem;margin-bottom:10px;color:#2a2a2a;line-height:1.82;}
-.cbox{background:linear-gradient(135deg,var(--vf),var(--vm));border-radius:12px;padding:26px 32px;margin:24px 0;color:#fff;}
-.cbox .cn{font-size:.76rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--or);margin-bottom:13px;}
-.cbox p{font-size:1.08rem;line-height:1.85;margin:0;}
-.fiche{width:100%;border-collapse:collapse;margin:10px 0 20px;font-size:.98rem;}
-.fiche td{padding:12px 16px;border-bottom:1px solid #e8e8e8;vertical-align:top;line-height:1.65;}
-.fiche td:first-child{font-weight:700;color:var(--vf);width:36%;white-space:nowrap;}
-.fiche tr:last-child td{border-bottom:none;}
-.fiche tr:nth-child(even) td{background:#f8faf7;}
-.photo-block{margin:28px 0;border-radius:12px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.1);background:#1e3c2c;}
-.photo-block img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;object-position:center;background:#1e3c2c;}
-.photo-block .caption{background:var(--vf);color:#fff;padding:12px 20px;font-size:.9rem;line-height:1.5;font-style:italic;}
-.photo-block .caption strong{color:var(--or);font-style:normal;font-weight:700;}
-.photo-duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:28px 0;}
-.photo-duo .photo-block{margin:0;}
-.photo-duo .photo-block img{aspect-ratio:4/3;}
-.article-card{background:#fff;border-radius:12px;padding:24px 28px;margin-bottom:18px;box-shadow:0 3px 12px rgba(0,0,0,.07);border-left:5px solid var(--vc);transition:all .3s;}
-.article-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.11);}
-.article-card .article-source{display:inline-block;background:var(--vf);color:var(--or);padding:4px 12px;border-radius:20px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin-bottom:10px;text-transform:uppercase;}
-.article-card h4{font-family:'Playfair Display',serif;color:var(--vf);font-size:1.1rem;font-weight:900;margin-bottom:8px;line-height:1.35;}
-.article-card p{color:#444;font-size:.95rem;line-height:1.7;margin-bottom:12px;}
-.article-card .read-more{display:inline-block;color:var(--rouge);font-weight:700;font-size:.92rem;text-decoration:none;}
-.article-card .read-more:hover{text-decoration:underline;}
-.article-card .date{font-size:.82rem;color:var(--gris);margin-left:10px;font-weight:400;}
-.section-label{display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gris);margin-bottom:10px;border-bottom:2px solid var(--vc);padding-bottom:3px;}
-.btn-s{display:inline-block;background:var(--rouge);color:#fff;padding:14px 44px;font-size:1.12rem;font-weight:900;text-decoration:none;border-radius:50px;border:none;cursor:pointer;box-shadow:0 7px 17px rgba(192,57,43,.4);transition:all .3s;margin:8px 0;}
-.btn-s:hover{background:#a93226;transform:scale(1.04);color:#fff;}
-.btn-back{display:inline-block;background:var(--vf);color:#fff;padding:12px 30px;font-size:.96rem;font-weight:700;text-decoration:none;border-radius:50px;transition:all .3s;box-shadow:0 5px 14px rgba(30,60,44,.3);}
-.btn-back:hover{background:var(--vm);transform:scale(1.03);color:#fff;}
-.btn-pdf{display:inline-block;background:var(--or);color:var(--vf);padding:14px 36px;font-size:1.05rem;font-weight:900;text-decoration:none;border-radius:50px;transition:all .3s;box-shadow:0 6px 16px rgba(241,196,15,.4);}
-.btn-pdf:hover{background:#e6b800;transform:scale(1.03);color:var(--vf);}
-.contact-box{background:var(--fond);border-radius:12px;padding:24px 28px;border:2px solid #dde8da;}
-.map-wrap{border-radius:13px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.13);margin:16px 0;}
-.map-wrap iframe{width:100%;height:370px;border:none;display:block;}
-.map-btn{display:inline-block;background:var(--vf);color:#fff;padding:11px 26px;border-radius:50px;font-weight:700;font-size:.93rem;text-decoration:none;margin-top:12px;transition:all .3s;}
-.map-btn:hover{background:var(--vm);transform:scale(1.03);color:#fff;}
-@media(max-width:768px){.sw{padding:26px 16px;}.ct{padding:28px 14px;}.fiche td:first-child{width:44%;white-space:normal;}.photo-duo{grid-template-columns:1fr;}}
+  :root{
+    --dj-deep:#1e3c2c;
+    --dj-green:#2F5D2F;
+    --dj-gold:#C5A059;
+    --dj-rouge:#c0392b;
+    --dj-cream:#faf7f1;
+    --dj-text:#2a2a2a;
+    --dj-gris:#666;
+  }
+  .dj-page{font-family:'Lato','Source Sans 3',sans-serif;color:var(--dj-text);background:#fff;line-height:1.75;}
+  .dj-page h1,.dj-page h2,.dj-page h3{font-family:'Playfair Display',serif;}
+  .dj-page .container{max-width:820px;margin:0 auto;padding:0 24px;}
+
+  .dj-hero{background:linear-gradient(135deg,var(--dj-deep),#2e5c3a);color:#fff;padding:72px 0;text-align:center;}
+  .dj-hero .eyebrow{display:inline-block;background:rgba(197,160,89,.18);border:1px solid rgba(197,160,89,.55);color:#f5d69a;padding:6px 16px;border-radius:100px;font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px;}
+  .dj-hero h1{font-size:clamp(1.9rem,3.8vw,2.8rem);font-weight:900;color:#fff;margin:0 0 12px;line-height:1.2;}
+  .dj-hero p{max-width:680px;margin:0 auto;font-size:1.06rem;line-height:1.65;color:rgba(255,255,255,.9);}
+
+  .dj-body{padding:60px 0 70px;background:var(--dj-cream);}
+  .dj-body .intro{font-size:1.12rem;font-style:italic;color:#555;text-align:center;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid #e5dcc9;}
+  .dj-body p{font-size:1.08rem;line-height:1.85;color:#2a2a2a;margin-bottom:22px;}
+  .dj-body p strong{color:var(--dj-green);font-weight:700;}
+  .dj-body p strong.rouge{color:var(--dj-rouge);}
+
+  .dj-photo{margin:36px 0;border-radius:14px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.14);background:#000;}
+  .dj-photo img{width:100%;display:block;aspect-ratio:16/9;object-fit:cover;}
+  .dj-photo .cap{background:var(--dj-deep);color:#fff;padding:12px 20px;font-size:.88rem;font-style:italic;line-height:1.5;}
+  .dj-photo .cap strong{color:var(--dj-gold);font-style:normal;}
+
+  .dj-contact{background:#fff;border-radius:14px;padding:26px 30px;margin-top:40px;border-left:5px solid var(--dj-green);box-shadow:0 4px 14px rgba(0,0,0,.05);}
+  .dj-contact h3{font-size:1.2rem;color:var(--dj-deep);margin:0 0 8px;}
+  .dj-contact a{color:var(--dj-green);font-weight:700;text-decoration:none;}
+  .dj-contact a:hover{text-decoration:underline;}
+
+  @media(max-width:640px){
+    .dj-hero{padding:52px 0;}
+    .dj-body{padding:40px 0 52px;}
+    .dj-body p{font-size:1rem;}
+  }
 </style>
-<div class="jbc">
-  <header class="hero">
-    <img class="hero-img" src="{{ '/images/sos-petition/avant-01-vue-aerienne-jardin.jpg' | relative_url }}" alt="Aerial view — Cayes Botanical Garden">
-    <div class="hero-bar">
-      <h1>📋 Full Dossier — <span>Cayes Botanical</span> Garden</h1>
-      <p>The complete story, documented facts, and evidence. For journalists, decision-makers, and anyone who wants to understand what is happening.</p>
+
+<div class="dj-page">
+
+  <section class="dj-hero">
+    <div class="container">
+      <div class="eyebrow"><i class="fas fa-info-circle"></i> Learn more</div>
+      <h1>What is currently happening at the Cayes Botanical Garden</h1>
+      <p>The full story of a Haitian scientific institution — from its founding in 2002 to the crisis it is facing today.</p>
     </div>
-  </header>
+  </section>
 
-  <div class="ct">
+  <section class="dj-body">
+    <div class="container">
 
-    <!-- NAVIGATION + DOWNLOAD -->
-    <div style="text-align:center;margin-bottom:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-      <a href="{{ '/en/sos-petition-en.html' | relative_url }}" class="btn-back"><i class="fas fa-arrow-left"></i> Back to the petition</a>
-      <a href="{{ '/Dossier_Presse_JBC.pdf' | relative_url }}" target="_blank" class="btn-pdf"><i class="fas fa-file-pdf"></i> DOWNLOAD THE PRESS DOSSIER (PDF — French)</a>
-      <a href="/en/sos-petition-en.html#sign" class="btn-s" style="font-size:.96rem;padding:12px 30px;"><i class="fas fa-pen"></i> SIGN NOW</a>
+      <p class="intro">Understanding this garden, its history, and what is happening right now.</p>
+
+      <p>For <strong>more than eight months</strong>, the Cayes Botanical Garden has been closed by force. No child, no student, no researcher, no visitor can enter. In the meantime, collections of rare endemic and native plants are disappearing day after day. For <strong>23 years</strong>, this garden has been the pride of Les Cayes, of Haiti and of the diaspora — a unique place of education, research and discovery of our flora.</p>
+
+      <p>The story of the Cayes Botanical Garden begins with the vision of one man: <strong>William Cinéa</strong>, a Haitian forestry engineer and botanist. After pursuing forestry studies in the Dominican Republic between <strong>1995 and 2000</strong>, he returned home with a strong idea — to contribute to reforestation and the protection of nature. From this was born the "Haïti Verte" initiative, the forerunner of what would become the botanical garden.</p>
+
+      <p>In <strong>2002</strong>, during a training in Israel dedicated to agricultural and environmental initiatives, William Cinéa visited the famous Bahá'í Gardens, of exceptional design and beauty, which proved to him that a project of comparable scale could exist in Haiti. Upon his return, he took action: he leased a plot of <strong>six and a half carreaux</strong> in Bergeaud, along National Road N°2 in Les Cayes, belonging to the Gérard family.</p>
+
+      <div class="dj-photo">
+        <img src="{{ '/images/sos-petition/avant-01-vue-aerienne-jardin.jpg' | relative_url }}" alt="Aerial view of the Cayes Botanical Garden before the crisis">
+        <div class="cap"><strong>The Cayes Botanical Garden</strong> — Aerial view of the site in Bergeaud, Les Cayes.</div>
+      </div>
+
+      <p>A formal farm-lease contract was officially signed with the heirs' mother, <strong>Mrs. Laurette Milard Gérard</strong>, in full compliance with legal formalities. It was Maître Edlan Jabouin, the family's lawyer, who received the payments on behalf of the owners. From the very beginning, the relationship between the Cayes Botanical Garden and the Gérard family was marked by mutual respect and trust. In <strong>2004</strong>, one of the heirs, Jacqueline Gérard, visited the site with her mother and was so moved by the project that she herself proposed replacing the name "Haïti Verte" with "Jardin Botanique des Cayes" (Cayes Botanical Garden) — a gesture testifying to the whole family's support for this vision.</p>
+
+      <p>For Mrs. Laurette Milard Gérard, the signatory of the lease, the garden represented a natural continuity with the family's values tied to land and reforestation in the South Department, particularly in Port-Salut. She regularly visited the garden over the years to encourage the team, share advice and express her support. For <strong>more than twenty years</strong>, the relationship between the two parties remained constructive, respectful and mutually beneficial.</p>
+
+      <p>In <strong>2018</strong>, one heir, through the family's law firm, sent a promise-of-sale contract and announced the termination of the farm-lease. The Cayes Botanical Garden team then requested the State to intervene and purchase the property, estimated at <strong>more than US$ 800,000</strong>. Through the Ministry of the Environment, and more specifically ANAP (the National Agency of Protected Areas), a meeting was arranged with the lessor, his wife and the CBG team. A report was produced, and the sellers were invited to provide the necessary titles so that the file could be included in the <strong>2019-2020 national budget</strong>. Unfortunately, these documents were never provided, which blocked the process.</p>
+
+      <p>In <strong>June 2024</strong>, Mrs. Laurette Milard Gérard passed away. Her son, a supporter of the sale, resides in the United States; his wife, present in Haiti, then began an unauthorized process to take back the land. Although this garden represents more than 23 years of work, patience and collection-building, a deadline of only <strong>eight days</strong> was imposed on the team to move all the plants and vacate the space. Eight days later, accompanied by the police and her lawyers, she barred garden staff from entering. Her first actions consisted of cutting the collections of native and endemic plants to turn them into charcoal, eliminating all the plants of the ecological reserve and <strong class="rouge">setting fire to more than one hectare</strong>. Banana plantations were even installed inside the garden.</p>
+
+      <div class="dj-photo">
+        <img src="{{ '/images/sos-petition/apres-01-destruction-aerienne.png' | relative_url }}" alt="Aerial view after destruction">
+        <div class="cap"><strong>After the takeover</strong> — Aerial view showing the extent of cleared and burned areas.</div>
+      </div>
+
+      <p>Facing this situation, <strong>seven of the nine heirs</strong> of the family, frustrated by this action, wrote to the <strong>Minister of Justice and Public Security</strong> to request urgent intervention. Through their law firm, they formally demanded that Mrs. Marie Donna Bastien-Gérard immediately cease all action against the garden. For these heirs, the garden embodies the greatness and vision of their parents: they refuse to see it disappear.</p>
+
+      <p>From the very beginning of the crisis, the garden team issued appeals through several media — <strong>Vision 2000, Radio Caraïbes, Magik 9, Le Nouvelliste, AyiboPost</strong> — in order to alert the authorities. The <strong>Minister of the Environment</strong> was also contacted. Yet to this day, nothing has been done. Meanwhile, this heritage continues to disappear, and the preserved plants are being lost a little more every day. This garden goes beyond the interest of its founder, William Cinéa, and of the Gérard family: it is a <strong>scientific institution of national interest</strong>.</p>
+
+      <div class="dj-contact">
+        <h3><i class="fas fa-envelope"></i> Contact</h3>
+        <p style="margin:0;font-size:1rem;">For any question or further information: <a href="mailto:info@jardinbotaniquecayeshaiti.org">info@jardinbotaniquecayeshaiti.org</a> · (509) 4309-2809</p>
+      </div>
+
     </div>
+  </section>
 
-    <!-- THE ESSENTIAL -->
-    <div class="cbox" style="margin-bottom:36px;">
-      <div class="cn"><i class="fas fa-exclamation-circle"></i> &nbsp;The essentials — what you need to know before reading</div>
-      <p>The Cayes Botanical Garden has legally occupied and operated a parcel of land leased from the Gérard family since <strong style="color:var(--or);">2002</strong>, under a valid lease agreement officially signed before a lawyer. In 2025, Mrs. Marie Donna Bastien Gérard — wife of one heir, and not the sole owner — decided to expel the garden by force, without dialogue, without any serious formal notice, in eight days. She then took control of the site, burned collections of unique endemic plants, destroyed the ecological garden, and planted banana trees in place of a scientific heritage built over twenty-three years. Aggravating the situation: <strong style="color:var(--or);">eight legitimate heirs of the Gérard family have officially disavowed her actions</strong> and asked her to stop. The Haitian State has not yet intervened. The JBC calls on it to act, in accordance with Article 256 of the Constitution, which makes the creation and maintenance of botanical gardens a <strong style="color:var(--or);">constitutional obligation</strong>.</p>
-    </div>
-
-    <!-- IDENTITY CARD -->
-    <section class="sw" style="border-top:6px solid var(--vf);">
-      <div class="section-label"><i class="fas fa-id-card"></i> Identity card</div>
-      <h2 class="tv">The Cayes Botanical Garden at a glance</h2>
-      <table class="fiche">
-        <tr><td>Official name</td><td>Cayes Botanical Garden (JBC)</td></tr>
-        <tr><td>Founder and director</td><td>William Cinéa, forestry engineer</td></tr>
-        <tr><td>Founded in</td><td>2002 — Bergeaud, Les Cayes, South Department, Haiti</td></tr>
-        <tr><td>Mission</td><td>To contribute to human health and the protection of nature — to be the country's brain for data collection on native, endemic, medicinal, aromatic and threatened plants</td></tr>
-        <tr><td>Area</td><td>6 carreaux (≈ 7.7 ha) — leased since 2002 from the Gérard family under official contract</td></tr>
-        <tr><td>Constitutional basis</td><td>Article 256 of the Haitian Constitution: the State has the obligation to create and maintain botanical and zoological gardens on the national territory</td></tr>
-        <tr><td>International recognition</td><td>The only botanical garden in Haiti recognized by Botanic Gardens Conservation International (BGCI) — a global network of 1,775 gardens in 148 countries</td></tr>
-        <tr><td>Current situation</td><td>Forcibly closed since July 23, 2025. Mrs. Marie Donna Bastien has taken control of the site, burned botanical collections, destroyed the ecological garden, and installed banana plantations in place of endemic species.</td></tr>
-        <tr><td>Contact</td><td>info@jardinbotaniquecayeshaiti.org &nbsp;|&nbsp; (509) 4309-2809</td></tr>
-      </table>
-
-      <div class="photo-block" style="margin-top:26px;">
-        <img src="{{ '/images/sos-petition/avant-02-jardin-complet-aerien.jpg' | relative_url }}" alt="Full aerial view of the Cayes Botanical Garden before destruction">
-        <div class="caption"><strong>The Cayes Botanical Garden before destruction</strong> — Full aerial view of the Bergeaud site, Les Cayes. Six carreaux dedicated to research, conservation and botanical education.</div>
-      </div>
-    </section>
-
-    <!-- SECTION I — THE COMPLETE STORY -->
-    <section class="sw" style="border-top:6px solid var(--rouge);">
-      <div class="section-label"><i class="fas fa-book-open"></i> Section I — The complete story</div>
-      <h2 class="tv">Twenty-three years of legitimate work</h2>
-      <p class="sub">How a Haitian forestry engineer built, over more than two decades, the only recognized botanical garden in his country — and how it nearly disappeared in a matter of weeks.</p>
-
-      <div class="prose">
-        <h3>A vision born abroad, rooted in Haitian soil</h3>
-        <p>The story of the Cayes Botanical Garden begins with the vision of one man: <strong>William Cinéa</strong>, a Haitian forestry engineer. After studying forestry in the Dominican Republic between 1995 and 2000, he returned to Haiti with a strong idea — to contribute to reforestation and the protection of nature in a country that deeply needs it. From this, the <em>"Haiti Verte"</em> initiative was born, the precursor to what would become the botanical garden.</p>
-        <p>In 2002, during a training program in Israel on agricultural and environmental initiatives, William Cinéa visited the famous Bahá'í Gardens — terraced gardens of exceptional beauty, which convinced him that a project of comparable scale could exist in Haiti. Upon his return, he took action: he leased a <strong>six-carreau</strong> parcel of land located in Bergeaud, along National Road N°2 in Les Cayes, owned by Mrs. Laurette Milard Gérard.</p>
-        <p>A lease agreement was signed officially and in full respect of legal formalities. Attorney Edlan Jabouin, the family's trusted lawyer, received the payments on behalf of the owners. From the very beginning, the relationship between the Cayes Botanical Garden and the Gérard family was marked by mutual respect and trust. One of the heirs, Jacqueline Gérard, during a visit with her mother, was so moved by the project that she personally proposed replacing the name "Haiti Verte" with <em>"Cayes Botanical Garden"</em> — a clear sign of the entire family's support for this vision.</p>
-        <p>For Mrs. Laurette Milard Gérard, the lease signatory, the botanical garden represented a natural continuity with family values linked to the land and to reforestation in the South department, particularly in Port-Salut. She regularly visited the garden over the years to encourage the team, offer her advice, and express her support. For more than twenty years, the relationship between the two parties was constructive, respectful, and mutually beneficial.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/avant-03-plantations-organisees.jpg' | relative_url }}" alt="Organized plantations of the garden">
-          <div class="caption"><strong>The JBC's scientific plantations</strong> — Botanical collections organized by species, with labeling, documentation and long-term monitoring.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/avant-06-sections-botaniques.jpg' | relative_url }}" alt="Botanical sections">
-          <div class="caption"><strong>The botanical sections</strong> — Each zone of the garden was dedicated to a specific plant family, with scientific protocols for conservation and study.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <h3>A relationship becoming complicated — through no fault of the garden</h3>
-        <p>In 2017, the situation changed. Bruno Gérard, one of the heirs who had acquired an adjacent portion of the family estate, expressed his intention to sell the entire property and claim exclusive ownership. A formal email promise of sale was sent by his lawyer. Facing this development, the Cayes Botanical Garden team, concerned about protecting its long-term mission, asked the Haitian State to acquire the land — a step fully consistent with Article 256 of the Constitution, which obliges the State to create and maintain botanical gardens.</p>
-        <p>Official negotiations began between the State, represented by ANAP (National Agency for Protected Areas), and Bruno Gérard, accompanied by his wife Marie Donna Bastien. An agreement in principle was reached: the State committed to including the acquisition of the land in its national budget and moving forward on the matter. This meeting, documented in an official report and an audio recording, constitutes direct evidence of the State's commitment.</p>
-        <p>But things stalled. From 2018 to 2025, Bruno Gérard never provided the supporting documents needed to finalize the sale. The reason, according to several family members: the land occupied by the garden does not fall under Bruno Gérard's exclusive ownership, but rather is an <strong>undivided estate shared among nine heirs</strong>. None of them, individually, can decide to sell alone — let alone to expel. During those years, the Cayes Botanical Garden continued its activities, honored its contractual obligations, and maintained its working relationship with the family. No one challenged the lease. No one asked the garden to leave.</p>
-
-        <h3 class="rouge">2025 — Expulsion in eight days. Without dialogue. Without legal grounds.</h3>
-        <p>In 2024, Mrs. Laurette Milard Gérard — the lease signatory, the woman who had supported the garden from day one — passed away. Her death changed the balance. And it was in this context that Mrs. Marie Donna Bastien, wife of Bruno Gérard, decided to act alone.</p>
-        <p>In July 2025, without any prior letter, without a meeting, without serious formal notice, Mrs. Donna Bastien mandated the Thimothé law firm to demand the expulsion of the Cayes Botanical Garden. The deadline she granted: <strong>eight days</strong>. Eight days to leave a place where twenty-three years of scientific work had been built. Eight days to empty a national heritage recognized worldwide. On July 23, 2025, the police, a judge, and other officials arrived on site and physically closed the garden. No dialogue had taken place. No amicable agreement had been attempted.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/apres-01-destruction-aerienne.png' | relative_url }}" alt="Aerial view of the destruction">
-        <div class="caption"><strong>After Mrs. Donna Bastien's takeover</strong> — Aerial view showing the extent of cleared and burned areas. The photos were taken by drone and officially recorded by a Justice of the Peace.</div>
-      </div>
-
-      <div class="prose">
-        <p>On September 3, 2025, Mrs. Donna Bastien took a further step. She took total control of the site with her own personnel, erected new fences and barriers, and began what can only be described as the <strong>systematic destruction of a national heritage</strong>. The rare, endemic, native plants that the JBC's scientific team had patiently collected, studied, and protected for more than two decades were cut and burned — treated like common weeds. The ecological garden, the sacred space of the site, was completely cleared and set on fire. Collections of irreplaceable medicinal and aromatic plants went up in smoke. And in place of these unique botanical collections in Haiti, Mrs. Bastien installed banana plantations.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-02-flammes-actives.png' | relative_url }}" alt="Active flames in the garden">
-          <div class="caption"><strong>Active flames</strong> — Documented fire outbreaks on the ecological garden site.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-06-charbon-cendres.png' | relative_url }}" alt="Charcoal made from the garden plants">
-          <div class="caption"><strong>Charcoal made from the garden plants</strong> — Sacks of charcoal produced with medicinal and ethnobotanical plants.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <p>Faced with this situation, the eight legitimate heirs of the Gérard family — those who never mandated Mrs. Bastien — reacted officially. Through their law firm, they sent her a formal demand to cease her actions. They also wrote to the Minister of Justice requesting his direct intervention. But Mrs. Donna Bastien did not stop.</p>
-        <p>She added another strategy to her destructive actions: she sent successive summons to the Botanical Garden in an attempt to force it to appear in court. Twice, neither she nor her lawyers appeared at the hearings. On April 7, 2026, the garden's lawyers argued the case. The judge referred the case to another jurisdiction. After the session, the JBC's lawyers made a difficult but necessary decision: they changed all the locks at the site to put an end to Mrs. Bastien's destructions. <strong>The Cayes Botanical Garden is now waiting for the Haitian State to intervene, meet with the Gérard family as a whole, and take the decisions needed to save what remains.</strong></p>
-      </div>
-    </section>
-
-    <!-- SECTION II — NATIONAL NECESSITY -->
-    <section class="sw" style="border-top:6px solid var(--vc);">
-      <div class="section-label"><i class="fas fa-globe-americas"></i> Section II — A national necessity</div>
-      <h2 class="tv">Why this garden concerns the entire Haitian nation</h2>
-      <p class="sub">To understand what Haiti is about to lose, we must first understand what a botanical garden represents — in the world, in the Caribbean, and above all in Haiti.</p>
-
-      <div class="prose">
-        <h3>Botanical gardens: a fundamental institution for centuries</h3>
-        <p>Botanical gardens are not simply green spaces where one comes to stroll on a Sunday. For several centuries, they have been <strong>institutions of scientific research, biodiversity conservation, public education, and the transmission of knowledge</strong>. The first modern university botanical garden recognized in the world was created in <strong>Padua, Italy, in 1545</strong>, for the scientific study of medicinal plants. That garden still exists today, nearly five centuries later — which says everything about the lasting and permanent value of this type of institution.</p>
-        <p>Today, globally, botanical gardens play an increasingly crucial role in facing three simultaneous crises: the <strong>climate crisis</strong>, which disrupts ecosystems and threatens thousands of species; the <strong>biodiversity crisis</strong>, which is seeing plant species disappear at an alarming rate; and the <strong>knowledge crisis</strong>, which is witnessing the irreversible loss of traditional knowledge about plants. According to <strong>Botanic Gardens Conservation International (BGCI)</strong>, there are currently <strong>1,775 botanical gardens and arboreta in 148 countries</strong>, with many more in planning. These institutions are irreplaceable actors in the protection of life on our planet.</p>
-
-        <h3>In the Caribbean, Haiti is dangerously behind</h3>
-        <p>Looking at the Caribbean region and its neighbors, the contrast is striking. <strong>Cuba</strong> has a National Botanical Garden covering approximately 600 hectares, part of a national network of gardens with a scientific and educational mission. The <strong>Dominican Republic</strong>, the island we share, has a national botanical garden of between 120 and 200 hectares — an institution of national scope, recognized and funded by the State.</p>
-        <p>And Haiti? The Cayes Botanical Garden, with its <strong>six carreaux (about 7.7 hectares)</strong>, is the <strong>only botanical garden in the entire country recognized by the international BGCI network</strong>. Just one. In a country of more than 11 million inhabitants, with exceptional biodiversity and one of the highest deforestation rates in the world. And this unique garden is today closed, being destroyed, and no one in the state apparatus has yet intervened to stop it.</p>
-        <p>In a country marked by accelerated environmental degradation, loss of biodiversity, soil erosion, the disappearance of traditional knowledge, and a chronic lack of appropriate scientific infrastructure, a botanical garden <strong>is not a luxury. It is an absolute national necessity.</strong></p>
-      </div>
-
-      <div class="cbox" style="margin-top:28px;">
-        <div class="cn"><i class="fas fa-scroll"></i> &nbsp;Article 256 of the Haitian Constitution — an obligation, not an option</div>
-        <p>"Within the framework of environmental protection and public education, <strong style="color:var(--or);">the State has the obligation to create and maintain botanical and zoological gardens on the national territory.</strong>"</p>
-      </div>
-
-      <div class="prose" style="margin-top:20px;">
-        <p>Saving the Cayes Botanical Garden is not an act of generosity on the part of the Haitian State. It is the application of a <strong>constitutional obligation</strong>. Article 256 of the Haitian Constitution is clear, unambiguous and without exception: the State <em>has the obligation</em> to create and maintain botanical gardens. Allowing the destruction of the country's only botanical garden without intervening is a direct violation of this constitutional duty.</p>
-        <p>But beyond the Constitution, this is also a question of the future. Saving the JBC means laying the foundations of a national model. It means demonstrating that Haiti is capable of protecting its scientific institutions, valuing its unique biodiversity, and building a sustainable relationship with its natural environment. It means inspiring the creation of other botanical gardens in the various departments of the country. It means offering future generations a living, useful institution, rooted in Haitian reality.</p>
-      </div>
-    </section>
-
-    <!-- SECTION III — THE CAYES BOTANICAL GARDEN: MISSION AND 5 SPACES -->
-    <section class="sw" style="border-top:6px solid var(--vf);">
-      <div class="section-label"><i class="fas fa-leaf"></i> Section III — The Cayes Botanical Garden</div>
-      <h2 class="tv">Mission, vocation and the five spaces of the garden</h2>
-      <p class="sub">To understand what has been destroyed, we must first understand what the Cayes Botanical Garden was — and what it still is, for what can be saved.</p>
-
-      <div class="prose">
-        <h3>Mission and vocation</h3>
-        <p>Established in 2002, the Cayes Botanical Garden is an institution whose mission is to <strong>contribute to human health and the protection of nature</strong>. It was designed to be the country's brain for data collection on native, endemic, medicinal, aromatic and threatened plants.</p>
-        <p>Through its structure, its longevity and its mission, the Cayes Botanical Garden represents far more than a simple garden. It constitutes a <strong>major scientific, ecological, educational and cultural heritage for Haiti</strong>, recognized around the world.</p>
-
-        <h3>The five spaces of the garden</h3>
-        <p>The garden is physically organized into five main spaces, all essential to its mission.</p>
-      </div>
-
-      <div class="prose" style="margin-top:12px;">
-        <h3 style="border-top:none;padding-top:0;">1. Ecological space</h3>
-        <p>The health of nature is fundamental to the well-being of humans and plants. This ecological space is a pillar of our mission: to help the Haitian population understand ecosystems, ecology and biodiversity for our well-being. It is designed to reconstitute and demonstrate the functioning of natural ecology.</p>
-        <p>According to international principles, a botanical garden must devote <strong>30 to 60% of its area</strong> to a natural zone with an educational purpose. For more than 23 years, the JBC has worked to build such a space — a bird sanctuary covering 16% of the site, where noise and cutting are forbidden, and where the removal of exotic plants is constant.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/espace-ecologique.jpg' | relative_url }}" alt="Ecological space of the Cayes Botanical Garden">
-        <div class="caption"><strong>The JBC's ecological space</strong> — Zone for reconstituting local ecosystems, bird and wildlife sanctuary, a sacred space of silence and contemplation.</div>
-      </div>
-
-      <div class="prose">
-        <h3>2. Conservation and adaptation space (Conservatory)</h3>
-        <p>This space is dedicated to the planting of <strong>endemic and native plants of the country</strong>, with data collection on reproduction, growth and interaction with wildlife. A section is dedicated to the collection of native and traditional fruit trees of the country.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/jbc-plantes-natives.jpg' | relative_url }}" alt="Conservatory — native and endemic plants">
-        <div class="caption"><strong>The Botanical Conservatory</strong> — Collection of native and endemic plants of Haiti, patiently built up over the years by the JBC's scientific team.</div>
-      </div>
-
-      <div class="prose">
-        <h3>3. Ornamental and event space</h3>
-        <p>This space is designed to host educational and cultural events, and to collect plants important for landscaping and the development of horticulture. It is laid out to <strong>inspire visitors and the country's decision-makers</strong>.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/Beaute du jardin.jpg' | relative_url }}" alt="Ornamental space of the garden">
-        <div class="caption"><strong>The ornamental space</strong> — A space of inspiration and beauty, also used for educational, cultural and community events.</div>
-      </div>
-
-      <div class="prose">
-        <h3>4. Ethnobotanical garden</h3>
-        <p>This garden is directly part of our mission to contribute to human health. According to the Ministry of Public Health, approximately <strong>80% of Haitians use medicinal plants</strong> for treatment. However, there is very little information on the benefits of species, on which ones are toxic, or on their location and distribution.</p>
-        <p>Through this garden, our work consists of collecting, studying and documenting the ethnobotanical uses and phytochemical molecules of medicinal and aromatic plants, in order to <strong>promote the transfer of knowledge between traditional knowledge and scientific approaches</strong>. It also included a palm collection set up to better showcase their diversity and their ecological, cultural and economic importance.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/ethno.png' | relative_url }}" alt="Ethnobotanical garden">
-          <div class="caption"><strong>The ethnobotanical garden</strong> — Collection of medicinal, aromatic and ritual plants of the Haitian heritage.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/ethno2.png' | relative_url }}" alt="Ethnobotanical garden — aerial view">
-          <div class="caption"><strong>The ethnobotanical garden — aerial view (before destruction)</strong> — Scientific layout dedicated to human health and the transmission of traditional knowledge.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <h3>5. Nursery</h3>
-        <p>The entire scientific value of the JBC is summed up in research on plants: <strong>developing protocols to know how to reproduce them</strong>, to safeguard them for in-situ and ex-situ conservation, and for ecological restoration. As the operational heart of the JBC, the nursery is dedicated to the production of plants for conservation, ecological restoration, education and outreach. It constitutes an <strong>essential refuge</strong> for rare, endemic, useful or threatened species, which require monitoring, care and protection.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/Jbc-plantes.jpg' | relative_url }}" alt="JBC nursery">
-        <div class="caption"><strong>The JBC nursery</strong> — The operational heart of the institution, dedicated to the multiplication of rare and endemic plants for conservation and ecological restoration.</div>
-      </div>
-    </section>
-
-    <!-- SECTION IV — DAMAGES DOCUMENTED -->
-    <section class="sw" style="border-top:6px solid var(--rouge);">
-      <div class="section-label"><i class="fas fa-exclamation-triangle"></i> Section IV — Documented damages</div>
-      <h2 class="tv">What has been destroyed — component by component</h2>
-      <p class="sub">The actions attributed to Mrs. Marie Donna Bastien Gérard since July 2025 have caused considerable losses. The garden will need more than 30 years to recover from these damages, several of which are <strong>irreversible</strong>. The observations below concern the five components of the garden.</p>
-
-      <div class="prose">
-        <h3 class="rouge" style="border-top:none;padding-top:0;">Quantified loss assessment</h3>
-      </div>
-
-      <table class="fiche" style="margin-top:6px;">
-        <tr style="background:var(--vf);"><td style="color:var(--or);font-weight:800;">Garden component</td><td style="color:var(--or);font-weight:800;">Loss</td><td style="color:var(--or);font-weight:800;white-space:nowrap;">Severity</td></tr>
-        <tr><td>Ecological garden — cleared and burned area</td><td>1 carreau (≈ 1.29 ha)</td><td style="color:var(--rouge);font-weight:800;">CRITICAL</td></tr>
-        <tr><td>Plant species eliminated (ecological garden)</td><td>more than 200 species</td><td style="color:var(--rouge);font-weight:800;">CRITICAL</td></tr>
-        <tr><td>Native and endemic plants of the conservatory</td><td>more than 500 plants</td><td style="color:var(--rouge);font-weight:800;">CRITICAL</td></tr>
-        <tr><td>Burned ecological zones (documented fire outbreaks)</td><td>several outbreaks</td><td style="color:var(--rouge);font-weight:800;">SERIOUS</td></tr>
-        <tr><td>Species replaced by banana trees (private use)</td><td>several plots</td><td style="color:var(--rouge);font-weight:800;">SERIOUS</td></tr>
-        <tr><td>Nursery — state of infrastructure</td><td>advanced dilapidation</td><td style="color:var(--rouge);font-weight:800;">SERIOUS</td></tr>
-        <tr><td>Emblematic species at risk</td><td><em>Clavija domingensis</em></td><td style="color:var(--rouge);font-weight:800;">CRITICAL</td></tr>
-        <tr><td>Unauthorized fences erected by occupant</td><td>several</td><td style="color:var(--rouge);font-weight:800;">SERIOUS</td></tr>
-        <tr><td>JBC staff prevented from accessing the site</td><td>since July 2025</td><td style="color:var(--rouge);font-weight:800;">CRITICAL</td></tr>
-      </table>
-
-      <div class="prose" style="margin-top:30px;">
-        <h3 class="rouge">1. Ecological garden — clearing and fire</h3>
-        <p>The JBC's ecological garden was a <strong>unique demonstration space</strong>, dedicated to reconstituting local ecosystems and raising public awareness of Haitian biodiversity. If you have visited the garden, you know that speaking was forbidden there: it was a <strong>sacred space</strong>, dedicated to silence, contemplation and the protection of wildlife.</p>
-        <p>The first actions attributed to Mrs. Marie Donna Bastien Gérard consisted of <strong>cutting down all the plants of this heritage and completely burning them</strong>. More than a hectare of land was eliminated, more than 200 species of native and endemic plants went up in flames, and hundreds of sacks of charcoal were produced from them. The fire outbreaks documented below show the scale and systematic nature of the destruction: this is not a one-off clearing, but an <strong>extensive, methodical and irreversible operation</strong>.</p>
-        <p>The garden today risks <strong>losing its status as a botanical institution</strong>. Without a natural space representing 30 to 60% of its surface — the internationally recognized standard for botanical gardens — it will no longer be able to claim an ecological vocation. It will take more than 30 years to rebuild this space.</p>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/autres/Jardin-ecologique-enfeu.jpg' | relative_url }}" alt="Fire outbreaks in the ecological garden">
-          <div class="caption"><strong>Fire outbreaks in the ecological garden</strong> — Panoramic view showing the scale of the destruction by fire.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-01-destruction-aerienne.png' | relative_url }}" alt="Aerial view of a burned area">
-          <div class="caption"><strong>Aerial view of a burned area</strong> — Presence of people on the site during the destruction, documented by drone.</div>
-        </div>
-      </div>
-
-      <div class="photo-duo">
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-03-fumee-incendie.png' | relative_url }}" alt="Active fire outbreak">
-          <div class="caption"><strong>Active fire outbreak</strong> — Burning of cut vegetation, documented in real time.</div>
-        </div>
-        <div class="photo-block">
-          <img src="{{ '/images/sos-petition/apres-07-elimination-ecologique.jpg' | relative_url }}" alt="Piles of cut vegetation">
-          <div class="caption"><strong>Piles of cut vegetation</strong> — Vegetation stacked awaiting burning, indicating the systematic nature of the destruction.</div>
-        </div>
-      </div>
-
-      <div class="prose">
-        <h3 class="rouge">2. Ethnobotanical garden — vandalism and charcoal production</h3>
-        <p>The ethnobotanical garden, dedicated to the <strong>preservation of medicinal, aromatic and ritual plants of the Haitian cultural heritage</strong>, has been vandalized. Palms and other collection plants have been cut down or damaged. Leaves are used for charcoal production, and some medicinal plants are cut like weeds — uses <strong>strictly contrary</strong> to the scientific and educational vocation of the site.</p>
-        <p>The absence of care, cleanliness and monitoring for several months has accelerated the progressive disappearance of this plant and cultural heritage. This destruction represents an <strong>irreparable loss for the transmission of Haitian ethnobotanical knowledge</strong>.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/plantes-endemiques-charbon.jpg' | relative_url }}" alt="Plants turned into charcoal">
-        <div class="caption"><strong>Medicinal plants and palms turned into charcoal</strong> — Ethnobotanical species used for charcoal production, contrary to their scientific and cultural vocation.</div>
-      </div>
-
-      <div class="prose">
-        <h3 class="rouge">3. Botanical conservatory — systematic elimination of endemics</h3>
-        <p>The JBC's botanical conservatory hosted <strong>more than 500 native and endemic plants of Haiti</strong>, including several rare, threatened or strictly endemic island species. These collections, patiently built by the scientific team over the years, represented a leading national botanical capital and contributed to Haiti's commitments on biodiversity conservation.</p>
-        <p>Their systematic elimination constitutes a <strong>major scientific loss, not compensable in the short or medium term</strong>, and deprives the country of an essential tool for preserving its unique natural heritage. Some of these species, having disappeared from the conservatory, are no longer present anywhere else under conditions allowing their study and multiplication.</p>
-
-        <h3 class="rouge">4. Ornamental garden — abandonment and degradation</h3>
-        <p>This space, designed to inspire and educate, also hosted <strong>educational, cultural and community events</strong> (weddings, meetings, educational activities). It is today heavily degraded. Lacking care, monitoring and maintenance, several plants are losing their form, aesthetic value and educational function. A living place of connection between nature and society is now <strong>disappearing under the effect of abandonment</strong>.</p>
-
-        <h3 class="rouge">5. Banana plantation — misappropriation of a public site</h3>
-        <p>Structuring spaces of the garden have been <strong>diverted from their scientific vocation and converted into a banana plantation</strong>, transforming a public conservation site into an ordinary agricultural operation. This substitution — from a research and conservation space into a subsistence crop — distorts the public and scientific vocation of the site and destroys years of work. It also constitutes a de facto misappropriation of the heritage purpose of the land.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/apres7.png' | relative_url }}" alt="Banana plantation in place of botanical collections">
-        <div class="caption"><strong>Banana plantation installed in place of the JBC's botanical collections</strong> — Misappropriation of a public conservation site into private agricultural operation.</div>
-      </div>
-
-      <div class="prose">
-        <h3 class="rouge">6. Nursery — dilapidation and agony of rare species</h3>
-        <p>The nursery — the operational heart of the JBC for the multiplication of plants, reforestation programs and the production of plants destined for partners and the community — has been left in an <strong>advanced state of dilapidation</strong>: damaged structures, lost plants, production infrastructure out of service.</p>
-        <p>Among the most emblematic species that were conserved there is <em><strong>Clavija domingensis</strong></em>, a plant of very great scientific and conservation value. Lacking care, monitoring and maintenance, <em>Clavija domingensis</em> is dying. Through this species, the full gravity of the situation appears: when the nursery is abandoned, it is not only plants that are lost, but also <strong>rare species, years of work and a part of the national botanical heritage</strong>.</p>
-      </div>
-
-      <div class="photo-block">
-        <img src="{{ '/images/sos-petition/autres/elimination-jardin-ecologique.jpg' | relative_url }}" alt="Nursery left without care">
-        <div class="caption"><strong>The JBC nursery — plants of rare species left without care or maintenance</strong> — Years of scientific work lost due to lack of monitoring and staff access to the site.</div>
-      </div>
-    </section>
-
-    <!-- PRESS ARTICLES -->
-    <section class="sw" style="border-top:6px solid var(--or);">
-      <div class="section-label"><i class="fas fa-newspaper"></i> In the press</div>
-      <h2 class="tv">Published articles about the Cayes Botanical Garden</h2>
-      <p class="sub">A selection of articles published by Haitian and international media about the Cayes Botanical Garden and the ongoing crisis.</p>
-
-      <div class="article-card">
-        <span class="article-source">Le Nouvelliste</span>
-        <h4>The Cayes Botanical Garden in the Haitian press</h4>
-        <p>Haiti's oldest daily newspaper has published several articles on the Cayes Botanical Garden over the years — about its conservation work, and more recently about the ongoing crisis.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">AlterPresse</span>
-        <h4>SOS for the Cayes Botanical Garden</h4>
-        <p>AlterPresse, a Haitian alternative press agency, has followed the case and published reports documenting the destruction, the positions of the various actors, and the call to the Haitian State to apply Article 256 of the Constitution.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">Loop Haiti</span>
-        <h4>A national heritage in peril</h4>
-        <p>Loop Haiti relays information on the JBC crisis, its consequences for the conservation of Haitian biodiversity, and the constitutional issues raised by the case.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">Google Geo for Good</span>
-        <h4>The JBC honored for its contribution to conservation in Haiti <span class="date">2018</span></h4>
-        <p>Google Earth Outreach awarded the <strong>Geo for Good 2018</strong> prize to the Cayes Botanical Garden, recognizing its work in botanical data collection and environmental conservation. A global recognition for more than two decades of local work — the most important distinction obtained by the institution.</p>
-      </div>
-
-      <div class="article-card">
-        <span class="article-source">BGCI</span>
-        <h4>Cayes Botanical Garden — Haiti <span class="date">International profile</span></h4>
-        <p>Botanic Gardens Conservation International (BGCI), the world's largest network of botanical gardens with 1,775 members in 148 countries, includes the JBC in its international registry — the only Haitian institution to appear there.</p>
-        <a href="https://www.bgci.org" target="_blank" class="read-more">bgci.org →</a>
-      </div>
-    </section>
-
-    <!-- LOCATION -->
-    <section class="sw" style="border-top:6px solid var(--vc);">
-      <div class="section-label"><i class="fas fa-map-marked-alt"></i> Location</div>
-      <h2 class="tv">🗺️ Bergeaud, Les Cayes — South Department, Haiti</h2>
-      <p class="sub">The Cayes Botanical Garden is located on National Road N°2, in Bergeaud, in the municipality of Les Cayes, capital of the South Department of Haiti.</p>
-      <div class="map-wrap">
-        <iframe src="https://www.google.com/maps/d/embed?mid=1kNKV6ZtsXQ0JDafq5wFHhnEGz2zva18&ehbc=2E312F" allowfullscreen="" loading="lazy" title="Cayes Botanical Garden — Official map"></iframe>
-      </div>
-      <div style="text-align:center;margin-top:14px;">
-        <a href="https://www.google.com/maps/d/edit?mid=1kNKV6ZtsXQ0JDafq5wFHhnEGz2zva18" target="_blank" class="map-btn"><i class="fas fa-map-marker-alt"></i> Open the full map of the JBC</a>
-      </div>
-    </section>
-
-    <!-- PRESS CONTACT -->
-    <section class="sw" style="border-top:6px solid var(--or);">
-      <div class="section-label"><i class="fas fa-phone"></i> Press contact</div>
-      <h2 class="tv">For journalists and institutions</h2>
-      <p style="font-size:1rem;color:#444;margin-bottom:20px;line-height:1.75;">For any interview request, additional documentation, access to photographic and audio evidence, or any inquiry from media and institutions:</p>
-      <div class="contact-box">
-        <p style="font-size:1.06rem;margin-bottom:13px;"><strong style="font-size:1.18rem;">William Cinéa</strong><br><span style="color:var(--gris);">Director and forestry engineer — Cayes Botanical Garden</span></p>
-        <p style="margin-bottom:9px;"><i class="fas fa-envelope" style="color:var(--vc);margin-right:8px;"></i><a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--vf);font-weight:600;">info@jardinbotaniquecayeshaiti.org</a> &nbsp;|&nbsp; <a href="mailto:adm@jardinbotaniquecayeshaiti.org" style="color:var(--vf);font-weight:600;">adm@jardinbotaniquecayeshaiti.org</a></p>
-        <p style="margin-bottom:9px;"><i class="fas fa-phone" style="color:var(--vc);margin-right:8px;"></i>(509) 4309-2809 &nbsp;|&nbsp; USA: +1 845-148-9803</p>
-        <p style="margin-bottom:0;"><i class="fas fa-globe" style="color:var(--vc);margin-right:8px;"></i><a href="https://www.jardinbotaniquecayeshaiti.org" target="_blank" style="color:var(--vf);font-weight:600;">www.jardinbotaniquecayeshaiti.org</a></p>
-        <p style="margin-top:10px;color:var(--gris);font-size:.86rem;">24, Bergeaud, National Road N°2 — Les Cayes, South Department, Haiti</p>
-      </div>
-    </section>
-
-    <!-- PDF DOSSIER REQUEST (manual processing) -->
-    <section class="sw" style="border-top:6px solid var(--or);" id="demande-pdf">
-      <div class="section-label"><i class="fas fa-file-pdf"></i> Request the full dossier (PDF)</div>
-      <h2 class="tv">Receive the PDF by email</h2>
-      <p style="font-size:1rem;color:#444;margin-bottom:20px;line-height:1.75;">The full press dossier (over 10 pages, with photos, timeline, official documents and contacts) is available on request. Fill in this form: our team will review your request and send the PDF by email. <strong>There is no automatic download</strong> — each request is handled individually.</p>
-
-      <form name="demande-pdf-dossier-en" method="POST" netlify data-netlify="true" data-netlify-honeypot="bot-field" id="pdf-form" style="max-width:720px;margin:0 auto;">
-        <input type="hidden" name="form-name" value="demande-pdf-dossier-en">
-        <p style="display:none;"><label>Do not fill: <input name="bot-field"></label></p>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-          <div><label for="pdf-prenom" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">First name *</label><input type="text" id="pdf-prenom" name="prenom" placeholder="Your first name" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-          <div><label for="pdf-nom" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Last name *</label><input type="text" id="pdf-nom" name="nom" placeholder="Your last name" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-        </div>
-
-        <div style="margin-bottom:14px;">
-          <label for="pdf-email" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Email * <span style="font-weight:400;color:#999;">(to receive the dossier)</span></label>
-          <input type="email" id="pdf-email" name="email" placeholder="your@email.com" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;">
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-          <div><label for="pdf-orga" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Organization / Media *</label><input type="text" id="pdf-orga" name="organisation" placeholder="E.g. The New York Times, University, NGO…" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-          <div><label for="pdf-pays" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Country *</label><input type="text" id="pdf-pays" name="pays" placeholder="E.g. Haiti, United States, France…" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;"></div>
-        </div>
-
-        <div style="margin-bottom:14px;">
-          <label for="pdf-fonction" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Occupation / Role <span style="font-weight:400;color:#999;">(optional)</span></label>
-          <input type="text" id="pdf-fonction" name="fonction" placeholder="E.g. Journalist, Researcher, Lawyer, Elected official…" style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;">
-        </div>
-
-        <div style="margin-bottom:18px;">
-          <label for="pdf-raison" style="display:block;font-weight:600;margin-bottom:6px;color:var(--vf);">Reason for the request *</label>
-          <textarea id="pdf-raison" name="raison" rows="4" placeholder="Briefly explain why you would like to receive the dossier (article, research, advocacy, etc.)" required style="width:100%;padding:11px 14px;border:1.5px solid #d0d0d0;border-radius:10px;font-size:.95rem;font-family:inherit;resize:vertical;"></textarea>
-        </div>
-
-        <div style="text-align:center;">
-          <button type="submit" class="btn-s" style="background:var(--vf);font-size:1.05rem;padding:14px 36px;"><i class="fas fa-paper-plane"></i> SEND MY REQUEST</button>
-        </div>
-
-        <p style="font-size:.82rem;color:#999;text-align:center;margin-top:14px;">Your request will be reviewed by the JBC team. You will receive the PDF dossier by email within 24 to 72 business hours.</p>
-      </form>
-
-      <div id="pdf-ok" style="display:none;background:#d4edda;border:2px solid var(--vc);border-radius:12px;padding:22px;text-align:center;margin:18px auto 0;max-width:720px;color:var(--vf);">
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--vf);margin-bottom:8px;">✅ Request sent successfully</h3>
-        <p style="font-size:.96rem;color:#333;line-height:1.6;">Thank you for your interest. Our team will review your request and send the PDF dossier by email within 24 to 72 business hours. For any urgent questions: <a href="mailto:info@jardinbotaniquecayeshaiti.org" style="color:var(--rouge);font-weight:700;">info@jardinbotaniquecayeshaiti.org</a></p>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section style="text-align:center;margin:20px 0 50px;">
-      <p style="font-size:1.18rem;color:var(--vf);font-weight:700;margin-bottom:8px;">You have read. Now you know.</p>
-      <p style="font-size:1.02rem;color:#555;margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto;">Sign the petition, share this dossier, and help the Cayes Botanical Garden survive.</p>
-      <a href="/en/sos-petition-en.html#sign" class="btn-s" style="font-size:1.18rem;"><i class="fas fa-pen"></i> SIGN THE PETITION</a>
-      <br><br>
-      <a href="#demande-pdf" class="btn-s" style="background:var(--or);color:var(--vf);margin-right:10px;"><i class="fas fa-file-pdf"></i> REQUEST THE PDF</a>
-      <a href="{{ '/en/sos-petition-en.html' | relative_url }}" class="btn-back"><i class="fas fa-arrow-left"></i> Back to the petition</a>
-    </section>
-
-    <script>
-    // PDF request form: show confirmation after submit
-    (function(){
-      var pf=document.getElementById('pdf-form'),ok=document.getElementById('pdf-ok');
-      if(pf)pf.addEventListener('submit',function(){
-        setTimeout(function(){pf.style.display='none';if(ok){ok.style.display='block';ok.scrollIntoView({behavior:'smooth',block:'center'});}},400);
-      });
-    })();
-    </script>
-
-  </div>
-</div>
 </div>
