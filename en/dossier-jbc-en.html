@@ -39,6 +39,13 @@ image: /images/sos-petition/avant-01-vue-aerienne-jardin.jpg
   .dj-photo .cap{background:var(--dj-deep);color:#fff;padding:12px 20px;font-size:.88rem;font-style:italic;line-height:1.5;}
   .dj-photo .cap strong{color:var(--dj-gold);font-style:normal;}
 
+  /* BEFORE / AFTER GALLERY */
+  .dj-gallery-title{text-align:center;font-size:1.4rem;margin:44px 0 18px;font-family:'Playfair Display',serif;font-weight:800;}
+  .dj-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 22px;}
+  .dj-gallery figure{margin:0;border-radius:10px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.14);background:#000;}
+  .dj-gallery figure img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;}
+  .dj-gallery figcaption{background:var(--dj-deep);color:#fff;padding:8px 12px;font-size:.78rem;font-style:italic;line-height:1.4;text-align:center;}
+
   .dj-contact{background:#fff;border-radius:14px;padding:26px 30px;margin-top:40px;border-left:5px solid var(--dj-green);box-shadow:0 4px 14px rgba(0,0,0,.05);}
   .dj-contact h3{font-size:1.2rem;color:var(--dj-deep);margin:0 0 8px;}
   .dj-contact a{color:var(--dj-green);font-weight:700;text-decoration:none;}
@@ -73,7 +80,7 @@ image: /images/sos-petition/avant-01-vue-aerienne-jardin.jpg
       <p>In <strong>2002</strong>, during a training in Israel dedicated to agricultural and environmental initiatives, William Cinéa visited the famous Bahá'í Gardens, of exceptional design and beauty, which proved to him that a project of comparable scale could exist in Haiti. Upon his return, he took action: he leased a plot of <strong>six and a half carreaux</strong> in Bergeaud, along National Road N°2 in Les Cayes, belonging to the Gérard family.</p>
 
       <div class="dj-photo">
-        <img src="{{ '/images/sos-petition/avant-01-vue-aerienne-jardin.jpg' | relative_url }}" alt="Aerial view of the Cayes Botanical Garden before the crisis">
+        <img src="{{ '/images/sos-petition/beaute-05-jardin-ecologique-aerien.jpg' | relative_url }}" alt="Aerial view of the Cayes Botanical Garden">
         <div class="cap"><strong>The Cayes Botanical Garden</strong> — Aerial view of the site in Bergeaud, Les Cayes.</div>
       </div>
 
@@ -86,13 +93,53 @@ image: /images/sos-petition/avant-01-vue-aerienne-jardin.jpg
       <p>In <strong>June 2024</strong>, Mrs. Laurette Milard Gérard passed away. Her son, a supporter of the sale, resides in the United States; his wife, present in Haiti, then began an unauthorized process to take back the land. Although this garden represents more than 23 years of work, patience and collection-building, a deadline of only <strong>eight days</strong> was imposed on the team to move all the plants and vacate the space. Eight days later, accompanied by the police and her lawyers, she barred garden staff from entering. Her first actions consisted of cutting the collections of native and endemic plants to turn them into charcoal, eliminating all the plants of the ecological reserve and <strong class="rouge">setting fire to more than one hectare</strong>. Banana plantations were even installed inside the garden.</p>
 
       <div class="dj-photo">
-        <img src="{{ '/images/sos-petition/apres-01-destruction-aerienne.png' | relative_url }}" alt="Aerial view after destruction">
+        <img src="{{ '/images/sos-petition/degats-01-vue-aerienne-contraste.jpg' | relative_url }}" alt="Aerial view after destruction">
         <div class="cap"><strong>After the takeover</strong> — Aerial view showing the extent of cleared and burned areas.</div>
       </div>
 
       <p>Facing this situation, <strong>seven of the nine heirs</strong> of the family, frustrated by this action, wrote to the <strong>Minister of Justice and Public Security</strong> to request urgent intervention. Through their law firm, they formally demanded that Mrs. Marie Donna Bastien-Gérard immediately cease all action against the garden. For these heirs, the garden embodies the greatness and vision of their parents: they refuse to see it disappear.</p>
 
       <p>From the very beginning of the crisis, the garden team issued appeals through several media — <strong>Vision 2000, Radio Caraïbes, Magik 9, Le Nouvelliste, AyiboPost</strong> — in order to alert the authorities. The <strong>Minister of the Environment</strong> was also contacted. Yet to this day, nothing has been done. Meanwhile, this heritage continues to disappear, and the preserved plants are being lost a little more every day. This garden goes beyond the interest of its founder, William Cinéa, and of the Gérard family: it is a <strong>scientific institution of national interest</strong>.</p>
+
+      <h3 class="dj-gallery-title" style="color:var(--dj-green);">The garden in action</h3>
+      <div class="dj-gallery">
+        <figure>
+          <img src="{{ '/images/sos-petition/beaute-01-enfants-decouverte.jpg' | relative_url }}" alt="Children discovering the garden">
+          <figcaption>Children on an educational visit</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/images/sos-petition/beaute-02-etudiants-ravenale.jpg' | relative_url }}" alt="Students in front of a ravenala">
+          <figcaption>Students in front of a ravenala</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/images/sos-petition/beaute-08-jardin-ornemental-panorama.jpg' | relative_url }}" alt="Panorama of the ornamental garden">
+          <figcaption>Panorama of the ornamental garden</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/images/sos-petition/beaute-06-jardin-ecologique-nature.jpg' | relative_url }}" alt="Ecological garden">
+          <figcaption>Ecological garden</figcaption>
+        </figure>
+      </div>
+
+      <h3 class="dj-gallery-title" style="color:var(--dj-rouge);">The ongoing destruction</h3>
+      <div class="dj-gallery">
+        <figure>
+          <img src="{{ '/images/sos-petition/degats-06-jardin-en-flammes.jpg' | relative_url }}" alt="Garden on fire">
+          <figcaption>The garden on fire</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/images/sos-petition/degats-04-tas-vegetation-coupee.jpg' | relative_url }}" alt="Cut vegetation">
+          <figcaption>Piled-up cut vegetation</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/images/sos-petition/degats-03-charbon-en-fabrication.jpg' | relative_url }}" alt="Charcoal being made">
+          <figcaption>Plants turned into charcoal</figcaption>
+        </figure>
+        <figure>
+          <img src="{{ '/images/sos-petition/degats-05-plantation-bananes.jpg' | relative_url }}" alt="Banana plantation">
+          <figcaption>Banana plantation inside the garden</figcaption>
+        </figure>
+      </div>
 
       <div class="dj-contact">
         <h3><i class="fas fa-envelope"></i> Contact</h3>
