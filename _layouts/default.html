@@ -8,9 +8,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>
-    {% if page.title %}{{ page.title }} | {% endif %}Jardin Botanique des Cayes
-  </title>
+  {% assign page_title = page.title | default: 'Jardin Botanique des Cayes' %}
+  {% unless page_title contains 'Jardin Botanique des Cayes' or page_title contains 'Cayes Botanical Garden' or page_title contains 'Jaden Botanik' %}
+    {% assign page_title = page_title | append: ' | Jardin Botanique des Cayes' %}
+  {% endunless %}
+  {% assign social_title = page.og_title | default: page_title %}
+
+  <title>{{ page_title }}</title>
 
   <meta name="description" content="{{ page.description | default: site.description | default: 'Jardin Botanique des Cayes — science, conservation, éducation et données pour la biodiversité en Haïti.' }}">
 
@@ -19,14 +23,14 @@
   <!-- Open Graph / Réseaux sociaux -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Jardin Botanique des Cayes">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}Jardin Botanique des Cayes">
+  <meta property="og:title" content="{{ social_title }}">
   <meta property="og:description" content="{{ page.description | default: site.description | default: 'Jardin Botanique des Cayes — science, conservation, éducation et données pour la biodiversité en Haïti.' }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:image" content="{{ og_img }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}Jardin Botanique des Cayes">
+  <meta name="twitter:title" content="{{ social_title }}">
   <meta name="twitter:description" content="{{ page.description | default: site.description | default: 'Jardin Botanique des Cayes — science, conservation, éducation et données pour la biodiversité en Haïti.' }}">
   <meta name="twitter:image" content="{{ og_img }}">
 
