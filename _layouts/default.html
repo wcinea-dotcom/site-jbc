@@ -8,6 +8,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FKEZKZ3G6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5FKEZKZ3G6');
+  </script>
+
   {% assign page_title = page.title | default: 'Jardin Botanique des Cayes' %}
   {% unless page_title contains 'Jardin Botanique des Cayes' or page_title contains 'Cayes Botanical Garden' or page_title contains 'Jaden Botanik' %}
     {% assign page_title = page_title | append: ' | Jardin Botanique des Cayes' %}
