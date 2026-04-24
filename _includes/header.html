@@ -130,6 +130,18 @@
   {% assign ht_url = "/ht/sos-petition-ht.html" %}
 {% endif %}
 
+{% if current_url contains "dossier-jbc" %}
+  {% assign fr_url = "/dossier-jbc-fr.html" %}
+  {% assign en_url = "/en/dossier-jbc-en.html" %}
+  {% assign ht_url = "/ht/dossier-jbc-ht.html" %}
+{% endif %}
+
+{% if current_url contains "conference-" %}
+  {% assign fr_url = "/conference-fr.html" %}
+  {% assign en_url = "/en/conference-en.html" %}
+  {% assign ht_url = "/ht/conference-ht.html" %}
+{% endif %}
+
 <!-- BARRE SECONDAIRE top-tier -->
 <div class="top-tier">
   <div class="container top-tier-inner">
