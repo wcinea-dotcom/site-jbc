@@ -3,62 +3,6 @@
 
 {% assign current_url = page.url | default: "/" %}
 
-{% comment %} ═══ ACCESS CODE — SOS PETITION PAGES ONLY ═══════════════════════ {% endcomment %}
-{% if current_url contains "sos-petition" %}
-<style>
-  #jbc-lock{position:fixed;inset:0;background:linear-gradient(135deg,#0b5d3b 0%,#2F5D2F 100%);z-index:999999;display:flex;align-items:center;justify-content:center;font-family:'Segoe UI',Arial,sans-serif;padding:20px}
-  #jbc-lock .lb{background:#fff;color:#222;padding:44px 36px;border-radius:18px;max-width:440px;width:100%;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.45)}
-  #jbc-lock h2{color:#0b5d3b;margin:4px 0 10px;font-size:1.55rem;line-height:1.25}
-  #jbc-lock p{margin:0 0 22px;color:#555;font-size:.95rem;line-height:1.5}
-  #jbc-lock input{width:100%;padding:14px;font-size:1.15rem;border:2px solid #0b5d3b;border-radius:10px;box-sizing:border-box;text-align:center;letter-spacing:2px;font-weight:700;outline:none}
-  #jbc-lock input:focus{border-color:#c0392b;box-shadow:0 0 0 3px rgba(192,57,43,.15)}
-  #jbc-lock button{margin-top:14px;background:#0b5d3b;color:#fff;border:0;padding:14px 28px;font-size:1rem;font-weight:700;border-radius:10px;cursor:pointer;width:100%;transition:.2s}
-  #jbc-lock button:hover{background:#0a4d31}
-  #jbc-lock .err{color:#c0392b;margin-top:10px;font-size:.9rem;min-height:20px;font-weight:600}
-  #jbc-lock .logo{font-size:2.6rem;margin-bottom:4px}
-  body.jbc-locked{overflow:hidden!important}
-  body.jbc-locked > *:not(#jbc-lock){visibility:hidden!important}
-</style>
-<div id="jbc-lock" role="dialog" aria-modal="true" aria-label="Access code required">
-  <div class="lb">
-    <div class="logo">🌿🔒</div>
-    <h2>Jardin Botanique des Cayes</h2>
-    <p>This page is private. Enter the access code to continue.<br>
-       <em style="font-size:.85rem;color:#888">Page privée — Entrez le code / Paj prive — Antre kòd la</em></p>
-    <input type="password" id="jbc-code" placeholder="Access code" autocomplete="off" autofocus>
-    <button type="button" id="jbc-go">Enter / Accéder / Antre</button>
-    <div class="err" id="jbc-err"></div>
-  </div>
-</div>
-<script>
-(function(){
-  var CODE = "CANA2025";  /* CHANGE THE ACCESS CODE HERE */
-  document.body.classList.add('jbc-locked');
-  try { if (sessionStorage.getItem('jbcOk') === '1') { unlock(); return; } } catch(e){}
-  var input = document.getElementById('jbc-code');
-  var btn   = document.getElementById('jbc-go');
-  var err   = document.getElementById('jbc-err');
-  function tryUnlock(){
-    var v = (input.value || '').trim().toUpperCase();
-    if (v === CODE.toUpperCase()){
-      try { sessionStorage.setItem('jbcOk','1'); } catch(e){}
-      unlock();
-    } else {
-      err.textContent = 'Invalid code / Code incorrect / Kod la pa bon';
-      input.select();
-    }
-  }
-  function unlock(){
-    var box = document.getElementById('jbc-lock');
-    if (box) box.style.display = 'none';
-    document.body.classList.remove('jbc-locked');
-  }
-  btn.addEventListener('click', tryUnlock);
-  input.addEventListener('keydown', function(e){ if (e.key === 'Enter') tryUnlock(); });
-})();
-</script>
-{% endif %}
-{% comment %} ═══ END ACCESS CODE ══════════════════════════════════════════════ {% endcomment %}
 
 {% assign is_en = false %}
 {% assign is_ht = false %}
@@ -194,6 +138,10 @@
         </div>
       </div>
 
+      <a href="{{ url_sos }}" class="nav-sos-top" style="color:#c0392b !important;font-weight:900 !important;">
+        {% if is_en %}🚨 SOS PETITION{% elsif is_ht %}🚨 PETISYON SOS{% else %}🚨 SOS PÉTITION{% endif %}
+      </a>
+
       <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% elsif is_ht %}PATISIPE{% else %}S'IMPLIQUER{% endif %}</a>
 
       <div class="drop" id="dropNature">
@@ -270,6 +218,10 @@
     <a href="{{ url_dossier }}" style="color:#2F5D2F;font-weight:700;">{% if is_en %}📖 Learn more — The situation{% elsif is_ht %}📖 Aprann plis — Sitiyasyon an{% else %}📖 En savoir plus — La situation{% endif %}</a>
     <a href="{{ url_sos }}" style="color:#c0392b;font-weight:700;">{% if is_en %}🚨 SOS Petition{% elsif is_ht %}🚨 Petisyon SOS{% else %}🚨 SOS Pétition{% endif %}</a>
   </div>
+
+  <a href="{{ url_sos }}" class="drawer-sos-top" style="color:#c0392b !important;font-weight:900 !important;">
+    {% if is_en %}🚨 SOS PETITION{% elsif is_ht %}🚨 PETISYON SOS{% else %}🚨 SOS PÉTITION{% endif %}
+  </a>
 
   <a href="{{ url_get_involved | relative_url }}">{% if is_en %}GET INVOLVED{% elsif is_ht %}PATISIPE{% else %}S'IMPLIQUER{% endif %}</a>
 
