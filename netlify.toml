@@ -20,6 +20,90 @@
 #   to     = "https://jardinbotaniquecayeshaiti.org/:splat"
 #   status = 301
 
+# =========================================================
+#  Redirections cross-langue pour pages à nom spécifique
+#  (dossier-jbc, sos-petition, conference) — évite les 404
+#  quand quelqu'un partage un mauvais lien.
+# =========================================================
+
+# ─── Dossier "En savoir plus" ───
+[[redirects]]
+  from   = "/en/dossier-jbc-fr.html"
+  to     = "/en/dossier-jbc-en.html"
+  status = 301
+[[redirects]]
+  from   = "/en/dossier-jbc-ht.html"
+  to     = "/en/dossier-jbc-en.html"
+  status = 301
+[[redirects]]
+  from   = "/ht/dossier-jbc-fr.html"
+  to     = "/ht/dossier-jbc-ht.html"
+  status = 301
+[[redirects]]
+  from   = "/ht/dossier-jbc-en.html"
+  to     = "/ht/dossier-jbc-ht.html"
+  status = 301
+[[redirects]]
+  from   = "/dossier-jbc-en.html"
+  to     = "/dossier-jbc-fr.html"
+  status = 301
+[[redirects]]
+  from   = "/dossier-jbc-ht.html"
+  to     = "/dossier-jbc-fr.html"
+  status = 301
+
+# ─── SOS Pétition ───
+[[redirects]]
+  from   = "/en/sos-petition-fr.html"
+  to     = "/en/sos-petition-en.html"
+  status = 301
+[[redirects]]
+  from   = "/en/sos-petition-ht.html"
+  to     = "/en/sos-petition-en.html"
+  status = 301
+[[redirects]]
+  from   = "/ht/sos-petition-fr.html"
+  to     = "/ht/sos-petition-ht.html"
+  status = 301
+[[redirects]]
+  from   = "/ht/sos-petition-en.html"
+  to     = "/ht/sos-petition-ht.html"
+  status = 301
+[[redirects]]
+  from   = "/sos-petition-en.html"
+  to     = "/sos-petition-fr.html"
+  status = 301
+[[redirects]]
+  from   = "/sos-petition-ht.html"
+  to     = "/sos-petition-fr.html"
+  status = 301
+
+# ─── Conférence ───
+[[redirects]]
+  from   = "/en/conference-fr.html"
+  to     = "/en/conference-en.html"
+  status = 301
+[[redirects]]
+  from   = "/en/conference-ht.html"
+  to     = "/en/conference-en.html"
+  status = 301
+[[redirects]]
+  from   = "/ht/conference-fr.html"
+  to     = "/ht/conference-ht.html"
+  status = 301
+[[redirects]]
+  from   = "/ht/conference-en.html"
+  to     = "/ht/conference-ht.html"
+  status = 301
+[[redirects]]
+  from   = "/conference-en.html"
+  to     = "/conference-fr.html"
+  status = 301
+[[redirects]]
+  from   = "/conference-ht.html"
+  to     = "/conference-fr.html"
+  status = 301
+
 # Custom 404 pages — language-specific (order matters: specific first)
 [[redirects]]
   from   = "/en/*"
