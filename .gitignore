@@ -36,3 +36,22 @@ fiche_amelioree_ruellia.json
 Atlas*.docx
 Atlas*.xlsx
 *Atlas*.xlsx
+
+# ── Vidéos et audio (tests, sources, drafts — ne jamais commiter) ──
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.MP3
+*.mp3
+*.wav
+*.m4a
+
+# ── Pages de test (commitez à la main si nécessaire, sinon ignorées) ──
+# (test-*.html sont actuellement commités exprès — décommentez si vous voulez les exclure)
+# test-*.html
+
+# ── Sandbox / fichiers temporaires Cowork ──
+*.tmp
+.DS_Store
