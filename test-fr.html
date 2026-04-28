@@ -359,27 +359,28 @@ image: /images/sos-petition/petition-hero.jpg
     <!-- CARTE & LOCALISATION — Google Earth                               -->
     <!-- ════════════════════════════════════════════════════════════════ -->
     <section class="sw" style="border-top:6px solid #1a73e8;" id="carte-localisation">
-      <h2 class="tv" style="text-align:center;color:#1a73e8;"><i class="fas fa-globe-americas"></i> Carte et localisation</h2>
-      <p class="sub" style="text-align:center;">Visualisez le Jardin Botanique des Cayes en 3D, vue du ciel, avec Google Earth.</p>
+      <h2 class="tv" style="text-align:center;color:#1a73e8;"><i class="fas fa-map-marked-alt"></i> Carte et localisation</h2>
+      <p class="sub" style="text-align:center;">Visualisez le Jardin Botanique des Cayes — espace écologique et zones brûlées — vu du ciel.</p>
 
-      <a href="https://earth.google.com/earth/d/1L2Nm3FQO8DgYISrS4wm72dTHhDgzXYR5?usp=sharing" target="_blank" rel="noopener"
-         style="text-decoration:none;color:inherit;display:block;max-width:760px;margin:28px auto 0;background:linear-gradient(135deg,#1a73e8 0%,#0d47a1 100%);border-radius:16px;padding:36px 32px;color:#fff;text-align:center;box-shadow:0 10px 28px rgba(26,115,232,.3);transition:all .3s;"
-         onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 18px 38px rgba(26,115,232,.4)'"
-         onmouseout="this.style.transform='';this.style.boxShadow='0 10px 28px rgba(26,115,232,.3)'">
-        <div style="width:84px;height:84px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;border:2px solid rgba(255,255,255,.3);">
-          <i class="fas fa-globe-americas" style="font-size:2.4rem;color:#fff;"></i>
+      <!-- Carte satellite intégrée — coordonnées JBC 18.234639, -73.755301 -->
+      <div style="border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06);height:520px;background:#eee;position:relative;margin:24px 0 8px;">
+        <iframe
+          src="https://maps.google.com/maps?q=18.234639,-73.755301&z=18&t=k&output=embed"
+          width="100%" height="100%" style="border:0;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Carte satellite du Jardin Botanique des Cayes"></iframe>
+        <div style="position:absolute;bottom:14px;left:14px;background:rgba(47,93,47,.94);color:#fff;padding:9px 16px;border-radius:12px;font-size:.82rem;font-weight:900;pointer-events:none;letter-spacing:.04em;box-shadow:0 4px 12px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;">
+          <span>📍</span><span>Jardin Botanique des Cayes — Bergeaud, Les Cayes, Haïti</span>
         </div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:900;color:#fff;margin-bottom:10px;">Voir le jardin sur Google Earth</h3>
-        <p style="font-size:1rem;line-height:1.55;margin-bottom:22px;opacity:.95;max-width:520px;margin-left:auto;margin-right:auto;">
-          Survolez le site du Jardin Botanique des Cayes en 3D, repérez les zones brûlées, et mesurez l'ampleur de la destruction par vous-même.
-        </p>
-        <span style="display:inline-block;background:#fff;color:#1a73e8;padding:14px 36px;border-radius:50px;font-weight:900;font-size:1rem;box-shadow:0 4px 14px rgba(0,0,0,.15);">
-          <i class="fas fa-external-link-alt" style="margin-right:8px;"></i> Ouvrir Google Earth
-        </span>
-        <p style="font-size:.78rem;color:rgba(255,255,255,.75);margin-top:18px;font-style:italic;">
-          <i class="fas fa-info-circle"></i> S'ouvre dans un nouvel onglet · Compatible ordinateur, mobile et tablette
-        </p>
-      </a>
+        <a href="https://earth.google.com/earth/d/1L2Nm3FQO8DgYISrS4wm72dTHhDgzXYR5?usp=sharing" target="_blank" rel="noopener"
+           style="position:absolute;bottom:14px;right:14px;background:#fff;color:#1a73e8;padding:8px 14px;border-radius:10px;font-size:.8rem;font-weight:900;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.18);letter-spacing:.03em;">
+          Ouvrir en 3D sur Google Earth ↗
+        </a>
+      </div>
+      <p style="font-size:.82rem;color:var(--gris);font-style:italic;text-align:center;margin-top:6px;">
+        <i class="fas fa-info-circle"></i> Vue satellite en temps réel · Zoomez avec les molettes ou les boutons +/-
+      </p>
     </section>
 
     <!-- ════════════════════════════════════════════════════════════════ -->
