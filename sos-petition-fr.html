@@ -272,26 +272,144 @@ image: /images/sos-petition/petition-hero.jpg
     <!-- ════════════════════════════════════════════════════════════════ -->
     <section class="sw" style="border-top:6px solid #1a73e8;" id="carte-localisation">
       <h2 class="tv" style="text-align:center;color:#1a73e8;"><i class="fas fa-map-marked-alt"></i> Visualisez le jardin et l'espace écologique</h2>
-      <p class="sub" style="text-align:center;">Vue satellite en temps réel — repérez les zones brûlées et l'ampleur de la destruction.</p>
+      <p class="sub" style="text-align:center;">Carte interactive — la zone verte montre <strong>le jardin écologique brûlé</strong>.</p>
 
-      <div style="border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06);height:520px;background:#eee;position:relative;margin:24px 0 8px;">
-        <iframe
-          src="https://maps.google.com/maps?q=18.234639,-73.755301&z=18&t=k&output=embed"
-          width="100%" height="100%" style="border:0;"
-          allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Carte satellite du Jardin Botanique des Cayes"></iframe>
-        <div style="position:absolute;bottom:14px;left:14px;background:rgba(47,93,47,.94);color:#fff;padding:9px 16px;border-radius:12px;font-size:.82rem;font-weight:900;pointer-events:none;letter-spacing:.04em;box-shadow:0 4px 12px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;">
-          <span>📍</span><span>Jardin Botanique des Cayes — Bergeaud, Les Cayes, Haïti</span>
-        </div>
-        <a href="https://earth.google.com/earth/d/1L2Nm3FQO8DgYISrS4wm72dTHhDgzXYR5?usp=sharing" target="_blank" rel="noopener"
-           style="position:absolute;bottom:14px;right:14px;background:#fff;color:#1a73e8;padding:8px 14px;border-radius:10px;font-size:.8rem;font-weight:900;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.18);letter-spacing:.03em;">
-          Ouvrir en 3D sur Google Earth ↗
-        </a>
+      <!-- Leaflet CSS / JS — bibliothèque cartographique gratuite -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+      <div id="jbc-map" style="height:600px;width:100%;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06);margin:24px 0 8px;background:#eee;"></div>
+
+      <!-- Légende -->
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:16px 0 8px;">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:#222;background:#fff;padding:8px 14px;border-radius:50px;border:1px solid #e0e0e0;">
+          <span style="width:14px;height:14px;background:#27ae60;border:2px solid #1e7d3e;border-radius:3px;display:inline-block;"></span> Jardin écologique
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:#222;background:#fff;padding:8px 14px;border-radius:50px;border:1px solid #e0e0e0;">
+          <span style="width:14px;height:14px;background:#a259c0;border:2px solid #6a2c80;border-radius:3px;display:inline-block;"></span> Jardin ethnobotanique
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:#222;background:#fff;padding:8px 14px;border-radius:50px;border:1px solid #e0e0e0;">
+          <span style="width:14px;height:14px;background:#e67e22;border:2px solid #a85b14;border-radius:3px;display:inline-block;"></span> Conservatoire
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:#222;background:#fff;padding:8px 14px;border-radius:50px;border:1px solid #e0e0e0;">
+          <span style="width:14px;height:14px;background:#e74c3c;border:2px solid #a82e22;border-radius:3px;display:inline-block;"></span> Jardin thérapeutique
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:#222;background:#fff;padding:8px 14px;border-radius:50px;border:1px solid #e0e0e0;">
+          <span style="width:14px;height:14px;background:#f1c40f;border:2px solid #b8950d;border-radius:3px;display:inline-block;"></span> Arboretum
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:.88rem;color:#222;background:#fff;padding:8px 14px;border-radius:50px;border:1px solid #e0e0e0;">
+          🔥 Zone incendiée
+        </span>
       </div>
-      <p style="font-size:.82rem;color:var(--gris);font-style:italic;text-align:center;margin-top:6px;">
-        <i class="fas fa-info-circle"></i> Zoomez avec la molette · Déplacez la carte avec la souris · Comparez les zones vertes et les zones brûlées
+
+      <p style="text-align:center;margin-top:14px;">
+        <a href="https://earth.google.com/earth/d/1L2Nm3FQO8DgYISrS4wm72dTHhDgzXYR5?usp=sharing" target="_blank" rel="noopener"
+           style="display:inline-block;background:#1a73e8;color:#fff;padding:10px 22px;border-radius:50px;font-size:.9rem;font-weight:800;text-decoration:none;box-shadow:0 4px 12px rgba(26,115,232,.3);">
+          <i class="fas fa-external-link-alt" style="margin-right:6px;"></i> Voir en 3D sur Google Earth
+        </a>
       </p>
+
+      <script>
+        // Initialisation de la carte centrée sur le JBC
+        var jbcMap = L.map('jbc-map').setView([18.23510, -73.75570], 18);
+
+        // Tuiles satellite Esri (gratuit, pas de clé API)
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Imagery &copy; Esri',
+          maxZoom: 19
+        }).addTo(jbcMap);
+
+        // ─── JARDIN ÉCOLOGIQUE (la zone brûlée — mise en évidence) ───
+        var ecologique = L.polygon([
+          [18.23519, -73.75605],
+          [18.23519, -73.75545],
+          [18.23478, -73.75540],
+          [18.23478, -73.75605]
+        ], {
+          color: '#1e7d3e',
+          fillColor: '#27ae60',
+          fillOpacity: 0.45,
+          weight: 4
+        }).addTo(jbcMap);
+        ecologique.bindTooltip('JARDIN ÉCOLOGIQUE', {
+          permanent: true,
+          direction: 'center',
+          className: 'jbc-label-eco'
+        });
+
+        // ─── Jardin ethnobotanique ───
+        L.polygon([
+          [18.23528, -73.75660],
+          [18.23528, -73.75605],
+          [18.23478, -73.75605],
+          [18.23478, -73.75660]
+        ], { color: '#6a2c80', fillColor: '#a259c0', fillOpacity: 0.30, weight: 2 }).addTo(jbcMap)
+          .bindTooltip('Ethnobotanique', { permanent: true, direction: 'center', className: 'jbc-label-other' });
+
+        // ─── Conservatoire ───
+        L.polygon([
+          [18.23525, -73.75545],
+          [18.23525, -73.75500],
+          [18.23485, -73.75500],
+          [18.23485, -73.75545]
+        ], { color: '#a85b14', fillColor: '#e67e22', fillOpacity: 0.30, weight: 2 }).addTo(jbcMap)
+          .bindTooltip('Conservatoire', { permanent: true, direction: 'center', className: 'jbc-label-other' });
+
+        // ─── Jardin thérapeutique ───
+        L.polygon([
+          [18.23535, -73.75500],
+          [18.23535, -73.75435],
+          [18.23485, -73.75435],
+          [18.23485, -73.75500]
+        ], { color: '#a82e22', fillColor: '#e74c3c', fillOpacity: 0.30, weight: 2 }).addTo(jbcMap)
+          .bindTooltip('Thérapeutique', { permanent: true, direction: 'center', className: 'jbc-label-other' });
+
+        // ─── Arboretum ───
+        L.polygon([
+          [18.23545, -73.75545],
+          [18.23545, -73.75435],
+          [18.23535, -73.75435],
+          [18.23535, -73.75545]
+        ], { color: '#b8950d', fillColor: '#f1c40f', fillOpacity: 0.30, weight: 2 }).addTo(jbcMap)
+          .bindTooltip('Arboretum', { permanent: true, direction: 'center', className: 'jbc-label-other' });
+
+        // ─── Marker FEU ───
+        var fireIcon = L.divIcon({
+          html: '<div style="font-size:32px;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));">🔥</div>',
+          iconSize: [32, 32],
+          iconAnchor: [16, 32],
+          className: 'jbc-fire-marker'
+        });
+        L.marker([18.23498, -73.75575], { icon: fireIcon }).addTo(jbcMap)
+          .bindPopup('<strong style="color:#c0392b;">Zone incendiée</strong><br>Le feu a été mis sur le jardin écologique en janvier 2026.');
+      </script>
+
+      <style>
+        .jbc-label-eco {
+          background: rgba(30, 125, 62, .96);
+          color: #fff;
+          font-weight: 900;
+          font-size: 14px;
+          letter-spacing: 1px;
+          padding: 6px 12px;
+          border: 0;
+          border-radius: 6px;
+          box-shadow: 0 4px 12px rgba(0,0,0,.4);
+        }
+        .jbc-label-eco::before { display: none; }
+        .jbc-label-other {
+          background: rgba(255, 255, 255, .92);
+          color: #333;
+          font-weight: 700;
+          font-size: 11px;
+          padding: 3px 8px;
+          border: 0;
+          border-radius: 4px;
+          box-shadow: 0 2px 6px rgba(0,0,0,.25);
+        }
+        .jbc-label-other::before { display: none; }
+        .jbc-fire-marker { background: transparent !important; border: 0 !important; }
+      </style>
     </section>
 
     <!-- COMPTEUR DE SIGNATURES -->
