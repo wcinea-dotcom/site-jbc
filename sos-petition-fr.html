@@ -278,7 +278,7 @@ image: /images/sos-petition/petition-hero.jpg
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
       <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 
-      <div id="jbc-map" style="height:600px;width:100%;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06);margin:24px 0 8px;background:#eee;"></div>
+      <div id="jbc-map" style="width:100%;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.18);border:1px solid rgba(0,0,0,.06);margin:24px 0 8px;background:#eee;"></div>
 
       <!-- Légende -->
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin:16px 0 8px;">
@@ -385,6 +385,11 @@ image: /images/sos-petition/petition-hero.jpg
       </script>
 
       <style>
+        /* Hauteur de la carte — standard 520px ordinateur, 360px mobile */
+        #jbc-map { height: 520px; }
+        @media (max-width: 768px) { #jbc-map { height: 360px; } }
+        @media (max-width: 480px) { #jbc-map { height: 320px; } }
+
         .jbc-label-eco {
           background: rgba(30, 125, 62, .96);
           color: #fff;
@@ -396,6 +401,7 @@ image: /images/sos-petition/petition-hero.jpg
           border-radius: 6px;
           box-shadow: 0 4px 12px rgba(0,0,0,.4);
         }
+        @media (max-width: 768px) { .jbc-label-eco { font-size: 11px; padding: 4px 8px; } }
         .jbc-label-eco::before { display: none; }
         .jbc-label-other {
           background: rgba(255, 255, 255, .92);
@@ -407,6 +413,7 @@ image: /images/sos-petition/petition-hero.jpg
           border-radius: 4px;
           box-shadow: 0 2px 6px rgba(0,0,0,.25);
         }
+        @media (max-width: 768px) { .jbc-label-other { font-size: 9px; padding: 2px 5px; } }
         .jbc-label-other::before { display: none; }
         .jbc-fire-marker { background: transparent !important; border: 0 !important; }
       </style>
