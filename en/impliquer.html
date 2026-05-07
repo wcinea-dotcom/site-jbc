@@ -3,11 +3,10 @@ layout: default
 title: "Get Involved"
 lang: en
 ref: impliquer
+permalink: /en/impliquer.html
 ---
 
 <style>
-  /* J'ai conservé votre style exact pour que le design soit identique */
-  /* [NOTE : Si vous avez un fichier style.css séparé, vous pouvez supprimer ce bloc 'style'] */
   .hero {
     position: relative; height: 450px;
     background: url('{{ "images/impliquer/evenement-page-principale.jpg" | relative_url }}') center/cover no-repeat;
@@ -31,10 +30,10 @@ ref: impliquer
   .intro-box { text-align: center; max-width: 900px; margin: 0 auto 50px; }
   .intro-box h2 { color: #2F5D2F; font-size: 2.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
   .intro-box p { font-size: 1.1rem; color: #555; margin-bottom: 25px; text-align: justify; }
-  
-  .note-box { 
-    background: #e8f5e9; border-left: 5px solid #5E8F3A; 
-    padding: 20px; text-align: left; font-weight: 700; color: #2F5D2F; 
+
+  .note-box {
+    background: #e8f5e9; border-left: 5px solid #5E8F3A;
+    padding: 20px; text-align: left; font-weight: 700; color: #2F5D2F;
     border-radius: 8px; margin-bottom: 20px;
   }
 
@@ -55,7 +54,7 @@ ref: impliquer
 
   .btn-action { display: inline-block; padding: 12px 28px; background: #2F5D2F; color: white; border-radius: 30px; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; transition: 0.3s; width: fit-content; text-decoration: none !important;}
   .btn-action:hover { background: #5E8F3A; color: white;}
-  
+
   .form-box { max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); border-top: 5px solid #C5A059; }
   .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
   .form-group { margin-bottom: 20px; }
@@ -90,12 +89,12 @@ ref: impliquer
 </div>
 
 <main class="container">
-  
+
   <section id="overview" class="page-section active">
     <div class="intro-box">
       <h2>A Shared Science</h2>
       <p>At the Cayes Botanical Garden (JBC), our vision is to become the reference center for collecting, analyzing, and disseminating high-precision data on nature in Haiti. For this science to truly serve the health of both people and nature, it must be shared, embraced, and valued by society.</p>
-      <div class="note-box"><i class="fa-solid fa-leaf"></i> Getting involved at the JBC means transforming scientific data into concrete action.</div>
+      <div class="note-box"><i class="fa-solid fa-leaf"></i> Getting involved with the JBC means turning scientific data into concrete action.</div>
     </div>
 
     <div class="main-cards-list">
@@ -103,8 +102,8 @@ ref: impliquer
         <img src="{{ 'images/impliquer/visite-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Visit">
         <div class="main-card-body">
           <h3>Visit</h3>
-          <p>Discover the various visit options at the Cayes Botanical Garden. Explore beauty, science, and the therapeutic virtues of plants through paths tailored to your needs.</p>
-          <button class="btn-action" onclick="showSection('visite', null)">Discover Visits</button>
+          <p>Come discover the various tours at the Cayes Botanical Garden. Explore the beauty, science, and therapeutic virtues of plants through paths tailored to your needs.</p>
+          <button class="btn-action" onclick="showSection('visite', null)">Discover the visits</button>
         </div>
       </article>
 
@@ -120,8 +119,8 @@ ref: impliquer
       <article class="main-card">
         <img src="{{ 'images/impliquer/evenement-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Events">
         <div class="main-card-body">
-          <h3>Organize an Event</h3>
-          <p>Transform your professional meetings, celebrations, weddings, or symposiums into exceptional moments in the heart of a unique botanical sanctuary.</p>
+          <h3>Host an Event</h3>
+          <p>Turn your professional meetings, celebrations, weddings, or symposiums into exceptional moments at the heart of a unique botanical sanctuary.</p>
           <button class="btn-action" onclick="showSection('evenement', null)">Plan an event</button>
         </div>
       </article>
@@ -130,16 +129,16 @@ ref: impliquer
         <img src="{{ 'images/impliquer/partenariat-page-principale.jpg' | relative_url }}" class="main-card-img" alt="Partnership">
         <div class="main-card-body">
           <h3>Partnership & Experts</h3>
-          <p>We collaborate with institutions and experts to develop programs in ecological restoration, beekeeping, phytochemistry, and naturopathy in Haiti.</p>
+          <p>We collaborate with institutions and experts to develop ecological restoration, beekeeping, phytochemistry, and naturopathy programs in Haiti.</p>
           <button class="btn-action" onclick="showSection('partenariat', null)">Collaborate with us</button>
         </div>
       </article>
     </div>
-    
+
     <div class="form-box" style="margin-top: 80px;">
       <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 10px; font-size: 1.8rem;">Contact Us</h3>
       <p style="text-align: center; color: #666; margin-bottom: 30px;">Have a general question? Leave us a message.</p>
-      <form name="contact-general" method="POST" data-netlify="true">
+      <form name="contact-general" data-jbc-form="true" action="#">
         <div class="form-grid">
           <div class="form-group"><label>First Name</label><input type="text" name="prenom" class="form-control" required></div>
           <div class="form-group"><label>Last Name</label><input type="text" name="nom" class="form-control" required></div>
@@ -147,23 +146,178 @@ ref: impliquer
           <div class="form-group"><label>Phone</label><input type="tel" name="telephone" class="form-control"></div>
           <div class="form-group full"><label>Message</label><textarea name="message" class="form-control" rows="4" required></textarea></div>
         </div>
-        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Send Message</button>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Send message</button>
       </form>
     </div>
   </section>
 
-  </main>
+  <section id="visite" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Come discover our spaces</h2>
+      <p style="max-width: 800px; margin: 0 auto;">The Cayes Botanical Garden offers immersive paths. Whether you wish to relax, do focused research, or learn how nature heals, we have a visit for you.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-simple.jpg' | relative_url }}" alt="Simple Visit">
+        <div class="card-body"><h3>Simple Visit</h3><p>A free and relaxing walk through our landscapes to enjoy the calm and beauty of nature.</p></div>
+      </div>
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-scientifique.jpg' | relative_url }}" alt="Scientific Visit">
+        <div class="card-body"><h3>Scientific Visit</h3><p>An exploration guided by an expert botanist, ideal for researchers, students, and science enthusiasts.</p></div>
+      </div>
+      <div class="card">
+        <img src="{{ 'images/impliquer/visite-phytotherapie.jpg' | relative_url }}" alt="Phytotherapy">
+        <div class="card-body"><h3>Phytotherapy</h3><p>Discover the virtues of plants. A journey to understand natural remedies and traditional medicine.</p></div>
+      </div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Book a visit</h3>
+      <form name="reservation-visite" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>First Name</label><input type="text" name="prenom" class="form-control" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="telephone" class="form-control" required></div>
+          <div class="form-group"><label>Preferred date</label><input type="date" name="date" class="form-control" required></div>
+          <div class="form-group">
+            <label>Type of visit</label>
+            <select name="type_visite" class="form-control">
+              <option value="Simple">Simple Visit</option>
+              <option value="Scientific">Scientific Visit</option>
+              <option value="Phytotherapy">Phytotherapy</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Confirm booking</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="membership" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Why become a member?</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Joining the Botanical Garden means making a strong commitment to safeguarding Haiti's natural heritage. Your financial contribution allows us to maintain the collections and fund our researchers.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Student</h3><p>$25 / year</p></div></div>
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Individual</h3><p>$50 / year</p></div></div>
+      <div class="card"><div class="card-body" style="text-align:center;"><h3>Family</h3><p>$100 / year</p></div></div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Membership form</h3>
+      <form name="formulaire-adhesion" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>First Name</label><input type="text" name="prenom" class="form-control" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="telephone" class="form-control" required></div>
+          <div class="form-group full">
+            <label>Support level</label>
+            <select name="niveau" class="form-control">
+              <option value="Student">Student ($25/year)</option>
+              <option value="Individual">Individual ($50/year)</option>
+              <option value="Family">Family ($100/year)</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Join the Garden</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="evenement" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">An exceptional natural setting</h2>
+      <p style="max-width: 800px; margin: 0 auto;">Offer your guests a pure and inspiring environment. In our spaces, you can host majestic wedding celebrations, corporate symposiums, or spiritual retreats.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><img src="{{ 'images/impliquer/evenement-celebrations.jpg' | relative_url }}" alt="Celebrations"><div class="card-body"><h3>Celebrations & Weddings</h3><p>An unforgettable floral setting.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/evenement-ateliers.jpg' | relative_url }}" alt="Workshops"><div class="card-body"><h3>Workshops & Training</h3><p>Quiet spaces to learn.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/evenement-colloques.jpg' | relative_url }}" alt="Symposiums"><div class="card-body"><h3>Symposiums</h3><p>Ideal for institutional meetings.</p></div></div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Request a quote</h3>
+      <form name="devis-evenement" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>First / Last Name</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Email or Phone</label><input type="text" name="contact" class="form-control" required></div>
+          <div class="form-group"><label>Planned date</label><input type="date" name="date" class="form-control" required></div>
+          <div class="form-group">
+            <label>Type of event</label>
+            <select name="type" class="form-control">
+              <option value="Wedding">Wedding / Celebration</option>
+              <option value="Symposium">Symposium / Meeting</option>
+              <option value="Workshop">Educational workshop</option>
+            </select>
+          </div>
+          <div class="form-group full"><label>Details (Number of attendees…)</label><textarea name="details" class="form-control" rows="3"></textarea></div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Request quote</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="partenariat" class="page-section">
+    <div class="intro-box" style="margin-bottom: 40px; padding: 0;">
+      <h2 style="font-size: 2rem;">Let's work together</h2>
+      <p style="max-width: 800px; margin: 0 auto;">We develop highly technical programs: from ecological restoration to beekeeping, phytochemistry, and naturopathy training for doctors in Haiti. We are looking for partner institutions to extend our impact.</p>
+    </div>
+
+    <div class="grid-cards">
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-universites.jpg' | relative_url }}" alt="Universities"><div class="card-body"><h3>Universities</h3><p>Fundamental research & Science.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-institutions.jpg' | relative_url }}" alt="Institutions"><div class="card-body"><h3>Institutions & NGOs</h3><p>Conservation and public health programs.</p></div></div>
+      <div class="card"><img src="{{ 'images/impliquer/partenariat-experts.jpg' | relative_url }}" alt="Experts"><div class="card-body"><h3>International Experts</h3><p>Technical support (Phytochemistry, Naturopathy).</p></div></div>
+    </div>
+
+    <div class="form-box">
+      <h3 style="text-align: center; color: #2F5D2F; margin-bottom: 20px;">Propose a Collaboration</h3>
+      <form name="collaboration" data-jbc-form="true" action="#">
+        <div class="form-grid">
+          <div class="form-group"><label>Contact Name</label><input type="text" name="nom" class="form-control" required></div>
+          <div class="form-group"><label>Institution Name</label><input type="text" name="institution" class="form-control" required></div>
+          <div class="form-group"><label>Official Email</label><input type="email" name="email" class="form-control" required></div>
+          <div class="form-group"><label>Phone</label><input type="tel" name="telephone" class="form-control"></div>
+          <div class="form-group full"><label>Subject of partnership</label><textarea name="objet" class="form-control" rows="4" required></textarea></div>
+        </div>
+        <button type="submit" class="btn-action" style="width:100%; margin-top:10px;">Send proposal</button>
+      </form>
+    </div>
+  </section>
+
+</main>
 
 <script>
-  // Votre script existant reste inchangé
   function showSection(id, btn) {
     document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
     const targetSection = document.getElementById(id);
     if(targetSection) targetSection.classList.add('active');
     window.scrollTo({ top: 400, behavior: 'smooth' });
     document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
-    if(btn) btn.classList.add('active');
+    if(btn) {
+      btn.classList.add('active');
+    } else {
+      document.querySelectorAll('.sub-btn').forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(id)) {
+          b.classList.add('active');
+        }
+      });
+    }
   }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if(window.location.hash) {
+      const targetId = window.location.hash.substring(1);
+      if(document.getElementById(targetId)) {
+        showSection(targetId, null);
+      }
+    }
+  });
 </script>
 
 {% include form-handler.html %}
