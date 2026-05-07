@@ -1,21 +1,13 @@
 {% comment %}
   _includes/form-handler.html
-  Intégration Google Apps Script pour tous les formulaires JBC.
-  Gère : stockage Google Sheets + email merci (soumetteur) + email notification (JBC).
-  Usage : inclure en bas de chaque page contenant des formulaires JBC.
+  Intégration Google Apps Script pour les formulaires du site JBC.
+  Capture automatique des forms avec attribut data-jbc-form="true".
 {% endcomment %}
 <script>
 (function(){
-  /**
-   * URL du Google Apps Script déployé (Web App).
-   * Remplacer par l'URL obtenue après déploiement du script.
-   * Voir : GOOGLE-APPS-SCRIPT-INSTRUCTIONS.md dans le repo.
-   */
-  const GAS_URL = "REMPLACER_PAR_VOTRE_URL_APPS_SCRIPT";
+  // URL Google Apps Script — Sheet "JBC-FORMULAIRES-SITE"
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbyOp_CmP5pWY-U04hjxvt6gITkW4PjXgnWRUm0hVfF3FGsbJ9kUYKw1Tk2NvsId39g/exec";
 
-  /**
-   * Attache le gestionnaire à tous les formulaires ayant data-jbc-form="true"
-   */
   function initJBCForms() {
     document.querySelectorAll('form[data-jbc-form]').forEach(function(form) {
       form.addEventListener('submit', function(e) {
@@ -30,33 +22,35 @@
     const originalText = submitBtn ? submitBtn.textContent : '';
     const formName = form.getAttribute('name') || 'formulaire';
 
-    // Feedback visuel
+    // Validation : email OU téléphone
+    const emailField = form.querySelector('input[name="email"]');
+    const phoneField = form.querySelector('input[name="telephone"]');
+    if (emailField && phoneField && !emailField.value.trim() && !phoneField.value.trim()) {
+      alert('⚠️ Merci de renseigner au moins un email ou un téléphone.');
+      (emailField || phoneField).focus();
+      return;
+    }
+
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = '⏳ Envoi en cours…';
     }
 
-    // Collecter les données
-    const data = {};
+    const data = { 'form-name': formName };
     new FormData(form).forEach(function(v, k) { data[k] = v; });
     data['_form_name'] = formName;
     data['_timestamp'] = new Date().toISOString();
     data['_page'] = window.location.pathname;
+    data['page'] = window.location.pathname;
 
-    // Envoyer au Google Apps Script
     fetch(GAS_URL, {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
-    .then(function() {
-      showSuccess(form, formName);
-    })
-    .catch(function() {
-      // no-cors retourne toujours "opaque" — considérer comme succès
-      showSuccess(form, formName);
-    })
+    .then(function() { showSuccess(form, formName); })
+    .catch(function() { showSuccess(form, formName); })
     .finally(function() {
       if (submitBtn) {
         submitBtn.disabled = false;
@@ -69,15 +63,40 @@
     form.style.display = 'none';
     const msg = document.createElement('div');
     msg.className = 'jbc-success-msg';
+
+    let title = 'Message envoyé !';
+    let body = 'Merci pour votre message. Nous vous répondrons sous <strong>48 heures</strong>.<br>Un email de confirmation vous a été envoyé.';
+
+    if (formName.indexOf('adhesion') !== -1) {
+      title = 'Bienvenue parmi les Membres !';
+      body = 'Votre demande d\'adhésion est bien reçue. Nous reviendrons vers vous très prochainement.';
+    } else if (formName.indexOf('visite') !== -1) {
+      title = 'Demande de visite reçue !';
+      body = 'Notre équipe vous contactera pour confirmer votre visite.';
+    } else if (formName.indexOf('evenement') !== -1) {
+      title = 'Demande de devis reçue !';
+      body = 'Vous recevrez votre devis personnalisé sous 48 heures.';
+    } else if (formName.indexOf('collaboration') !== -1) {
+      title = 'Proposition reçue !';
+      body = 'Merci pour votre proposition de partenariat. Nous l\'étudierons et vous répondrons rapidement.';
+    } else if (formName.indexOf('telechargements') !== -1) {
+      title = 'Demande reçue !';
+      body = 'Vos ressources vous seront envoyées par email sous peu.';
+    }
+
     msg.innerHTML =
-      '<div style="text-align:center;padding:30px 20px;">' +
+      '<div style="text-align:center;padding:30px 20px;background:#f4f7f2;border:2px solid #2F5D2F;border-radius:12px;">' +
       '<div style="font-size:3rem;margin-bottom:12px;">✅</div>' +
-      '<h3 style="color:#2F5D2F;margin-bottom:10px;">Message envoyé !</h3>' +
-      '<p style="color:#555;line-height:1.7;">Merci pour votre message. Nous vous répondrons dans les <strong>24 heures</strong>.<br>Un email de confirmation vous a été envoyé.</p>' +
+      '<h3 style="color:#2F5D2F;margin-bottom:10px;">' + title + '</h3>' +
+      '<p style="color:#555;line-height:1.7;">' + body + '</p>' +
       '</div>';
     form.parentNode.insertBefore(msg, form.nextSibling);
   }
 
-  document.addEventListener('DOMContentLoaded', initJBCForms);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initJBCForms);
+  } else {
+    initJBCForms();
+  }
 })();
 </script>
