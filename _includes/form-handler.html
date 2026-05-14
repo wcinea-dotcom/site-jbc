@@ -2,14 +2,60 @@
   _includes/form-handler.html
   Intégration Google Apps Script pour les formulaires du site JBC.
   Capture automatique des forms avec attribut data-jbc-form="true".
+
+  Protections anti-bot (n'affectent QUE les forms data-jbc-form,
+  donc la pétition Netlify n'est pas touchée) :
+  - Honeypot (champ caché invisible auto-injecté)
+  - Délai minimum 3s entre chargement et soumission
+  - Anti-double-submit (par form, par page)
+  - Détection heuristique de chaînes aléatoires (prenom/nom/message)
 {% endcomment %}
 <script>
 (function(){
   // URL Google Apps Script — Sheet "DATABASE-SITE-JBC"
   const GAS_URL = "https://script.google.com/macros/s/AKfycbxevzbblydL8gipbSy8ZLRvJAP2j7OHPoDL4_kCjslVjoLBZyXpEW63bHv6d8t32HY/exec";
 
+  const MIN_FILL_TIME_MS = 3000;
+  const HONEYPOT_NAME = 'website_url';
+
+  // Heuristique : détecte une chaîne aléatoire générée par bot
+  function isLikelyBotString(value) {
+    if (!value) return false;
+    var v = String(value).trim();
+    if (v.length < 10) return false;
+    if (v.indexOf(' ') !== -1) return false;  // a un espace = probablement humain
+    var letters = (v.match(/[a-zA-Z]/g) || []).length;
+    if (letters === 0) return false;
+    // Ratio voyelles très bas = aléatoire
+    var vowels = (v.match(/[aeiouyAEIOUY]/g) || []).length;
+    if ((vowels / letters) < 0.18) return true;
+    // Alternance maj/min répétée = aléatoire (ex: "DYNgDqneHsGeaykHxQJEzR")
+    var caseChanges = 0;
+    for (var i = 1; i < v.length; i++) {
+      var prev = v.charCodeAt(i-1);
+      var curr = v.charCodeAt(i);
+      var prevLower = prev >= 97 && prev <= 122;
+      var currUpper = curr >= 65 && curr <= 90;
+      if (prevLower && currUpper) caseChanges++;
+    }
+    if (caseChanges >= 3) return true;
+    return false;
+  }
+
+  function injectHoneypot(form) {
+    if (form.querySelector('input[name="' + HONEYPOT_NAME + '"]')) return;
+    var wrap = document.createElement('div');
+    wrap.setAttribute('aria-hidden', 'true');
+    wrap.style.cssText = 'position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;';
+    wrap.innerHTML = '<label>Ne pas remplir ce champ <input type="text" name="' + HONEYPOT_NAME + '" tabindex="-1" autocomplete="off"></label>';
+    form.appendChild(wrap);
+  }
+
   function initJBCForms() {
     document.querySelectorAll('form[data-jbc-form]').forEach(function(form) {
+      injectHoneypot(form);
+      form.dataset.jbcLoadedAt = Date.now();
+      form.dataset.jbcSubmitted = '0';
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         submitJBCForm(form);
@@ -17,12 +63,46 @@
     });
   }
 
+  function silentDrop(form, formName) {
+    // Pour les bots : on simule un succès pour ne pas leur révéler la protection
+    form.dataset.jbcSubmitted = '1';
+    showSuccess(form, formName);
+  }
+
   function submitJBCForm(form) {
     const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
     const originalText = submitBtn ? submitBtn.textContent : '';
     const formName = form.getAttribute('name') || 'formulaire';
 
-    // Validation : email OU téléphone
+    // 1. Anti-double-submit
+    if (form.dataset.jbcSubmitted === '1') return;
+
+    // 2. Honeypot rempli → bot
+    var hp = form.querySelector('input[name="' + HONEYPOT_NAME + '"]');
+    if (hp && hp.value.trim() !== '') {
+      silentDrop(form, formName);
+      return;
+    }
+
+    // 3. Délai minimum (bot trop rapide)
+    var loadedAt = parseInt(form.dataset.jbcLoadedAt || '0', 10);
+    var elapsed = Date.now() - loadedAt;
+    if (elapsed < MIN_FILL_TIME_MS) {
+      silentDrop(form, formName);
+      return;
+    }
+
+    // 4. Détection chaînes aléatoires
+    var suspectFields = ['prenom', 'nom', 'name', 'message', 'sujet'];
+    for (var i = 0; i < suspectFields.length; i++) {
+      var fld = form.querySelector('input[name="' + suspectFields[i] + '"], textarea[name="' + suspectFields[i] + '"]');
+      if (fld && isLikelyBotString(fld.value)) {
+        silentDrop(form, formName);
+        return;
+      }
+    }
+
+    // Validation utilisateur : email OU téléphone
     const emailField = form.querySelector('input[name="email"]');
     const phoneField = form.querySelector('input[name="telephone"]');
     if (emailField && phoneField && !emailField.value.trim() && !phoneField.value.trim()) {
@@ -31,17 +111,23 @@
       return;
     }
 
+    form.dataset.jbcSubmitted = '1';
+
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.textContent = '⏳ Envoi en cours…';
     }
 
     const data = { 'form-name': formName };
-    new FormData(form).forEach(function(v, k) { data[k] = v; });
+    new FormData(form).forEach(function(v, k) {
+      if (k === HONEYPOT_NAME) return;  // ne pas envoyer le honeypot
+      data[k] = v;
+    });
     data['_form_name'] = formName;
     data['_timestamp'] = new Date().toISOString();
     data['_page'] = window.location.pathname;
     data['page'] = window.location.pathname;
+    data['_fill_time_ms'] = elapsed;
 
     fetch(GAS_URL, {
       method: 'POST',
