@@ -122,6 +122,16 @@ image: /images/sos-petition/merci-hero.jpg
         <strong>Ekip Jaden Botanik Okay</strong>
       </div>
 
+      <!-- KONTÈ LIVE — menm sous ak petisyon an (Google Apps Script) -->
+      <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));border-radius:16px;padding:30px 24px;max-width:480px;margin:46px auto 0;box-shadow:0 14px 36px rgba(15,90,46,.3);color:#fff;text-align:center;">
+        <div id="sig-count" style="font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--or);line-height:1;">0</div>
+        <div style="font-size:1.1rem;opacity:.92;margin:6px 0 4px;">siyati sou <strong style="color:var(--or);">5 000</strong></div>
+        <div style="background:rgba(255,255,255,.18);border-radius:50px;height:12px;margin:14px 0 10px;overflow:hidden;">
+          <div id="sig-bar" style="background:var(--or);height:100%;border-radius:50px;width:0%;transition:width 1s ease;"></div>
+        </div>
+        <div id="sig-rem" style="font-size:.9rem;background:rgba(255,255,255,.13);padding:7px 15px;border-radius:50px;display:inline-block;">Ap chaje…</div>
+      </div>
+
       <!-- FÒMILÈ SIYATI — idantik ak petisyon an -->
       <h2 class="tv"><i class="fas fa-signature"></i> Siyati w konte</h2>
       <p style="text-align:center;color:#666;margin-bottom:28px;">Kit ou se <strong>etidyan, elèv, pwofesyonèl oswa senpleman yon moun ki renmen lanati</strong>, vwa w konte pou sove patrimwàn nou an.</p>
@@ -190,7 +200,10 @@ image: /images/sos-petition/merci-hero.jpg
       }).catch(done);
     });
   }
-  function init(){document.querySelectorAll('#merci-page .num[data-count]').forEach(animateCount);animateBars();geoFill();initSign();}
+  var _SCRIPT_URL='https://script.google.com/macros/s/AKfycbzXdDw12efpXHz9NpCoiJ5ERmbVU9lW7vJyWLNcWhFFeY6oHfCBNQWprhZrl0YnjEk/exec',_T=5000;
+  function _upd(n){var el=document.getElementById('sig-count'),bar=document.getElementById('sig-bar'),rem=document.getElementById('sig-rem');if(!el)return;el.textContent=n.toLocaleString('fr-FR');if(bar)bar.style.width=Math.min((n/_T)*100,100).toFixed(1)+'%';if(rem){var r=_T-n;rem.textContent=r>0?r.toLocaleString('fr-FR')+' siyati ki manke':'🎉 Objektif atenn!';}}
+  function _refresh(){fetch(_SCRIPT_URL+'?t='+Date.now()).then(function(r){return r.json();}).then(function(d){if(d&&typeof d.total==='number')_upd(d.total);}).catch(function(){var rem=document.getElementById('sig-rem');if(rem)rem.textContent='3 602+ siyati';});}
+  function init(){document.querySelectorAll('#merci-page .num[data-count]').forEach(animateCount);animateBars();geoFill();initSign();_refresh();setInterval(_refresh,30000);}
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
 </script>
