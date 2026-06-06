@@ -37,7 +37,7 @@ image: /images/sos-petition/merci-hero.jpg
   #merci-page .pays-row{display:flex;align-items:center;gap:14px;margin-bottom:16px;font-size:15px}
   #merci-page .pays-name{width:150px;flex-shrink:0;color:var(--texte);font-size:15.5px}
   #merci-page .bar-bg{flex:1;background:#e7efe9;border-radius:20px;height:26px;overflow:hidden}
-  #merci-page .bar{height:100%;background:linear-gradient(90deg,var(--vert-fonce),var(--vert-clair));border-radius:20px;width:0;transition:width 1.4s cubic-bezier(.22,1,.36,1)}
+  #merci-page .bar{height:100%;background:linear-gradient(90deg,var(--vert-fonce),var(--vert-clair));border-radius:20px;width:0;min-width:7px;transition:width 1.4s cubic-bezier(.22,1,.36,1)}
   #merci-page .pays-count{width:120px;text-align:right;color:var(--gris);flex-shrink:0;font-size:14.5px}
   #merci-page .pays-count b{color:var(--vert-fonce)}
   #merci-page .quote{background:var(--vert-pale);border-left:4px solid var(--vert);padding:22px 26px;border-radius:0 12px 12px 0;font-style:italic;color:var(--vert-fonce);margin:32px 0;font-size:19px}
@@ -90,19 +90,19 @@ image: /images/sos-petition/merci-hero.jpg
 
       <h2>Peyi ki pi mobilize yo</h2>
       <div class="pays">
-        <div class="pays-row"><span class="pays-name">&#127482;&#127480; Etazini</span><span class="bar-bg"><span class="bar" data-w="100"></span></span><span class="pays-count"><b>1 416</b> &middot; 39,3%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127469;&#127481; Ayiti</span><span class="bar-bg"><span class="bar" data-w="98.4"></span></span><span class="pays-count"><b>1 394</b> &middot; 38,7%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127464;&#127462; Kanada</span><span class="bar-bg"><span class="bar" data-w="21.4"></span></span><span class="pays-count"><b>303</b> &middot; 8,4%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127467;&#127479; Frans</span><span class="bar-bg"><span class="bar" data-w="6.4"></span></span><span class="pays-count"><b>91</b> &middot; 2,5%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127465;&#127476; Rep. Dominikèn</span><span class="bar-bg"><span class="bar" data-w="2.7"></span></span><span class="pays-count"><b>38</b> &middot; 1,1%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127474;&#127485; Meksik</span><span class="bar-bg"><span class="bar" data-w="2.0"></span></span><span class="pays-count"><b>29</b> &middot; 0,8%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127465;&#127466; Almay</span><span class="bar-bg"><span class="bar" data-w="1.4"></span></span><span class="pays-count"><b>20</b> &middot; 0,6%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127463;&#127466; Bèljik</span><span class="bar-bg"><span class="bar" data-w="0.9"></span></span><span class="pays-count"><b>13</b> &middot; 0,4%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127475;&#127473; Peyiba</span><span class="bar-bg"><span class="bar" data-w="0.9"></span></span><span class="pays-count"><b>13</b> &middot; 0,4%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127463;&#127479; Brezil</span><span class="bar-bg"><span class="bar" data-w="0.85"></span></span><span class="pays-count"><b>12</b> &middot; 0,3%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127480;&#127466; Syèd</span><span class="bar-bg"><span class="bar" data-w="0.7"></span></span><span class="pays-count"><b>10</b> &middot; 0,3%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127480;&#127475; Senegal</span><span class="bar-bg"><span class="bar" data-w="0.57"></span></span><span class="pays-count"><b>8</b> &middot; 0,2%</span></div>
-        <div class="pays-row"><span class="pays-name">&#127758; Lòt (45 peyi)</span><span class="bar-bg"><span class="bar" data-w="18.0"></span></span><span class="pays-count"><b>255</b> &middot; 7,1%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127482;&#127480; Etazini</span><span class="bar-bg"><span class="bar" style="width:100%"></span></span><span class="pays-count"><b>1 416</b> &middot; 39,3%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127469;&#127481; Ayiti</span><span class="bar-bg"><span class="bar" style="width:98.4%"></span></span><span class="pays-count"><b>1 394</b> &middot; 38,7%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127464;&#127462; Kanada</span><span class="bar-bg"><span class="bar" style="width:21.4%"></span></span><span class="pays-count"><b>303</b> &middot; 8,4%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127467;&#127479; Frans</span><span class="bar-bg"><span class="bar" style="width:6.4%"></span></span><span class="pays-count"><b>91</b> &middot; 2,5%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127465;&#127476; Rep. Dominikèn</span><span class="bar-bg"><span class="bar" style="width:2.7%"></span></span><span class="pays-count"><b>38</b> &middot; 1,1%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127474;&#127485; Meksik</span><span class="bar-bg"><span class="bar" style="width:2%"></span></span><span class="pays-count"><b>29</b> &middot; 0,8%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127465;&#127466; Almay</span><span class="bar-bg"><span class="bar" style="width:1.4%"></span></span><span class="pays-count"><b>20</b> &middot; 0,6%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127463;&#127466; Bèljik</span><span class="bar-bg"><span class="bar" style="width:0.9%"></span></span><span class="pays-count"><b>13</b> &middot; 0,4%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127475;&#127473; Peyiba</span><span class="bar-bg"><span class="bar" style="width:0.9%"></span></span><span class="pays-count"><b>13</b> &middot; 0,4%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127463;&#127479; Brezil</span><span class="bar-bg"><span class="bar" style="width:0.85%"></span></span><span class="pays-count"><b>12</b> &middot; 0,3%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127480;&#127466; Syèd</span><span class="bar-bg"><span class="bar" style="width:0.7%"></span></span><span class="pays-count"><b>10</b> &middot; 0,3%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127480;&#127475; Senegal</span><span class="bar-bg"><span class="bar" style="width:0.57%"></span></span><span class="pays-count"><b>8</b> &middot; 0,2%</span></div>
+        <div class="pays-row"><span class="pays-name">&#127758; Lòt (45 peyi)</span><span class="bar-bg"><span class="bar" style="width:18%"></span></span><span class="pays-count"><b>255</b> &middot; 7,1%</span></div>
       </div>
       <p>Yon gwo mèsi a tout moun ki siyen depi <strong>Etazini, Ayiti, Kanada, Frans, Repiblik Dominikèn</strong> ak plizyè douzèn lòt peyi ki vin jwenn nan eslan kolektif sa a.</p>
 
