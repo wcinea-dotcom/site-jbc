@@ -14,6 +14,45 @@
   JEKYLL_ENV   = "production"
   RUBY_VERSION = "3.4"
 
+# =========================================================
+#  PÉTITION → page « Merci » (Phase 2)
+#  Quiconque ouvre l'ancien lien de la pétition est redirigé
+#  vers /merci (où il peut signer — même formulaire Netlify).
+#  Le fichier de la pétition n'est PAS modifié — RÉVERSIBLE
+#  (il suffit de supprimer ce bloc).
+#  force = true => la redirection l'emporte sur le fichier existant.
+# =========================================================
+[[redirects]]
+  from   = "/sos-petition-fr"
+  to     = "/merci"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "/sos-petition-fr.html"
+  to     = "/merci"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "/en/sos-petition-en"
+  to     = "/en/merci"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "/en/sos-petition-en.html"
+  to     = "/en/merci"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "/ht/sos-petition-ht"
+  to     = "/ht/merci"
+  status = 301
+  force  = true
+[[redirects]]
+  from   = "/ht/sos-petition-ht.html"
+  to     = "/ht/merci"
+  status = 301
+  force  = true
+
 # Redirect bare domain to www (optional — remove if not needed)
 # [[redirects]]
 #   from   = "https://www.jardinbotaniquecayeshaiti.org/*"
