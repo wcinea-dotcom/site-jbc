@@ -180,9 +180,14 @@ image: /images/sos-petition/merci-hero.jpg
       var email=(form.querySelector('[name="email"]').value||'').trim();
       var tel=(form.querySelector('[name="telephone"]').value||'').trim();
       if(!email && !tel){alert("Tanpri mete omwen yon imèl oswa yon telefòn.");return;}
-      var body=new URLSearchParams(new FormData(form)).toString();
+      var data=new URLSearchParams(new FormData(form));
       function done(){form.style.display='none';document.getElementById('merciOk').style.display='block';}
-      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(done).catch(done);
+      // PRIMÈ : Netlify (sous verite)
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data.toString()}).then(function(){
+        // SEKONDÈ : menm Google Apps Script ak petisyon an (Sheet + imèl)
+        try{fetch('https://script.google.com/macros/s/AKfycbzXdDw12efpXHz9NpCoiJ5ERmbVU9lW7vJyWLNcWhFFeY6oHfCBNQWprhZrl0YnjEk/exec',{method:'POST',mode:'no-cors',body:data}).catch(function(){});}catch(_){}
+        done();
+      }).catch(done);
     });
   }
   function init(){document.querySelectorAll('#merci-page .num[data-count]').forEach(animateCount);animateBars();geoFill();initSign();}
