@@ -14,6 +14,43 @@
   JEKYLL_ENV   = "production"
   RUBY_VERSION = "3.4"
 
+# =========================================================
+#  PÉTITION → page « Merci » (Phase 2)
+#  La pétition s'est terminée le 5 juin. L'ancien lien partagé
+#  redirige vers /merci (où l'on peut toujours signer — même
+#  formulaire/Sheet). Fichier de pétition non modifié, RÉVERSIBLE.
+# =========================================================
+[[redirects]]
+  from = "/sos-petition-fr"
+  to = "/merci"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/sos-petition-fr.html"
+  to = "/merci"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/sos-petition-en"
+  to = "/en/merci"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/sos-petition-en.html"
+  to = "/en/merci"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/ht/sos-petition-ht"
+  to = "/ht/merci"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/ht/sos-petition-ht.html"
+  to = "/ht/merci"
+  status = 301
+  force = true
+
 # Redirect bare domain to www (optional — remove if not needed)
 # [[redirects]]
 #   from   = "https://www.jardinbotaniquecayeshaiti.org/*"
