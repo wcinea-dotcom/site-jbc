@@ -119,11 +119,33 @@
         <strong>The Cayes Botanical Garden Team</strong>
       </div>
 
-      <!-- ============ SIGN — keep the mobilization going (Phase 2) ============ -->
-      <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));color:#fff;border-radius:16px;padding:36px 28px;text-align:center;margin:36px 0 6px;">
-        <h2 style="color:#fff;border:none;padding:0;margin:0 0 10px;font-size:24px;">✍️ Keep the mobilization going</h2>
-        <p style="color:rgba(255,255,255,.92);max-width:520px;margin:0 auto 22px;">The petition stays open. Every signature counts until the Cayes Botanical Garden reopens.</p>
-        <a href="/en/sos-petition-en#formulaire" style="display:inline-block;padding:16px 40px;background:var(--or);color:#fff;border-radius:30px;font-size:18px;font-weight:bold;text-decoration:none;">Sign the petition →</a>
+      <!-- ============ SIGNATURE FORM — Phase 2 (same Netlify form as the petition) ============ -->
+      <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));color:#fff;border-radius:16px;padding:40px 28px;margin:40px 0 6px;">
+        <h2 style="color:#fff;border:none;padding:0;margin:0 0 6px;font-size:26px;text-align:center;">✍️ Sign the petition</h2>
+        <p style="color:rgba(255,255,255,.92);text-align:center;max-width:520px;margin:0 auto 24px;">The petition continues until the garden reopens. Add your voice:</p>
+
+        <form name="petition-signatures-en" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="merciForm" style="max-width:560px;margin:0 auto;">
+          <input type="hidden" name="form-name" value="petition-signatures-en">
+          <input type="hidden" name="langue" value="en">
+          <input type="hidden" name="pays" id="mPays" value="">
+          <input type="hidden" name="ville" id="mVille" value="">
+          <input type="hidden" name="code_pays" id="mCode" value="">
+          <p style="display:none;"><label>Do not fill <input name="bot-field"></label></p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <input type="text" name="prenom" placeholder="First name *" required style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;">
+            <input type="text" name="nom" placeholder="Last name *" required style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;">
+          </div>
+          <input type="email" name="email" placeholder="Email" style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;margin-bottom:12px;">
+          <input type="tel" name="telephone" placeholder="Phone" style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;margin-bottom:12px;">
+          <input type="text" name="profession" placeholder="Profession (optional)" style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;margin-bottom:8px;">
+          <p style="font-size:13px;color:rgba(255,255,255,.85);margin:4px 0 16px;text-align:center;">&#8505;&#65039; Please provide at least an email or a phone number.</p>
+          <button type="submit" style="width:100%;padding:16px;background:var(--or);color:#fff;border:none;border-radius:12px;font-size:18px;font-weight:bold;font-family:inherit;cursor:pointer;">&#9989; I SIGN — SAVE THE GARDEN</button>
+        </form>
+        <div id="merciOk" style="display:none;text-align:center;padding:14px;">
+          <div style="font-size:50px;">&#9989;</div>
+          <h3 style="color:#fff;font-weight:normal;font-size:24px;margin:6px 0;">Thank you, your signature has been recorded!</h3>
+          <p style="color:rgba(255,255,255,.9);margin:0;">Share the petition to keep the mobilization going.</p>
+        </div>
       </div>
 
     </div>
@@ -148,7 +170,21 @@
     requestAnimationFrame(step);
   }
   function animateBars(){document.querySelectorAll('.bar').forEach(function(b){var w=b.getAttribute('data-w');setTimeout(function(){b.style.width=w+'%';},200);});}
-  function init(){document.querySelectorAll('.num[data-count]').forEach(animateCount);animateBars();}
+  function setVal(id,v){var el=document.getElementById(id);if(el&&v)el.value=v;}
+  function geoFill(){fetch('https://ipwho.is/').then(function(r){return r.json();}).then(function(d){if(d&&d.success){setVal('mPays',d.country);setVal('mVille',d.city);setVal('mCode',d.country_code);}}).catch(function(){});}
+  function initSign(){
+    var form=document.getElementById('merciForm');if(!form)return;
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=(form.querySelector('[name="email"]').value||'').trim();
+      var tel=(form.querySelector('[name="telephone"]').value||'').trim();
+      if(!email && !tel){alert("Please provide at least an email or a phone number.");return;}
+      var body=new URLSearchParams(new FormData(form)).toString();
+      function done(){form.style.display='none';document.getElementById('merciOk').style.display='block';}
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(done).catch(done);
+    });
+  }
+  function init(){document.querySelectorAll('.num[data-count]').forEach(animateCount);animateBars();geoFill();initSign();}
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
 </script>

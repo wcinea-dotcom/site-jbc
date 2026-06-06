@@ -119,11 +119,33 @@
         <strong>Ekip Jaden Botanik Okay</strong>
       </div>
 
-      <!-- ============ SIYEN — kontinye mobilizasyon an (Faz 2) ============ -->
-      <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));color:#fff;border-radius:16px;padding:36px 28px;text-align:center;margin:36px 0 6px;">
-        <h2 style="color:#fff;border:none;padding:0;margin:0 0 10px;font-size:24px;">✍️ Kontinye mobilizasyon an</h2>
-        <p style="color:rgba(255,255,255,.92);max-width:520px;margin:0 auto 22px;">Petisyon an rete ouvè. Chak siyati konte jiskaske Jaden Botanik Okay rouvri.</p>
-        <a href="/ht/sos-petition-ht#formulaire" style="display:inline-block;padding:16px 40px;background:var(--or);color:#fff;border-radius:30px;font-size:18px;font-weight:bold;text-decoration:none;">Siyen petisyon an →</a>
+      <!-- ============ FÒMILÈ SIYATI — Faz 2 (menm fòm Netlify ak petisyon an) ============ -->
+      <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));color:#fff;border-radius:16px;padding:40px 28px;margin:40px 0 6px;">
+        <h2 style="color:#fff;border:none;padding:0;margin:0 0 6px;font-size:26px;text-align:center;">✍️ Siyen petisyon an</h2>
+        <p style="color:rgba(255,255,255,.92);text-align:center;max-width:520px;margin:0 auto 24px;">Petisyon an kontinye jiskaske jaden an rouvri. Mete vwa w&nbsp;:</p>
+
+        <form name="petition-signatures-ht" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="merciForm" style="max-width:560px;margin:0 auto;">
+          <input type="hidden" name="form-name" value="petition-signatures-ht">
+          <input type="hidden" name="langue" value="ht">
+          <input type="hidden" name="pays" id="mPays" value="">
+          <input type="hidden" name="ville" id="mVille" value="">
+          <input type="hidden" name="code_pays" id="mCode" value="">
+          <p style="display:none;"><label>Pa ranpli <input name="bot-field"></label></p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <input type="text" name="prenom" placeholder="Prenon *" required style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;">
+            <input type="text" name="nom" placeholder="Non *" required style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;">
+          </div>
+          <input type="email" name="email" placeholder="Imèl" style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;margin-bottom:12px;">
+          <input type="tel" name="telephone" placeholder="Telefòn" style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;margin-bottom:12px;">
+          <input type="text" name="profession" placeholder="Pwofesyon (opsyonèl)" style="padding:14px 16px;border:none;border-radius:12px;font-size:16px;font-family:inherit;width:100%;margin-bottom:8px;">
+          <p style="font-size:13px;color:rgba(255,255,255,.85);margin:4px 0 16px;text-align:center;">&#8505;&#65039; Mete omwen yon imèl oswa yon telefòn.</p>
+          <button type="submit" style="width:100%;padding:16px;background:var(--or);color:#fff;border:none;border-radius:12px;font-size:18px;font-weight:bold;font-family:inherit;cursor:pointer;">&#9989; MWEN SIYEN — ANN SOVE JADEN AN</button>
+        </form>
+        <div id="merciOk" style="display:none;text-align:center;padding:14px;">
+          <div style="font-size:50px;">&#9989;</div>
+          <h3 style="color:#fff;font-weight:normal;font-size:24px;margin:6px 0;">Mèsi, siyati w anrejistre&nbsp;!</h3>
+          <p style="color:rgba(255,255,255,.9);margin:0;">Pataje petisyon an pou mobilizasyon an kontinye.</p>
+        </div>
       </div>
 
     </div>
@@ -148,7 +170,21 @@
     requestAnimationFrame(step);
   }
   function animateBars(){document.querySelectorAll('.bar').forEach(function(b){var w=b.getAttribute('data-w');setTimeout(function(){b.style.width=w+'%';},200);});}
-  function init(){document.querySelectorAll('.num[data-count]').forEach(animateCount);animateBars();}
+  function setVal(id,v){var el=document.getElementById(id);if(el&&v)el.value=v;}
+  function geoFill(){fetch('https://ipwho.is/').then(function(r){return r.json();}).then(function(d){if(d&&d.success){setVal('mPays',d.country);setVal('mVille',d.city);setVal('mCode',d.country_code);}}).catch(function(){});}
+  function initSign(){
+    var form=document.getElementById('merciForm');if(!form)return;
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=(form.querySelector('[name="email"]').value||'').trim();
+      var tel=(form.querySelector('[name="telephone"]').value||'').trim();
+      if(!email && !tel){alert("Tanpri mete omwen yon imèl oswa yon telefòn.");return;}
+      var body=new URLSearchParams(new FormData(form)).toString();
+      function done(){form.style.display='none';document.getElementById('merciOk').style.display='block';}
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).then(done).catch(done);
+    });
+  }
+  function init(){document.querySelectorAll('.num[data-count]').forEach(animateCount);animateBars();geoFill();initSign();}
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
 </script>
