@@ -67,9 +67,6 @@ image: /images/sos-petition/merci-hero.jpg
     <div style="position:relative;margin-top:28px;">
       <a href="#merciForm" style="display:inline-block;padding:16px 44px;background:var(--or);color:#fff;border-radius:30px;font-size:18px;font-weight:bold;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.32);">&#9997;&#65039; Signer la pétition</a>
     </div>
-    <div style="position:relative;margin-top:18px;">
-      <span style="display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);padding:8px 18px;border-radius:30px;font-size:13.5px;">🔒 Jardin fermé depuis le 23 juillet 2025 — <b id="closed-timer">…</b> — jusqu'à sa réouverture</span>
-    </div>
   </header>
 
   <div class="wrap">
@@ -126,10 +123,16 @@ image: /images/sos-petition/merci-hero.jpg
         <strong>L'équipe du Jardin Botanique des Cayes</strong>
       </div>
 
-      <!-- COMPTEUR LIVE de signatures (Google Apps Script) -->
+      <!-- BOÎTE 1 : compteur de signatures -->
       <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));border-radius:16px;padding:32px 24px;max-width:480px;margin:46px auto 0;box-shadow:0 14px 36px rgba(15,90,46,.3);color:#fff;text-align:center;">
         <div id="sig-count" style="font-family:'Playfair Display',serif;font-size:4.4rem;font-weight:900;color:var(--or);line-height:1;">3&nbsp;625</div>
-        <div style="font-size:1.2rem;opacity:.95;margin:8px 0 14px;letter-spacing:.5px;">signatures</div>
+        <div style="font-size:1.2rem;opacity:.95;margin-top:8px;letter-spacing:.5px;">signatures</div>
+      </div>
+
+      <!-- BOÎTE 2 : jours depuis la fermeture du jardin -->
+      <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));border-radius:16px;padding:30px 24px;max-width:480px;margin:20px auto 0;box-shadow:0 14px 36px rgba(15,90,46,.3);color:#fff;text-align:center;">
+        <div id="closed-timer" style="font-family:'Playfair Display',serif;font-size:3rem;font-weight:900;color:var(--or);line-height:1.15;">…</div>
+        <div style="font-size:1.02rem;opacity:.95;margin:8px 0 14px;">depuis la fermeture du jardin <span style="opacity:.85;">(23 juillet 2025)</span></div>
         <div style="font-size:.95rem;background:rgba(255,255,255,.13);padding:8px 18px;border-radius:50px;display:inline-block;">🌱 La mobilisation continue jusqu'à la réouverture du jardin</div>
       </div>
 
