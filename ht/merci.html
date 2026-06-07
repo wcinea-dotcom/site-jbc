@@ -67,6 +67,9 @@ image: /images/sos-petition/merci-hero.jpg
     <div style="position:relative;margin-top:28px;">
       <a href="#merciForm" style="display:inline-block;padding:16px 44px;background:var(--or);color:#fff;border-radius:30px;font-size:18px;font-weight:bold;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.32);">&#9997;&#65039; Siyen petisyon an</a>
     </div>
+    <div style="position:relative;margin-top:18px;">
+      <span style="display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.34);padding:8px 18px;border-radius:30px;font-size:13.5px;">🔒 Jaden fèmen depi 23 jiyè 2025 — <b id="closed-timer">…</b> — jiskaske li rouvri</span>
+    </div>
   </header>
 
   <div class="wrap">
@@ -122,11 +125,11 @@ image: /images/sos-petition/merci-hero.jpg
         <strong>Ekip Jaden Botanik Okay</strong>
       </div>
 
-      <!-- KRONOMÈT: tan depi jaden an fèmen (23 jiyè 2025) -->
-      <div style="background:linear-gradient(135deg,#922b21,#c0392b);border-radius:16px;padding:32px 24px;max-width:560px;margin:46px auto 0;box-shadow:0 14px 36px rgba(192,57,43,.3);color:#fff;text-align:center;">
-        <div style="font-size:1rem;opacity:.95;margin-bottom:12px;">🔒 Jaden Botanik Okay fèmen depi <strong>23 jiyè 2025</strong></div>
-        <div id="closed-timer" style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:900;line-height:1.4;">…</div>
-        <div style="font-size:1rem;opacity:.92;margin-top:12px;">Chak jou konte — mobilizasyon an kontinye jiskaske li rouvri.</div>
+      <!-- KONTÈ LIVE siyati (Google Apps Script) -->
+      <div style="background:linear-gradient(135deg,var(--vert-fonce),var(--vert));border-radius:16px;padding:32px 24px;max-width:480px;margin:46px auto 0;box-shadow:0 14px 36px rgba(15,90,46,.3);color:#fff;text-align:center;">
+        <div id="sig-count" style="font-family:'Playfair Display',serif;font-size:4.4rem;font-weight:900;color:var(--or);line-height:1;">3 625</div>
+        <div style="font-size:1.2rem;opacity:.95;margin:8px 0 14px;letter-spacing:.5px;">siyati</div>
+        <div style="font-size:.95rem;background:rgba(255,255,255,.13);padding:8px 18px;border-radius:50px;display:inline-block;">🌱 Mobilizasyon an kontinye jiskaske jaden an rouvri</div>
       </div>
 
       <!-- FÒMILÈ SIYATI — idantik ak petisyon an -->
@@ -198,8 +201,10 @@ image: /images/sos-petition/merci-hero.jpg
     });
   }
   var _SCRIPT_URL='https://script.google.com/macros/s/AKfycbzXdDw12efpXHz9NpCoiJ5ERmbVU9lW7vJyWLNcWhFFeY6oHfCBNQWprhZrl0YnjEk/exec';
-  function _tick(){var s=new Date(2025,6,23,0,0,0),n=new Date();var mo=(n.getFullYear()-s.getFullYear())*12+(n.getMonth()-s.getMonth());var a=new Date(s);a.setMonth(s.getMonth()+mo);if(a>n){mo--;a=new Date(s);a.setMonth(s.getMonth()+mo);}var d=n-a,j=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),mi=Math.floor(d%36e5/6e4),se=Math.floor(d%6e4/1e3);var el=document.getElementById('closed-timer');if(el)el.innerHTML='<b>'+mo+'</b> mwa &middot; <b>'+j+'</b> jou &middot; <b>'+h+'</b> è &middot; <b>'+mi+'</b> min &middot; <b>'+se+'</b> s';}
-  function init(){document.querySelectorAll('#merci-page .num[data-count]').forEach(animateCount);animateBars();geoFill();initSign();_tick();setInterval(_tick,1000);}
+  function _upd(n){var el=document.getElementById('sig-count');if(el)el.textContent=n.toLocaleString('fr-FR');}
+  function _refresh(){fetch(_SCRIPT_URL+'?t='+Date.now()).then(function(r){return r.json();}).then(function(d){if(d&&typeof d.total==='number')_upd(d.total);}).catch(function(){});}
+  function _tick(){var s=new Date(2025,6,23),n=new Date();var mo=(n.getFullYear()-s.getFullYear())*12+(n.getMonth()-s.getMonth());var a=new Date(s);a.setMonth(s.getMonth()+mo);if(a>n){mo--;a=new Date(s);a.setMonth(s.getMonth()+mo);}var j=Math.floor((n-a)/864e5);var an=Math.floor(mo/12),ms=mo%12;var t=[];if(an>0)t.push(an+' an');t.push(ms+' mwa');t.push(j+' jou');var el=document.getElementById('closed-timer');if(el)el.innerHTML=t.join(' &middot; ');}
+  function init(){document.querySelectorAll('#merci-page .num[data-count]').forEach(animateCount);animateBars();geoFill();initSign();_refresh();setInterval(_refresh,30000);_tick();setInterval(_tick,60000);}
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
 </script>
