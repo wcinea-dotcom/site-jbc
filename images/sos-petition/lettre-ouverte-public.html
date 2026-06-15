@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lettre ouverte — Sauvons le Jardin Botanique des Cayes</title>
+<meta name="description" content="Lettre ouverte de la famille Gérard et du Jardin Botanique des Cayes au Premier Ministre Alix Didier Fils-Aimé et à son Gouvernement. Plus de 3 700 personnes ont signé la pétition.">
+<style>
+  :root{
+    --green:#1b5e3f;
+    --green-dark:#0d3322;
+    --gold:#c8a23c;
+    --red:#b3392b;
+    --paper:#fcfbf7;
+    --ink:#23291f;
+    --muted:#5f6a57;
+    --bg:#eef1ea;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Segoe UI',-apple-system,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px;}
+
+  /* Header */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(13,51,34,.96);backdrop-filter:blur(6px);color:#fff;}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .brand{font-weight:800;letter-spacing:.5px;font-size:1.02rem;}
+  .brand span{color:var(--gold);}
+  .nav nav{display:flex;gap:22px;align-items:center;font-size:.9rem;}
+  .nav nav a{text-decoration:none;opacity:.9;}
+  .nav nav a:hover{opacity:1;color:var(--gold);}
+  .btn{display:inline-block;background:var(--gold);color:#1a1a1a;font-weight:700;padding:10px 20px;border-radius:30px;text-decoration:none;transition:transform .15s,background .15s;border:none;cursor:pointer;}
+  .btn:hover{transform:translateY(-2px);background:#d8b14a;}
+  .btn-red{background:var(--red);color:#fff;}
+  .btn-red:hover{background:#c8412f;}
+  .btn-ghost{background:transparent;border:2px solid #fff;color:#fff;}
+  .btn-ghost:hover{background:#fff;color:var(--green-dark);}
+  @media(max-width:760px){ .nav nav a:not(.btn){display:none;} }
+
+  /* Hero */
+  .hero{position:relative;min-height:80vh;display:flex;align-items:center;color:#fff;text-align:center;
+    background:linear-gradient(rgba(8,30,20,.55),rgba(8,30,20,.8)),url('beaute-05-jardin-ecologique-aerien.jpg') center/cover;}
+  .hero .wrap{padding:74px 22px;}
+  .sos-badge{display:inline-block;background:var(--red);color:#fff;font-weight:800;letter-spacing:3px;padding:7px 18px;border-radius:4px;font-size:.82rem;margin-bottom:22px;text-transform:uppercase;}
+  .hero h1{font-size:clamp(2rem,5vw,3.6rem);font-weight:800;line-height:1.1;margin-bottom:16px;text-shadow:0 2px 20px rgba(0,0,0,.4);}
+  .hero h1 em{color:var(--gold);font-style:normal;}
+  .hero .frame{font-size:clamp(1rem,2vw,1.18rem);max-width:760px;margin:0 auto 14px;font-weight:600;color:#fff;}
+  .hero p.lead{font-size:clamp(1rem,1.8vw,1.18rem);max-width:700px;margin:0 auto 32px;opacity:.92;font-weight:300;}
+  .hero .cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .hero .cta .btn{padding:14px 30px;font-size:1.02rem;}
+
+  /* Stats band */
+  .stats{background:var(--green-dark);color:#fff;}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:30px 22px;text-align:center;}
+  .stat .n{font-size:clamp(1.6rem,3.4vw,2.5rem);font-weight:800;color:var(--gold);line-height:1;}
+  .stat .l{font-size:.85rem;opacity:.85;margin-top:8px;}
+  @media(max-width:680px){ .stats .wrap{grid-template-columns:repeat(2,1fr);gap:24px;} }
+
+  /* Sections */
+  section.block{padding:74px 0;}
+  .section-head{text-align:center;max-width:760px;margin:0 auto 44px;}
+  .eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:.78rem;font-weight:700;color:var(--gold);}
+  .eyebrow.red{color:var(--red);}
+  .section-head h2{font-size:clamp(1.6rem,3.5vw,2.5rem);color:var(--green-dark);margin:10px 0 14px;font-weight:800;}
+  .section-head p{color:var(--muted);font-size:1.05rem;}
+
+  /* Letter */
+  .letter-sec{background:var(--bg);padding-top:64px;}
+  .sheet{max-width:840px;margin:0 auto;background:var(--paper);padding:56px 60px;border-radius:8px;border-top:5px solid var(--gold);box-shadow:0 20px 60px rgba(0,0,0,.12);font-family:Georgia,'Times New Roman',serif;}
+  .sheet .ltitle{text-align:center;color:var(--green);font-weight:700;letter-spacing:2px;text-transform:uppercase;font-size:1.3rem;}
+  .sheet .lsub{text-align:center;color:var(--muted);font-style:italic;margin:6px 0 26px;padding-bottom:20px;border-bottom:1px solid #e4e6dc;}
+  .sheet .date{text-align:right;color:var(--muted);font-size:.92rem;margin-bottom:18px;}
+  .sheet .addr{font-weight:bold;margin-bottom:4px;}
+  .sheet .addr-list{margin:0 0 22px 18px;color:var(--ink);font-size:.97rem;}
+  .sheet .objet{background:#f1f5ee;border-left:4px solid var(--green);padding:12px 18px;margin:18px 0 24px;font-weight:bold;}
+  .sheet p{margin-bottom:14px;text-align:justify;}
+  .sheet h3{color:var(--green-dark);margin:26px 0 8px;font-size:1.12rem;border-bottom:1px solid #e4e6dc;padding-bottom:5px;}
+  .quote256{background:#f6f3e8;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:16px 22px;margin:16px 0;font-style:italic;color:var(--green-dark);}
+  .sheet ol{margin:8px 0 14px 22px;}
+  .sheet ol li{margin-bottom:10px;text-align:justify;}
+  .pet-inline{background:linear-gradient(135deg,#10402b,#1b5e3f);color:#fff;border-radius:10px;padding:22px;margin:22px 0;text-align:center;}
+  .pet-inline .big{font-size:2.4rem;font-weight:800;color:var(--gold);line-height:1;}
+  .pet-inline .sm{font-size:.85rem;letter-spacing:1px;text-transform:uppercase;opacity:.9;margin-top:4px;}
+  .pet-inline .rep{margin-top:12px;font-size:.9rem;opacity:.95;}
+  .sign{margin-top:36px;padding-top:22px;border-top:1px solid #e4e6dc;}
+  .sign .nm{font-weight:bold;color:var(--green-dark);}
+  .sign .role{color:var(--muted);font-size:.95rem;}
+
+  /* Annex table */
+  .annex-sec{background:#fff;}
+  table.signers{width:100%;border-collapse:collapse;font-size:.9rem;max-width:840px;margin:0 auto;}
+  table.signers th{background:var(--green);color:#fff;text-align:left;padding:10px 14px;}
+  table.signers td{border:1px solid #e2e5db;padding:8px 14px;}
+  table.signers tr:nth-child(even) td{background:#f5f7f2;}
+  table.signers td:first-child,table.signers th:first-child{text-align:center;width:44px;}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;}
+  .gallery figure{position:relative;overflow:hidden;border-radius:10px;background:#000;}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+  .gallery figure:hover img{transform:scale(1.06);}
+  .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 12px;color:#fff;font-size:.86rem;font-weight:600;
+    background:linear-gradient(transparent,rgba(0,0,0,.78));}
+  .g-tall{grid-column:span 6;height:340px;}
+  .g-wide{grid-column:span 6;height:340px;}
+  .g-third{grid-column:span 4;height:240px;}
+  @media(max-width:760px){ .g-tall,.g-wide,.g-third{grid-column:span 12;height:260px;} }
+
+  .threat{background:#1c140f;color:#f3ece6;}
+  .threat .section-head h2{color:#fff;}
+  .threat .section-head p{color:#cdbfb4;}
+  .threat .gallery figcaption{background:linear-gradient(transparent,rgba(0,0,0,.85));}
+
+  /* Petition */
+  .petition{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;}
+  .petition .pet-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+  @media(max-width:820px){ .petition .pet-grid{grid-template-columns:1fr;gap:32px;} }
+  .petition h2{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;margin-bottom:10px;}
+  .petition .huge{font-size:clamp(3rem,8vw,5rem);font-weight:800;color:var(--gold);line-height:1;}
+  .petition .huge small{display:block;font-size:1rem;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:#fff;opacity:.85;margin-top:6px;}
+  .bars{margin-top:26px;}
+  .bar-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;font-size:.92rem;}
+  .bar-row .c{width:100px;flex-shrink:0;}
+  .bar-track{flex:1;background:rgba(255,255,255,.18);border-radius:8px;height:20px;overflow:hidden;}
+  .bar-fill{height:100%;background:var(--gold);border-radius:8px;display:block;}
+  .bar-row .p{width:54px;text-align:right;flex-shrink:0;font-weight:700;}
+  .pet-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:34px;text-align:center;}
+  .pet-card p{margin:16px 0 24px;opacity:.92;}
+
+  /* Final CTA */
+  .final{background:var(--green-dark);color:#fff;text-align:center;padding:70px 0;}
+  .final h2{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;margin-bottom:14px;}
+  .final p{max-width:640px;margin:0 auto 28px;opacity:.92;}
+  .final .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  footer.foot{background:#08160f;color:#9fb3a6;text-align:center;padding:30px 22px;font-size:.85rem;}
+  footer.foot a{color:var(--gold);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">Jardin Botanique des <span>Cayes</span></div>
+    <nav>
+      <a href="#lettre">La lettre</a>
+      <a href="#tresor">Le jardin</a>
+      <a href="#menace">La menace</a>
+      <a href="#petition">La pétition</a>
+      <a class="btn btn-red" href="#signer">Signer la pétition</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <span class="sos-badge">SOS · Patrimoine en danger</span>
+    <h1>Sauvons le <em>Jardin Botanique des Cayes</em></h1>
+    <p class="frame">Lettre ouverte de la famille Gérard et du Jardin Botanique des Cayes au Premier Ministre Alix Didier Fils-Aimé et à son Gouvernement.</p>
+    <p class="lead">Un trésor vivant, fruit de plus de vingt ans de travail, est aujourd'hui détruit et menacé de disparition. Ensemble, demandons à l'État haïtien d'agir.</p>
+    <div class="cta">
+      <a class="btn btn-red" href="#signer">✍️ Signer la pétition</a>
+      <a class="btn btn-ghost" href="#lettre">Lire la lettre ouverte</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">3 700+</div><div class="l">signataires de la pétition</div></div>
+    <div class="stat"><div class="n">2002</div><div class="l">année de création du jardin</div></div>
+    <div class="stat"><div class="n">Art. 256</div><div class="l">de la Constitution haïtienne</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">pays mobilisés</div></div>
+  </div>
+</section>
+
+<!-- LETTRE (en premier) -->
+<section class="block letter-sec" id="lettre">
+  <div class="wrap">
+    <article class="sheet">
+      <p class="ltitle">Lettre ouverte</p>
+      <p class="lsub">Sauver, sécuriser et structurer l'avenir du Jardin Botanique des Cayes</p>
+      <p class="date">Aux Cayes, le 14 juin 2026</p>
+
+      <p class="addr">À l'attention de :</p>
+      <div class="addr-list">
+        — Son Excellence Monsieur Alix Didier Fils-Aimé, Premier Ministre de la République d'Haïti, et son Gouvernement<br>
+        — Monsieur le Ministre de l'Environnement<br>
+        — Monsieur le Ministre de l'Éducation nationale et de la Formation professionnelle<br>
+        — Monsieur le Ministre de l'Intérieur et des Collectivités territoriales<br>
+        — Et des autres autorités concernées de l'État haïtien
+      </div>
+
+      <div class="objet">Objet : Demande d'intervention urgente de l'État haïtien pour sauver, sécuriser et structurer l'avenir du Jardin Botanique des Cayes.</div>
+
+      <p>Monsieur le Premier Ministre, Mesdames et Messieurs les Ministres,</p>
+      <p>La famille Gérard et la Direction du Jardin Botanique des Cayes ont l'honneur de vous saluer respectueusement. Par la présente lettre ouverte, nous sollicitons l'appui de l'État haïtien afin de matérialiser un rêve constitutionnel et national : la création, la protection et la consolidation d'un jardin botanique destiné à l'éducation environnementale du public, à la conservation de la biodiversité et à la valorisation du patrimoine naturel d'Haïti.</p>
+      <p>Cette demande s'inscrit dans l'esprit de l'article 256 de la Constitution haïtienne, qui fait obligation à l'État de favoriser la création et la protection d'institutions environnementales — notamment des jardins botaniques et zoologiques — pour l'éducation du public et la sauvegarde de l'environnement.</p>
+      <div class="quote256">« Dans le cadre de la protection de l'environnement et de l'éducation publique, l'État a pour obligation de procéder à la création et l'entretien de jardins botaniques et zoologiques en certains points du territoire. » — Article 256 de la Constitution de la République d'Haïti.</div>
+      <p>Haïti a eu la chance de voir naître une initiative majeure : le Jardin Botanique des Cayes, lancé par Monsieur William Cinéa après ses études en République dominicaine et ses engagements en faveur de la recherche, de la conservation et de l'éducation environnementale. Depuis sa création en 2002, ce jardin est devenu une œuvre reconnue, portée par une vision nationale et internationale, dotée d'un potentiel exceptionnel pour la recherche, l'éducation, la conservation des plantes, l'écotourisme et la formation de la jeunesse.</p>
+
+      <h3>La situation du terrain</h3>
+      <p>Le terrain établi par le Jardin Botanique des Cayes totalise environ six carreaux et demi. Il a été affermé en 2002 à Monsieur William Cinéa par la famille Gérard, notamment par Madame Milard Gérard, mère de neuf enfants. Il s'agit d'un terrain familial sur lequel Monsieur Bruno Gérard, l'aîné de la famille, a acquis quelques portions limitrophes totalisant environ 1 carreau 4/16, soit près de 23 % du terrain. Cette portion n'a pas été pleinement utilisée par le Jardin Botanique des Cayes, notamment parce qu'une partie est isolée et située près d'une rivière.</p>
+      <p>Madame Milard Gérard est décédée en 2024. Par ailleurs, Monsieur Bruno Gérard a été victime de deux accidents vasculaires cérébraux : il est aujourd'hui malade et n'a plus la lucidité nécessaire pour fournir les informations requises ni pour prendre des décisions fiables et pleinement éclairées concernant ce dossier foncier sensible.</p>
+      <p>Dans ces conditions, son épouse, Madame Donna Bastien Gérard, a pris la décision, en juillet 2025, de fermer le Jardin Botanique des Cayes unilatéralement, sans informer les héritiers. Avec le concours de ses avocats, elle a fait ériger des murs et des barrières. Elle a fait couper la quasi-totalité des arbres de la réserve écologique, évaluée à environ un hectare, et y a fait mettre le feu, dans le but de lotir le terrain, d'éliminer les plantes natives et endémiques pour en faire du charbon et d'y établir des plantations de bananes.</p>
+      <p>Ces actes constituent un affront aux valeurs de notre famille Gérard, attachée à la protection et à la conservation de la nature. Nous sommes tous indignés de ces agissements, qui portent atteinte à l'ensemble de la société haïtienne, déjà confrontée à une crise environnementale sans précédent.</p>
+      <p>Une démarche de vente du terrain à l'État, sans l'avis de la famille, aurait déjà été envisagée dès 2016-2017 par Bruno Gérard et son épouse. Le processus a toutefois été bloqué, car Bruno Gérard devait fournir les pièces du terrain, ce qu'il ne pouvait pas faire puisque ce terrain ne lui appartient pas en totalité. Pour résoudre ce problème, la famille Gérard a organisé plusieurs rencontres afin d'obtenir la clarification des documents fonciers et la remise des papiers du terrain, mais ces démarches n'ont pas abouti : Madame Donna Gérard refuse de remettre les papiers permettant d'assurer le suivi du dossier.</p>
+      <p>Face à cette situation, une pétition a été lancée afin de demander à l'État haïtien de stopper la dégradation du Jardin Botanique des Cayes et d'engager une action officielle pour sauver cette œuvre. La réponse a été massive : plus de 3 700 personnes, issues de toutes les couches de la société, l'ont signée. La mobilisation est particulièrement forte au sein de la diaspora et parmi les professionnels haïtiens vivant à l'étranger, qui ont tenu à manifester leur soutien.</p>
+
+      <div class="pet-inline">
+        <div class="big">3 700+</div>
+        <div class="sm">signatures recueillies</div>
+        <div class="rep">États-Unis 42,5 % · Haïti 36,2 % · Canada 8,5 % · France 2,0 %</div>
+      </div>
+
+      <p>Parmi les signataires figurent de nombreux membres de la famille Gérard — cousins, cousines et ayants droit — qui demandent formellement l'intervention des autorités de l'État. La liste nominative est présentée en annexe.</p>
+
+      <h3>Nos demandes à l'État haïtien</h3>
+      <ol>
+        <li>Mettre en place une commission officielle ou un comité interministériel pour analyser la situation foncière, environnementale et patrimoniale du Jardin Botanique des Cayes ;</li>
+        <li>Demander la remise et la vérification des papiers du terrain afin de clarifier les droits, les limites et les responsabilités de chaque partie ;</li>
+        <li>Stopper toute destruction, vente irrégulière, occupation abusive ou fermeture prolongée susceptible de compromettre l'avenir du jardin ;</li>
+        <li>Évaluer la possibilité d'un processus d'acquisition, d'expropriation pour cause d'utilité publique, de partenariat public-privé ou de tout autre mécanisme légal permettant de sécuriser le site ;</li>
+        <li>Prévoir une période de six mois à un an pour analyser, négocier, structurer et décider du meilleur cadre institutionnel pour sauver le Jardin Botanique des Cayes ;</li>
+        <li>Appuyer la restructuration du jardin comme institution nationale dédiée à la conservation, à l'éducation environnementale, à la recherche, à la formation, à l'écotourisme et à la valorisation des plantes d'Haïti.</li>
+      </ol>
+
+      <p>Nous ne voulons pas que cette œuvre disparaisse. Le Jardin Botanique des Cayes représente bien plus qu'un terrain : il incarne une vision, une histoire, un patrimoine, un espace éducatif et scientifique, ainsi qu'une réponse concrète aux défis environnementaux du pays.</p>
+      <p>Nous demeurons disponibles pour rencontrer le Gouvernement, les ministères concernés, une commission officielle ou tout comité que vous jugerez utile de mettre en place, afin de discuter des solutions possibles et de contribuer à la sauvegarde et à la structuration de l'avenir du Jardin Botanique des Cayes.</p>
+      <p>Veuillez agréer, Monsieur le Premier Ministre, Mesdames et Messieurs les Ministres, l'expression de notre très haute considération.</p>
+
+      <div class="sign">
+        <p class="nm">William Cinéa <span class="role">— Directeur du Jardin Botanique des Cayes</span></p>
+        <p class="nm">Jacqueline Gérard</p>
+        <p class="nm">Emilia Gérard</p>
+        <p class="role">Au nom de la famille Gérard — signataires de la pétition</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ANNEXE -->
+<section class="block annex-sec">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Annexe</span>
+      <h2>Signataires de la famille Gérard</h2>
+    </div>
+    <table class="signers">
+      <thead><tr><th>Nº</th><th>Nom</th><th>Prénom</th><th>Position</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Gérard</td><td>Emilia</td><td>Membre de la famille</td></tr>
+        <tr><td>2</td><td>Barreau Gérard</td><td>Dieulane</td><td>Membre de la famille</td></tr>
+        <tr><td>3</td><td>Gérard</td><td>Regibal</td><td>Membre de la famille</td></tr>
+        <tr><td>4</td><td>Gérard</td><td>Sonide</td><td>Membre de la famille</td></tr>
+        <tr><td>5</td><td>Gérard</td><td>Judes</td><td>Membre de la famille</td></tr>
+        <tr><td>6</td><td>Gérard</td><td>Anne Marie</td><td>Membre de la famille</td></tr>
+        <tr><td>7</td><td>Gérard-Chevalier</td><td>Roselorre</td><td>Membre de la famille</td></tr>
+        <tr><td>8</td><td>Gérard</td><td>Édouard</td><td>Membre de la famille</td></tr>
+        <tr><td>9</td><td>Gérard</td><td>Joseph Milard</td><td>Membre de la famille</td></tr>
+        <tr><td>10</td><td>Gérard Israël</td><td>Marie</td><td>Membre de la famille</td></tr>
+        <tr><td>11</td><td>Dambreville</td><td>Gérard</td><td>Membre de la famille</td></tr>
+        <tr><td>12</td><td>Gérard Letang</td><td>Marie S.</td><td>Membre de la famille</td></tr>
+        <tr><td>13</td><td>Gérard</td><td>Marie-Béatrice</td><td>Membre de la famille</td></tr>
+        <tr><td>14</td><td>Gérard</td><td>Samantha</td><td>Membre de la famille</td></tr>
+        <tr><td>15</td><td>Gérard</td><td>Marie</td><td>Membre de la famille</td></tr>
+        <tr><td>16</td><td>Gérard</td><td>Jacqueline</td><td>Membre de la famille</td></tr>
+        <tr><td>17</td><td>Milard Gérard V</td><td>Laurette</td><td>Membre de la famille</td></tr>
+        <tr><td>18</td><td>Gérard</td><td>Christophe</td><td>Membre de la famille</td></tr>
+        <tr><td>19</td><td>Gérard</td><td>Joseph Louis Marie</td><td>Membre de la famille</td></tr>
+        <tr><td>20</td><td>Gérard</td><td>Yasmine</td><td>Membre de la famille</td></tr>
+        <tr><td>21</td><td>Gérard</td><td>Darensky Joël</td><td>Membre de la famille</td></tr>
+        <tr><td>22</td><td>Mongérard</td><td>Rosena</td><td>Membre de la famille</td></tr>
+        <tr><td>23</td><td>Mongérard</td><td>Rosebert</td><td>Membre de la famille</td></tr>
+        <tr><td>24</td><td>St-Gérard-Lopez</td><td>Carmelle</td><td>Membre de la famille</td></tr>
+        <tr><td>25</td><td>Gérard</td><td>Reynald</td><td>Membre de la famille</td></tr>
+        <tr><td>26</td><td>Gérard Milord</td><td>Steeve</td><td>Membre de la famille</td></tr>
+        <tr><td>27</td><td>Gérard</td><td>Giselle</td><td>Membre de la famille</td></tr>
+      </tbody>
+    </table>
+    <p style="text-align:center;color:var(--muted);font-size:.82rem;font-style:italic;margin-top:14px;">Position : « Membre de la famille », « Héritier » ou « Supporter », selon le cas.</p>
+  </div>
+</section>
+
+<!-- ===== APRÈS LA LETTRE : pièces et photos à l'appui ===== -->
+
+<!-- TRESOR -->
+<section class="block" id="tresor">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pièces à l'appui · Un patrimoine vivant</span>
+      <h2>Le jardin que nous voulons sauver</h2>
+      <p>Depuis 2002, le Jardin Botanique des Cayes conserve les plantes natives et endémiques d'Haïti et accueille des milliers d'élèves, d'étudiants et de visiteurs pour l'éducation environnementale.</p>
+    </div>
+    <div class="gallery">
+      <figure class="g-tall"><img src="beaute-07-jardin-ethnobotanique-aerien.jpg" alt="Vue aérienne du jardin"><figcaption>Le jardin organisé en parcelles de collection</figcaption></figure>
+      <figure class="g-wide"><img src="beaute-08-jardin-ornemental-panorama.jpg" alt="Jardin ornemental"><figcaption>Le jardin ornemental et ses massifs floraux</figcaption></figure>
+      <figure class="g-third"><img src="beaute-02-etudiants-ravenale.jpg" alt="Élèves en visite"><figcaption>Des élèves en sortie pédagogique</figcaption></figure>
+      <figure class="g-third"><img src="beaute-09-etoile-ornementale.jpg" alt="Massif en étoile"><figcaption>Massifs floraux en forme d'étoile</figcaption></figure>
+      <figure class="g-third"><img src="beaute-06-jardin-ecologique-nature.jpg" alt="Jardin écologique"><figcaption>Une nature foisonnante et préservée</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- MENACE -->
+<section class="block threat" id="menace">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow red">Pièces à l'appui · Aujourd'hui détruit</span>
+      <h2>Brûlé, coupé, rasé</h2>
+      <p>Depuis juillet 2025, la réserve écologique — évaluée à environ un hectare — a été coupée et incendiée pour faire du charbon et des lotissements. Des plantes natives et endémiques, qui n'existent nulle part ailleurs, ont disparu.</p>
+    </div>
+    <div class="gallery">
+      <figure class="g-wide"><img src="degats-06-jardin-en-flammes.jpg" alt="Jardin en flammes"><figcaption>Le Jardin Botanique des Cayes en flammes</figcaption></figure>
+      <figure class="g-tall"><img src="degats-07-flammes-actives-aerien.jpg" alt="Zone brûlée vue du ciel"><figcaption>La réserve réduite en cendres, vue du ciel</figcaption></figure>
+      <figure class="g-third"><img src="degats-10-pile-debris-fumee.jpg" alt="Débris et fumée"><figcaption>Végétation coupée et brûlée pour le charbon</figcaption></figure>
+      <figure class="g-third"><img src="degats-09-coupe-branches.jpg" alt="Arbres coupés"><figcaption>Les arbres de la réserve abattus</figcaption></figure>
+      <figure class="g-third"><img src="degats-05-plantation-bananes.jpg" alt="Plantation de bananes"><figcaption>Le terrain converti en plantation de bananes</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PETITION -->
+<section class="block petition" id="petition">
+  <div class="wrap">
+    <div class="pet-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--gold)">Une mobilisation massive</span>
+        <h2>Le peuple a déjà répondu</h2>
+        <div class="huge">3 700+<small>signatures recueillies</small></div>
+        <div class="bars">
+          <div class="bar-row"><span class="c">États-Unis</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="p">42,5 %</span></div>
+          <div class="bar-row"><span class="c">Haïti</span><span class="bar-track"><span class="bar-fill" style="width:85%"></span></span><span class="p">36,2 %</span></div>
+          <div class="bar-row"><span class="c">Canada</span><span class="bar-track"><span class="bar-fill" style="width:20%"></span></span><span class="p">8,5 %</span></div>
+          <div class="bar-row"><span class="c">France</span><span class="bar-track"><span class="bar-fill" style="width:5%"></span></span><span class="p">2,0 %</span></div>
+        </div>
+        <p style="margin-top:18px;opacity:.9;font-size:.92rem;">Une mobilisation portée par la diaspora et les professionnels haïtiens du monde entier.</p>
+      </div>
+      <div class="pet-card" id="signer">
+        <h3 style="font-size:1.3rem;">Ajoutez votre voix</h3>
+        <p>Chaque signature compte. Aidez-nous à faire de ce jardin un patrimoine national protégé pour les générations futures.</p>
+        <a class="btn btn-red" href="#" style="font-size:1.05rem;padding:14px 32px;">✍️ Je signe la pétition</a>
+        <p style="margin-top:18px;font-size:.82rem;opacity:.7;">Partagez ensuite la page autour de vous.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <h2>Chaque jour compte. Agissons maintenant.</h2>
+    <p>Des espèces endémiques uniques au monde attendent d'être sauvées. Joignez votre voix aux milliers de personnes déjà mobilisées pour défendre ce patrimoine vivant.</p>
+    <div class="cta">
+      <a class="btn btn-red" href="#" style="font-size:1.05rem;padding:14px 32px;">✍️ Signer la pétition</a>
+      <a class="btn btn-ghost" href="mailto:wcinea@gmail.com">Nous contacter</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>Jardin Botanique des Cayes · Cayes, Département du Sud, Haïti · <a href="mailto:wcinea@gmail.com">wcinea@gmail.com</a></p>
+  <p style="margin-top:8px;opacity:.7;">© 2026 Jardin Botanique des Cayes — Lettre ouverte pour la sauvegarde d'un patrimoine national.</p>
+</footer>
+
+</body>
+</html>
