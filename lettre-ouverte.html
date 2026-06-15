@@ -143,6 +143,19 @@
 </head>
 <body>
 
+<!-- ===== PORTE D'ACCÈS (code confidentiel) ===== -->
+<div id="jbcGate" style="position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,#0d3322,#1b5e3f);display:flex;align-items:center;justify-content:center;padding:24px;font-family:'Segoe UI',-apple-system,Roboto,Arial,sans-serif;">
+  <div style="background:#fff;max-width:420px;width:100%;border-radius:16px;padding:40px 32px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.35);">
+    <div style="font-size:42px;margin-bottom:10px;">🔒</div>
+    <h2 style="color:#0d3322;margin:0 0 8px;font-size:1.4rem;">Document confidentiel</h2>
+    <p style="color:#5f6a57;margin:0 0 22px;font-size:.95rem;line-height:1.6;">Cette lettre ouverte est en relecture. Entrez le code d'accès pour la consulter.</p>
+    <input id="jbcCode" type="password" placeholder="Code d'accès" autocomplete="off" style="width:100%;padding:14px 16px;border:2px solid #ddd;border-radius:10px;font-size:16px;margin-bottom:12px;text-align:center;font-family:inherit;">
+    <button id="jbcBtn" style="width:100%;padding:14px;background:#c8a23c;color:#1a1a1a;border:none;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;">Ouvrir la lettre</button>
+    <p id="jbcErr" style="color:#b3392b;font-size:.88rem;margin-top:12px;display:none;">❌ Code incorrect. Réessayez.</p>
+  </div>
+</div>
+<div id="jbcContent" style="display:none;">
+
 <header class="nav">
   <div class="wrap">
     <div class="brand">Jardin Botanique des <span>Cayes</span></div>
@@ -368,6 +381,20 @@
   <p>Jardin Botanique des Cayes · Cayes, Département du Sud, Haïti · <a href="mailto:wcinea@gmail.com">wcinea@gmail.com</a></p>
   <p style="margin-top:8px;opacity:.7;">© 2026 Jardin Botanique des Cayes — Lettre ouverte pour la sauvegarde d'un patrimoine national.</p>
 </footer>
+
+</div><!-- /jbcContent -->
+<script>
+(function(){
+  var CODE='JBC2026'; /* ===== Code d'accès — changez la valeur ici si besoin ===== */
+  var gate=document.getElementById('jbcGate'),content=document.getElementById('jbcContent'),
+      inp=document.getElementById('jbcCode'),btn=document.getElementById('jbcBtn'),err=document.getElementById('jbcErr');
+  function unlock(){gate.style.display='none';content.style.display='block';try{sessionStorage.setItem('jbcLettre','ok');}catch(e){}}
+  function check(){if((inp.value||'').trim().toUpperCase()===CODE){unlock();}else{err.style.display='block';inp.value='';inp.focus();}}
+  try{if(sessionStorage.getItem('jbcLettre')==='ok'){unlock();}}catch(e){}
+  if(btn)btn.addEventListener('click',check);
+  if(inp){inp.addEventListener('keydown',function(e){if(e.key==='Enter')check();});inp.focus();}
+})();
+</script>
 
 </body>
 </html>
